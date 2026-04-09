@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Viet Nhật",
+    "slug": "viet-nhat-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#185FA5"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vietnhat.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#185FA5"
+      },
+      "package": "com.vietnhat.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
