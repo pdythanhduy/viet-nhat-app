@@ -35,6 +35,14 @@ The app uses local notifications only for user-created reminder dates, such as d
 
 The app does not currently run its own remote push notification backend.
 
+## Encryption Declaration
+
+The current Expo config declares:
+
+- `ITSAppUsesNonExemptEncryption = false`
+
+This should still be reviewed against the app's final functionality and any future SDK/library changes before App Store submission.
+
 ## Data Handling Summary
 
 - no custom account system
@@ -46,4 +54,3 @@ The app does not currently run its own remote push notification backend.
 ## Support Contact
 
 - Email: `thanhduy8vn@gmail.com`
-

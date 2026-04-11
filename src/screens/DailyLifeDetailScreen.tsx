@@ -30,11 +30,10 @@ export default function DailyLifeDetailScreen() {
 
   React.useLayoutEffect(() => {
     navigation.setOptions({ headerTitle: topic.title });
-  }, [topic]);
+  }, [navigation, topic]);
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Header */}
       <View style={[styles.topicHeader, { backgroundColor: topic.color }]}>
         <Text style={styles.topicJp}>{topic.titleJp}</Text>
         <Text style={styles.topicTitle}>{topic.title}</Text>
@@ -46,11 +45,12 @@ export default function DailyLifeDetailScreen() {
           <Ionicons name="information-circle-outline" size={16} color={Colors.primary} />
           <Text style={styles.metaText}>
             {Disclaimers.legal}
-            {'\n'}Cập nhật: {formatLastUpdated(DAILY_LIFE_CONTENT_META.lastUpdated)}. Nguồn: {getSourceLabels(DAILY_LIFE_CONTENT_META)}.
+            {'\n'}
+            Cập nhật: {formatLastUpdated(DAILY_LIFE_CONTENT_META.lastUpdated)}. Nguồn:{' '}
+            {getSourceLabels(DAILY_LIFE_CONTENT_META)}.
           </Text>
         </View>
 
-        {/* Sections */}
         {topic.sections && topic.sections.length > 0 ? (
           topic.sections.map((section: DailyLifeSection, index: number) => (
             <TouchableOpacity
@@ -77,19 +77,29 @@ export default function DailyLifeDetailScreen() {
                     <Text style={styles.sectionContent}>{section.content}</Text>
                   ) : null}
 
-                  {section.items && section.items.length > 0 && (
+                  {section.items && section.items.length > 0 ? (
                     <View style={styles.itemsList}>
-                      {section.items.map((item: string, i: number) => (
-                        <View key={i} style={styles.itemRow}>
-                          <View style={[styles.itemBullet, { backgroundColor: topic.color }]} />
+                      {section.items.map((item: string, itemIndex: number) => (
+                        <View key={itemIndex} style={styles.itemRow}>
+                          <View
+                            style={[styles.itemBullet, { backgroundColor: topic.color }]}
+                          />
                           <Text style={styles.itemText}>{item}</Text>
                         </View>
                       ))}
                     </View>
-                  )}
+                  ) : null}
 
                   {section.tip ? (
-                    <View style={[styles.tipBox, { backgroundColor: topic.color + '12', borderColor: topic.color + '30' }]}>
+                    <View
+                      style={[
+                        styles.tipBox,
+                        {
+                          backgroundColor: topic.color + '12',
+                          borderColor: topic.color + '30',
+                        },
+                      ]}
+                    >
                       <Ionicons name="bulb" size={15} color={topic.color} />
                       <Text style={[styles.tipText, { color: topic.color }]}>{section.tip}</Text>
                     </View>
@@ -101,11 +111,10 @@ export default function DailyLifeDetailScreen() {
         ) : (
           <View style={styles.noContentBox}>
             <Ionicons name="information-circle-outline" size={36} color={Colors.textMuted} />
-            <Text style={styles.noContentText}>Nội dung đang được cập nhật</Text>
+            <Text style={styles.noContentText}>Nội dung đang được cập nhật.</Text>
           </View>
         )}
 
-        {/* Ask AI button */}
         <TouchableOpacity
           style={[styles.askAiButton, { backgroundColor: topic.color }]}
           onPress={() =>
@@ -119,7 +128,7 @@ export default function DailyLifeDetailScreen() {
           <Text style={styles.askAiText}>Hỏi AI thêm về {topic.title}</Text>
         </TouchableOpacity>
 
-        <View style={{ height: 32 }} />
+        <View style={styles.bottomPad} />
       </View>
     </ScrollView>
   );
@@ -137,7 +146,7 @@ const styles = StyleSheet.create({
   },
   topicJp: {
     fontSize: 13,
-    color: 'rgba(255,255,255,0.75)',
+    color: 'rgba(255,255,255,0.76)',
     marginBottom: 4,
   },
   topicTitle: {
@@ -148,7 +157,7 @@ const styles = StyleSheet.create({
   },
   topicDesc: {
     fontSize: 13,
-    color: 'rgba(255,255,255,0.85)',
+    color: 'rgba(255,255,255,0.88)',
     lineHeight: 19,
   },
   content: {
@@ -288,5 +297,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '700',
     color: Colors.white,
+  },
+  bottomPad: {
+    height: 32,
   },
 });

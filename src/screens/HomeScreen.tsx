@@ -49,7 +49,7 @@ const CATEGORIES: {
   },
   {
     id: 'jobs',
-    title: 'Tìm\nviệc làm',
+    title: 'Việc làm\nvà quyền lợi',
     icon: 'briefcase',
     color: '#9B59B6',
     bg: '#F3EBF9',
@@ -75,18 +75,18 @@ const GENERIC_TIPS: {
 }[] = [
   {
     id: 'tip1',
-    title: 'Thiết lập nhắc ngày quan trọng',
+    title: 'Thiết lập ngày quan trọng',
     description:
-      'Thêm ngày hết hạn thẻ cư trú, bảo hiểm... để nhận thông báo trước khi đến hạn.',
+      'Thêm ngày hết hạn thẻ cư trú, bảo hiểm hoặc giấy tờ để nhận nhắc trước khi quá hạn.',
     urgency: 'info',
     icon: 'calendar-outline',
     screen: 'ImportantDates',
   },
   {
     id: 'tip2',
-    title: 'Bảo hiểm y tế cư dân là bắt buộc',
+    title: 'Kiểm tra bảo hiểm y tế',
     description:
-      'Người nước ngoài ở Nhật trên 3 tháng thường phải đăng ký bảo hiểm phù hợp. Nếu chưa có, hãy kiểm tra lại ngay.',
+      'Người ở Nhật trên 3 tháng thường phải tham gia loại bảo hiểm phù hợp. Nếu chưa rõ, nên kiểm tra lại ngay.',
     urgency: 'medium',
     icon: 'heart-outline',
     screen: 'Admin',
@@ -104,141 +104,94 @@ const LAW_UPDATES: {
   {
     id: 'bike-2026',
     guideId: 'bicycle-rules-2026',
-    title: 'Xe đạp: blue ticket từ 01/04/2026',
-    description: 'Dùng điện thoại, vượt đèn đỏ hoặc không dừng ở biển stop có thể bị xử lý.',
+    title: 'Luật xe đạp 2026',
+    description:
+      'Cần nắm rõ phần blue ticket, dùng điện thoại khi lái và các hành vi dễ bị xử phạt.',
     icon: 'bicycle',
     color: '#E67E22',
   },
   {
     id: 'my-number-health',
     guideId: 'health-insurance',
-    title: 'Đi khám 2026 cần My Number hoặc 資格確認書',
-    description: 'Kiểm tra giấy tờ bảo hiểm trước khi đến bệnh viện hoặc phòng khám.',
+    title: 'Đi khám và giấy bảo hiểm',
+    description:
+      'Kiểm tra thẻ bảo hiểm hoặc My Number liên kết bảo hiểm trước khi đi bệnh viện, phòng khám.',
     icon: 'heart',
     color: '#27AE60',
   },
   {
     id: 'training-2027',
     guideId: 'ssw-training-worker-2027',
-    title: '技能実習 đang chuẩn bị thay 育成就労',
-    description: 'Giai đoạn 2026-2027 có nhiều cập nhật chuyển tiếp cần theo dõi.',
+    title: 'Đổi hệ thống lao động 2026-2027',
+    description:
+      'Phần 特定技能 và 育成就労 đang có nhiều cập nhật cần theo dõi đúng thời điểm.',
     icon: 'construct',
     color: '#9B59B6',
   },
 ];
 
-const FAMILY_VISA_QUICK_LINKS = [
+const FAMILY_VISA_GROUPS = [
   {
-    id: 'family-stay',
-    title: 'Sống cùng gia đình ở Nhật',
-    description: 'Đi thẳng tới bảo lãnh 家族滞在 và COE cho vợ/chồng hoặc con.',
-    icon: 'people',
-    color: '#2E86C1',
-    guideId: 'family-stay-invitation',
+    id: 'visa-entry',
+    title: 'Visa và mời người thân',
+    description: 'Đi thẳng vào đúng loại hồ sơ trước khi chuẩn bị giấy tờ.',
+    items: [
+      {
+        id: 'family-stay',
+        title: 'Sống cùng gia đình ở Nhật',
+        description: 'Bảo lãnh vợ/chồng/con, COE và điều kiện sống dài hạn.',
+        icon: 'people',
+        color: '#2E86C1',
+        guideId: 'family-stay-invitation',
+      },
+      {
+        id: 'visit-relatives',
+        title: 'Mời người thân sang thăm',
+        description: 'Visa thăm thân ngắn hạn, người mời và người tự chi trả khác nhau thế nào.',
+        icon: 'airplane',
+        color: '#E67E22',
+        guideId: 'short-stay-relative-visit',
+      },
+      {
+        id: 'visa-highlights',
+        title: 'Các diện visa đáng chú ý 2026',
+        description: 'J-Find, Digital Nomad, Start-up, eVISA và cách phân biệt nhanh.',
+        icon: 'globe-outline',
+        color: '#8E44AD',
+        guideId: 'visa-highlights-2026',
+      },
+    ],
   },
   {
-    id: 'visit-relatives',
-    title: 'Mời người thân sang thăm',
-    description: 'Mở guide visa thăm thân ngắn hạn và hồ sơ người mời.',
-    icon: 'airplane',
-    color: '#E67E22',
-    guideId: 'short-stay-relative-visit',
-  },
-  {
-    id: 'tourism-evisa',
-    title: 'Du lịch / eVISA',
-    description: 'Phân biệt tourism, short stay và eVISA hiện hành.',
-    icon: 'globe-outline',
-    color: '#8E44AD',
-    guideId: 'visa-highlights-2026',
-  },
-  {
-    id: 'unsure-visa',
-    title: 'Chưa biết mình thuộc diện nào',
-    description: 'Xem tổng quan visa và định hướng trước khi chuẩn bị hồ sơ.',
-    icon: 'help-circle-outline',
-    color: '#5C6B8A',
-    guideId: 'visa-status-overview',
-  },
-  {
-    id: 'parents-elderly',
-    title: 'Đưa cha mẹ sang Nhật',
-    description: 'Giải thích rõ khi nào không thể ở dài hạn và các ngoại lệ rất hẹp.',
-    icon: 'people-circle',
-    color: '#6C7A99',
-    guideId: 'parents-elderly-relatives',
-  },
-  {
-    id: 'pregnancy-childbirth',
-    title: 'Mang thai / sinh con ở Nhật',
-    description: 'Tổng hợp thủ tục trước sinh, sau sinh, cư trú của em bé và trợ cấp chính.',
-    icon: 'heart-circle',
-    color: '#D35454',
-    guideId: 'pregnancy-childbirth-postpartum',
-  },
-  {
-    id: 'baby-born-in-japan',
-    title: 'Con sinh ở Nhật',
-    description: 'Quốc tịch, hộ chiếu, cư trú, My Number, bảo hiểm và các mốc đầu đời.',
-    icon: 'happy',
-    color: '#F39C12',
-    guideId: 'baby-born-in-japan',
-  },
-  {
-    id: 'postpartum-30-day-timeline',
-    title: '30 ngày đầu sau sinh',
-    description: 'Checklist có thể tick trực tiếp: giấy bệnh viện, city hall, trợ cấp và cư trú.',
-    icon: 'time',
-    color: '#C0397A',
-    guideId: 'postpartum-30-day-timeline',
-  },
-  {
-    id: 'nursery-kindergarten',
-    title: 'Nhà trẻ / mẫu giáo',
-    description: 'Hoikuen, youchien, taikuen, giấy tờ đi làm và thay đổi 2026.',
-    icon: 'school',
-    color: '#16A085',
-    guideId: 'nursery-kindergarten-guide',
-  },
-  {
-    id: 'divorce-custody',
-    title: 'Ly hôn / nuôi con',
-    description: 'Ly hôn, con ở với ai, đổi họ tên, visa và giấy tờ cư trú sau đó.',
-    icon: 'document-attach',
-    color: '#7F8C8D',
-    guideId: 'divorce-custody-name-residence',
-  },
-  {
-    id: 'renting-home',
-    title: 'Thuê nhà / trả nhà',
-    description: 'Tiền vào nhà, hủy hợp đồng,退去費, 原状回復 và lưu ý mua nhà.',
-    icon: 'home',
-    color: '#2980B9',
-    guideId: 'renting-and-buying-home',
-  },
-  {
-    id: 'tax-filing',
-    title: 'Thuế / 年末調整 / 確定申告',
-    description: 'Khi nào công ty làm giúp, khi nào phải tự khai và cách hiểu 扶養.',
-    icon: 'receipt',
-    color: '#8E44AD',
-    guideId: 'tax-year-end-adjustment-filing',
-  },
-  {
-    id: 'pension-refund',
-    title: 'Nenkin / miễn giảm / hoàn tiền',
-    description: '国民年金, 厚生年金, miễn giảm, du học sinh và 脱退一時金 khi về nước.',
-    icon: 'card',
-    color: '#2C3E50',
-    guideId: 'pension-exemption-refund',
-  },
-  {
-    id: 'banking-remittance',
-    title: 'Ngân hàng / chuyển tiền',
-    description: 'Mở tài khoản, chuyển tiền, AML và tránh bị khóa tài khoản.',
-    icon: 'card-outline',
-    color: '#1F618D',
-    guideId: 'banking-remittance-anti-fraud',
+    id: 'family-life',
+    title: 'Gia đình và con nhỏ',
+    description: 'Các mốc thực tế sau khi đã sống ở Nhật cùng gia đình.',
+    items: [
+      {
+        id: 'pregnancy-childbirth',
+        title: 'Mang thai và sinh con ở Nhật',
+        description: 'Mốc trước sinh, sau sinh, trợ cấp và giấy tờ chính phải làm.',
+        icon: 'heart-circle',
+        color: '#D35454',
+        guideId: 'pregnancy-childbirth-postpartum',
+      },
+      {
+        id: 'baby-born-in-japan',
+        title: 'Con sinh ở Nhật',
+        description: 'Quốc tịch, hộ chiếu, cư trú, My Number và bảo hiểm của em bé.',
+        icon: 'happy',
+        color: '#F39C12',
+        guideId: 'baby-born-in-japan',
+      },
+      {
+        id: 'parents-elderly',
+        title: 'Cha mẹ và người thân lớn tuổi',
+        description: 'Hiểu đúng giới hạn bảo lãnh dài hạn và các ngoại lệ rất hẹp.',
+        icon: 'people-circle',
+        color: '#6C7A99',
+        guideId: 'parents-elderly-relatives',
+      },
+    ],
   },
 ] as const;
 
@@ -304,9 +257,10 @@ export default function HomeScreen() {
   const handleCategoryPress = (tab: CategoryTarget) => {
     if (tab === 'DailyLife') {
       navigation.navigate('DailyLife');
-    } else {
-      navigation.navigate('MainTabs', { screen: tab });
+      return;
     }
+
+    navigation.navigate('MainTabs', { screen: tab });
   };
 
   const handleCallEmergency = (number: string) => {
@@ -322,7 +276,7 @@ export default function HomeScreen() {
           <View>
             <Text style={styles.greeting}>{getGreeting()}</Text>
             <Text style={styles.appName}>Việt-Nhật</Text>
-            <Text style={styles.subtitle}>Đồng hành cùng bạn tại Nhật Bản</Text>
+            <Text style={styles.subtitle}>Đồng hành cùng bạn trong đời sống ở Nhật</Text>
           </View>
           <View style={styles.headerButtons}>
             <TouchableOpacity
@@ -362,7 +316,8 @@ export default function HomeScreen() {
                       <View style={styles.alertTextContainer}>
                         <Text style={styles.alertTitle}>{alert.label}</Text>
                         <Text style={styles.alertDesc}>
-                          Còn {alert.daysLeft} ngày nữa đến hạn. Nhấn để xem chi tiết.
+                          Còn {alert.daysLeft} ngày nữa đến hạn. Nhấn để mở danh sách ngày quan
+                          trọng.
                         </Text>
                       </View>
                     </View>
@@ -444,24 +399,55 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.sectionTitle}>Gia đình / visa</Text>
-          <View style={styles.familyVisaWrap}>
-            {FAMILY_VISA_QUICK_LINKS.map((item) => (
-              <TouchableOpacity
-                key={item.id}
-                style={styles.familyVisaCard}
-                onPress={() => navigation.navigate('AdminDetail', { guideId: item.guideId })}
-              >
-                <View style={[styles.familyVisaIconBg, { backgroundColor: item.color + '18' }]}>
-                  <Ionicons name={item.icon} size={20} color={item.color} />
-                </View>
-                <View style={styles.familyVisaInfo}>
-                  <Text style={styles.familyVisaTitle}>{item.title}</Text>
-                  <Text style={styles.familyVisaDesc}>{item.description}</Text>
-                </View>
-                <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
-              </TouchableOpacity>
+          <Text style={styles.sectionSub}>
+            Mình rút phần này còn các lối vào chính. Các guide sâu hơn vẫn nằm trong tab Thủ tục.
+          </Text>
+          <View style={styles.familyGroupsWrap}>
+            {FAMILY_VISA_GROUPS.map((group) => (
+              <View key={group.id} style={styles.familyGroupCard}>
+                <Text style={styles.familyGroupTitle}>{group.title}</Text>
+                <Text style={styles.familyGroupDesc}>{group.description}</Text>
+
+                {group.items.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    style={styles.familyVisaCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: item.guideId })}
+                  >
+                    <View
+                      style={[styles.familyVisaIconBg, { backgroundColor: item.color + '18' }]}
+                    >
+                      <Ionicons name={item.icon} size={20} color={item.color} />
+                    </View>
+                    <View style={styles.familyVisaInfo}>
+                      <Text style={styles.familyVisaTitle}>{item.title}</Text>
+                      <Text style={styles.familyVisaDesc}>{item.description}</Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
             ))}
           </View>
+
+          <TouchableOpacity
+            style={styles.allGuidesCard}
+            onPress={() => navigation.navigate('MainTabs', { screen: 'Admin' })}
+          >
+            <View style={styles.allGuidesLeft}>
+              <View style={styles.allGuidesIconBg}>
+                <Ionicons name="grid-outline" size={18} color={Colors.primary} />
+              </View>
+              <View style={styles.allGuidesText}>
+                <Text style={styles.allGuidesTitle}>Xem toàn bộ thủ tục</Text>
+                <Text style={styles.allGuidesDesc}>
+                  Bao gồm cha mẹ lớn tuổi, ly hôn, nhà trẻ, timeline sau sinh, thuế, nenkin và
+                  các guide khác.
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
+          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.quickAiCard}
@@ -471,9 +457,11 @@ export default function HomeScreen() {
               <View style={styles.quickAiIconBg}>
                 <Ionicons name="sparkles" size={20} color={Colors.white} />
               </View>
-              <View>
-                <Text style={styles.quickAiTitle}>Hỏi trợ lý AI ngay</Text>
-                <Text style={styles.quickAiSub}>Mọi câu hỏi về cuộc sống tại Nhật</Text>
+              <View style={styles.quickAiText}>
+                <Text style={styles.quickAiTitle}>Hỏi AI ngay</Text>
+                <Text style={styles.quickAiSub}>
+                  Dùng khi bạn có câu hỏi cụ thể theo tình huống của riêng mình.
+                </Text>
               </View>
             </View>
             <Ionicons name="arrow-forward-circle" size={28} color={Colors.primary} />
@@ -535,7 +523,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 13,
-    color: 'rgba(255,255,255,0.7)',
+    color: 'rgba(255,255,255,0.74)',
     marginTop: 2,
   },
   headerButtons: {
@@ -619,6 +607,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: Colors.textPrimary,
     marginTop: 16,
+    marginBottom: 10,
+  },
+  sectionSub: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+    marginTop: -2,
     marginBottom: 12,
   },
   categoryGrid: {
@@ -692,16 +687,13 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     lineHeight: 17,
   },
-  familyVisaWrap: {
-    gap: 10,
-  },
-  familyVisaCard: {
-    backgroundColor: Colors.white,
-    borderRadius: 14,
-    padding: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
+  familyGroupsWrap: {
     gap: 12,
+  },
+  familyGroupCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
     borderWidth: 1,
     borderColor: Colors.border,
     shadowColor: Colors.shadow,
@@ -710,9 +702,29 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 2,
   },
+  familyGroupTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  familyGroupDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+    marginBottom: 10,
+  },
+  familyVisaCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+  },
   familyVisaIconBg: {
-    width: 42,
-    height: 42,
+    width: 40,
+    height: 40,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
@@ -727,6 +739,46 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   familyVisaDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+  },
+  allGuidesCard: {
+    backgroundColor: Colors.accent,
+    borderRadius: 16,
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+  },
+  allGuidesLeft: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    flex: 1,
+  },
+  allGuidesIconBg: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  allGuidesText: {
+    flex: 1,
+  },
+  allGuidesTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  allGuidesDesc: {
     fontSize: 12,
     color: Colors.textSecondary,
     lineHeight: 17,
@@ -747,11 +799,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 10,
     elevation: 3,
+    gap: 12,
   },
   quickAiLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    flex: 1,
+  },
+  quickAiText: {
+    flex: 1,
   },
   quickAiIconBg: {
     width: 44,
@@ -770,6 +827,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.textSecondary,
     marginTop: 2,
+    lineHeight: 17,
   },
   emergencyContainer: {
     gap: 10,
