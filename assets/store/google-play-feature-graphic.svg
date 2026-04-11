@@ -1,0 +1,23 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="500" fill="#185FA5"/>
+  <rect x="48" y="48" width="928" height="404" rx="8" fill="#F4F7FB"/>
+  <rect x="88" y="96" width="360" height="52" rx="8" fill="#DDEBFA"/>
+  <rect x="88" y="168" width="518" height="28" rx="6" fill="#185FA5" fill-opacity="0.16"/>
+  <rect x="88" y="212" width="468" height="28" rx="6" fill="#185FA5" fill-opacity="0.12"/>
+  <rect x="88" y="256" width="432" height="28" rx="6" fill="#185FA5" fill-opacity="0.12"/>
+  <rect x="88" y="312" width="188" height="48" rx="8" fill="#185FA5"/>
+  <rect x="692" y="92" width="236" height="308" rx="8" fill="#FFFFFF" stroke="#D7E0EA"/>
+  <rect x="716" y="118" width="188" height="42" rx="8" fill="#EAF3FD"/>
+  <rect x="716" y="182" width="188" height="72" rx="8" fill="#F4F7FB" stroke="#D7E0EA"/>
+  <rect x="716" y="270" width="188" height="72" rx="8" fill="#F4F7FB" stroke="#D7E0EA"/>
+  <rect x="716" y="358" width="120" height="18" rx="6" fill="#185FA5" fill-opacity="0.16"/>
+  <text x="88" y="144" fill="#185FA5" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">
+    Viet Nhat
+  </text>
+  <text x="88" y="196" fill="#16324F" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">
+    Hướng dẫn thực tế cho người Việt tại Nhật
+  </text>
+  <text x="88" y="342" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">
+    Thủ tục, đời sống, việc làm, thuế và nenkin
+  </text>
+</svg>

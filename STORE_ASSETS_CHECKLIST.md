@@ -16,7 +16,8 @@ This file is the practical checklist for screenshots and store visual assets bef
 - [ ] App Store screenshots for iPhone 6.7-inch
 - [ ] App Store screenshots for 6.5-inch if required by your delivery path
 - [ ] Google Play phone screenshots
-- [ ] Google Play feature graphic
+- [x] Google Play feature graphic PNG
+- [x] Feature graphic source draft exists at `assets/store/google-play-feature-graphic.svg`
 - [ ] Optional tablet screenshots if you want tablet presentation to look intentional
 
 ## 3. Recommended Screenshot Set
