@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -10,48 +10,237 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors } from '../constants/colors';
-import { ALERTS, EMERGENCY_CONTACTS } from '../constants/content';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { StorageKeys } from '../constants/storageKeys';
+import { EMERGENCY_CONTACTS } from '../constants/content';
+import { ImportantDate } from '../utils/notifications';
+import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type CategoryTarget = keyof TabParamList | 'DailyLife';
+type TipScreen = 'ImportantDates' | 'Admin';
 
-const CATEGORIES = [
+const CATEGORIES: {
+  id: string;
+  title: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  color: string;
+  bg: string;
+  tab: CategoryTarget;
+}[] = [
   {
     id: 'admin',
     title: 'Thủ tục\nhành chính',
-    icon: 'document-text' as const,
+    icon: 'document-text',
     color: Colors.primary,
     bg: Colors.accent,
-    tab: 'Admin' as const,
+    tab: 'Admin',
   },
   {
     id: 'daily',
-    title: 'Cuộc sống\nhàng ngày',
-    icon: 'sunny' as const,
+    title: 'Cuộc sống\nhằng ngày',
+    icon: 'sunny',
     color: '#27AE60',
     bg: Colors.successLight,
-    tab: 'DailyLife' as const,
+    tab: 'DailyLife',
   },
   {
     id: 'jobs',
     title: 'Tìm\nviệc làm',
-    icon: 'briefcase' as const,
+    icon: 'briefcase',
     color: '#9B59B6',
     bg: '#F3EBF9',
-    tab: 'Jobs' as const,
+    tab: 'Jobs',
   },
   {
     id: 'japanese',
     title: 'Tiếng\nNhật',
-    icon: 'language' as const,
+    icon: 'language',
     color: '#E74C3C',
     bg: '#FDECEA',
-    tab: 'Japanese' as const,
+    tab: 'Japanese',
   },
 ];
+
+const GENERIC_TIPS: {
+  id: string;
+  title: string;
+  description: string;
+  urgency: 'info' | 'medium';
+  icon: keyof typeof Ionicons.glyphMap;
+  screen: TipScreen;
+}[] = [
+  {
+    id: 'tip1',
+    title: 'Thiết lập nhắc ngày quan trọng',
+    description:
+      'Thêm ngày hết hạn thẻ cư trú, bảo hiểm... để nhận thông báo trước khi đến hạn.',
+    urgency: 'info',
+    icon: 'calendar-outline',
+    screen: 'ImportantDates',
+  },
+  {
+    id: 'tip2',
+    title: 'Bảo hiểm y tế cư dân là bắt buộc',
+    description:
+      'Người nước ngoài ở Nhật trên 3 tháng thường phải đăng ký bảo hiểm phù hợp. Nếu chưa có, hãy kiểm tra lại ngay.',
+    urgency: 'medium',
+    icon: 'heart-outline',
+    screen: 'Admin',
+  },
+];
+
+const LAW_UPDATES: {
+  id: string;
+  guideId: string;
+  title: string;
+  description: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  color: string;
+}[] = [
+  {
+    id: 'bike-2026',
+    guideId: 'bicycle-rules-2026',
+    title: 'Xe đạp: blue ticket từ 01/04/2026',
+    description: 'Dùng điện thoại, vượt đèn đỏ hoặc không dừng ở biển stop có thể bị xử lý.',
+    icon: 'bicycle',
+    color: '#E67E22',
+  },
+  {
+    id: 'my-number-health',
+    guideId: 'health-insurance',
+    title: 'Đi khám 2026 cần My Number hoặc 資格確認書',
+    description: 'Kiểm tra giấy tờ bảo hiểm trước khi đến bệnh viện hoặc phòng khám.',
+    icon: 'heart',
+    color: '#27AE60',
+  },
+  {
+    id: 'training-2027',
+    guideId: 'ssw-training-worker-2027',
+    title: '技能実習 đang chuẩn bị thay 育成就労',
+    description: 'Giai đoạn 2026-2027 có nhiều cập nhật chuyển tiếp cần theo dõi.',
+    icon: 'construct',
+    color: '#9B59B6',
+  },
+];
+
+const FAMILY_VISA_QUICK_LINKS = [
+  {
+    id: 'family-stay',
+    title: 'Sống cùng gia đình ở Nhật',
+    description: 'Đi thẳng tới bảo lãnh 家族滞在 và COE cho vợ/chồng hoặc con.',
+    icon: 'people',
+    color: '#2E86C1',
+    guideId: 'family-stay-invitation',
+  },
+  {
+    id: 'visit-relatives',
+    title: 'Mời người thân sang thăm',
+    description: 'Mở guide visa thăm thân ngắn hạn và hồ sơ người mời.',
+    icon: 'airplane',
+    color: '#E67E22',
+    guideId: 'short-stay-relative-visit',
+  },
+  {
+    id: 'tourism-evisa',
+    title: 'Du lịch / eVISA',
+    description: 'Phân biệt tourism, short stay và eVISA hiện hành.',
+    icon: 'globe-outline',
+    color: '#8E44AD',
+    guideId: 'visa-highlights-2026',
+  },
+  {
+    id: 'unsure-visa',
+    title: 'Chưa biết mình thuộc diện nào',
+    description: 'Xem tổng quan visa và định hướng trước khi chuẩn bị hồ sơ.',
+    icon: 'help-circle-outline',
+    color: '#5C6B8A',
+    guideId: 'visa-status-overview',
+  },
+  {
+    id: 'parents-elderly',
+    title: 'Đưa cha mẹ sang Nhật',
+    description: 'Giải thích rõ khi nào không thể ở dài hạn và các ngoại lệ rất hẹp.',
+    icon: 'people-circle',
+    color: '#6C7A99',
+    guideId: 'parents-elderly-relatives',
+  },
+  {
+    id: 'pregnancy-childbirth',
+    title: 'Mang thai / sinh con ở Nhật',
+    description: 'Tổng hợp thủ tục trước sinh, sau sinh, cư trú của em bé và trợ cấp chính.',
+    icon: 'heart-circle',
+    color: '#D35454',
+    guideId: 'pregnancy-childbirth-postpartum',
+  },
+  {
+    id: 'baby-born-in-japan',
+    title: 'Con sinh ở Nhật',
+    description: 'Quốc tịch, hộ chiếu, cư trú, My Number, bảo hiểm và các mốc đầu đời.',
+    icon: 'happy',
+    color: '#F39C12',
+    guideId: 'baby-born-in-japan',
+  },
+  {
+    id: 'postpartum-30-day-timeline',
+    title: '30 ngày đầu sau sinh',
+    description: 'Checklist có thể tick trực tiếp: giấy bệnh viện, city hall, trợ cấp và cư trú.',
+    icon: 'time',
+    color: '#C0397A',
+    guideId: 'postpartum-30-day-timeline',
+  },
+  {
+    id: 'nursery-kindergarten',
+    title: 'Nhà trẻ / mẫu giáo',
+    description: 'Hoikuen, youchien, taikuen, giấy tờ đi làm và thay đổi 2026.',
+    icon: 'school',
+    color: '#16A085',
+    guideId: 'nursery-kindergarten-guide',
+  },
+  {
+    id: 'divorce-custody',
+    title: 'Ly hôn / nuôi con',
+    description: 'Ly hôn, con ở với ai, đổi họ tên, visa và giấy tờ cư trú sau đó.',
+    icon: 'document-attach',
+    color: '#7F8C8D',
+    guideId: 'divorce-custody-name-residence',
+  },
+  {
+    id: 'renting-home',
+    title: 'Thuê nhà / trả nhà',
+    description: 'Tiền vào nhà, hủy hợp đồng,退去費, 原状回復 và lưu ý mua nhà.',
+    icon: 'home',
+    color: '#2980B9',
+    guideId: 'renting-and-buying-home',
+  },
+  {
+    id: 'tax-filing',
+    title: 'Thuế / 年末調整 / 確定申告',
+    description: 'Khi nào công ty làm giúp, khi nào phải tự khai và cách hiểu 扶養.',
+    icon: 'receipt',
+    color: '#8E44AD',
+    guideId: 'tax-year-end-adjustment-filing',
+  },
+  {
+    id: 'pension-refund',
+    title: 'Nenkin / miễn giảm / hoàn tiền',
+    description: '国民年金, 厚生年金, miễn giảm, du học sinh và 脱退一時金 khi về nước.',
+    icon: 'card',
+    color: '#2C3E50',
+    guideId: 'pension-exemption-refund',
+  },
+  {
+    id: 'banking-remittance',
+    title: 'Ngân hàng / chuyển tiền',
+    description: 'Mở tài khoản, chuyển tiền, AML và tránh bị khóa tài khoản.',
+    icon: 'card-outline',
+    color: '#1F618D',
+    guideId: 'banking-remittance-anti-fraud',
+  },
+] as const;
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -60,15 +249,63 @@ function getGreeting() {
   return 'Chào buổi tối';
 }
 
+interface ActiveAlert {
+  id: string;
+  label: string;
+  daysLeft: number;
+  icon: string;
+  color: string;
+}
+
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
 
-  const handleCategoryPress = (tab: string | null) => {
-    if (!tab) return;
+  useFocusEffect(
+    useCallback(() => {
+      const loadAlerts = async () => {
+        try {
+          const raw = await AsyncStorage.getItem(StorageKeys.importantDates);
+          if (!raw) {
+            setActiveAlerts([]);
+            return;
+          }
+
+          const dates: ImportantDate[] = JSON.parse(raw);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          const upcoming = dates
+            .map((item) => {
+              const target = new Date(item.date);
+              target.setHours(0, 0, 0, 0);
+              const daysLeft = Math.ceil((target.getTime() - today.getTime()) / 86400000);
+              return {
+                id: item.id,
+                label: item.label,
+                daysLeft,
+                icon: item.icon,
+                color: item.color,
+              };
+            })
+            .filter((item) => item.daysLeft > 0 && item.daysLeft <= 90)
+            .sort((a, b) => a.daysLeft - b.daysLeft);
+
+          setActiveAlerts(upcoming);
+        } catch {
+          setActiveAlerts([]);
+        }
+      };
+
+      loadAlerts();
+    }, [])
+  );
+
+  const handleCategoryPress = (tab: CategoryTarget) => {
     if (tab === 'DailyLife') {
       navigation.navigate('DailyLife');
     } else {
-      (navigation as any).navigate('MainTabs', { screen: tab });
+      navigation.navigate('MainTabs', { screen: tab });
     }
   };
 
@@ -81,58 +318,96 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Header */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.greeting}>{getGreeting()} 👋</Text>
-            <Text style={styles.appName}>Viet Nhật</Text>
+            <Text style={styles.greeting}>{getGreeting()}</Text>
+            <Text style={styles.appName}>Việt-Nhật</Text>
             <Text style={styles.subtitle}>Đồng hành cùng bạn tại Nhật Bản</Text>
           </View>
-          <TouchableOpacity
-            style={styles.aiButton}
-            onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI' })}
-          >
-            <Ionicons name="chatbubble-ellipses" size={22} color={Colors.white} />
-          </TouchableOpacity>
+          <View style={styles.headerButtons}>
+            <TouchableOpacity
+              style={styles.headerIconBtn}
+              onPress={() => navigation.navigate('Saved')}
+            >
+              <Ionicons name="bookmark-outline" size={22} color={Colors.white} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.headerIconBtn}
+              onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI' })}
+            >
+              <Ionicons name="chatbubble-ellipses" size={22} color={Colors.white} />
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.content}>
-          {/* Alert Cards */}
-          {ALERTS.map((alert) => (
-            <TouchableOpacity
-              key={alert.id}
-              style={[
-                styles.alertCard,
-                alert.urgency === 'high' ? styles.alertHigh : styles.alertMedium,
-              ]}
-              onPress={() => (navigation as any).navigate('MainTabs', { screen: alert.actionScreen })}
-            >
-              <View style={styles.alertLeft}>
-                <Ionicons
-                  name={alert.urgency === 'high' ? 'warning' : 'information-circle'}
-                  size={22}
-                  color={alert.urgency === 'high' ? Colors.danger : Colors.warning}
-                />
-                <View style={styles.alertTextContainer}>
-                  <Text style={styles.alertTitle}>{alert.title}</Text>
-                  <Text style={styles.alertDesc}>{alert.description}</Text>
-                </View>
-              </View>
-              <View style={styles.alertAction}>
-                {alert.daysLeft && (
-                  <View style={[styles.daysBadge, { backgroundColor: Colors.dangerLight }]}>
-                    <Text style={[styles.daysText, { color: Colors.danger }]}>{alert.daysLeft} ngày</Text>
+          {activeAlerts.length > 0
+            ? activeAlerts.map((alert) => {
+                const isUrgent = alert.daysLeft <= 30;
+                const badgeBg = isUrgent ? Colors.dangerLight : Colors.warningLight;
+                const badgeText = isUrgent ? Colors.danger : '#B7770D';
+
+                return (
+                  <TouchableOpacity
+                    key={alert.id}
+                    style={[styles.alertCard, isUrgent ? styles.alertHigh : styles.alertMedium]}
+                    onPress={() => navigation.navigate('ImportantDates')}
+                  >
+                    <View style={styles.alertLeft}>
+                      <Ionicons
+                        name={isUrgent ? 'warning' : 'alarm-outline'}
+                        size={22}
+                        color={isUrgent ? Colors.danger : Colors.warning}
+                      />
+                      <View style={styles.alertTextContainer}>
+                        <Text style={styles.alertTitle}>{alert.label}</Text>
+                        <Text style={styles.alertDesc}>
+                          Còn {alert.daysLeft} ngày nữa đến hạn. Nhấn để xem chi tiết.
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={styles.alertAction}>
+                      <View style={[styles.daysBadge, { backgroundColor: badgeBg }]}>
+                        <Text style={[styles.daysText, { color: badgeText }]}>
+                          {alert.daysLeft} ngày
+                        </Text>
+                      </View>
+                      <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                    </View>
+                  </TouchableOpacity>
+                );
+              })
+            : GENERIC_TIPS.map((tip) => (
+                <TouchableOpacity
+                  key={tip.id}
+                  style={[
+                    styles.alertCard,
+                    tip.urgency === 'medium' ? styles.alertMedium : styles.alertInfo,
+                  ]}
+                  onPress={() => {
+                    if (tip.screen === 'Admin') {
+                      navigation.navigate('MainTabs', { screen: 'Admin' });
+                    } else {
+                      navigation.navigate(tip.screen);
+                    }
+                  }}
+                >
+                  <View style={styles.alertLeft}>
+                    <Ionicons
+                      name={tip.icon}
+                      size={22}
+                      color={tip.urgency === 'medium' ? Colors.warning : Colors.primary}
+                    />
+                    <View style={styles.alertTextContainer}>
+                      <Text style={styles.alertTitle}>{tip.title}</Text>
+                      <Text style={styles.alertDesc}>{tip.description}</Text>
+                    </View>
                   </View>
-                )}
-                <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
-              </View>
-            </TouchableOpacity>
-          ))}
+                  <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                </TouchableOpacity>
+              ))}
 
-          {/* Section Title */}
           <Text style={styles.sectionTitle}>Danh mục</Text>
-
-          {/* Category Cards */}
           <View style={styles.categoryGrid}>
             {CATEGORIES.map((cat) => (
               <TouchableOpacity
@@ -148,10 +423,49 @@ export default function HomeScreen() {
             ))}
           </View>
 
-          {/* Quick AI Access */}
+          <Text style={styles.sectionTitle}>Cập nhật quan trọng</Text>
+          <View style={styles.updatesContainer}>
+            {LAW_UPDATES.map((update) => (
+              <TouchableOpacity
+                key={update.id}
+                style={styles.updateCard}
+                onPress={() => navigation.navigate('AdminDetail', { guideId: update.guideId })}
+              >
+                <View style={[styles.updateIcon, { backgroundColor: update.color + '18' }]}>
+                  <Ionicons name={update.icon} size={20} color={update.color} />
+                </View>
+                <View style={styles.updateInfo}>
+                  <Text style={styles.updateTitle}>{update.title}</Text>
+                  <Text style={styles.updateDesc}>{update.description}</Text>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          <Text style={styles.sectionTitle}>Gia đình / visa</Text>
+          <View style={styles.familyVisaWrap}>
+            {FAMILY_VISA_QUICK_LINKS.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.familyVisaCard}
+                onPress={() => navigation.navigate('AdminDetail', { guideId: item.guideId })}
+              >
+                <View style={[styles.familyVisaIconBg, { backgroundColor: item.color + '18' }]}>
+                  <Ionicons name={item.icon} size={20} color={item.color} />
+                </View>
+                <View style={styles.familyVisaInfo}>
+                  <Text style={styles.familyVisaTitle}>{item.title}</Text>
+                  <Text style={styles.familyVisaDesc}>{item.description}</Text>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+              </TouchableOpacity>
+            ))}
+          </View>
+
           <TouchableOpacity
             style={styles.quickAiCard}
-            onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI Viet Nhật' })}
+            onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI Việt-Nhật' })}
           >
             <View style={styles.quickAiLeft}>
               <View style={styles.quickAiIconBg}>
@@ -165,7 +479,6 @@ export default function HomeScreen() {
             <Ionicons name="arrow-forward-circle" size={28} color={Colors.primary} />
           </TouchableOpacity>
 
-          {/* Emergency Contacts */}
           <Text style={styles.sectionTitle}>Liên hệ khẩn cấp</Text>
           <View style={styles.emergencyContainer}>
             {EMERGENCY_CONTACTS.map((contact) => (
@@ -175,12 +488,14 @@ export default function HomeScreen() {
                 onPress={() => handleCallEmergency(contact.number)}
               >
                 <View style={[styles.emergencyIcon, { backgroundColor: contact.color + '18' }]}>
-                  <Ionicons name={contact.icon as any} size={20} color={contact.color} />
+                  <Ionicons name={contact.icon} size={20} color={contact.color} />
                 </View>
                 <View style={styles.emergencyInfo}>
                   <Text style={styles.emergencyName}>{contact.name}</Text>
                   <Text style={styles.emergencyNameJp}>{contact.nameJp}</Text>
-                  <Text style={[styles.emergencyNumber, { color: contact.color }]}>{contact.number}</Text>
+                  <Text style={[styles.emergencyNumber, { color: contact.color }]}>
+                    {contact.number}
+                  </Text>
                 </View>
                 <Ionicons name="call-outline" size={18} color={contact.color} />
               </TouchableOpacity>
@@ -217,21 +532,25 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: '800',
     color: Colors.white,
-    letterSpacing: 0.5,
   },
   subtitle: {
     fontSize: 13,
     color: 'rgba(255,255,255,0.7)',
     marginTop: 2,
   },
-  aiButton: {
+  headerButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 4,
+  },
+  headerIconBtn: {
     width: 44,
     height: 44,
     borderRadius: 22,
     backgroundColor: 'rgba(255,255,255,0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 4,
   },
   content: {
     backgroundColor: Colors.background,
@@ -257,6 +576,10 @@ const styles = StyleSheet.create({
   alertMedium: {
     backgroundColor: Colors.warningLight,
     borderColor: '#FAD7A0',
+  },
+  alertInfo: {
+    backgroundColor: Colors.accent,
+    borderColor: Colors.primary + '30',
   },
   alertLeft: {
     flexDirection: 'row',
@@ -308,7 +631,7 @@ const styles = StyleSheet.create({
     width: '47%',
     borderRadius: 16,
     padding: 16,
-    alignItems: 'flex-start',
+    alignItems: 'center',
     shadowColor: Colors.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
@@ -327,6 +650,86 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     lineHeight: 20,
+    textAlign: 'center',
+  },
+  updatesContainer: {
+    gap: 10,
+    marginBottom: 4,
+  },
+  updateCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  updateIcon: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  updateInfo: {
+    flex: 1,
+  },
+  updateTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  updateDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+  },
+  familyVisaWrap: {
+    gap: 10,
+  },
+  familyVisaCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  familyVisaIconBg: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  familyVisaInfo: {
+    flex: 1,
+  },
+  familyVisaTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  familyVisaDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
   },
   quickAiCard: {
     backgroundColor: Colors.white,

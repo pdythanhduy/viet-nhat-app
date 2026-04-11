@@ -16,7 +16,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors } from '../constants/colors';
+import { Disclaimers } from '../constants/disclaimers';
+import { StorageKeys } from '../constants/storageKeys';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { loadClaudeApiKey } from '../utils/apiKeyStorage';
 
 type RouteType = RouteProp<RootStackParamList, 'AIChat'>;
 
@@ -28,42 +31,48 @@ interface Message {
 }
 
 const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
-const SYSTEM_PROMPT = `Bạn là trợ lý AI của ứng dụng "Viet Nhật" - ứng dụng hỗ trợ người Việt Nam sinh sống tại Nhật Bản.
+const SYSTEM_PROMPT = `Bạn là trợ lý AI của ứng dụng "Việt-Nhật" - ứng dụng hỗ trợ người Việt Nam sinh sống tại Nhật Bản.
 
 Nhiệm vụ của bạn:
-- Trả lời HOÀN TOÀN bằng tiếng Việt (trừ khi được yêu cầu cụ thể)
-- Cung cấp thông tin chính xác, thực tế về cuộc sống tại Nhật Bản
-- Giải thích rõ ràng các thủ tục hành chính, pháp lý
-- Chia sẻ mẹo và kinh nghiệm hữu ích cho người Việt tại Nhật
-- Khi dùng từ tiếng Nhật, luôn kèm theo phiên âm và nghĩa tiếng Việt
-- Thân thiện, nhiệt tình, như một người bạn đã sống lâu ở Nhật
+- Trả lời hoàn toàn bằng tiếng Việt, trừ khi người dùng yêu cầu ngôn ngữ khác.
+- Cung cấp thông tin rõ ràng, thực tế và dễ áp dụng trong đời sống tại Nhật.
+- Giải thích thủ tục hành chính, visa, bảo hiểm, lao động và các tình huống thường gặp.
+- Khi dùng từ tiếng Nhật, nên kèm cách đọc hoặc nghĩa tiếng Việt nếu điều đó giúp người dùng dễ hiểu hơn.
+- Giữ câu trả lời gọn, đúng trọng tâm, không nói lan man.
 
-Lĩnh vực bạn thành thạo:
-- Thủ tục visa, thẻ cư trú, gia hạn tư cách lưu trú
-- Bảo hiểm y tế, bảo hiểm lao động, hưu trí
-- Tìm việc làm, quyền lợi người lao động tại Nhật
-- Thuê nhà, phân loại rác, giao thông công cộng
-- Ngân hàng, chuyển tiền về Việt Nam
-- Tiếng Nhật cơ bản và thực dụng
-- Văn hóa, phong tục tập quán Nhật Bản
+Lĩnh vực bạn hỗ trợ tốt:
+- Visa, thẻ cư trú, gia hạn và đổi tư cách lưu trú
+- Bảo hiểm, nenkin, thuế, ngân hàng, chuyển tiền
+- Lao động, hợp đồng, quyền lợi người đi làm
+- Cuộc sống hằng ngày, nhà ở, rác, giao thông, thủ tục địa phương
+- Tiếng Nhật cơ bản và cách dùng trong tình huống thực tế
 
-Luôn trả lời ngắn gọn, súc tích nhưng đầy đủ thông tin. Ưu tiên thực tế, tránh lý thuyết lan man.`;
+Luôn ưu tiên tính thực tế và cảnh báo người dùng khi nội dung cần kiểm tra lại bằng nguồn chính thức.`;
 
-const STORAGE_KEY = 'ai_chat_history';
+const STORAGE_KEY = StorageKeys.aiChatHistory;
 
 export default function AIChatScreen() {
   const route = useRoute<RouteType>();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState(route.params?.prefilledQuestion || '');
   const [isLoading, setIsLoading] = useState(false);
+  const [apiKey, setApiKey] = useState('');
   const scrollViewRef = useRef<ScrollView>(null);
   const inputRef = useRef<TextInput>(null);
 
-  const apiKey = process.env.EXPO_PUBLIC_CLAUDE_API_KEY;
-
   useEffect(() => {
     loadHistory();
+    loadApiKey();
   }, []);
+
+  const loadApiKey = async () => {
+    try {
+      const key = await loadClaudeApiKey();
+      if (key) setApiKey(key);
+    } catch {
+      // ignore
+    }
+  };
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -97,31 +106,27 @@ export default function AIChatScreen() {
   };
 
   const clearHistory = () => {
-    Alert.alert(
-      'Xóa lịch sử',
-      'Bạn có chắc muốn xóa toàn bộ lịch sử trò chuyện không?',
-      [
-        { text: 'Hủy', style: 'cancel' },
-        {
-          text: 'Xóa',
-          style: 'destructive',
-          onPress: async () => {
-            setMessages([]);
-            await AsyncStorage.removeItem(STORAGE_KEY);
-          },
+    Alert.alert('Xóa lịch sử', 'Bạn có chắc muốn xóa toàn bộ lịch sử trò chuyện không?', [
+      { text: 'Hủy', style: 'cancel' },
+      {
+        text: 'Xóa',
+        style: 'destructive',
+        onPress: async () => {
+          setMessages([]);
+          await AsyncStorage.removeItem(STORAGE_KEY);
         },
-      ]
-    );
+      },
+    ]);
   };
 
   const sendMessage = useCallback(async () => {
     const text = inputText.trim();
     if (!text || isLoading) return;
 
-    if (!apiKey || apiKey === 'your_claude_api_key_here') {
+    if (!apiKey) {
       Alert.alert(
         'Chưa cấu hình API',
-        'Vui lòng thêm EXPO_PUBLIC_CLAUDE_API_KEY vào file .env để sử dụng tính năng AI.',
+        'Vui lòng vào tab Cài đặt để nhập Claude API key trước khi dùng tính năng AI.',
         [{ text: 'OK' }]
       );
       return;
@@ -183,7 +188,7 @@ export default function AIChatScreen() {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: `Xin lỗi, đã có lỗi xảy ra: ${error.message || 'Không thể kết nối đến AI'}. Vui lòng kiểm tra kết nối mạng và thử lại.`,
+        content: `Xin lỗi, đã có lỗi xảy ra: ${error.message || 'Không thể kết nối đến AI'}. Vui lòng kiểm tra mạng và thử lại.`,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -202,7 +207,7 @@ export default function AIChatScreen() {
   const QUICK_PROMPTS = [
     'Tôi cần gia hạn thẻ cư trú, làm thế nào?',
     'Cách phân loại rác ở Nhật như thế nào?',
-    'Mức lương tối thiểu ở Tokyo là bao nhiêu?',
+    'Mức lương tối thiểu ở Tokyo hiện là bao nhiêu?',
     'Làm sao để mở tài khoản ngân hàng?',
   ];
 
@@ -212,7 +217,6 @@ export default function AIChatScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
     >
-      {/* Clear button in header area */}
       {messages.length > 0 && (
         <TouchableOpacity style={styles.clearBtn} onPress={clearHistory}>
           <Ionicons name="trash-outline" size={16} color={Colors.textMuted} />
@@ -227,23 +231,19 @@ export default function AIChatScreen() {
         showsVerticalScrollIndicator={false}
         onContentSizeChange={() => scrollViewRef.current?.scrollToEnd({ animated: false })}
       >
-        {/* Welcome Message */}
         {messages.length === 0 && (
           <View style={styles.welcome}>
             <View style={styles.welcomeIcon}>
               <Ionicons name="sparkles" size={32} color={Colors.white} />
             </View>
-            <Text style={styles.welcomeTitle}>Xin chào! Tôi là trợ lý AI Viet Nhật</Text>
+            <Text style={styles.welcomeTitle}>Xin chào! Tôi là trợ lý AI Việt-Nhật</Text>
             <Text style={styles.welcomeSubtitle}>
-              Tôi có thể giúp bạn về mọi vấn đề liên quan đến cuộc sống tại Nhật Bản — từ thủ tục hành chính, tìm việc, đến tiếng Nhật hàng ngày.
+              Tôi có thể giúp bạn về thủ tục hành chính, việc làm, bảo hiểm, cuộc sống
+              hằng ngày và tiếng Nhật thực tế tại Nhật Bản.
             </Text>
             <Text style={styles.quickPromptsTitle}>Câu hỏi gợi ý:</Text>
             {QUICK_PROMPTS.map((prompt, i) => (
-              <TouchableOpacity
-                key={i}
-                style={styles.quickPrompt}
-                onPress={() => setInputText(prompt)}
-              >
+              <TouchableOpacity key={i} style={styles.quickPrompt} onPress={() => setInputText(prompt)}>
                 <Text style={styles.quickPromptText}>{prompt}</Text>
                 <Ionicons name="arrow-up-circle" size={18} color={Colors.primary} />
               </TouchableOpacity>
@@ -251,7 +251,6 @@ export default function AIChatScreen() {
           </View>
         )}
 
-        {/* Messages */}
         {messages.map((message) => (
           <View
             key={message.id}
@@ -291,7 +290,6 @@ export default function AIChatScreen() {
           </View>
         ))}
 
-        {/* Typing Indicator */}
         {isLoading && (
           <View style={[styles.messageWrapper, styles.assistantWrapper]}>
             <View style={styles.avatar}>
@@ -310,7 +308,6 @@ export default function AIChatScreen() {
         <View style={{ height: 8 }} />
       </ScrollView>
 
-      {/* Input */}
       <View style={styles.inputContainer}>
         <View style={styles.inputRow}>
           <TextInput
@@ -339,9 +336,7 @@ export default function AIChatScreen() {
             )}
           </TouchableOpacity>
         </View>
-        <Text style={styles.disclaimer}>
-          AI có thể mắc lỗi. Hãy kiểm tra thông tin quan trọng từ nguồn chính thức.
-        </Text>
+        <Text style={styles.disclaimer}>{Disclaimers.ai}</Text>
       </View>
     </KeyboardAvoidingView>
   );

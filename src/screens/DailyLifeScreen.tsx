@@ -23,6 +23,11 @@ const ICON_MAP: Record<string, keyof typeof Ionicons.glyphMap> = {
   train: 'train',
   basket: 'basket',
   cash: 'cash',
+  medical: 'medical',
+  receipt: 'receipt',
+  flash: 'flash',
+  warning: 'warning',
+  mail: 'mail',
 };
 
 export default function DailyLifeScreen() {
@@ -38,7 +43,7 @@ export default function DailyLifeScreen() {
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.sectionNote}>
-          Nhấn vào chủ đề để hỏi trợ lý AI với câu hỏi được điền sẵn phù hợp
+          Nhấn vào chủ đề để xem thông tin chi tiết. Cuối mỗi chủ đề có nút hỏi AI nếu bạn cần tư vấn thêm.
         </Text>
 
         {DAILY_LIFE_TOPICS.map((topic) => (
@@ -46,10 +51,7 @@ export default function DailyLifeScreen() {
             key={topic.id}
             style={styles.topicCard}
             onPress={() =>
-              navigation.navigate('AIChat', {
-                title: topic.title,
-                prefilledQuestion: topic.prefilledQuestion,
-              })
+              navigation.navigate('DailyLifeDetail', { topicId: topic.id })
             }
           >
             <View style={[styles.topicIcon, { backgroundColor: topic.color + '18' }]}>
@@ -61,8 +63,8 @@ export default function DailyLifeScreen() {
               <Text style={styles.topicDesc} numberOfLines={2}>{topic.description}</Text>
             </View>
             <View style={[styles.aiChip, { backgroundColor: topic.color + '18' }]}>
-              <Ionicons name="sparkles" size={12} color={topic.color} />
-              <Text style={[styles.aiChipText, { color: topic.color }]}>Hỏi AI</Text>
+              <Ionicons name="chevron-forward" size={12} color={topic.color} />
+              <Text style={[styles.aiChipText, { color: topic.color }]}>Xem</Text>
             </View>
           </TouchableOpacity>
         ))}
