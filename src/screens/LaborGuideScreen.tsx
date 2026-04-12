@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
   Clipboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import {
@@ -21,12 +21,13 @@ import {
 } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated } from '../utils/contentMetadata';
+import { markLaborResourceViewed } from '../utils/laborResources';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 function openUrl(url: string) {
   Linking.openURL(url).catch(() =>
-    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng.')
+    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng rồi thử lại.')
   );
 }
 
@@ -35,8 +36,53 @@ function copyPhrase(jp: string, romaji: string, vn: string) {
   Alert.alert('Đã sao chép', 'Đã copy mẫu câu vào clipboard.');
 }
 
+function copyText(title: string, lines: string[]) {
+  Clipboard.setString([title, ...lines].join('\n'));
+  Alert.alert('Đã sao chép', `Đã copy "${title}".`);
+}
+
 export default function LaborGuideScreen() {
   const navigation = useNavigation<NavigationProp>();
+
+  useFocusEffect(
+    useCallback(() => {
+      void markLaborResourceViewed('labor-guide');
+    }, [])
+  );
+
+  const copyRiskSigns = () => {
+    copyText(
+      'Dấu hiệu công ty rủi ro',
+      LABOR_RISK_SIGNS.map(
+        (item) =>
+          `- ${item.title} [${
+            item.severity === 'high' ? 'Rủi ro cao' : 'Cần cảnh giác'
+          }]\n${item.description}`
+      )
+    );
+  };
+
+  const copyContractChecklist = () => {
+    copyText(
+      'Checklist đọc hợp đồng trước khi ký',
+      CONTRACT_REVIEW_CHECKLIST.map(
+        (item) => `- ${item.label}\nVì sao quan trọng: ${item.whyItMatters}`
+      )
+    );
+  };
+
+  const copyAllLaborPhrases = () => {
+    copyText(
+      'Câu tiếng Nhật nên dùng',
+      LABOR_SUPPORT_PHRASES.flatMap((item) => [
+        item.jp,
+        item.romaji,
+        item.vn,
+        `Dùng khi: ${item.useCase}`,
+        '',
+      ])
+    );
+  };
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -59,6 +105,10 @@ export default function LaborGuideScreen() {
         </View>
 
         <Text style={styles.sectionTitle}>Dấu hiệu công ty rủi ro</Text>
+        <TouchableOpacity style={styles.copyBlockButton} onPress={copyRiskSigns}>
+          <Ionicons name="copy-outline" size={15} color={Colors.primary} />
+          <Text style={styles.copyBlockText}>Copy block này</Text>
+        </TouchableOpacity>
         <View style={styles.card}>
           {LABOR_RISK_SIGNS.map((item, index) => (
             <View
@@ -89,6 +139,10 @@ export default function LaborGuideScreen() {
         </View>
 
         <Text style={styles.sectionTitle}>Checklist đọc hợp đồng trước khi ký</Text>
+        <TouchableOpacity style={styles.copyBlockButton} onPress={copyContractChecklist}>
+          <Ionicons name="copy-outline" size={15} color={Colors.primary} />
+          <Text style={styles.copyBlockText}>Copy checklist</Text>
+        </TouchableOpacity>
         <View style={styles.card}>
           {CONTRACT_REVIEW_CHECKLIST.map((item, index) => (
             <View
@@ -107,6 +161,10 @@ export default function LaborGuideScreen() {
         </View>
 
         <Text style={styles.sectionTitle}>Câu tiếng Nhật nên dùng</Text>
+        <TouchableOpacity style={styles.copyBlockButton} onPress={copyAllLaborPhrases}>
+          <Ionicons name="copy-outline" size={15} color={Colors.primary} />
+          <Text style={styles.copyBlockText}>Copy toàn bộ câu mẫu</Text>
+        </TouchableOpacity>
         <View style={styles.card}>
           {LABOR_SUPPORT_PHRASES.map((item, index) => (
             <View
@@ -200,6 +258,18 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginTop: 4,
   },
+  copyBlockButton: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: Colors.accent,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginBottom: 10,
+  },
+  copyBlockText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
   card: {
     backgroundColor: Colors.white,
     borderRadius: 16,

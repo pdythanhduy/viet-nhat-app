@@ -3,8 +3,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const KEY = 'japanese_progress_v1';
 
 export type PhraseLevel = 0 | 1 | 2 | 3;
-// 0 = Chưa học, 1 = Đang học, 2 = Đã nhớ, 3 = Thành thạo
-
 export type ProgressData = Record<string, PhraseLevel>;
 
 export const LEVEL_COLORS: Record<PhraseLevel, string> = {
@@ -75,13 +73,25 @@ export function getCategoryStats(phrases: { jp: string }[], progress: ProgressDa
   return { total, unseen, learning, remembered, mastered, learnedCount, learnedPercent };
 }
 
-export function sortByLevel<T extends { jp: string }>(
-  phrases: T[],
-  progress: ProgressData
-): T[] {
-  return [...phrases].sort((a, b) => {
-    const levelA = progress[a.jp] ?? 0;
-    const levelB = progress[b.jp] ?? 0;
-    return levelA !== levelB ? levelA - levelB : Math.random() - 0.5;
-  });
+export function sortByLevel<T extends { jp: string }>(phrases: T[], progress: ProgressData): T[] {
+  // Group by level first (deterministic), then shuffle within each group.
+  const groups = new Map<PhraseLevel, T[]>();
+  for (const phrase of phrases) {
+    const level = (progress[phrase.jp] ?? 0) as PhraseLevel;
+    if (!groups.has(level)) groups.set(level, []);
+    groups.get(level)!.push(phrase);
+  }
+
+  const result: T[] = [];
+  for (const level of [0, 1, 2, 3] as PhraseLevel[]) {
+    const group = groups.get(level);
+    if (!group) continue;
+    // Fisher-Yates shuffle within the group
+    for (let i = group.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [group[i], group[j]] = [group[j], group[i]];
+    }
+    result.push(...group);
+  }
+  return result;
 }

@@ -3,6 +3,7 @@ import {
   isBookmarked,
   loadBookmarks,
   saveBookmarks,
+  toggleBookmarkPin,
   toggleBookmark,
   type Bookmark,
 } from './bookmarks';
@@ -78,5 +79,13 @@ describe('bookmarks', () => {
   it('supports daily life bookmarks', async () => {
     await expect(toggleBookmark(dailyLifeBookmark)).resolves.toBe(true);
     await expect(isBookmarked(dailyLifeBookmark.id, dailyLifeBookmark.type)).resolves.toBe(true);
+  });
+
+  it('supports pinning a bookmark', async () => {
+    await saveBookmarks([guideBookmark]);
+    await expect(toggleBookmarkPin(guideBookmark.id, guideBookmark.type)).resolves.toBe(true);
+
+    const [saved] = await loadBookmarks();
+    expect(saved.pinnedAt).toBeTruthy();
   });
 });

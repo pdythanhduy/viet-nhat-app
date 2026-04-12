@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,13 +10,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
+import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
+import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
 import type { AdminGuideCategory } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -80,6 +82,38 @@ export default function AdminScreen() {
   const navigation = useNavigation<NavigationProp>();
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
+  const [inProgressGuideIds, setInProgressGuideIds] = useState<string[]>([]);
+  const [readyGuideIds, setReadyGuideIds] = useState<string[]>([]);
+  const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadAllGuideChecklistProgress().then((progressMap) => {
+        const inProgress = ADMIN_GUIDES.filter((guide) => {
+          const total = guide.documentsChecklist?.length ?? 0;
+          const checked = (progressMap[guide.id] ?? []).length;
+          return total > 0 && checked > 0 && checked < total;
+        }).map((guide) => guide.id);
+
+        const ready = ADMIN_GUIDES.filter((guide) => {
+          const total = guide.documentsChecklist?.length ?? 0;
+          const checked = (progressMap[guide.id] ?? []).length;
+          return total > 0 && checked >= total;
+        }).map((guide) => guide.id);
+
+        setInProgressGuideIds(inProgress);
+        setReadyGuideIds(ready);
+      });
+
+      loadBookmarks().then((items: Bookmark[]) => {
+        setPinnedGuideIds(
+          items
+            .filter((item) => item.type === 'guide' && !!item.pinnedAt)
+            .map((item) => item.id)
+        );
+      });
+    }, [])
+  );
 
   const filteredGuides = useMemo(() => {
     const q = search.toLowerCase();
@@ -97,6 +131,9 @@ export default function AdminScreen() {
   }, [activeCategory, search]);
 
   const showVisaQuickSelector = !search.trim() && (activeCategory === 'all' || activeCategory === 'visa');
+  const inProgressGuides = ADMIN_GUIDES.filter((guide) => inProgressGuideIds.includes(guide.id));
+  const readyGuides = ADMIN_GUIDES.filter((guide) => readyGuideIds.includes(guide.id));
+  const pinnedGuides = ADMIN_GUIDES.filter((guide) => pinnedGuideIds.includes(guide.id));
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -172,6 +209,85 @@ export default function AdminScreen() {
               ))}
             </View>
           </View>
+        )}
+
+        {!search.trim() && (
+          <>
+            {inProgressGuides.length > 0 && (
+              <View style={styles.statusSection}>
+                <View style={styles.statusSectionHeader}>
+                  <Text style={styles.statusSectionTitle}>Đang làm dở</Text>
+                  <Text style={styles.statusSectionMeta}>{inProgressGuides.length} mục</Text>
+                </View>
+                {inProgressGuides.slice(0, 3).map((guide) => (
+                  <TouchableOpacity
+                    key={`progress-${guide.id}`}
+                    style={styles.statusCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+                  >
+                    <View style={[styles.statusIconBg, { backgroundColor: `${guide.color}18` }]}>
+                      <Ionicons name="time-outline" size={18} color={guide.color} />
+                    </View>
+                    <View style={styles.statusInfo}>
+                      <Text style={styles.statusTitle}>{guide.title}</Text>
+                      <Text style={styles.statusDesc}>Bạn đã bắt đầu checklist giấy tờ cho mục này.</Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
+            {readyGuides.length > 0 && (
+              <View style={styles.statusSection}>
+                <View style={styles.statusSectionHeader}>
+                  <Text style={styles.statusSectionTitle}>Đã chuẩn bị đủ giấy tờ</Text>
+                  <Text style={styles.statusSectionMeta}>{readyGuides.length} mục</Text>
+                </View>
+                {readyGuides.slice(0, 3).map((guide) => (
+                  <TouchableOpacity
+                    key={`ready-${guide.id}`}
+                    style={styles.statusCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+                  >
+                    <View style={[styles.statusIconBg, { backgroundColor: `${guide.color}18` }]}>
+                      <Ionicons name="checkmark-done-outline" size={18} color={guide.color} />
+                    </View>
+                    <View style={styles.statusInfo}>
+                      <Text style={styles.statusTitle}>{guide.title}</Text>
+                      <Text style={styles.statusDesc}>Checklist hiện tại của guide này đã đủ 100%.</Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
+            {pinnedGuides.length > 0 && (
+              <View style={styles.statusSection}>
+                <View style={styles.statusSectionHeader}>
+                  <Text style={styles.statusSectionTitle}>Đã ghim</Text>
+                  <Text style={styles.statusSectionMeta}>{pinnedGuides.length} mục</Text>
+                </View>
+                {pinnedGuides.slice(0, 3).map((guide) => (
+                  <TouchableOpacity
+                    key={`pinned-${guide.id}`}
+                    style={styles.statusCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+                  >
+                    <View style={[styles.statusIconBg, { backgroundColor: `${guide.color}18` }]}>
+                      <Ionicons name="pin" size={18} color={guide.color} />
+                    </View>
+                    <View style={styles.statusInfo}>
+                      <Text style={styles.statusTitle}>{guide.title}</Text>
+                      <Text style={styles.statusDesc}>Mục này đang được ưu tiên giữ ở đầu danh sách lưu.</Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+          </>
         )}
 
         <Text style={styles.resultsCount}>{filteredGuides.length} nội dung</Text>
@@ -341,6 +457,58 @@ const styles = StyleSheet.create({
   },
   quickGrid: {
     gap: 10,
+  },
+  statusSection: {
+    marginHorizontal: 16,
+    marginBottom: 12,
+  },
+  statusSectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  statusSectionTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+  },
+  statusSectionMeta: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.textMuted,
+  },
+  statusCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    marginBottom: 8,
+  },
+  statusIconBg: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  statusInfo: {
+    flex: 1,
+  },
+  statusTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  statusDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
   },
   quickCard: {
     backgroundColor: Colors.white,

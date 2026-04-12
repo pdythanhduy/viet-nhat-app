@@ -15,6 +15,21 @@ export async function loadGuideChecklistProgress(guideId: string): Promise<strin
   }
 }
 
+export async function loadAllGuideChecklistProgress(): Promise<ChecklistProgress> {
+  try {
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
+    return Object.fromEntries(
+      Object.entries(progress).map(([guideId, labels]) => [
+        guideId,
+        Array.isArray(labels) ? labels : [],
+      ])
+    );
+  } catch {
+    return {};
+  }
+}
+
 export async function saveGuideChecklistProgress(
   guideId: string,
   checkedLabels: string[]
@@ -29,13 +44,20 @@ export async function toggleGuideChecklistItem(
   guideId: string,
   label: string
 ): Promise<string[]> {
-  const checked = await loadGuideChecklistProgress(guideId);
-  const next = checked.includes(label)
-    ? checked.filter((item) => item !== label)
-    : [...checked, label];
+  try {
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
+    const checked = Array.isArray(progress[guideId]) ? progress[guideId] : [];
+    const next = checked.includes(label)
+      ? checked.filter((item) => item !== label)
+      : [...checked, label];
 
-  await saveGuideChecklistProgress(guideId, next);
-  return next;
+    progress[guideId] = Array.from(new Set(next));
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    return progress[guideId];
+  } catch {
+    return [];
+  }
 }
 
 export async function clearGuideChecklistProgress(guideId: string): Promise<void> {

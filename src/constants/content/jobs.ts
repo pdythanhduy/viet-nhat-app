@@ -89,13 +89,13 @@ export const WORKER_TYPE_GUIDES: {
     label: 'Du học sinh',
     title: 'Du học sinh / 留学',
     description:
-      'Mục đích chính là học. Muốn đi làm thêm cần có giấy phép làm thêm ngoài tư cách lưu trú và phải tự kiểm tổng số giờ làm.',
+      'Mục đích chính là học. Muốn đi làm thêm phải có giấy phép làm thêm ngoài tư cách lưu trú và phải tự kiểm tổng số giờ làm.',
     icon: 'school',
     color: '#185FA5',
     warnings: [
       'Giới hạn thông thường là 28 giờ mỗi tuần trong kỳ học, tính gộp tất cả nơi làm.',
-      'Không phải cứ từng chỗ dưới 28 giờ là hợp lệ; cộng dồn mới là phần quan trọng.',
-      'Không làm các công việc thuộc nhóm bị cấm với du học sinh, kể cả khi lương cao hoặc chủ hứa lo giấy tờ.',
+      'Không phải cứ dưới 28 giờ là luôn hợp lệ; nội dung công việc vẫn phải phù hợp.',
+      'Không làm các công việc bị cấm đối với du học sinh, kể cả khi lương cao hoặc chỗ hứa lo giấy tờ.',
     ],
   },
   {
@@ -103,12 +103,12 @@ export const WORKER_TYPE_GUIDES: {
     label: 'Visa gia đình',
     title: 'Gia đình / 家族滞在',
     description:
-      'Đây không phải tư cách đi làm chính. Muốn đi làm phải có permission phù hợp và vẫn thường bị giới hạn giờ nếu chỉ làm thêm.',
+      'Đây không phải tư cách đi làm chính. Muốn làm việc phải có permission phù hợp và thường bị giới hạn giờ nếu chỉ làm thêm.',
     icon: 'people',
     color: '#9B59B6',
     warnings: [
-      'Nếu đang ở diện phụ thuộc, đừng nhận full-time trước khi hiểu rõ việc đó có hợp tư cách lưu trú hay không.',
-      'Giới hạn giờ làm thêm thường vẫn là 28 giờ mỗi tuần nếu bạn đi theo cơ chế permission thông thường.',
+      'Đừng nhận full-time trước khi hiểu rõ công việc đó có hợp tư cách lưu trú hay không.',
+      'Giới hạn giờ làm thêm thường vẫn là 28 giờ mỗi tuần nếu bạn đi làm theo permission thông thường.',
     ],
   },
   {
@@ -120,7 +120,7 @@ export const WORKER_TYPE_GUIDES: {
     icon: 'briefcase',
     color: '#D35400',
     warnings: [
-      'Đổi công ty không đồng nghĩa mọi việc tự hợp lệ; phải kiểm tra phần nội dung công việc mới.',
+      'Đổi công ty không đồng nghĩa mọi việc tự hợp lệ; phải kiểm tra nội dung công việc mới.',
       'Một số trường hợp phải báo cho ISA trong 14 ngày khi nghỉ việc hoặc chuyển việc.',
     ],
   },
@@ -134,7 +134,7 @@ export const WORKER_TYPE_GUIDES: {
     color: '#16A085',
     warnings: [
       'Không tự ý chuyển việc nếu chưa hiểu quy trình tiếp nhận của 特定技能.',
-      'Phải kiểm tra xem công ty mới, ngành mới và cơ quan hỗ trợ có đủ điều kiện không.',
+      'Phải kiểm tra xem công ty mới, ngành mới và đơn vị hỗ trợ có đủ điều kiện không.',
     ],
   },
   {
@@ -174,17 +174,17 @@ export const CURRENT_LABOR_UPDATES: LaborUpdate[] = [
     summary:
       'Mức bình quân toàn quốc là 1.121 yên/giờ; Tokyo hiện là 1.226 yên/giờ.',
     impact:
-      'Nếu hợp đồng, bảng lương hoặc bài hướng dẫn vẫn ghi mức cũ thì cần kiểm tra lại theo tỉnh đang sống và đang làm việc.',
+      'Nếu hợp đồng, bảng lương hoặc bảng hướng dẫn vẫn ghi mức cũ thì cần kiểm tra lại theo tỉnh đang sống và nơi làm việc.',
     icon: 'cash',
     color: '#27AE60',
     url: 'https://www.mhlw.go.jp/content/11200000/001571192.pdf',
   },
   {
     id: 'heatstroke-workplace',
-    title: 'Nghĩa vụ chống say nắng tại nơi làm việc được siết chặt',
-    effectiveDate: 'Áp dụng từ 01/06/2025 và vẫn là điểm nóng trong năm 2026',
+    title: 'Nghĩa vụ chống say nắng tại nơi làm việc bị siết chặt',
+    effectiveDate: 'Áp dụng từ 2025-06-01 và vẫn là điểm nóng trong năm 2026',
     summary:
-      'Doanh nghiệp phải chú ý hơn tới nhận diện nguy cơ, báo cáo và xử lý nhanh các ca nghi say nắng trong lao động.',
+      'Doanh nghiệp phải có quy trình nhận diện nguy cơ, báo cáo và xử lý nhanh các ca nghi say nắng trong lao động.',
     impact:
       'Đặc biệt liên quan tới công trường, giao hàng, kho, nhà xưởng, nông nghiệp và môi trường nóng bức.',
     icon: 'sunny',
@@ -193,10 +193,10 @@ export const CURRENT_LABOR_UPDATES: LaborUpdate[] = [
   },
   {
     id: 'childcare-care-law',
-    title: 'Luật nghỉ chăm con và chăm người thân đang áp dụng mạnh hơn',
-    effectiveDate: 'Các đợt sửa đổi áp dụng từ 2025 và tiếp tục có hiệu lực trong 2026',
+    title: 'Luật nghỉ chăm con và chăm người thân tiếp tục tác động mạnh',
+    effectiveDate: 'Các sửa đổi từ 2025 tiếp tục có hiệu lực trong 2026',
     summary:
-      'Người lao động có thêm cơ chế hỗ trợ cân bằng việc làm với chăm con hoặc chăm người thân nếu đủ điều kiện luật định.',
+      'Người lao động có thêm khung hỗ trợ để cân bằng việc làm với chăm con hoặc chăm người thân nếu đủ điều kiện luật định.',
     impact:
       'Nhiều lao động nước ngoài không biết mình cũng có thể có quyền lợi ở mảng này nếu hợp đồng và thời gian làm việc đáp ứng điều kiện.',
     icon: 'people',
@@ -206,11 +206,11 @@ export const CURRENT_LABOR_UPDATES: LaborUpdate[] = [
   {
     id: 'short-time-social-insurance',
     title: 'Mở rộng bảo hiểm xã hội cho lao động làm ngắn giờ',
-    effectiveDate: 'Mở rộng lớn đã áp dụng từ 01/10/2024 và tiếp tục trong 2026',
+    effectiveDate: 'Mở rộng đã áp dụng từ 2024-10-01 và tiếp tục trong 2026',
     summary:
       'Ở doanh nghiệp từ 51 lao động trở lên, người làm từ 20 giờ/tuần có thể thuộc diện tham gia nếu đủ điều kiện.',
     impact:
-      'Part-time không đồng nghĩa chắc chắn không phải vào 社会保険. Đây là điểm rất nhiều người Việt nhầm.',
+      'Part-time không đồng nghĩa chắc chắn không phải vào bảo hiểm xã hội. Đây là điểm người Việt nhầm rất nhiều.',
     icon: 'shield-checkmark',
     color: '#185FA5',
     url: 'https://www.nenkin.go.jp/oshirase/topics/2021/0219.html?sc_vid=1774051200053909007457084953.8',
@@ -252,14 +252,14 @@ export const JOB_PLATFORMS: {
         nameJp: 'しっかり労働',
         url: 'https://www.check-roudou.mhlw.go.jp/',
         description:
-          'Trang chính thức để tự kiểm tra lương, giờ làm, nghỉ phép, làm thêm giờ và các quyền lao động cơ bản.',
+          'Trang chính thức để tự kiểm tra lương, giờ làm, nghỉ phép, làm thêm giờ và các quyền lao động của bạn.',
         targetUser: 'Người đã đi làm',
         icon: 'document-text',
         color: '#27AE60',
         tags: ['Luật lao động', 'Chính thức', 'Miễn phí'],
         eligibleFor: ['student', 'dependent', 'work-visa', 'ssw', 'unrestricted', 'unsure'],
         visaNote:
-          'Không phải trang tuyển dụng, nhưng rất quan trọng để biết công ty đang làm đúng hay sai.',
+          'Đây không phải trang tuyển dụng, nhưng rất quan trọng để biết công ty đang làm đúng hay sai.',
       },
     ],
   },
@@ -281,10 +281,10 @@ export const JOB_PLATFORMS: {
         tags: ['Full-time', 'Part-time', 'Nhiều ngành'],
         eligibleFor: ['student', 'dependent', 'work-visa', 'ssw', 'unrestricted', 'unsure'],
         visaNote:
-          'Đây là công cụ tìm kiếm. Hợp hay không hợp visa vẫn phải đọc ở từng tin tuyển dụng và nội dung công việc thực tế.',
+          'Đây là công cụ tìm kiếm. Hợp hay không hợp visa vẫn phải đọc kỹ tin tuyển dụng và nội dung công việc thực tế.',
         requiresPermission: true,
         workHourLimit:
-          'Nếu bạn đi làm thêm theo visa hạn chế giờ, phải tự kiểm tổng số giờ của tất cả nơi làm.',
+          'Nếu đi làm theo visa có giới hạn giờ, phải tự kiểm tổng số giờ của tất cả nơi làm.',
       },
       {
         id: 'jobsinjapan',
@@ -292,7 +292,7 @@ export const JOB_PLATFORMS: {
         nameJp: 'Jobs in Japan',
         url: 'https://jobsinjapan.com/',
         description:
-          'Khá phổ biến với người nước ngoài, giao diện tiếng Anh, nhiều tin tuyển dụng có nhắc tới hỗ trợ visa.',
+          'Phổ biến với người nước ngoài, giao diện tiếng Anh, nhiều tin có nhắc tới hỗ trợ visa.',
         targetUser: 'Người nước ngoài',
         icon: 'briefcase',
         color: '#E74C3C',
@@ -339,7 +339,7 @@ export const JOB_PLATFORMS: {
           'Rất hay dùng cho việc làm thêm, nhưng không phải tin nào cũng hợp với du học sinh hoặc diện gia đình.',
         requiresPermission: true,
         workHourLimit:
-          'Nếu bạn thuộc nhóm phải xin phép làm thêm, đừng quên kiểm tổng giờ cả tuần và cả các nơi làm khác.',
+          'Nếu thuộc nhóm phải xin phép làm thêm, đừng quên kiểm tổng giờ cả tuần và cộng với chỗ làm khác.',
       },
       {
         id: 'townwork',
@@ -347,14 +347,14 @@ export const JOB_PLATFORMS: {
         nameJp: 'タウンワーク',
         url: 'https://townwork.net/',
         description:
-          'Nhiều tin part-time theo khu vực, phù hợp khi muốn tìm việc gần ga hoặc gần nơi ở.',
+          'Nhiều tin part-time theo khu vực, phù hợp khi muốn tìm việc gần ga hoặc gần nhà ở.',
         targetUser: 'Người tìm việc gần nhà',
         icon: 'map',
         color: '#16A085',
         tags: ['Part-time', 'Theo khu vực', 'Baito'],
         eligibleFor: ['student', 'dependent', 'unrestricted', 'unsure'],
         visaNote:
-          'Đọc kỹ phần công việc thực tế, ca làm và yêu cầu tiếng Nhật; không nên chỉ nhìn tiêu đề ngắn.',
+          'Phải kiểm kỹ nội dung công việc, ca làm và yêu cầu tiếng Nhật; không nên chỉ nhìn tiêu đề ngắn.',
         requiresPermission: true,
         workHourLimit:
           'Part-time hợp visa vẫn phải nằm trong phạm vi giờ làm được phép nếu bạn đang ở diện hạn chế giờ.',
@@ -385,7 +385,7 @@ export const WORKER_RIGHTS: WorkerRight[] = [
   {
     title: 'Tai nạn đi làm hoặc trên đường đi về có thể được bảo vệ',
     description:
-      '労災 không chỉ là tai nạn ngay trong chỗ làm; tai nạn trên đường đi làm về đúng điều kiện cũng có thể được xem xét.',
+      '労災 không chỉ là tai nạn ngay trong nơi làm; tai nạn trên đường đi làm về đúng điều kiện cũng có thể được xem xét.',
     icon: 'medical-outline',
   },
   {
@@ -397,7 +397,7 @@ export const WORKER_RIGHTS: WorkerRight[] = [
   {
     title: 'Part-time vẫn có thể phải vào bảo hiểm xã hội',
     description:
-      'Đừng tự cho rằng đi làm bán thời gian thì chắc chắn không phải vào 社会保険. Điều này phụ thuộc giờ làm và loại doanh nghiệp.',
+      'Đừng tự cho rằng làm bán thời gian thì chắc chắn không phải vào bảo hiểm xã hội. Điều này phụ thuộc giờ làm và loại doanh nghiệp.',
     icon: 'shield-checkmark-outline',
   },
 ];
@@ -406,7 +406,7 @@ export const LABOR_RISK_SIGNS: LaborRiskSign[] = [
   {
     title: 'Không đưa hợp đồng hoặc giấy điều kiện lao động rõ ràng',
     description:
-      'Nếu công ty chỉ bảo “vào làm trước rồi tính”, đây là dấu hiệu rủi ro rất lớn khi xảy ra tranh chấp lương hoặc giờ làm.',
+      'Nếu công ty chỉ bảo “vào làm trước rồi tính” thì đây là dấu hiệu rủi ro rất lớn khi xảy ra tranh chấp lương hoặc giờ làm.',
     severity: 'high',
   },
   {
@@ -416,7 +416,7 @@ export const LABOR_RISK_SIGNS: LaborRiskSign[] = [
     severity: 'high',
   },
   {
-    title: 'Mô tả công việc mơ hồ hoặc khác hẳn lúc phỏng vấn',
+    title: 'Mô tả công việc mập mờ hoặc khác hẳn lúc phỏng vấn',
     description:
       'Nếu nội dung việc thực tế không khớp với thứ đã hứa, bạn có thể bị đẩy vào công việc vượt visa hoặc vượt sức.',
     severity: 'medium',
@@ -430,14 +430,14 @@ export const LABOR_RISK_SIGNS: LaborRiskSign[] = [
   {
     title: 'Bảo ký nhanh, không cho thời gian đọc',
     description:
-      'Nếu bạn không được mang hợp đồng về đọc hoặc hỏi người hỗ trợ trước khi ký, đây là dấu hiệu cần cảnh giác.',
+      'Nếu bạn không được mang hợp đồng về đọc hoặc hỏi người hỗ trợ trước khi ký, đó là dấu hiệu cần cảnh giác.',
     severity: 'medium',
   },
 ];
 
 export const CONTRACT_REVIEW_CHECKLIST: ContractChecklistItem[] = [
   {
-    label: 'Lương cơ bản và cách tính lương thực nhận',
+    label: 'Lương của bạn và cách tính lương thực nhận',
     whyItMatters:
       'Phải biết lương gốc là bao nhiêu, có bao gồm phụ cấp cố định hay không, và phần nào chỉ là ví dụ chứ không phải cam kết.',
   },
@@ -502,7 +502,7 @@ export const LABOR_SUPPORT_PHRASES: LaborPhrase[] = [
   {
     jp: '今日は返事をせず、確認してから連絡したいです。',
     romaji: 'Kyou wa henji o sezu, kakunin shite kara renraku shitai desu.',
-    vn: 'Hôm nay tôi chưa trả lời ngay, tôi muốn kiểm tra rồi sẽ liên lạc lại.',
+    vn: 'Hôm nay tôi chưa trả lời ngay, tôi muốn kiểm tra kỹ rồi sẽ liên lạc lại.',
     useCase: 'Dùng để trì hoãn ký hoặc nhận việc khi bạn chưa chắc.',
   },
 ];
@@ -568,7 +568,7 @@ export const LABOR_HELP_SCENARIOS: LaborHelpScenario[] = [
     collectEvidence: [
       'Tin nhắn hoặc email thể hiện công ty đang giữ giấy tờ',
       'Ảnh chụp giấy tờ nếu còn có bản sao',
-      'Tên người quản lý, tên công ty, địa chỉ nơi làm việc',
+      'Tên quản lý, tên công ty, địa chỉ nơi làm việc',
       'Bất kỳ văn bản nào ép giao giấy tờ',
     ],
     contact: [
@@ -582,7 +582,7 @@ export const LABOR_HELP_SCENARIOS: LaborHelpScenario[] = [
     title: 'Muốn nghỉ việc nhưng bị dọa phạt hoặc cản trở',
     urgency: 'medium',
     description:
-      'Nhiều người bị dọa “nghỉ sẽ bị phạt”, “nghỉ thì visa tự hỏng ngay” hoặc “phải tìm người thay”. Cần tách luật lao động khỏi lời dọa miệng.',
+      'Nhiều người bị dọa “nghỉ sẽ bị phạt”, “nghỉ thì visa hỏng ngay” hoặc “phải tìm người thay”. Cần tách luật lao động khỏi lời dọa miệng.',
     doNow: [
       'Đọc lại điều khoản báo trước trong hợp đồng.',
       'Nộp thông báo nghỉ việc bằng hình thức có thể chứng minh được.',
@@ -592,7 +592,7 @@ export const LABOR_HELP_SCENARIOS: LaborHelpScenario[] = [
       'Hợp đồng lao động hoặc điều khoản nghỉ việc',
       'Thông báo nghỉ việc đã gửi',
       'Tin nhắn, email hoặc ghi chú về việc công ty cản trở',
-      'Bảng lương và giấy tờ liên quan nếu công ty đe dọa giữ lương',
+      'Bảng lương và giấy tờ liên quan nếu công ty dọa giữ lương',
     ],
     contact: [
       'Check-Roudou',

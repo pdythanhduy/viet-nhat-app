@@ -19,7 +19,10 @@ import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
 import { StorageKeys } from '../constants/storageKeys';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { CLAUDE_MODEL } from '../constants/api';
 import { loadClaudeApiKey } from '../utils/apiKeyStorage';
+import { buildUserProfileSummary, loadUserProfile } from '../utils/userProfile';
+import type { UserProfile } from '../types/profile';
 
 type RouteType = RouteProp<RootStackParamList, 'AIChat'>;
 
@@ -31,7 +34,10 @@ interface Message {
 }
 
 const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
-const SYSTEM_PROMPT = `Bạn là trợ lý AI của ứng dụng "Việt-Nhật" - ứng dụng hỗ trợ người Việt Nam sinh sống tại Nhật Bản.
+/** Number of most-recent messages sent to the API per request. Keeps cost bounded. */
+const MAX_HISTORY_MESSAGES = 14;
+
+const BASE_SYSTEM_PROMPT = `Bạn là trợ lý AI của ứng dụng "Viet-Nhat" - ứng dụng hỗ trợ người Việt Nam sinh sống tại Nhật Bản.
 
 Nhiệm vụ của bạn:
 - Trả lời hoàn toàn bằng tiếng Việt, trừ khi người dùng yêu cầu ngôn ngữ khác.
@@ -49,7 +55,15 @@ Lĩnh vực bạn hỗ trợ tốt:
 
 Luôn ưu tiên tính thực tế và cảnh báo người dùng khi nội dung cần kiểm tra lại bằng nguồn chính thức.`;
 
+function buildSystemPrompt(profile: UserProfile | null): string {
+  if (!profile) return BASE_SYSTEM_PROMPT;
+  const summary = buildUserProfileSummary(profile);
+  return `${BASE_SYSTEM_PROMPT}\n\nThông tin người dùng: ${summary}`;
+}
+
 const STORAGE_KEY = StorageKeys.aiChatHistory;
+/** Legacy storage key used before v1 versioning. Kept for one-time migration. */
+const STORAGE_KEY_LEGACY = StorageKeys.aiChatHistoryLegacy;
 
 export default function AIChatScreen() {
   const route = useRoute<RouteType>();
@@ -57,12 +71,20 @@ export default function AIChatScreen() {
   const [inputText, setInputText] = useState(route.params?.prefilledQuestion || '');
   const [isLoading, setIsLoading] = useState(false);
   const [apiKey, setApiKey] = useState('');
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
   const inputRef = useRef<TextInput>(null);
+  /**
+   * Set to true immediately before setMessages() is called during history restore.
+   * The saveHistory effect consumes and clears it, preventing a redundant write-back
+   * of data that was just read from storage.
+   */
+  const skipNextSaveRef = useRef(false);
 
   useEffect(() => {
     loadHistory();
     loadApiKey();
+    loadUserProfile().then(setUserProfile).catch(() => undefined);
   }, []);
 
   const loadApiKey = async () => {
@@ -75,6 +97,12 @@ export default function AIChatScreen() {
   };
 
   useEffect(() => {
+    // Consume the skip flag set during history restore; clear it so subsequent
+    // user-driven changes proceed to save normally.
+    if (skipNextSaveRef.current) {
+      skipNextSaveRef.current = false;
+      return;
+    }
     if (messages.length > 0) {
       saveHistory();
     }
@@ -82,14 +110,29 @@ export default function AIChatScreen() {
 
   const loadHistory = async () => {
     try {
-      const stored = await AsyncStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        const restored = parsed.map((m: any) => ({
+      // Try the current versioned key first; fall back to the legacy key for migration.
+      let raw = await AsyncStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        raw = await AsyncStorage.getItem(STORAGE_KEY_LEGACY);
+        if (raw) {
+          // Migrate: write under the new key and delete the old one.
+          await AsyncStorage.setItem(STORAGE_KEY, raw);
+          await AsyncStorage.removeItem(STORAGE_KEY_LEGACY);
+        }
+      }
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        const restored: Message[] = parsed.map((m: any) => ({
           ...m,
           timestamp: new Date(m.timestamp),
         }));
-        setMessages(restored.slice(-40));
+        const slice = restored.slice(-40);
+        if (slice.length > 0) {
+          // Set the flag before setState so the effect sees it when it fires
+          // after the re-render triggered by this setState call.
+          skipNextSaveRef.current = true;
+          setMessages(slice);
+        }
       }
     } catch {
       // ignore
@@ -114,6 +157,7 @@ export default function AIChatScreen() {
         onPress: async () => {
           setMessages([]);
           await AsyncStorage.removeItem(STORAGE_KEY);
+          await AsyncStorage.removeItem(STORAGE_KEY_LEGACY);
         },
       },
     ]);
@@ -133,7 +177,7 @@ export default function AIChatScreen() {
     }
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: Math.random().toString(36).slice(2),
       role: 'user',
       content: text,
       timestamp: new Date(),
@@ -148,7 +192,9 @@ export default function AIChatScreen() {
     }, 100);
 
     try {
-      const conversationHistory = [...messages, userMessage].map((m) => ({
+      // Only send the most recent MAX_HISTORY_MESSAGES to keep token usage bounded.
+      const recentMessages = messages.slice(-(MAX_HISTORY_MESSAGES - 1));
+      const conversationHistory = [...recentMessages, userMessage].map((m) => ({
         role: m.role,
         content: m.content,
       }));
@@ -161,9 +207,9 @@ export default function AIChatScreen() {
           'anthropic-version': '2023-06-01',
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: CLAUDE_MODEL,
           max_tokens: 1024,
-          system: SYSTEM_PROMPT,
+          system: buildSystemPrompt(userProfile),
           messages: conversationHistory,
         }),
       });
@@ -174,10 +220,11 @@ export default function AIChatScreen() {
       }
 
       const data = await response.json();
-      const assistantContent = data.content?.[0]?.text || 'Xin lỗi, tôi không thể trả lời lúc này.';
+      const assistantContent =
+        data.content?.[0]?.text || 'Xin lỗi, tôi không thể trả lời lúc này.';
 
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: Math.random().toString(36).slice(2),
         role: 'assistant',
         content: assistantContent,
         timestamp: new Date(),
@@ -186,9 +233,11 @@ export default function AIChatScreen() {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error: any) {
       const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: Math.random().toString(36).slice(2),
         role: 'assistant',
-        content: `Xin lỗi, đã có lỗi xảy ra: ${error.message || 'Không thể kết nối đến AI'}. Vui lòng kiểm tra mạng và thử lại.`,
+        content: `Xin lỗi, đã có lỗi xảy ra: ${
+          error.message || 'Không thể kết nối đến AI'
+        }. Vui lòng kiểm tra mạng và thử lại.`,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -198,7 +247,7 @@ export default function AIChatScreen() {
         scrollViewRef.current?.scrollToEnd({ animated: true });
       }, 100);
     }
-  }, [inputText, isLoading, messages, apiKey]);
+  }, [inputText, isLoading, messages, apiKey, userProfile]);
 
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
@@ -236,10 +285,10 @@ export default function AIChatScreen() {
             <View style={styles.welcomeIcon}>
               <Ionicons name="sparkles" size={32} color={Colors.white} />
             </View>
-            <Text style={styles.welcomeTitle}>Xin chào! Tôi là trợ lý AI Việt-Nhật</Text>
+            <Text style={styles.welcomeTitle}>Xin chào! Tôi là trợ lý AI Viet-Nhat</Text>
             <Text style={styles.welcomeSubtitle}>
-              Tôi có thể giúp bạn về thủ tục hành chính, việc làm, bảo hiểm, cuộc sống
-              hằng ngày và tiếng Nhật thực tế tại Nhật Bản.
+              Tôi có thể giúp bạn về thủ tục hành chính, việc làm, bảo hiểm, cuộc sống hằng ngày
+              và tiếng Nhật thực tế tại Nhật Bản.
             </Text>
             <Text style={styles.quickPromptsTitle}>Câu hỏi gợi ý:</Text>
             {QUICK_PROMPTS.map((prompt, i) => (

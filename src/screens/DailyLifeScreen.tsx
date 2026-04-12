@@ -15,6 +15,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { DAILY_LIFE_TOPICS } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
 import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -81,11 +82,20 @@ export default function DailyLifeScreen() {
   const [search, setSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterId>('all');
   const [recentTopicIds, setRecentTopicIds] = useState<string[]>([]);
+  const [savedTopicIds, setSavedTopicIds] = useState<string[]>([]);
+  const [pinnedTopicIds, setPinnedTopicIds] = useState<string[]>([]);
 
   useFocusEffect(
     useCallback(() => {
       loadRecentDailyLifeTopics().then((items) => {
         setRecentTopicIds(items.map((item) => item.topicId));
+      });
+      loadBookmarks().then((items: Bookmark[]) => {
+        const dailyLifeItems = items.filter((item) => item.type === 'daily-life');
+        setSavedTopicIds(dailyLifeItems.map((item) => item.id));
+        setPinnedTopicIds(
+          dailyLifeItems.filter((item) => !!item.pinnedAt).map((item) => item.id)
+        );
       });
     }, [])
   );
@@ -106,6 +116,22 @@ export default function DailyLifeScreen() {
         .map((topicId) => DAILY_LIFE_TOPICS.find((topic) => topic.id === topicId))
         .filter(Boolean),
     []
+  );
+
+  const savedTopics = useMemo(
+    () =>
+      savedTopicIds
+        .map((topicId) => DAILY_LIFE_TOPICS.find((topic) => topic.id === topicId))
+        .filter(Boolean),
+    [savedTopicIds]
+  );
+
+  const pinnedTopics = useMemo(
+    () =>
+      pinnedTopicIds
+        .map((topicId) => DAILY_LIFE_TOPICS.find((topic) => topic.id === topicId))
+        .filter(Boolean),
+    [pinnedTopicIds]
   );
 
   const visibleGroups = useMemo(() => {
@@ -176,6 +202,66 @@ export default function DailyLifeScreen() {
               {recentTopics.map((topic) => (
                 <TouchableOpacity
                   key={`recent-${topic!.id}`}
+                  style={styles.quickCard}
+                  onPress={() => navigation.navigate('DailyLifeDetail', { topicId: topic!.id })}
+                >
+                  <View style={[styles.quickIcon, { backgroundColor: `${topic!.color}18` }]}>
+                    <Ionicons
+                      name={ICON_MAP[topic!.icon] || 'help-circle'}
+                      size={18}
+                      color={topic!.color}
+                    />
+                  </View>
+                  <Text style={styles.quickTitle} numberOfLines={2}>
+                    {topic!.title}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        ) : null}
+
+        {pinnedTopics.length > 0 ? (
+          <View style={styles.groupBlock}>
+            <View style={styles.groupTitleRow}>
+              <Text style={styles.groupTitle}>Đã ghim</Text>
+              <Text style={styles.groupMeta}>{pinnedTopics.length} mục</Text>
+            </View>
+            <Text style={styles.groupDesc}>Những mục sinh hoạt bạn đang ưu tiên giữ lên đầu.</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quickRow}>
+              {pinnedTopics.map((topic) => (
+                <TouchableOpacity
+                  key={`pinned-${topic!.id}`}
+                  style={styles.quickCard}
+                  onPress={() => navigation.navigate('DailyLifeDetail', { topicId: topic!.id })}
+                >
+                  <View style={[styles.quickIcon, { backgroundColor: `${topic!.color}18` }]}>
+                    <Ionicons
+                      name={ICON_MAP[topic!.icon] || 'help-circle'}
+                      size={18}
+                      color={topic!.color}
+                    />
+                  </View>
+                  <Text style={styles.quickTitle} numberOfLines={2}>
+                    {topic!.title}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        ) : null}
+
+        {savedTopics.length > 0 ? (
+          <View style={styles.groupBlock}>
+            <View style={styles.groupTitleRow}>
+              <Text style={styles.groupTitle}>Đã lưu</Text>
+              <Text style={styles.groupMeta}>{savedTopics.length} mục</Text>
+            </View>
+            <Text style={styles.groupDesc}>Các mục sinh hoạt bạn đã lưu để mở lại nhanh.</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quickRow}>
+              {savedTopics.slice(0, 8).map((topic) => (
+                <TouchableOpacity
+                  key={`saved-${topic!.id}`}
                   style={styles.quickCard}
                   onPress={() => navigation.navigate('DailyLifeDetail', { topicId: topic!.id })}
                 >
@@ -374,7 +460,13 @@ const styles = StyleSheet.create({
   filterChipText: { fontSize: 12, fontWeight: '600', color: Colors.textSecondary },
   filterChipTextActive: { color: Colors.white },
   groupBlock: { marginBottom: 18 },
+  groupTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   groupTitle: { fontSize: 17, fontWeight: '800', color: Colors.textPrimary },
+  groupMeta: { fontSize: 11, fontWeight: '700', color: Colors.textMuted },
   groupDesc: {
     fontSize: 12,
     color: Colors.textSecondary,

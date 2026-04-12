@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useCallback, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import {
@@ -24,13 +24,65 @@ import {
 import { RootStackParamList } from '../navigation/AppNavigator';
 import type { EligibleWorkerType } from '../types/content';
 import { formatLastUpdated } from '../utils/contentMetadata';
+import {
+  LaborResourceDefinition,
+  LaborResourceId,
+  LaborResourceState,
+  loadLaborResourceStates,
+  markLaborResourceViewed,
+  toggleLaborResourcePinned,
+  toggleLaborResourceSaved,
+} from '../utils/laborResources';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 function openUrl(url: string) {
   Linking.openURL(url).catch(() =>
-    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng.')
+    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng rồi thử lại.')
   );
+}
+
+const LABOR_RESOURCES: Array<
+  LaborResourceDefinition & {
+    icon: keyof typeof Ionicons.glyphMap;
+    action: 'guide' | 'help' | 'official';
+  }
+> = [
+  {
+    id: 'labor-guide',
+    title: 'Sắp ký hợp đồng',
+    description:
+      'Mở checklist đọc hợp đồng, dấu hiệu công ty rủi ro và các câu nên hỏi lại trước khi ký.',
+    icon: 'document-text-outline',
+    color: '#185FA5',
+    action: 'guide',
+  },
+  {
+    id: 'labor-help',
+    title: 'Đang có vấn đề với công ty',
+    description:
+      'Đi thẳng vào các tình huống nợ lương, ép OT, giữ giấy tờ hoặc cản trở nghỉ việc.',
+    icon: 'warning-outline',
+    color: '#E67E22',
+    action: 'help',
+  },
+  {
+    id: 'official-law',
+    title: 'Muốn đối chiếu luật chính thức',
+    description:
+      'Mở nguồn của MHLW để kiểm tra lại lương, giờ làm, phép và nghĩa vụ của công ty.',
+    icon: 'shield-checkmark-outline',
+    color: '#27AE60',
+    action: 'official',
+  },
+];
+
+function sortByRecent<T extends { timestamp?: string }>(items: T[]) {
+  return [...items].sort((a, b) => {
+    const aTime = a.timestamp ? new Date(a.timestamp).getTime() : 0;
+    const bTime = b.timestamp ? new Date(b.timestamp).getTime() : 0;
+    return bTime - aTime;
+  });
 }
 
 export default function JobsScreen() {
@@ -39,9 +91,130 @@ export default function JobsScreen() {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(
     JOB_PLATFORMS[0]?.category ?? null
   );
+  const [resourceStates, setResourceStates] = useState<LaborResourceState[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadLaborResourceStates().then(setResourceStates);
+    }, [])
+  );
 
   const activeGuide =
     WORKER_TYPE_GUIDES.find((guide) => guide.id === activeWorkerType) ?? WORKER_TYPE_GUIDES[0];
+
+  const resourcesWithState = useMemo(
+    () =>
+      LABOR_RESOURCES.map((resource) => {
+        const state = resourceStates.find((item) => item.id === resource.id);
+        return {
+          ...resource,
+          savedAt: state?.savedAt,
+          pinnedAt: state?.pinnedAt,
+          lastViewedAt: state?.lastViewedAt,
+        };
+      }),
+    [resourceStates]
+  );
+
+  const pinnedResources = sortByRecent(
+    resourcesWithState
+      .filter((item) => !!item.pinnedAt)
+      .map((item) => ({ ...item, timestamp: item.pinnedAt }))
+  );
+  const savedResources = sortByRecent(
+    resourcesWithState
+      .filter((item) => item.savedAt && !item.pinnedAt)
+      .map((item) => ({ ...item, timestamp: item.savedAt }))
+  );
+  const recentResources = sortByRecent(
+    resourcesWithState
+      .filter((item) => !!item.lastViewedAt)
+      .map((item) => ({ ...item, timestamp: item.lastViewedAt }))
+  );
+
+  const openLaborResource = async (resourceId: LaborResourceId) => {
+    const nextStates = await markLaborResourceViewed(resourceId);
+    setResourceStates(nextStates);
+
+    if (resourceId === 'labor-guide') {
+      navigation.navigate('LaborGuide');
+      return;
+    }
+
+    if (resourceId === 'labor-help') {
+      navigation.navigate('LaborHelp');
+      return;
+    }
+
+    openUrl('https://www.check-roudou.mhlw.go.jp/');
+  };
+
+  const handleToggleSaved = async (resourceId: LaborResourceId) => {
+    const nextSaved = await toggleLaborResourceSaved(resourceId);
+    setResourceStates(await loadLaborResourceStates());
+    Alert.alert(
+      nextSaved ? 'Đã lưu' : 'Đã bỏ lưu',
+      nextSaved
+        ? 'Mục này đã được thêm vào tab Việc làm.'
+        : 'Mục này không còn nằm trong danh sách đã lưu.'
+    );
+  };
+
+  const handleTogglePinned = async (resourceId: LaborResourceId) => {
+    const nextPinned = await toggleLaborResourcePinned(resourceId);
+    setResourceStates(await loadLaborResourceStates());
+    Alert.alert(
+      nextPinned ? 'Đã ghim' : 'Đã bỏ ghim',
+      nextPinned
+        ? 'Mục này sẽ hiện ưu tiên ở đầu tab Việc làm.'
+        : 'Mục này không còn ghim nữa.'
+    );
+  };
+
+  const renderResourceRow = (
+    resource: (typeof resourcesWithState)[number],
+    variant: 'compact' | 'full' = 'compact'
+  ) => (
+    <TouchableOpacity
+      key={resource.id}
+      style={[styles.resourceRow, variant === 'full' && styles.resourceRowFull]}
+      onPress={() => void openLaborResource(resource.id)}
+      activeOpacity={0.85}
+    >
+      <View style={[styles.resourceIconBg, { backgroundColor: resource.color + '18' }]}>
+        <Ionicons name={resource.icon} size={18} color={resource.color} />
+      </View>
+      <View style={styles.resourceInfo}>
+        <Text style={styles.resourceTitle}>{resource.title}</Text>
+        <Text style={styles.resourceDesc} numberOfLines={variant === 'full' ? 4 : 2}>
+          {resource.description}
+        </Text>
+      </View>
+      <View style={styles.resourceActions}>
+        <TouchableOpacity
+          style={styles.resourceActionBtn}
+          onPress={() => void handleTogglePinned(resource.id)}
+        >
+          <Ionicons
+            name={resource.pinnedAt ? 'pin' : 'pin-outline'}
+            size={17}
+            color={resource.color}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.resourceActionBtn}
+          onPress={() => void handleToggleSaved(resource.id)}
+        >
+          <Ionicons
+            name={resource.savedAt ? 'bookmark' : 'bookmark-outline'}
+            size={18}
+            color={resource.color}
+          />
+        </TouchableOpacity>
+        <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -50,11 +223,38 @@ export default function JobsScreen() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Việc làm tại Nhật</Text>
         <Text style={styles.headerSub}>
-          Tìm đúng nguồn việc, hiểu quyền lao động và tránh các rủi ro dễ gặp.
+          Tìm đúng nguồn việc, hiểu quyền lao động và biết đi đâu khi công ty có vấn đề.
         </Text>
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {recentResources.length > 0 ? (
+          <View style={styles.statusSection}>
+            <Text style={styles.sectionTitle}>Vừa xem</Text>
+            <View style={styles.statusList}>
+              {recentResources.slice(0, 3).map((resource) => renderResourceRow(resource))}
+            </View>
+          </View>
+        ) : null}
+
+        {pinnedResources.length > 0 ? (
+          <View style={styles.statusSection}>
+            <Text style={styles.sectionTitle}>Đã ghim</Text>
+            <View style={styles.statusList}>
+              {pinnedResources.slice(0, 3).map((resource) => renderResourceRow(resource))}
+            </View>
+          </View>
+        ) : null}
+
+        {savedResources.length > 0 ? (
+          <View style={styles.statusSection}>
+            <Text style={styles.sectionTitle}>Đã lưu</Text>
+            <View style={styles.statusList}>
+              {savedResources.slice(0, 3).map((resource) => renderResourceRow(resource))}
+            </View>
+          </View>
+        ) : null}
+
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -88,6 +288,13 @@ export default function JobsScreen() {
           })}
         </ScrollView>
 
+        <View style={styles.quickActionSection}>
+          <Text style={styles.sectionTitle}>Xử lý nhanh theo tình huống</Text>
+          <View style={styles.quickActionGrid}>
+            {resourcesWithState.map((item) => renderResourceRow(item, 'full'))}
+          </View>
+        </View>
+
         <View style={[styles.profileCard, { borderColor: activeGuide.color + '40' }]}>
           <View style={[styles.profileIcon, { backgroundColor: activeGuide.color + '18' }]}>
             <Ionicons name={activeGuide.icon} size={20} color={activeGuide.color} />
@@ -107,9 +314,9 @@ export default function JobsScreen() {
         <View style={styles.noticeCard}>
           <Ionicons name="information-circle" size={20} color={Colors.primary} />
           <Text style={styles.noticeText}>
-            Tab này không đăng tin tuyển dụng trực tiếp. Nó giúp bạn chọn đúng{' '}
+            Tab này không đăng tin tuyển dụng trực tiếp. Nó giúp bạn chốt đúng{' '}
             <Text style={styles.noticeBold}>
-              nguồn tìm việc, nguồn tư vấn và nguồn pháp lý chính thức
+              nơi tìm việc, nơi tra luật và nơi cầu cứu khi gặp tranh chấp
             </Text>{' '}
             tại Nhật.
           </Text>
@@ -249,20 +456,20 @@ export default function JobsScreen() {
           ))}
         </View>
 
-        <TouchableOpacity style={styles.guideCard} onPress={() => navigation.navigate('LaborGuide')}>
+        <TouchableOpacity style={styles.guideCard} onPress={() => void openLaborResource('labor-guide')}>
           <View style={styles.guideIconBg}>
             <Ionicons name="book-outline" size={20} color={Colors.primary} />
           </View>
           <View style={styles.guideText}>
             <Text style={styles.guideTitle}>Mở cẩm nang lao động</Text>
             <Text style={styles.guideDesc}>
-              Xem dấu hiệu công ty rủi ro, checklist hợp đồng và câu tiếng Nhật nên dùng.
+              Xem dấu hiệu công ty rủi ro, checklist hợp đồng và các câu tiếng Nhật nên dùng.
             </Text>
           </View>
           <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.guideCard} onPress={() => navigation.navigate('LaborHelp')}>
+        <TouchableOpacity style={styles.guideCard} onPress={() => void openLaborResource('labor-help')}>
           <View style={styles.guideIconBg}>
             <Ionicons name="help-buoy-outline" size={20} color={Colors.primary} />
           </View>
@@ -277,13 +484,13 @@ export default function JobsScreen() {
 
         <TouchableOpacity
           style={styles.lawLink}
-          onPress={() => openUrl('https://www.check-roudou.mhlw.go.jp/')}
+          onPress={() => void openLaborResource('official-law')}
         >
           <Ionicons name="document-text-outline" size={18} color={Colors.primary} />
           <View style={styles.lawLinkText}>
-            <Text style={styles.lawLinkTitle}>Kiểm tra điều kiện lao động của bạn</Text>
+            <Text style={styles.lawLinkTitle}>Kiểm tra luật lao động chính thức</Text>
             <Text style={styles.lawLinkSub}>
-              check-roudou.mhlw.go.jp - nguồn chính thức của Bộ Lao động Nhật
+              check-roudou.mhlw.go.jp - nguồn của Bộ Lao động Nhật
             </Text>
           </View>
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
@@ -340,6 +547,8 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingHorizontal: 16,
   },
+  statusSection: { marginBottom: 12 },
+  statusList: { gap: 10 },
   workerFiltersScroll: { marginBottom: 10 },
   workerFiltersContent: { gap: 8 },
   workerFilter: {
@@ -355,6 +564,42 @@ const styles = StyleSheet.create({
   },
   workerFilterText: { fontSize: 12, fontWeight: '700', color: Colors.textSecondary },
   workerFilterTextActive: { color: Colors.white },
+  quickActionSection: { marginBottom: 12 },
+  quickActionGrid: { gap: 10, marginTop: 2 },
+  resourceRow: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+  },
+  resourceRowFull: { padding: 14 },
+  resourceIconBg: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  resourceInfo: { flex: 1 },
+  resourceTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: Colors.textPrimary,
+    marginBottom: 4,
+  },
+  resourceDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
+  resourceActions: { flexDirection: 'row', alignItems: 'center', gap: 2 },
+  resourceActionBtn: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   profileCard: {
     flexDirection: 'row',
     gap: 12,

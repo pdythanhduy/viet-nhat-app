@@ -13,6 +13,7 @@ export interface GuideBookmark {
   description: string;
   color: string;
   savedAt: string;
+  pinnedAt?: string;
 }
 
 export interface PhraseBookmark {
@@ -23,6 +24,7 @@ export interface PhraseBookmark {
   vn: string;
   category: string;
   savedAt: string;
+  pinnedAt?: string;
 }
 
 export interface DialogueBookmark {
@@ -37,6 +39,7 @@ export interface DialogueBookmark {
     vn: string;
   }[];
   savedAt: string;
+  pinnedAt?: string;
 }
 
 export interface DailyLifeBookmark {
@@ -47,6 +50,7 @@ export interface DailyLifeBookmark {
   description: string;
   color: string;
   savedAt: string;
+  pinnedAt?: string;
 }
 
 export type Bookmark = GuideBookmark | PhraseBookmark | DialogueBookmark | DailyLifeBookmark;
@@ -81,4 +85,28 @@ export async function toggleBookmark(item: Bookmark): Promise<boolean> {
 export async function isBookmarked(id: string, type: BookmarkType): Promise<boolean> {
   const bookmarks = await loadBookmarks();
   return bookmarks.some((b) => b.id === id && b.type === type);
+}
+
+export async function toggleBookmarkPin(id: string, type: BookmarkType): Promise<boolean> {
+  const bookmarks = await loadBookmarks();
+  const index = bookmarks.findIndex((b) => b.id === id && b.type === type);
+  if (index < 0) return false;
+
+  const target = bookmarks[index];
+  const nextPinned = !target.pinnedAt;
+
+  bookmarks[index] = {
+    ...target,
+    pinnedAt: nextPinned ? new Date().toISOString() : undefined,
+  };
+
+  bookmarks.sort((a, b) => {
+    const aPinned = a.pinnedAt ? new Date(a.pinnedAt).getTime() : 0;
+    const bPinned = b.pinnedAt ? new Date(b.pinnedAt).getTime() : 0;
+    if (aPinned !== bPinned) return bPinned - aPinned;
+    return new Date(b.savedAt).getTime() - new Date(a.savedAt).getTime();
+  });
+
+  await saveBookmarks(bookmarks);
+  return nextPinned;
 }

@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
+  Clipboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -43,6 +44,43 @@ export default function DailyLifeDetailScreen() {
     isBookmarked(topic.id, 'daily-life').then(setBookmarked).catch(() => undefined);
   }, [topic.id]);
 
+  const formatSectionForCopy = (section: DailyLifeSection) => {
+    const parts: string[] = [section.title];
+
+    if (section.content) {
+      parts.push(section.content);
+    }
+
+    if (section.items?.length) {
+      parts.push(...section.items.map((item) => `- ${item}`));
+    }
+
+    if (section.tip) {
+      parts.push(`Mẹo đáng nhớ: ${section.tip}`);
+    }
+
+    return parts.join('\n');
+  };
+
+  const copyTopicSummary = () => {
+    const parts: string[] = [
+      `${topic.title} (${topic.titleJp})`,
+      topic.description,
+    ];
+
+    if (topic.sections?.length) {
+      parts.push(...topic.sections.map((section) => `\n${formatSectionForCopy(section)}`));
+    }
+
+    Clipboard.setString(parts.join('\n'));
+    Alert.alert('Đã copy', 'Đã copy toàn bộ nội dung tóm tắt của mục này.');
+  };
+
+  const copySection = (section: DailyLifeSection) => {
+    Clipboard.setString(`${topic.title}\n${formatSectionForCopy(section)}`);
+    Alert.alert('Đã copy', `Đã copy mục "${section.title}".`);
+  };
+
   const handleToggleBookmark = async () => {
     try {
       const next = await toggleBookmark({
@@ -70,13 +108,18 @@ export default function DailyLifeDetailScreen() {
             <Text style={styles.topicTitle}>{topic.title}</Text>
             <Text style={styles.topicDesc}>{topic.description}</Text>
           </View>
-          <TouchableOpacity style={styles.bookmarkBtn} onPress={handleToggleBookmark}>
-            <Ionicons
-              name={bookmarked ? 'bookmark' : 'bookmark-outline'}
-              size={22}
-              color={Colors.white}
-            />
-          </TouchableOpacity>
+          <View style={styles.headerActions}>
+            <TouchableOpacity style={styles.bookmarkBtn} onPress={copyTopicSummary}>
+              <Ionicons name="copy-outline" size={21} color={Colors.white} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bookmarkBtn} onPress={handleToggleBookmark}>
+              <Ionicons
+                name={bookmarked ? 'bookmark' : 'bookmark-outline'}
+                size={22}
+                color={Colors.white}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
 
@@ -100,15 +143,26 @@ export default function DailyLifeDetailScreen() {
               activeOpacity={0.85}
             >
               <View style={styles.sectionHeader}>
-                <View style={[styles.sectionNum, { backgroundColor: topic.color }]}>
-                  <Text style={styles.sectionNumText}>{index + 1}</Text>
+                <View style={styles.sectionHeaderLeft}>
+                  <View style={[styles.sectionNum, { backgroundColor: topic.color }]}>
+                    <Text style={styles.sectionNumText}>{index + 1}</Text>
+                  </View>
+                  <Text style={styles.sectionTitle}>{section.title}</Text>
                 </View>
-                <Text style={styles.sectionTitle}>{section.title}</Text>
-                <Ionicons
-                  name={expandedSection === index ? 'chevron-up' : 'chevron-down'}
-                  size={18}
-                  color={Colors.textMuted}
-                />
+                <View style={styles.sectionHeaderActions}>
+                  <TouchableOpacity
+                    style={styles.sectionCopyBtn}
+                    onPress={() => copySection(section)}
+                    hitSlop={8}
+                  >
+                    <Ionicons name="copy-outline" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                  <Ionicons
+                    name={expandedSection === index ? 'chevron-up' : 'chevron-down'}
+                    size={18}
+                    color={Colors.textMuted}
+                  />
+                </View>
               </View>
 
               {expandedSection === index ? (
@@ -175,6 +229,7 @@ const styles = StyleSheet.create({
   topicHeader: { paddingHorizontal: 20, paddingTop: 16, paddingBottom: 28 },
   headerTopRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
   headerTextWrap: { flex: 1 },
+  headerActions: { gap: 10 },
   bookmarkBtn: {
     width: 40,
     height: 40,
@@ -214,6 +269,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', padding: 16, gap: 12 },
+  sectionHeaderLeft: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  sectionHeaderActions: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   sectionNum: {
     width: 30,
     height: 30,
@@ -224,6 +281,14 @@ const styles = StyleSheet.create({
   },
   sectionNumText: { fontSize: 13, fontWeight: '800', color: Colors.white },
   sectionTitle: { flex: 1, fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
+  sectionCopyBtn: {
+    width: 28,
+    height: 28,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.background,
+  },
   sectionBody: {
     paddingHorizontal: 16,
     paddingBottom: 16,

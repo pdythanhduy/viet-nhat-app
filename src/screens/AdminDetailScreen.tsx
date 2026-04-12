@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Linking,
   Alert,
+  Clipboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -29,23 +30,27 @@ type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
 export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
+  const guideId = route.params.guideId;
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
 
-  const guide = ADMIN_GUIDES.find((g) => g.id === route.params.guideId);
-
-  if (!guide) return null;
+  // Hooks must be called unconditionally — before any early return.
+  useEffect(() => {
+    if (!guideId) return;
+    isBookmarked(guideId, 'guide').then(setBookmarked);
+  }, [guideId]);
 
   useEffect(() => {
-    isBookmarked(guide.id, 'guide').then(setBookmarked);
-  }, [guide.id]);
-
-  useEffect(() => {
-    loadGuideChecklistProgress(guide.id).then((checked) => {
+    if (!guideId) return;
+    loadGuideChecklistProgress(guideId).then((checked) => {
       setCheckedChecklistItems(new Set(checked));
     });
-  }, [guide.id]);
+  }, [guideId]);
+
+  const guide = ADMIN_GUIDES.find((g) => g.id === guideId);
+
+  if (!guide) return null;
 
   const handleBookmark = async () => {
     const added = await toggleBookmark({
@@ -58,6 +63,101 @@ export default function AdminDetailScreen() {
       savedAt: '',
     });
     setBookmarked(added);
+  };
+
+  const formatStepForCopy = (step: (typeof guide.steps)[number]) => {
+    const parts: string[] = [
+      `Bước ${step.step}: ${step.title}`,
+      step.description,
+    ];
+
+    if (step.documents.length > 0) {
+      parts.push('Giấy tờ cần chuẩn bị:');
+      parts.push(...step.documents.map((doc) => `- ${doc}`));
+    }
+
+    if (step.tip) {
+      parts.push(`Mẹo đáng nhớ: ${step.tip}`);
+    }
+
+    return parts.join('\n');
+  };
+
+  const copyWholeGuide = () => {
+    const parts: string[] = [
+      `${guide.title} (${guide.titleJp})`,
+      guide.description,
+    ];
+
+    if (guide.whoIsThisFor?.length) {
+      parts.push('\nAi cần làm:');
+      parts.push(...guide.whoIsThisFor.map((item) => `- ${item}`));
+    }
+
+    if (guide.whenToDo?.length) {
+      parts.push('\nKhi nào làm:');
+      parts.push(...guide.whenToDo.map((item) => `- ${item}`));
+    }
+
+    if (guide.whereToDo?.length) {
+      parts.push('\nLàm ở đâu:');
+      parts.push(...guide.whereToDo.map((item) => `- ${item}`));
+    }
+
+    if (guide.estimatedTime) {
+      parts.push(`\nThời gian xử lý:\n${guide.estimatedTime}`);
+    }
+
+    if (guide.fees?.length) {
+      parts.push('\nChi phí:');
+      parts.push(...guide.fees.map((item) => `- ${item}`));
+    }
+
+    if (guide.documentsChecklist?.length) {
+      parts.push('\nChecklist giấy tờ:');
+      parts.push(
+        ...guide.documentsChecklist.map(
+          (item) =>
+            `- ${item.label} [${item.required ? 'Bắt buộc' : 'Tùy trường hợp'}]${
+              item.note ? ` - ${item.note}` : ''
+            }`
+        )
+      );
+    }
+
+    if (guide.steps.length) {
+      parts.push(...guide.steps.map((step) => `\n${formatStepForCopy(step)}`));
+    }
+
+    if (guide.commonMistakes?.length) {
+      parts.push('\nLỗi thường gặp:');
+      parts.push(...guide.commonMistakes.map((item) => `- ${item}`));
+    }
+
+    Clipboard.setString(parts.join('\n'));
+    Alert.alert('Đã copy', 'Đã copy toàn bộ nội dung tóm tắt của thủ tục này.');
+  };
+
+  const copyChecklist = () => {
+    if (!guide.documentsChecklist?.length) return;
+
+    const content = [
+      `${guide.title} - Checklist giấy tờ`,
+      ...guide.documentsChecklist.map(
+        (item) =>
+          `- ${item.label} [${item.required ? 'Bắt buộc' : 'Tùy trường hợp'}]${
+            item.note ? ` - ${item.note}` : ''
+          }`
+      ),
+    ].join('\n');
+
+    Clipboard.setString(content);
+    Alert.alert('Đã copy', 'Đã copy checklist giấy tờ.');
+  };
+
+  const copyStep = (step: (typeof guide.steps)[number]) => {
+    Clipboard.setString(`${guide.title}\n${formatStepForCopy(step)}`);
+    Alert.alert('Đã copy', `Đã copy bước ${step.step}.`);
   };
 
   const handleToggleChecklistItem = async (label: string) => {
@@ -79,13 +179,18 @@ export default function AdminDetailScreen() {
     navigation.setOptions({
       headerTitle: guide.title,
       headerRight: () => (
-        <TouchableOpacity onPress={handleBookmark} style={{ marginRight: 4 }}>
-          <Ionicons
-            name={bookmarked ? 'bookmark' : 'bookmark-outline'}
-            size={22}
-            color={Colors.white}
-          />
-        </TouchableOpacity>
+        <View style={styles.headerActions}>
+          <TouchableOpacity onPress={copyWholeGuide} style={styles.headerIconBtn}>
+            <Ionicons name="copy-outline" size={20} color={Colors.white} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleBookmark} style={styles.headerIconBtn}>
+            <Ionicons
+              name={bookmarked ? 'bookmark' : 'bookmark-outline'}
+              size={22}
+              color={Colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [guide, bookmarked]);
@@ -156,6 +261,10 @@ export default function AdminDetailScreen() {
                 </TouchableOpacity>
               )}
             </View>
+            <TouchableOpacity style={styles.copySectionButton} onPress={copyChecklist}>
+              <Ionicons name="copy-outline" size={15} color={guide.color} />
+              <Text style={[styles.copySectionButtonText, { color: guide.color }]}>Copy checklist</Text>
+            </TouchableOpacity>
             <View style={styles.checklistProgressBar}>
               <View
                 style={[
@@ -239,15 +348,26 @@ export default function AdminDetailScreen() {
             activeOpacity={0.8}
           >
             <View style={styles.stepHeader}>
-              <View style={[styles.stepNum, { backgroundColor: guide.color }]}>
-                <Text style={styles.stepNumText}>{step.step}</Text>
+              <View style={styles.stepHeaderLeft}>
+                <View style={[styles.stepNum, { backgroundColor: guide.color }]}>
+                  <Text style={styles.stepNumText}>{step.step}</Text>
+                </View>
+                <Text style={styles.stepTitle}>{step.title}</Text>
               </View>
-              <Text style={styles.stepTitle}>{step.title}</Text>
-              <Ionicons
-                name={expandedStep === index ? 'chevron-up' : 'chevron-down'}
-                size={18}
-                color={Colors.textMuted}
-              />
+              <View style={styles.stepHeaderActions}>
+                <TouchableOpacity
+                  style={styles.stepCopyButton}
+                  onPress={() => copyStep(step)}
+                  hitSlop={8}
+                >
+                  <Ionicons name="copy-outline" size={16} color={Colors.textMuted} />
+                </TouchableOpacity>
+                <Ionicons
+                  name={expandedStep === index ? 'chevron-up' : 'chevron-down'}
+                  size={18}
+                  color={Colors.textMuted}
+                />
+              </View>
             </View>
 
             {expandedStep === index && (
@@ -417,6 +537,18 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 16,
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginRight: 4,
+  },
+  headerIconBtn: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   progressContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -502,6 +634,21 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: Colors.textSecondary,
+  },
+  copySectionButton: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: Colors.background,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    marginBottom: 10,
+  },
+  copySectionButtonText: {
+    fontSize: 12,
+    fontWeight: '700',
   },
   checklistProgressBar: {
     height: 6,
@@ -672,6 +819,17 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 12,
   },
+  stepHeaderLeft: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  stepHeaderActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
   stepNum: {
     width: 30,
     height: 30,
@@ -689,6 +847,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     color: Colors.textPrimary,
+  },
+  stepCopyButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.background,
   },
   stepBody: {
     paddingHorizontal: 16,

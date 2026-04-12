@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Linking, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  Linking,
+  Alert,
+  Clipboard,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { JOBS_CONTENT_META, LABOR_HELP_SCENARIOS } from '../constants/content';
@@ -12,18 +21,50 @@ import {
   loadLaborHelpProgress,
   toggleLaborHelpEvidenceItem,
 } from '../utils/laborHelpProgress';
+import { markLaborResourceViewed } from '../utils/laborResources';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 function openUrl(url: string) {
   Linking.openURL(url).catch(() =>
-    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng.')
+    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng rồi thử lại.')
   );
+}
+
+function copyScenarioBlock(
+  title: string,
+  description: string,
+  doNow: string[],
+  collectEvidence: string[],
+  contact: string[]
+) {
+  const content = [
+    title,
+    description,
+    '',
+    'Làm ngay:',
+    ...doNow.map((item) => `- ${item}`),
+    '',
+    'Cần giữ bằng chứng gì:',
+    ...collectEvidence.map((item) => `- ${item}`),
+    '',
+    'Liên hệ:',
+    ...contact.map((item) => `- ${item}`),
+  ].join('\n');
+
+  Clipboard.setString(content);
+  Alert.alert('Đã sao chép', `Đã copy hướng dẫn "${title}".`);
 }
 
 export default function LaborHelpScreen() {
   const navigation = useNavigation<NavigationProp>();
   const [progressMap, setProgressMap] = useState<Record<string, Set<string>>>({});
+
+  useFocusEffect(
+    React.useCallback(() => {
+      void markLaborResourceViewed('labor-help');
+    }, [])
+  );
 
   useEffect(() => {
     Promise.all(
@@ -49,10 +90,11 @@ export default function LaborHelpScreen() {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={styles.headerJp}>相談・対応</Text>
+        <Text style={styles.headerJp}>相談・トラブル対応</Text>
         <Text style={styles.headerTitle}>Khiếu nại / cần giúp gì</Text>
         <Text style={styles.headerDesc}>
-          Hướng dẫn thực dụng khi bị nợ lương, ép làm quá giờ, giữ giấy tờ hoặc bị cản trở nghỉ việc.
+          Hướng dẫn thực dụng khi bị nợ lương, ép làm quá giờ, giữ giấy tờ hoặc bị cản trở nghỉ
+          việc.
         </Text>
       </View>
 
@@ -95,6 +137,22 @@ export default function LaborHelpScreen() {
 
               <Text style={styles.cardDesc}>{scenario.description}</Text>
 
+              <TouchableOpacity
+                style={styles.copyScenarioButton}
+                onPress={() =>
+                  copyScenarioBlock(
+                    scenario.title,
+                    scenario.description,
+                    scenario.doNow,
+                    scenario.collectEvidence,
+                    scenario.contact
+                  )
+                }
+              >
+                <Ionicons name="copy-outline" size={15} color={Colors.primary} />
+                <Text style={styles.copyScenarioText}>Copy tình huống này</Text>
+              </TouchableOpacity>
+
               <Section title="Làm ngay">
                 {scenario.doNow.map((item) => (
                   <BulletRow key={item} text={item} color={Colors.primary} />
@@ -128,7 +186,9 @@ export default function LaborHelpScreen() {
                           },
                         ]}
                       >
-                        {isChecked ? <Ionicons name="checkmark" size={14} color={Colors.white} /> : null}
+                        {isChecked ? (
+                          <Ionicons name="checkmark" size={14} color={Colors.white} />
+                        ) : null}
                       </View>
                       <Text style={[styles.evidenceText, isChecked && styles.evidenceTextDone]}>
                         {item}
@@ -154,7 +214,7 @@ export default function LaborHelpScreen() {
           <Ionicons name="call-outline" size={18} color={Colors.primary} />
           <View style={styles.linkTextBlock}>
             <Text style={styles.linkTitle}>Mở hotline tiếng Việt chính thức</Text>
-            <Text style={styles.linkSub}>0570-001-706 - khung giờ xem lại trên trang chính thức</Text>
+            <Text style={styles.linkSub}>0570-001-706 - xem khung giờ trên trang chính thức</Text>
           </View>
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
         </TouchableOpacity>
@@ -254,6 +314,18 @@ const styles = StyleSheet.create({
   urgencyTextMedium: { color: Colors.warning },
   cardTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary },
   cardDesc: { fontSize: 13, color: Colors.textSecondary, lineHeight: 19, marginBottom: 10 },
+  copyScenarioButton: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: Colors.accent,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginBottom: 4,
+  },
+  copyScenarioText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
   section: { marginTop: 8 },
   sectionTitle: { fontSize: 12, fontWeight: '800', color: Colors.textPrimary, marginBottom: 8 },
   bulletRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 7 },

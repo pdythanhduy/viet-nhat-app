@@ -9,12 +9,194 @@ export const DAILY_LIFE_CONTENT_META: ContentMetadata = {
     { label: 'Bộ Đất đai, Hạ tầng, Giao thông và Du lịch', url: 'https://www.mlit.go.jp/' },
     { label: 'Cơ quan Phòng cháy chữa cháy', url: 'https://www.fdma.go.jp/' },
     { label: 'Japan Post', url: 'https://www.post.japanpost.jp/' },
+    { label: 'Japan Pension Service', url: 'https://www.nenkin.go.jp/' },
+    { label: 'Japan Post Bank', url: 'https://www.jp-bank.japanpost.jp/' },
     { label: 'My Number Card tổng hợp', url: 'https://www.kojinbango-card.go.jp/' },
     { label: 'JR East', url: 'https://www.jreast.co.jp/' },
   ],
 };
 
 export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
+  {
+    id: 'bank-account-remittance',
+    title: 'Ngân hàng và chuyển tiền',
+    titleJp: '銀行口座・送金',
+    icon: 'card',
+    color: '#185FA5',
+    description: 'Mở tài khoản, chuẩn bị giấy tờ, hiểu kiểm tra danh tính và tránh lỗi dễ bị từ chối.',
+    prefilledQuestion:
+      'Hãy hướng dẫn tôi mở tài khoản ngân hàng ở Nhật và chuyển tiền về Việt Nam theo kiểu thực tế, dễ hiểu.',
+    sections: [
+      {
+        title: 'Trước khi ra ngân hàng',
+        content:
+          'Mỗi ngân hàng có tiêu chí riêng, nhưng người mới sang thường bị hỏi khá giống nhau ở phần danh tính, địa chỉ và mục đích sử dụng.',
+        items: [
+          'Chuẩn bị thẻ cư trú, địa chỉ đang ở thực tế, số điện thoại có thể nhận liên lạc và thông tin công việc hoặc trường học nếu có.',
+          'Nhiều nơi sẽ hỏi bạn mở tài khoản để làm gì: nhận lương, trả hóa đơn, sinh hoạt hằng ngày hay nhận học bổng.',
+          'Nếu vừa mới sang Nhật và cư trú chưa lâu, có nơi sẽ yêu cầu thêm thời gian cư trú ổn định hoặc giấy tờ bổ sung. Đây không phải lúc nào cũng là từ chối vĩnh viễn.',
+        ],
+        tip: 'Đừng chỉ hỏi “mở được không”. Hãy hỏi thẳng còn thiếu giấy gì, cần quay lại lúc nào và hồ sơ nào dễ được nhận hơn.',
+      },
+      {
+        title: 'Những thứ dễ làm hồ sơ bị chậm',
+        content:
+          'Ngân hàng Nhật phải kiểm tra本人確認 và các rủi ro tài chính nên hồ sơ thiếu nhất quán rất dễ bị hỏi lại.',
+        items: [
+          'Tên romaji trên giấy tờ không thống nhất giữa thẻ cư trú, trường, công ty và hợp đồng điện thoại.',
+          'Địa chỉ đang ở khác với địa chỉ đang khai báo hoặc chưa cập nhật xong tại municipal office.',
+          'Không giải thích rõ mục đích dùng tài khoản, đặc biệt khi hỏi về giao dịch quốc tế hoặc nhận tiền từ nhiều nguồn.',
+        ],
+        tip: 'Nếu bị yêu cầu quay lại, ghi lại chính xác tên giấy tờ cần bổ sung thay vì chỉ nhớ mang máng.',
+      },
+      {
+        title: 'Chuyển tiền về Việt Nam',
+        content:
+          'Đừng chỉ nhìn phí chuyển tiền. Cần nhìn thêm tỷ giá, phí ngân hàng trung gian và thông tin người nhận phải khai thật chính xác.',
+        items: [
+          'Kiểm tra tên người nhận, số tài khoản, tên ngân hàng nhận và lý do chuyển tiền trước khi xác nhận.',
+          'Nếu chuyển đều đặn cho gia đình, nên giữ lịch sử giao dịch và giải thích mục đích thống nhất.',
+          'Không nhận chuyển tiền hộ hoặc cho người khác mượn tài khoản để nhận tiền. Đây là nhóm rủi ro lớn nhất.',
+        ],
+        tip: 'Nếu tài khoản bị hỏi lại về nguồn tiền, hãy chuẩn bị sẵn bảng lương, hợp đồng hoặc lịch sử giao dịch liên quan.',
+      },
+    ],
+  },
+  {
+    id: 'sim-phone-internet',
+    title: 'SIM, điện thoại và internet',
+    titleJp: 'SIM・携帯電話・インターネット',
+    icon: 'phone-portrait',
+    color: '#2874A6',
+    description: 'Chọn loại SIM phù hợp, hiểu điều kiện hợp đồng và tránh các phí hủy hoặc khóa dịch vụ ngoài ý muốn.',
+    prefilledQuestion:
+      'Hãy giải thích cho tôi cách làm SIM, chọn gói điện thoại và lắp internet ở Nhật theo kiểu thực tế cho người mới sang.',
+    sections: [
+      {
+        title: 'Phân biệt thứ mình đang cần',
+        content:
+          'Người mới sang thường nhầm giữa data SIM, SIM có thoại, eSIM và internet cố định tại nhà. Mỗi loại phục vụ một nhu cầu khác nhau.',
+        items: [
+          'Nếu chỉ cần internet tạm thời, data SIM có thể đủ. Nếu cần đăng ký ngân hàng, công việc hoặc liên lạc ổn định, nhiều trường hợp nên ưu tiên SIM có số điện thoại.',
+          'Internet cố định ở nhà không giống đăng ký SIM điện thoại. Có thể cần lịch hẹn kỹ thuật và thời gian chờ lắp đặt.',
+          'Một số nhà mạng hoặc gói rẻ có điều kiện về thời gian hợp đồng, phí hủy hoặc giới hạn hỗ trợ tiếng Anh.',
+        ],
+        tip: 'Đừng ký ngay chỉ vì đang có khuyến mãi. Hãy hỏi rõ phí hàng tháng, phí hủy và giấy tờ cần mang.',
+      },
+      {
+        title: 'Giấy tờ và kiểm tra danh tính',
+        content:
+          'Đăng ký SIM hoặc internet thường yêu cầu xác minh danh tính và địa chỉ. Đây là chỗ người mới bị vướng nhiều nhất.',
+        items: [
+          'Thẻ cư trú gần như là giấy tờ nền tảng. Một số nơi còn hỏi thêm thông tin tài khoản ngân hàng hoặc thẻ thanh toán.',
+          'Nếu địa chỉ vừa đổi mà chưa cập nhật, hợp đồng có thể bị treo hoặc thư xác minh gửi không tới.',
+          'Tên đăng ký nên thống nhất với các giấy tờ khác để đỡ rắc rối khi mở ngân hàng hoặc nhận hàng sau này.',
+        ],
+        tip: 'Sau khi ký xong, chụp lại toàn bộ hợp đồng, gói cước, mã khách hàng và cách hủy khi cần.',
+      },
+      {
+        title: 'Khi mạng lỗi hoặc cần hủy',
+        content:
+          'Nhiều người chỉ đến khi mất mạng mới đi tìm hợp đồng. Lúc đó rất dễ mất thời gian vì không có mã khách hàng hoặc lịch sử hỗ trợ.',
+        items: [
+          'Giữ lại số hợp đồng, số điện thoại hỗ trợ, ngày bắt đầu sử dụng và ảnh màn hình gói cước.',
+          'Nếu internet nhà bị lỗi, ghi rõ đèn modem hiện thế nào, có mất toàn bộ hay chỉ mất một phần, và lỗi bắt đầu từ lúc nào.',
+          'Trước khi hủy hợp đồng, phải kiểm tra có phí hủy, phí trả modem hay lịch cắt dịch vụ nào không.',
+        ],
+        tip: 'Nên lưu sẵn câu tiếng Nhật để gọi tổng đài khi mất mạng hoặc cần đổi lịch lắp đặt.',
+      },
+    ],
+  },
+  {
+    id: 'health-insurance',
+    title: 'Bảo hiểm y tế ở Nhật',
+    titleJp: '健康保険・国民健康保険',
+    icon: 'medkit',
+    color: '#C0392B',
+    description: 'Hiểu bạn đang ở diện bảo hiểm nào, đăng ký ở đâu và cần chuẩn bị gì khi đi khám.',
+    prefilledQuestion:
+      'Hãy giải thích cho tôi bảo hiểm y tế ở Nhật: khi nào vào shakai hoken, khi nào vào kokumin kenko hoken, và cần làm gì khi đi khám.',
+    sections: [
+      {
+        title: 'Trước hết phải biết mình thuộc diện nào',
+        content:
+          'Người ở Nhật không phải ai cũng vào cùng một loại bảo hiểm. Điểm đầu tiên cần xác định là bạn đang được bảo hiểm qua công ty hay phải tham gia diện quốc dân ở địa phương.',
+        items: [
+          'Nếu công ty cho tham gia bảo hiểm xã hội và y tế theo diện công ty, bạn cần kiểm tra cách nhận thông tin, thẻ hoặc dữ liệu bảo hiểm của mình.',
+          'Nếu không ở diện công ty mà có cư trú hợp lệ và sống tại địa phương, thường phải hỏi municipal office về bảo hiểm y tế quốc dân.',
+          'Đừng nghĩ “chưa đi khám thì chưa cần”. Thiếu bảo hiểm y tế có thể khiến chi phí khám chữa bệnh tăng rất mạnh.',
+        ],
+        tip: 'Khi chưa chắc, hãy mang thẻ cư trú ra municipal office hoặc hỏi bộ phận nhân sự để xác định đúng diện ngay.',
+      },
+      {
+        title: 'Đăng ký và phí bảo hiểm',
+        content:
+          'Phí bảo hiểm không cố định cho mọi người. Với diện quốc dân, mức đóng thường phụ thuộc địa phương và thu nhập; với diện công ty, khoản đóng thường đi cùng payroll.',
+        items: [
+          'Nếu mới chuyển đến, nên hỏi tại city hall xem có thể làm bảo hiểm cùng ngày với đăng ký cư trú hay không.',
+          'Nếu lương đang bị trừ mà bạn không hiểu khoản nào là bảo hiểm, hãy kiểm tra payslip thay vì đoán.',
+          'Giữ lại thư, thông báo và giấy nộp tiền liên quan đến bảo hiểm để đối chiếu về sau.',
+        ],
+        tip: 'Nhiều bức xúc xảy ra chỉ vì người dùng không biết phí bảo hiểm thay đổi theo thu nhập hoặc theo địa phương.',
+      },
+      {
+        title: 'Khi đi khám',
+        content:
+          'Đi khám ở Nhật thuận hơn rất nhiều nếu bạn chuẩn bị đúng giấy tờ ngay từ đầu.',
+        items: [
+          'Mang theo thông tin bảo hiểm, thẻ cư trú và danh sách thuốc đang dùng nếu có.',
+          'Nếu chưa rõ mình có đang được xác nhận bảo hiểm trên hệ thống hay chưa, nên hỏi trước khi khám thay vì đợi đến lúc thanh toán.',
+          'Giữ lại hóa đơn, giấy hẹn và hướng dẫn của bệnh viện để tiện quay lại hoặc đối chiếu chi phí.',
+        ],
+        tip: 'Nếu app hoặc giấy tờ bảo hiểm có gì chưa rõ, hãy kiểm tra lại trước ngày khám thay vì chờ đến quầy tiếp nhận.',
+      },
+    ],
+  },
+  {
+    id: 'nenkin-pension',
+    title: 'Nenkin và lương hưu công',
+    titleJp: '年金・公的年金',
+    icon: 'cash',
+    color: '#8E44AD',
+    description: 'Giải thích vì sao bị trừ Nenkin, khác nhau giữa các diện và những việc nên hiểu sớm để đỡ hoang mang.',
+    prefilledQuestion:
+      'Hãy giải thích cho tôi Nenkin ở Nhật theo kiểu thực tế: ai phải đóng, đóng ở đâu, xem trên bảng lương thế nào và cần lưu ý gì khi rời Nhật.',
+    sections: [
+      {
+        title: 'Vì sao bị trừ Nenkin',
+        content:
+          'Nhiều người chỉ thấy bảng lương bị trừ tiền mà không hiểu mình đang ở hệ thống nào. Nenkin là một phần của hệ thống lương hưu công tại Nhật.',
+        items: [
+          'Nếu làm việc theo diện công ty và tham gia bảo hiểm xã hội, bạn có thể thấy khoản liên quan đến pension đi cùng payroll.',
+          'Nếu không ở diện đó nhưng vẫn thuộc đối tượng tham gia theo quy định, cần hỏi thêm về diện quốc dân và cách đóng.',
+          'Đừng bỏ qua thư hoặc phiếu đóng liên quan Nenkin vì đây là thứ cần dùng để đối chiếu sau này.',
+        ],
+        tip: 'Việc “bị trừ mà không hiểu” thường đến từ chỗ chưa phân biệt được mình đang ở diện công ty hay diện quốc dân.',
+      },
+      {
+        title: 'Nên giữ giấy tờ gì',
+        content:
+          'Ngay cả khi chưa hiểu hết hệ thống, bạn vẫn nên giữ các giấy tờ nền tảng để về sau không bị đứt mạch thông tin.',
+        items: [
+          'Bảng lương, thư thông báo, phiếu đóng tiền và mọi tài liệu liên quan đến Nenkin.',
+          'Thông tin mã số cá nhân, địa chỉ và công ty đang làm việc nếu có thay đổi qua các năm.',
+          'Nếu có hỏi nhân sự hay quầy bảo hiểm, nên ghi lại họ nói bạn thuộc diện nào và cần làm gì tiếp theo.',
+        ],
+        tip: 'Giữ giấy tờ theo năm sẽ giúp bạn đỡ rối hơn rất nhiều khi cần đối chiếu hoặc hỏi lại sau này.',
+      },
+      {
+        title: 'Khi nghỉ việc hoặc rời Nhật',
+        content:
+          'Đây là giai đoạn nhiều người bỏ sót giấy tờ nhất. Trước khi rời công ty hoặc rời Nhật, phải hiểu mình còn khoản nào cần xử lý.',
+        items: [
+          'Nếu nghỉ việc, nên hỏi rõ việc đóng tiếp có chuyển diện hay không và hồ sơ nào cần giữ.',
+          'Nếu chuẩn bị rời Nhật, nên kiểm tra thông tin chính thức của Japan Pension Service về thủ tục liên quan cho người nước ngoài xuất cảnh.',
+          'Không nên nghe theo tin truyền miệng về Nenkin nếu chưa kiểm tra lại bằng nguồn chính thức.',
+        ],
+        tip: 'Lúc rời Nhật, giấy tờ thất lạc rất dễ xảy ra. Hãy scan hoặc chụp lại các tài liệu quan trọng trước.',
+      },
+    ],
+  },
   {
     id: 'apartment',
     title: 'Thuê nhà và nhận nhà',

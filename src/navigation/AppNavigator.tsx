@@ -3,31 +3,36 @@ import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/na
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
 import AdminScreen from '../screens/AdminScreen';
 import AdminDetailScreen from '../screens/AdminDetailScreen';
 import DailyLifeScreen from '../screens/DailyLifeScreen';
+import DailyLifeDetailScreen from '../screens/DailyLifeDetailScreen';
 import JobsScreen from '../screens/JobsScreen';
 import JapaneseScreen from '../screens/JapaneseScreen';
+import JapanesePracticeScreen from '../screens/JapanesePracticeScreen';
+import JapaneseQuizScreen from '../screens/JapaneseQuizScreen';
+import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
+import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import AIChatScreen from '../screens/AIChatScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
-import DailyLifeDetailScreen from '../screens/DailyLifeDetailScreen';
-import JapanesePracticeScreen from '../screens/JapanesePracticeScreen';
-import JapaneseQuizScreen from '../screens/JapaneseQuizScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import LaborGuideScreen from '../screens/LaborGuideScreen';
 import LaborHelpScreen from '../screens/LaborHelpScreen';
+import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
+import EmergencyHubScreen from '../screens/EmergencyHubScreen';
+import SearchScreen from '../screens/SearchScreen';
 import { Colors } from '../constants/colors';
 
 export type TabParamList = {
   Home: undefined;
   Admin: undefined;
   Jobs: undefined;
-  Japanese: undefined;
+  Japanese: { initialSearch?: string } | undefined;
   Settings: undefined;
 };
 
@@ -38,11 +43,16 @@ export type RootStackParamList = {
   DailyLife: undefined;
   DailyLifeDetail: { topicId: string };
   JapanesePractice: { categoryName: string; categoryColor?: string };
-  JapaneseQuiz: { categoryName?: string; categoryColor?: string };
+  JapaneseQuiz: { categoryName?: string; categoryColor?: string; direction?: 'jp-to-vn' | 'vn-to-jp' | 'mixed' };
+  JapaneseKana: undefined;
+  JapaneseKanaQuiz: { mode?: 'hiragana' | 'katakana' | 'mixed' } | undefined;
   Feedback: undefined;
   LaborGuide: undefined;
   LaborHelp: undefined;
-  Saved: undefined;
+  JourneyChecklist: undefined;
+  EmergencyHub: undefined;
+  Search: undefined;
+  Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
   ImportantDates: undefined;
 };
 
@@ -72,11 +82,7 @@ function TabNavigator() {
       <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: 'Trang chủ' }} />
       <Tab.Screen name="Admin" component={AdminScreen} options={{ tabBarLabel: 'Thủ tục' }} />
       <Tab.Screen name="Jobs" component={JobsScreen} options={{ tabBarLabel: 'Việc làm' }} />
-      <Tab.Screen
-        name="Japanese"
-        component={JapaneseScreen}
-        options={{ tabBarLabel: 'Tiếng Nhật' }}
-      />
+      <Tab.Screen name="Japanese" component={JapaneseScreen} options={{ tabBarLabel: 'Tiếng Nhật' }} />
       <Tab.Screen
         name="Settings"
         component={SettingsScreen}
@@ -164,6 +170,20 @@ export default function AppNavigator() {
           }}
         />
         <Stack.Screen
+          name="JapaneseKana"
+          component={JapaneseKanaScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="JapaneseKanaQuiz"
+          component={JapaneseKanaQuizScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="Feedback"
           component={FeedbackScreen}
           options={{
@@ -197,34 +217,39 @@ export default function AppNavigator() {
             headerTitleStyle: { fontWeight: '700', fontSize: 17 },
           }}
         />
+        <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="EmergencyHub" component={EmergencyHubScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Saved" component={SavedScreen} options={{ headerShown: false }} />
-        <Stack.Screen
-          name="ImportantDates"
-          component={ImportantDatesScreen}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+// Android tab bar is taller and more padded than iOS to ensure comfortable tap targets
+// and readable Vietnamese labels on smaller screens. iOS values are kept unchanged.
+const TAB_BAR = Platform.select({
+  android: { height: 74, paddingTop: 8, paddingBottom: 12 },
+  default: { height: 84, paddingTop: 6, paddingBottom: 20 },
+});
+const TAB_LABEL = Platform.select({
+  android: { fontSize: 12, marginBottom: 2 },
+  default: { fontSize: 11, marginBottom: 0 },
+});
 
 const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: Colors.tabBar,
     borderTopColor: Colors.border,
     borderTopWidth: 1,
-    paddingTop: 6,
-    paddingBottom: Platform.OS === 'ios' ? 20 : 8,
-    height: Platform.OS === 'ios' ? 82 : 64,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 8,
+    height: TAB_BAR.height,
+    paddingTop: TAB_BAR.paddingTop,
+    paddingBottom: TAB_BAR.paddingBottom,
   },
   tabLabel: {
-    fontSize: 11,
     fontWeight: '600',
-    marginTop: 2,
+    fontSize: TAB_LABEL.fontSize,
+    marginBottom: TAB_LABEL.marginBottom,
   },
 });

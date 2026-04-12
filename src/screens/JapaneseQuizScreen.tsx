@@ -1,71 +1,48 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  StatusBar,
-  ScrollView,
-} from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
 import { ESSENTIAL_PHRASES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { stopJapaneseAudio } from '../utils/audio';
+import { buildQuizQuestions, QuizDirection, QuizPhrase } from '../utils/japaneseQuiz';
 import { markStudiedToday } from '../utils/japaneseStreak';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'JapaneseQuiz'>;
 
-type QuizPhrase = { jp: string; romaji: string; vn: string; category: string };
-type QuizQuestion = { phrase: QuizPhrase; options: string[]; correctIndex: number };
-
-function shuffleArray<T>(items: T[]): T[] {
-  const next = [...items];
-  for (let i = next.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [next[i], next[j]] = [next[j], next[i]];
-  }
-  return next;
-}
-
-function buildQuestions(phrases: QuizPhrase[], allPool: QuizPhrase[]): QuizQuestion[] {
-  return shuffleArray(phrases).map((phrase) => {
-    const wrongPool = allPool.filter((item) => item.vn !== phrase.vn);
-    const wrongOptions = shuffleArray(wrongPool)
-      .slice(0, 3)
-      .map((item) => item.vn);
-    const options = shuffleArray([phrase.vn, ...wrongOptions]);
-    return { phrase, options, correctIndex: options.indexOf(phrase.vn) };
-  });
-}
-
 export default function JapaneseQuizScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
-  const { categoryName, categoryColor } = route.params;
+  const { categoryName, categoryColor, direction: initialDirection } = route.params;
   const accentColor = categoryColor || Colors.primary;
+  const [direction, setDirection] = useState<QuizDirection>(initialDirection ?? 'mixed');
 
   const questions = useMemo(() => {
     const allPhrases: QuizPhrase[] = ESSENTIAL_PHRASES.flatMap((category) =>
       category.phrases.map((phrase) => ({ ...phrase, category: category.category }))
     );
-
-    const targetPhrases =
-      categoryName
-        ? allPhrases.filter((phrase) => phrase.category === categoryName)
-        : allPhrases;
-
-    return buildQuestions(targetPhrases, allPhrases);
-  }, [categoryName]);
+    const target = categoryName ? allPhrases.filter((phrase) => phrase.category === categoryName) : allPhrases;
+    return buildQuizQuestions(target, allPhrases, direction);
+  }, [categoryName, direction]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [wrongAnswers, setWrongAnswers] = useState<QuizPhrase[]>([]);
   const [done, setDone] = useState(false);
   const [score, setScore] = useState(0);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      return () => {
+        void stopJapaneseAudio();
+      };
+    }, [])
+  );
 
   useEffect(() => {
     navigation.setOptions({
@@ -75,10 +52,8 @@ export default function JapaneseQuizScreen() {
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
-        <View style={styles.centerBox}>
-          <Text style={styles.emptyText}>Chưa có câu hỏi để làm quiz.</Text>
-        </View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.center}><Text>Chưa có câu hỏi để làm quiz.</Text></View>
       </SafeAreaView>
     );
   }
@@ -89,12 +64,8 @@ export default function JapaneseQuizScreen() {
   const handleSelect = (index: number) => {
     if (isAnswered) return;
     setSelectedIndex(index);
-
-    if (index === currentQuestion.correctIndex) {
-      setScore((prev) => prev + 1);
-    } else {
-      setWrongAnswers((prev) => [...prev, currentQuestion.phrase]);
-    }
+    if (index === currentQuestion.correctIndex) setScore((prev) => prev + 1);
+    else setWrongAnswers((prev) => [...prev, currentQuestion.phrase]);
   };
 
   const handleNext = async () => {
@@ -103,35 +74,22 @@ export default function JapaneseQuizScreen() {
       setDone(true);
       return;
     }
-
     setCurrentIndex((prev) => prev + 1);
     setSelectedIndex(null);
-  };
-
-  const handleRetry = () => {
-    setCurrentIndex(0);
-    setSelectedIndex(null);
-    setWrongAnswers([]);
-    setDone(false);
-    setScore(0);
   };
 
   if (done) {
     const total = questions.length;
     const percent = Math.round((score / total) * 100);
-
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-        <ScrollView contentContainerStyle={styles.summaryContainer} showsVerticalScrollIndicator={false}>
-          <Text style={styles.summaryTitle}>Hoàn thành quiz</Text>
-          <Text style={styles.summarySubtitle}>{categoryName || 'Tổng hợp'}</Text>
-          <Text style={[styles.summaryPercent, { color: accentColor }]}>{percent}% đúng</Text>
-          <Text style={styles.summaryScore}>
-            {score}/{total} câu
-          </Text>
-
-          {wrongAnswers.length > 0 && (
+        <ScrollView contentContainerStyle={styles.summary} showsVerticalScrollIndicator={false}>
+          <Text style={styles.title}>Hoàn thành quiz</Text>
+          <Text style={styles.subtitle}>{categoryName || 'Tổng hợp'}</Text>
+          <Text style={[styles.percent, { color: accentColor }]}>{percent}% đúng</Text>
+          <Text style={styles.score}>{score}/{total} câu</Text>
+          {wrongAnswers.length > 0 ? (
             <View style={styles.reviewCard}>
               <Text style={styles.reviewTitle}>Cần ôn lại</Text>
               {wrongAnswers.map((phrase, index) => (
@@ -142,15 +100,10 @@ export default function JapaneseQuizScreen() {
                 </View>
               ))}
             </View>
-          )}
-
-          <TouchableOpacity
-            style={[styles.primaryButton, { backgroundColor: accentColor }]}
-            onPress={handleRetry}
-          >
+          ) : null}
+          <TouchableOpacity style={[styles.primaryButton, { backgroundColor: accentColor }]} onPress={() => { setCurrentIndex(0); setSelectedIndex(null); setWrongAnswers([]); setDone(false); setScore(0); }}>
             <Text style={styles.primaryButtonText}>Làm lại</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.goBack()}>
             <Text style={styles.secondaryButtonText}>Xong</Text>
           </TouchableOpacity>
@@ -162,134 +115,119 @@ export default function JapaneseQuizScreen() {
   const progressPercent = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-
-      <View style={styles.progressTrack}>
-        <View style={[styles.progressFill, { width: `${progressPercent}%`, backgroundColor: accentColor }]} />
-      </View>
-
+      <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${progressPercent}%`, backgroundColor: accentColor }]} /></View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.modeRow}>
+        {[
+          { id: 'mixed' as const, label: 'Trộn 2 chiều' },
+          { id: 'jp-to-vn' as const, label: 'JP → VI' },
+          { id: 'vn-to-jp' as const, label: 'VI → JP' },
+        ].map((item) => (
+          <TouchableOpacity
+            key={item.id}
+            style={[styles.modeChip, direction === item.id && { backgroundColor: accentColor, borderColor: accentColor }]}
+            onPress={() => {
+              setDirection(item.id);
+              setCurrentIndex(0);
+              setSelectedIndex(null);
+              setWrongAnswers([]);
+              setDone(false);
+              setScore(0);
+            }}
+          >
+            <Text style={[styles.modeChipText, direction === item.id && styles.modeChipTextActive]}>{item.label}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
       <View style={styles.topRow}>
-        <Text style={styles.counterText}>
-          Câu {currentIndex + 1} / {questions.length}
-        </Text>
-        <Text style={styles.scoreText}>{score} đúng</Text>
+        <Text style={styles.counter}>Câu {currentIndex + 1} / {questions.length}</Text>
+        <Text style={styles.scoreSmall}>{score} đúng</Text>
       </View>
-
       <View style={styles.questionCard}>
-        <Text style={styles.questionLabel}>Câu tiếng Nhật</Text>
-        <Text style={styles.questionJp}>{currentQuestion.phrase.jp}</Text>
-        <Text style={styles.questionRomaji}>{currentQuestion.phrase.romaji}</Text>
+        <Text style={styles.label}>
+          {currentQuestion.direction === 'jp-to-vn' ? 'Câu tiếng Nhật' : 'Nghĩa tiếng Việt'}
+        </Text>
+        <AudioButton
+          audioId={`quiz:${currentQuestion.phrase.jp}:${currentIndex}`}
+          text={currentQuestion.phrase.jp}
+          backgroundColor={Colors.background}
+        />
+        <Text style={styles.questionJp}>{currentQuestion.promptPrimary}</Text>
+        {currentQuestion.promptSecondary ? (
+          <Text style={styles.questionRomaji}>{currentQuestion.promptSecondary}</Text>
+        ) : null}
       </View>
-
-      <View style={styles.optionsList}>
+      <View style={styles.options}>
         {currentQuestion.options.map((option, index) => {
           const isCorrect = index === currentQuestion.correctIndex;
           const isSelected = index === selectedIndex;
-
-          const optionStyle = [
-            styles.option,
-            isAnswered && isCorrect ? styles.optionCorrect : null,
-            isAnswered && isSelected && !isCorrect ? styles.optionWrong : null,
-          ];
-          const optionTextStyle = [
-            styles.optionText,
-            isAnswered && isCorrect ? styles.optionTextCorrect : null,
-            isAnswered && isSelected && !isCorrect ? styles.optionTextWrong : null,
-          ];
-
           return (
             <TouchableOpacity
               key={`${currentQuestion.phrase.jp}-${index}`}
-              style={optionStyle}
+              style={[
+                styles.option,
+                isAnswered && isCorrect ? styles.optionCorrect : null,
+                isAnswered && isSelected && !isCorrect ? styles.optionWrong : null,
+              ]}
               onPress={() => handleSelect(index)}
               disabled={isAnswered}
             >
-              <Text style={optionTextStyle}>{option}</Text>
-              {isAnswered && isCorrect ? (
-                <Ionicons name="checkmark-circle" size={20} color={Colors.success} />
-              ) : null}
-              {isAnswered && isSelected && !isCorrect ? (
-                <Ionicons name="close-circle" size={20} color={Colors.danger} />
-              ) : null}
+              <View style={styles.optionTextWrap}>
+                <Text style={styles.optionText}>{option.primary}</Text>
+                {option.secondary ? <Text style={styles.optionSubText}>{option.secondary}</Text> : null}
+              </View>
+              {isAnswered && isCorrect ? <Ionicons name="checkmark-circle" size={20} color={Colors.success} /> : null}
+              {isAnswered && isSelected && !isCorrect ? <Ionicons name="close-circle" size={20} color={Colors.danger} /> : null}
             </TouchableOpacity>
           );
         })}
       </View>
-
-      {isAnswered && (
-        <TouchableOpacity
-          style={[styles.primaryButton, { backgroundColor: accentColor, marginTop: 12 }]}
-          onPress={handleNext}
-        >
-          <Text style={styles.primaryButtonText}>
-            {currentIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo'}
-          </Text>
+      {isAnswered ? (
+        <TouchableOpacity style={[styles.primaryButton, { backgroundColor: accentColor, marginTop: 12 }]} onPress={handleNext}>
+          <Text style={styles.primaryButtonText}>{currentIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo'}</Text>
         </TouchableOpacity>
-      )}
+      ) : null}
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background, padding: 16 },
-  centerBox: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  emptyText: { fontSize: 15, color: Colors.textSecondary },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   progressTrack: { height: 6, backgroundColor: Colors.border, borderRadius: 999, overflow: 'hidden' },
   progressFill: { height: 6, borderRadius: 999 },
+  modeRow: { gap: 8, paddingTop: 14, paddingBottom: 4, paddingRight: 8 },
+  modeChip: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999, backgroundColor: Colors.white, borderWidth: 1, borderColor: Colors.border },
+  modeChipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  modeChipTextActive: { color: Colors.white },
   topRow: { marginTop: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  counterText: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
-  scoreText: { fontSize: 13, fontWeight: '700', color: Colors.primary },
-  questionCard: {
-    marginTop: 18,
-    backgroundColor: Colors.white,
-    borderRadius: 18,
-    padding: 20,
-    alignItems: 'center',
-  },
-  questionLabel: { fontSize: 12, fontWeight: '700', color: Colors.primary, marginBottom: 10 },
-  questionJp: { fontSize: 30, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
+  counter: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
+  scoreSmall: { fontSize: 13, fontWeight: '700', color: Colors.primary },
+  questionCard: { marginTop: 18, backgroundColor: Colors.white, borderRadius: 16, padding: 20, alignItems: 'center' },
+  label: { fontSize: 12, fontWeight: '700', color: Colors.primary, marginBottom: 10 },
+  questionJp: { fontSize: 28, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
   questionRomaji: { fontSize: 14, color: Colors.textMuted, marginTop: 8, fontStyle: 'italic', textAlign: 'center' },
-  optionsList: { marginTop: 18, gap: 10 },
-  option: {
-    backgroundColor: Colors.white,
-    borderRadius: 14,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 10,
-  },
-  optionCorrect: { backgroundColor: '#EAF7EF', borderColor: '#27AE6030' },
-  optionWrong: { backgroundColor: '#FDECEA', borderColor: '#E74C3C30' },
-  optionText: { flex: 1, fontSize: 14, color: Colors.textPrimary, fontWeight: '600' },
-  optionTextCorrect: { color: Colors.success },
-  optionTextWrong: { color: Colors.danger },
-  primaryButton: {
-    borderRadius: 14,
-    paddingVertical: 14,
-    alignItems: 'center',
-  },
-  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '700' },
-  secondaryButton: {
-    marginTop: 10,
-    borderRadius: 14,
-    paddingVertical: 14,
-    alignItems: 'center',
-    backgroundColor: Colors.white,
-  },
-  secondaryButtonText: { color: Colors.textPrimary, fontSize: 14, fontWeight: '700' },
-  summaryContainer: { paddingVertical: 40 },
-  summaryTitle: { fontSize: 26, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
-  summarySubtitle: { marginTop: 6, fontSize: 14, color: Colors.textSecondary, textAlign: 'center' },
-  summaryPercent: { marginTop: 12, fontSize: 28, fontWeight: '800', textAlign: 'center' },
-  summaryScore: { marginTop: 6, fontSize: 14, color: Colors.textSecondary, textAlign: 'center' },
-  reviewCard: { marginTop: 24, backgroundColor: Colors.white, borderRadius: 16, padding: 16 },
-  reviewTitle: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary, marginBottom: 12 },
-  reviewItem: { paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: Colors.border },
+  options: { marginTop: 18, gap: 10 },
+  option: { backgroundColor: Colors.white, borderRadius: 12, padding: 16, borderWidth: 1, borderColor: Colors.border, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 12 },
+  optionCorrect: { borderColor: Colors.success, backgroundColor: Colors.successLight },
+  optionWrong: { borderColor: Colors.danger, backgroundColor: Colors.dangerLight },
+  optionTextWrap: { flex: 1 },
+  optionText: { fontSize: 14, fontWeight: '600', color: Colors.textPrimary },
+  optionSubText: { marginTop: 4, fontSize: 12, color: Colors.textSecondary, fontStyle: 'italic' },
+  summary: { paddingVertical: 40 },
+  title: { fontSize: 22, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
+  subtitle: { marginTop: 8, fontSize: 14, color: Colors.textSecondary, textAlign: 'center' },
+  percent: { marginTop: 12, fontSize: 34, fontWeight: '800', textAlign: 'center' },
+  score: { marginTop: 6, fontSize: 15, color: Colors.textSecondary, textAlign: 'center' },
+  reviewCard: { marginTop: 18, backgroundColor: Colors.white, borderRadius: 12, padding: 16 },
+  reviewTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary, marginBottom: 10 },
+  reviewItem: { paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border },
   reviewJp: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
-  reviewRomaji: { marginTop: 2, fontSize: 12, color: Colors.textMuted, fontStyle: 'italic' },
-  reviewVn: { marginTop: 3, fontSize: 13, color: Colors.textSecondary },
+  reviewRomaji: { marginTop: 4, fontSize: 12, color: Colors.textSecondary, fontStyle: 'italic' },
+  reviewVn: { marginTop: 4, fontSize: 12, color: Colors.textSecondary },
+  primaryButton: { borderRadius: 8, paddingVertical: 14, alignItems: 'center' },
+  primaryButtonText: { color: Colors.white, fontWeight: '700' },
+  secondaryButton: { marginTop: 12, borderRadius: 8, borderWidth: 1, borderColor: Colors.border, paddingVertical: 14, alignItems: 'center', backgroundColor: Colors.white },
+  secondaryButtonText: { color: Colors.textPrimary, fontWeight: '700' },
 });

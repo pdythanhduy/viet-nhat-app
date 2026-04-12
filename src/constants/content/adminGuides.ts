@@ -3690,6 +3690,287 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
   },
   {
+    id: 'status-of-residence-change',
+    category: 'visa',
+    lastVerified: '2026-04-12',
+    priority: 'high',
+    title: 'Đổi tư cách lưu trú',
+    titleJp: '在留資格変更許可申請',
+    icon: 'swap-horizontal',
+    color: '#8E44AD',
+    description:
+      'Thủ tục đổi từ tư cách lưu trú hiện tại sang tư cách khác, ví dụ từ du học sang đi làm hoặc từ visa gia đình sang diện lao động phù hợp.',
+    whoIsThisFor: [
+      'Người sắp tốt nghiệp và chuẩn bị đi làm theo diện work visa.',
+      'Người đổi mục đích ở Nhật hoặc chuyển sang một tư cách lưu trú khác hẳn hiện tại.',
+      'Người không còn phù hợp với điều kiện của tư cách hiện tại và cần nộp hồ sơ đổi đúng diện.',
+    ],
+    whenToDo: [
+      'Chuẩn bị sớm trước ngày bắt đầu công việc hoặc học tập mới vì thời gian xét duyệt có thể kéo dài.',
+      'Không nên tự ý làm công việc mới theo diện visa khác trước khi đổi xong hoặc chưa được phép.',
+      'Nếu vừa đổi công ty vừa đổi bản chất công việc, nên kiểm tra kỹ xem có cần thủ tục này hay chỉ cần thông báo cho ISA.',
+    ],
+    whereToDo: [
+      'Cục xuất nhập cảnh có thẩm quyền theo nơi cư trú hoặc nơi tiếp nhận hồ sơ phù hợp.',
+      'Một số hồ sơ có thể chuẩn bị online nếu thuộc diện được hỗ trợ, nhưng vẫn cần theo hướng dẫn mới nhất của ISA.',
+    ],
+    estimatedTime:
+      'Thời gian xét duyệt thay đổi theo hồ sơ, khu vực và loại tư cách mới. Nên chừa thời gian để bổ sung giấy tờ nếu bị yêu cầu.',
+    fees: ['Có lệ phí khi được cấp phép. Kiểm tra biểu phí mới nhất của ISA trước khi nộp.'],
+    documentsChecklist: [
+      { label: 'Đơn xin đổi tư cách lưu trú đúng mẫu', required: true },
+      { label: 'Ảnh theo quy cách nếu hồ sơ yêu cầu', required: true },
+      { label: 'Hộ chiếu và thẻ cư trú', required: true },
+      { label: 'Tài liệu chứng minh lý do đổi tư cách', required: true },
+      { label: 'Giấy tờ của công ty, trường hoặc cơ quan tiếp nhận mới', required: true },
+      { label: 'Tài liệu chứng minh năng lực học vấn hoặc nghề nghiệp khi cần', required: false },
+    ],
+    commonMistakes: [
+      'Nhầm giữa đổi tư cách lưu trú và gia hạn thời hạn lưu trú.',
+      'Nhận việc hoặc bắt đầu công việc mới khi hồ sơ chưa rõ tình trạng pháp lý.',
+      'Nộp hồ sơ thiếu giấy tờ từ công ty mới, đặc biệt phần mô tả công việc và điều kiện tuyển dụng.',
+    ],
+    faq: [
+      {
+        question: 'Tốt nghiệp xong đi làm có phải gia hạn visa không?',
+        answer:
+          'Thường không phải gia hạn cùng tư cách cũ mà là đổi từ du học sang tư cách phù hợp với công việc mới.',
+      },
+      {
+        question: 'Đổi công ty có luôn cần đổi tư cách không?',
+        answer:
+          'Không phải lúc nào cũng cần. Nếu bản chất công việc vẫn nằm trong phạm vi tư cách hiện tại, có thể chỉ cần thông báo thay đổi theo quy định.',
+      },
+    ],
+    officialLinks: [
+      { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
+      { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/online_index.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Xác định đúng diện mới',
+        description:
+          'Phải làm rõ bạn đang đổi sang tư cách nào và công việc hoặc học tập mới có đúng khung của diện đó hay không.',
+        documents: [
+          'Tên tư cách lưu trú mới dự kiến',
+          'Mô tả công việc hoặc kế hoạch học tập mới',
+          'Thông tin công ty hoặc trường tiếp nhận',
+        ],
+        tip: 'Nếu không chắc diện nào phù hợp, kiểm tra hướng dẫn ISA trước khi gom giấy tờ.',
+      },
+      {
+        step: 2,
+        title: 'Gom tài liệu chứng minh',
+        description:
+          'Hồ sơ thường xoay quanh ba nhóm: giấy tờ cá nhân, giấy tờ của bên tiếp nhận và giấy tờ chứng minh bạn đáp ứng điều kiện của diện mới.',
+        documents: [
+          'Hộ chiếu, thẻ cư trú',
+          'Đơn đúng mẫu',
+          'Giấy tờ của công ty hoặc trường mới',
+          'Bằng cấp, chứng chỉ, hợp đồng hoặc thư tuyển dụng nếu cần',
+        ],
+        tip: 'Đừng chỉ nộp giấy tờ “na ná”. Hồ sơ đổi tư cách thường bị soi kỹ ở phần tính phù hợp của công việc.',
+      },
+      {
+        step: 3,
+        title: 'Nộp hồ sơ và theo dõi bổ sung',
+        description:
+          'Sau khi nộp, phải theo dõi thư hoặc thông báo yêu cầu bổ sung giấy tờ. Nếu thiếu phản hồi, hồ sơ có thể bị kéo dài.',
+        documents: ['Biên nhận hồ sơ', 'Thông tin liên lạc để nhận yêu cầu bổ sung'],
+        tip: 'Không nên đi công tác dài ngày hoặc đổi địa chỉ mà quên cập nhật cách nhận thư.',
+      },
+      {
+        step: 4,
+        title: 'Chỉ bắt đầu theo diện mới khi tình trạng đã rõ',
+        description:
+          'Ngay cả khi đã được nhận vào công ty, bạn vẫn cần hiểu rõ thời điểm nào được phép làm việc theo diện mới.',
+        documents: ['Thông báo kết quả từ ISA', 'Thẻ cư trú cập nhật nếu được cấp phép'],
+        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng.',
+      },
+    ],
+  },
+  {
+    id: 'moving-in-notification',
+    category: 'daily-law',
+    lastVerified: '2026-04-12',
+    priority: 'high',
+    title: 'Đăng ký cư trú khi mới chuyển đến',
+    titleJp: '転入届・住民登録',
+    icon: 'home',
+    color: '#27AE60',
+    description:
+      'Thủ tục đăng ký địa chỉ tại municipal office sau khi bạn chuyển đến nơi ở mới. Đây là một trong những việc nền tảng nhất để mở tài khoản, bảo hiểm, My Number và nhiều thủ tục khác.',
+    whoIsThisFor: [
+      'Người mới sang Nhật có nơi ở cố định và cần đăng ký địa chỉ.',
+      'Người chuyển địa chỉ sang thành phố hoặc quận khác trong Nhật.',
+      'Người vừa dọn nhà và cần cập nhật thông tin cư trú đúng hạn.',
+    ],
+    whenToDo: [
+      'Thường phải làm trong vòng 14 ngày kể từ ngày bắt đầu ở tại địa chỉ mới.',
+      'Nên đi làm sớm vì nhiều thủ tục khác sẽ bị chậm nếu chưa có địa chỉ cư trú hợp lệ.',
+    ],
+    whereToDo: ['City hall, ward office hoặc municipal office nơi bạn đang ở.'],
+    estimatedTime:
+      'Nếu giấy tờ đủ và không quá đông, nhiều nơi xử lý trong ngày. Nhưng nên chừa thời gian vì có thể phải làm thêm bảo hiểm hoặc các thủ tục liên quan.',
+    fees: ['Thông thường việc nộp chuyển đến hoặc đăng ký cư trú không có lệ phí riêng.'],
+    documentsChecklist: [
+      { label: 'Thẻ cư trú', required: true },
+      { label: 'Hộ chiếu', required: false },
+      { label: 'Giấy chuyển đi (転出証明書) nếu chuyển từ địa phương khác trong Nhật', required: false },
+      { label: 'Thông tin địa chỉ nơi ở mới', required: true },
+      { label: 'My Number nếu đã có', required: false },
+    ],
+    commonMistakes: [
+      'Đợi quá lâu mới đi đăng ký cư trú, kéo theo chậm mở tài khoản ngân hàng hoặc làm bảo hiểm.',
+      'Không hỏi luôn tại quầy về bảo hiểm, My Number và những việc nên xử lý cùng ngày.',
+      'Chuyển nhà nhưng chỉ báo chủ nhà, không cập nhật với municipal office.',
+    ],
+    faq: [
+      {
+        question: 'Tôi chỉ mới thuê nhà nhưng chưa dọn hẳn vào thì có đi đăng ký ngay không?',
+        answer:
+          'Mốc quan trọng là khi bạn thực sự bắt đầu cư trú tại địa chỉ mới. Nên chuẩn bị để đi sớm ngay sau khi chuyển đến.',
+      },
+      {
+        question: 'Chuyển từ tỉnh khác sang có gì khác?',
+        answer:
+          'Thường bạn cần giấy chuyển đi từ nơi cũ rồi mới làm thủ tục chuyển đến ở nơi mới.',
+      },
+    ],
+    officialLinks: [
+      { label: 'Resident registration system — Ministry of Internal Affairs and Communications', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/' },
+      { label: 'Moving procedures on Myna Portal', url: 'https://myna.go.jp/html/moving_oss.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Chuẩn bị giấy tờ trước khi ra municipal office',
+        description:
+          'Phải biết rõ mình là người mới sang Nhật hay đang chuyển từ địa phương khác trong Nhật để mang đúng giấy tờ.',
+        documents: [
+          'Thẻ cư trú',
+          'Địa chỉ mới',
+          'Giấy chuyển đi nếu có',
+          'Thông tin của người đi cùng nếu đăng ký cho gia đình',
+        ],
+        tip: 'Nếu vừa mới sang Nhật, nhiều nơi sẽ làm cùng lúc các việc liên quan bảo hiểm và My Number.',
+      },
+      {
+        step: 2,
+        title: 'Nộp chuyển đến và kiểm tra thông tin cư trú',
+        description:
+          'Kiểm tra kỹ cách viết tên, ngày sinh, địa chỉ và thành viên hộ gia đình trước khi xác nhận.',
+        documents: ['Mẫu đơn tại quầy', 'Giấy tờ cá nhân'],
+        tip: 'Sai địa chỉ hoặc sai cách viết tên sẽ kéo theo lỗi ở ngân hàng, điện thoại và hồ sơ khác.',
+      },
+      {
+        step: 3,
+        title: 'Hỏi luôn các việc nên xử lý cùng ngày',
+        description:
+          'Sau khi có đăng ký cư trú, nhiều người sẽ làm tiếp bảo hiểm y tế, hỏi về My Number hoặc giấy chứng nhận cư trú.',
+        documents: ['Thông tin về bảo hiểm, My Number hoặc giấy tờ cần xin thêm'],
+        tip: 'Đừng bỏ lỡ cơ hội hỏi tại quầy xem còn thủ tục nào nên làm ngay hôm đó.',
+      },
+      {
+        step: 4,
+        title: 'Cập nhật địa chỉ ở các nơi liên quan',
+        description:
+          'Sau khi municipal office cập nhật xong, bạn vẫn phải tự cập nhật địa chỉ ở ngân hàng, điện thoại, nơi làm việc hoặc trường và các hợp đồng khác.',
+        documents: ['Danh sách nơi cần đổi địa chỉ'],
+        tip: 'Nếu quên cập nhật, thư quan trọng có thể bị gửi nhầm chỗ.',
+      },
+    ],
+  },
+  {
+    id: 'my-number-card',
+    category: 'daily-law',
+    lastVerified: '2026-04-12',
+    priority: 'high',
+    title: 'Đăng ký và nhận My Number Card',
+    titleJp: 'マイナンバーカード申請・受取',
+    icon: 'card',
+    color: '#185FA5',
+    description:
+      'Hướng dẫn nộp đơn và nhận My Number Card. Đây không phải thủ tục bắt buộc để được ở Nhật, nhưng rất hữu ích cho xác minh danh tính, thủ tục online và một số dịch vụ hành chính.',
+    whoIsThisFor: [
+      'Người đã có đăng ký cư trú tại Nhật và muốn xin My Number Card vật lý.',
+      'Người cần một giấy tờ định danh tiện dùng cho thủ tục hành chính, ngân hàng hoặc dịch vụ online.',
+    ],
+    whenToDo: [
+      'Có thể làm sau khi đã có cư trú và thông tin My Number phù hợp.',
+      'Nên chuẩn bị khi đã có địa chỉ ổn định để dễ nhận thông báo và nhận thẻ tại municipal office.',
+    ],
+    whereToDo: [
+      'Nộp đơn online, qua PC, photo booth hỗ trợ hoặc qua đường bưu điện theo hướng dẫn chính thức.',
+      'Nhận thẻ tại municipal office theo giấy báo nhận thẻ.',
+    ],
+    estimatedTime:
+      'Thời gian từ lúc nộp đến lúc nhận thẻ thay đổi theo địa phương và thời điểm. Bạn phải chờ giấy báo nhận thẻ rồi mới đến lấy.',
+    fees: ['Kiểm tra hướng dẫn mới nhất của địa phương về cấp lần đầu hoặc cấp lại nếu mất hoặc hỏng.'],
+    documentsChecklist: [
+      { label: 'Mẫu đơn hoặc mã dùng để nộp hồ sơ', required: true },
+      { label: 'Ảnh theo quy cách', required: true },
+      { label: 'Giấy báo nhận thẻ khi đến lấy', required: false },
+      { label: 'Giấy tờ định danh khi nhận thẻ theo yêu cầu của địa phương', required: true },
+    ],
+    commonMistakes: [
+      'Nhầm giữa My Number và My Number Card vật lý.',
+      'Nộp xong nhưng quên theo dõi giấy báo nhận thẻ.',
+      'Làm sai ảnh hoặc thông tin cá nhân, dẫn đến phải nộp lại.',
+    ],
+    faq: [
+      {
+        question: 'Có bắt buộc phải có My Number Card không?',
+        answer:
+          'Không phải lúc nào cũng là điều kiện bắt buộc để sinh sống ở Nhật, nhưng có rất nhiều thủ tục tiện hơn nếu có thẻ.',
+      },
+      {
+        question: 'Có thể nộp đơn bằng cách nào?',
+        answer:
+          'Theo hướng dẫn chính thức, có thể nộp bằng smartphone hoặc website, máy tính, photo booth hỗ trợ hoặc gửi thư.',
+      },
+    ],
+    officialLinks: [
+      { label: 'About an Individual Number Card', url: 'https://www.kojinbango-card.go.jp/en-kojinbango/' },
+      { label: 'Application for issuance of the Individual Number Card', url: 'https://www.kojinbango-card.go.jp/en-kofushinse/' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Hiểu rõ mình đang xin gì',
+        description:
+          'My Number là mã số cá nhân, còn My Number Card là thẻ vật lý có thể dùng cho xác minh danh tính và nhiều dịch vụ điện tử.',
+        documents: ['Thông tin cư trú hiện tại', 'Mẫu đơn hoặc mã nộp hồ sơ'],
+        tip: 'Đừng nhầm “đã có số My Number” với “đã có My Number Card”.',
+      },
+      {
+        step: 2,
+        title: 'Chọn cách nộp phù hợp',
+        description:
+          'Bạn có thể nộp qua smartphone hoặc website, máy tính, photo booth hỗ trợ hoặc gửi thư nếu có mẫu phù hợp.',
+        documents: ['Ảnh đúng quy cách', 'Mẫu đơn hoặc thông tin nộp online'],
+        tip: 'Nếu nộp bằng điện thoại, nên chụp ảnh rõ, nền sạch và tránh lỗi khiến hồ sơ bị trả lại.',
+      },
+      {
+        step: 3,
+        title: 'Chờ giấy báo nhận thẻ',
+        description:
+          'Sau khi hồ sơ được xử lý, địa phương sẽ gửi giấy báo nhận thẻ. Đây là mốc quan trọng để bạn đi lấy trực tiếp.',
+        documents: ['Giấy báo nhận thẻ', 'Giấy tờ cần mang khi nhận'],
+        tip: 'Nếu đổi địa chỉ giữa chừng, phải kiểm tra lại cách nhận thư và yêu cầu của địa phương.',
+      },
+      {
+        step: 4,
+        title: 'Nhận thẻ và quản lý PIN cẩn thận',
+        description:
+          'Khi lấy thẻ, cần làm đúng hướng dẫn nhận và quản lý PIN an toàn vì thẻ có thể dùng cho xác minh điện tử.',
+        documents: ['Thẻ sau khi nhận', 'PIN do bạn thiết lập hoặc được hướng dẫn'],
+        tip: 'Không cho người khác mượn thẻ hoặc chia sẻ PIN nếu không có lý do hợp lệ.',
+      },
+    ],
+  },
+  {
     id: 'daily-law-basics',
     category: 'daily-law',
     lastVerified: '2026-04-10',

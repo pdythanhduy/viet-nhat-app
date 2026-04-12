@@ -13,9 +13,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
+import ProfileSetupModal from '../components/ProfileSetupModal';
 import { deleteClaudeApiKey, loadClaudeApiKey, saveClaudeApiKey } from '../utils/apiKeyStorage';
+import { getJapaneseVoiceSupport } from '../utils/audio';
+import {
+  JapaneseAudioPreferences,
+  loadJapaneseAudioPreferences,
+  saveJapaneseAudioPreferences,
+} from '../utils/audioPreferences';
 import { loadImportantDates } from '../utils/notifications';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import type { UserProfile } from '../types/profile';
+import { buildUserProfileSummary, loadUserProfile, saveUserProfile } from '../utils/userProfile';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -26,14 +35,28 @@ export default function SettingsScreen() {
   const [savedKey, setSavedKey] = useState('');
   const [showKey, setShowKey] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [audioPrefs, setAudioPrefs] = useState<JapaneseAudioPreferences>({
+    speechRate: 'normal',
+    autoPlayDialogue: false,
+    autoPlayFlashcard: false,
+  });
+  const [hasJapaneseVoice, setHasJapaneseVoice] = useState<boolean | null>(null);
 
   useEffect(() => {
     loadApiKey();
+    loadUserProfile().then(setUserProfile);
+    loadJapaneseAudioPreferences().then(setAudioPrefs);
+    getJapaneseVoiceSupport().then((support) => setHasJapaneseVoice(support.supported));
   }, []);
 
   useFocusEffect(
     useCallback(() => {
       loadImportantDates().then((dates) => setDateCount(dates.length));
+      loadUserProfile().then(setUserProfile);
+      loadJapaneseAudioPreferences().then(setAudioPrefs);
+      getJapaneseVoiceSupport().then((support) => setHasJapaneseVoice(support.supported));
     }, [])
   );
 
@@ -101,6 +124,38 @@ export default function SettingsScreen() {
     : '';
   const hasKey = !!savedKey;
 
+  const handleSaveProfile = async (input: {
+    visaStatus: UserProfile['visaStatus'];
+    lifeStage: UserProfile['lifeStage'];
+    household: UserProfile['household'];
+    prefecture: string;
+  }) => {
+    const saved = await saveUserProfile(input, userProfile);
+    setUserProfile(saved);
+    setShowProfileModal(false);
+  };
+
+  const handleChangeSpeechRate = async (speechRate: JapaneseAudioPreferences['speechRate']) => {
+    const next = await saveJapaneseAudioPreferences({ ...audioPrefs, speechRate });
+    setAudioPrefs(next);
+  };
+
+  const handleToggleAutoPlayDialogue = async () => {
+    const next = await saveJapaneseAudioPreferences({
+      ...audioPrefs,
+      autoPlayDialogue: !audioPrefs.autoPlayDialogue,
+    });
+    setAudioPrefs(next);
+  };
+
+  const handleToggleAutoPlayFlashcard = async () => {
+    const next = await saveJapaneseAudioPreferences({
+      ...audioPrefs,
+      autoPlayFlashcard: !audioPrefs.autoPlayFlashcard,
+    });
+    setAudioPrefs(next);
+  };
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.pageHeader}>
@@ -121,7 +176,9 @@ export default function SettingsScreen() {
             size={16}
             color={hasKey ? Colors.success : Colors.warning}
           />
-          <Text style={[styles.statusText, hasKey ? styles.statusTextOk : styles.statusTextMissing]}>
+          <Text
+            style={[styles.statusText, hasKey ? styles.statusTextOk : styles.statusTextMissing]}
+          >
             {hasKey ? `Đã cấu hình: ${maskedKey}` : 'Chưa có API key'}
           </Text>
         </View>
@@ -186,6 +243,110 @@ export default function SettingsScreen() {
           <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
         </View>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.section} onPress={() => setShowProfileModal(true)} activeOpacity={0.8}>
+        <View style={styles.rowBetween}>
+          <View style={styles.rowLeft}>
+            <View style={[styles.notifIcon, { backgroundColor: '#EEF7F1' }]}>
+              <Ionicons name="person-circle-outline" size={20} color={Colors.success} />
+            </View>
+            <View style={styles.profileSectionText}>
+              <Text style={styles.sectionTitle}>Hồ sơ cá nhân hóa</Text>
+              <Text style={styles.sectionDesc}>
+                {userProfile
+                  ? buildUserProfileSummary(userProfile)
+                  : 'Chưa thiết lập. Hồ sơ này giúp Trang chủ ưu tiên đúng nội dung cho bạn.'}
+              </Text>
+            </View>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
+        </View>
+      </TouchableOpacity>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Audio tiếng Nhật</Text>
+        <Text style={styles.sectionDesc}>
+          Điều chỉnh tốc độ phát âm và chọn có tự phát toàn bộ hội thoại khi mở ra hay không.
+        </Text>
+
+        <View style={styles.rateRow}>
+          {[
+            { id: 'slow' as const, label: 'Chậm' },
+            { id: 'normal' as const, label: 'Vừa' },
+            { id: 'fast' as const, label: 'Nhanh' },
+          ].map((option) => {
+            const active = audioPrefs.speechRate === option.id;
+            return (
+              <TouchableOpacity
+                key={option.id}
+                style={[styles.rateChip, active && styles.rateChipActive]}
+                onPress={() => void handleChangeSpeechRate(option.id)}
+              >
+                <Text style={[styles.rateChipText, active && styles.rateChipTextActive]}>
+                  {option.label}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        <TouchableOpacity style={styles.audioToggleRow} onPress={() => void handleToggleAutoPlayDialogue()}>
+          <View style={styles.audioToggleLeft}>
+            <View style={[styles.notifIcon, { backgroundColor: '#EEF5FF' }]}>
+              <Ionicons name="play-circle-outline" size={20} color={Colors.primary} />
+            </View>
+            <View style={styles.profileSectionText}>
+              <Text style={styles.sectionTitle}>Tự phát hội thoại</Text>
+              <Text style={styles.sectionDesc}>
+                {audioPrefs.autoPlayDialogue
+                  ? 'Đang bật. Khi mở hội thoại có thể phát liên tục từng dòng.'
+                  : 'Đang tắt. Chỉ phát khi bạn bấm nút loa hoặc phát toàn bộ.'}
+              </Text>
+            </View>
+          </View>
+          <Ionicons
+            name={audioPrefs.autoPlayDialogue ? 'toggle' : 'toggle-outline'}
+            size={34}
+            color={audioPrefs.autoPlayDialogue ? Colors.primary : Colors.textMuted}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.audioToggleRow, { marginTop: 14 }]} onPress={() => void handleToggleAutoPlayFlashcard()}>
+          <View style={styles.audioToggleLeft}>
+            <View style={[styles.notifIcon, { backgroundColor: '#F5F0FF' }]}>
+              <Ionicons name="albums-outline" size={20} color="#8E44AD" />
+            </View>
+            <View style={styles.profileSectionText}>
+              <Text style={styles.sectionTitle}>Tự phát flashcard khi lật</Text>
+              <Text style={styles.sectionDesc}>
+                {audioPrefs.autoPlayFlashcard
+                  ? 'Đang bật. Khi lật thẻ ở chế độ luyện tập, app sẽ tự phát lại câu tiếng Nhật.'
+                  : 'Đang tắt. Flashcard chỉ phát khi bạn bấm nút loa.'}
+              </Text>
+            </View>
+          </View>
+          <Ionicons
+            name={audioPrefs.autoPlayFlashcard ? 'toggle' : 'toggle-outline'}
+            size={34}
+            color={audioPrefs.autoPlayFlashcard ? '#8E44AD' : Colors.textMuted}
+          />
+        </TouchableOpacity>
+
+        <View style={styles.noteBox}>
+          <Ionicons
+            name={hasJapaneseVoice === false ? 'warning-outline' : 'volume-high-outline'}
+            size={16}
+            color={hasJapaneseVoice === false ? Colors.warning : Colors.primary}
+          />
+          <Text style={styles.noteText}>
+            {hasJapaneseVoice === false
+              ? 'Thiết bị hiện chưa có voice tiếng Nhật. Bạn cần cài thêm Japanese TTS voice trong phần ngôn ngữ hoặc giọng nói của máy để nút loa phát âm hoạt động.'
+              : Platform.OS === 'ios'
+                ? 'Nếu bạn dùng iPhone và để máy ở silent mode, phát âm có thể bị im tùy thiết bị. Hãy thử bật tiếng chuông khi kiểm tra audio.'
+                : 'Audio phát âm hiện dùng giọng TTS trên thiết bị. Chất lượng giọng sẽ phụ thuộc máy và voice engine đang cài.'}
+          </Text>
+        </View>
+      </View>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Cách lấy API key</Text>
@@ -258,6 +419,13 @@ export default function SettingsScreen() {
           <Text style={styles.infoValue}>{Platform.OS === 'ios' ? 'iOS' : 'Android'}</Text>
         </View>
       </View>
+
+      <ProfileSetupModal
+        visible={showProfileModal}
+        initialProfile={userProfile}
+        onClose={() => setShowProfileModal(false)}
+        onSave={handleSaveProfile}
+      />
     </ScrollView>
   );
 }
@@ -435,6 +603,47 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   rowLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    flex: 1,
+  },
+  profileSectionText: {
+    flex: 1,
+  },
+  rateRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 14,
+  },
+  rateChip: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    backgroundColor: Colors.background,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  rateChipActive: {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
+  },
+  rateChipText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+  },
+  rateChipTextActive: {
+    color: Colors.white,
+  },
+  audioToggleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  audioToggleLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,

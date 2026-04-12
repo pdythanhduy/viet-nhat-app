@@ -78,7 +78,7 @@ export default function FeedbackScreen() {
         setSubmitted(true);
       })
       .catch(() => {
-        Alert.alert('Lỗi', `Không thể mở app email. Vui lòng liên hệ: ${ADMIN_EMAIL}`);
+        Alert.alert('Lỗi', `Không thể mở app email. Vui lòng liên hệ ${ADMIN_EMAIL}`);
       });
   };
 
@@ -92,8 +92,8 @@ export default function FeedbackScreen() {
           </View>
           <Text style={styles.thankYouTitle}>Cảm ơn bạn</Text>
           <Text style={styles.thankYouDesc}>
-            Phản hồi của bạn giúp chúng tôi cải thiện ứng dụng mỗi ngày. Chúng tôi sẽ đọc
-            và cân nhắc kỹ từng góp ý.
+            Phản hồi của bạn giúp chúng tôi cải thiện ứng dụng mỗi ngày. Chúng tôi sẽ đọc và cân
+            nhắc kỹ từng góp ý.
           </Text>
           <TouchableOpacity style={styles.doneBtn} onPress={() => navigation.goBack()}>
             <Text style={styles.doneBtnText}>Quay lại</Text>
@@ -119,7 +119,7 @@ export default function FeedbackScreen() {
           <View style={styles.introTexts}>
             <Text style={styles.introTitle}>Góp ý cho chúng tôi</Text>
             <Text style={styles.introDesc}>
-              Mọi phản hồi đều được đọc và cân nhắc cải thiện. Cảm ơn bạn.
+              Mỗi phản hồi đều được đọc và cân nhắc cải thiện. Cảm ơn bạn.
             </Text>
           </View>
         </View>
@@ -209,8 +209,8 @@ export default function FeedbackScreen() {
         <View style={styles.privacyBox}>
           <Ionicons name="lock-closed-outline" size={14} color={Colors.textMuted} />
           <Text style={styles.privacyText}>
-            Phản hồi được gửi qua email đến người phát triển. Ứng dụng không tự thu thập dữ
-            liệu cá nhân từ form này ngoài nội dung bạn chủ động gửi.
+            Phản hồi được gửi qua email đến người phát triển. Ứng dụng không tự thu thập dữ liệu
+            cá nhân từ form này ngoài nội dung bạn chủ động gửi.
           </Text>
         </View>
 

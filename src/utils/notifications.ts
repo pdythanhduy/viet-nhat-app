@@ -32,36 +32,35 @@ Notifications.setNotificationHandler({
   }),
 });
 
+async function ensureAndroidChannel() {
+  if (Platform.OS !== 'android') return;
+
+  await Notifications.setNotificationChannelAsync('reminders', {
+    name: 'Nhắc nhở quan trọng',
+    importance: Notifications.AndroidImportance.HIGH,
+    vibrationPattern: [0, 250, 250, 250],
+    lightColor: '#185FA5',
+  });
+}
+
 export async function requestPermission(): Promise<boolean> {
   if (!Device.isDevice) return false;
 
   if (isExpoGo) {
-    if (Platform.OS === 'android') {
-      await Notifications.setNotificationChannelAsync('reminders', {
-        name: 'Nhắc nhở quan trọng',
-        importance: Notifications.AndroidImportance.HIGH,
-        vibrationPattern: [0, 250, 250, 250],
-        lightColor: '#185FA5',
-      });
-    }
+    await ensureAndroidChannel();
     return true;
   }
 
   const { status: existing } = await Notifications.getPermissionsAsync();
-  if (existing === 'granted') return true;
+  if (existing === 'granted') {
+    await ensureAndroidChannel();
+    return true;
+  }
 
   const { status } = await Notifications.requestPermissionsAsync();
   if (status !== 'granted') return false;
 
-  if (Platform.OS === 'android') {
-    await Notifications.setNotificationChannelAsync('reminders', {
-      name: 'Nhắc nhở quan trọng',
-      importance: Notifications.AndroidImportance.HIGH,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#185FA5',
-    });
-  }
-
+  await ensureAndroidChannel();
   return true;
 }
 
@@ -109,7 +108,7 @@ export async function scheduleNotificationsForDate(item: ImportantDate): Promise
     await Notifications.scheduleNotificationAsync({
       identifier: `date_${item.id}_${days}`,
       content: {
-        title: `📌 ${item.label}`,
+        title: `📅 ${item.label}`,
         body: `Còn ${formatDaysLabel(days)} - hãy chuẩn bị hồ sơ sớm.`,
         data: { dateId: item.id },
         ...(Platform.OS === 'android' && { channelId: 'reminders' }),

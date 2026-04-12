@@ -1,5 +1,7 @@
 export const StorageKeys = {
-  aiChatHistory: 'ai_chat_history',
+  aiChatHistory: 'ai_chat_history_v1',
+  /** Legacy key used before v1 versioning — kept for one-time migration only. */
+  aiChatHistoryLegacy: 'ai_chat_history',
   bookmarks: 'bookmarks_v1',
   claudeApiKey: 'claude_api_key',
   guideChecklistProgress: 'guide_checklist_progress_v1',
@@ -7,4 +9,9 @@ export const StorageKeys = {
   dailyLifeRecentTopics: 'daily_life_recent_topics_v1',
   japaneseRecentCategories: 'japanese_recent_categories_v1',
   laborHelpChecklistProgress: 'labor_help_checklist_progress_v1',
+  laborResources: 'labor_resources_v1',
+  journeyChecklistProgress: 'journey_checklist_progress_v1',
+  japaneseAudioPreferences: 'japanese_audio_preferences_v1',
+  userProfile: 'user_profile_v1',
+  userProfilePromptDismissed: 'user_profile_prompt_dismissed_v1',
 } as const;
