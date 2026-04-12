@@ -15,7 +15,6 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import {
-  CONTRACT_REVIEW_CHECKLIST,
   CURRENT_LABOR_UPDATES,
   JOB_PLATFORMS,
   JOBS_CONTENT_META,
@@ -37,17 +36,21 @@ function openUrl(url: string) {
 export default function JobsScreen() {
   const navigation = useNavigation<NavigationProp>();
   const [activeWorkerType, setActiveWorkerType] = useState<EligibleWorkerType>('student');
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(JOB_PLATFORMS[0].category);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(
+    JOB_PLATFORMS[0]?.category ?? null
+  );
+
   const activeGuide =
     WORKER_TYPE_GUIDES.find((guide) => guide.id === activeWorkerType) ?? WORKER_TYPE_GUIDES[0];
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Việc làm tại Nhật</Text>
         <Text style={styles.headerSub}>
-          Nền tảng tuyển dụng, quyền lợi lao động và thay đổi luật hiện hành
+          Tìm đúng nguồn việc, hiểu quyền lao động và tránh các rủi ro dễ gặp.
         </Text>
       </View>
 
@@ -164,7 +167,7 @@ export default function JobsScreen() {
                 />
               </TouchableOpacity>
 
-              {isOpen && (
+              {isOpen ? (
                 <View style={styles.platformList}>
                   {platforms.map((platform) => (
                     <View key={platform.id} style={styles.platformCard}>
@@ -223,7 +226,7 @@ export default function JobsScreen() {
                     </View>
                   ))}
                 </View>
-              )}
+              ) : null}
             </View>
           );
         })}
@@ -246,26 +249,20 @@ export default function JobsScreen() {
           ))}
         </View>
 
-        <TouchableOpacity
-          style={styles.guideCard}
-          onPress={() => navigation.navigate('LaborGuide')}
-        >
+        <TouchableOpacity style={styles.guideCard} onPress={() => navigation.navigate('LaborGuide')}>
           <View style={styles.guideIconBg}>
             <Ionicons name="book-outline" size={20} color={Colors.primary} />
           </View>
           <View style={styles.guideText}>
             <Text style={styles.guideTitle}>Mở cẩm nang lao động</Text>
             <Text style={styles.guideDesc}>
-              Xem riêng dấu hiệu công ty rủi ro, checklist hợp đồng và câu tiếng Nhật nên dùng.
+              Xem dấu hiệu công ty rủi ro, checklist hợp đồng và câu tiếng Nhật nên dùng.
             </Text>
           </View>
           <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.guideCard}
-          onPress={() => navigation.navigate('LaborHelp')}
-        >
+        <TouchableOpacity style={styles.guideCard} onPress={() => navigation.navigate('LaborHelp')}>
           <View style={styles.guideIconBg}>
             <Ionicons name="help-buoy-outline" size={20} color={Colors.primary} />
           </View>
@@ -286,7 +283,7 @@ export default function JobsScreen() {
           <View style={styles.lawLinkText}>
             <Text style={styles.lawLinkTitle}>Kiểm tra điều kiện lao động của bạn</Text>
             <Text style={styles.lawLinkSub}>
-              check-roudou.mhlw.go.jp • nguồn chính thức của Bộ Lao động Nhật
+              check-roudou.mhlw.go.jp - nguồn chính thức của Bộ Lao động Nhật
             </Text>
           </View>
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
@@ -306,7 +303,7 @@ export default function JobsScreen() {
             navigation.navigate('AIChat', {
               title: 'Tư vấn việc làm',
               prefilledQuestion:
-                'Tôi là người Việt Nam muốn tìm việc làm tại Nhật Bản. Hãy tư vấn về loại visa phù hợp, CV tiếng Nhật, phỏng vấn, lương, hợp đồng, bảo hiểm và quyền lợi lao động cần biết.',
+                'Tôi là người Việt Nam muốn tìm việc tại Nhật. Hãy tư vấn về loại visa phù hợp, CV tiếng Nhật, phỏng vấn, lương, hợp đồng, bảo hiểm và quyền lợi lao động cần biết.',
             })
           }
         >
@@ -381,214 +378,187 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   profileText: { flex: 1 },
-  profileTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 4 },
-  profileDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18, marginBottom: 8 },
-  warningRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 7, marginBottom: 5 },
-  warningDot: { width: 5, height: 5, borderRadius: 3, marginTop: 6, flexShrink: 0 },
-  warningText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
+  profileTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary, marginBottom: 6 },
+  profileDesc: { fontSize: 13, color: Colors.textSecondary, lineHeight: 19, marginBottom: 8 },
+  warningRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 6 },
+  warningDot: { width: 6, height: 6, borderRadius: 3, marginTop: 6 },
+  warningText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   noticeCard: {
     flexDirection: 'row',
+    alignItems: 'flex-start',
     gap: 10,
     backgroundColor: Colors.accent,
     borderRadius: 14,
     padding: 14,
-    marginBottom: 16,
+    marginBottom: 12,
     borderWidth: 1,
-    borderColor: Colors.primary + '30',
-    alignItems: 'flex-start',
+    borderColor: Colors.primary + '22',
   },
-  noticeText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
-  noticeBold: { fontWeight: '700', color: Colors.primary },
+  noticeText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
+  noticeBold: { fontWeight: '700', color: Colors.textPrimary },
   sectionTitle: {
     fontSize: 17,
-    fontWeight: '700',
+    fontWeight: '800',
     color: Colors.textPrimary,
-    marginTop: 8,
-    marginBottom: 12,
+    marginBottom: 10,
+    marginTop: 4,
   },
-  updatesWrap: { gap: 10, marginBottom: 16 },
+  updatesWrap: { gap: 10, marginBottom: 12 },
   updateCard: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 10,
     backgroundColor: Colors.white,
     borderRadius: 14,
     padding: 14,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    flexDirection: 'row',
+    gap: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   updateIconBg: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
+    width: 40,
+    height: 40,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     flexShrink: 0,
   },
   updateText: { flex: 1 },
-  updateTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
-  updateDate: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: Colors.primary,
-    marginBottom: 6,
-    lineHeight: 16,
-  },
-  updateSummary: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18, marginBottom: 4 },
-  updateImpact: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
-  categoryBlock: { marginBottom: 10 },
+  updateTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 4 },
+  updateDate: { fontSize: 11, color: Colors.textMuted, marginBottom: 4, lineHeight: 16 },
+  updateSummary: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18, marginBottom: 6 },
+  updateImpact: { fontSize: 12, color: Colors.textPrimary, lineHeight: 18 },
+  categoryBlock: { marginBottom: 12 },
   categoryHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
     backgroundColor: Colors.white,
     borderRadius: 14,
     padding: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 10,
     borderLeftWidth: 4,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 6,
-    elevation: 2,
   },
   categoryIconBg: {
-    width: 36,
-    height: 36,
+    width: 38,
+    height: 38,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   categoryTitle: { flex: 1, fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
   countChip: {
+    minWidth: 24,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: 999,
     backgroundColor: Colors.accent,
-    borderRadius: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
+    alignItems: 'center',
   },
-  countChipText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
-  platformList: { marginTop: 6, gap: 8 },
+  countChipText: { fontSize: 11, fontWeight: '700', color: Colors.primary },
+  platformList: { gap: 10, marginTop: 10 },
   platformCard: {
     backgroundColor: Colors.white,
     borderRadius: 14,
     padding: 14,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
-    marginLeft: 8,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   platformTop: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
   platformIconBg: {
-    width: 44,
-    height: 44,
+    width: 42,
+    height: 42,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
   platformNameBlock: { flex: 1 },
-  platformName: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
-  platformNameJp: { fontSize: 11, color: Colors.textMuted, marginTop: 1 },
+  platformName: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary },
+  platformNameJp: { fontSize: 11, color: Colors.textMuted, marginTop: 2 },
   openBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    paddingHorizontal: 12,
-    paddingVertical: 7,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
     borderRadius: 10,
   },
   openBtnText: { fontSize: 12, fontWeight: '700', color: Colors.white },
-  platformDesc: { fontSize: 13, color: Colors.textSecondary, lineHeight: 19, marginBottom: 10 },
+  platformDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18, marginBottom: 10 },
   visaNoteBox: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 8,
-    backgroundColor: Colors.warningLight,
+    backgroundColor: Colors.accent,
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
   },
-  visaNoteText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
-  tagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
-  targetTag: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8 },
+  visaNoteText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
+  tagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  targetTag: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999 },
   targetTagText: { fontSize: 11, fontWeight: '700' },
-  tag: { paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8, backgroundColor: Colors.accent },
+  tag: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: Colors.background,
+  },
   tagText: { fontSize: 11, color: Colors.textSecondary, fontWeight: '600' },
   rightsCard: {
     backgroundColor: Colors.white,
-    borderRadius: 16,
-    marginBottom: 10,
+    borderRadius: 14,
     overflow: 'hidden',
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
-  rightRow: { flexDirection: 'row', gap: 12, padding: 14, alignItems: 'flex-start' },
+  rightRow: { flexDirection: 'row', gap: 12, padding: 14 },
   rightBorder: { borderBottomWidth: 1, borderBottomColor: Colors.border },
   rightIconBg: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
+    width: 38,
+    height: 38,
+    borderRadius: 12,
     backgroundColor: Colors.accent,
-    justifyContent: 'center',
     alignItems: 'center',
-    flexShrink: 0,
+    justifyContent: 'center',
   },
   rightInfo: { flex: 1 },
-  rightTitle: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary, marginBottom: 3 },
+  rightTitle: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary, marginBottom: 4 },
   rightDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   guideCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    backgroundColor: Colors.white,
-    borderRadius: 14,
-    padding: 14,
-    marginBottom: 12,
+    marginBottom: 10,
     borderWidth: 1,
-    borderColor: Colors.primary + '25',
+    borderColor: Colors.border,
   },
   guideIconBg: {
-    width: 40,
-    height: 40,
+    width: 42,
+    height: 42,
     borderRadius: 12,
     backgroundColor: Colors.accent,
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  guideText: {
-    flex: 1,
-  },
-  guideTitle: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: Colors.textPrimary,
-    marginBottom: 2,
-  },
-  guideDesc: {
-    fontSize: 12,
-    color: Colors.textSecondary,
-    lineHeight: 18,
-  },
+  guideText: { flex: 1 },
+  guideTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  guideDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   lawLink: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
     backgroundColor: Colors.white,
     borderRadius: 14,
     padding: 14,
+    flexDirection: 'row',
+    gap: 12,
+    alignItems: 'center',
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: Colors.primary + '30',
+    borderColor: Colors.primary + '28',
   },
   lawLinkText: { flex: 1 },
-  lawLinkTitle: { fontSize: 13, fontWeight: '700', color: Colors.primary },
-  lawLinkSub: { fontSize: 11, color: Colors.textMuted, marginTop: 2, lineHeight: 16 },
+  lawLinkTitle: { fontSize: 13, fontWeight: '700', color: Colors.primary, marginBottom: 3 },
+  lawLinkSub: { fontSize: 11, color: Colors.textMuted, lineHeight: 16 },
   metaCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -608,13 +578,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 6,
   },
   aiText: { flex: 1 },
-  aiTitle: { fontSize: 14, fontWeight: '700', color: Colors.white },
-  aiSub: { fontSize: 12, color: 'rgba(255,255,255,0.75)', marginTop: 2 },
+  aiTitle: { fontSize: 14, fontWeight: '700', color: Colors.white, marginBottom: 2 },
+  aiSub: { fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 17 },
 });

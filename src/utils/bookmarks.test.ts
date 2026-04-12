@@ -21,6 +21,32 @@ const guideBookmark: Bookmark = {
   savedAt: '',
 };
 
+const dialogueBookmark: Bookmark = {
+  type: 'dialogue',
+  id: 'dialogue-phone-clinic',
+  category: 'Gọi điện cho bệnh viện hoặc phòng khám',
+  situation: 'Gọi điện đặt lịch khám',
+  lines: [
+    {
+      speakerLabel: 'Bạn',
+      jp: '今日診てもらえますか。',
+      romaji: 'Kyou mite moraemasu ka.',
+      vn: 'Hôm nay tôi có thể được khám không?',
+    },
+  ],
+  savedAt: '',
+};
+
+const dailyLifeBookmark: Bookmark = {
+  type: 'daily-life',
+  id: 'hospital',
+  title: 'Đi khám và bệnh viện',
+  titleJp: '病院・クリニック',
+  description: 'Cách đi khám, đặt lịch và chuẩn bị giấy tờ cần mang.',
+  color: '#27AE60',
+  savedAt: '',
+};
+
 describe('bookmarks', () => {
   beforeEach(async () => {
     await AsyncStorage.clear();
@@ -31,9 +57,9 @@ describe('bookmarks', () => {
   });
 
   it('saves and loads bookmarks', async () => {
-    await saveBookmarks([guideBookmark]);
+    await saveBookmarks([guideBookmark, dialogueBookmark]);
 
-    await expect(loadBookmarks()).resolves.toEqual([guideBookmark]);
+    await expect(loadBookmarks()).resolves.toEqual([guideBookmark, dialogueBookmark]);
   });
 
   it('adds and removes a bookmark with toggleBookmark', async () => {
@@ -42,5 +68,15 @@ describe('bookmarks', () => {
 
     await expect(toggleBookmark(guideBookmark)).resolves.toBe(false);
     await expect(isBookmarked(guideBookmark.id, guideBookmark.type)).resolves.toBe(false);
+  });
+
+  it('supports dialogue bookmarks', async () => {
+    await expect(toggleBookmark(dialogueBookmark)).resolves.toBe(true);
+    await expect(isBookmarked(dialogueBookmark.id, dialogueBookmark.type)).resolves.toBe(true);
+  });
+
+  it('supports daily life bookmarks', async () => {
+    await expect(toggleBookmark(dailyLifeBookmark)).resolves.toBe(true);
+    await expect(isBookmarked(dailyLifeBookmark.id, dailyLifeBookmark.type)).resolves.toBe(true);
   });
 });

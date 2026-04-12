@@ -33,7 +33,7 @@ export default function SettingsScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      loadImportantDates().then((d) => setDateCount(d.length));
+      loadImportantDates().then((dates) => setDateCount(dates.length));
     }, [])
   );
 
@@ -45,16 +45,18 @@ export default function SettingsScreen() {
         setApiKey(key);
       }
     } catch {
-      // ignore
+      // ignore local read errors
     }
   };
 
   const saveApiKey = async () => {
     const trimmed = apiKey.trim();
+
     if (!trimmed) {
       Alert.alert('Lỗi', 'Vui lòng nhập API key trước khi lưu.');
       return;
     }
+
     if (!trimmed.startsWith('sk-ant-')) {
       Alert.alert(
         'API key không hợp lệ',
@@ -62,11 +64,12 @@ export default function SettingsScreen() {
       );
       return;
     }
+
     setIsSaving(true);
     try {
       await saveClaudeApiKey(trimmed);
       setSavedKey(trimmed);
-      Alert.alert('Thành công', 'Đã lưu API key. Bạn có thể dùng tính năng AI Chat ngay bây giờ.');
+      Alert.alert('Thành công', 'Đã lưu API key. Bạn có thể dùng AI Chat ngay bây giờ.');
     } catch {
       Alert.alert('Lỗi', 'Không thể lưu API key. Thử lại sau.');
     } finally {
@@ -93,7 +96,9 @@ export default function SettingsScreen() {
     );
   };
 
-  const maskedKey = savedKey ? `${savedKey.slice(0, 10)}****************${savedKey.slice(-4)}` : '';
+  const maskedKey = savedKey
+    ? `${savedKey.slice(0, 10)}****************${savedKey.slice(-4)}`
+    : '';
   const hasKey = !!savedKey;
 
   return (
@@ -106,8 +111,8 @@ export default function SettingsScreen() {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Trợ lý AI (Claude API)</Text>
         <Text style={styles.sectionDesc}>
-          Để sử dụng tính năng AI Chat, bạn cần nhập API key từ Anthropic. Key được
-          lưu trên thiết bị của bạn, không gửi về máy chủ riêng của app.
+          Để dùng tính năng AI Chat, bạn cần nhập API key từ Anthropic. Key được lưu trên thiết
+          bị của bạn, không gửi về máy chủ riêng của app.
         </Text>
 
         <View style={[styles.statusBadge, hasKey ? styles.statusOk : styles.statusMissing]}>
@@ -133,7 +138,7 @@ export default function SettingsScreen() {
             autoCorrect={false}
             spellCheck={false}
           />
-          <TouchableOpacity style={styles.eyeBtn} onPress={() => setShowKey((v) => !v)}>
+          <TouchableOpacity style={styles.eyeBtn} onPress={() => setShowKey((value) => !value)}>
             <Ionicons
               name={showKey ? 'eye-off-outline' : 'eye-outline'}
               size={20}
@@ -151,12 +156,12 @@ export default function SettingsScreen() {
           <Text style={styles.saveBtnText}>{isSaving ? 'Đang lưu...' : 'Lưu API key'}</Text>
         </TouchableOpacity>
 
-        {hasKey && (
+        {hasKey ? (
           <TouchableOpacity style={styles.deleteBtn} onPress={deleteApiKey}>
             <Ionicons name="trash-outline" size={16} color={Colors.danger} />
             <Text style={styles.deleteBtnText}>Xóa API key</Text>
           </TouchableOpacity>
-        )}
+        ) : null}
       </View>
 
       <TouchableOpacity
@@ -234,7 +239,7 @@ export default function SettingsScreen() {
             <View>
               <Text style={styles.sectionTitle}>Góp ý và phản hồi</Text>
               <Text style={styles.sectionDesc}>
-                Báo lỗi, đề xuất tính năng hoặc liên hệ admin
+                Báo lỗi, đề xuất tính năng hoặc liên hệ hỗ trợ
               </Text>
             </View>
           </View>

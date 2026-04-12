@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -15,29 +15,30 @@ import { Colors } from '../constants/colors';
 import { ESSENTIAL_PHRASES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import {
-  loadProgress,
-  updatePhraseLevel,
-  sortByLevel,
   LEVEL_COLORS,
   LEVEL_LABELS,
+  loadProgress,
   PhraseLevel,
   ProgressData,
+  sortByLevel,
+  updatePhraseLevel,
 } from '../utils/japaneseProgress';
 import { markStudiedToday } from '../utils/japaneseStreak';
+import { recordRecentJapaneseCategory } from '../utils/japaneseRecentCategories';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'JapanesePractice'>;
 type Answer = 'forgot' | 'remembered' | 'mastered';
-
 type Phrase = { jp: string; romaji: string; vn: string };
 
 export default function JapanesePracticeScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
   const { categoryName, categoryColor } = route.params;
+  const accentColor = categoryColor || Colors.primary;
 
-  const cat = ESSENTIAL_PHRASES.find((c) => c.category === categoryName);
-  const allPhrases: Phrase[] = (cat?.phrases ?? []) as Phrase[];
+  const category = ESSENTIAL_PHRASES.find((item) => item.category === categoryName);
+  const allPhrases: Phrase[] = category?.phrases ?? [];
 
   const [progress, setProgress] = useState<ProgressData>({});
   const [cards, setCards] = useState<Phrase[]>([]);
@@ -51,18 +52,18 @@ export default function JapanesePracticeScreen() {
 
   useEffect(() => {
     navigation.setOptions({ headerTitle: categoryName });
-    loadProgress().then((p) => {
-      setProgress(p);
-      setCards(sortByLevel(allPhrases, p));
+    recordRecentJapaneseCategory(categoryName, accentColor).catch(() => undefined);
+    loadProgress().then((data) => {
+      setProgress(data);
+      setCards(sortByLevel(allPhrases, data));
       setLoading(false);
     });
-  }, []);
+  }, [accentColor, allPhrases, categoryName, navigation]);
 
-  // Reset flip animation when card changes
   useEffect(() => {
     flipAnim.setValue(0);
     setFlipped(false);
-  }, [currentIndex]);
+  }, [currentIndex, flipAnim]);
 
   const frontOpacity = flipAnim.interpolate({
     inputRange: [0, 0.45, 0.5, 1],
@@ -96,10 +97,8 @@ export default function JapanesePracticeScreen() {
     const card = cards[currentIndex];
     const currentLevel = (progress[card.jp] ?? 0) as PhraseLevel;
     const newLevel = await updatePhraseLevel(card.jp, answer, currentLevel);
-    const newProgress = { ...progress, [card.jp]: newLevel };
-    setProgress(newProgress);
-    const newResults = [...results, answer];
-    setResults(newResults);
+    setProgress((prev) => ({ ...prev, [card.jp]: newLevel }));
+    setResults((prev) => [...prev, answer]);
 
     if (currentIndex + 1 >= cards.length) {
       await markStudiedToday();
@@ -109,16 +108,16 @@ export default function JapanesePracticeScreen() {
     }
   };
 
-  const handleRetryForgotten = () => {
-    const forgottenCards = cards.filter((_, i) => results[i] === 'forgot');
-    setCards(sortByLevel(forgottenCards.length > 0 ? forgottenCards : allPhrases, progress));
+  const handleRetryAll = () => {
+    setCards(sortByLevel(allPhrases, progress));
     setCurrentIndex(0);
     setResults([]);
     setDone(false);
   };
 
-  const handleRetryAll = () => {
-    setCards(sortByLevel(allPhrases, progress));
+  const handleRetryForgotten = () => {
+    const forgottenCards = cards.filter((_, index) => results[index] === 'forgot');
+    setCards(sortByLevel(forgottenCards.length > 0 ? forgottenCards : allPhrases, progress));
     setCurrentIndex(0);
     setResults([]);
     setDone(false);
@@ -127,487 +126,232 @@ export default function JapanesePracticeScreen() {
   if (loading) {
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
-        <View style={styles.loadingBox}>
+        <View style={styles.centerBox}>
           <Text style={styles.loadingText}>Đang tải...</Text>
         </View>
       </SafeAreaView>
     );
   }
 
-  // ── SUMMARY SCREEN ──
+  if (cards.length === 0) {
+    return (
+      <SafeAreaView style={styles.container} edges={['bottom']}>
+        <View style={styles.centerBox}>
+          <Text style={styles.loadingText}>Chưa có dữ liệu luyện tập.</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   if (done) {
-    const masteredCount = results.filter((r) => r === 'mastered').length;
-    const rememberedCount = results.filter((r) => r === 'remembered').length;
-    const forgotCount = results.filter((r) => r === 'forgot').length;
-    const totalLearned = masteredCount + rememberedCount;
-    const percent = Math.round((totalLearned / results.length) * 100);
-    const isExcellent = forgotCount === 0;
+    const masteredCount = results.filter((item) => item === 'mastered').length;
+    const rememberedCount = results.filter((item) => item === 'remembered').length;
+    const forgotCount = results.filter((item) => item === 'forgot').length;
+    const percent = Math.round(((masteredCount + rememberedCount) / results.length) * 100);
 
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summaryContainer}>
-          <View style={[styles.summaryIconBg, { backgroundColor: isExcellent ? '#27AE6020' : '#2980B920' }]}>
-            <Ionicons
-              name={isExcellent ? 'trophy' : 'checkmark-circle'}
-              size={56}
-              color={isExcellent ? '#27AE60' : '#2980B9'}
-            />
-          </View>
-
-          <Text style={styles.summaryTitle}>{isExcellent ? 'Xuất sắc!' : 'Hoàn thành!'}</Text>
+          <Text style={styles.summaryTitle}>Hoàn thành luyện tập</Text>
           <Text style={styles.summarySubtitle}>{categoryName}</Text>
-          <Text style={styles.summaryPercent}>{percent}% đã nhớ</Text>
+          <Text style={[styles.summaryPercent, { color: accentColor }]}>{percent}% đã nhớ</Text>
 
-          <View style={styles.statsRow}>
-            <View style={[styles.statBox, { backgroundColor: '#27AE6015', borderColor: '#27AE6030' }]}>
-              <Ionicons name="star" size={20} color="#27AE60" />
-              <Text style={[styles.statNum, { color: '#27AE60' }]}>{masteredCount}</Text>
+          <View style={styles.summaryStats}>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue}>{masteredCount}</Text>
               <Text style={styles.statLabel}>Thành thạo</Text>
             </View>
-            <View style={[styles.statBox, { backgroundColor: '#2980B915', borderColor: '#2980B930' }]}>
-              <Ionicons name="checkmark-circle" size={20} color="#2980B9" />
-              <Text style={[styles.statNum, { color: '#2980B9' }]}>{rememberedCount}</Text>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue}>{rememberedCount}</Text>
               <Text style={styles.statLabel}>Đã nhớ</Text>
             </View>
-            <View style={[styles.statBox, { backgroundColor: '#E74C3C15', borderColor: '#E74C3C30' }]}>
-              <Ionicons name="close-circle" size={20} color="#E74C3C" />
-              <Text style={[styles.statNum, { color: '#E74C3C' }]}>{forgotCount}</Text>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue}>{forgotCount}</Text>
               <Text style={styles.statLabel}>Chưa nhớ</Text>
             </View>
           </View>
 
-          {forgotCount > 0 && (
+          {forgotCount > 0 ? (
             <TouchableOpacity
-              style={[styles.retryForgotBtn, { backgroundColor: categoryColor || Colors.primary }]}
+              style={[styles.primaryAction, { backgroundColor: accentColor }]}
               onPress={handleRetryForgotten}
             >
-              <Ionicons name="refresh" size={18} color={Colors.white} />
-              <Text style={styles.retryBtnText}>Luyện lại {forgotCount} câu chưa nhớ</Text>
+              <Text style={styles.primaryActionText}>Luyện lại phần chưa nhớ</Text>
             </TouchableOpacity>
-          )}
+          ) : null}
 
-          <TouchableOpacity style={styles.retryAllBtn} onPress={handleRetryAll}>
-            <Ionicons name="albums-outline" size={16} color={Colors.textSecondary} />
-            <Text style={styles.retryAllText}>Luyện lại toàn bộ {allPhrases.length} câu</Text>
+          <TouchableOpacity style={styles.secondaryAction} onPress={handleRetryAll}>
+            <Text style={styles.secondaryActionText}>Luyện lại toàn bộ</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.doneBtn} onPress={() => navigation.goBack()}>
-            <Text style={styles.doneBtnText}>Xong</Text>
+          <TouchableOpacity style={styles.doneButton} onPress={() => navigation.goBack()}>
+            <Text style={styles.doneButtonText}>Xong</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
   }
 
-  // ── PRACTICE CARD ──
   const card = cards[currentIndex];
-  const cardLevel = (progress[card?.jp] ?? 0) as PhraseLevel;
-  const progressPercent = currentIndex / cards.length;
+  const cardLevel = (progress[card.jp] ?? 0) as PhraseLevel;
+  const progressPercent = ((currentIndex + 1) / cards.length) * 100;
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
 
-      {/* Top progress bar */}
-      <View style={styles.topProgressBg}>
-        <Animated.View
-          style={[
-            styles.topProgressFill,
-            {
-              width: `${progressPercent * 100}%`,
-              backgroundColor: categoryColor || Colors.primary,
-            },
-          ]}
-        />
+      <View style={styles.progressTrack}>
+        <View style={[styles.progressFill, { width: `${progressPercent}%`, backgroundColor: accentColor }]} />
       </View>
 
-      {/* Counter + level badge */}
       <View style={styles.topRow}>
-        <Text style={styles.cardCounter}>
+        <Text style={styles.counterText}>
           {currentIndex + 1} / {cards.length}
         </Text>
-        <View style={[styles.levelBadge, { backgroundColor: LEVEL_COLORS[cardLevel] + '20' }]}>
+        <View style={[styles.levelBadge, { backgroundColor: `${LEVEL_COLORS[cardLevel]}20` }]}>
           <View style={[styles.levelDot, { backgroundColor: LEVEL_COLORS[cardLevel] }]} />
-          <Text style={[styles.levelBadgeText, { color: LEVEL_COLORS[cardLevel] }]}>
-            {LEVEL_LABELS[cardLevel]}
-          </Text>
+          <Text style={[styles.levelText, { color: LEVEL_COLORS[cardLevel] }]}>{LEVEL_LABELS[cardLevel]}</Text>
         </View>
       </View>
 
-      {/* Flashcard */}
-      <TouchableOpacity
-        style={styles.cardWrapper}
-        onPress={flipCard}
-        activeOpacity={1}
-      >
-        {/* Front */}
+      <TouchableOpacity style={styles.cardWrapper} onPress={flipCard} activeOpacity={1}>
         <Animated.View
           style={[
             styles.card,
             styles.cardFront,
-            {
-              opacity: frontOpacity,
-              transform: [{ perspective: 1200 }, { rotateY: frontRotate }],
-              borderColor: (categoryColor || Colors.primary) + '40',
-            },
+            { opacity: frontOpacity, transform: [{ perspective: 1200 }, { rotateY: frontRotate }] },
           ]}
         >
-          <View style={[styles.cardTopBar, { backgroundColor: (categoryColor || Colors.primary) + '15' }]}>
-            <Text style={[styles.cardTopBarText, { color: categoryColor || Colors.primary }]}>
-              Tiếng Nhật
-            </Text>
-          </View>
-          <View style={styles.cardBody}>
-            <Text style={styles.cardJp}>{card?.jp}</Text>
-            <View style={styles.tapHintRow}>
-              <Ionicons name="hand-right-outline" size={15} color={Colors.textMuted} />
-              <Text style={styles.tapHintText}>Nhấn để xem nghĩa</Text>
-            </View>
-          </View>
+          <Text style={styles.cardLabel}>Tiếng Nhật</Text>
+          <Text style={styles.cardJp}>{card.jp}</Text>
+          <Text style={styles.cardRomaji}>{card.romaji}</Text>
+          <Text style={styles.cardHint}>Chạm để xem nghĩa</Text>
         </Animated.View>
 
-        {/* Back */}
         <Animated.View
+          pointerEvents="none"
           style={[
             styles.card,
             styles.cardBack,
-            {
-              opacity: backOpacity,
-              transform: [{ perspective: 1200 }, { rotateY: backRotate }],
-              borderColor: (categoryColor || Colors.primary) + '40',
-            },
+            { opacity: backOpacity, transform: [{ perspective: 1200 }, { rotateY: backRotate }] },
           ]}
         >
-          <View style={[styles.cardTopBar, { backgroundColor: (categoryColor || Colors.primary) + '15' }]}>
-            <Text style={[styles.cardTopBarText, { color: categoryColor || Colors.primary }]}>
-              Nghĩa
-            </Text>
-          </View>
-          <View style={styles.cardBody}>
-            <Text style={styles.cardJpSmall}>{card?.jp}</Text>
-            <Text style={styles.cardRomaji}>{card?.romaji}</Text>
-            <View style={[styles.meaningPill, { backgroundColor: (categoryColor || Colors.primary) + '12' }]}>
-              <Text style={[styles.cardVn, { color: categoryColor || Colors.primary }]}>{card?.vn}</Text>
-            </View>
-          </View>
+          <Text style={styles.cardLabel}>Nghĩa tiếng Việt</Text>
+          <Text style={styles.cardMeaning}>{card.vn}</Text>
+          <Text style={styles.cardHint}>Chọn mức độ bạn nhớ câu này</Text>
         </Animated.View>
       </TouchableOpacity>
 
-      {/* Answer buttons */}
-      <View style={[styles.answerArea, !flipped && styles.answerAreaHidden]}>
-        {flipped ? (
-          <View style={styles.answerBtns}>
-            <TouchableOpacity
-              style={[styles.answerBtn, styles.forgotBtn]}
-              onPress={() => handleAnswer('forgot')}
-            >
-              <Ionicons name="close" size={22} color="#E74C3C" />
-              <Text style={[styles.answerBtnText, { color: '#E74C3C' }]}>Chưa nhớ</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.answerBtn, styles.rememberedBtn]}
-              onPress={() => handleAnswer('remembered')}
-            >
-              <Ionicons name="checkmark" size={22} color="#2980B9" />
-              <Text style={[styles.answerBtnText, { color: '#2980B9' }]}>Nhớ rồi</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.answerBtn, styles.masteredBtn]}
-              onPress={() => handleAnswer('mastered')}
-            >
-              <Ionicons name="star" size={18} color="#27AE60" />
-              <Text style={[styles.answerBtnText, { color: '#27AE60' }]}>Thuộc rồi</Text>
-            </TouchableOpacity>
-          </View>
-        ) : (
-          <Text style={styles.flipPrompt}>Nhấn vào thẻ để lật</Text>
-        )}
+      <View style={styles.answerRow}>
+        <TouchableOpacity
+          style={[styles.answerButton, { backgroundColor: '#FDECEA', borderColor: '#E74C3C30' }]}
+          onPress={() => handleAnswer('forgot')}
+          disabled={!flipped}
+        >
+          <Text style={[styles.answerText, { color: Colors.danger }]}>Chưa nhớ</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.answerButton, { backgroundColor: '#EDF4FE', borderColor: '#2980B930' }]}
+          onPress={() => handleAnswer('remembered')}
+          disabled={!flipped}
+        >
+          <Text style={[styles.answerText, { color: '#2980B9' }]}>Đã nhớ</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.answerButton, { backgroundColor: '#EAF7EF', borderColor: '#27AE6030' }]}
+          onPress={() => handleAnswer('mastered')}
+          disabled={!flipped}
+        >
+          <Text style={[styles.answerText, { color: Colors.success }]}>Thành thạo</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-  loadingBox: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    fontSize: 15,
-    color: Colors.textMuted,
-  },
-
-  // Progress bar
-  topProgressBg: {
-    height: 4,
-    backgroundColor: Colors.border,
-    width: '100%',
-  },
-  topProgressFill: {
-    height: 4,
-    borderRadius: 2,
-  },
-
-  // Top row
-  topRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-  },
-  cardCounter: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: Colors.textSecondary,
-  },
+  container: { flex: 1, backgroundColor: Colors.background, padding: 16 },
+  centerBox: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  loadingText: { fontSize: 15, color: Colors.textSecondary },
+  progressTrack: { height: 6, backgroundColor: Colors.border, borderRadius: 999, overflow: 'hidden' },
+  progressFill: { height: 6, borderRadius: 999 },
+  topRow: { marginTop: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  counterText: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
   levelBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    paddingHorizontal: 12,
-    paddingVertical: 5,
-    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
   },
-  levelDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-  },
-  levelBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
-  },
-
-  // Flashcard
-  cardWrapper: {
-    flex: 1,
-    marginHorizontal: 20,
-    marginBottom: 12,
-  },
+  levelDot: { width: 8, height: 8, borderRadius: 999 },
+  levelText: { fontSize: 12, fontWeight: '700' },
+  cardWrapper: { flex: 1, justifyContent: 'center' },
   card: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: '100%',
+    minHeight: 300,
+    borderRadius: 20,
     backgroundColor: Colors.white,
-    borderRadius: 24,
-    borderWidth: 1.5,
-    overflow: 'hidden',
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backfaceVisibility: 'hidden',
     shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.12,
-    shadowRadius: 20,
-    elevation: 8,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 3,
   },
   cardFront: {},
   cardBack: {},
-  cardTopBar: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  cardTopBarText: {
-    fontSize: 11,
-    fontWeight: '800',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-  },
-  cardBody: {
+  cardLabel: { fontSize: 12, fontWeight: '700', color: Colors.primary, marginBottom: 12 },
+  cardJp: { fontSize: 32, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
+  cardRomaji: { fontSize: 15, color: Colors.textMuted, marginTop: 8, fontStyle: 'italic', textAlign: 'center' },
+  cardMeaning: { fontSize: 24, fontWeight: '700', color: Colors.textPrimary, textAlign: 'center' },
+  cardHint: { marginTop: 16, fontSize: 13, color: Colors.textSecondary, textAlign: 'center' },
+  answerRow: { flexDirection: 'row', gap: 8, marginTop: 20 },
+  answerButton: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingBottom: 20,
-    gap: 12,
-  },
-  cardJp: {
-    fontSize: 42,
-    fontWeight: '800',
-    color: Colors.textPrimary,
-    textAlign: 'center',
-    lineHeight: 56,
-  },
-  cardJpSmall: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: Colors.textSecondary,
-    textAlign: 'center',
-  },
-  cardRomaji: {
-    fontSize: 16,
-    color: Colors.textMuted,
-    fontStyle: 'italic',
-    textAlign: 'center',
-  },
-  meaningPill: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 16,
-    marginTop: 4,
-  },
-  cardVn: {
-    fontSize: 20,
-    fontWeight: '800',
-    textAlign: 'center',
-  },
-  tapHintRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginTop: 8,
-  },
-  tapHintText: {
-    fontSize: 13,
-    color: Colors.textMuted,
-  },
-
-  // Answer buttons
-  answerArea: {
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-  },
-  answerAreaHidden: {
-    opacity: 0,
-  },
-  answerBtns: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  answerBtn: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 5,
-    paddingVertical: 14,
-    borderRadius: 16,
-    borderWidth: 1.5,
-  },
-  forgotBtn: {
-    backgroundColor: '#E74C3C12',
-    borderColor: '#E74C3C40',
-  },
-  rememberedBtn: {
-    backgroundColor: '#2980B912',
-    borderColor: '#2980B940',
-  },
-  masteredBtn: {
-    backgroundColor: '#27AE6012',
-    borderColor: '#27AE6040',
-  },
-  answerBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  flipPrompt: {
-    textAlign: 'center',
-    fontSize: 13,
-    color: Colors.textMuted,
-    paddingVertical: 14,
-  },
-
-  // Summary screen
-  summaryContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-    gap: 12,
-  },
-  summaryIconBg: {
-    width: 100,
-    height: 100,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  summaryTitle: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: Colors.textPrimary,
-  },
-  summarySubtitle: {
-    fontSize: 14,
-    color: Colors.textSecondary,
-    textAlign: 'center',
-    marginTop: -4,
-  },
-  summaryPercent: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: Colors.textPrimary,
-  },
-  statsRow: {
-    flexDirection: 'row',
-    gap: 10,
-    marginTop: 4,
-    marginBottom: 8,
-  },
-  statBox: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 14,
-    borderRadius: 16,
+    borderRadius: 12,
     borderWidth: 1,
-    gap: 4,
-  },
-  statNum: {
-    fontSize: 24,
-    fontWeight: '800',
-  },
-  statLabel: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: Colors.textSecondary,
-    textAlign: 'center',
-  },
-  retryForgotBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 24,
     paddingVertical: 14,
-    borderRadius: 16,
+    alignItems: 'center',
+  },
+  answerText: { fontSize: 13, fontWeight: '700' },
+  summaryContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  summaryTitle: { fontSize: 26, fontWeight: '800', color: Colors.textPrimary },
+  summarySubtitle: { marginTop: 6, fontSize: 14, color: Colors.textSecondary },
+  summaryPercent: { marginTop: 12, fontSize: 28, fontWeight: '800' },
+  summaryStats: { flexDirection: 'row', gap: 10, marginTop: 20, width: '100%' },
+  statCard: {
+    flex: 1,
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    alignItems: 'center',
+  },
+  statValue: { fontSize: 22, fontWeight: '800', color: Colors.textPrimary },
+  statLabel: { marginTop: 4, fontSize: 12, color: Colors.textSecondary },
+  primaryAction: {
+    marginTop: 24,
     width: '100%',
-    justifyContent: 'center',
-  },
-  retryBtnText: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: Colors.white,
-  },
-  retryAllBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingVertical: 10,
-  },
-  retryAllText: {
-    fontSize: 13,
-    color: Colors.textSecondary,
-    fontWeight: '600',
-  },
-  doneBtn: {
+    borderRadius: 14,
     paddingVertical: 14,
-    paddingHorizontal: 48,
-    borderRadius: 16,
-    backgroundColor: Colors.accent,
-    marginTop: 4,
+    alignItems: 'center',
   },
-  doneBtnText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: Colors.primary,
+  primaryActionText: { color: Colors.white, fontSize: 14, fontWeight: '700' },
+  secondaryAction: {
+    marginTop: 10,
+    width: '100%',
+    borderRadius: 14,
+    paddingVertical: 14,
+    alignItems: 'center',
+    backgroundColor: Colors.white,
   },
+  secondaryActionText: { color: Colors.textPrimary, fontSize: 14, fontWeight: '700' },
+  doneButton: { marginTop: 10, paddingVertical: 12 },
+  doneButtonText: { color: Colors.textSecondary, fontSize: 14, fontWeight: '700' },
 });

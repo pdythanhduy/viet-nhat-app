@@ -49,10 +49,10 @@ export default function LaborHelpScreen() {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={styles.headerJp}>相談・申告</Text>
+        <Text style={styles.headerJp}>相談・対応</Text>
         <Text style={styles.headerTitle}>Khiếu nại / cần giúp gì</Text>
         <Text style={styles.headerDesc}>
-          Hướng dẫn thực dụng khi bị nợ lương, ép làm quá giờ, giữ giấy tờ hoặc muốn nghỉ việc đúng luật.
+          Hướng dẫn thực dụng khi bị nợ lương, ép làm quá giờ, giữ giấy tờ hoặc bị cản trở nghỉ việc.
         </Text>
       </View>
 
@@ -60,7 +60,8 @@ export default function LaborHelpScreen() {
         <View style={styles.metaCard}>
           <Ionicons name="shield-checkmark-outline" size={18} color={Colors.primary} />
           <Text style={styles.metaText}>
-            Xác minh nội dung: {formatLastUpdated(JOBS_CONTENT_META.lastUpdated)}. Với vụ việc thực tế, nên đối chiếu lại nguồn chính thức và giữ bằng chứng càng sớm càng tốt.
+            Xác minh nội dung: {formatLastUpdated(JOBS_CONTENT_META.lastUpdated)}. Khi có vụ việc
+            thực tế, hãy giữ bằng chứng càng sớm càng tốt và đối chiếu lại nguồn chính thức.
           </Text>
         </View>
 
@@ -101,11 +102,14 @@ export default function LaborHelpScreen() {
               </Section>
 
               <Section title={`Cần giữ bằng chứng gì (${done}/${total})`}>
-                {done > 0 && (
-                  <TouchableOpacity onPress={() => clearScenario(scenario.id)} style={styles.resetButton}>
+                {done > 0 ? (
+                  <TouchableOpacity
+                    onPress={() => clearScenario(scenario.id)}
+                    style={styles.resetButton}
+                  >
                     <Text style={styles.resetButtonText}>Đặt lại checklist</Text>
                   </TouchableOpacity>
-                )}
+                ) : null}
                 {scenario.collectEvidence.map((item) => {
                   const isChecked = checked.has(item);
                   return (
@@ -126,7 +130,9 @@ export default function LaborHelpScreen() {
                       >
                         {isChecked ? <Ionicons name="checkmark" size={14} color={Colors.white} /> : null}
                       </View>
-                      <Text style={[styles.evidenceText, isChecked && styles.evidenceTextDone]}>{item}</Text>
+                      <Text style={[styles.evidenceText, isChecked && styles.evidenceTextDone]}>
+                        {item}
+                      </Text>
                     </TouchableOpacity>
                   );
                 })}
@@ -148,7 +154,7 @@ export default function LaborHelpScreen() {
           <Ionicons name="call-outline" size={18} color={Colors.primary} />
           <View style={styles.linkTextBlock}>
             <Text style={styles.linkTitle}>Mở hotline tiếng Việt chính thức</Text>
-            <Text style={styles.linkSub}>0570-001-706 • 10:00-15:00 ngày làm việc</Text>
+            <Text style={styles.linkSub}>0570-001-706 - khung giờ xem lại trên trang chính thức</Text>
           </View>
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
         </TouchableOpacity>
@@ -159,7 +165,7 @@ export default function LaborHelpScreen() {
             navigation.navigate('AIChat', {
               title: 'Khiếu nại lao động',
               prefilledQuestion:
-                'Tôi đang gặp vấn đề lao động tại Nhật Bản. Hãy giúp tôi sắp xếp việc cần làm ngay, bằng chứng cần giữ và nơi nên liên hệ trước.',
+                'Tôi đang gặp vấn đề lao động tại Nhật. Hãy giúp tôi sắp xếp việc cần làm ngay, bằng chứng cần giữ và nơi nên liên hệ trước.',
             })
           }
         >
@@ -258,24 +264,27 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: Colors.accent,
     paddingHorizontal: 10,
-    paddingVertical: 6,
+    paddingVertical: 7,
     marginBottom: 8,
   },
   resetButtonText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
-  evidenceRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 9 },
+  evidenceRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 8 },
   checkCircle: {
-    width: 22,
-    height: 22,
-    borderRadius: 7,
-    borderWidth: 2,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 1.5,
     borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.white,
     marginTop: 1,
+    flexShrink: 0,
   },
   evidenceText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
-  evidenceTextDone: { color: Colors.textMuted, textDecorationLine: 'line-through' },
+  evidenceTextDone: {
+    color: Colors.textPrimary,
+    textDecorationLine: 'line-through',
+  },
   linkCard: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -297,6 +306,7 @@ const styles = StyleSheet.create({
     gap: 10,
     padding: 16,
     borderRadius: 16,
+    marginTop: 4,
     backgroundColor: Colors.primary,
     shadowColor: Colors.primary,
     shadowOffset: { width: 0, height: 4 },

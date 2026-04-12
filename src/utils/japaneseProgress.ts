@@ -42,9 +42,11 @@ export async function updatePhraseLevel(
   currentLevel: PhraseLevel
 ): Promise<PhraseLevel> {
   const next: PhraseLevel =
-    answer === 'mastered' ? 3 :
-    answer === 'remembered' ? (Math.min(2, currentLevel + 1) as PhraseLevel) :
-    1; // forgot → level 1 (Đang học)
+    answer === 'mastered'
+      ? 3
+      : answer === 'remembered'
+        ? (Math.min(2, currentLevel + 1) as PhraseLevel)
+        : 1;
 
   const data = await loadProgress();
   data[jp] = next;
@@ -52,32 +54,34 @@ export async function updatePhraseLevel(
   return next;
 }
 
-export function getCategoryStats(
-  phrases: { jp: string }[],
-  progress: ProgressData
-) {
-  let unseen = 0, learning = 0, remembered = 0, mastered = 0;
-  for (const p of phrases) {
-    const level = (progress[p.jp] ?? 0) as PhraseLevel;
+export function getCategoryStats(phrases: { jp: string }[], progress: ProgressData) {
+  let unseen = 0;
+  let learning = 0;
+  let remembered = 0;
+  let mastered = 0;
+
+  for (const phrase of phrases) {
+    const level = (progress[phrase.jp] ?? 0) as PhraseLevel;
     if (level === 0) unseen++;
     else if (level === 1) learning++;
     else if (level === 2) remembered++;
     else mastered++;
   }
+
   const total = phrases.length;
   const learnedCount = remembered + mastered;
   const learnedPercent = total > 0 ? learnedCount / total : 0;
+
   return { total, unseen, learning, remembered, mastered, learnedCount, learnedPercent };
 }
 
-/** Sort phrases: weakest first (unseen → learning → remembered → mastered) */
 export function sortByLevel<T extends { jp: string }>(
   phrases: T[],
   progress: ProgressData
 ): T[] {
   return [...phrases].sort((a, b) => {
-    const la = progress[a.jp] ?? 0;
-    const lb = progress[b.jp] ?? 0;
-    return la !== lb ? la - lb : Math.random() - 0.5;
+    const levelA = progress[a.jp] ?? 0;
+    const levelB = progress[b.jp] ?? 0;
+    return levelA !== levelB ? levelA - levelB : Math.random() - 0.5;
   });
 }

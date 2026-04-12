@@ -58,6 +58,8 @@ export default function SavedScreen() {
 
   const guides = bookmarks.filter((b) => b.type === 'guide');
   const phrases = bookmarks.filter((b) => b.type === 'phrase');
+  const dialogues = bookmarks.filter((b) => b.type === 'dialogue');
+  const dailyLifeTopics = bookmarks.filter((b) => b.type === 'daily-life');
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -66,11 +68,11 @@ export default function SavedScreen() {
           <Ionicons name="arrow-back" size={22} color={Colors.white} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Đã lưu</Text>
-        {bookmarks.length > 0 && (
+        {bookmarks.length > 0 ? (
           <TouchableOpacity onPress={clearAll}>
             <Text style={styles.clearBtn}>Xóa hết</Text>
           </TouchableOpacity>
-        )}
+        ) : null}
       </View>
 
       {bookmarks.length === 0 ? (
@@ -78,15 +80,12 @@ export default function SavedScreen() {
           <Ionicons name="bookmark-outline" size={56} color={Colors.textMuted} />
           <Text style={styles.emptyTitle}>Chưa có mục nào được lưu</Text>
           <Text style={styles.emptyDesc}>
-            Nhấn icon{' '}
-            <Ionicons name="bookmark-outline" size={14} color={Colors.textSecondary} />{' '}
-            trong màn hình thủ tục hoặc tiếng Nhật để lưu lại
+            Nhấn biểu tượng bookmark trong màn thủ tục hoặc tiếng Nhật để lưu lại.
           </Text>
         </View>
       ) : (
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
-          {/* Guides */}
-          {guides.length > 0 && (
+          {guides.length > 0 ? (
             <>
               <View style={styles.sectionHeader}>
                 <Ionicons name="document-text" size={16} color={Colors.primary} />
@@ -104,22 +103,51 @@ export default function SavedScreen() {
                     <View style={styles.guideInfo}>
                       <Text style={styles.guideTitleJp}>{b.titleJp}</Text>
                       <Text style={styles.guideTitle}>{b.title}</Text>
-                      <Text style={styles.guideDesc} numberOfLines={2}>{b.description}</Text>
+                      <Text style={styles.guideDesc} numberOfLines={2}>
+                        {b.description}
+                      </Text>
                     </View>
-                    <TouchableOpacity
-                      style={styles.removeBtn}
-                      onPress={() => removeBookmark(b.id, b.type)}
-                    >
+                    <TouchableOpacity style={styles.removeBtn} onPress={() => removeBookmark(b.id, b.type)}>
                       <Ionicons name="bookmark" size={20} color={b.color} />
                     </TouchableOpacity>
                   </TouchableOpacity>
                 );
               })}
             </>
-          )}
+          ) : null}
 
-          {/* Phrases */}
-          {phrases.length > 0 && (
+          {dailyLifeTopics.length > 0 ? (
+            <>
+              <View style={styles.sectionHeader}>
+                <Ionicons name="sunny" size={16} color={Colors.primary} />
+                <Text style={styles.sectionTitle}>Cuộc sống hằng ngày ({dailyLifeTopics.length})</Text>
+              </View>
+              {dailyLifeTopics.map((b) => {
+                if (b.type !== 'daily-life') return null;
+                return (
+                  <TouchableOpacity
+                    key={b.id}
+                    style={styles.guideCard}
+                    onPress={() => navigation.navigate('DailyLifeDetail', { topicId: b.id })}
+                  >
+                    <View style={[styles.guideColorBar, { backgroundColor: b.color }]} />
+                    <View style={styles.guideInfo}>
+                      <Text style={styles.guideTitleJp}>{b.titleJp}</Text>
+                      <Text style={styles.guideTitle}>{b.title}</Text>
+                      <Text style={styles.guideDesc} numberOfLines={2}>
+                        {b.description}
+                      </Text>
+                    </View>
+                    <TouchableOpacity style={styles.removeBtn} onPress={() => removeBookmark(b.id, b.type)}>
+                      <Ionicons name="bookmark" size={20} color={b.color} />
+                    </TouchableOpacity>
+                  </TouchableOpacity>
+                );
+              })}
+            </>
+          ) : null}
+
+          {phrases.length > 0 ? (
             <>
               <View style={styles.sectionHeader}>
                 <Ionicons name="language" size={16} color={Colors.primary} />
@@ -137,17 +165,46 @@ export default function SavedScreen() {
                       <Text style={styles.phraseRomaji}>{b.romaji}</Text>
                       <Text style={styles.phraseVn}>{b.vn}</Text>
                     </View>
-                    <TouchableOpacity
-                      style={styles.removeBtn}
-                      onPress={() => removeBookmark(b.id, b.type)}
-                    >
+                    <TouchableOpacity style={styles.removeBtn} onPress={() => removeBookmark(b.id, b.type)}>
                       <Ionicons name="bookmark" size={20} color={Colors.primary} />
                     </TouchableOpacity>
                   </View>
                 );
               })}
             </>
-          )}
+          ) : null}
+
+          {dialogues.length > 0 ? (
+            <>
+              <View style={styles.sectionHeader}>
+                <Ionicons name="chatbubbles" size={16} color={Colors.primary} />
+                <Text style={styles.sectionTitle}>Hội thoại đã lưu ({dialogues.length})</Text>
+              </View>
+              {dialogues.map((b) => {
+                if (b.type !== 'dialogue') return null;
+                return (
+                  <View key={b.id} style={styles.dialogueCard}>
+                    <View style={styles.phraseCatBadge}>
+                      <Text style={styles.phraseCatText}>{b.category}</Text>
+                    </View>
+                    <View style={styles.phraseBody}>
+                      <Text style={styles.dialogueSituation}>{b.situation}</Text>
+                      {b.lines.slice(0, 2).map((line, index) => (
+                        <View key={`${b.id}-${index}`} style={styles.dialoguePreviewLine}>
+                          <Text style={styles.dialoguePreviewSpeaker}>{line.speakerLabel}</Text>
+                          <Text style={styles.dialoguePreviewJp}>{line.jp}</Text>
+                          <Text style={styles.dialoguePreviewVn}>{line.vn}</Text>
+                        </View>
+                      ))}
+                    </View>
+                    <TouchableOpacity style={styles.removeBtn} onPress={() => removeBookmark(b.id, b.type)}>
+                      <Ionicons name="bookmark" size={20} color={Colors.primary} />
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </>
+          ) : null}
 
           <View style={{ height: 32 }} />
         </ScrollView>
@@ -304,5 +361,44 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.textSecondary,
     fontWeight: '500',
+  },
+  dialogueCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 10,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  dialogueSituation: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    marginBottom: 8,
+  },
+  dialoguePreviewLine: {
+    marginBottom: 8,
+  },
+  dialoguePreviewSpeaker: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.primary,
+    marginBottom: 2,
+  },
+  dialoguePreviewJp: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+  },
+  dialoguePreviewVn: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
   },
 });

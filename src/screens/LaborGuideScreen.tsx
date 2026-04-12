@@ -44,7 +44,8 @@ export default function LaborGuideScreen() {
         <Text style={styles.headerJp}>労働ガイド</Text>
         <Text style={styles.headerTitle}>Cẩm nang lao động</Text>
         <Text style={styles.headerDesc}>
-          Các dấu hiệu rủi ro, checklist đọc hợp đồng và mẫu câu tiếng Nhật để tự bảo vệ mình khi đi làm tại Nhật.
+          Các dấu hiệu rủi ro, checklist đọc hợp đồng và câu tiếng Nhật nên dùng để tự bảo vệ
+          mình khi đi làm tại Nhật.
         </Text>
       </View>
 
@@ -52,14 +53,18 @@ export default function LaborGuideScreen() {
         <View style={styles.metaCard}>
           <Ionicons name="shield-checkmark-outline" size={18} color={Colors.primary} />
           <Text style={styles.metaText}>
-            Xác minh nội dung: {formatLastUpdated(JOBS_CONTENT_META.lastUpdated)}. Khi có tranh chấp thực tế, hãy đối chiếu lại nguồn chính thức của MHLW hoặc nơi tư vấn lao động.
+            Xác minh nội dung: {formatLastUpdated(JOBS_CONTENT_META.lastUpdated)}. Khi có tranh
+            chấp thực tế, hãy đối chiếu lại nguồn chính thức của MHLW hoặc nơi tư vấn lao động.
           </Text>
         </View>
 
         <Text style={styles.sectionTitle}>Dấu hiệu công ty rủi ro</Text>
         <View style={styles.card}>
           {LABOR_RISK_SIGNS.map((item, index) => (
-            <View key={item.title} style={[styles.row, index < LABOR_RISK_SIGNS.length - 1 && styles.rowBorder]}>
+            <View
+              key={item.title}
+              style={[styles.row, index < LABOR_RISK_SIGNS.length - 1 && styles.rowBorder]}
+            >
               <View
                 style={[
                   styles.badge,
@@ -104,7 +109,10 @@ export default function LaborGuideScreen() {
         <Text style={styles.sectionTitle}>Câu tiếng Nhật nên dùng</Text>
         <View style={styles.card}>
           {LABOR_SUPPORT_PHRASES.map((item, index) => (
-            <View key={item.jp} style={[styles.phraseRow, index < LABOR_SUPPORT_PHRASES.length - 1 && styles.rowBorder]}>
+            <View
+              key={item.jp}
+              style={[styles.phraseRow, index < LABOR_SUPPORT_PHRASES.length - 1 && styles.rowBorder]}
+            >
               <View style={styles.textBlock}>
                 <Text style={styles.jpLine}>{item.jp}</Text>
                 <Text style={styles.romajiLine}>{item.romaji}</Text>

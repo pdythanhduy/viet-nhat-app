@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -14,6 +15,8 @@ import { Disclaimers } from '../constants/disclaimers';
 import { DAILY_LIFE_CONTENT_META, DAILY_LIFE_TOPICS } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
+import { recordRecentDailyLifeTopic } from '../utils/dailyLifeRecentTopics';
+import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import type { DailyLifeSection } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -23,21 +26,58 @@ export default function DailyLifeDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
+  const [bookmarked, setBookmarked] = useState(false);
 
-  const topic = DAILY_LIFE_TOPICS.find((t) => t.id === route.params.topicId);
-
+  const topic = DAILY_LIFE_TOPICS.find((item) => item.id === route.params.topicId);
   if (!topic) return null;
 
   React.useLayoutEffect(() => {
     navigation.setOptions({ headerTitle: topic.title });
   }, [navigation, topic]);
 
+  React.useEffect(() => {
+    recordRecentDailyLifeTopic(topic.id).catch(() => undefined);
+  }, [topic.id]);
+
+  React.useEffect(() => {
+    isBookmarked(topic.id, 'daily-life').then(setBookmarked).catch(() => undefined);
+  }, [topic.id]);
+
+  const handleToggleBookmark = async () => {
+    try {
+      const next = await toggleBookmark({
+        type: 'daily-life',
+        id: topic.id,
+        title: topic.title,
+        titleJp: topic.titleJp,
+        description: topic.description,
+        color: topic.color,
+        savedAt: '',
+      });
+      setBookmarked(next);
+      Alert.alert(next ? 'Đã lưu' : 'Đã bỏ lưu', next ? 'Đã thêm mục này vào danh sách lưu.' : 'Đã xóa mục này khỏi danh sách lưu.');
+    } catch {
+      Alert.alert('Lỗi', 'Không thể cập nhật danh sách lưu lúc này.');
+    }
+  };
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={[styles.topicHeader, { backgroundColor: topic.color }]}>
-        <Text style={styles.topicJp}>{topic.titleJp}</Text>
-        <Text style={styles.topicTitle}>{topic.title}</Text>
-        <Text style={styles.topicDesc}>{topic.description}</Text>
+        <View style={styles.headerTopRow}>
+          <View style={styles.headerTextWrap}>
+            <Text style={styles.topicJp}>{topic.titleJp}</Text>
+            <Text style={styles.topicTitle}>{topic.title}</Text>
+            <Text style={styles.topicDesc}>{topic.description}</Text>
+          </View>
+          <TouchableOpacity style={styles.bookmarkBtn} onPress={handleToggleBookmark}>
+            <Ionicons
+              name={bookmarked ? 'bookmark' : 'bookmark-outline'}
+              size={22}
+              color={Colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -51,13 +91,13 @@ export default function DailyLifeDetailScreen() {
           </Text>
         </View>
 
-        {topic.sections && topic.sections.length > 0 ? (
+        {topic.sections?.length ? (
           topic.sections.map((section: DailyLifeSection, index: number) => (
             <TouchableOpacity
-              key={index}
+              key={`${topic.id}-${index}`}
               style={styles.sectionCard}
               onPress={() => setExpandedSection(expandedSection === index ? null : index)}
-              activeOpacity={0.8}
+              activeOpacity={0.85}
             >
               <View style={styles.sectionHeader}>
                 <View style={[styles.sectionNum, { backgroundColor: topic.color }]}>
@@ -71,19 +111,15 @@ export default function DailyLifeDetailScreen() {
                 />
               </View>
 
-              {expandedSection === index && (
+              {expandedSection === index ? (
                 <View style={styles.sectionBody}>
-                  {section.content ? (
-                    <Text style={styles.sectionContent}>{section.content}</Text>
-                  ) : null}
+                  {section.content ? <Text style={styles.sectionContent}>{section.content}</Text> : null}
 
-                  {section.items && section.items.length > 0 ? (
+                  {section.items?.length ? (
                     <View style={styles.itemsList}>
-                      {section.items.map((item: string, itemIndex: number) => (
-                        <View key={itemIndex} style={styles.itemRow}>
-                          <View
-                            style={[styles.itemBullet, { backgroundColor: topic.color }]}
-                          />
+                      {section.items.map((item, itemIndex) => (
+                        <View key={`${topic.id}-${index}-${itemIndex}`} style={styles.itemRow}>
+                          <View style={[styles.itemBullet, { backgroundColor: topic.color }]} />
                           <Text style={styles.itemText}>{item}</Text>
                         </View>
                       ))}
@@ -95,8 +131,8 @@ export default function DailyLifeDetailScreen() {
                       style={[
                         styles.tipBox,
                         {
-                          backgroundColor: topic.color + '12',
-                          borderColor: topic.color + '30',
+                          backgroundColor: `${topic.color}12`,
+                          borderColor: `${topic.color}30`,
                         },
                       ]}
                     >
@@ -105,7 +141,7 @@ export default function DailyLifeDetailScreen() {
                     </View>
                   ) : null}
                 </View>
-              )}
+              ) : null}
             </TouchableOpacity>
           ))
         ) : (
@@ -135,31 +171,23 @@ export default function DailyLifeDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
+  container: { flex: 1, backgroundColor: Colors.background },
+  topicHeader: { paddingHorizontal: 20, paddingTop: 16, paddingBottom: 28 },
+  headerTopRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
+  headerTextWrap: { flex: 1 },
+  bookmarkBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0.16)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.22)',
   },
-  topicHeader: {
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 28,
-  },
-  topicJp: {
-    fontSize: 13,
-    color: 'rgba(255,255,255,0.76)',
-    marginBottom: 4,
-  },
-  topicTitle: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: Colors.white,
-    marginBottom: 6,
-  },
-  topicDesc: {
-    fontSize: 13,
-    color: 'rgba(255,255,255,0.88)',
-    lineHeight: 19,
-  },
+  topicJp: { fontSize: 13, color: 'rgba(255,255,255,0.78)', marginBottom: 4 },
+  topicTitle: { fontSize: 22, fontWeight: '800', color: Colors.white, marginBottom: 6 },
+  topicDesc: { fontSize: 13, color: 'rgba(255,255,255,0.9)', lineHeight: 19 },
   content: {
     backgroundColor: Colors.background,
     borderTopLeftRadius: 24,
@@ -176,31 +204,16 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: Colors.primary + '30',
+    borderColor: `${Colors.primary}30`,
   },
-  metaText: {
-    flex: 1,
-    fontSize: 12,
-    color: Colors.textSecondary,
-    lineHeight: 18,
-  },
+  metaText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   sectionCard: {
     backgroundColor: Colors.white,
     borderRadius: 16,
     marginBottom: 10,
     overflow: 'hidden',
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
   },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    gap: 12,
-  },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', padding: 16, gap: 12 },
   sectionNum: {
     width: 30,
     height: 30,
@@ -209,52 +222,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexShrink: 0,
   },
-  sectionNumText: {
-    fontSize: 13,
-    fontWeight: '800',
-    color: Colors.white,
-  },
-  sectionTitle: {
-    flex: 1,
-    fontSize: 14,
-    fontWeight: '700',
-    color: Colors.textPrimary,
-  },
+  sectionNumText: { fontSize: 13, fontWeight: '800', color: Colors.white },
+  sectionTitle: { flex: 1, fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
   sectionBody: {
     paddingHorizontal: 16,
     paddingBottom: 16,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
   },
-  sectionContent: {
-    fontSize: 13,
-    color: Colors.textSecondary,
-    lineHeight: 20,
-    marginTop: 12,
-    marginBottom: 10,
-  },
-  itemsList: {
-    gap: 8,
-    marginBottom: 10,
-  },
-  itemRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 10,
-  },
-  itemBullet: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    marginTop: 6,
-    flexShrink: 0,
-  },
-  itemText: {
-    flex: 1,
-    fontSize: 13,
-    color: Colors.textSecondary,
-    lineHeight: 20,
-  },
+  sectionContent: { fontSize: 13, color: Colors.textSecondary, lineHeight: 20, marginTop: 12, marginBottom: 10 },
+  itemsList: { gap: 8, marginBottom: 10 },
+  itemRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  itemBullet: { width: 6, height: 6, borderRadius: 3, marginTop: 6, flexShrink: 0 },
+  itemText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 20 },
   tipBox: {
     flexDirection: 'row',
     gap: 8,
@@ -264,21 +244,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginTop: 4,
   },
-  tipText: {
-    flex: 1,
-    fontSize: 12,
-    lineHeight: 18,
-    fontWeight: '500',
-  },
-  noContentBox: {
-    alignItems: 'center',
-    paddingVertical: 40,
-    gap: 8,
-  },
-  noContentText: {
-    fontSize: 14,
-    color: Colors.textMuted,
-  },
+  tipText: { flex: 1, fontSize: 12, lineHeight: 18, fontWeight: '500' },
+  noContentBox: { alignItems: 'center', paddingVertical: 40, gap: 8 },
+  noContentText: { fontSize: 14, color: Colors.textMuted },
   askAiButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -287,18 +255,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 16,
     marginTop: 8,
-    shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    elevation: 5,
   },
-  askAiText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: Colors.white,
-  },
-  bottomPad: {
-    height: 32,
-  },
+  askAiText: { fontSize: 15, fontWeight: '700', color: Colors.white },
+  bottomPad: { height: 32 },
 });

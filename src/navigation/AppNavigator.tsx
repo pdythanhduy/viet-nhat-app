@@ -3,7 +3,7 @@ import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/na
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
 import AdminScreen from '../screens/AdminScreen';
@@ -72,8 +72,23 @@ function TabNavigator() {
       <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: 'Trang chủ' }} />
       <Tab.Screen name="Admin" component={AdminScreen} options={{ tabBarLabel: 'Thủ tục' }} />
       <Tab.Screen name="Jobs" component={JobsScreen} options={{ tabBarLabel: 'Việc làm' }} />
-      <Tab.Screen name="Japanese" component={JapaneseScreen} options={{ tabBarLabel: 'Tiếng Nhật' }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{ tabBarLabel: 'Cài đặt', headerShown: true, headerTitle: 'Cài đặt', headerStyle: { backgroundColor: Colors.primary }, headerTintColor: Colors.white, headerTitleStyle: { fontWeight: '700', fontSize: 17 } }} />
+      <Tab.Screen
+        name="Japanese"
+        component={JapaneseScreen}
+        options={{ tabBarLabel: 'Tiếng Nhật' }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: 'Cài đặt',
+          headerShown: true,
+          headerTitle: 'Cài đặt',
+          headerStyle: { backgroundColor: Colors.primary },
+          headerTintColor: Colors.white,
+          headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -110,7 +125,7 @@ export default function AppNavigator() {
           component={DailyLifeScreen}
           options={{
             headerShown: true,
-            headerTitle: 'Cuộc sống hàng ngày',
+            headerTitle: 'Cuộc sống hằng ngày',
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
             headerTitleStyle: { fontWeight: '700', fontSize: 17 },
@@ -153,7 +168,7 @@ export default function AppNavigator() {
           component={FeedbackScreen}
           options={{
             headerShown: true,
-            headerTitle: 'Góp ý & Phản hồi',
+            headerTitle: 'Góp ý và phản hồi',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
             headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
@@ -182,11 +197,7 @@ export default function AppNavigator() {
             headerTitleStyle: { fontWeight: '700', fontSize: 17 },
           }}
         />
-        <Stack.Screen
-          name="Saved"
-          component={SavedScreen}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Saved" component={SavedScreen} options={{ headerShown: false }} />
         <Stack.Screen
           name="ImportantDates"
           component={ImportantDatesScreen}

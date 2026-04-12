@@ -3,7 +3,7 @@ import { StorageKeys } from '../constants/storageKeys';
 
 const STORAGE_KEY = StorageKeys.bookmarks;
 
-export type BookmarkType = 'guide' | 'phrase';
+export type BookmarkType = 'guide' | 'phrase' | 'dialogue' | 'daily-life';
 
 export interface GuideBookmark {
   type: 'guide';
@@ -17,7 +17,7 @@ export interface GuideBookmark {
 
 export interface PhraseBookmark {
   type: 'phrase';
-  id: string; // jp text dùng làm id
+  id: string;
   jp: string;
   romaji: string;
   vn: string;
@@ -25,7 +25,31 @@ export interface PhraseBookmark {
   savedAt: string;
 }
 
-export type Bookmark = GuideBookmark | PhraseBookmark;
+export interface DialogueBookmark {
+  type: 'dialogue';
+  id: string;
+  category: string;
+  situation: string;
+  lines: {
+    speakerLabel: string;
+    jp: string;
+    romaji: string;
+    vn: string;
+  }[];
+  savedAt: string;
+}
+
+export interface DailyLifeBookmark {
+  type: 'daily-life';
+  id: string;
+  title: string;
+  titleJp: string;
+  description: string;
+  color: string;
+  savedAt: string;
+}
+
+export type Bookmark = GuideBookmark | PhraseBookmark | DialogueBookmark | DailyLifeBookmark;
 
 export async function loadBookmarks(): Promise<Bookmark[]> {
   try {
@@ -46,12 +70,12 @@ export async function toggleBookmark(item: Bookmark): Promise<boolean> {
   if (idx >= 0) {
     bookmarks.splice(idx, 1);
     await saveBookmarks(bookmarks);
-    return false; // removed
-  } else {
-    bookmarks.unshift({ ...item, savedAt: new Date().toISOString() });
-    await saveBookmarks(bookmarks);
-    return true; // added
+    return false;
   }
+
+  bookmarks.unshift({ ...item, savedAt: new Date().toISOString() });
+  await saveBookmarks(bookmarks);
+  return true;
 }
 
 export async function isBookmarked(id: string, type: BookmarkType): Promise<boolean> {
