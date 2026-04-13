@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Viet Nhat",
+    "name": "Cẩm Nang Việt Nhật",
     "slug": "viet-nhat-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +13,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.vietnhat.app",
+      "bundleIdentifier": "com.thanhduy.camnangvietnhat",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#185FA5"
       },
-      "package": "com.vietnhat.app",
+      "package": "com.thanhduy.camnangvietnhat",
       "versionCode": 1,
       "permissions": [
         "RECEIVE_BOOT_COMPLETED"
