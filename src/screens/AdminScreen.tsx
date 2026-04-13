@@ -8,7 +8,7 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -80,6 +80,7 @@ const VISA_QUICK_ACTIONS = [
 
 export default function AdminScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
   const [inProgressGuideIds, setInProgressGuideIds] = useState<string[]>([]);
@@ -358,7 +359,7 @@ export default function AdminScreen() {
           <Ionicons name="arrow-forward" size={18} color={Colors.white} />
         </TouchableOpacity>
 
-        <View style={{ height: 24 }} />
+        <View style={{ height: 24 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>
   );

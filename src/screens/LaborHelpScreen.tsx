@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
 import { JOBS_CONTENT_META, LABOR_HELP_SCENARIOS } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -58,6 +59,7 @@ function copyScenarioBlock(
 
 export default function LaborHelpScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const [progressMap, setProgressMap] = useState<Record<string, Set<string>>>({});
 
   useFocusEffect(
@@ -233,7 +235,7 @@ export default function LaborHelpScreen() {
           <Text style={styles.aiText}>Hỏi AI cách xử lý tình huống</Text>
         </TouchableOpacity>
 
-        <View style={{ height: 32 }} />
+        <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>
   );

@@ -8,7 +8,7 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -79,6 +79,7 @@ const FILTERS: { id: FilterId; label: string }[] = [
 
 export default function DailyLifeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterId>('all');
   const [recentTopicIds, setRecentTopicIds] = useState<string[]>([]);
@@ -393,7 +394,7 @@ export default function DailyLifeScreen() {
           <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
         </TouchableOpacity>
 
-        <View style={styles.bottomPad} />
+        <View style={{ height: 28 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -527,5 +528,4 @@ const styles = StyleSheet.create({
   aiTextWrap: { flex: 1 },
   aiTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
   aiSub: { fontSize: 12, color: Colors.textSecondary, marginTop: 2, lineHeight: 17 },
-  bottomPad: { height: 28 },
 });

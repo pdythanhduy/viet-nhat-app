@@ -656,7 +656,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <View>
+          <View style={styles.headerTextBlock}>
             <Text style={styles.greeting}>{getGreeting()}</Text>
             <Text style={styles.appName}>Việt-Nhật</Text>
             <Text style={styles.subtitle}>Đồng hành cùng bạn trong đời sống thực tế ở Nhật</Text>
@@ -1230,10 +1230,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
+  headerTextBlock: {
+    flex: 1,
+    paddingRight: 12,
+  },
   greeting: { fontSize: 14, color: 'rgba(255,255,255,0.8)', marginBottom: 4 },
   appName: { fontSize: 28, fontWeight: '800', color: Colors.white },
-  subtitle: { marginTop: 4, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18, maxWidth: 220 },
-  headerButtons: { flexDirection: 'row', gap: 10 },
+  subtitle: { marginTop: 4, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18 },
+  headerButtons: {
+    flexDirection: 'row',
+    gap: 10,
+    flexShrink: 0,
+    alignItems: 'center',
+    marginTop: 2,
+  },
   headerIconBtn: {
     width: 42,
     height: 42,

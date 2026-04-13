@@ -9,7 +9,7 @@ import {
   Linking,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -87,6 +87,7 @@ function sortByRecent<T extends { timestamp?: string }>(items: T[]) {
 
 export default function JobsScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const [activeWorkerType, setActiveWorkerType] = useState<EligibleWorkerType>('student');
   const [expandedCategory, setExpandedCategory] = useState<string | null>(
     JOB_PLATFORMS[0]?.category ?? null
@@ -522,7 +523,7 @@ export default function JobsScreen() {
           <Ionicons name="arrow-forward" size={18} color={Colors.white} />
         </TouchableOpacity>
 
-        <View style={{ height: 24 }} />
+        <View style={{ height: 24 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>
   );

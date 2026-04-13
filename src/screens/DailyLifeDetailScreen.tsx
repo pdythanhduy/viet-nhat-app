@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
 import { DAILY_LIFE_CONTENT_META, DAILY_LIFE_TOPICS } from '../constants/content';
@@ -26,6 +27,7 @@ type RouteType = RouteProp<RootStackParamList, 'DailyLifeDetail'>;
 export default function DailyLifeDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
+  const insets = useSafeAreaInsets();
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
   const [bookmarked, setBookmarked] = useState(false);
 
@@ -218,7 +220,7 @@ export default function DailyLifeDetailScreen() {
           <Text style={styles.askAiText}>Hỏi AI thêm về {topic.title}</Text>
         </TouchableOpacity>
 
-        <View style={styles.bottomPad} />
+        <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>
   );
@@ -322,5 +324,4 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   askAiText: { fontSize: 15, fontWeight: '700', color: Colors.white },
-  bottomPad: { height: 32 },
 });

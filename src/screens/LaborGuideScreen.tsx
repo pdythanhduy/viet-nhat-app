@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
 import {
   CONTRACT_REVIEW_CHECKLIST,
@@ -43,6 +44,7 @@ function copyText(title: string, lines: string[]) {
 
 export default function LaborGuideScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
 
   useFocusEffect(
     useCallback(() => {
@@ -214,7 +216,7 @@ export default function LaborGuideScreen() {
           <Text style={styles.aiText}>Hỏi AI về hợp đồng và quyền lợi</Text>
         </TouchableOpacity>
 
-        <View style={{ height: 32 }} />
+        <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>
   );

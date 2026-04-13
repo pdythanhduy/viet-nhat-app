@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
@@ -30,6 +31,7 @@ type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
 export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
+  const insets = useSafeAreaInsets();
   const guideId = route.params.guideId;
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
   const [bookmarked, setBookmarked] = useState(false);
@@ -473,8 +475,7 @@ export default function AdminDetailScreen() {
           <Ionicons name="sparkles" size={20} color={Colors.white} />
           <Text style={styles.askAiText}>Hỏi AI về {guide.title}</Text>
         </TouchableOpacity>
-
-        <View style={{ height: 32 }} />
+        <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>
   );
