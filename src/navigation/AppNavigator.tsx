@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { Platform, StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import HomeScreen from '../screens/HomeScreen';
 import AdminScreen from '../screens/AdminScreen';
@@ -60,6 +61,9 @@ const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function TabNavigator() {
+  const insets = useSafeAreaInsets();
+  const androidBottomInset = Platform.OS === 'android' ? Math.max(insets.bottom, 8) : 0;
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -74,8 +78,17 @@ function TabNavigator() {
         },
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: Colors.textMuted,
-        tabBarStyle: styles.tabBar,
+        tabBarStyle: [
+          styles.tabBar,
+          Platform.OS === 'android'
+            ? {
+                height: TAB_BAR.height + androidBottomInset,
+                paddingBottom: TAB_BAR.paddingBottom + androidBottomInset,
+              }
+            : null,
+        ],
         tabBarLabelStyle: styles.tabLabel,
+        tabBarItemStyle: Platform.OS === 'android' ? styles.androidTabItem : undefined,
         headerShown: false,
       })}
     >
@@ -246,6 +259,9 @@ const styles = StyleSheet.create({
     height: TAB_BAR.height,
     paddingTop: TAB_BAR.paddingTop,
     paddingBottom: TAB_BAR.paddingBottom,
+  },
+  androidTabItem: {
+    paddingTop: 2,
   },
   tabLabel: {
     fontWeight: '600',
