@@ -4,7 +4,7 @@
     "slug": "viet-nhat-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/viet-nhat-logo-512.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/viet-nhat-logo-512.jpg",
         "backgroundColor": "#185FA5"
       },
       "package": "com.thanhduy.camnangvietnhat",
