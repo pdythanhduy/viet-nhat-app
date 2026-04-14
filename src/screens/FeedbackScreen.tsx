@@ -65,7 +65,7 @@ export default function FeedbackScreen() {
     Linking.canOpenURL(mailto)
       .then((supported) => {
         if (supported) {
-          return Linking.openURL(mailto);
+          return Linking.openURL(mailto).then(() => setSubmitted(true));
         }
 
         Alert.alert(
@@ -73,9 +73,6 @@ export default function FeedbackScreen() {
           `Vui lòng gửi phản hồi trực tiếp đến:\n${ADMIN_EMAIL}`,
           [{ text: 'OK' }]
         );
-      })
-      .then(() => {
-        setSubmitted(true);
       })
       .catch(() => {
         Alert.alert('Lỗi', `Không thể mở app email. Vui lòng liên hệ ${ADMIN_EMAIL}`);

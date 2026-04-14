@@ -293,6 +293,24 @@ export default function AIChatScreen() {
               Tôi có thể giúp bạn về thủ tục hành chính, việc làm, bảo hiểm, cuộc sống hằng ngày
               và tiếng Nhật thực tế tại Nhật Bản.
             </Text>
+
+            {!apiKey && (
+              <View style={styles.noKeyBanner}>
+                <Ionicons name="key-outline" size={18} color="#92400E" />
+                <View style={styles.noKeyBannerText}>
+                  <Text style={styles.noKeyBannerTitle}>Cần cấu hình API key</Text>
+                  <Text style={styles.noKeyBannerDesc}>
+                    Vào tab <Text style={{ fontWeight: '700' }}>Cài đặt</Text> → "Trợ lý AI" để nhập Claude API key trước khi dùng tính năng này.
+                  </Text>
+                </View>
+              </View>
+            )}
+
+            <View style={styles.aiDisclaimerBox}>
+              <Ionicons name="information-circle-outline" size={15} color={Colors.textSecondary} />
+              <Text style={styles.aiDisclaimerText}>{Disclaimers.ai}</Text>
+            </View>
+
             <Text style={styles.quickPromptsTitle}>Câu hỏi gợi ý:</Text>
             {QUICK_PROMPTS.map((prompt, i) => (
               <TouchableOpacity key={i} style={styles.quickPrompt} onPress={() => setInputText(prompt)}>
@@ -476,7 +494,49 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     textAlign: 'center',
     lineHeight: 19,
-    marginBottom: 20,
+    marginBottom: 16,
+  },
+  noKeyBanner: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    backgroundColor: '#FEF3C7',
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 12,
+    width: '100%',
+  },
+  noKeyBannerText: {
+    flex: 1,
+  },
+  noKeyBannerTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#92400E',
+    marginBottom: 2,
+  },
+  noKeyBannerDesc: {
+    fontSize: 12,
+    color: '#92400E',
+    lineHeight: 17,
+  },
+  aiDisclaimerBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 6,
+    backgroundColor: Colors.background,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 16,
+    width: '100%',
+  },
+  aiDisclaimerText: {
+    flex: 1,
+    fontSize: 11,
+    color: Colors.textSecondary,
+    lineHeight: 16,
   },
   quickPromptsTitle: {
     fontSize: 13,

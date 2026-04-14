@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
   Platform,
+  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -418,6 +419,17 @@ export default function SettingsScreen() {
           <Text style={styles.infoLabel}>Nền tảng</Text>
           <Text style={styles.infoValue}>{Platform.OS === 'ios' ? 'iOS' : 'Android'}</Text>
         </View>
+        <TouchableOpacity
+          style={styles.infoRow}
+          onPress={() =>
+            Linking.openURL('https://sites.google.com/view/camnangvietnhat-privacy/home').catch(
+              () => undefined
+            )
+          }
+        >
+          <Text style={styles.infoLabel}>Chính sách quyền riêng tư</Text>
+          <Text style={[styles.infoValue, styles.infoLink]}>Xem →</Text>
+        </TouchableOpacity>
       </View>
 
       <ProfileSetupModal
@@ -672,5 +684,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: Colors.textPrimary,
+  },
+  infoLink: {
+    color: Colors.primary,
+    fontWeight: '600',
   },
 });
