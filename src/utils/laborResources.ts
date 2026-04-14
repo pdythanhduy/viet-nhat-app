@@ -38,7 +38,9 @@ export async function loadLaborResourceStates(): Promise<LaborResourceState[]> {
   return Object.values(stateMap);
 }
 
-export async function toggleLaborResourceSaved(id: LaborResourceId): Promise<boolean> {
+export async function toggleLaborResourceSaved(
+  id: LaborResourceId
+): Promise<{ saved: boolean; states: LaborResourceState[] }> {
   const stateMap = await loadStateMap();
   const existing = stateMap[id];
 
@@ -48,7 +50,10 @@ export async function toggleLaborResourceSaved(id: LaborResourceId): Promise<boo
       lastViewedAt: existing.lastViewedAt,
     };
     await saveStateMap(stateMap);
-    return false;
+    return {
+      saved: false,
+      states: Object.values(stateMap),
+    };
   }
 
   stateMap[id] = {
@@ -58,10 +63,15 @@ export async function toggleLaborResourceSaved(id: LaborResourceId): Promise<boo
     lastViewedAt: existing?.lastViewedAt,
   };
   await saveStateMap(stateMap);
-  return true;
+  return {
+    saved: true,
+    states: Object.values(stateMap),
+  };
 }
 
-export async function toggleLaborResourcePinned(id: LaborResourceId): Promise<boolean> {
+export async function toggleLaborResourcePinned(
+  id: LaborResourceId
+): Promise<{ pinned: boolean; states: LaborResourceState[] }> {
   const stateMap = await loadStateMap();
   const existing = stateMap[id] ?? { id };
   const nextPinned = !existing.pinnedAt;
@@ -73,7 +83,10 @@ export async function toggleLaborResourcePinned(id: LaborResourceId): Promise<bo
     lastViewedAt: existing.lastViewedAt,
   };
   await saveStateMap(stateMap);
-  return nextPinned;
+  return {
+    pinned: nextPinned,
+    states: Object.values(stateMap),
+  };
 }
 
 export async function markLaborResourceViewed(id: LaborResourceId): Promise<LaborResourceState[]> {

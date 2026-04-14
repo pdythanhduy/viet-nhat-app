@@ -34,10 +34,14 @@ export async function saveGuideChecklistProgress(
   guideId: string,
   checkedLabels: string[]
 ): Promise<void> {
-  const raw = await AsyncStorage.getItem(STORAGE_KEY);
-  const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
-  progress[guideId] = Array.from(new Set(checkedLabels));
-  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  try {
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
+    progress[guideId] = Array.from(new Set(checkedLabels));
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch {
+    // Ignore storage failures so checklist actions remain non-fatal on device.
+  }
 }
 
 export async function toggleGuideChecklistItem(
@@ -61,8 +65,12 @@ export async function toggleGuideChecklistItem(
 }
 
 export async function clearGuideChecklistProgress(guideId: string): Promise<void> {
-  const raw = await AsyncStorage.getItem(STORAGE_KEY);
-  const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
-  delete progress[guideId];
-  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  try {
+    const raw = await AsyncStorage.getItem(STORAGE_KEY);
+    const progress: ChecklistProgress = raw ? JSON.parse(raw) : {};
+    delete progress[guideId];
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch {
+    // Ignore storage failures so clearing progress cannot crash the app.
+  }
 }

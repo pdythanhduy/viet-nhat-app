@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
@@ -57,6 +58,7 @@ export default function ProfileSetupModal({
   onClose,
   onSave,
 }: ProfileSetupModalProps) {
+  const insets = useSafeAreaInsets();
   const [visaStatus, setVisaStatus] = useState<UserVisaStatus>('student');
   const [lifeStage, setLifeStage] = useState<UserLifeStage>('new-arrival');
   const [household, setHousehold] = useState<UserHousehold>('alone');
@@ -79,7 +81,7 @@ export default function ProfileSetupModal({
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.overlay}>
-        <View style={styles.sheet}>
+        <View style={[styles.sheet, { paddingBottom: 24 + insets.bottom }]}>
           <View style={styles.handle} />
           <View style={styles.header}>
             <View style={styles.headerText}>

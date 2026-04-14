@@ -4024,6 +4024,206 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'hanko-inkan',
+    category: 'daily-law',
+    lastVerified: '2026-04-10',
+    priority: 'high',
+    title: 'Con dấu cá nhân (Hanko / Inkan)',
+    titleJp: '印鑑・はんこの作り方と使い方',
+    icon: 'create',
+    color: '#C0392B',
+    description: 'Con dấu cá nhân (はんこ / 印鑑) là thứ bạn cần ngay khi mới sang Nhật — để mở tài khoản ngân hàng, ký hợp đồng thuê nhà, hợp đồng lao động và nhiều thủ tục hành chính khác.',
+    officialLinks: [
+      { label: '印鑑登録について — e-Gov', url: 'https://www.e-gov.go.jp/' },
+      { label: '印鑑証明書の取得方法 — マイナポータル', url: 'https://myna.go.jp/' },
+    ],
+    whoIsThisFor: [
+      'Người mới sang Nhật lần đầu và chưa có con dấu cá nhân.',
+      'Người cần mở tài khoản ngân hàng, ký hợp đồng thuê nhà hoặc hợp đồng lao động.',
+      'Người cần đăng ký con dấu chính thức (印鑑登録) tại phường/thành phố.',
+    ],
+    whenToDo: [
+      'Mua con dấu ngay trong tuần đầu tiên đến Nhật — bạn sẽ cần đến nó sớm hơn bạn nghĩ.',
+      'Đăng ký 印鑑登録 trước khi ký hợp đồng thuê nhà hoặc mua xe (nếu cần con dấu chính thức).',
+      'Đối với mở tài khoản ngân hàng thông thường, con dấu thường mua ở 100 yên là đủ.',
+    ],
+    whereToDo: [
+      'Mua con dấu: cửa hàng 100 yên (Daiso, Seria), cửa hàng 印鑑 chuyên dụng, hoặc online.',
+      'Đăng ký 印鑑登録: văn phòng phường/quận (市区町村役場) — nơi bạn đã đăng ký địa chỉ cư trú.',
+    ],
+    estimatedTime: 'Mua con dấu: 5–15 phút. Đăng ký 印鑑登録: 30–60 phút tại văn phòng phường.',
+    fees: [
+      'Con dấu thường (認印): 100–500 yên tại cửa hàng 100 yên.',
+      'Con dấu khắc tên theo yêu cầu (実印): 1.000–5.000 yên tại cửa hàng chuyên dụng.',
+      'Phí đăng ký 印鑑登録: thường miễn phí hoặc vài trăm yên tùy địa phương.',
+      'Giấy chứng nhận 印鑑証明書: khoảng 300 yên/bản.',
+    ],
+    documentsChecklist: [
+      { label: 'Con dấu cá nhân (印鑑)', required: true, note: 'Con dấu bạn muốn đăng ký — không được là dấu cao su mềm, phải là chất liệu cứng.' },
+      { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Để xác nhận danh tính và địa chỉ cư trú.' },
+      { label: 'Hộ chiếu', required: false, note: 'Một số văn phòng phường yêu cầu thêm hộ chiếu để xác minh.' },
+      { label: 'My Number Card hoặc giấy thông báo số My Number', required: false, note: 'Không bắt buộc nhưng nên mang theo để tiết kiệm thời gian.' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Hiểu 3 loại con dấu',
+        description: 'Nhật Bản có 3 loại con dấu với mức độ quan trọng khác nhau:\n\n• 認印 (みとめいん / Mitomein): Con dấu thường ngày — dùng ký nhận bưu phẩm, một số hợp đồng nhỏ. Mua ở 100 yên là đủ.\n\n• 銀行印 (ぎんこういん / Ginko-in): Con dấu dùng cho tài khoản ngân hàng — nên khắc riêng, không dùng chung với 認印 để tránh rủi ro.\n\n• 実印 (じついん / Jitsuin): Con dấu đã đăng ký chính thức tại phường — cần cho hợp đồng lớn như thuê nhà, mua xe, vay tiền. Phải đăng ký 印鑑登録 mới có giá trị pháp lý.',
+        documents: [],
+        tip: 'Với người mới sang Nhật, trước tiên chỉ cần mua 1 con dấu 認印 tại Daiso là dùng được cho hầu hết việc thường ngày.',
+      },
+      {
+        step: 2,
+        title: 'Mua con dấu',
+        description: 'Cửa hàng 100 yên (Daiso, Seria, CanDo) thường có sẵn dấu khắc sẵn các chữ Kanji phổ biến. Tuy nhiên tên người Việt không có chữ Kanji, nên bạn có 2 lựa chọn:\n\n• Mua dấu khắc sẵn bằng katakana (ví dụ: グエン, ファン, チャン) — nhanh và rẻ.\n\n• Đặt khắc tên riêng tại cửa hàng 印鑑 chuyên dụng — mất 1–3 ngày, giá 1.000–3.000 yên, nhưng chuyên nghiệp hơn.',
+        documents: [],
+        tip: 'Tìm "はんこ屋" hoặc "印鑑 近く" trên Google Maps để tìm cửa hàng gần nhất. Có thể đặt khắc tên Việt phiên âm katakana.',
+      },
+      {
+        step: 3,
+        title: 'Đăng ký 印鑑登録 (nếu cần dấu chính thức)',
+        description: 'Mang con dấu và thẻ cư trú đến văn phòng phường/quận nơi bạn đã đăng ký địa chỉ. Điền mẫu đăng ký, nộp cho nhân viên và nhận 印鑑登録証 (thẻ chứng nhận đăng ký dấu).\n\nSau khi đăng ký, khi cần chứng minh dấu, bạn xin cấp 印鑑証明書 — một bản giấy xác nhận dấu đã đăng ký của bạn — thường phải nộp kèm khi ký hợp đồng lớn.',
+        documents: [
+          'Con dấu cần đăng ký',
+          'Thẻ cư trú',
+          'Hộ chiếu (tùy yêu cầu địa phương)',
+        ],
+        tip: 'Giữ thẻ 印鑑登録証 cẩn thận — mất thẻ này cần đến phường hủy và đăng ký lại từ đầu.',
+      },
+      {
+        step: 4,
+        title: 'Dùng con dấu đúng cách',
+        description: 'Khi đóng dấu, giữ dấu thẳng đứng, ấn đều và nhẹ — không cần ấn mạnh. Hãy thử trước trên giấy nháp để kiểm tra mực trước khi đóng vào giấy tờ quan trọng.',
+        documents: [],
+        tip: 'Không cho người khác mượn con dấu của bạn — nhất là dấu ngân hàng và 実印. Nếu mất dấu, phải báo ngân hàng và văn phòng phường ngay.',
+      },
+    ],
+    commonMistakes: [
+      'Dùng dấu cao su mềm (loại tự mực) để đăng ký 印鑑登録 — loại này bị từ chối.',
+      'Dùng chung 1 con dấu cho cả tài khoản ngân hàng và các việc thường ngày — rủi ro nếu bị lạm dụng.',
+      'Mất thẻ 印鑑登録証 mà không báo phường để hủy — người khác có thể lạm dụng.',
+      'Không mang dấu khi đến ngân hàng, phòng hành chính — bị từ chối vì thiếu giấy tờ.',
+      'Đặt dấu nghiêng hoặc ấn không đều khiến mực bị nhòe, giấy tờ phải ký lại.',
+    ],
+    faq: [
+      {
+        question: 'Người nước ngoài có cần con dấu không hay chỉ ký tên là đủ?',
+        answer: 'Nhiều thủ tục đã chấp nhận chữ ký thay con dấu, đặc biệt với người nước ngoài. Tuy nhiên mở tài khoản ngân hàng, ký hợp đồng thuê nhà hoặc lao động thường vẫn yêu cầu dấu. Nên có sẵn ít nhất 1 con dấu 認印.',
+      },
+      {
+        question: 'Mua dấu ở Daiso có dùng được không?',
+        answer: 'Được, cho các việc thường ngày như 認印. Tuy nhiên dấu Daiso thường chỉ có Kanji, nên với tên Việt bạn có thể tìm dấu katakana hoặc đặt khắc tại cửa hàng chuyên dụng.',
+      },
+      {
+        question: 'Con dấu ngân hàng và con dấu thường có khác nhau không?',
+        answer: 'Về mặt vật lý giống nhau, nhưng sau khi đăng ký với ngân hàng thì dấu đó được ghi nhận là dấu tài khoản của bạn. Nên dùng 2 dấu riêng — 1 cho ngân hàng, 1 cho việc thường ngày — để giảm rủi ro.',
+      },
+      {
+        question: 'Tôi có thể đặt khắc tên tiếng Việt không?',
+        answer: 'Được. Cửa hàng 印鑑 chuyên dụng có thể khắc tên bằng katakana (phiên âm tiếng Nhật) hoặc bằng chữ Latin. Hỏi trực tiếp cửa hàng về khả năng và giá.',
+      },
+      {
+        question: 'Nếu mất con dấu thì phải làm gì?',
+        answer: 'Nếu là dấu ngân hàng: báo ngân hàng ngay để đóng băng và đổi dấu mới. Nếu là 実印 đã đăng ký: đến văn phòng phường hủy đăng ký và đăng ký dấu mới.',
+      },
+    ],
+  },
+  {
+    id: 'unemployment-benefits',
+    category: 'money',
+    lastVerified: '2026-04-14',
+    priority: 'high',
+    title: 'Trợ cấp thất nghiệp (失業給付)',
+    titleJp: '失業給付・雇用保険の受給手続き',
+    icon: 'cash-outline',
+    color: '#E67E22',
+    description: 'Khi mất việc, bạn có thể nhận trợ cấp thất nghiệp từ quỹ 雇用保険 nếu đã đóng bảo hiểm đủ điều kiện. Người nước ngoài cư trú hợp pháp cũng được nhận.',
+    officialLinks: [
+      { label: '雇用保険の基本手当 — ハローワーク', url: 'https://www.hellowork.mhlw.go.jp/insurance/insurance_basicbenefit.html' },
+      { label: '雇用保険について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000136389.html' },
+    ],
+    whoIsThisFor: [
+      'Người vừa mất việc — bị sa thải hoặc tự xin nghỉ.',
+      'Người đang tìm việc mới và muốn nhận hỗ trợ tài chính trong thời gian chờ.',
+      'Người nước ngoài có tư cách lưu trú còn hiệu lực và đã đóng 雇用保険 đủ thời hạn.',
+    ],
+    whenToDo: [
+      'Đến ハローワーク đăng ký ngay sau khi nghỉ việc — không nên trì hoãn vì thời hạn nhận trợ cấp tính từ ngày đăng ký.',
+      'Nhận 離職票 từ công ty trước — nếu sau 10 ngày chưa nhận được, có thể thúc giục hoặc đến ハローワーク nhờ hỗ trợ.',
+    ],
+    whereToDo: [
+      'ハローワーク (Hello Work) — đến chi nhánh nơi bạn cư trú.',
+      'Tìm ハローワーク gần nhất tại: hellowork.mhlw.go.jp',
+    ],
+    estimatedTime: 'Đăng ký ban đầu: 1–2 giờ. Sau đó đến ハローワーク mỗi 4 tuần để báo cáo tình trạng tìm việc.',
+    fees: [
+      'Miễn phí — đây là quyền lợi từ 雇用保険 bạn đã đóng trong thời gian đi làm.',
+    ],
+    documentsChecklist: [
+      { label: '離職票 — giấy chứng nhận nghỉ việc (離職票-Ⅰ và -Ⅱ)', required: true, note: 'Công ty cấp sau khi nghỉ — thường gồm 2 tờ. Không có thì không thể làm thủ tục.' },
+      { label: '雇用保険被保険者証 (thẻ bảo hiểm thất nghiệp)', required: true, note: 'Công ty giữ hộ hoặc bạn có — nếu mất có thể xin cấp lại tại ハローワーク.' },
+      { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Xác nhận tư cách lưu trú còn hiệu lực.' },
+      { label: 'Ảnh thẻ 3×2.5cm (2 tấm)', required: true, note: 'Ảnh nền trắng, chụp gần đây.' },
+      { label: 'Tài khoản ngân hàng Nhật (sổ tiết kiệm hoặc thẻ)', required: true, note: 'Trợ cấp chuyển khoản trực tiếp vào tài khoản.' },
+      { label: 'Hộ chiếu', required: false, note: 'Một số ハローワーク yêu cầu thêm.' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Nhận 離職票 từ công ty',
+        description: 'Công ty có nghĩa vụ cấp 離職票 trong vòng 10 ngày sau khi nghỉ. Nếu họ chậm, liên hệ phòng nhân sự. Trường hợp công ty không cấp, ハローワーク có thể hỗ trợ liên hệ thay bạn.',
+        documents: ['離職票-Ⅰ và 離職票-Ⅱ'],
+        tip: 'Kiểm tra kỹ lý do nghỉ việc ghi trên 離職票 — 会社都合 (công ty cho nghỉ) hưởng lợi hơn 自己都合 (tự xin nghỉ) cả về thời gian chờ lẫn số tháng nhận trợ cấp.',
+      },
+      {
+        step: 2,
+        title: 'Đến ハローワーク đăng ký thất nghiệp',
+        description: 'Mang đủ hồ sơ đến ハローワーク gần chỗ cư trú. Điền đơn đăng ký, nộp hồ sơ và nhận ngày tham dự buổi giải thích 雇用保険説明会 (thường 1–2 tuần sau).',
+        documents: ['Toàn bộ hồ sơ nêu trên'],
+        tip: 'Hỏi xem ハローワーク có phiên dịch hoặc tài liệu đa ngôn ngữ không — một số chi nhánh lớn hỗ trợ tiếng Việt hoặc tiếng Anh.',
+      },
+      {
+        step: 3,
+        title: 'Chờ qua thời gian chờ (給付制限)',
+        description: '- 自己都合 (tự xin nghỉ): 7 ngày chờ bắt buộc + thêm 2 tháng (lần đầu trong 5 năm) hoặc 3 tháng.\n- 会社都合 (bị sa thải, hết hạn hợp đồng): chỉ chờ 7 ngày rồi nhận ngay.\nTrong thời gian chờ không nhận được tiền nhưng vẫn phải tiếp tục tìm việc.',
+        documents: [],
+        tip: 'Bị sa thải do công ty phá sản hoặc lý do bất khả kháng có thể được xếp loại 特定受給資格者 — hưởng chế độ tốt hơn và không bị thêm 2–3 tháng chờ.',
+      },
+      {
+        step: 4,
+        title: 'Nhận trợ cấp và báo cáo 4 tuần một lần',
+        description: 'Sau khi hết thời gian chờ, mỗi 4 tuần đến ハローワーク báo cáo tình trạng tìm việc (求職活動). Trợ cấp được chuyển khoản vào tài khoản khoảng 1 tuần sau mỗi lần báo cáo.',
+        documents: [],
+        tip: 'Mỗi kỳ báo cáo cần chứng minh đã tìm việc ít nhất 2 lần (ứng tuyển, dự hội thảo tìm việc, v.v.). Ghi chép lại để tránh bị gián đoạn trợ cấp.',
+      },
+    ],
+    commonMistakes: [
+      'Không đến ハローワーク sớm — mỗi ngày trì hoãn là mất 1 ngày trợ cấp có thể nhận.',
+      'Không kiểm tra lý do nghỉ trên 離職票 trước khi ký xác nhận — lý do sai ảnh hưởng lớn đến quyền lợi.',
+      'Quên báo cáo đúng hạn mỗi 4 tuần — bị gián đoạn trợ cấp.',
+      'Đi làm hoặc nhận thu nhập trong thời gian nhận trợ cấp mà không khai báo — vi phạm pháp luật, phải hoàn lại tiền.',
+      'Tư cách lưu trú hết hạn trong thời gian nhận trợ cấp — phải gia hạn visa để tiếp tục nhận.',
+    ],
+    faq: [
+      {
+        question: 'Người nước ngoài có được nhận trợ cấp thất nghiệp không?',
+        answer: 'Được, nếu tư cách lưu trú còn hiệu lực và đã đóng 雇用保険 đủ thời hạn. Các tư cách "Kỹ thuật/Nhân văn/Nghiệp vụ quốc tế", "Kỹ năng đặc định", "Thực tập kỹ năng chuyển sang diện mới" đều có thể nhận nếu đủ điều kiện.',
+      },
+      {
+        question: 'Phải đóng 雇用保険 bao lâu mới được nhận?',
+        answer: '- Tự xin nghỉ (自己都合): cần đóng tối thiểu 12 tháng trong 2 năm trước khi nghỉ.\n- Bị sa thải hoặc hết hợp đồng (会社都合): cần đóng tối thiểu 6 tháng trong 1 năm trước khi nghỉ.',
+      },
+      {
+        question: 'Trợ cấp được bao nhiêu và bao lâu?',
+        answer: 'Mức trợ cấp khoảng 50–80% lương ngày trung bình (lương càng cao thì tỷ lệ càng thấp). Thời gian nhận: 90–330 ngày tùy theo tuổi, số năm đóng và lý do nghỉ — kiểm tra cụ thể tại ハローワーク.',
+      },
+      {
+        question: 'Tìm được việc mới trước khi hết trợ cấp thì sao?',
+        answer: 'Nếu tìm được việc sớm, bạn có thể nhận 就職促進給付 (trợ cấp khuyến khích đi làm sớm) thay vì toàn bộ trợ cấp còn lại — đôi khi số tiền còn cao hơn. Hỏi ハローワーク để biết mức cụ thể.',
+      },
+    ],
+  },
 ];
 
 

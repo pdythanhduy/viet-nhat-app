@@ -16,20 +16,20 @@ describe('laborResources', () => {
   });
 
   it('saves and unsaves a labor resource', async () => {
-    expect(await toggleLaborResourceSaved('labor-guide')).toBe(true);
+    expect((await toggleLaborResourceSaved('labor-guide')).saved).toBe(true);
 
     let states = await loadLaborResourceStates();
     expect(states[0]?.id).toBe('labor-guide');
     expect(states[0]?.savedAt).toBeTruthy();
 
-    expect(await toggleLaborResourceSaved('labor-guide')).toBe(false);
+    expect((await toggleLaborResourceSaved('labor-guide')).saved).toBe(false);
 
     states = await loadLaborResourceStates();
     expect(states[0]?.savedAt).toBeUndefined();
   });
 
   it('pinning a labor resource also saves it', async () => {
-    expect(await toggleLaborResourcePinned('labor-help')).toBe(true);
+    expect((await toggleLaborResourcePinned('labor-help')).pinned).toBe(true);
 
     const states = await loadLaborResourceStates();
     expect(states[0]?.savedAt).toBeTruthy();

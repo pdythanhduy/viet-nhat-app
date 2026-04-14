@@ -151,8 +151,8 @@ export default function JobsScreen() {
   };
 
   const handleToggleSaved = async (resourceId: LaborResourceId) => {
-    const nextSaved = await toggleLaborResourceSaved(resourceId);
-    setResourceStates(await loadLaborResourceStates());
+    const { saved: nextSaved, states } = await toggleLaborResourceSaved(resourceId);
+    setResourceStates(states);
     Alert.alert(
       nextSaved ? 'Đã lưu' : 'Đã bỏ lưu',
       nextSaved
@@ -162,8 +162,8 @@ export default function JobsScreen() {
   };
 
   const handleTogglePinned = async (resourceId: LaborResourceId) => {
-    const nextPinned = await toggleLaborResourcePinned(resourceId);
-    setResourceStates(await loadLaborResourceStates());
+    const { pinned: nextPinned, states } = await toggleLaborResourcePinned(resourceId);
+    setResourceStates(states);
     Alert.alert(
       nextPinned ? 'Đã ghim' : 'Đã bỏ ghim',
       nextPinned

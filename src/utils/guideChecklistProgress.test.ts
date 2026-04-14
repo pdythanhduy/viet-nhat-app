@@ -41,4 +41,15 @@ describe('guideChecklistProgress', () => {
     await expect(loadGuideChecklistProgress('my-number')).resolves.toEqual([]);
     await expect(loadGuideChecklistProgress('bank-account')).resolves.toEqual(['Thẻ cư trú']);
   });
+  it('swallows storage errors in save and clear helpers', async () => {
+    const getItemSpy = jest.spyOn(AsyncStorage, 'getItem').mockRejectedValueOnce(new Error('boom'));
+    await expect(saveGuideChecklistProgress('my-number', ['Th蘯ｻ cﾆｰ trﾃｺ'])).resolves.toBeUndefined();
+    getItemSpy.mockRestore();
+
+    await saveGuideChecklistProgress('my-number', ['Th蘯ｻ cﾆｰ trﾃｺ']);
+
+    const setItemSpy = jest.spyOn(AsyncStorage, 'setItem').mockRejectedValueOnce(new Error('boom'));
+    await expect(clearGuideChecklistProgress('my-number')).resolves.toBeUndefined();
+    setItemSpy.mockRestore();
+  });
 });

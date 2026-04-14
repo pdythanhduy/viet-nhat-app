@@ -56,9 +56,12 @@ Lĩnh vực bạn hỗ trợ tốt:
 Luôn ưu tiên tính thực tế và cảnh báo người dùng khi nội dung cần kiểm tra lại bằng nguồn chính thức.`;
 
 function buildSystemPrompt(profile: UserProfile | null): string {
-  if (!profile) return BASE_SYSTEM_PROMPT;
+  const today = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const dateLine = `Ngày hôm nay: ${today}.`;
+  const base = `${BASE_SYSTEM_PROMPT}\n\n${dateLine}`;
+  if (!profile) return base;
   const summary = buildUserProfileSummary(profile);
-  return `${BASE_SYSTEM_PROMPT}\n\nThông tin người dùng: ${summary}`;
+  return `${base}\n\nThông tin người dùng: ${summary}`;
 }
 
 const STORAGE_KEY = StorageKeys.aiChatHistory;

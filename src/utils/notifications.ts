@@ -120,9 +120,7 @@ export async function scheduleNotificationsForDate(item: ImportantDate): Promise
 
 export async function rescheduleAll(): Promise<void> {
   const dates = await loadImportantDates();
-  for (const d of dates) {
-    await scheduleNotificationsForDate(d);
-  }
+  await Promise.all(dates.map((date) => scheduleNotificationsForDate(date)));
 }
 
 export async function deleteImportantDate(id: string): Promise<void> {
