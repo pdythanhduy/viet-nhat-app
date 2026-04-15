@@ -21,6 +21,8 @@ describe('audioPreferences', () => {
       speechRate: 'normal',
       autoPlayDialogue: false,
       autoPlayFlashcard: false,
+      studyReminderEnabled: false,
+      wordReminderEnabled: false,
     });
   });
 

@@ -8,12 +8,16 @@ export interface JapaneseAudioPreferences {
   speechRate: JapaneseSpeechRate;
   autoPlayDialogue: boolean;
   autoPlayFlashcard: boolean;
+  studyReminderEnabled: boolean;
+  wordReminderEnabled: boolean;
 }
 
 const DEFAULT_PREFERENCES: JapaneseAudioPreferences = {
   speechRate: 'normal',
   autoPlayDialogue: false,
   autoPlayFlashcard: false,
+  studyReminderEnabled: false,
+  wordReminderEnabled: false,
 };
 
 export function getSpeechRateValue(rate: JapaneseSpeechRate) {
@@ -41,6 +45,14 @@ export async function loadJapaneseAudioPreferences() {
         typeof parsed.autoPlayFlashcard === 'boolean'
           ? parsed.autoPlayFlashcard
           : DEFAULT_PREFERENCES.autoPlayFlashcard,
+      studyReminderEnabled:
+        typeof parsed.studyReminderEnabled === 'boolean'
+          ? parsed.studyReminderEnabled
+          : DEFAULT_PREFERENCES.studyReminderEnabled,
+      wordReminderEnabled:
+        typeof parsed.wordReminderEnabled === 'boolean'
+          ? parsed.wordReminderEnabled
+          : DEFAULT_PREFERENCES.wordReminderEnabled,
     };
   } catch {
     return DEFAULT_PREFERENCES;

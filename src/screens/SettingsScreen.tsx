@@ -22,7 +22,13 @@ import {
   loadJapaneseAudioPreferences,
   saveJapaneseAudioPreferences,
 } from '../utils/audioPreferences';
-import { loadImportantDates } from '../utils/notifications';
+import {
+  cancelJapaneseStudyReminder,
+  cancelWordOfDayReminder,
+  loadImportantDates,
+  scheduleJapaneseStudyReminder,
+  scheduleWordOfDayReminder,
+} from '../utils/notifications';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import type { UserProfile } from '../types/profile';
 import { buildUserProfileSummary, loadUserProfile, saveUserProfile } from '../utils/userProfile';
@@ -42,6 +48,8 @@ export default function SettingsScreen() {
     speechRate: 'normal',
     autoPlayDialogue: false,
     autoPlayFlashcard: false,
+    studyReminderEnabled: false,
+    wordReminderEnabled: false,
   });
   const [hasJapaneseVoice, setHasJapaneseVoice] = useState<boolean | null>(null);
 
@@ -155,6 +163,60 @@ export default function SettingsScreen() {
       autoPlayFlashcard: !audioPrefs.autoPlayFlashcard,
     });
     setAudioPrefs(next);
+  };
+
+  const handleToggleStudyReminder = async () => {
+    const nextEnabled = !audioPrefs.studyReminderEnabled;
+    if (!nextEnabled) {
+      const next = await saveJapaneseAudioPreferences({
+        ...audioPrefs,
+        studyReminderEnabled: false,
+      });
+      setAudioPrefs(next);
+      await cancelJapaneseStudyReminder();
+      return;
+    }
+
+    try {
+      await scheduleJapaneseStudyReminder();
+      const next = await saveJapaneseAudioPreferences({
+        ...audioPrefs,
+        studyReminderEnabled: true,
+      });
+      setAudioPrefs(next);
+    } catch {
+      Alert.alert(
+        'Chưa bật được nhắc học',
+        'Ứng dụng chưa có quyền gửi thông báo. Hãy cấp quyền notifications rồi thử lại.'
+      );
+    }
+  };
+
+  const handleToggleWordReminder = async () => {
+    const nextEnabled = !audioPrefs.wordReminderEnabled;
+    if (!nextEnabled) {
+      const next = await saveJapaneseAudioPreferences({
+        ...audioPrefs,
+        wordReminderEnabled: false,
+      });
+      setAudioPrefs(next);
+      await cancelWordOfDayReminder();
+      return;
+    }
+
+    try {
+      await scheduleWordOfDayReminder();
+      const next = await saveJapaneseAudioPreferences({
+        ...audioPrefs,
+        wordReminderEnabled: true,
+      });
+      setAudioPrefs(next);
+    } catch {
+      Alert.alert(
+        'Chưa bật được nhắc từ mới',
+        'Ứng dụng chưa có quyền gửi thông báo. Hãy cấp quyền notifications rồi thử lại.'
+      );
+    }
   };
 
   return (
@@ -330,6 +392,48 @@ export default function SettingsScreen() {
             name={audioPrefs.autoPlayFlashcard ? 'toggle' : 'toggle-outline'}
             size={34}
             color={audioPrefs.autoPlayFlashcard ? '#8E44AD' : Colors.textMuted}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.audioToggleRow, { marginTop: 14 }]} onPress={() => void handleToggleStudyReminder()}>
+          <View style={styles.audioToggleLeft}>
+            <View style={[styles.notifIcon, { backgroundColor: '#FEF3C7' }]}>
+              <Ionicons name="notifications-outline" size={20} color="#D97706" />
+            </View>
+            <View style={styles.profileSectionText}>
+              <Text style={styles.sectionTitle}>Nhắc luyện tiếng Nhật mỗi ngày</Text>
+              <Text style={styles.sectionDesc}>
+                {audioPrefs.studyReminderEnabled
+                  ? 'Đang bật. App sẽ nhắc lúc 20:00 mỗi ngày nếu bạn chưa luyện tập.'
+                  : 'Đang tắt. Bật để nhận thông báo lúc 20:00 hàng ngày.'}
+              </Text>
+            </View>
+          </View>
+          <Ionicons
+            name={audioPrefs.studyReminderEnabled ? 'toggle' : 'toggle-outline'}
+            size={34}
+            color={audioPrefs.studyReminderEnabled ? '#D97706' : Colors.textMuted}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.audioToggleRow, { marginTop: 14 }]} onPress={() => void handleToggleWordReminder()}>
+          <View style={styles.audioToggleLeft}>
+            <View style={[styles.notifIcon, { backgroundColor: '#ECFDF5' }]}>
+              <Ionicons name="sunny-outline" size={20} color="#059669" />
+            </View>
+            <View style={styles.profileSectionText}>
+              <Text style={styles.sectionTitle}>Từ của ngày — nhắc 8:00 sáng</Text>
+              <Text style={styles.sectionDesc}>
+                {audioPrefs.wordReminderEnabled
+                  ? 'Đang bật. App sẽ nhắc lúc 8:00 mỗi sáng để học từ mới tiếng Nhật.'
+                  : 'Đang tắt. Bật để nhận thông báo sáng sớm với từ tiếng Nhật mới mỗi ngày.'}
+              </Text>
+            </View>
+          </View>
+          <Ionicons
+            name={audioPrefs.wordReminderEnabled ? 'toggle' : 'toggle-outline'}
+            size={34}
+            color={audioPrefs.wordReminderEnabled ? '#059669' : Colors.textMuted}
           />
         </TouchableOpacity>
 

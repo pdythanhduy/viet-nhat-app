@@ -123,6 +123,79 @@ export async function rescheduleAll(): Promise<void> {
   await Promise.all(dates.map((date) => scheduleNotificationsForDate(date)));
 }
 
+const JAPANESE_REMINDER_ID = 'japanese_study_reminder';
+
+export async function scheduleJapaneseStudyReminder(): Promise<void> {
+  await Notifications.cancelScheduledNotificationAsync(JAPANESE_REMINDER_ID).catch(() => undefined);
+  const permitted = await requestPermission();
+  if (!permitted) {
+    throw new Error('notification-permission-denied');
+  }
+
+  await Notifications.scheduleNotificationAsync({
+    identifier: JAPANESE_REMINDER_ID,
+    content: {
+      title: '🇯🇵 Luyện tiếng Nhật hôm nay chưa?',
+      body: 'Chỉ cần 5 phút mỗi ngày để duy trì streak của bạn.',
+      ...(Platform.OS === 'android' && { channelId: 'reminders' }),
+    },
+    trigger: {
+      type: Notifications.SchedulableTriggerInputTypes.DAILY,
+      hour: 20,
+      minute: 0,
+    },
+  });
+}
+
+export async function cancelJapaneseStudyReminder(): Promise<void> {
+  await Notifications.cancelScheduledNotificationAsync(JAPANESE_REMINDER_ID).catch(() => undefined);
+}
+
+const WORD_OF_DAY_REMINDER_ID = 'word_of_day_reminder';
+
+export async function scheduleWordOfDayReminder(): Promise<void> {
+  await Notifications.cancelScheduledNotificationAsync(WORD_OF_DAY_REMINDER_ID).catch(() => undefined);
+  const permitted = await requestPermission();
+  if (!permitted) {
+    throw new Error('notification-permission-denied');
+  }
+
+  await Notifications.scheduleNotificationAsync({
+    identifier: WORD_OF_DAY_REMINDER_ID,
+    content: {
+      title: '🌸 Từ của hôm nay',
+      body: 'Học một từ tiếng Nhật mỗi buổi sáng — mở app để xem từ hôm nay!',
+      ...(Platform.OS === 'android' && { channelId: 'reminders' }),
+    },
+    trigger: {
+      type: Notifications.SchedulableTriggerInputTypes.DAILY,
+      hour: 8,
+      minute: 0,
+    },
+  });
+}
+
+export async function cancelWordOfDayReminder(): Promise<void> {
+  await Notifications.cancelScheduledNotificationAsync(WORD_OF_DAY_REMINDER_ID).catch(() => undefined);
+}
+
+export async function syncDailyReminderSchedules(input: {
+  studyReminderEnabled: boolean;
+  wordReminderEnabled: boolean;
+}): Promise<void> {
+  if (input.studyReminderEnabled) {
+    await scheduleJapaneseStudyReminder().catch(() => undefined);
+  } else {
+    await cancelJapaneseStudyReminder();
+  }
+
+  if (input.wordReminderEnabled) {
+    await scheduleWordOfDayReminder().catch(() => undefined);
+  } else {
+    await cancelWordOfDayReminder();
+  }
+}
+
 export async function deleteImportantDate(id: string): Promise<void> {
   await cancelNotificationsForDate(id);
   const dates = await loadImportantDates();

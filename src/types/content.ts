@@ -168,3 +168,12 @@ export interface PhraseCategory {
   phrases: EssentialPhrase[];
   dialogue?: CategoryDialogue;
 }
+
+export interface GrammarPattern {
+  pattern: string;
+  meaning: string;
+  example_jp: string;
+  example_romaji: string;
+  example_vn: string;
+  notes?: string;
+}

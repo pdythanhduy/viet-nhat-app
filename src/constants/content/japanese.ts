@@ -1,4 +1,4 @@
-import type { JapaneseWord, PhraseCategory } from '../../types/content';
+import type { GrammarPattern, JapaneseWord, PhraseCategory } from '../../types/content';
 
 export const JAPANESE_WORDS: JapaneseWord[] = [
   {
@@ -940,3 +940,70 @@ const INDUSTRY_PHRASES: PhraseCategory[] = [
 
 JAPANESE_WORDS.push(...INDUSTRY_JAPANESE_WORDS);
 ESSENTIAL_PHRASES.push(...INDUSTRY_PHRASES);
+
+export const GRAMMAR_PATTERNS: GrammarPattern[] = [
+  {
+    pattern: '〜です',
+    meaning: 'Là / Đây là (câu lịch sự, khẳng định)',
+    example_jp: '私はベトナム人です。',
+    example_romaji: 'Watashi wa Betonamu-jin desu.',
+    example_vn: 'Tôi là người Việt Nam.',
+    notes: 'Dùng cuối câu để khẳng định lịch sự. Phủ định: 〜ではありません / 〜じゃないです.',
+  },
+  {
+    pattern: '〜ます / 〜ません',
+    meaning: 'Làm / Không làm (động từ lịch sự)',
+    example_jp: '毎日日本語を勉強します。',
+    example_romaji: 'Mainichi Nihongo o benkyou shimasu.',
+    example_vn: 'Tôi học tiếng Nhật mỗi ngày.',
+    notes: '〜ます (khẳng định) / 〜ません (phủ định) / 〜ましたか (câu hỏi quá khứ).',
+  },
+  {
+    pattern: '〜てください',
+    meaning: 'Xin hãy làm 〜 (yêu cầu lịch sự)',
+    example_jp: 'ここに名前を書いてください。',
+    example_romaji: 'Koko ni namae o kaite kudasai.',
+    example_vn: 'Xin hãy viết tên vào đây.',
+    notes: 'Dùng khi nhờ ai đó làm gì. Thêm 〜ていただけますか để lịch sự hơn.',
+  },
+  {
+    pattern: '〜たいです',
+    meaning: 'Muốn làm 〜',
+    example_jp: '日本語が上手になりたいです。',
+    example_romaji: 'Nihongo ga jouzu ni naritai desu.',
+    example_vn: 'Tôi muốn giỏi tiếng Nhật.',
+    notes: 'Gốc động từ + たい. Phủ định: 〜たくないです. Không dùng cho mong muốn của người khác.',
+  },
+  {
+    pattern: '〜ています',
+    meaning: 'Đang làm 〜 / Trạng thái hiện tại',
+    example_jp: '今、工場で働いています。',
+    example_romaji: 'Ima, koujou de hataraite imasu.',
+    example_vn: 'Tôi đang làm việc ở nhà máy.',
+    notes: 'Dùng cho hành động đang diễn ra hoặc trạng thái kéo dài (ví dụ: 結婚しています = đã kết hôn).',
+  },
+  {
+    pattern: '〜てもいいですか',
+    meaning: 'Có được phép làm 〜 không?',
+    example_jp: 'ここで写真を撮ってもいいですか。',
+    example_romaji: 'Koko de shashin o totte mo ii desu ka.',
+    example_vn: 'Tôi có thể chụp ảnh ở đây không?',
+    notes: 'Xin phép lịch sự. Trả lời cho phép: はい、どうぞ. Từ chối: ちょっと….',
+  },
+  {
+    pattern: '〜なければなりません',
+    meaning: 'Phải làm 〜 (bắt buộc)',
+    example_jp: '毎月税金を払わなければなりません。',
+    example_romaji: 'Maitsuki zeikin o harawanakereba narimasen.',
+    example_vn: 'Mỗi tháng tôi phải đóng thuế.',
+    notes: 'Dạng nói thân mật hơn: 〜なきゃ / 〜ないといけない. Dùng nhiều trong ngữ cảnh công việc, thủ tục.',
+  },
+  {
+    pattern: '〜ないでください',
+    meaning: 'Xin đừng làm 〜',
+    example_jp: 'ここでタバコを吸わないでください。',
+    example_romaji: 'Koko de tabako o suwanaide kudasai.',
+    example_vn: 'Xin đừng hút thuốc ở đây.',
+    notes: 'Phủ định của 〜てください. Thường thấy trên bảng hiệu hoặc khi nhắc nhở lịch sự.',
+  },
+];

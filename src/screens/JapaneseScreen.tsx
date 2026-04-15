@@ -6,7 +6,7 @@ import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { ESSENTIAL_PHRASES, JAPANESE_WORDS } from '../constants/content';
+import { ESSENTIAL_PHRASES, GRAMMAR_PATTERNS, JAPANESE_WORDS } from '../constants/content';
 import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { loadJapaneseAudioPreferences } from '../utils/audioPreferences';
@@ -93,6 +93,8 @@ export default function JapaneseScreen() {
   const [recentCategories, setRecentCategories] = useState<RecentJapaneseCategory[]>([]);
   const [streak, setStreak] = useState<StreakData | null>(null);
   const [autoPlayDialogue, setAutoPlayDialogue] = useState(false);
+  const [grammarExpanded, setGrammarExpanded] = useState(false);
+  const [expandedPattern, setExpandedPattern] = useState<string | null>(null);
 
   React.useEffect(() => {
     if (route.params?.initialSearch) {
@@ -297,6 +299,43 @@ export default function JapaneseScreen() {
               <View style={styles.subCard}><Text style={styles.smallLabel}>Ví dụ</Text><Text style={styles.jp}>{currentWord.example}</Text>{showRomaji ? <Text style={styles.romaji}>{currentWord.exampleRomaji}</Text> : null}<Text style={styles.vn}>{currentWord.exampleMeaning}</Text></View>
               {currentWord.culturalNote ? <View style={styles.note}><Text style={styles.smallLabel}>Lưu ý thực tế</Text><Text style={styles.vn}>{currentWord.culturalNote}</Text></View> : null}
               <View style={styles.actions}><TouchableOpacity onPress={() => setShowRomaji((prev) => !prev)}><Text style={styles.actionText}>{showRomaji ? 'Ẩn romaji' : 'Hiện romaji'}</Text></TouchableOpacity><View style={styles.row}><TouchableOpacity onPress={() => setWordIndex((prev) => (prev - 1 + JAPANESE_WORDS.length) % JAPANESE_WORDS.length)}><Text style={styles.actionText}>Trước</Text></TouchableOpacity><TouchableOpacity onPress={() => setWordIndex((prev) => (prev + 1) % JAPANESE_WORDS.length)}><Text style={styles.actionText}>Sau</Text></TouchableOpacity></View></View>
+            </View>
+
+            <View style={styles.card}>
+              <TouchableOpacity style={styles.row} onPress={() => setGrammarExpanded((prev) => !prev)}>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.category}>Mẫu câu cơ bản</Text>
+                  <Text style={styles.muted}>{GRAMMAR_PATTERNS.length} mẫu ngữ pháp thực dụng</Text>
+                </View>
+                <Ionicons name={grammarExpanded ? 'chevron-up' : 'chevron-down'} size={18} color={Colors.textMuted} />
+              </TouchableOpacity>
+              {grammarExpanded ? (
+                <View style={{ marginTop: 10 }}>
+                  {GRAMMAR_PATTERNS.map((p) => (
+                    <TouchableOpacity
+                      key={p.pattern}
+                      style={[styles.listItem, { alignItems: 'flex-start' }]}
+                      onPress={() => setExpandedPattern((prev) => prev === p.pattern ? null : p.pattern)}
+                    >
+                      <View style={{ flex: 1 }}>
+                        <View style={styles.inlineRow}>
+                          <Text style={[styles.jp, { color: Colors.primary, fontSize: 14 }]}>{p.pattern}</Text>
+                        </View>
+                        <Text style={styles.meaning}>{p.meaning}</Text>
+                        {expandedPattern === p.pattern ? (
+                          <View style={[styles.subCard, { marginTop: 8 }]}>
+                            <Text style={styles.jp}>{p.example_jp}</Text>
+                            <Text style={styles.romaji}>{p.example_romaji}</Text>
+                            <Text style={styles.vn}>{p.example_vn}</Text>
+                            {p.notes ? <View style={[styles.note, { marginTop: 8 }]}><Text style={styles.smallLabel}>Ghi chú</Text><Text style={styles.vn}>{p.notes}</Text></View> : null}
+                          </View>
+                        ) : null}
+                      </View>
+                      <Ionicons name={expandedPattern === p.pattern ? 'chevron-up' : 'chevron-down'} size={16} color={Colors.textMuted} style={{ marginTop: 4 }} />
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              ) : null}
             </View>
 
             {recentCategories.length > 0 ? <View style={styles.block}><Text style={styles.blockTitle}>Luyện gần đây</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tags}>{recentCategories.map((item) => <TouchableOpacity key={item.categoryName} style={styles.recent} onPress={() => navigation.navigate('JapanesePractice', { categoryName: item.categoryName, categoryColor: item.categoryColor })}><Text style={styles.recentText}>{item.categoryName}</Text></TouchableOpacity>)}</ScrollView></View> : null}
