@@ -24,8 +24,8 @@ export function getBjtPipelineGapActions(input: {
     actions.push({
       id: `${level}-missing-batch`,
       severity: 'high',
-      title: `${level} chua co batch nao`,
-      detail: `Can tao it nhat 1 raw batch cho ${level} truoc khi tiep tuc import vao runtime.`,
+      title: `${level} chưa có batch nào`,
+      detail: `Cần tạo ít nhất 1 raw batch cho ${level} trước khi tiếp tục import vào runtime.`,
     });
   }
 
@@ -34,8 +34,8 @@ export function getBjtPipelineGapActions(input: {
     actions.push({
       id: `${level}-pending-import`,
       severity: 'medium',
-      title: `${level} con batch chua import`,
-      detail: `${rawOrReviewed.length} batch cua ${level} dang o raw/reviewed, nen uu tien review va import truoc khi tao batch moi.`,
+      title: `${level} còn batch chưa import`,
+      detail: `${rawOrReviewed.length} batch của ${level} đang ở raw/reviewed, nên ưu tiên review và import trước khi tạo batch mới.`,
     });
   }
 
@@ -44,8 +44,8 @@ export function getBjtPipelineGapActions(input: {
     actions.push({
       id: `${level}-skill-gap-${lowestSkill[0]}`,
       severity: 'high',
-      title: `${String(lowestSkill[0])} dang mong`,
-      detail: `Level ${level} moi co ${lowestSkill[1]} cau cho skill ${String(lowestSkill[0])}. Nen bo sung batch moi uu tien skill nay.`,
+      title: `${String(lowestSkill[0])} đang mỏng`,
+      detail: `Level ${level} mới có ${lowestSkill[1]} câu cho skill ${String(lowestSkill[0])}. Nên bổ sung batch mới ưu tiên skill này.`,
       focusSkill: lowestSkill[0] as 'listening' | 'listening-reading' | 'reading',
     });
   }
@@ -55,8 +55,8 @@ export function getBjtPipelineGapActions(input: {
     actions.push({
       id: `${level}-difficulty-gap-${lowestDifficulty[0]}`,
       severity: 'medium',
-      title: `${String(lowestDifficulty[0])} dang mong`,
-      detail: `Level ${level} moi co ${lowestDifficulty[1]} cau o difficulty ${String(lowestDifficulty[0])}. Nen bo sung de mock da dang hon.`,
+      title: `${String(lowestDifficulty[0])} đang mỏng`,
+      detail: `Level ${level} mới có ${lowestDifficulty[1]} câu ở difficulty ${String(lowestDifficulty[0])}. Nên bổ sung để mock đa dạng hơn.`,
       focusDifficulty: lowestDifficulty[0] as 'basic' | 'intermediate' | 'advanced',
     });
   }
@@ -65,8 +65,8 @@ export function getBjtPipelineGapActions(input: {
     actions.push({
       id: `${level}-total-gap`,
       severity: 'high',
-      title: `${level} chua du do sau`,
-      detail: `Question bank cua ${level} hien moi co ${coverage.total} cau. Muc tieu toi thieu nen la 12-18 cau de practice va mock bot lap.`,
+      title: `${level} chưa đủ độ sâu`,
+      detail: `Question bank của ${level} hiện mới có ${coverage.total} câu. Mục tiêu tối thiểu nên là 12-18 câu để practice và mock bớt lặp.`,
     });
   }
 
