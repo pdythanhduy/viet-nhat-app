@@ -90,9 +90,9 @@ export default function BJTReviewScreen() {
             })}
           </ScrollView>
           <Ionicons name="checkmark-circle-outline" size={36} color={Colors.success} />
-          <Text style={styles.emptyTitle}>Khong con cau sai cho level nay</Text>
+          <Text style={styles.emptyTitle}>Không còn câu sai cho level này</Text>
           <Text style={styles.emptyText}>
-            Review mode chi hien cac cau sai gan day cua level {LEVEL_LABELS[level]}.
+            Review mode chỉ hiện các câu sai gần đây của level {LEVEL_LABELS[level]}.
           </Text>
         </ScrollView>
       </SafeAreaView>
@@ -157,10 +157,10 @@ export default function BJTReviewScreen() {
 
         <View style={styles.counterRow}>
           <Text style={styles.counter}>
-            Cau {currentIndex + 1} / {questions.length}
+            Câu {currentIndex + 1} / {questions.length}
           </Text>
           <Text style={styles.counter}>
-            {LEVEL_LABELS[level]} • Da sua: {resolvedIds.length}
+            {LEVEL_LABELS[level]} · Đã sửa: {resolvedIds.length}
           </Text>
         </View>
 
