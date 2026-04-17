@@ -844,7 +844,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: "Email doi phong hop (J3)",
+    title: "Email đổi phòng họp (J3)",
     situation:
       "社内メールを読んでいます。\n\n件名：会議室変更のお知らせ\n\n山田様\n\n来週月曜日（15日）午後2時からの定例会議ですが、第3会議室が工事のため使用できなくなりました。つきましては、同日同時刻に場所を第1会議室に変更させていただきます。ご参加の皆様には大変ご迷惑をおかけしますが、何卒よろしくお願いいたします。\n\n鈴木",
     prompt: "このメールを受け取った山田さんは、次に何をすべきですか？",
@@ -863,7 +863,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: "Quy dinh ke toan noi bo (J3)",
+    title: "Quy định kế toán nội bộ (J3)",
     situation:
       "社内掲示板に貼られたお知らせを読んでいます。\n\n【経費精算について】\n今月より、経費精算の提出締め切りを月末から毎月25日に変更します。また、領収書は必ずA4サイズにコピーしてから提出してください。スマートフォンでの写真は受け付けません。なお、25日が土日の場合は、直前の金曜日が締め切りとなります。\n\n経理部",
     prompt: "この通知の内容として正しいものはどれですか？",
@@ -882,7 +882,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: "Email giao slide doanh so (J3)",
+    title: "Email giao slide doanh số (J3)",
     situation:
       "上司からメールが届きました。\n\n件名：来週のプレゼン資料について\n\nお疲れ様です。来週木曜日の営業会議に向けて、先月の売上データをまとめた資料を作成してもらえますか。水曜日の午前中までに私に送ってください。グラフを使って視覚的にわかりやすくしてほしいです。何か不明な点があれば気軽に相談してください。\n\n部長 田中",
     prompt: "田中部長のメールへの対応として最も適切なのはどれですか？",
@@ -901,7 +901,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: "Bao cao tien do du an (J3)",
+    title: "Báo cáo tiến độ dự án (J3)",
     situation:
       "社内進捗報告書の一部を読んでいます。\n\n【今週の進捗報告】\nAプロジェクトは予定通り進んでいます。Bプロジェクトは部品の入荷が1週間遅れており、完成が当初の予定より遅くなる見込みです。担当の林さんはすでに取引先に連絡済みで、新しいスケジュールを確認中です。Cプロジェクトについては、来週初めに詳細をご報告します。",
     prompt: "この報告書を読んだマネージャーが最初に確認すべきことは何ですか？",
@@ -920,7 +920,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: "Doi lich giao hang qua dien thoai (J3)",
+    title: "Đổi lịch giao hàng qua điện thoại (J3)",
     situation:
       "取引先から電話がかかってきました。\n\n「もしもし、こちら松本商事の岡田と申します。いつもお世話になっております。実は、明日お届けする予定だった部品500個なんですが、こちらの都合で来週の火曜日に変更させていただきたいのですが、よろしいでしょうか。もし問題があれば、今すぐ上の者に確認して折り返しご連絡することもできます。」",
     prompt: "この電話に対して、最初にすべき対応はどれですか？",
@@ -939,7 +939,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: "Xin gia han nop bao cao (J3)",
+    title: "Xin gia hạn nộp báo cáo (J3)",
     situation:
       "朝の打ち合わせで同僚の田村さんが発言しています。\n\n「えっと、すみません。今週金曜日に提出予定のレポートなんですが、先週から体調を崩してしまって、少し進み具合が遅れています。できれば来週月曜日まで延ばしていただけると助かるんですが。もし難しければ、金曜日に途中まで出して月曜日に残りを出すことも考えています。」",
     prompt: "田村さんが最終的に希望していることは何ですか？",
@@ -958,7 +958,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: "Xu ly khieu nai giao sai mau (J3)",
+    title: "Xử lý khiếu nại giao sai màu (J3)",
     situation:
       "お客様から電話がかかってきました。\n\n「あのう、先週御社に注文した商品が今日届いたんですけど、箱を開けてみたら、頼んだものと色が違うんですよ。紺色を注文したのに、届いたのは黒なんです。返品か交換をお願いしたいんですが、どうすればいいですか？」",
     prompt: "この状況で担当者として最初に言うべきことはどれですか？",
@@ -977,7 +977,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: "Thong bao bao tri tang 4 (J3)",
+    title: "Thông báo bảo trì tầng 4 (J3)",
     situation:
       "社内放送が流れています。\n\n「お知らせします。本日午後3時から5時まで、4階の空調設備の点検作業を行います。この間、4階の一部の照明が消える場合があります。4階で作業中の方は、重要なデータを事前に保存し、できれば他のフロアに移動してください。ご不便をおかけしますが、ご協力をよろしくお願いいたします。」",
     prompt: "この放送を聞いた4階の社員がすべきことはどれですか？",
@@ -996,7 +996,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: "Email va voicemail doi lich hop (J3)",
+    title: "Email và voicemail đổi lịch họp (J3)",
     situation:
       "[メール]\n件名：来週の打ち合わせについて\n中村様、来週水曜日午後2時に弊社でミーティングを予定しています。場所は弊社3階会議室です。よろしくお願いいたします。\n佐藤\n\n[留守番電話メッセージ]\n「佐藤です。先ほどメールを送りましたが、実は水曜日は社内会議が入ってしまいました。場所を弊社から御社に変更して、時間も1時間後ろ倒しの午後3時にできますか？もしご都合が悪ければ別の日を調整します。」",
     prompt: "中村さんが佐藤さんに返事をする前に確認すべきことは何ですか？",
@@ -1015,7 +1015,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: "Muc phe duyet mua thiet bi (J3)",
+    title: "Mức phê duyệt mua thiết bị (J3)",
     situation:
       "[社内購入ルール]\n・10万円以上：部長の承認が必要\n・5万円以上10万円未満：課長の承認で手続き可能\n・5万円未満：担当者が直接発注できる\n\n[電話の内容]\n「田中です。デザイン作業用のモニターを買いたいのですが、見積もりが78,000円でした。どのように手続きを進めればいいですか？」",
     prompt: "田中さんはどのように購入手続きを進めればよいですか？",
@@ -1034,7 +1034,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: "Cap nhat nguoi trinh bay (J3)",
+    title: "Cập nhật người trình bày (J3)",
     situation:
       "[先週の会議メモ]\n次回会議：11日（火）午後1時、第2会議室\n議題：第3四半期の販売実績報告\n担当：山口、高橋、吉田\n\n[今朝のメッセージ]\n「お疲れ様です。11日の会議なんですが、吉田さんが急に出張になりました。吉田さんのパートを山口さんに代わりに担当していただくことになりました。時間と場所は変わりません。よろしくお願いします。」",
     prompt: "このメッセージの後、山口さんがすべきことは何ですか？",
@@ -1053,7 +1053,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J3',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: "Quy tac bao cao theo ti le dat muc tieu (J3)",
+    title: "Quy tắc báo cáo theo tỉ lệ đạt mục tiêu (J3)",
     situation:
       "[報告ルール一覧]\n・目標達成率90%以上：上司への報告不要、記録のみ\n・目標達成率70%以上90%未満：週次で上司に報告\n・目標達成率70%未満：翌営業日中に上司へ報告、かつ改善計画書を提出\n\n[社員からのメッセージ]\n「川村です。今月の自分の達成率を計算したら68%でした。規則に従って動きます。」",
     prompt: "川村さんが規則に従ってすることとして正しいのはどれですか？",
@@ -1072,7 +1072,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening',
     difficulty: 'advanced',
-    title: 'Dieu phoi chuan bi thuyet trinh doi lich (J2)',
+    title: 'Điều phối chuẩn bị thuyết trình đổi lịch (J2)',
     situation:
       'あなたは営業担当者です。朝の部内会議で上司が次のように話しています。「今月末の取引先プレゼンですが、先方から日程変更の連絡が入りました。新しい日程はまだ確定していませんが、今週中に私が先方に確認を取ります。プレゼン資料は来週初めまでに私に提出してください。日程が確定したら私から共有しますので、それまでに説明内容を整理しておいてください。」',
     prompt: '担当者が今すぐ取るべき行動はどれですか？',
@@ -1091,7 +1091,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: 'Doi nguoi tham du va dia diem hop (J2)',
+    title: 'Đổi người tham dự và địa điểm họp (J2)',
     situation:
       'あなたは担当コーディネーターです。取引先の担当者から電話が入りました。「来週の打ち合わせについてですが、山田部長のご都合がつかなくなりまして、担当の鈴木さんに変更をお願いできますでしょうか。また、場所を御社から弊社に変更していただくことは可能でしょうか。」',
     prompt: '電話を切った後、最初に確認すべきことはどれですか？',
@@ -1110,7 +1110,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening',
     difficulty: 'advanced',
-    title: 'Thong bao doi han va bao cao trung gian (J2)',
+    title: 'Thông báo đổi hạn và báo cáo trung gian (J2)',
     situation:
       'あなたはプロジェクトマネージャーです。部長から次のように言われました。「第三四半期の報告書提出期限が、従来の10月31日から10月20日に前倒しになりました。各部門との調整は私が行いますが、あなたはチームに速やかに周知してください。また、中間報告を今月15日までに私に提出してください。もし15日が難しい場合は、前もって相談してください。」',
     prompt: 'プロジェクトマネージャーが今すぐ優先すべき行動はどれですか？',
@@ -1129,7 +1129,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening',
     difficulty: 'intermediate',
-    title: 'Theo doi ba moc bao cao (J2)',
+    title: 'Theo dõi ba mốc báo cáo (J2)',
     situation:
       'あなたは新入社員です。月次報告会で報告を終えたところ、課長が次のように言いました。「数字はよくまとまっています。ただ、先月の売上減少の原因分析が不足しています。今日中に原因を調べておいてください。明日の朝一番に私に口頭で説明してください。その後、来週月曜日の役員会議用に書面でまとめて提出してください。」',
     prompt: '新入社員が今日中に完了させるべきことはどれですか？',
@@ -1148,7 +1148,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: 'Phan cong xu ly A va B qua email (J2)',
+    title: 'Phân công xử lý A và B qua email (J2)',
     situation:
       'あなたは副担当者です。取引先からメールが届きました。\n\n【メール本文】「先日ご提案いただいた企画書について、役員会にて検討した結果、A案は承認されましたが、B案については再提案をお願いしたいと思います。来月10日までに修正案をお送りください。」\n\nメールを読んでいると、上司が口頭で次のように言いました。「B案の件は私が担当するから、先にA案の実施スケジュールを取引先に返信しておいて。」',
     prompt: 'あなたが次に取るべき行動として最も適切なものはどれですか？',
@@ -1167,7 +1167,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: 'Bien ban hop va chi dao mieng cap nhat (J2)',
+    title: 'Biên bản họp và chỉ đạo miệng cập nhật (J2)',
     situation:
       'あなたは部門コーディネーターです。会議後に届いた議事録には次のように記載されていました。\n\n【議事録の記載】「新システム導入：来月から試験運用を開始する。担当チームはマニュアル作成を今月末までに完了すること。」\n\nしかし、会議中に部長は口頭で次のように付け加えていました。「マニュアルは来月中旬で構いません。ただし、システムの動作確認は今月中に必ず終わらせてください。」',
     prompt: '担当チームはいつまでに何を完了すべきですか？',
@@ -1186,7 +1186,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: 'Xac nhan nguoi tham gia truoc khi doi lich (J2)',
+    title: 'Xác nhận người tham gia trước khi đổi lịch (J2)',
     situation:
       'あなたは営業担当者です。社内スケジュールシステムには「金曜日15時：チーム定例会議」と登録されています。上司から電話がありました。「今週の金曜日の定例会議なんだけど、私が外出になったから午前10時に変更したい。田中さんが10時に参加できるか確認してから、システムを更新しておいてくれる？」',
     prompt: '担当者がまず行うべき行動はどれですか？',
@@ -1205,7 +1205,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: 'Xac minh han nop chi phi tu hai nguon (J2)',
+    title: 'Xác minh hạn nộp chi phí từ hai nguồn (J2)',
     situation:
       'あなたはプロジェクトリーダーです。総務部からのメモには次のように記載されています。\n\n【メモ】「経費精算の申請締め切りは毎月25日です。期限を過ぎた申請は翌月処理となります。」\n\n廊下で上司が同僚に話しているのを耳にしました。「今月の25日は土曜日だから、今年は24日（金）が締め切りになるって総務から連絡が来たよ。」',
     prompt: 'プロジェクトリーダーとして最も適切な対応はどれですか？',
@@ -1224,7 +1224,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'reading',
     difficulty: 'advanced',
-    title: 'Chuan bi buoi gap doi tac co dieu kien (J2)',
+    title: 'Chuẩn bị buổi gặp đối tác có điều kiện (J2)',
     situation:
       'あなた（山本さん）は、上司の鈴木営業部長から次のメールを受け取りました。\n\n件名：来週の取引先訪問の準備について\n\n山本さん\n\n来週水曜日14時から、ABC商事様へのご訪問があります。今回は通常の進捗報告に加え、先方から新しい協業提案の説明があります。当日は私が15分ほど遅れる可能性がありますので、その場合は皆さんで挨拶と自己紹介を済ませておいてください。また、先方より事前に資料を共有いただけるとのことですので、届き次第チーム全員に転送し、各自事前確認をお願いします。なお、質問や懸念事項は当日まとめて私に伝えていただければ、会議前に整理します。\n\n鈴木',
     prompt: '山本さんが会議前に行うべきことを正しく説明しているものはどれですか？',
@@ -1243,7 +1243,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'reading',
     difficulty: 'advanced',
-    title: 'Bao cao quy voi han leo thang kep (J2)',
+    title: 'Báo cáo quý với hạn leo thang kép (J2)',
     situation:
       'あなたは中間管理職です。部長から次のメッセージを受け取りました。\n\n先週提出してもらった第2四半期の業績報告ですが、経営会議での報告に合わせて修正が必要です。①売上データを部門別に分けて表示してください。②競合他社との比較データを追加してください。③前回の修正コメントをすべて反映させてください。経営会議は来週木曜日です。修正版は水曜日17時までに提出してください。②の競合データは収集に時間がかかるかもしれません。もし水曜日17時までに揃わない場合は、火曜日中に私に知らせてください。',
     prompt: 'マネージャーがすべきことを正しく説明しているものはどれですか？',
@@ -1262,7 +1262,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: 'Phan biet quy trinh hien tai va thang sau (J2)',
+    title: 'Phân biệt quy trình hiện tại và tháng sau (J2)',
     situation:
       '社内ポータルに次のお知らせが掲載されています。\n\n【重要】テレワーク申請手続きの変更について\n\n来月より、テレワーク申請は部門長承認から人事部への直接申請に変更となります。申請は月初に翌月分をまとめて提出してください。なお、今月分については従来通り部門長への申請を継続してください。新しい申請フォームは今週金曜日より人事部ポータルにて公開されます。',
     prompt: '今月のテレワーク希望者が今すぐすべきことはどれですか？',
@@ -1281,7 +1281,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J2',
     skill: 'reading',
     difficulty: 'advanced',
-    title: 'Chuoi han danh gia nhan su (J2)',
+    title: 'Chuỗi hạn đánh giá nhân sự (J2)',
     situation:
       'あなたはチームリーダーです。人事部から次の社内通知が届きました。\n\n件名：年次評価面談のスケジュールについて\n\n今月末（30日）より年次評価面談を実施します。各マネージャーは担当メンバーとの面談を30日から来月15日の間に実施し、結果を来月20日までに人事部システムに入力してください。なお、面談前にメンバーへの自己評価シートの配布が必要です。自己評価シートは今月20日までにメンバーに送付し、今月27日までに回収してください。面談日程はメンバーと直接調整してください。',
     prompt: 'チームリーダーが今月20日より前に完了すべき作業はどれですか？',
@@ -1300,7 +1300,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening',
     difficulty: 'advanced',
-    title: "Gioi han noi dung cho tai lieu noi bo (J1)",
+    title: "Giới hạn nội dung cho tài liệu nội bộ (J1)",
     situation:
       "あなたは営業企画担当です。部長が会議で次のように言いました。「来週の役員向け提案ですが、A社との共同案件は継続前提で説明します。ただし、最終契約はまだ法務確認中です。したがって、提案資料では期待効果は示して構いませんが、開始時期については断定しないでください。さらに、先方にこの資料をそのまま送ることは避け、社内説明用として扱ってください。」",
     prompt: "担当者が今すぐ取るべき対応として最も適切なものはどれですか？",
@@ -1319,7 +1319,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening',
     difficulty: 'advanced',
-    title: "Tra loi doi tac khi chua the chac chan (J1)",
+    title: "Trả lời đối tác khi chưa thể chắc chắn (J1)",
     situation:
       "あなたは法人営業の窓口です。取引先から電話がありました。「先週お願いした追加納品の件ですが、社内では今週金曜日着で調整済みとして動いています。もし難しいなら早めに言っていただきたいのですが、御社としては確約できますか。」 その後、課長が小声で『倉庫側はまだ確定を出していない。ここで約束しないで、でも相手を不安にさせすぎないように。』と言いました。",
     prompt: "この場で最も適切な返答はどれですか？",
@@ -1338,7 +1338,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening',
     difficulty: 'advanced',
-    title: "Trinh bay loi ich va rui ro can bang (J1)",
+    title: "Trình bày lợi ích và rủi ro cân bằng (J1)",
     situation:
       "あなたは新サービス導入プロジェクトの責任者です。役員が次のように指示しました。「来月の発表では、導入効果を強調したい。ただし、現場の運用負荷について未確認の部分があるなら、そこを隠す必要はない。むしろ、想定リスクと対応策を整理したうえで説明してほしい。成功見込みだけを出すのではなく、判断材料として出してください。」",
     prompt: "責任者が準備すべき資料の方針として最も適切なのはどれですか？",
@@ -1357,7 +1357,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening',
     difficulty: 'advanced',
-    title: "Thong bao ngoai le van hanh tang 5 (J1)",
+    title: "Thông báo ngoại lệ vận hành tầng 5 (J1)",
     situation:
       "あなたは総務担当です。朝礼で管理部長が次のように伝えました。「今週の停電点検ですが、当初は全館停止の予定でした。しかし、5階のコールセンターは業務を止められないため、5階のみ非常電源へ切り替えて運用します。ただし、切替直後は回線が一時的に不安定になる可能性があります。したがって、5階には『業務継続可能』だけでなく、『切替直後は重要な案内を控える』ことまで周知してください。」",
     prompt: "総務担当が5階に伝える内容として最も適切なのはどれですか？",
@@ -1376,7 +1376,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: "Rule sheet va chi dao sap tai lieu (J1)",
+    title: "Rule sheet và chỉ đạo sắp tài liệu (J1)",
     situation:
       "[社内ルール]\n・対外説明資料は、法務確認前でも社内検討用としては作成可\n・社外送付は法務確認完了後のみ可\n・数値見込みを記載する場合、前提条件を明記すること\n\n[上司の発言]\n「来週の経営会議までにA社案件の説明資料をまとめてください。法務はまだ見ていますが、社内議論のための資料は必要です。なお、先方にも同時に送る案は一旦止めてください。数値を入れるなら、前提条件を書き忘れないように。」",
     prompt: "担当者が準備すべき資料として最も適切なものはどれですか？",
@@ -1395,7 +1395,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: "Bien ban hop va dieu kien cong bo FAQ (J1)",
+    title: "Biên bản họp và điều kiện công bố FAQ (J1)",
     situation:
       "[会議メモ]\n・新システムの顧客向け案内開始：来月1日予定\n・営業資料更新：今月25日まで\n・FAQ最終版：広報確認後に公開\n\n[会議中の部長の補足]\n「案内開始日は現時点では来月1日想定で構いません。ただし、FAQは広報確認だけでなく法務の最終確認も終わるまで外に出さないでください。営業資料は予定通り25日までに更新してください。」",
     prompt: "この内容を踏まえた対応として最も適切なのはどれですか？",
@@ -1414,7 +1414,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: "Nguong phe duyet theo tong chi phi thuc te (J1)",
+    title: "Ngưỡng phê duyệt theo tổng chi phí thực tế (J1)",
     situation:
       "[承認ルール]\n・5万円未満：担当マネージャー承認\n・5万円以上20万円未満：部長承認\n・20万円以上：部長承認に加え、管理本部への事前共有が必要\n\n[電話の内容]\n「展示会の追加備品ですが、総額は18万円です。ただ、運搬費2万5千円が別請求になります。急ぎなので、先に備品だけ発注しても大丈夫でしょうか。」",
     prompt: "この問い合わせへの判断として最も適切なのはどれですか？",
@@ -1433,7 +1433,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'listening-reading',
     difficulty: 'advanced',
-    title: "Thong bao su co doi ngoai truoc khi duyet PR (J1)",
+    title: "Thông báo sự cố đối ngoại trước khi duyệt PR (J1)",
     situation:
       "[社内通知]\n・障害発生時の一次連絡は運用担当へ\n・顧客向け告知は広報文面承認後に配信\n・原因未確定の段階では、断定表現を避けること\n\n[上司の指示]\n「今回の障害は問い合わせが増えそうです。先に顧客向けのお知らせ文を準備してください。ただし、現時点では原因を断定しない表現にして、広報確認前に配信しないように。」",
     prompt: "この状況で担当者が進めるべき対応はどれですか？",
@@ -1452,7 +1452,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'reading',
     difficulty: 'advanced',
-    title: "Tach muc da chot va dang cho xac nhan (J1)",
+    title: "Tách mục đã chốt và đang chờ xác nhận (J1)",
     situation:
       "あなたはプロジェクト推進担当です。部長から次のメールを受け取りました。\n\n件名：来週の取引先レビュー会議に向けた準備\n\n来週のレビュー会議では、開発進捗そのものよりも、未解決論点の扱い方を重視して説明したいと考えています。現時点で確定している内容と、まだ先方確認待ちの内容を明確に分けた資料にしてください。なお、先方確認待ちの論点については、見込みを記載しても構いませんが、確定事項のように読める表現は避けてください。会議前日までに資料を私へ送付し、当日の想定質問も別紙でまとめてください。",
     prompt: "このメールに基づく準備として最も適切なのはどれですか？",
@@ -1471,7 +1471,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'reading',
     difficulty: 'advanced',
-    title: "Memo dau tu can bang loi ich va bat dinh (J1)",
+    title: "Memo đầu tư cân bằng lợi ích và bất định (J1)",
     situation:
       "あなたは事業企画マネージャーです。経営層向けメモには次のように書かれています。\n\n第4四半期の新規投資案については、収益性だけでなく、回収時期の不確実性も併せて示すこと。特に、前提とする市場成長率が変動した場合の影響は、注記ではなく本文中で扱うこと。なお、最終判断は次回会議で行うが、今回は『進めるべき理由』と『慎重に見るべき点』の両方を整理した中間共有とする。",
     prompt: "このメモに沿った資料方針として最も適切なものはどれですか？",
@@ -1490,7 +1490,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'reading',
     difficulty: 'advanced',
-    title: "Quy dinh phe duyet tai lieu doi ngoai (J1)",
+    title: "Quy định phê duyệt tài liệu đối ngoại (J1)",
     situation:
       "社内掲示に次のような通知がありました。\n\n【外部登壇資料の取扱いについて】\n今後、対外イベントで使用する発表資料は、事業部確認・広報確認・法務確認の順で承認を得てください。ただし、事業部確認後であっても、未公開の数値や未発表案件を含む資料は広報確認前に社外共有してはいけません。また、法務確認前に登壇練習用として社内配布することは可能ですが、その際も『社外転送禁止』の明記を必須とします。",
     prompt: "この通知の理解として正しいものはどれですか？",
@@ -1509,7 +1509,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J1',
     skill: 'reading',
     difficulty: 'advanced',
-    title: "Sap lai thu tu de xuat cho A sha (J1)",
+    title: "Sắp lại thứ tự đề xuất cho A sha (J1)",
     situation:
       "あなたは海外営業チームのサブリーダーです。部長から次のメールを受け取りました。\n\n件名：A社向け提案再整理の件\n\nA社向け提案ですが、価格条件だけで押すのではなく、導入後の運用体制まで含めて再整理してください。先方は価格にも敏感ですが、最近は『導入後に誰がどこまで支援するのか』を気にしています。したがって、次回提案では、価格案を前面に出すのではなく、運用体制・移行支援・費用条件の順で説明したいと思います。なお、費用条件は現時点で暫定案ですので、社内レビュー用資料では記載して構いませんが、対外版に転記する際は承認後の数値に差し替えてください。",
     prompt: "このメールを踏まえた次回提案準備として最も適切なのはどれですか？",
@@ -1528,7 +1528,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening',
     difficulty: 'basic',
-    title: 'Doi lich hen qua dien thoai (J4)',
+    title: 'Đổi lịch hẹn qua điện thoại (J4)',
     situation:
       'あなたは会社で電話を受けています。取引先の担当者がこう言いました。『明日の午後3時に予定していた打ち合わせですが、担当者が急に外出することになりました。来週月曜日の午前10時に変更していただけますか。』',
     prompt: '電話を受けた人がまず確認すべきことは何ですか？',
@@ -1547,7 +1547,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening',
     difficulty: 'basic',
-    title: 'Thong bao doi loi ra vao (J4)',
+    title: 'Thông báo đổi lối ra vào (J4)',
     situation:
       '社内放送でこう案内しています。『本日午後6時から1階の入り口で点検作業を行います。退社する方は2階の出入り口をご利用ください。』',
     prompt: 'この放送を聞いた社員がすることとして正しいものはどれですか？',
@@ -1566,7 +1566,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening',
     difficulty: 'basic',
-    title: 'Phan cong phat tai lieu trong hop (J4)',
+    title: 'Phân công phát tài liệu trong họp (J4)',
     situation:
       '朝のミーティングで上司が言いました。『今日の営業会議では、新商品の説明を佐藤さんが担当します。田中さんは資料の配布をお願いします。』',
     prompt: '田中さんが会議の前に準備するものは何ですか？',
@@ -1585,7 +1585,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening',
     difficulty: 'basic',
-    title: 'Nop bao cao PDF dung han (J4)',
+    title: 'Nộp báo cáo PDF đúng hạn (J4)',
     situation:
       '課長がこう言いました。『今週の売上レポートは金曜日の午後4時までにメールで送ってください。紙ではなく、PDFでお願いします。』',
     prompt: 'レポートを提出するとき正しいものはどれですか？',
@@ -1604,7 +1604,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening-reading',
     difficulty: 'basic',
-    title: 'Cap nhat gio tiep khach tren lich (J4)',
+    title: 'Cập nhật giờ tiếp khách trên lịch (J4)',
     situation:
       '[予定表]\n水曜日 14:00 来客対応\n\n[上司のメッセージ]\n『水曜日の来客対応ですが、お客様の都合で15時開始に変わりました。』',
     prompt: '予定表をどう直すのが正しいですか？',
@@ -1623,7 +1623,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening-reading',
     difficulty: 'basic',
-    title: 'Lay giay in theo memo noi bo (J4)',
+    title: 'Lấy giấy in theo memo nội bộ (J4)',
     situation:
       '[メモ]\nコピー用紙は3階の倉庫にあります。\n\n[同僚のひとこと]\n『午前中に使う分だけ先に持ってきてください。』',
     prompt: '最初にすることとして適切なのはどれですか？',
@@ -1642,7 +1642,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: 'Tra loi cuoc goi khi nguoi phu trach vang mat (J4)',
+    title: 'Trả lời cuộc gọi khi người phụ trách vắng mặt (J4)',
     situation:
       '[社内ルール]\nお客様からの電話は、担当者が不在の場合、『確認して折り返します』と伝える。\n\n[電話の内容]\n『山口さんはいらっしゃいますか。先週お願いした件を確認したいのですが。』\n山口さんは外出中です。',
     prompt: 'この電話への対応として正しいものはどれですか？',
@@ -1661,7 +1661,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'listening-reading',
     difficulty: 'intermediate',
-    title: 'Tinh han nop chi phi sau cong tac (J4)',
+    title: 'Tính hạn nộp chi phí sau công tác (J4)',
     situation:
       '[報告ルール]\n出張後は3日以内に経費を申請する。\n\n[社員のメモ]\n月曜日に大阪出張から戻った。',
     prompt: 'この社員はいつまでに経費申請をすべきですか？',
@@ -1680,7 +1680,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'reading',
     difficulty: 'basic',
-    title: 'Email xac nhan lich hop ngay mai (J4)',
+    title: 'Email xác nhận lịch họp ngày mai (J4)',
     situation:
       '社内メールを読んでいます。\n\n件名：資料送付のお礼\n\n本日お送りいただいた会議資料、確かに受け取りました。会議は予定通り明日10時から行います。どうぞよろしくお願いいたします。',
     prompt: 'このメールでわかることは何ですか？',
@@ -1699,7 +1699,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'reading',
     difficulty: 'basic',
-    title: 'Thong bao don ban truoc gio ve (J4)',
+    title: 'Thông báo dọn bàn trước giờ về (J4)',
     situation:
       '社内掲示を読んでいます。\n\n【お知らせ】金曜日は社内清掃のため、午後5時までに机の上を片づけてください。貴重品は引き出しに入れてください。',
     prompt: 'このお知らせに合っているものはどれですか？',
@@ -1718,7 +1718,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: 'Chon phong hop trong buoi sang (J4)',
+    title: 'Chọn phòng họp trong buổi sáng (J4)',
     situation:
       'メモを読んでいます。\n\n会議室A：午前中は自由に使用可\n会議室B：9時から11時まで使用中\n会議室C：終日使用中',
     prompt: '午前10時に空いている会議室はどれですか？',
@@ -1737,7 +1737,7 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     level: 'J4',
     skill: 'reading',
     difficulty: 'intermediate',
-    title: 'Luu hoa don va bao lai cap tren (J4)',
+    title: 'Lưu hóa đơn và báo lại cấp trên (J4)',
     situation:
       '上司からのメールです。\n\n山本さん\n本日中に、4月分の請求書を取引先ごとに分けてフォルダへ保存してください。保存が終わったら、私に一言知らせてください。\n佐々木',
     prompt: '山本さんがすることとして正しいものはどれですか？',
