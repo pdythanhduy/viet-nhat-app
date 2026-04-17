@@ -159,7 +159,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 1,
     theme: 'Email và xác nhận',
-    goal: 'Làm quen cụm từ business cơ bản và flow xác nhận công việc.',
+    goal: 'Làm quen cụm từ business cơ bản và flow xác nhận công việc. Nền tảng cho mọi level, đặc biệt J5/J4.',
     tasks: [
       'Học 15 cụm từ: xác nhận, đính kèm, phụ trách, phản hồi',
       'Đọc 2 email ngắn và tóm tắt hành động cần làm',
@@ -199,7 +199,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 5,
     theme: 'Khách hàng và đối tác',
-    goal: 'Nhận diện mức độ lịch sự và ưu tiên phản hồi.',
+    goal: 'Nhận diện mức độ lịch sự và ưu tiên phản hồi. Trọng tâm J3/J2: chú ý sắc thái kính ngữ và thứ tự xử lý ưu tiên.',
     tasks: [
       'Ôn cách nói lịch sự với khách',
       'Đọc 2 tình huống dịch vụ/đối tác',
@@ -219,7 +219,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 7,
     theme: 'Mini Mock 1',
-    goal: 'Ghép nghe và đọc trong một phiên ngắn.',
+    goal: 'Ghép nghe và đọc trong một phiên ngắn. J5/J4: 8 câu; J3/J2: 12 câu; J1/J1+: 15 câu theo dạng multi-condition.',
     tasks: [
       'Làm 10 câu mô phỏng theo 3 dạng',
       'Ghi lại lỗi sai theo nhóm kỹ năng',
@@ -239,7 +239,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 9,
     theme: 'Biểu mẫu và bảng thông tin',
-    goal: 'Đọc bảng biểu không bị rối dữ liệu.',
+    goal: 'Đọc bảng biểu không bị rối dữ liệu. Quan trọng cho J2/J1: bảng điều kiện đa tầng, ngưỡng phê duyệt và quy trình leo thang.',
     tasks: [
       'Ôn đơn vị tiền, số lượng, ngày tháng',
       'Đọc 2 bảng thông tin nội bộ',
@@ -259,7 +259,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 11,
     theme: 'Business etiquette',
-    goal: 'Nhận biết đáp án đúng về hành vi giao tiếp trong công ty Nhật.',
+    goal: 'Nhận biết đáp án đúng về hành vi giao tiếp trong công ty Nhật. J1/J1+: chú ý xung đột thẩm quyền, chỉ thị có điều kiện và quy trình leo thang quyết định.',
     tasks: [
       'Ôn kính ngữ và cách trả lời an toàn',
       'So sánh 2-3 cách nói cùng ý nhưng khác sắc thái',
@@ -289,7 +289,7 @@ export const BJT_STUDY_PLAN: BjtStudyPlanDay[] = [
   {
     day: 14,
     theme: 'Mock tổng hợp',
-    goal: 'Chốt một vòng học 2 tuần theo kiểu BJT prep.',
+    goal: 'Chốt một vòng học 2 tuần theo kiểu BJT prep. J1+ focus: leo thang quyết định, chỉ thị ngoại lệ từ cấp cao, xử lý tình huống vượt quyền hạn.',
     tasks: [
       'Làm một phiên luyện tổng hợp',
       'Tự chấm năng lực nghe/đọc/chiến lược',
@@ -874,6 +874,159 @@ export const BJT_VOCABULARY: BjtVocabularyItem[] = [
     exampleVn: 'Hãy phổ biến quy tắc mới đến tất cả thành viên trong nhóm.',
     note: '周知する nhấn mạnh phải thông báo đến TOÀN BỘ đối tượng liên quan — khác 連絡する (liên hệ từng người).',
   },
+
+  // ── J2 level ──────────────────────────────────────────────────────────────
+
+  {
+    id: 'ringi',
+    theme: 'workflow',
+    jp: '稟議',
+    reading: 'りんぎ',
+    romaji: 'ringi',
+    vn: 'tờ trình nội bộ (phê duyệt luân chuyển qua nhiều cấp)',
+    exampleJp: 'この案件は稟議を回してから進めてください。',
+    exampleRomaji: 'Kono anken wa ringi o mawashite kara susumete kudasai.',
+    exampleVn: 'Hãy luân chuyển tờ trình nội bộ qua các cấp phê duyệt trước khi tiến hành.',
+    note: '稟議 là tài liệu xin phép nội bộ được chuyển qua nhiều người ký. 稟議を回す = luân chuyển tờ trình. 稟議書 = văn bản trình duyệt.',
+  },
+  {
+    id: 'jigo-houkoku',
+    theme: 'reporting',
+    jp: '事後報告',
+    reading: 'じごほうこく',
+    romaji: 'jigo houkoku',
+    vn: 'báo cáo sau sự việc (hậu kỳ)',
+    exampleJp: '緊急の場合は行動後に事後報告で構いません。',
+    exampleRomaji: 'Kinkyuu no baai wa koudou go ni jigo houkoku de kaimasen.',
+    exampleVn: 'Trong trường hợp khẩn cấp, có thể báo cáo sau khi đã hành động.',
+    note: '事後 = sau sự việc. Cặp từ then chốt: 事前承認 (phê duyệt trước) ↔ 事後報告 (báo cáo sau). Hay xuất hiện trong quy trình ngoại lệ của BJT.',
+  },
+  {
+    id: 'zesei',
+    theme: 'workflow',
+    jp: '是正する',
+    reading: 'ぜせいする',
+    romaji: 'zesei suru',
+    vn: 'khắc phục, chỉnh sửa sai lệch',
+    exampleJp: '問題が発生した場合は、是正措置を速やかに取ってください。',
+    exampleRomaji: 'Mondai ga hassei shita baai wa, zesei sochi o sumiyaka ni totte kudasai.',
+    exampleVn: 'Khi phát sinh vấn đề, hãy nhanh chóng triển khai biện pháp khắc phục.',
+    note: '是正措置 (zesei sochi) = corrective action. Hay xuất hiện trong báo cáo chất lượng, tuân thủ và phản hồi kiểm toán.',
+  },
+  {
+    id: 'renmei',
+    theme: 'workflow',
+    jp: '連名',
+    reading: 'れんめい',
+    romaji: 'renmei',
+    vn: 'ký liên danh, đứng tên chung',
+    exampleJp: '部長と副部長の連名で承認書を提出してください。',
+    exampleRomaji: 'Buchou to fukukachou no renmei de shouninsho o teishutsu shite kudasai.',
+    exampleVn: 'Hãy nộp văn bản phê duyệt có chữ ký liên danh của trưởng phòng và phó trưởng phòng.',
+    note: '連名承認 = co-signature approval. Trong BJT xuất hiện khi quyết định cần hai cấp cùng ký — không ký tuần tự mà phải đồng thời.',
+  },
+  {
+    id: 'sogo',
+    theme: 'coordination',
+    jp: '齟齬',
+    reading: 'そご',
+    romaji: 'sogo',
+    vn: 'bất đồng, sự không khớp giữa hai bên',
+    exampleJp: '認識の齟齬が生じないよう、議事録を全員に共有します。',
+    exampleRomaji: 'Ninshiki no sogo ga shojinai you, gijiroku o zen\'in ni kyouyuu shimasu.',
+    exampleVn: 'Tôi sẽ chia sẻ biên bản họp cho tất cả để tránh tình trạng không thống nhất trong nhận thức.',
+    note: '認識の齟齬 (sự không khớp trong nhận thức) là cụm từ rất phổ biến. Từ này cấp độ cao, hay xuất hiện trong tình huống BJT J2 trở lên.',
+  },
+  {
+    id: 'shingen',
+    theme: 'coordination',
+    jp: '進言する',
+    reading: 'しんげんする',
+    romaji: 'shingen suru',
+    vn: 'kiến nghị, đề xuất lên cấp trên',
+    exampleJp: '状況改善のため、部長に進言しました。',
+    exampleRomaji: 'Joukyou kaizen no tame, buchou ni shingen shimashita.',
+    exampleVn: 'Tôi đã kiến nghị lên trưởng phòng để cải thiện tình hình.',
+    note: '進言する = chủ động nêu ý kiến lên cấp trên vì lợi ích công việc. Không phải 命令 (ra lệnh) hay 報告 (báo cáo) — mang tính góp ý, đề xuất từ dưới lên.',
+  },
+  {
+    id: 'shokan',
+    theme: 'coordination',
+    jp: '所管',
+    reading: 'しょかん',
+    romaji: 'shokan',
+    vn: 'thuộc thẩm quyền của, phụ trách (cấp tổ chức)',
+    exampleJp: 'この件は法務部の所管ですので、直接お問い合わせください。',
+    exampleRomaji: 'Kono ken wa houmubu no shokan desu node, chokusetsu otoiawase kudasai.',
+    exampleVn: 'Vấn đề này thuộc thẩm quyền của phòng pháp lý, xin liên hệ trực tiếp.',
+    note: '所管 = thẩm quyền theo tổ chức/bộ phận. Khác 担当 (phụ trách cá nhân): 所管部署 là phòng ban chịu trách nhiệm thể chế.',
+  },
+
+  // ── J1 level ──────────────────────────────────────────────────────────────
+
+  {
+    id: 'sashihikaeru',
+    theme: 'reporting',
+    jp: '差し控える',
+    reading: 'さしひかえる',
+    romaji: 'sashihikaeru',
+    vn: 'kiềm chế, tạm thời không đề cập, không tiết lộ',
+    exampleJp: '詳細については現時点では言及を差し控えさせていただきます。',
+    exampleRomaji: 'Shousai ni tsuite wa genjiten de wa genkyuu o sashihikaesasete itadakimasu.',
+    exampleVn: 'Tại thời điểm này, chúng tôi xin phép chưa đề cập đến chi tiết.',
+    note: 'Hay xuất hiện trong họp báo, thông cáo chính thức, và tình huống BJT J1 về thông tin nhạy cảm hoặc chưa được xác nhận.',
+  },
+  {
+    id: 'jizen-kyouyuu',
+    theme: 'workflow',
+    jp: '事前共有',
+    reading: 'じぜんきょうゆう',
+    romaji: 'jizen kyouyuu',
+    vn: 'chia sẻ thông tin trước',
+    exampleJp: '取締役会の前に関係部門への事前共有が必要です。',
+    exampleRomaji: 'Torishimariyakukai no mae ni kankei bumon e no jizen kyouyuu ga hitsuyou desu.',
+    exampleVn: 'Cần chia sẻ thông tin trước với các bộ phận liên quan trước khi họp ban giám đốc.',
+    note: '事前 = trước sự việc. Trong quy trình BJT, 事前共有 thường là điều kiện bắt buộc ngay cả khi không cần phê duyệt chính thức.',
+  },
+
+  // ── J1+ level ─────────────────────────────────────────────────────────────
+
+  {
+    id: 'tekiji-kaiji',
+    theme: 'compliance',
+    jp: '適時開示',
+    reading: 'てきじかいじ',
+    romaji: 'tekiji kaiji',
+    vn: 'công bố thông tin kịp thời (nghĩa vụ đối với công ty niêm yết)',
+    exampleJp: '重要な決定事実は証券取引所への適時開示が義務付けられています。',
+    exampleRomaji: 'Juuyou na kettei jijitsu wa shouken torihikijo e no tekiji kaiji ga gimudzukerareteimasu.',
+    exampleVn: 'Các sự kiện quyết định quan trọng bắt buộc phải công bố kịp thời lên sở giao dịch chứng khoán.',
+    note: '適時開示 là nghĩa vụ pháp lý theo Luật giao dịch tài chính Nhật Bản. Xuất hiện trong tình huống BJT J1+ về quản trị doanh nghiệp.',
+  },
+  {
+    id: 'keisou',
+    theme: 'compliance',
+    jp: '係争',
+    reading: 'けいそう',
+    romaji: 'keisou',
+    vn: 'tranh chấp pháp lý, vụ kiện đang diễn ra',
+    exampleJp: '係争中の案件に関する文書は廃棄しないでください。',
+    exampleRomaji: 'Keisou-chuu no anken ni kansuru bunsho wa haiki shinaide kudasai.',
+    exampleVn: 'Không được hủy tài liệu liên quan đến các vụ tranh chấp đang diễn ra.',
+    note: '係争中 (đang trong tranh chấp) là điều kiện đặc biệt trong chính sách lưu trữ tài liệu — tài liệu liên quan không được hủy dù đã hết hạn lưu trữ thông thường.',
+  },
+  {
+    id: 'rouei',
+    theme: 'compliance',
+    jp: '漏洩',
+    reading: 'ろうえい',
+    romaji: 'rouei',
+    vn: 'rò rỉ thông tin, tiết lộ ngoài ý muốn',
+    exampleJp: '顧客情報の漏洩を防ぐため、社外への転送を禁止します。',
+    exampleRomaji: 'Kokyaku jouhou no rouei o fusegu tame, shagaie no tensou o kinshi shimasu.',
+    exampleVn: 'Để ngăn chặn rò rỉ thông tin khách hàng, việc chuyển tiếp ra bên ngoài bị nghiêm cấm.',
+    note: '漏洩 (rouei) xuất hiện trong chính sách bảo mật thông tin và tình huống BJT về xử lý dữ liệu nhạy cảm. 情報漏洩 = rò rỉ thông tin.',
+  },
 ];
 
 export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
@@ -1106,6 +1259,83 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
       "68% nằm trong nhóm dưới 70%, nên phải vừa báo cáo cho cấp trên trong ngày làm việc tiếp theo vừa nộp kế hoạch cải thiện.",
   },
   {
+    id: 'j3_listening_005',
+    level: 'J3',
+    skill: 'listening',
+    difficulty: 'intermediate',
+    title: 'Yêu cầu báo cáo tiến độ với điều kiện bổ sung (J3)',
+    situation:
+      'チームリーダーがこう言いました。「来週の定例会議では、各自のプロジェクト進捗を10分以内で報告してください。資料は前日の午後5時までに私にメールで送ってください。なお、進捗が遅延している場合は、原因と今後の対応策も必ず報告に含めてください。」',
+    prompt: '進捗が遅延しているメンバーが準備すべきこととして正しいものはどれですか？',
+    options: [
+      '10分の進捗報告・前日17時までのメール送付・遅延の原因と対応策をすべて準備する',
+      '資料をメールで送るだけでよい',
+      '遅延しているため会議を欠席して後日報告する',
+      '遅延の原因だけ報告し、対応策は別途後日提出する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Chỉ thị có ba yêu cầu đồng thời: (1) báo cáo tiến độ 10 phút, (2) gửi tài liệu qua email trước 17h ngày hôm trước, (3) nếu chậm tiến độ thì PHẢI bao gồm cả nguyên nhân lẫn biện pháp xử lý. Phương án A đáp ứng đầy đủ cả ba. B, C, D đều bỏ mất ít nhất một yêu cầu.',
+  },
+  {
+    id: 'j3_lr_005',
+    level: 'J3',
+    skill: 'listening-reading',
+    difficulty: 'intermediate',
+    title: 'Cập nhật lịch khi có hai thay đổi đồng thời (J3)',
+    situation:
+      '[スケジュール表]\n金曜日 14:00 取引先との打ち合わせ（会議室A）\n\n[課長からのメモ]\n「取引先から連絡がありました。会議室はAよりCの方が広くて使いやすいので変更してほしいとのことです。また、開始時間を30分遅らせてほしいとのことです。」',
+    prompt: '変更後の打ち合わせはいつ、どこで行いますか？',
+    options: [
+      '金曜日14:30、会議室C',
+      '金曜日13:30、会議室C',
+      '金曜日14:30、会議室A',
+      '金曜日14:00、会議室C',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Hai thay đổi cần xử lý đồng thời: (1) phòng họp đổi từ A sang C, (2) giờ bắt đầu dời muộn 30 phút (14:00 → 14:30). A phản ánh đúng cả hai. B sai chiều dời giờ. C giữ nhầm phòng cũ. D chỉ đổi phòng mà bỏ mất thay đổi giờ.',
+  },
+  {
+    id: 'j3_reading_005',
+    level: 'J3',
+    skill: 'reading',
+    difficulty: 'intermediate',
+    title: 'Chuỗi bước phụ thuộc trước khi in tài liệu (J3)',
+    situation:
+      '社内メールを読んでいます。\n\n件名：新商品プレゼンの準備手順について\n\n来週金曜日の新商品プレゼンについて、以下の手順で進めてください。まずサンプルの確認が完了してから、説明資料を最終化してください。資料が完成したら、印刷の前に必ず課長に確認を取ってください。なお、サンプルに問題があった場合はプレゼンを翌週に延期することがあります。',
+    prompt: '資料を印刷する前に完了すべきことはどれですか？',
+    options: [
+      'サンプルの確認完了と課長への資料確認の両方',
+      '課長への資料確認のみ',
+      'サンプルの確認完了のみ',
+      '印刷業者への事前連絡のみ',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Email nêu chuỗi phụ thuộc: (1) xác nhận mẫu sản phẩm → (2) hoàn thiện tài liệu → (3) cấp trên duyệt → (4) in ấn. Để bắt đầu in phải hoàn thành cả bước 1 và bước 3. B bỏ mất điều kiện mẫu. C bỏ mất điều kiện duyệt cấp trên. D không có trong email.',
+  },
+  {
+    id: 'j3_reading_006',
+    level: 'J3',
+    skill: 'reading',
+    difficulty: 'intermediate',
+    title: 'Quy định chi phí: ngoại lệ riêng cho tiền đi lại (J3)',
+    situation:
+      '社内掲示板のお知らせを読んでいます。\n\n【経費精算ルール改定】\n来月より、1件5,000円以上の経費申請には領収書の添付が必要です。5,000円未満の場合は、明細記入のみで申請できます。なお、交通費については金額にかかわらず、ICカード利用履歴の添付を必須とします。',
+    prompt: '3,500円の交通費を申請するとき、必要な書類はどれですか？',
+    options: [
+      'ICカード利用履歴のみ',
+      '領収書のみ',
+      '領収書とICカード利用履歴の両方',
+      '書類不要で明細記入のみ',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Quy định có ngoại lệ riêng cho tiền đi lại: bất kể số tiền bao nhiêu đều phải đính kèm lịch sử thẻ IC. 3,500円 dưới 5,000円 nên không cần hóa đơn gốc. Vậy chỉ cần lịch sử thẻ IC. A là đáp án đúng. D nhầm áp dụng điều kiện "dưới 5,000円" mà bỏ qua ngoại lệ của tiền đi lại.',
+  },
+
+  {
     id: 'j2_listening_001',
     level: 'J2',
     skill: 'listening',
@@ -1334,6 +1564,83 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
       'Chuỗi thời hạn trong thông báo cho thấy trước ngày 20 cần gửi tờ tự đánh giá cho thành viên. Các việc còn lại diễn ra sau đó.',
   },
   {
+    id: 'j2_listening_005',
+    level: 'J2',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Quy tắc thanh toán mới và ngoại lệ đã thỏa thuận (J2)',
+    situation:
+      '課長がこう言いました。「来月から外注費の支払いは月末締め翌月15日払いに変更になります。ただし、すでに今月末払いで合意している案件は従来通りとします。なお、契約書が未締結の案件は来月の変更後の条件を適用してください。」',
+    prompt: 'すでに今月末払いで合意している案件はどう対応すればよいですか？',
+    options: [
+      '従来通り今月末に支払う',
+      '新しいルールに従い来月15日に支払う',
+      '支払いを一時停止して担当マネージャーに確認する',
+      '契約書を今月中に締結してから来月の条件で支払う',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Chỉ thị phân biệt rõ: trường hợp ĐÃ thỏa thuận thanh toán cuối tháng này thì giữ nguyên theo thỏa thuận cũ. Quy trình mới chỉ áp dụng từ tháng sau và với các hợp đồng chưa ký. Phương án A đúng theo ngoại lệ đó.',
+  },
+  {
+    id: 'j2_lr_005',
+    level: 'J2',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Đăng ký làm thêm giờ khẩn theo quy định (J2)',
+    situation:
+      '[残業申請ルール]\n月20時間を超える残業は部長承認が必要。緊急業務の場合は翌日までに事後申請可。\n\n[課長からの連絡]\n「明日、取引先から急な対応依頼が入りました。緊急業務として残業が必要です。申請は明後日まとめてください。」',
+    prompt: 'この状況で適切な対応はどれですか？',
+    options: [
+      '残業せず定時で退社する',
+      '残業して翌日（明後日）に事後申請する',
+      '部長に事前承認を取ってから残業する',
+      '緊急業務かどうか不明なので残業しない',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Quy định cho phép đăng ký sau vào ngày hôm sau với trường hợp công việc khẩn. Cấp trên đã xác nhận đây là công việc khẩn và hướng dẫn nộp đơn vào ngày kia (= ngày hôm sau so với ngày làm thêm). Phương án B đúng theo cả quy định lẫn chỉ thị.',
+  },
+  {
+    id: 'j2_reading_005',
+    level: 'J2',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Deadline báo cáo tháng: thường lệ vs chuyển tiếp (J2)',
+    situation:
+      '部長からのメールを読んでいます。\n\n件名：月次報告書の提出期限変更について\n\n来月から月次報告書の提出期限を毎月10日から7日に変更します。ただし、来月は移行期間として12日まで認めます。なお、報告書の新様式は今月25日に配布予定です。今月分については従来様式で10日までに提出してください。',
+    prompt: '来月の月次報告書について正しいものはどれですか？',
+    options: [
+      '移行期間として12日まで提出可能である',
+      '新しい期限の7日までに提出しなければならない',
+      '従来様式で10日までに提出する',
+      '新様式の配布を待ってから25日以降に提出できる',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Email phân biệt ba mốc thời gian: tháng này nộp theo hạn cũ (ngày 10), tháng sau là tháng chuyển tiếp được gia hạn đến ngày 12, từ tháng sau nữa áp dụng hạn mới (ngày 7). Câu hỏi hỏi về tháng sau, nên A là đáp án đúng.',
+  },
+  {
+    id: 'j2_reading_006',
+    level: 'J2',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Di chuyển hệ thống chi phí: ngoại lệ tiền đi lại (J2)',
+    situation:
+      '社内通達を読んでいます。\n\n件名：経費申請システム移行について\n\n来月より経費申請を新システムに移行します。移行後は旧システムへの入力を受け付けません。ただし、今月末以前に発生した出張費は旧システムで申請可能です。来月以降に発生する出張費は新システムのみとなります。なお、交通費については移行後も3ヶ月間は旧システムと新システムの両方で申請できます。',
+    prompt: '来月発生した交通費の申請方法として正しいものはどれですか？',
+    options: [
+      '新システムでのみ申請できる',
+      '旧システムでも新システムでも申請できる',
+      '旧システムのみで申請できる',
+      '来月は申請できないため再来月まで待つ',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Thông báo có ngoại lệ riêng cho tiền đi lại: được dùng song song cả hai hệ thống trong 3 tháng đầu sau khi chuyển đổi. Tháng sau là tháng đầu tiên trong giai đoạn đó, nên phương án B là đúng. A đúng với chi phí công tác nhưng sai với tiền đi lại. C và D đều không khớp với thông báo.',
+  },
+
+  {
     id: 'j1_listening_001',
     level: 'J1',
     skill: 'listening',
@@ -1561,6 +1868,83 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     explanation:
       "Điểm mấu chốt là sếp đã đổi thứ tự ưu tiên của đề xuất và cũng tách rõ bản nội bộ với bản đối ngoại. B phản ánh đúng cả cấu trúc trình bày mới lẫn cách xử lý số liệu tạm thời. A vi phạm rule về số liệu chưa duyệt. C đi ngược định hướng. D dừng cả đề xuất là quá mức.",
   },
+  {
+    id: 'j1_listening_005',
+    level: 'J1',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Kiểm soát thông tin ba tầng khi có điều tra từ cơ quan quản lý (J1)',
+    situation:
+      'あなたは法務・コンプライアンス担当部長です。社長から次の指示を受けました。「今回の規制当局からの問い合わせですが、対外的には通常の照会への対応として扱います。社内では法務と経営企画のみが知っている状態を維持してください。現場部門には、規制対応の一環として一部の業務データの確認依頼が来る可能性があることだけを伝えてください。照会が継続する場合は週次で私に報告してください。」',
+    prompt: 'この指示を受けた担当部長がすべきこととして最も適切なのはどれですか？',
+    options: [
+      '規制当局の問い合わせ内容を現場部門にも詳しく説明し、全員で対応する',
+      '法務と経営企画の範囲で情報を管理し、現場にはデータ確認依頼の可能性のみを伝え、照会が続く場合は週次で社長に報告する',
+      '透明性確保のため、社内全員に問い合わせの詳細を周知する',
+      '現場部門と法務部の両方に全情報を共有して一緒に対応策を立てる',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Chỉ thị kiểm soát thông tin ở ba tầng độc lập: (1) đối ngoại xử lý như vấn đề thông thường, (2) nội bộ chỉ pháp lý và lập kế hoạch kinh doanh được biết chi tiết, (3) phòng ban nghiệp vụ chỉ cần biết về khả năng có yêu cầu kiểm tra dữ liệu, (4) nếu tiếp diễn thì báo cáo hàng tuần. Phương án B phản ánh đúng cả bốn điểm. A và C mở rộng phạm vi thông tin ngoài cho phép. D nhầm ranh giới chia sẻ nội bộ.',
+  },
+  {
+    id: 'j1_lr_005',
+    level: 'J1',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Quy trình leo thang khiếu nại khi người phụ trách vắng mặt (J1)',
+    situation:
+      '[社内報告規程]\n顧客クレームは受付後24時間以内に顧客対応部門長に報告すること。重大クレーム（損害賠償請求を含む）は、顧客対応部門長と同時に法務部にも報告すること。\n\n[上司からの追加指示（今朝）]\n「今回の件、先方は損害賠償の話は出していないが、弁護士を通じてきているので重大クレームに準じて扱うこと。法務にも今日中に入れてほしい。ただし、今日は部門長が出張中なので、副部門長に報告するように。」',
+    prompt: 'この状況での対応として最も適切なのはどれですか？',
+    options: [
+      '部門長が戻るまで報告を待つ',
+      '顧客対応副部門長と法務部の両方に今日中に報告する',
+      '法務部だけに報告し、顧客対応の報告は部門長が戻ってから行う',
+      '損害賠償の明示がないため通常クレームとして部門長のみに報告する',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Quy định yêu cầu báo cáo cho trưởng phòng trong 24 giờ, và với khiếu nại nghiêm trọng thì đồng thời báo pháp lý. Cấp trên xác định đây là trường hợp cần xử lý tương đương khiếu nại nghiêm trọng, và vì trưởng phòng vắng mặt thì thay bằng phó trưởng phòng. Phương án B đúng theo cả quy định lẫn chỉ thị bổ sung. A vi phạm mốc 24 giờ. C bỏ mất yêu cầu song song với khách. D đánh giá sai mức độ khi bỏ qua dấu hiệu "thông qua luật sư".',
+  },
+  {
+    id: 'j1_reading_005',
+    level: 'J1',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Chính sách lưu trữ tài liệu: phân biệt hết hạn và còn hạn (J1)',
+    situation:
+      '法務部から次の通知が届きました。\n\n件名：電子文書の保存・廃棄基準改定について\n\n今月より、電子文書の保存期間を以下の通り改定します。\n・契約書類：10年\n・社内会議議事録：3年\n・日常業務メール：1年\n\nなお、現在係争中またはその可能性がある案件に関連する文書は、上記期間にかかわらず法務確認まで廃棄禁止とします。また、今月以前に保存期間をすでに超えている文書も、係争関連でなければ速やかに廃棄して構いません。',
+    prompt: '2年前のプロジェクトの社内会議議事録（係争なし）に関する対応として正しいものはどれですか？',
+    options: [
+      '保存期間（3年）がまだ残っているため、廃棄してはいけない',
+      '係争関連でないため、今すぐ廃棄して構わない',
+      '係争がないことを法務部に確認してから廃棄する',
+      '今月以前に作成された文書なので改定前の基準が適用される',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Biên bản họp nội bộ có thời hạn lưu 3 năm, tài liệu này mới 2 năm — chưa đến hạn. Điều kiện "được phép hủy tài liệu hết hạn" trong thông báo chỉ áp dụng với tài liệu ĐÃ vượt hạn trước tháng này, không áp dụng cho tài liệu còn trong hạn. A là đáp án đúng. B nhầm điều kiện "không liên quan tranh chấp" là đủ để hủy bất kỳ lúc nào — nhưng điều kiện đó chỉ dành cho tài liệu đã quá hạn. C và D đều thêm điều kiện không có trong quy định.',
+  },
+  {
+    id: 'j1_reading_006',
+    level: 'J1',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Ngưỡng phê duyệt dự án: đầu tư bổ sung sau 12 tháng (J1)',
+    situation:
+      '経営企画部から次の通達が届きました。\n\n件名：新規プロジェクト承認プロセスの変更について\n\n本月より、新規プロジェクトの承認プロセスを以下の通り変更します。\n①投資額500万円未満：事業部長承認で実施可\n②投資額500万円以上2,000万円未満：事業部長・財務部長の連名承認\n③投資額2,000万円以上：取締役会承認が必要\n\nなお、既存プロジェクトへの追加投資は当初承認時の総額で判断してください。ただし、当初承認から12ヶ月を超えた追加投資は新規プロジェクトとして扱います。',
+    prompt: '14ヶ月前に取締役会承認を受けた3,000万円のプロジェクトに、今月800万円の追加投資が発生しました。この追加投資の承認方法として正しいのはどれですか？',
+    options: [
+      '当初承認が取締役会だったため、引き続き取締役会承認が必要',
+      '12ヶ月超のため新規プロジェクト扱いとなり、800万円は②の範囲なので事業部長・財務部長の連名承認が必要',
+      '追加投資は既存プロジェクトの一部なので、事業部長承認のみで可',
+      '800万円を400万円ずつ2回に分けて申請し、各件を事業部長承認で通す',
+    ],
+    correctIndex: 1,
+    explanation:
+      '14 tháng > 12 tháng → khoản đầu tư bổ sung này được tính là dự án mới, phán đoán theo số tiền mới (800万円), không theo tổng cũ. 800万円 rơi vào nhóm ② (500万円以上2,000万円未満) → cần chữ ký liên danh của trưởng phòng kinh doanh và trưởng phòng tài chính. A sai khi áp dụng lịch sử phê duyệt cũ thay vì tiêu chí số tiền mới. C sai khi coi đây là dự án cũ (14 tháng > 12 tháng). D là chiến thuật chia nhỏ để lách ngưỡng — vi phạm tinh thần quy trình và không được phép.',
+  },
+
   {
     id: 'j4_listening_001',
     level: 'J4',

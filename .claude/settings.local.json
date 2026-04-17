@@ -8,7 +8,10 @@
       "Bash(node -e ':*)",
       "Bash(python3 -c ':*)",
       "Bash(npx tsc:*)",
-      "Bash(npx jest:*)"
+      "Bash(npx jest:*)",
+      "Bash(grep -n \"'[A-Z][a-z]* [a-z]*':\\\\|\\\\\"[A-Z][a-z]* [a-z]*\\\\\":\" src/constants/content/*.ts)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
