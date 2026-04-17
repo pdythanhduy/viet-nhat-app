@@ -13,6 +13,11 @@ import DailyLifeScreen from '../screens/DailyLifeScreen';
 import DailyLifeDetailScreen from '../screens/DailyLifeDetailScreen';
 import JobsScreen from '../screens/JobsScreen';
 import JapaneseScreen from '../screens/JapaneseScreen';
+import BJTScreen from '../screens/BJTScreen';
+import BJTVocabularyScreen from '../screens/BJTVocabularyScreen';
+import BJTQuizScreen from '../screens/BJTQuizScreen';
+import BJTMockTestScreen from '../screens/BJTMockTestScreen';
+import BJTReviewScreen from '../screens/BJTReviewScreen';
 import JapanesePracticeScreen from '../screens/JapanesePracticeScreen';
 import JapaneseQuizScreen from '../screens/JapaneseQuizScreen';
 import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
@@ -28,6 +33,7 @@ import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
 import { Colors } from '../constants/colors';
+import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 
 export type TabParamList = {
   Home: undefined;
@@ -45,6 +51,11 @@ export type RootStackParamList = {
   DailyLifeDetail: { topicId: string };
   JapanesePractice: { categoryName: string; categoryColor?: string };
   JapaneseQuiz: { categoryName?: string; categoryColor?: string; direction?: 'jp-to-vn' | 'vn-to-jp' | 'mixed' };
+  BJT: undefined;
+  BJTVocabulary: undefined;
+  BJTQuiz: { level?: BjtTargetLevel } | undefined;
+  BJTMockTest: { level?: BjtTargetLevel } | undefined;
+  BJTReview: { level?: BjtTargetLevel } | undefined;
   JapaneseKana: undefined;
   JapaneseKanaQuiz: { mode?: 'hiragana' | 'katakana' | 'mixed' } | undefined;
   Feedback: undefined;
@@ -158,6 +169,65 @@ export default function AppNavigator() {
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
             headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+          }}
+        />
+        <Stack.Screen
+          name="BJT"
+          component={BJTScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Business Japanese',
+            headerStyle: { backgroundColor: Colors.primaryDark },
+            headerTintColor: Colors.white,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+          }}
+        />
+        <Stack.Screen
+          name="BJTVocabulary"
+          component={BJTVocabularyScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Vocabulary',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTQuiz"
+          component={BJTQuizScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Scenario Practice',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTMockTest"
+          component={BJTMockTestScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Mock Test',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTReview"
+          component={BJTReviewScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Review Mode',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
           }}
         />
         <Stack.Screen

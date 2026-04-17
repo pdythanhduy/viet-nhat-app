@@ -1,0 +1,194 @@
+﻿[
+    {
+        "id":  "j3_reading_001",
+        "skill":  "reading",
+        "difficulty":  "intermediate",
+        "title":  "Email doi phong hop (J3)",
+        "situation":  "社内メールを読んでいます。\n\n件名：会議室変更のお知らせ\n\n山田様\n\n来週月曜日（15日）午後2時からの定例会議ですが、第3会議室が工事のため使用できなくなりました。つきましては、同日同時刻に場所を第1会議室に変更させていただきます。ご参加の皆様には大変ご迷惑をおかけしますが、何卒よろしくお願いいたします。\n\n鈴木",
+        "prompt":  "このメールを受け取った山田さんは、次に何をすべきですか？",
+        "options":  [
+                        "15日午後2時に第1会議室に行く",
+                        "第3会議室の工事について問い合わせる",
+                        "会議の日程を変更するよう提案する",
+                        "第1会議室の予約状況を確認して鈴木さんに返信する"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Email thông báo phòng họp thay đổi từ phòng 3 sang phòng 1, cùng ngày cùng giờ (15日 14:00). Hành động cần thực hiện là đến đúng phòng 1 vào đúng giờ. Các đáp án khác không phù hợp: không cần hỏi về công trình, không cần đổi lịch, và không cần xác nhận phòng vì thông báo đã rõ ràng."
+    },
+    {
+        "id":  "j3_reading_002",
+        "skill":  "reading",
+        "difficulty":  "intermediate",
+        "title":  "Quy dinh ke toan noi bo (J3)",
+        "situation":  "社内掲示板に貼られたお知らせを読んでいます。\n\n【経費精算について】\n今月より、経費精算の提出締め切りを月末から毎月25日に変更します。また、領収書は必ずA4サイズにコピーしてから提出してください。スマートフォンでの写真は受け付けません。なお、25日が土日の場合は、直前の金曜日が締め切りとなります。\n\n経理部",
+        "prompt":  "この通知の内容として正しいものはどれですか？",
+        "options":  [
+                        "25日が日曜日の場合、金曜日が提出締め切りになる",
+                        "経費精算はスマートフォンで写真を撮って提出できる",
+                        "領収書はB5サイズにコピーして提出する",
+                        "提出締め切りは今月から月末に変更された"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Thông báo nói rõ: nếu ngày 25 rơi vào cuối tuần thì hạn nộp là thứ Sáu ngay trước đó. Ảnh điện thoại không được chấp nhận, phải copy A4, và hạn nộp đổi từ cuối tháng sang ngày 25."
+    },
+    {
+        "id":  "j3_reading_003",
+        "skill":  "reading",
+        "difficulty":  "intermediate",
+        "title":  "Email giao slide doanh so (J3)",
+        "situation":  "上司からメールが届きました。\n\n件名：来週のプレゼン資料について\n\nお疲れ様です。来週木曜日の営業会議に向けて、先月の売上データをまとめた資料を作成してもらえますか。水曜日の午前中までに私に送ってください。グラフを使って視覚的にわかりやすくしてほしいです。何か不明な点があれば気軽に相談してください。\n\n部長 田中",
+        "prompt":  "田中部長のメールへの対応として最も適切なのはどれですか？",
+        "options":  [
+                        "水曜日の午前中までに、グラフ入りの売上データ資料を田中部長に送る",
+                        "木曜日の営業会議で口頭で売上データを報告する",
+                        "先月の売上データを田中部長にそのまま転送する",
+                        "水曜日の午後までに資料を完成させ、会議当日に配布する"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Yêu cầu gồm tài liệu tổng hợp doanh số tháng trước có biểu đồ, gửi cho Tanaka, trước trưa thứ Tư. Chỉ đáp án đầu tiên đáp ứng đủ ba điều kiện."
+    },
+    {
+        "id":  "j3_reading_004",
+        "skill":  "reading",
+        "difficulty":  "intermediate",
+        "title":  "Bao cao tien do du an (J3)",
+        "situation":  "社内進捗報告書の一部を読んでいます。\n\n【今週の進捗報告】\nAプロジェクトは予定通り進んでいます。Bプロジェクトは部品の入荷が1週間遅れており、完成が当初の予定より遅くなる見込みです。担当の林さんはすでに取引先に連絡済みで、新しいスケジュールを確認中です。Cプロジェクトについては、来週初めに詳細をご報告します。",
+        "prompt":  "この報告書を読んだマネージャーが最初に確認すべきことは何ですか？",
+        "options":  [
+                        "Bプロジェクトの新しい完成予定日",
+                        "Aプロジェクトが予定より早く終わる可能性",
+                        "Cプロジェクトの現時点での状況",
+                        "取引先への連絡内容の詳細"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Trong ba dự án, chỉ dự án B đang có rủi ro tiến độ. Vì vậy điều cần xác nhận đầu tiên là ngày hoàn thành mới của dự án B."
+    },
+    {
+        "id":  "j3_listening_001",
+        "skill":  "listening",
+        "difficulty":  "intermediate",
+        "title":  "Doi lich giao hang qua dien thoai (J3)",
+        "situation":  "取引先から電話がかかってきました。\n\n「もしもし、こちら松本商事の岡田と申します。いつもお世話になっております。実は、明日お届けする予定だった部品500個なんですが、こちらの都合で来週の火曜日に変更させていただきたいのですが、よろしいでしょうか。もし問題があれば、今すぐ上の者に確認して折り返しご連絡することもできます。」",
+        "prompt":  "この電話に対して、最初にすべき対応はどれですか？",
+        "options":  [
+                        "社内確認が必要なため、折り返しご連絡すると相手に伝える",
+                        "来週火曜日への変更をその場で了承して電話を終わらせる",
+                        "明日の納品が必須である理由を相手に説明して断る",
+                        "松本商事との今後の取引を見直す必要があると伝える"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Đối tác xin lùi giao hàng từ ngày mai sang thứ Ba tuần tới. Hành động đầu tiên cụ thể và rõ ràng nhất là thông báo cho đối tác rằng cần xác nhận nội bộ và sẽ gọi lại — đây là phản ứng chuyên nghiệp phổ biến trong mọi tình huống thay đổi lịch giao hàng. A đúng và là hành động giao tiếp trực tiếp với người gọi. B quá vội (chưa xác nhận nội bộ). C không hợp lý vì chưa có thông tin về yêu cầu bắt buộc. D không phù hợp và không liên quan đến tình huống này."
+    },
+    {
+        "id":  "j3_listening_002",
+        "skill":  "listening",
+        "difficulty":  "intermediate",
+        "title":  "Xin gia han nop bao cao (J3)",
+        "situation":  "朝の打ち合わせで同僚の田村さんが発言しています。\n\n「えっと、すみません。今週金曜日に提出予定のレポートなんですが、先週から体調を崩してしまって、少し進み具合が遅れています。できれば来週月曜日まで延ばしていただけると助かるんですが。もし難しければ、金曜日に途中まで出して月曜日に残りを出すことも考えています。」",
+        "prompt":  "田村さんが最終的に希望していることは何ですか？",
+        "options":  [
+                        "締め切りを来週月曜日まで延ばしてもらうこと",
+                        "金曜日にレポートを完全に提出すること",
+                        "レポートを金曜日と月曜日の2回に分けて提出すること",
+                        "体調不良を理由にレポートを免除してもらうこと"
+                    ],
+        "correctIndex":  0,
+        "explanation":  "Mong muốn chính là xin gia hạn đến thứ Hai. Phương án nộp làm hai lần chỉ là phương án dự phòng nếu không được gia hạn."
+    },
+    {
+        "id":  "j3_listening_003",
+        "skill":  "listening",
+        "difficulty":  "intermediate",
+        "title":  "Xu ly khieu nai giao sai mau (J3)",
+        "situation":  "お客様から電話がかかってきました。\n\n「あのう、先週御社に注文した商品が今日届いたんですけど、箱を開けてみたら、頼んだものと色が違うんですよ。紺色を注文したのに、届いたのは黒なんです。返品か交換をお願いしたいんですが、どうすればいいですか？」",
+        "prompt":  "この状況で担当者として最初に言うべきことはどれですか？",
+        "options":  [
+                        "紺色と黒は似ているため大きな問題ではないと説明する",
+                        "返品は現在受け付けていないと伝える",
+                        "お詫びをして、対応方法を確認するために少々お時間をいただく旨を伝える",
+                        "注文情報を確認せずにすぐ新しい商品を送ると約束する"
+                    ],
+        "correctIndex":  2,
+        "explanation":  "Khách đang khiếu nại. Bước đầu tiên đúng quy trình là xin lỗi và xin thời gian để xác nhận cách xử lý trước khi hứa hẹn bất cứ điều gì."
+    },
+    {
+        "id":  "j3_listening_004",
+        "skill":  "listening",
+        "difficulty":  "intermediate",
+        "title":  "Thong bao bao tri tang 4 (J3)",
+        "situation":  "社内放送が流れています。\n\n「お知らせします。本日午後3時から5時まで、4階の空調設備の点検作業を行います。この間、4階の一部の照明が消える場合があります。4階で作業中の方は、重要なデータを事前に保存し、できれば他のフロアに移動してください。ご不便をおかけしますが、ご協力をよろしくお願いいたします。」",
+        "prompt":  "この放送を聞いた4階の社員がすべきことはどれですか？",
+        "options":  [
+                        "4階の照明をすべて手動で消す",
+                        "作業中のデータを保存して、他のフロアに移る準備をする",
+                        "空調の点検が終わるまで4階でそのまま作業を続ける",
+                        "点検の担当者に4階への立ち入りを禁止するよう伝える"
+                    ],
+        "correctIndex":  1,
+        "explanation":  "Thông báo yêu cầu lưu dữ liệu trước, và nếu có thể thì chuyển sang tầng khác. Đáp án đúng là làm cả hai việc theo mức ưu tiên đó."
+    },
+    {
+        "id":  "j3_lr_001",
+        "skill":  "listening-reading",
+        "difficulty":  "intermediate",
+        "title":  "Email va voicemail doi lich hop (J3)",
+        "situation":  "[メール]\n件名：来週の打ち合わせについて\n中村様、来週水曜日午後2時に弊社でミーティングを予定しています。場所は弊社3階会議室です。よろしくお願いいたします。\n佐藤\n\n[留守番電話メッセージ]\n「佐藤です。先ほどメールを送りましたが、実は水曜日は社内会議が入ってしまいました。場所を弊社から御社に変更して、時間も1時間後ろ倒しの午後3時にできますか？もしご都合が悪ければ別の日を調整します。」",
+        "prompt":  "中村さんが佐藤さんに返事をする前に確認すべきことは何ですか？",
+        "options":  [
+                        "来週水曜日の午後2時に佐藤さんの会社に行けるかどうか",
+                        "佐藤さんの社内会議をキャンセルできるかどうか",
+                        "弊社3階会議室が来週水曜日に空いているかどうか",
+                        "自分の来週水曜日の午後3時のスケジュールが空いているかどうか"
+                    ],
+        "correctIndex":  3,
+        "explanation":  "Email ban đầu: gặp tại công ty Sato, thứ Tư 14:00. Voicemail cập nhật: đổi địa điểm sang công ty Nakamura, đổi giờ sang 15:00. Trước khi trả lời Sato, Nakamura cần kiểm tra xem lịch của mình có trống lúc 15:00 thứ Tư không — đây là điều cần xác nhận đầu tiên, bất kể vai trò hay quyền hạn là gì. D đúng. A dựa trên thông tin email cũ đã bị vô hiệu (giờ và địa điểm đều đổi). B là vấn đề của Sato, Nakamura không thể kiểm tra. C nhầm địa điểm (phòng Sato không còn liên quan)."
+    },
+    {
+        "id":  "j3_lr_002",
+        "skill":  "listening-reading",
+        "difficulty":  "intermediate",
+        "title":  "Muc phe duyet mua thiet bi (J3)",
+        "situation":  "[社内購入ルール]\n・10万円以上：部長の承認が必要\n・5万円以上10万円未満：課長の承認で手続き可能\n・5万円未満：担当者が直接発注できる\n\n[電話の内容]\n「田中です。デザイン作業用のモニターを買いたいのですが、見積もりが78,000円でした。どのように手続きを進めればいいですか？」",
+        "prompt":  "田中さんはどのように購入手続きを進めればよいですか？",
+        "options":  [
+                        "担当者として直接発注する",
+                        "部長に承認を求める",
+                        "課長に承認を求める",
+                        "まず予算を10万円未満に収まる別の機器を探す"
+                    ],
+        "correctIndex":  2,
+        "explanation":  "78,000円 nằm trong khoảng 5万円以上10万円未満 nên cần xin phê duyệt của 課長 trước khi làm thủ tục."
+    },
+    {
+        "id":  "j3_lr_003",
+        "skill":  "listening-reading",
+        "difficulty":  "intermediate",
+        "title":  "Cap nhat nguoi trinh bay (J3)",
+        "situation":  "[先週の会議メモ]\n次回会議：11日（火）午後1時、第2会議室\n議題：第3四半期の販売実績報告\n担当：山口、高橋、吉田\n\n[今朝のメッセージ]\n「お疲れ様です。11日の会議なんですが、吉田さんが急に出張になりました。吉田さんのパートを山口さんに代わりに担当していただくことになりました。時間と場所は変わりません。よろしくお願いします。」",
+        "prompt":  "このメッセージの後、山口さんがすべきことは何ですか？",
+        "options":  [
+                        "11日の会議を欠席する旨を連絡する",
+                        "吉田さんのパートも含めて11日の発表準備をする",
+                        "第2会議室を別の会議室に変更するよう手配する",
+                        "高橋さんに吉田さんのパートを代わりに担当してもらうよう頼む"
+                    ],
+        "correctIndex":  1,
+        "explanation":  "Tin nhắn mới chỉ thay đổi người phụ trách phần của Yoshida, còn thời gian và địa điểm giữ nguyên. Vì vậy Yamaguchi phải chuẩn bị thêm phần của Yoshida."
+    },
+    {
+        "id":  "j3_lr_004",
+        "skill":  "listening-reading",
+        "difficulty":  "intermediate",
+        "title":  "Quy tac bao cao theo ti le dat muc tieu (J3)",
+        "situation":  "[報告ルール一覧]\n・目標達成率90%以上：上司への報告不要、記録のみ\n・目標達成率70%以上90%未満：週次で上司に報告\n・目標達成率70%未満：翌営業日中に上司へ報告、かつ改善計画書を提出\n\n[社員からのメッセージ]\n「川村です。今月の自分の達成率を計算したら68%でした。規則に従って動きます。」",
+        "prompt":  "川村さんが規則に従ってすることとして正しいのはどれですか？",
+        "options":  [
+                        "週次で上司に報告する",
+                        "記録だけして上司への報告はしない",
+                        "月次で上司に報告する",
+                        "翌営業日中に上司に報告し、改善計画書を提出する"
+                    ],
+        "correctIndex":  3,
+        "explanation":  "68% nằm trong nhóm dưới 70%, nên phải vừa báo cáo cho cấp trên trong ngày làm việc tiếp theo vừa nộp kế hoạch cải thiện."
+    }
+]

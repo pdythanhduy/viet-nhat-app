@@ -1,0 +1,62 @@
+[
+  {
+    "id": "j3_listening_001",
+    "level": "J3",
+    "skill": "listening",
+    "difficulty": "intermediate",
+    "business_topic": "phone",
+    "situation": "取引先から電話がかかってきました。\n\n「もしもし、こちら松本商事の岡田と申します。いつもお世話になっております。実は、明日お届けする予定だった部品500個なんですが、こちらの都合で来週の火曜日に変更させていただきたいのですが、よろしいでしょうか。もし問題があれば、今すぐ上の者に確認して折り返しご連絡することもできます。」",
+    "prompt": "この電話に対して、最初にすべき対応はどれですか？",
+    "options": [
+      "社内確認が必要なため、折り返しご連絡すると相手に伝える",
+      "来週火曜日への変更をその場で了承して電話を終わらせる",
+      "明日の納品が必須である理由を相手に説明して断る",
+      "松本商事との今後の取引を見直す必要があると伝える"
+    ],
+    "correctIndex": 0,
+    "explanation_vi": "Đối tác xin lùi giao hàng từ ngày mai sang thứ Ba tuần tới. Hành động đầu tiên cụ thể và rõ ràng nhất là thông báo cho đối tác rằng cần xác nhận nội bộ và sẽ gọi lại — đây là phản ứng chuyên nghiệp phổ biến trong mọi tình huống thay đổi lịch giao hàng. A đúng và là hành động giao tiếp trực tiếp với người gọi. B quá vội (chưa xác nhận nội bộ). C không hợp lý vì chưa có thông tin về yêu cầu bắt buộc. D không phù hợp và không liên quan đến tình huống này.",
+    "vocabulary": [
+      "折り返し（gọi lại）",
+      "納品（のうひん）",
+      "こちらの都合（phía chúng tôi có việc）"
+    ],
+    "grammar_points": [
+      "〜させていただきたいのですが（xin phép muốn...）",
+      "折り返しご連絡する（sẽ gọi lại）"
+    ],
+    "action_focus": "Phản ứng trực tiếp với người gọi: xác nhận đã nhận yêu cầu và báo sẽ gọi lại sau khi kiểm tra nội bộ",
+    "level_reason": "J3: xử lý yêu cầu thay đổi lịch giao hàng qua điện thoại, đưa ra phản ứng giao tiếp cụ thể và chuyên nghiệp",
+    "why_not_lower_level": "Cần nhận ra không nên đồng ý ngay mà phải xác nhận nội bộ trước, và diễn đạt điều đó với đối tác",
+    "why_not_higher_level": "Tình huống thay đổi lịch phổ biến, phản ứng không đòi hỏi kỹ năng đàm phán hay xử lý xung đột"
+  },
+  {
+    "id": "j3_lr_001",
+    "level": "J3",
+    "skill": "listening-reading",
+    "difficulty": "intermediate",
+    "business_topic": "schedule",
+    "situation": "[メール]\n件名：来週の打ち合わせについて\n中村様、来週水曜日午後2時に弊社でミーティングを予定しています。場所は弊社3階会議室です。よろしくお願いいたします。\n佐藤\n\n[留守番電話メッセージ]\n「佐藤です。先ほどメールを送りましたが、実は水曜日は社内会議が入ってしまいました。場所を弊社から御社に変更して、時間も1時間後ろ倒しの午後3時にできますか？もしご都合が悪ければ別の日を調整します。」",
+    "prompt": "中村さんが佐藤さんに返事をする前に確認すべきことは何ですか？",
+    "options": [
+      "来週水曜日の午後2時に佐藤さんの会社に行けるかどうか",
+      "佐藤さんの社内会議をキャンセルできるかどうか",
+      "弊社3階会議室が来週水曜日に空いているかどうか",
+      "自分の来週水曜日の午後3時のスケジュールが空いているかどうか"
+    ],
+    "correctIndex": 3,
+    "explanation_vi": "Email ban đầu: gặp tại công ty Sato, thứ Tư 14:00. Voicemail cập nhật: đổi địa điểm sang công ty Nakamura, đổi giờ sang 15:00. Trước khi trả lời Sato, Nakamura cần kiểm tra xem lịch của mình có trống lúc 15:00 thứ Tư không — đây là điều cần xác nhận đầu tiên, bất kể vai trò hay quyền hạn là gì. D đúng. A dựa trên thông tin email cũ đã bị vô hiệu (giờ và địa điểm đều đổi). B là vấn đề của Sato, Nakamura không thể kiểm tra. C nhầm địa điểm (phòng Sato không còn liên quan).",
+    "vocabulary": [
+      "後ろ倒し（うしろだおし）",
+      "ご都合（ごつごう）",
+      "留守番電話（るすばんでんわ）"
+    ],
+    "grammar_points": [
+      "〜できますか（có thể... không？）",
+      "もし〜ければ（nếu không được thì...）"
+    ],
+    "action_focus": "Tổng hợp thông tin từ email và voicemail, nhận ra cả giờ và địa điểm đều thay đổi, xác định việc cần kiểm tra trước tiên",
+    "level_reason": "J3: đối chiếu hai nguồn thông tin, nhận ra thông tin cũ đã bị thay thế và xác định điều cần xác nhận để trả lời",
+    "why_not_lower_level": "Cần nhận ra cả hai thay đổi (giờ và địa điểm) và không bị đánh lừa bởi thông tin email ban đầu",
+    "why_not_higher_level": "Thay đổi rõ ràng, không có mâu thuẫn thông tin hay ý tứ tổ chức ẩn"
+  }
+]

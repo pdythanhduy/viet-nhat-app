@@ -8,7 +8,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "bjt:audit-batch": "node scripts/bjt-audit-batch.js",
+    "bjt:manifest-snippet": "node scripts/bjt-manifest-snippet.js",
+    "bjt:init-batch": "node scripts/bjt-init-batch.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

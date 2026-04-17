@@ -284,6 +284,25 @@ export default function JapaneseScreen() {
           </View>
         ) : (
           <>
+            <TouchableOpacity style={styles.bjtCard} onPress={() => navigation.navigate('BJT')}>
+              <View style={styles.bjtCardTop}>
+                <View style={styles.bjtBadge}>
+                  <Ionicons name="briefcase-outline" size={14} color={Colors.primaryDark} />
+                  <Text style={styles.bjtBadgeText}>BJT</Text>
+                </View>
+                <Ionicons name="arrow-forward-circle" size={22} color={Colors.primaryDark} />
+              </View>
+              <Text style={styles.bjtTitle}>Luyện Business Japanese theo hướng BJT</Text>
+              <Text style={styles.bjtDescription}>
+                Mở module mới để học từ vựng công sở, dạng câu hỏi BJT, chiến lược làm bài và lộ trình 14 ngày.
+              </Text>
+              <View style={styles.bjtHighlights}>
+                <Text style={styles.bjtHighlight}>Listening</Text>
+                <Text style={styles.bjtHighlight}>Reading</Text>
+                <Text style={styles.bjtHighlight}>Mock Flow</Text>
+              </View>
+            </TouchableOpacity>
+
             <View style={styles.card}>
               <View style={styles.row}>
                 <View style={styles.inlineRow}>
@@ -427,4 +446,58 @@ const styles = StyleSheet.create({
   recentText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
   listItem: { marginTop: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border, flexDirection: 'row', gap: 10 },
   dot: { width: 10, height: 10, borderRadius: 999, marginTop: 7 },
+  bjtCard: {
+    backgroundColor: '#EAF3FF',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#B7D1F1',
+  },
+  bjtCardTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  bjtBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: '#D8E9FB',
+  },
+  bjtBadgeText: {
+    color: Colors.primaryDark,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  bjtTitle: {
+    marginTop: 12,
+    fontSize: 16,
+    fontWeight: '800',
+    color: Colors.primaryDark,
+  },
+  bjtDescription: {
+    marginTop: 6,
+    fontSize: 12,
+    lineHeight: 18,
+    color: Colors.textPrimary,
+  },
+  bjtHighlights: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 12,
+  },
+  bjtHighlight: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: Colors.white,
+    color: Colors.primaryDark,
+    fontSize: 11,
+    fontWeight: '700',
+  },
 });

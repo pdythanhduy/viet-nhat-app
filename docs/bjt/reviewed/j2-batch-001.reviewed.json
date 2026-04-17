@@ -1,0 +1,98 @@
+[
+  {
+    "id": "j2_listening_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Dieu phoi chuan bi thuyet trinh doi lich (J2)",
+    "reviewNotes": [
+      "Revised item now keeps schedule confirmation with the boss and leaves concrete preparation with the subordinate."
+    ]
+  },
+  {
+    "id": "j2_listening_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Doi nguoi tham du va dia diem hop (J2)",
+    "reviewNotes": [
+      "Two simultaneous changes are explicit and the correct first check covers both."
+    ]
+  },
+  {
+    "id": "j2_listening_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Thong bao doi han va bao cao trung gian (J2)",
+    "reviewNotes": [
+      "Role boundary and conditional escalation timing are both defensible."
+    ]
+  },
+  {
+    "id": "j2_listening_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Theo doi ba moc bao cao (J2)",
+    "reviewNotes": [
+      "Three-step timeline is clear and the prompt isolates today's task."
+    ]
+  },
+  {
+    "id": "j2_lr_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Phan cong xu ly A va B qua email (J2)",
+    "reviewNotes": [
+      "Email plus verbal instruction cleanly split ownership between the assistant and the boss."
+    ]
+  },
+  {
+    "id": "j2_lr_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Bien ban hop va chi dao mieng cap nhat (J2)",
+    "reviewNotes": [
+      "The boss's oral update clearly supersedes the minutes and creates two new deadlines."
+    ]
+  },
+  {
+    "id": "j2_lr_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Xac nhan nguoi tham gia truoc khi doi lich (J2)",
+    "reviewNotes": [
+      "Conditional order of actions is explicit and only one option preserves it."
+    ]
+  },
+  {
+    "id": "j2_lr_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Xac minh han nop chi phi tu hai nguon (J2)",
+    "reviewNotes": [
+      "The item appropriately rewards checking the official source before team-wide communication."
+    ]
+  },
+  {
+    "id": "j2_reading_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Chuan bi buoi gap doi tac co dieu kien (J2)",
+    "reviewNotes": [
+      "Long email extraction is solid and the communication channel split is clear."
+    ]
+  },
+  {
+    "id": "j2_reading_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Bao cao quy voi han leo thang kep (J2)",
+    "reviewNotes": [
+      "The dual Tuesday/Wednesday deadlines make the escalation logic suitably J2."
+    ]
+  },
+  {
+    "id": "j2_reading_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Phan biet quy trinh hien tai va thang sau (J2)",
+    "reviewNotes": [
+      "Current policy versus future policy is cleanly separated."
+    ]
+  },
+  {
+    "id": "j2_reading_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Chuoi han danh gia nhan su (J2)",
+    "reviewNotes": [
+      "The four-step administrative timeline is dense enough for J2 while still clear."
+    ]
+  }
+]

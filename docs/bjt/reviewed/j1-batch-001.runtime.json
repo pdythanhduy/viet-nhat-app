@@ -1,0 +1,206 @@
+[
+  {
+    "id": "j1_listening_001",
+    "level": "J1",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Gioi han noi dung cho tai lieu noi bo (J1)",
+    "situation": "あなたは営業企画担当です。部長が会議で次のように言いました。「来週の役員向け提案ですが、A社との共同案件は継続前提で説明します。ただし、最終契約はまだ法務確認中です。したがって、提案資料では期待効果は示して構いませんが、開始時期については断定しないでください。さらに、先方にこの資料をそのまま送ることは避け、社内説明用として扱ってください。」",
+    "prompt": "担当者が今すぐ取るべき対応として最も適切なものはどれですか？",
+    "options": [
+      "開始時期も含めて強い表現で資料を完成させ、役員の理解を優先する",
+      "期待効果を整理したうえで、開始時期は確定表現を避け、社内説明用の資料として準備する",
+      "法務確認が終わるまで資料作成を止める",
+      "先方にも同じ資料を共有し、認識をそろえておく"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chỉ thị có ba lớp: vẫn chuẩn bị đề xuất nội bộ, được nêu hiệu quả kỳ vọng, nhưng không được khẳng định thời điểm bắt đầu và không được gửi nguyên tài liệu đó cho đối tác. Phương án B phản ánh đúng cả ba điều kiện. A dùng diễn đạt quá mức. C dừng toàn bộ công việc là sai vì cấp trên vẫn yêu cầu chuẩn bị. D vi phạm giới hạn '社内説明用'."
+  },
+  {
+    "id": "j1_listening_002",
+    "level": "J1",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Tra loi doi tac khi chua the chac chan (J1)",
+    "situation": "あなたは法人営業の窓口です。取引先から電話がありました。「先週お願いした追加納品の件ですが、社内では今週金曜日着で調整済みとして動いています。もし難しいなら早めに言っていただきたいのですが、御社としては確約できますか。」 その後、課長が小声で『倉庫側はまだ確定を出していない。ここで約束しないで、でも相手を不安にさせすぎないように。』と言いました。",
+    "prompt": "この場で最も適切な返答はどれですか？",
+    "options": [
+      "金曜日着で問題ないと確約する",
+      "倉庫が未確定なので今回は対応できないと伝える",
+      "現時点では最終確認中であることを伝え、確認でき次第すぐに回答すると約束する",
+      "取引先側の見込み違いだと説明して、調整し直してもらう"
+    ],
+    "correctIndex": 2,
+    "explanation": "Ở đây phải giữ cân bằng giữa không hứa quá quyền hạn và không làm đối tác mất niềm tin. Phương án C là đáp án đúng vì vừa trung thực về trạng thái 'đang xác nhận cuối cùng', vừa hứa mốc phản hồi tiếp theo. A là cam kết quá sớm. B quá cứng khi chưa xác định là không thể. D đẩy trách nhiệm sang khách là phản ứng nghiệp vụ kém."
+  },
+  {
+    "id": "j1_listening_003",
+    "level": "J1",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Trinh bay loi ich va rui ro can bang (J1)",
+    "situation": "あなたは新サービス導入プロジェクトの責任者です。役員が次のように指示しました。「来月の発表では、導入効果を強調したい。ただし、現場の運用負荷について未確認の部分があるなら、そこを隠す必要はない。むしろ、想定リスクと対応策を整理したうえで説明してほしい。成功見込みだけを出すのではなく、判断材料として出してください。」",
+    "prompt": "責任者が準備すべき資料の方針として最も適切なのはどれですか？",
+    "options": [
+      "成功見込みを中心にまとめ、負荷やリスクの話は発表後の質疑で補う",
+      "導入効果を示しつつ、未確認の運用負荷はリスクと対応策を添えて判断材料として整理する",
+      "未確認事項があるため、導入効果の説明自体を削除する",
+      "現場の負荷だけを中心に資料を組み、導入効果には触れない"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chỉ đạo của lãnh đạo không yêu cầu né rủi ro, mà yêu cầu trình bày cân bằng: lợi ích, rủi ro chưa xác minh và phương án ứng phó để làm căn cứ ra quyết định. B đáp ứng đúng tinh thần đó. A thiên lệch quá mức. C và D đều bỏ mất một nửa yêu cầu."
+  },
+  {
+    "id": "j1_listening_004",
+    "level": "J1",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Thong bao ngoai le van hanh tang 5 (J1)",
+    "situation": "あなたは総務担当です。朝礼で管理部長が次のように伝えました。「今週の停電点検ですが、当初は全館停止の予定でした。しかし、5階のコールセンターは業務を止められないため、5階のみ非常電源へ切り替えて運用します。ただし、切替直後は回線が一時的に不安定になる可能性があります。したがって、5階には『業務継続可能』だけでなく、『切替直後は重要な案内を控える』ことまで周知してください。」",
+    "prompt": "総務担当が5階に伝える内容として最も適切なのはどれですか？",
+    "options": [
+      "5階は停電点検の対象外なので通常通り業務可能だとだけ伝える",
+      "5階は非常電源で業務継続可能だが、切替直後は回線不安定の恐れがあるため重要な案内を控えるよう伝える",
+      "停電点検中は5階も完全停止になるため、終日休止と伝える",
+      "回線の不安定さを避けるため、5階だけ別日に点検すると伝える"
+    ],
+    "correctIndex": 1,
+    "explanation": "Điểm khó là không chỉ truyền đạt 'vẫn hoạt động được', mà phải truyền đạt cả điều kiện kèm theo về rủi ro ngay sau chuyển đổi điện. B là đáp án duy nhất bao gồm đủ hai ý. A bỏ mất cảnh báo quan trọng. C và D trái với chỉ đạo."
+  },
+  {
+    "id": "j1_lr_001",
+    "level": "J1",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Rule sheet va chi dao sap tai lieu (J1)",
+    "situation": "[社内ルール]\n・対外説明資料は、法務確認前でも社内検討用としては作成可\n・社外送付は法務確認完了後のみ可\n・数値見込みを記載する場合、前提条件を明記すること\n\n[上司の発言]\n「来週の経営会議までにA社案件の説明資料をまとめてください。法務はまだ見ていますが、社内議論のための資料は必要です。なお、先方にも同時に送る案は一旦止めてください。数値を入れるなら、前提条件を書き忘れないように。」",
+    "prompt": "担当者が準備すべき資料として最も適切なものはどれですか？",
+    "options": [
+      "前提条件を付けずに数値見込みを入れ、経営会議と先方の双方に共有する資料",
+      "前提条件付きの数値見込みを含む社内議論用資料を作成し、社外送付は保留する",
+      "法務確認が終わるまで資料作成を止める",
+      "先方送付用のみを先に作り、経営会議資料は後回しにする"
+    ],
+    "correctIndex": 1,
+    "explanation": "Phải kết hợp cả rule sheet và chỉ thị miệng: được làm tài liệu nội bộ trước, chưa được gửi ra ngoài, và nếu có số liệu dự báo thì phải ghi rõ điều kiện tiền đề. B là phương án duy nhất đáp ứng đủ ba điểm."
+  },
+  {
+    "id": "j1_lr_002",
+    "level": "J1",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Bien ban hop va dieu kien cong bo FAQ (J1)",
+    "situation": "[会議メモ]\n・新システムの顧客向け案内開始：来月1日予定\n・営業資料更新：今月25日まで\n・FAQ最終版：広報確認後に公開\n\n[会議中の部長の補足]\n「案内開始日は現時点では来月1日想定で構いません。ただし、FAQは広報確認だけでなく法務の最終確認も終わるまで外に出さないでください。営業資料は予定通り25日までに更新してください。」",
+    "prompt": "この内容を踏まえた対応として最も適切なのはどれですか？",
+    "options": [
+      "FAQは広報確認後すぐ公開し、営業資料は来月に回す",
+      "営業資料は25日までに更新し、FAQは法務確認完了まで公開しない",
+      "案内開始日が未確定なので、営業資料の更新も止める",
+      "FAQを先に顧客へ送り、営業資料は後で修正する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Biên bản gốc chưa đủ, nhưng phát biểu bổ sung đã siết điều kiện FAQ: không chỉ chờ PR mà còn phải chờ pháp lý. Trong khi đó tài liệu sales vẫn giữ deadline cũ. B là phương án đúng; các phương án khác làm sai thứ tự hoặc làm sai điều kiện công bố."
+  },
+  {
+    "id": "j1_lr_003",
+    "level": "J1",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Nguong phe duyet theo tong chi phi thuc te (J1)",
+    "situation": "[承認ルール]\n・5万円未満：担当マネージャー承認\n・5万円以上20万円未満：部長承認\n・20万円以上：部長承認に加え、管理本部への事前共有が必要\n\n[電話の内容]\n「展示会の追加備品ですが、総額は18万円です。ただ、運搬費2万5千円が別請求になります。急ぎなので、先に備品だけ発注しても大丈夫でしょうか。」",
+    "prompt": "この問い合わせへの判断として最も適切なのはどれですか？",
+    "options": [
+      "備品本体だけ見れば18万円なので、部長承認だけで先に発注できる",
+      "総額としては20万円を超えるため、部長承認に加えて管理本部への共有が必要か確認して進める",
+      "運搬費は別請求なので承認対象外と考え、担当マネージャー承認で進める",
+      "急ぎ案件なので承認を飛ばして先に発注し、後で報告する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Điểm khó là phải nhìn bản chất tổng chi phí thay vì tách hóa đơn hình thức. 18万円 + 2.5万円 vượt ngưỡng 20万円, nên không thể chỉ xem phần thiết bị riêng lẻ. B là phương án đúng và an toàn nhất."
+  },
+  {
+    "id": "j1_lr_004",
+    "level": "J1",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Thong bao su co doi ngoai truoc khi duyet PR (J1)",
+    "situation": "[社内通知]\n・障害発生時の一次連絡は運用担当へ\n・顧客向け告知は広報文面承認後に配信\n・原因未確定の段階では、断定表現を避けること\n\n[上司の指示]\n「今回の障害は問い合わせが増えそうです。先に顧客向けのお知らせ文を準備してください。ただし、現時点では原因を断定しない表現にして、広報確認前に配信しないように。」",
+    "prompt": "この状況で担当者が進めるべき対応はどれですか？",
+    "options": [
+      "原因を推定で明記したうえで、早さを優先してすぐ配信する",
+      "原因は曖昧にせず明確に断定してから、広報確認後に配信する",
+      "断定表現を避けた顧客向け文面を準備し、広報確認後に配信できる状態にしておく",
+      "顧客向け文面は不要なので、運用担当への一次連絡だけ行う"
+    ],
+    "correctIndex": 2,
+    "explanation": "Vừa phải chuẩn bị nhanh, vừa phải tuân thủ hai điều kiện: không khẳng định nguyên nhân khi chưa rõ và không phát hành trước khi PR duyệt. C là đáp án duy nhất thỏa cả hai. A và B đều sai ở cách xử lý nguyên nhân hoặc timing phát hành. D bỏ qua chỉ thị trực tiếp của cấp trên."
+  },
+  {
+    "id": "j1_reading_001",
+    "level": "J1",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Tach muc da chot va dang cho xac nhan (J1)",
+    "situation": "あなたはプロジェクト推進担当です。部長から次のメールを受け取りました。\n\n件名：来週の取引先レビュー会議に向けた準備\n\n来週のレビュー会議では、開発進捗そのものよりも、未解決論点の扱い方を重視して説明したいと考えています。現時点で確定している内容と、まだ先方確認待ちの内容を明確に分けた資料にしてください。なお、先方確認待ちの論点については、見込みを記載しても構いませんが、確定事項のように読める表現は避けてください。会議前日までに資料を私へ送付し、当日の想定質問も別紙でまとめてください。",
+    "prompt": "このメールに基づく準備として最も適切なのはどれですか？",
+    "options": [
+      "未解決論点も確定事項と同じ強さで記載し、資料を前日までに部長へ送る",
+      "確定事項と確認待ち事項を分け、確認待ちには見込み表現を使い、想定質問を別紙で準備する",
+      "確認待ち事項は混乱を避けるため資料から削除する",
+      "資料だけ作成し、想定質問は会議後にまとめる"
+    ],
+    "correctIndex": 1,
+    "explanation": "Email yêu cầu rất rõ ba điểm: tách phần đã chắc với phần đang chờ xác nhận, phần chờ xác nhận có thể ghi dự kiến nhưng không được đọc như đã chốt, và chuẩn bị thêm bản câu hỏi dự kiến. B là đáp án duy nhất đáp ứng đủ."
+  },
+  {
+    "id": "j1_reading_002",
+    "level": "J1",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Memo dau tu can bang loi ich va bat dinh (J1)",
+    "situation": "あなたは事業企画マネージャーです。経営層向けメモには次のように書かれています。\n\n第4四半期の新規投資案については、収益性だけでなく、回収時期の不確実性も併せて示すこと。特に、前提とする市場成長率が変動した場合の影響は、注記ではなく本文中で扱うこと。なお、最終判断は次回会議で行うが、今回は『進めるべき理由』と『慎重に見るべき点』の両方を整理した中間共有とする。",
+    "prompt": "このメモに沿った資料方針として最も適切なものはどれですか？",
+    "options": [
+      "投資を進めるべき理由に絞ってまとめ、不確実性は注記だけに入れる",
+      "収益性と回収時期の不確実性を本文で併記し、推進理由と慎重論点の両方を整理する",
+      "不確実性があるため、収益性の説明はせずにリスクだけをまとめる",
+      "今回は中間共有なので、最終判断に必要な論点は省略する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Memo yêu cầu một tài liệu cân bằng cho buổi chia sẻ trung gian: phải có cả lợi ích và điểm cần thận trọng, và độ bất định về thời điểm hoàn vốn phải nằm ngay trong phần chính. B đáp ứng đúng. A, C, D đều bỏ mất một phần mục tiêu."
+  },
+  {
+    "id": "j1_reading_003",
+    "level": "J1",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Quy dinh phe duyet tai lieu doi ngoai (J1)",
+    "situation": "社内掲示に次のような通知がありました。\n\n【外部登壇資料の取扱いについて】\n今後、対外イベントで使用する発表資料は、事業部確認・広報確認・法務確認の順で承認を得てください。ただし、事業部確認後であっても、未公開の数値や未発表案件を含む資料は広報確認前に社外共有してはいけません。また、法務確認前に登壇練習用として社内配布することは可能ですが、その際も『社外転送禁止』の明記を必須とします。",
+    "prompt": "この通知の理解として正しいものはどれですか？",
+    "options": [
+      "事業部確認が終われば、未公開数値を含んでいても登壇先に先に送ってよい",
+      "法務確認前でも社内練習用に配布できるが、社外転送禁止の明記が必要である",
+      "広報確認が終われば法務確認なしで登壇資料として確定できる",
+      "未公開案件を含む資料は社内でも一切配布してはいけない"
+    ],
+    "correctIndex": 1,
+    "explanation": "Thông báo phân biệt rất rõ hai việc: chia sẻ nội bộ để tập là được phép trước pháp lý, nhưng phải ghi cấm chuyển ra ngoài; còn chia sẻ ra ngoài thì phải qua đúng chuỗi duyệt và có thêm hạn chế với số liệu chưa công bố. B là cách hiểu đúng nhất."
+  },
+  {
+    "id": "j1_reading_004",
+    "level": "J1",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Sap lai thu tu de xuat cho A sha (J1)",
+    "situation": "あなたは海外営業チームのサブリーダーです。部長から次のメールを受け取りました。\n\n件名：A社向け提案再整理の件\n\nA社向け提案ですが、価格条件だけで押すのではなく、導入後の運用体制まで含めて再整理してください。先方は価格にも敏感ですが、最近は『導入後に誰がどこまで支援するのか』を気にしています。したがって、次回提案では、価格案を前面に出すのではなく、運用体制・移行支援・費用条件の順で説明したいと思います。なお、費用条件は現時点で暫定案ですので、社内レビュー用資料では記載して構いませんが、対外版に転記する際は承認後の数値に差し替えてください。",
+    "prompt": "このメールを踏まえた次回提案準備として最も適切なのはどれですか？",
+    "options": [
+      "価格案を中心にした対外版をすぐ作り、承認前の数値もそのまま載せる",
+      "社内レビュー用では暫定費用を含めつつ、提案構成は運用体制・移行支援・費用条件の順で整理する",
+      "先方が価格に敏感なので、運用体制の説明は削り価格だけを詳しくする",
+      "費用条件が暫定なので、次回提案自体を延期する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Điểm mấu chốt là sếp đã đổi thứ tự ưu tiên của đề xuất và cũng tách rõ bản nội bộ với bản đối ngoại. B phản ánh đúng cả cấu trúc trình bày mới lẫn cách xử lý số liệu tạm thời. A vi phạm rule về số liệu chưa duyệt. C đi ngược định hướng. D dừng cả đề xuất là quá mức."
+  }
+]
