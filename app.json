@@ -16,7 +16,7 @@
       "bundleIdentifier": "com.thanhduy.camnangvietnhat",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
-        "NSUserNotificationsUsageDescription": "Ứng dụng gửi nhắc nhở khi giấy tờ quan trọng như thẻ cư trú, bảo hiểm hoặc hộ chiếu sắp hết hạn."
+        "NSUserNotificationsUsageDescription": "Ứng dụng dùng thông báo để nhắc ngày quan trọng như giấy tờ sắp hết hạn, deadline thủ tục, và nhắc học theo lựa chọn của bạn."
       }
     },
     "android": {

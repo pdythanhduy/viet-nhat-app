@@ -37,7 +37,7 @@ const DIFFICULTY_LABELS = {
 } as const;
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
-  all: 'Tat ca',
+  all: 'Tất cả',
   J5: 'J5',
   J4: 'J4',
   J3: 'J3',
@@ -198,7 +198,7 @@ export default function BJTMockTestScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.center}>
-          <Text style={styles.emptyText}>Chua co du cau hoi de tao mock cho level nay.</Text>
+          <Text style={styles.emptyText}>Chưa có đủ câu hỏi để tạo mock cho level này.</Text>
         </View>
       </SafeAreaView>
     );
@@ -210,12 +210,12 @@ export default function BJTMockTestScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView style={styles.container} contentContainerStyle={styles.summaryContent}>
-          <Text style={styles.summaryTitle}>Ket qua Mock Test</Text>
+          <Text style={styles.summaryTitle}>Kết quả Mock Test</Text>
           <Text style={styles.summarySub}>
-            {score}/{questions.length} cau dung
+            {score}/{questions.length} câu đúng
           </Text>
           <Text style={styles.summaryPercent}>{percent}%</Text>
-          <Text style={styles.summaryNote}>Level tap trung: {LEVEL_LABELS[level]}</Text>
+          <Text style={styles.summaryNote}>Level tập trung: {LEVEL_LABELS[level]}</Text>
 
           <View style={styles.statsGrid}>
             {([
@@ -234,7 +234,7 @@ export default function BJTMockTestScreen() {
 
           {wrongQuestions.length > 0 ? (
             <View style={styles.reviewCard}>
-              <Text style={styles.reviewTitle}>Can xem lai</Text>
+              <Text style={styles.reviewTitle}>Cần xem lại</Text>
               {wrongQuestions.map((question) => (
                 <View key={question.id} style={styles.reviewItem}>
                   <Text style={styles.reviewSkill}>
@@ -248,7 +248,7 @@ export default function BJTMockTestScreen() {
           ) : null}
 
           <TouchableOpacity style={styles.primaryButton} onPress={() => reset()}>
-            <Text style={styles.primaryButtonText}>Lam lai mock</Text>
+            <Text style={styles.primaryButtonText}>Làm lại mock</Text>
           </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
@@ -270,7 +270,7 @@ export default function BJTMockTestScreen() {
           <View>
             <Text style={styles.title}>BJT Timed Mock</Text>
             <Text style={styles.subtitle}>
-              Mock co timer va chon cau theo level. Mac dinh dang tap trung vao J3.
+              Mock có timer và chọn câu theo level. Mặc định đang tập trung vào J3.
             </Text>
           </View>
           <View style={[styles.timerCard, timeLeft <= 60 && styles.timerCardDanger]}>
@@ -305,7 +305,7 @@ export default function BJTMockTestScreen() {
         <View style={styles.noticeCard}>
           <Ionicons name="information-circle-outline" size={18} color={Colors.primary} />
           <Text style={styles.noticeText}>
-            Day la mock noi bo theo huong BJT. Neu level dang chon khong du cau trong mot skill, app se top-up bang cau cung skill tu bank hien co.
+            Đây là mock nội bộ theo hướng BJT. Nếu level đang chọn không đủ câu trong một skill, app sẽ top-up bằng câu cùng skill từ bank hiện có.
           </Text>
         </View>
 
@@ -313,17 +313,17 @@ export default function BJTMockTestScreen() {
           <View style={styles.noticeCard}>
             <Ionicons name="pulse-outline" size={18} color={Colors.primary} />
             <Text style={styles.noticeText}>
-              Adaptive mock dang tang trong so cho skill yeu nhat: {adaptiveSkill}.
+              Adaptive mock đang tăng trọng số cho skill yếu nhất: {adaptiveSkill}.
             </Text>
           </View>
         ) : null}
 
         <View style={styles.counterRow}>
           <Text style={styles.counter}>
-            Cau {currentIndex + 1} / {questions.length}
+            Câu {currentIndex + 1} / {questions.length}
           </Text>
           <Text style={styles.counter}>
-            {LEVEL_LABELS[level]} · Dung: {score}
+            {LEVEL_LABELS[level]} · Đúng: {score}
           </Text>
         </View>
 
@@ -387,7 +387,7 @@ export default function BJTMockTestScreen() {
 
         {answered ? (
           <View style={styles.explanationCard}>
-            <Text style={styles.explanationTitle}>Giai thich</Text>
+            <Text style={styles.explanationTitle}>Giải thích</Text>
             <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
           </View>
         ) : null}
@@ -428,7 +428,7 @@ export default function BJTMockTestScreen() {
             }}
           >
             <Text style={styles.primaryButtonText}>
-              {currentIndex + 1 >= questions.length ? 'Xem ket qua' : 'Cau tiep theo'}
+              {currentIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo'}
             </Text>
           </TouchableOpacity>
         ) : null}

@@ -1,6 +1,6 @@
 # Store Metadata Draft
 
-Last updated: 2026-04-11
+Last updated: 2026-04-17
 
 Use this as the working draft for App Store Connect and Google Play Console.
 
@@ -12,6 +12,7 @@ Alternative:
 
 - `Việt-Nhật`
 - `Viet Nhat Guide`
+- `Cẩm Nang Việt Nhật`
 
 Recommended default:
 
@@ -19,7 +20,7 @@ Recommended default:
 
 ## One-line Positioning
 
-Ứng dụng hướng dẫn thực tế cho người Việt đang sống tại Nhật.
+Ứng dụng hướng dẫn thực tế cho người Việt sống tại Nhật.
 
 ## App Store Subtitle Draft
 
@@ -27,7 +28,7 @@ Thủ tục, đời sống, việc làm tại Nhật
 
 ## Google Play Short Description Draft
 
-Hướng dẫn thực tế cho người Việt tại Nhật: thủ tục, việc làm, thuế, nenkin và đời sống.
+Hướng dẫn thực tế cho người Việt tại Nhật: thủ tục, việc làm, thuế, nenkin, đời sống và học tiếng Nhật.
 
 ## Full Description Draft
 
@@ -42,6 +43,7 @@ Hướng dẫn thực tế cho người Việt tại Nhật: thủ tục, việc
 - nhà ở, ngân hàng, chuyển tiền
 - gia đình, sinh con, con nhỏ
 - tiếng Nhật cơ bản theo tình huống thực tế
+- luyện BJT-style ở mức hỗ trợ học tập
 
 Các điểm chính:
 
@@ -51,6 +53,7 @@ Các điểm chính:
 - lưu bookmark, tiến độ checklist và dữ liệu cá nhân ngay trên máy
 - nhắc ngày quan trọng bằng local notifications
 - AI chat là tính năng tùy chọn khi người dùng tự nhập API key của mình
+- có module học tiếng Nhật và luyện BJT-style để hỗ trợ thực tế
 
 Phù hợp cho:
 
@@ -63,13 +66,15 @@ Lưu ý:
 
 - Nội dung trong app mang tính chất thông tin và hướng dẫn thực tế.
 - Với các quyết định quan trọng liên quan đến visa, thuế, y tế, lao động hoặc hồ sơ cá nhân, người dùng vẫn nên đối chiếu lại với nguồn chính thức.
+- Module BJT là nội dung tự biên soạn theo hướng BJT-style, không phải bộ đề thi chính thức.
 
 ## Suggested Feature Bullets For Store Listing
 
 - Thủ tục hành chính và visa cập nhật
-- Quyền lợi lao động, thuế, nenkin, bảo hiểm
+- Quyền lợi lao động, thuế và nenkin dễ tra cứu
 - Hướng dẫn đời sống ở Nhật theo tình huống thật
 - Checklist, bookmark và nhắc hạn ngay trên máy
+- Học tiếng Nhật cơ bản và luyện BJT-style
 - AI chat tùy chọn với API key do người dùng tự nhập
 
 ## Keywords Draft (App Store)
@@ -117,12 +122,14 @@ Important notes for review:
 3. The app does not create AI accounts and does not sell API keys.
 4. The API key is stored locally on device using secure storage.
 5. Prompts are sent directly from the app to Anthropic using the user-provided key.
-6. The app uses local reminder notifications only.
+6. The app uses local notifications only.
+7. The BJT module contains original BJT-style practice content only.
 
 ## Suggested Screenshot Captions
 
-- Thủ tục và visa theo tình huống thật
-- Quyền lợi lao động, thuế và nenkin dễ tra cứu
-- Cuộc sống hằng ngày tại Nhật, viết gọn và dễ làm theo
+- Thủ tục và visa theo tình huống thực tế
+- Lao động, thuế và nenkin dễ tra cứu
+- Đời sống tại Nhật, gợi ý rõ và dễ làm theo
 - Checklist và ngày quan trọng lưu ngay trên máy
-- Tiếng Nhật cơ bản để dùng ngay trong đời sống
+- Tiếng Nhật cơ bản dùng trong đời sống
+- BJT-style practice cho người học định hướng công việc

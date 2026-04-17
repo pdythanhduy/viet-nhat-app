@@ -16,7 +16,7 @@ import {
 } from '../utils/bjtQuestionLevels';
 
 const FILTERS = [
-  { id: 'all', label: 'Tat ca' },
+  { id: 'all', label: 'Tất cả' },
   { id: 'listening', label: 'Listening' },
   { id: 'listening-reading', label: 'Listen + Read' },
   { id: 'reading', label: 'Reading' },
@@ -31,7 +31,7 @@ const DIFFICULTY_LABELS = {
 } as const;
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
-  all: 'Tat ca',
+  all: 'Tất cả',
   J5: 'J5',
   J4: 'J4',
   J3: 'J3',
@@ -128,7 +128,7 @@ export default function BJTQuizScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.center}>
-          <Text style={styles.emptyText}>Chua co cau hoi cho level nay.</Text>
+          <Text style={styles.emptyText}>Chưa có câu hỏi cho level này.</Text>
         </View>
       </SafeAreaView>
     );
@@ -140,16 +140,16 @@ export default function BJTQuizScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
-          <Text style={styles.summaryTitle}>Hoan thanh BJT Practice</Text>
+          <Text style={styles.summaryTitle}>Hoàn thành BJT Practice</Text>
           <Text style={styles.summarySub}>
-            {score}/{questions.length} cau dung
+            {score}/{questions.length} câu đúng
           </Text>
           <Text style={styles.summaryPercent}>{percent}%</Text>
           <Text style={styles.summaryNote}>
-            Level tap trung: {LEVEL_LABELS[level]}. Bo cau hoi nay la noi dung tu bien soan theo huong BJT.
+            Level tập trung: {LEVEL_LABELS[level]}. Bộ câu hỏi này là nội dung tự biên soạn theo hướng BJT.
           </Text>
           <TouchableOpacity style={styles.primaryButton} onPress={() => reset()}>
-            <Text style={styles.primaryButtonText}>Lam lai</Text>
+            <Text style={styles.primaryButtonText}>Làm lại</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -169,14 +169,14 @@ export default function BJTQuizScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>BJT Scenario Practice</Text>
         <Text style={styles.subtitle}>
-          Luyen theo tung skill va tung level. Mac dinh dang uu tien J3 de bam vao batch da duoc review ky.
+          Luyện theo từng skill và từng level. Mặc định đang ưu tiên J3 để bám vào batch đã được review kỹ.
         </Text>
 
         {filter === 'all' && adaptiveSkill ? (
           <View style={styles.infoCard}>
             <Ionicons name="pulse-outline" size={16} color={Colors.primary} />
             <Text style={styles.infoText}>
-              Adaptive focus dang uu tien skill yeu nhat: {adaptiveSkill}.
+              Adaptive focus đang ưu tiên skill yếu nhất: {adaptiveSkill}.
             </Text>
           </View>
         ) : null}
@@ -215,10 +215,10 @@ export default function BJTQuizScreen() {
 
         <View style={styles.counterRow}>
           <Text style={styles.counter}>
-            Cau {currentIndex + 1} / {questions.length}
+            Câu {currentIndex + 1} / {questions.length}
           </Text>
           <Text style={styles.counter}>
-            {LEVEL_LABELS[level]} · {score} dung
+            {LEVEL_LABELS[level]} · {score} đúng
           </Text>
         </View>
 
@@ -279,7 +279,7 @@ export default function BJTQuizScreen() {
 
         {answered ? (
           <View style={styles.explanationCard}>
-            <Text style={styles.explanationTitle}>Giai thich</Text>
+            <Text style={styles.explanationTitle}>Giải thích</Text>
             <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
           </View>
         ) : null}
@@ -317,7 +317,7 @@ export default function BJTQuizScreen() {
             }}
           >
             <Text style={styles.primaryButtonText}>
-              {currentIndex + 1 >= questions.length ? 'Xem ket qua' : 'Cau tiep theo'}
+              {currentIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo'}
             </Text>
           </TouchableOpacity>
         ) : null}

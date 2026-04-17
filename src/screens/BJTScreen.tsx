@@ -9,7 +9,6 @@ import { Colors } from '../constants/colors';
 import {
   BJT_LEVEL_BANDS,
   BJT_OVERVIEW,
-  BJT_PIPELINE_BATCHES,
   BJT_PRACTICE_QUESTIONS,
   BJT_QUESTION_TYPES,
   BJT_STUDY_MODULES,
@@ -17,9 +16,6 @@ import {
 } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { BjtTargetLevel, filterBjtQuestionsByLevel, getAvailableBjtLevels } from '../utils/bjtQuestionLevels';
-import { getBjtCoverageSummary } from '../utils/bjtQuestionCoverage';
-import { getBjtPipelineStage, getBjtPipelineSummary } from '../utils/bjtPipeline';
-import { buildClaudePromptForGapAction, getBjtPipelineGapActions } from '../utils/bjtPipelineGaps';
 import { BjtSkill, getBjtLevelSnapshot, loadBjtProgress } from '../utils/bjtProgress';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -46,49 +42,43 @@ const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
   'J1+': 'J1+',
 };
 
-const PIPELINE_STAGE_LABELS = {
-  raw: 'Raw',
-  reviewed: 'Reviewed',
-  'runtime-imported': 'Imported',
-} as const;
-
 const LEVEL_GUIDANCE: Record<
   Exclude<BjtTargetLevel, 'all'>,
   { title: string; description: string; actionLabel: string; route: 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest' }
 > = {
   J5: {
     title: 'Build base business Japanese',
-    description: 'Tap trung vao tu vung cong so co ban va tinh huong ngan, ro hanh dong.',
+    description: 'Tập trung vào từ vựng công sở cơ bản và tình huống ngắn, rõ hành động.',
     actionLabel: 'Open vocabulary',
     route: 'BJTVocabulary',
   },
   J4: {
-    title: 'Cung co routine workplace',
-    description: 'On lai email, memo, lich hop va deadline de quen flow xu ly business.',
+    title: 'Củng cố routine workplace',
+    description: 'Ôn lại email, memo, lịch họp và deadline để quen flow xử lý business.',
     actionLabel: 'Practice vocabulary',
     route: 'BJTVocabulary',
   },
   J3: {
     title: 'Train common office decisions',
-    description: 'J3 can xu ly thay doi lich, thong bao noi bo va quyet dinh cong viec quen thuoc.',
+    description: 'J3 cần xử lý thay đổi lịch, thông báo nội bộ và quyết định công việc quen thuộc.',
     actionLabel: 'Start J3 practice',
     route: 'BJTQuiz',
   },
   J2: {
     title: 'Handle denser business context',
-    description: 'Tang kha nang doi chieu thong tin, uu tien hanh dong va nhan ra sac thai lich su.',
+    description: 'Tăng khả năng đối chiếu thông tin, ưu tiên hành động và nhận ra sắc thái lịch sự.',
     actionLabel: 'Run J2 mock',
     route: 'BJTMockTest',
   },
   J1: {
     title: 'Push to advanced judgment',
-    description: 'Tap trung vao tinh huong nhieu dieu kien, nhieu vai tro va phan ung dung.',
+    description: 'Tập trung vào tình huống nhiều điều kiện, nhiều vai trò và phản ứng đúng.',
     actionLabel: 'Run J1 mock',
     route: 'BJTMockTest',
   },
   'J1+': {
     title: 'Practice top-end reasoning',
-    description: 'On dang bai phuc tap, nhieu lop thong tin va quyet dinh chat che duoi ap luc thoi gian.',
+    description: 'Ôn dạng bài phức tạp, nhiều lớp thông tin và quyết định chặt chẽ dưới áp lực thời gian.',
     actionLabel: 'Run top-level mock',
     route: 'BJTMockTest',
   },
@@ -99,20 +89,20 @@ const SKILL_RECOMMENDATIONS: Record<
   { title: string; description: string; actionLabel: string; route: 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest' }
 > = {
   listening: {
-    title: 'Tang toc do nghe tinh huong ngan',
-    description: 'Tap trung vao key point, moc thoi gian va hanh dong can lam sau cuoc goi hoac trao doi ngan.',
+    title: 'Tăng tốc độ nghe tình huống ngắn',
+    description: 'Tập trung vào key point, mốc thời gian và hành động cần làm sau cuộc gọi hoặc trao đổi ngắn.',
     actionLabel: 'Open Scenario Practice',
     route: 'BJTQuiz',
   },
   'listening-reading': {
-    title: 'Luyen doi chieu nghe va doc',
-    description: 'Can on dang email, memo, lich va thong bao co thong tin cap nhat tu nhieu nguon.',
+    title: 'Luyện đối chiếu nghe và đọc',
+    description: 'Cần ôn dạng email, memo, lịch và thông báo có thông tin cập nhật từ nhiều nguồn.',
     actionLabel: 'Open Timed Mock',
     route: 'BJTMockTest',
   },
   reading: {
-    title: 'Tang toc do doc business text',
-    description: 'Can luyen email, thong bao va quy trinh ngan de rut ra hanh dong dung.',
+    title: 'Tăng tốc độ đọc business text',
+    description: 'Cần luyện email, thông báo và quy trình ngắn để rút ra hành động đúng.',
     actionLabel: 'Open Vocabulary Pack',
     route: 'BJTVocabulary',
   },
@@ -139,29 +129,10 @@ export default function BJTScreen() {
   );
 
   const availableLevels = React.useMemo(() => getAvailableBjtLevels(BJT_PRACTICE_QUESTIONS), []);
-  const pipelineSummary = React.useMemo(() => getBjtPipelineSummary(BJT_PIPELINE_BATCHES), []);
-  const pipelineBatches = React.useMemo(
-    () => BJT_PIPELINE_BATCHES.filter((batch) => targetLevel === 'all' || batch.level === targetLevel),
-    [targetLevel]
-  );
   const levelQuestions = React.useMemo(
     () => filterBjtQuestionsByLevel(BJT_PRACTICE_QUESTIONS, targetLevel),
     [targetLevel]
   );
-  const coverage = React.useMemo(
-    () => getBjtCoverageSummary(BJT_PRACTICE_QUESTIONS, targetLevel),
-    [targetLevel]
-  );
-  const pipelineGapActions = React.useMemo(
-    () =>
-      getBjtPipelineGapActions({
-        level: targetLevel,
-        coverage,
-        batches: pipelineBatches,
-      }),
-    [coverage, pipelineBatches, targetLevel]
-  );
-  const recommendation = progress?.weakestSkill ? SKILL_RECOMMENDATIONS[progress.weakestSkill] : null;
   const levelGuidance = targetLevel === 'all' ? null : LEVEL_GUIDANCE[targetLevel];
   const levelSnapshot = React.useMemo(
     () => (progress ? getBjtLevelSnapshot(progress, targetLevel) : null),
@@ -223,19 +194,19 @@ export default function BJTScreen() {
               navigation.navigate('AIChat', {
                 title: 'BJT Coach',
                 prefilledQuestion:
-                  'Hay dong vai BJT coach. Lap cho toi mot buoi luyen 20 phut gom 5 tu business, 1 doan nghe ngan, 1 email ngan va giai thich dap an bang tieng Viet.',
+                  'Hãy đóng vai BJT coach. Lập cho tôi một buổi luyện 20 phút gồm 5 từ business, 1 đoạn nghe ngắn, 1 email ngắn và giải thích đáp án bằng tiếng Việt.',
               })
             }
           >
             <Ionicons name="sparkles-outline" size={18} color={Colors.white} />
-            <Text style={styles.primaryButtonText}>Hoc voi AI Coach</Text>
+            <Text style={styles.primaryButtonText}>Học với AI Coach</Text>
           </TouchableOpacity>
         </View>
 
         <Section title="Target Level">
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>Chon muc tieu hien tai</Text>
-            <Text style={styles.bodyText}>Recommendation, scenario va mock se uu tien theo level ban chon.</Text>
+            <Text style={styles.cardTitle}>Chọn mục tiêu hiện tại</Text>
+            <Text style={styles.bodyText}>Recommendation, scenario và mock sẽ ưu tiên theo level bạn chọn.</Text>
             <View style={styles.chipRow}>
               {availableLevels.map((level) => {
                 const active = level === targetLevel;
@@ -261,7 +232,7 @@ export default function BJTScreen() {
               <Text style={styles.bodyText}>
                 {levelGuidance
                   ? levelGuidance.description
-                  : 'Dung khi muon on rong toan bo question bank truoc khi chot muc tieu cu the.'}
+                  : 'Dùng khi muốn ôn rộng toàn bộ question bank trước khi chốt mục tiêu cụ thể.'}
               </Text>
               {levelGuidance ? (
                 <TouchableOpacity style={styles.primaryPill} onPress={() => openRoute(levelGuidance.route)}>
@@ -272,141 +243,10 @@ export default function BJTScreen() {
           </View>
         </Section>
 
-        <Section title="Question Bank Coverage">
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Coverage for {LEVEL_LABELS[targetLevel]}</Text>
-            <Text style={styles.bodyText}>
-              Dung bang nay de biet level hien tai dang thieu data o skill hay difficulty nao truoc khi tiep tuc nho Claude bo sung.
-            </Text>
-            <View style={styles.coverageGrid}>
-              <View style={styles.coverageCard}>
-                <Text style={styles.coverageTitle}>By skill</Text>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Listening</Text>
-                  <Text style={styles.summaryValue}>{coverage.bySkill.listening}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Listen + Read</Text>
-                  <Text style={styles.summaryValue}>{coverage.bySkill['listening-reading']}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Reading</Text>
-                  <Text style={styles.summaryValue}>{coverage.bySkill.reading}</Text>
-                </View>
-              </View>
-              <View style={styles.coverageCard}>
-                <Text style={styles.coverageTitle}>By difficulty</Text>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Basic</Text>
-                  <Text style={styles.summaryValue}>{coverage.byDifficulty.basic}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Intermediate</Text>
-                  <Text style={styles.summaryValue}>{coverage.byDifficulty.intermediate}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Advanced</Text>
-                  <Text style={styles.summaryValue}>{coverage.byDifficulty.advanced}</Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.innerCard}>
-              <Text style={styles.cardTitle}>Current gap signal</Text>
-              <Text style={styles.bodyText}>
-                Skill it cau nhat: {Object.entries(coverage.bySkill).sort((a, b) => a[1] - b[1])[0]?.[0] ?? 'n/a'}.
-              </Text>
-              <Text style={styles.bodyText}>
-                Difficulty it cau nhat: {Object.entries(coverage.byDifficulty).sort((a, b) => a[1] - b[1])[0]?.[0] ?? 'n/a'}.
-              </Text>
-            </View>
-          </View>
-        </Section>
-
-        <Section title="Import Pipeline">
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Batch status</Text>
-            <Text style={styles.bodyText}>
-              Dashboard nay cho biet batch nao moi o raw, batch nao da reviewed, va batch nao da import vao runtime.
-            </Text>
-            <View style={styles.coverageGrid}>
-              <View style={styles.coverageCard}>
-                <Text style={styles.coverageTitle}>Overall</Text>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Total batches</Text>
-                  <Text style={styles.summaryValue}>{pipelineSummary.totalBatches}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Imported batches</Text>
-                  <Text style={styles.summaryValue}>{pipelineSummary.runtimeImportedBatches}</Text>
-                </View>
-                <View style={styles.coverageRow}>
-                  <Text style={styles.summaryLabel}>Imported questions</Text>
-                  <Text style={styles.summaryValue}>{pipelineSummary.importedQuestions}</Text>
-                </View>
-              </View>
-            </View>
-            {pipelineBatches.map((batch) => {
-              const stage = getBjtPipelineStage(batch);
-              return (
-                <View key={batch.id} style={styles.innerCard}>
-                  <View style={styles.coverageRow}>
-                    <Text style={styles.cardTitle}>{batch.label}</Text>
-                    <Text style={styles.summaryValue}>{PIPELINE_STAGE_LABELS[stage]}</Text>
-                  </View>
-                  <Text style={styles.bodyText}>Level: {batch.level}</Text>
-                  <Text style={styles.bodyText}>Raw: {batch.rawFile}</Text>
-                  <Text style={styles.bodyText}>
-                    Reviewed: {batch.reviewedFile ?? 'Chua co reviewed manifest'}
-                  </Text>
-                  <Text style={styles.bodyText}>
-                    Runtime: {batch.runtimeFile ?? 'Chua co runtime file'}
-                  </Text>
-                  <Text style={styles.bodyText}>
-                    Imported question count: {batch.importedQuestionIds.length}
-                  </Text>
-                </View>
-              );
-            })}
-            <View style={styles.innerCard}>
-              <Text style={styles.cardTitle}>Next data actions</Text>
-              {pipelineGapActions.length > 0 ? (
-                pipelineGapActions.map((action) => (
-                  <View key={action.id} style={styles.bulletRow}>
-                    <Ionicons
-                      name={action.severity === 'high' ? 'alert-circle' : 'ellipse-outline'}
-                      size={16}
-                      color={action.severity === 'high' ? Colors.warning : Colors.textMuted}
-                    />
-                    <View style={styles.flex}>
-                      <Text style={styles.cardTitle}>{action.title}</Text>
-                      <Text style={styles.bodyText}>{action.detail}</Text>
-                      <TouchableOpacity
-                        style={styles.secondaryPill}
-                        onPress={() =>
-                          navigation.navigate('AIChat', {
-                            title: 'Claude Prompt Builder',
-                            prefilledQuestion: buildClaudePromptForGapAction(action, targetLevel),
-                          })
-                        }
-                      >
-                        <Text style={styles.secondaryPillText}>Open Claude prompt</Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                ))
-              ) : (
-                <Text style={styles.bodyText}>
-                  Chua co gap lon cho level nay. Co the tiep tuc mo rong coverage mot cach can bang.
-                </Text>
-              )}
-            </View>
-          </View>
-        </Section>
-
-        <Section title="Tien do BJT">
+        <Section title="Tiến độ BJT">
           <View style={styles.grid}>
             <View style={styles.metricCard}>
-              <Text style={styles.metricLabel}>Tu da on</Text>
+              <Text style={styles.metricLabel}>Từ đã ôn</Text>
               <Text style={styles.metricValue}>{progress?.totalVocabularyReviewed ?? 0}</Text>
             </View>
             <View style={styles.metricCard}>
@@ -420,15 +260,15 @@ export default function BJTScreen() {
             <View style={styles.metricCard}>
               <Text style={styles.metricLabel}>Weakest skill</Text>
               <Text style={styles.metricValueSmall}>
-                {progress?.weakestSkill ? SKILL_TITLES[progress.weakestSkill] : 'Chua co'}
+                {progress?.weakestSkill ? SKILL_TITLES[progress.weakestSkill] : 'Chưa có'}
               </Text>
             </View>
           </View>
           {activeLastMock ? (
             <View style={styles.card}>
-              <Text style={styles.cardTitle}>Mock gan nhat</Text>
+              <Text style={styles.cardTitle}>Mock gần nhất</Text>
               <Text style={styles.bodyText}>
-                {activeLastMock.score}/{activeLastMock.total} dung, {activeLastMock.percent}%
+                {activeLastMock.score}/{activeLastMock.total} đúng, {activeLastMock.percent}%
               </Text>
             </View>
           ) : null}
@@ -437,25 +277,26 @@ export default function BJTScreen() {
               <Text style={styles.cardTitle}>Scenario accuracy</Text>
               <Text style={styles.bodyText}>
                 {levelSnapshot?.totalScenarioCorrect ?? progress?.totalScenarioCorrect}/
-                {levelSnapshot?.totalScenarioQuestionsAnswered ?? progress?.totalScenarioQuestionsAnswered} dung, {activeScenarioAccuracy}%
+                {levelSnapshot?.totalScenarioQuestionsAnswered ?? progress?.totalScenarioQuestionsAnswered} đúng,{' '}
+                {activeScenarioAccuracy}%
               </Text>
             </View>
           ) : null}
         </Section>
 
-        <Section title="Xu huong gan day">
+        <Section title="Xu hướng gần đây">
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Scenario sessions</Text>
             {recentScenario.length > 0 ? (
               recentScenario.map((item) => (
                 <View key={item.completedAt} style={styles.trendRow}>
                   <Text style={styles.trendDate}>{formatSessionDate(item.completedAt)}</Text>
-                  <Text style={styles.trendValue}>{item.correct}/{item.answered} dung</Text>
+                  <Text style={styles.trendValue}>{item.correct}/{item.answered} đúng</Text>
                   <Text style={styles.trendPercent}>{item.percent}%</Text>
                 </View>
               ))
             ) : (
-              <Text style={styles.bodyText}>Chua co session scenario nao.</Text>
+              <Text style={styles.bodyText}>Chưa có session scenario nào.</Text>
             )}
           </View>
           <View style={styles.card}>
@@ -464,17 +305,17 @@ export default function BJTScreen() {
               recentMocks.map((item) => (
                 <View key={item.completedAt} style={styles.trendRow}>
                   <Text style={styles.trendDate}>{formatSessionDate(item.completedAt)}</Text>
-                  <Text style={styles.trendValue}>{item.score}/{item.total} dung</Text>
+                  <Text style={styles.trendValue}>{item.score}/{item.total} đúng</Text>
                   <Text style={styles.trendPercent}>{item.percent}%</Text>
                 </View>
               ))
             ) : (
-              <Text style={styles.bodyText}>Chua co mock nao.</Text>
+              <Text style={styles.bodyText}>Chưa có mock nào.</Text>
             )}
           </View>
         </Section>
 
-        <Section title="Nen lam gi tiep theo">
+        <Section title="Nên làm gì tiếp theo">
           <View style={styles.card}>
             {levelRecommendation ? (
               <>
@@ -495,9 +336,9 @@ export default function BJTScreen() {
               </>
             ) : (
               <>
-                <Text style={styles.cardTitle}>Bat dau tu nen tang</Text>
+                <Text style={styles.cardTitle}>Bắt đầu từ nền tảng</Text>
                 <Text style={styles.bodyText}>
-                  Neu chua co du lieu, hay mo Vocabulary Pack truoc. Sau do lam Scenario Practice de app nhan ra skill yeu nhat.
+                  Nếu chưa có dữ liệu, hãy mở Vocabulary Pack trước. Sau đó làm Scenario Practice để app nhận ra skill yếu nhất.
                 </Text>
                 <TouchableOpacity style={styles.primaryPill} onPress={() => navigation.navigate('BJTVocabulary')}>
                   <Text style={styles.primaryPillText}>Open Vocabulary Pack</Text>
@@ -506,10 +347,10 @@ export default function BJTScreen() {
             )}
           </View>
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>Checkpoint hien tai</Text>
+            <Text style={styles.cardTitle}>Checkpoint hiện tại</Text>
             <View style={styles.bulletRow}>
               <Ionicons name={vocabularyReady ? 'checkmark-circle' : 'ellipse-outline'} size={16} color={vocabularyReady ? Colors.success : Colors.textMuted} />
-              <Text style={styles.bodyText}>Da on it nhat 10 tu business core: {progress?.totalVocabularyReviewed ?? 0}/10</Text>
+              <Text style={styles.bodyText}>Đã ôn ít nhất 10 từ business core: {progress?.totalVocabularyReviewed ?? 0}/10</Text>
             </View>
             <View style={styles.bulletRow}>
               <Ionicons
@@ -517,11 +358,11 @@ export default function BJTScreen() {
                 size={16}
                 color={activeScenarioAccuracy !== null && activeScenarioAccuracy >= 65 ? Colors.success : Colors.textMuted}
               />
-              <Text style={styles.bodyText}>Scenario Practice dat tu 65% tro len: {activeScenarioAccuracy ?? 0}%</Text>
+              <Text style={styles.bodyText}>Scenario Practice đạt từ 65% trở lên: {activeScenarioAccuracy ?? 0}%</Text>
             </View>
             <View style={styles.bulletRow}>
               <Ionicons name={mockReady ? 'checkmark-circle' : 'ellipse-outline'} size={16} color={mockReady ? Colors.success : Colors.textMuted} />
-              <Text style={styles.bodyText}>Best mock dat tu 70% tro len: {levelSnapshot?.bestMockPercent ?? progress?.bestMockPercent ?? 0}%</Text>
+              <Text style={styles.bodyText}>Best mock đạt từ 70% trở lên: {levelSnapshot?.bestMockPercent ?? progress?.bestMockPercent ?? 0}%</Text>
             </View>
           </View>
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('BJTReview', { level: targetLevel })}>
@@ -530,11 +371,11 @@ export default function BJTScreen() {
                 <Ionicons name="refresh-circle-outline" size={18} color={Colors.primary} />
               </View>
               <View style={styles.flex}>
-                <Text style={styles.cardTitle}>Review loi gan day</Text>
+                <Text style={styles.cardTitle}>Review lỗi gần đây</Text>
                 <Text style={styles.bodyText}>
                   {wrongReviewCount > 0
-                    ? `Ban co ${wrongReviewCount} cau sai gan day de on lai ngay.`
-                    : 'Hien chua co cau sai gan day de review.'}
+                    ? `Bạn có ${wrongReviewCount} câu sai gần đây để ôn lại ngay.`
+                    : 'Hiện chưa có câu sai gần đây để review.'}
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
@@ -542,7 +383,7 @@ export default function BJTScreen() {
           </TouchableOpacity>
         </Section>
 
-        <Section title="4 module dau tien">
+        <Section title="4 module đầu tiên">
           {BJT_STUDY_MODULES.map((module) => (
             <View key={module.id} style={styles.card}>
               <View style={[styles.iconBox, { backgroundColor: `${module.color}18` }]}>
@@ -573,25 +414,25 @@ export default function BJTScreen() {
           ))}
         </Section>
 
-        <Section title="Luyen ngay">
+        <Section title="Luyện ngay">
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('BJTVocabulary')}>
             <Ionicons name="library-outline" size={20} color={Colors.primary} />
             <Text style={styles.moduleTitle}>Vocabulary Pack</Text>
-            <Text style={styles.bodyText}>Tu vung business theo chu de email, meeting, reporting va coordination.</Text>
+            <Text style={styles.bodyText}>Từ vựng business theo chủ đề email, meeting, reporting và coordination.</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('BJTQuiz', { level: targetLevel })}>
             <Ionicons name="help-circle-outline" size={20} color={Colors.primary} />
             <Text style={styles.moduleTitle}>Scenario Practice</Text>
-            <Text style={styles.bodyText}>Cau hoi tinh huong mo phong theo huong BJT, uu tien level dang chon.</Text>
+            <Text style={styles.bodyText}>Câu hỏi tình huống mô phỏng theo hướng BJT, ưu tiên level đang chọn.</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('BJTMockTest', { level: targetLevel })}>
             <Ionicons name="timer-outline" size={20} color={Colors.primary} />
             <Text style={styles.moduleTitle}>Timed Mock Test</Text>
-            <Text style={styles.bodyText}>Phien luyen co dem gio, cham theo skill va review loi sau khi xong.</Text>
+            <Text style={styles.bodyText}>Phiên luyện có đếm giờ, chấm theo skill và review lỗi sau khi xong.</Text>
           </TouchableOpacity>
         </Section>
 
-        <Section title="Moc diem va trong tam">
+        <Section title="Mốc điểm và trọng tâm">
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalList}>
             {BJT_LEVEL_BANDS.map((band) => (
               <View key={band.level} style={styles.levelBandCard}>
@@ -609,7 +450,7 @@ export default function BJTScreen() {
           </ScrollView>
         </Section>
 
-        <Section title="Dang cau hoi can lam quen">
+        <Section title="Dạng câu hỏi cần làm quen">
           {BJT_QUESTION_TYPES.map((item) => (
             <View key={item.id} style={styles.card}>
               <View style={styles.questionRow}>
@@ -629,18 +470,18 @@ export default function BJTScreen() {
           ))}
         </Section>
 
-        <Section title="Ke hoach 14 ngay">
+        <Section title="Kế hoạch 14 ngày">
           <TouchableOpacity
             style={styles.linkRow}
             onPress={() =>
               navigation.navigate('AIChat', {
                 title: 'BJT Study Plan',
                 prefilledQuestion:
-                  'Dua tren ke hoach BJT 14 ngay, hay ca nhan hoa thanh lich hoc 30 phut moi ngay cho nguoi di lam va yeu listening.',
+                  'Dựa trên kế hoạch BJT 14 ngày, hãy cá nhân hóa thành lịch học 30 phút mỗi ngày cho người đi làm và yếu listening.',
               })
             }
           >
-            <Text style={styles.sectionLink}>Ca nhan hoa voi AI</Text>
+            <Text style={styles.sectionLink}>Cá nhân hóa với AI</Text>
           </TouchableOpacity>
           {BJT_STUDY_PLAN.map((day) => (
             <View key={day.day} style={styles.planCard}>
@@ -661,7 +502,7 @@ export default function BJTScreen() {
           ))}
         </Section>
 
-        <Section title="Nguyen tac lam bai">
+        <Section title="Nguyên tắc làm bài">
           <View style={styles.card}>
             {BJT_OVERVIEW.strategyNotes.map((note) => (
               <View key={note} style={styles.bulletRow}>
@@ -716,10 +557,6 @@ const styles = StyleSheet.create({
   chipText: { fontSize: 12, fontWeight: '700', color: Colors.textSecondary },
   chipTextActive: { color: Colors.primary },
   summaryRow: { marginTop: 14, flexDirection: 'row', justifyContent: 'space-between', gap: 12 },
-  coverageGrid: { gap: 12, marginTop: 12 },
-  coverageCard: { backgroundColor: Colors.background, borderRadius: 14, padding: 14 },
-  coverageTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 6 },
-  coverageRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, marginTop: 8 },
   summaryLabel: { fontSize: 12, fontWeight: '700', color: Colors.textSecondary },
   summaryValue: { flex: 1, textAlign: 'right', fontSize: 12, color: Colors.textPrimary },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },

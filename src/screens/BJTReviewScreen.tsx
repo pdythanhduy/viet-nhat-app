@@ -17,7 +17,7 @@ const DIFFICULTY_LABELS = {
 } as const;
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
-  all: 'Tat ca',
+  all: 'Tất cả',
   J5: 'J5',
   J4: 'J4',
   J3: 'J3',
@@ -104,9 +104,9 @@ export default function BJTReviewScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
-          <Text style={styles.summaryTitle}>Hoan thanh review</Text>
+          <Text style={styles.summaryTitle}>Hoàn thành review</Text>
           <Text style={styles.summaryText}>
-            Da go {resolvedIds.length} cau ra khoi danh sach loi cua {LEVEL_LABELS[level]}.
+            Đã gỡ {resolvedIds.length} câu ra khỏi danh sách lỗi của {LEVEL_LABELS[level]}.
           </Text>
           <TouchableOpacity
             style={styles.primaryButton}
@@ -116,7 +116,7 @@ export default function BJTReviewScreen() {
               resetReview();
             }}
           >
-            <Text style={styles.primaryButtonText}>Cap nhat danh sach loi</Text>
+            <Text style={styles.primaryButtonText}>Cập nhật danh sách lỗi</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -135,7 +135,7 @@ export default function BJTReviewScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>Review Wrong Answers</Text>
         <Text style={styles.subtitle}>
-          On lai cac cau sai gan day theo level. Cau nao lam dung trong review se duoc go khoi danh sach loi.
+          Ôn lại các câu sai gần đây theo level. Câu nào làm đúng trong review sẽ được gỡ khỏi danh sách lỗi.
         </Text>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
@@ -219,7 +219,7 @@ export default function BJTReviewScreen() {
 
         {answered ? (
           <View style={styles.explanationCard}>
-            <Text style={styles.explanationTitle}>Giai thich</Text>
+            <Text style={styles.explanationTitle}>Giải thích</Text>
             <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
           </View>
         ) : null}
@@ -237,7 +237,7 @@ export default function BJTReviewScreen() {
             }}
           >
             <Text style={styles.primaryButtonText}>
-              {currentIndex + 1 >= questions.length ? 'Hoan thanh review' : 'Cau tiep theo'}
+              {currentIndex + 1 >= questions.length ? 'Hoàn thành review' : 'Câu tiếp theo'}
             </Text>
           </TouchableOpacity>
         ) : null}
