@@ -1,0 +1,100 @@
+[
+  {
+    "id": "j3_reading_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Email doi phong hop (J3)",
+    "reviewNotes": [
+      "Correct answer is uniquely supported by the room-change notice."
+    ]
+  },
+  {
+    "id": "j3_reading_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Quy dinh ke toan noi bo (J3)",
+    "reviewNotes": [
+      "Weekend deadline exception is clear and distractors are workable."
+    ]
+  },
+  {
+    "id": "j3_reading_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Email giao slide doanh so (J3)",
+    "reviewNotes": [
+      "Deadline, receiver, and format requirements are all explicit."
+    ]
+  },
+  {
+    "id": "j3_reading_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Bao cao tien do du an (J3)",
+    "reviewNotes": [
+      "Priority is defensible because project B is the only delayed stream."
+    ]
+  },
+  {
+    "id": "j3_listening_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Doi lich giao hang qua dien thoai (J3)",
+    "reviewNotes": [
+      "Revised answer is now an immediate concrete response to the caller.",
+      "No longer depends on internal meta-reasoning or role ambiguity."
+    ]
+  },
+  {
+    "id": "j3_listening_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Xin gia han nop bao cao (J3)",
+    "reviewNotes": [
+      "Primary request versus fallback option is clearly separated."
+    ]
+  },
+  {
+    "id": "j3_listening_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Xu ly khieu nai giao sai mau (J3)",
+    "reviewNotes": [
+      "Complaint handling sequence is concrete and professionally grounded."
+    ]
+  },
+  {
+    "id": "j3_listening_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Thong bao bao tri tang 4 (J3)",
+    "reviewNotes": [
+      "Mandatory versus recommended action is clear."
+    ]
+  },
+  {
+    "id": "j3_lr_001",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Email va voicemail doi lich hop (J3)",
+    "reviewNotes": [
+      "Revised answer now checks personal schedule availability instead of assuming room ownership.",
+      "Prompt and correct option are uniquely defensible without hidden authority assumptions."
+    ]
+  },
+  {
+    "id": "j3_lr_002",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Muc phe duyet mua thiet bi (J3)",
+    "reviewNotes": [
+      "Rule table and price band mapping are straightforward."
+    ]
+  },
+  {
+    "id": "j3_lr_003",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Cap nhat nguoi trinh bay (J3)",
+    "reviewNotes": [
+      "Only the responsible person changes; time and room stay fixed."
+    ]
+  },
+  {
+    "id": "j3_lr_004",
+    "reviewStatus": "approved",
+    "runtimeTitle": "Quy tac bao cao theo ti le dat muc tieu (J3)",
+    "reviewNotes": [
+      "Dual action requirement is explicit for the under-70% case."
+    ]
+  }
+]

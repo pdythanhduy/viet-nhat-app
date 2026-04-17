@@ -1,0 +1,14 @@
+[
+  {"id":"j4_listening_001","reviewStatus":"approved","runtimeTitle":"Doi lich hen qua dien thoai (J4)","reviewNotes":["Single schedule change and one clear confirmation step."]},
+  {"id":"j4_listening_002","reviewStatus":"approved","runtimeTitle":"Thong bao doi loi ra vao (J4)","reviewNotes":["Announcement is short and action is concrete."]},
+  {"id":"j4_listening_003","reviewStatus":"approved","runtimeTitle":"Phan cong phat tai lieu trong hop (J4)","reviewNotes":["Role split is explicit and simple."]},
+  {"id":"j4_listening_004","reviewStatus":"approved","runtimeTitle":"Nop bao cao PDF dung han (J4)","reviewNotes":["Deadline and format are both direct."]},
+  {"id":"j4_lr_001","reviewStatus":"approved","runtimeTitle":"Cap nhat gio tiep khach tren lich (J4)","reviewNotes":["Old and new schedule align cleanly."]},
+  {"id":"j4_lr_002","reviewStatus":"approved","runtimeTitle":"Lay giay in theo memo noi bo (J4)","reviewNotes":["Location and quantity instruction are easy to combine."]},
+  {"id":"j4_lr_003","reviewStatus":"approved","runtimeTitle":"Tra loi cuoc goi khi nguoi phu trach vang mat (J4)","reviewNotes":["Internal rule maps to one phone response."]},
+  {"id":"j4_lr_004","reviewStatus":"approved","runtimeTitle":"Tinh han nop chi phi sau cong tac (J4)","reviewNotes":["Basic deadline calculation is defensible."]},
+  {"id":"j4_reading_001","reviewStatus":"approved","runtimeTitle":"Email xac nhan lich hop ngay mai (J4)","reviewNotes":["Direct extraction from short mail."]},
+  {"id":"j4_reading_002","reviewStatus":"approved","runtimeTitle":"Thong bao don ban truoc gio ve (J4)","reviewNotes":["Single internal notice with clear deadline."]},
+  {"id":"j4_reading_003","reviewStatus":"approved","runtimeTitle":"Chon phong hop trong buoi sang (J4)","reviewNotes":["Room availability comparison stays simple."]},
+  {"id":"j4_reading_004","reviewStatus":"approved","runtimeTitle":"Luu hoa don va bao lai cap tren (J4)","reviewNotes":["Two-step internal task is explicit and bounded."]}
+]

@@ -12,6 +12,7 @@ export const StorageKeys = {
   laborResources: 'labor_resources_v1',
   journeyChecklistProgress: 'journey_checklist_progress_v1',
   japaneseAudioPreferences: 'japanese_audio_preferences_v1',
+  bjtProgress: 'bjt_progress_v1',
   studyReminderEnabled: 'study_reminder_enabled_v1',
   userProfile: 'user_profile_v1',
   userProfilePromptDismissed: 'user_profile_prompt_dismissed_v1',

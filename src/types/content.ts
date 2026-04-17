@@ -177,3 +177,112 @@ export interface GrammarPattern {
   example_vn: string;
   notes?: string;
 }
+
+export interface BjtLevelBand {
+  level: string;
+  scoreRange: string;
+  summary: string;
+  focus: string[];
+}
+
+export interface BjtQuestionType {
+  id: string;
+  title: string;
+  skill: 'listening' | 'listening-reading' | 'reading';
+  description: string;
+  whatToTrain: string[];
+}
+
+export interface BjtStudyModule {
+  id: string;
+  title: string;
+  icon: IoniconName;
+  color: string;
+  description: string;
+  outcomes: string[];
+  linkedCategoryName?: string;
+}
+
+export interface BjtStudyPlanDay {
+  day: number;
+  theme: string;
+  goal: string;
+  tasks: string[];
+}
+
+export interface BjtVocabularyItem {
+  id: string;
+  theme: string;
+  jp: string;
+  reading: string;
+  romaji: string;
+  vn: string;
+  exampleJp: string;
+  exampleRomaji: string;
+  exampleVn: string;
+  note?: string;
+}
+
+export interface BjtPracticeQuestion {
+  id: string;
+  level?: BjtAuthoringLevel;
+  skill: 'listening' | 'listening-reading' | 'reading';
+  difficulty: 'basic' | 'intermediate' | 'advanced';
+  title: string;
+  situation: string;
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
+export type BjtAuthoringLevel = 'J5' | 'J4' | 'J3' | 'J2' | 'J1' | 'J1+';
+
+export type BjtReviewStatus = 'approved' | 'needs_revision' | 'rejected';
+
+export interface BjtAuthoringQuestion {
+  id: string;
+  level: BjtAuthoringLevel;
+  skill: BjtPracticeQuestion['skill'];
+  difficulty: BjtPracticeQuestion['difficulty'];
+  business_topic: string;
+  situation: string;
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+  explanation_vi: string;
+  explanation_ja?: string;
+  vocabulary: string[];
+  grammar_points: string[];
+  action_focus: string;
+  level_reason: string;
+  why_not_lower_level: string;
+  why_not_higher_level: string;
+}
+
+export interface BjtReviewedAuthoringQuestion extends BjtAuthoringQuestion {
+  reviewStatus: BjtReviewStatus;
+  reviewNotes?: string[];
+  runtimeTitle?: string;
+}
+
+export interface BjtReviewDecision {
+  id: string;
+  reviewStatus: BjtReviewStatus;
+  reviewNotes?: string[];
+  runtimeTitle?: string;
+}
+
+export type BjtPipelineStage = 'raw' | 'reviewed' | 'runtime-imported';
+
+export interface BjtPipelineBatch {
+  id: string;
+  level: BjtAuthoringLevel;
+  label: string;
+  rawFile: string;
+  reviewedFile?: string;
+  runtimeFile?: string;
+  reviewNoteFile?: string;
+  runtimePreviewFile?: string;
+  importedQuestionIds: string[];
+}

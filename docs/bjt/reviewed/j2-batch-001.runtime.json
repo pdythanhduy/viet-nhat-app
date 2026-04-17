@@ -1,0 +1,206 @@
+[
+  {
+    "id": "j2_listening_001",
+    "level": "J2",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Dieu phoi chuan bi thuyet trinh doi lich (J2)",
+    "situation": "あなたは営業担当者です。朝の部内会議で上司が次のように話しています。「今月末の取引先プレゼンですが、先方から日程変更の連絡が入りました。新しい日程はまだ確定していませんが、今週中に私が先方に確認を取ります。プレゼン資料は来週初めまでに私に提出してください。日程が確定したら私から共有しますので、それまでに説明内容を整理しておいてください。」",
+    "prompt": "担当者が今すぐ取るべき行動はどれですか？",
+    "options": [
+      "プレゼン資料を今週中に完成させ、上司に提出する",
+      "取引先に直接連絡して、新しい日程を確認する",
+      "来週初めの提出に向けてプレゼン資料の作成を進め、説明内容を整理する",
+      "日程が確定するまで待ってからプレゼン資料の準備を始める"
+    ],
+    "correctIndex": 2,
+    "explanation": "Cấp trên sẽ tự xác nhận lịch với đối tác và sẽ chia sẻ lại khi đã chốt. Việc của nhân viên ngay bây giờ là tiếp tục chuẩn bị tài liệu và sắp xếp nội dung giải thích trước hạn đầu tuần sau. Phương án C đúng vì phản ánh cả hai phần việc thuộc phạm vi của nhân viên. Phương án A sai hạn — nộp vào đầu tuần sau chứ không phải tuần này. Phương án B vượt quyền vì cấp trên đã nhận phần liên hệ đối tác. Phương án D thụ động, chờ lịch chốt rồi mới làm sẽ làm chậm tiến độ chuẩn bị."
+  },
+  {
+    "id": "j2_listening_002",
+    "level": "J2",
+    "skill": "listening",
+    "difficulty": "intermediate",
+    "title": "Doi nguoi tham du va dia diem hop (J2)",
+    "situation": "あなたは担当コーディネーターです。取引先の担当者から電話が入りました。「来週の打ち合わせについてですが、山田部長のご都合がつかなくなりまして、担当の鈴木さんに変更をお願いできますでしょうか。また、場所を御社から弊社に変更していただくことは可能でしょうか。」",
+    "prompt": "電話を切った後、最初に確認すべきことはどれですか？",
+    "options": [
+      "鈴木さんのスケジュールと、会場変更への社内対応が可能かどうか",
+      "山田部長に連絡して変更の承認を得る",
+      "取引先に「問題ありません」と折り返し連絡する",
+      "鈴木さんに直接電話して、スケジュールだけ確認する"
+    ],
+    "correctIndex": 0,
+    "explanation": "Có hai thay đổi cùng lúc: người tham dự (từ Yamada sang Suzuki) và địa điểm (từ công ty mình sang công ty đối tác). Cần xác nhận cả hai trước khi trả lời. Phương án A bao gồm đủ hai điểm cần kiểm tra. Phương án B không cần thiết — đây là thay đổi hậu cần trong phạm vi quyền coordinator. Phương án C quá vội, chưa kiểm tra nội bộ. Phương án D chỉ kiểm tra một trong hai điều cần xác nhận."
+  },
+  {
+    "id": "j2_listening_003",
+    "level": "J2",
+    "skill": "listening",
+    "difficulty": "advanced",
+    "title": "Thong bao doi han va bao cao trung gian (J2)",
+    "situation": "あなたはプロジェクトマネージャーです。部長から次のように言われました。「第三四半期の報告書提出期限が、従来の10月31日から10月20日に前倒しになりました。各部門との調整は私が行いますが、あなたはチームに速やかに周知してください。また、中間報告を今月15日までに私に提出してください。もし15日が難しい場合は、前もって相談してください。」",
+    "prompt": "プロジェクトマネージャーが今すぐ優先すべき行動はどれですか？",
+    "options": [
+      "10月20日に合わせて最終報告書を今から完成させる",
+      "担当チームに期限変更を速やかに周知し、中間報告の準備に着手する",
+      "各部門との調整を自分でも並行して進める",
+      "15日の中間報告が難しいと判断し、今すぐ部長に相談する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ngay bây giờ PM có hai việc: (1) thông báo ngay cho nhóm về thay đổi hạn chót (速やかに周知), (2) bắt đầu chuẩn bị báo cáo trung gian trước ngày 15. Điều phối bộ phận là việc của cấp trên. Phương án A nhảy cóc qua bước trung gian. Phương án C vượt phạm vi — cấp trên đã đảm nhận điều phối. Phương án D quá vội — leo thang chỉ khi thực sự cần (前もって = báo trước thời hạn, không phải leo thang ngay lập tức)."
+  },
+  {
+    "id": "j2_listening_004",
+    "level": "J2",
+    "skill": "listening",
+    "difficulty": "intermediate",
+    "title": "Theo doi ba moc bao cao (J2)",
+    "situation": "あなたは新入社員です。月次報告会で報告を終えたところ、課長が次のように言いました。「数字はよくまとまっています。ただ、先月の売上減少の原因分析が不足しています。今日中に原因を調べておいてください。明日の朝一番に私に口頭で説明してください。その後、来週月曜日の役員会議用に書面でまとめて提出してください。」",
+    "prompt": "新入社員が今日中に完了させるべきことはどれですか？",
+    "options": [
+      "役員会議用の書面報告を完成させ、課長に提出する",
+      "売上減少の原因を調査し、翌朝の口頭説明に備える",
+      "役員向けのプレゼンテーション資料を別途作成する",
+      "調査結果を課長に今日中に口頭で報告する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chuỗi thời hạn: hôm nay → điều tra nguyên nhân (今日中に調べる). Sáng mai → báo cáo miệng cho trưởng nhóm. Tuần sau thứ Hai → nộp báo cáo văn bản. Phương án B khớp đúng với nhiệm vụ hôm nay. Phương án A là nhiệm vụ tuần sau. Phương án C không được yêu cầu. Phương án D nhầm thời hạn — báo cáo miệng là sáng mai, không phải hôm nay."
+  },
+  {
+    "id": "j2_lr_001",
+    "level": "J2",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Phan cong xu ly A va B qua email (J2)",
+    "situation": "あなたは副担当者です。取引先からメールが届きました。\n\n【メール本文】「先日ご提案いただいた企画書について、役員会にて検討した結果、A案は承認されましたが、B案については再提案をお願いしたいと思います。来月10日までに修正案をお送りください。」\n\nメールを読んでいると、上司が口頭で次のように言いました。「B案の件は私が担当するから、先にA案の実施スケジュールを取引先に返信しておいて。」",
+    "prompt": "あなたが次に取るべき行動として最も適切なものはどれですか？",
+    "options": [
+      "A案の実施スケジュールを作成し、取引先に返信する",
+      "B案の修正案を来月10日までに作成して取引先に送る",
+      "A案とB案の両方について上司に再確認してから取引先に返信する",
+      "B案の再提案を断る旨を取引先に返信する"
+    ],
+    "correctIndex": 0,
+    "explanation": "Cấp trên đã phân công rõ ràng: bạn xử lý A, cấp trên xử lý B. Phương án A đúng với phân công này. Các phương án còn lại hoặc làm sai phạm vi việc, hoặc tự thêm bước không cần thiết."
+  },
+  {
+    "id": "j2_lr_002",
+    "level": "J2",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Bien ban hop va chi dao mieng cap nhat (J2)",
+    "situation": "あなたは部門コーディネーターです。会議後に届いた議事録には次のように記載されていました。\n\n【議事録の記載】「新システム導入：来月から試験運用を開始する。担当チームはマニュアル作成を今月末までに完了すること。」\n\nしかし、会議中に部長は口頭で次のように付け加えていました。「マニュアルは来月中旬で構いません。ただし、システムの動作確認は今月中に必ず終わらせてください。」",
+    "prompt": "担当チームはいつまでに何を完了すべきですか？",
+    "options": [
+      "議事録の通り、マニュアル作成を今月末までに完了する",
+      "部長の口頭指示に従い、システムの動作確認を今月中に、マニュアルを来月中旬までに完了する",
+      "システムの動作確認とマニュアル作成を、共に来月中旬までに完了する",
+      "議事録と口頭指示の矛盾を確認するため、まず部長に連絡する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chỉ thị miệng của trưởng phòng cập nhật và làm rõ biên bản họp: kiểm tra hệ thống trong tháng này, tài liệu hướng dẫn trước giữa tháng sau. Phương án A bỏ qua cập nhật miệng. Phương án C bỏ qua hạn kiểm tra hệ thống trong tháng này. Phương án D không cần thiết vì chỉ đạo miệng đã đủ rõ."
+  },
+  {
+    "id": "j2_lr_003",
+    "level": "J2",
+    "skill": "listening-reading",
+    "difficulty": "intermediate",
+    "title": "Xac nhan nguoi tham gia truoc khi doi lich (J2)",
+    "situation": "あなたは営業担当者です。社内スケジュールシステムには「金曜日15時：チーム定例会議」と登録されています。上司から電話がありました。「今週の金曜日の定例会議なんだけど、私が外出になったから午前10時に変更したい。田中さんが10時に参加できるか確認してから、システムを更新しておいてくれる？」",
+    "prompt": "担当者がまず行うべき行動はどれですか？",
+    "options": [
+      "会議システムの時刻を午前10時に変更する",
+      "田中さんの都合を確認し、問題なければシステムを午前10時に更新する",
+      "全員に金曜日の会議変更についてメールで通知する",
+      "会議室の使用申請を管理部門に提出する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cấp trên đưa ra thứ tự rõ ràng: trước tiên xác nhận Tanaka, sau đó mới cập nhật hệ thống. Phương án B phản ánh đúng thứ tự có điều kiện này. Phương án A bỏ qua bước xác nhận bắt buộc. Phương án C còn quá sớm. Phương án D không được đề cập."
+  },
+  {
+    "id": "j2_lr_004",
+    "level": "J2",
+    "skill": "listening-reading",
+    "difficulty": "advanced",
+    "title": "Xac minh han nop chi phi tu hai nguon (J2)",
+    "situation": "あなたはプロジェクトリーダーです。総務部からのメモには次のように記載されています。\n\n【メモ】「経費精算の申請締め切りは毎月25日です。期限を過ぎた申請は翌月処理となります。」\n\n廊下で上司が同僚に話しているのを耳にしました。「今月の25日は土曜日だから、今年は24日（金）が締め切りになるって総務から連絡が来たよ。」",
+    "prompt": "プロジェクトリーダーとして最も適切な対応はどれですか？",
+    "options": [
+      "メモの通り25日に経費申請を提出する",
+      "上司の発言を信頼し、24日までにチームの経費申請をまとめて提出する",
+      "総務部に直接確認を取り、締め切りを確認してからチームに周知する",
+      "翌月処理でも業務に支障がないと判断し、27日（月）に申請する"
+    ],
+    "correctIndex": 2,
+    "explanation": "Là trưởng nhóm chịu trách nhiệm cho cả nhóm, hành động đúng là xác minh trực tiếp với tổng vụ trước khi thông báo. Thông tin nghe lại từ hành lang chưa phải nguồn xác nhận chính thức."
+  },
+  {
+    "id": "j2_reading_001",
+    "level": "J2",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Chuan bi buoi gap doi tac co dieu kien (J2)",
+    "situation": "あなた（山本さん）は、上司の鈴木営業部長から次のメールを受け取りました。\n\n件名：来週の取引先訪問の準備について\n\n山本さん\n\n来週水曜日14時から、ABC商事様へのご訪問があります。今回は通常の進捗報告に加え、先方から新しい協業提案の説明があります。当日は私が15分ほど遅れる可能性がありますので、その場合は皆さんで挨拶と自己紹介を済ませておいてください。また、先方より事前に資料を共有いただけるとのことですので、届き次第チーム全員に転送し、各自事前確認をお願いします。なお、質問や懸念事項は当日まとめて私に伝えていただければ、会議前に整理します。\n\n鈴木",
+    "prompt": "山本さんが会議前に行うべきことを正しく説明しているものはどれですか？",
+    "options": [
+      "上司が到着するまで先方に待ってもらい、挨拶は上司主導で行う",
+      "先方から資料が届いたらチームに転送し、チームの質問・懸念事項を上司にまとめて伝える",
+      "先方に資料を早めに送るよう催促し、チームの質問を事前に取引先に直接メールで送る",
+      "上司が遅れる場合に備え、進捗報告の資料を山本さんが独自に作成する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Từ email, có hai nhiệm vụ rõ ràng trước cuộc họp: chuyển tiếp tài liệu cho cả nhóm khi nhận được, và thu thập câu hỏi cùng mối quan tâm để báo lại cho cấp trên trước cuộc họp."
+  },
+  {
+    "id": "j2_reading_002",
+    "level": "J2",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Bao cao quy voi han leo thang kep (J2)",
+    "situation": "あなたは中間管理職です。部長から次のメッセージを受け取りました。\n\n先週提出してもらった第2四半期の業績報告ですが、経営会議での報告に合わせて修正が必要です。①売上データを部門別に分けて表示してください。②競合他社との比較データを追加してください。③前回の修正コメントをすべて反映させてください。経営会議は来週木曜日です。修正版は水曜日17時までに提出してください。②の競合データは収集に時間がかかるかもしれません。もし水曜日17時までに揃わない場合は、火曜日中に私に知らせてください。",
+    "prompt": "マネージャーがすべきことを正しく説明しているものはどれですか？",
+    "options": [
+      "水曜日17時までに①②③の修正をすべて完了させて提出する",
+      "競合データが揃わない場合は水曜日に部長に報告し、その他の修正は水曜日17時に提出する",
+      "競合データが揃わない可能性があれば火曜日中に部長に連絡し、修正版は水曜日17時までに提出する",
+      "まず①と③を完成させ、②は経営会議後に部長と相談して追加する"
+    ],
+    "correctIndex": 2,
+    "explanation": "Theo chỉ thị: nộp bản chỉnh sửa trước 17h thứ Tư. Nếu dữ liệu cạnh tranh không thu thập được kịp, cần báo cho cấp trên trong ngày thứ Ba. Phương án C phản ánh đúng cả hai mốc này."
+  },
+  {
+    "id": "j2_reading_003",
+    "level": "J2",
+    "skill": "reading",
+    "difficulty": "intermediate",
+    "title": "Phan biet quy trinh hien tai va thang sau (J2)",
+    "situation": "社内ポータルに次のお知らせが掲載されています。\n\n【重要】テレワーク申請手続きの変更について\n\n来月より、テレワーク申請は部門長承認から人事部への直接申請に変更となります。申請は月初に翌月分をまとめて提出してください。なお、今月分については従来通り部門長への申請を継続してください。新しい申請フォームは今週金曜日より人事部ポータルにて公開されます。",
+    "prompt": "今月のテレワーク希望者が今すぐすべきことはどれですか？",
+    "options": [
+      "新しい申請フォームが公開されるまで待ち、その後人事部に直接申請する",
+      "従来通り、部門長にテレワークの申請を行う",
+      "人事部ポータルで新しいフォームがすでに公開されているか確認する",
+      "来月分のテレワーク申請を今月初めにまとめて提出する"
+    ],
+    "correctIndex": 1,
+    "explanation": "Thông báo nêu rõ: tháng này tiếp tục theo quy trình cũ, còn quy trình mới áp dụng từ tháng sau. Vì vậy phương án B là đúng cho thời điểm hiện tại."
+  },
+  {
+    "id": "j2_reading_004",
+    "level": "J2",
+    "skill": "reading",
+    "difficulty": "advanced",
+    "title": "Chuoi han danh gia nhan su (J2)",
+    "situation": "あなたはチームリーダーです。人事部から次の社内通知が届きました。\n\n件名：年次評価面談のスケジュールについて\n\n今月末（30日）より年次評価面談を実施します。各マネージャーは担当メンバーとの面談を30日から来月15日の間に実施し、結果を来月20日までに人事部システムに入力してください。なお、面談前にメンバーへの自己評価シートの配布が必要です。自己評価シートは今月20日までにメンバーに送付し、今月27日までに回収してください。面談日程はメンバーと直接調整してください。",
+    "prompt": "チームリーダーが今月20日より前に完了すべき作業はどれですか？",
+    "options": [
+      "メンバーとの評価面談を実施し、結果を人事部システムに入力する",
+      "メンバーに自己評価シートを送付する",
+      "メンバーから自己評価シートを回収する",
+      "人事部と面談の日程調整を行う"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chuỗi thời hạn trong thông báo cho thấy trước ngày 20 cần gửi tờ tự đánh giá cho thành viên. Các việc còn lại diễn ra sau đó."
+  }
+]
