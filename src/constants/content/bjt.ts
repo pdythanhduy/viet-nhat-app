@@ -1751,4 +1751,470 @@ export const BJT_PRACTICE_QUESTIONS: BjtPracticeQuestion[] = [
     explanation:
       'Chỉ thị có hai bước rõ ràng: lưu hóa đơn tháng 4 theo từng đối tác vào thư mục, sau đó báo lại cho cấp trên.',
   },
+
+  // ── J5 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'j5_listening_001',
+    level: 'J5',
+    skill: 'listening',
+    difficulty: 'basic',
+    title: 'Đặt phòng họp theo yêu cầu (J5)',
+    situation:
+      '上司がこう言いました。「田中さん、今日の午後3時から会議があります。会議室を予約しておいてください。」',
+    prompt: '田中さんがしなければならないことは何ですか？',
+    options: [
+      '会議室を予約する',
+      '午後3時に会議室に行く',
+      '会議の資料を作る',
+      '他の社員に連絡する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Cấp trên yêu cầu đặt phòng họp. Việc cần làm ngay là đặt phòng họp cho cuộc họp 3 giờ chiều nay.',
+  },
+  {
+    id: 'j5_listening_002',
+    level: 'J5',
+    skill: 'listening',
+    difficulty: 'basic',
+    title: 'Nhắn lại tin điện thoại (J5)',
+    situation:
+      '同僚がこう言いました。「さっき山本商事の鈴木さんから電話がありました。午後2時にまた電話すると言っていました。」',
+    prompt: '鈴木さんはこの後何をしますか？',
+    options: [
+      '午後2時にまた電話する',
+      '今すぐ折り返す',
+      'メールを送る',
+      '明日電話する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Đồng nghiệp nhắn lại rằng Suzuki-san sẽ gọi lại lúc 2 giờ chiều. Đó là điều Suzuki-san sẽ làm tiếp theo.',
+  },
+  {
+    id: 'j5_listening_003',
+    level: 'J5',
+    skill: 'listening',
+    difficulty: 'basic',
+    title: 'Tắt điện khi ra về (J5)',
+    situation:
+      '上司がこう言いました。「明日から、退社するときは必ず電気を消してください。先月の電気代がとても高かったです。」',
+    prompt: '社員が明日から気をつけることは何ですか？',
+    options: [
+      '退社時に電気を消す',
+      '毎朝早く出社する',
+      'エアコンを使わない',
+      '電気代の明細を確認する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Cấp trên yêu cầu tắt điện khi ra về bắt đầu từ ngày mai. Đó là điều cần chú ý.',
+  },
+  {
+    id: 'j5_listening_004',
+    level: 'J5',
+    skill: 'listening',
+    difficulty: 'basic',
+    title: 'Photo tài liệu trước cuộc họp (J5)',
+    situation:
+      '上司がこう言いました。「今日の会議の資料、コピー10部お願いできますか。会議は2時からです。」',
+    prompt: '担当者が今すぐすることは何ですか？',
+    options: [
+      '資料を10部コピーする',
+      '会議室を2時に予約する',
+      '資料の内容を確認して修正する',
+      '参加者10人に連絡する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Yêu cầu rõ ràng là photo 10 bản tài liệu. Đó là việc cần làm ngay.',
+  },
+
+  {
+    id: 'j5_lr_001',
+    level: 'J5',
+    skill: 'listening-reading',
+    difficulty: 'basic',
+    title: 'Đổi lịch họp theo tin nhắn (J5)',
+    situation:
+      '[スケジュール表]\n月曜日 10:00 部長との打ち合わせ\n\n[同僚からのメモ]\n「打ち合わせは火曜日の10時に変わりました。」',
+    prompt: '正しいスケジュールはどれですか？',
+    options: [
+      '火曜日10時に部長との打ち合わせ',
+      '月曜日10時に部長との打ち合わせ',
+      '火曜日14時に部長との打ち合わせ',
+      '打ち合わせはキャンセルになった',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Lịch ban đầu là thứ Hai 10 giờ, nhưng ghi chú mới thông báo đổi sang thứ Ba 10 giờ. Chỉ ngày thay đổi, giờ giữ nguyên.',
+  },
+  {
+    id: 'j5_lr_002',
+    level: 'J5',
+    skill: 'listening-reading',
+    difficulty: 'basic',
+    title: 'Báo hỏng máy photocopy (J5)',
+    situation:
+      '[社内ルール]\nコピー機が壊れたときは、総務部に連絡する。\n\n[状況]\nコピー機から変な音がして、紙が出てきません。',
+    prompt: '何をすべきですか？',
+    options: [
+      '総務部に連絡する',
+      '自分でコピー機を直す',
+      '別のフロアのコピー機を使う',
+      '上司に報告して指示を待つ',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Quy định nội bộ nêu rõ: khi máy photocopy hỏng thì liên hệ tổng vụ. Đây là trường hợp máy hỏng nên làm đúng theo quy định.',
+  },
+  {
+    id: 'j5_lr_003',
+    level: 'J5',
+    skill: 'listening-reading',
+    difficulty: 'basic',
+    title: 'Đổi ngày dọn dẹp do nghỉ lễ (J5)',
+    situation:
+      '[お知らせ]\n毎週金曜日は社内清掃日です。午後5時に掃除を始めてください。\n\n[上司のメッセージ]\n「今週は金曜日が祝日なので、木曜日に清掃をお願いします。」',
+    prompt: '今週はいつ掃除をしますか？',
+    options: [
+      '木曜日の午後5時',
+      '金曜日の午後5時',
+      '木曜日の午前中',
+      '来週月曜日',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Thông báo nói bắt đầu lúc 5 giờ chiều, tin nhắn đổi sang thứ Năm. Kết hợp hai thông tin: thứ Năm 5 giờ chiều.',
+  },
+  {
+    id: 'j5_lr_004',
+    level: 'J5',
+    skill: 'listening-reading',
+    difficulty: 'intermediate',
+    title: 'Đặt hàng văn phòng phẩm còn hàng (J5)',
+    situation:
+      '[在庫表]\n・ボールペン（黒）：在庫あり\n・ボールペン（赤）：在庫なし\n・ノート：在庫あり\n\n[同僚のメモ]\n「黒のボールペンとノートを各5個注文してください。」',
+    prompt: '今すぐ注文できるものはどれですか？',
+    options: [
+      '黒のボールペンとノートの両方',
+      '赤のボールペンとノート',
+      '黒と赤のボールペン',
+      'ノートのみ',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Ghi chú yêu cầu bút đen và vở. Bảng tồn kho cho thấy cả hai đều còn hàng. Vì vậy có thể đặt cả hai ngay.',
+  },
+
+  {
+    id: 'j5_reading_001',
+    level: 'J5',
+    skill: 'reading',
+    difficulty: 'basic',
+    title: 'Đọc email thông báo họp sáng (J5)',
+    situation:
+      '社内メールを読んでいます。\n\n件名：明日の朝礼について\n\n山田さん\n明日の朝礼は9時から会議室Bで行います。資料は私が用意します。\n佐藤',
+    prompt: 'このメールの内容として正しいものはどれですか？',
+    options: [
+      '朝礼は明日9時から会議室Bで行われる',
+      '山田さんが資料を用意する',
+      '朝礼は今日9時から行われる',
+      '会議室Aで朝礼が行われる',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Email nêu rõ: họp sáng ngày mai lúc 9 giờ tại phòng họp B, Sato chuẩn bị tài liệu.',
+  },
+  {
+    id: 'j5_reading_002',
+    level: 'J5',
+    skill: 'reading',
+    difficulty: 'basic',
+    title: 'Thông báo sửa nhà vệ sinh (J5)',
+    situation:
+      '社内掲示板のお知らせを読んでいます。\n\n来週月曜日から水曜日まで、1階のトイレが工事のため使用できません。ご不便をおかけしますが、2階のトイレをご利用ください。',
+    prompt: '来週月曜日にトイレを使いたい場合、どうすればいいですか？',
+    options: [
+      '2階のトイレを使う',
+      '工事が終わる木曜日まで待つ',
+      '1階のトイレを使う',
+      '総務部に相談する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Thông báo nói tầng 1 không dùng được, hãy dùng nhà vệ sinh tầng 2. Đáp án đúng là dùng tầng 2.',
+  },
+  {
+    id: 'j5_reading_003',
+    level: 'J5',
+    skill: 'reading',
+    difficulty: 'basic',
+    title: 'Nhận máy tính mới đúng thủ tục (J5)',
+    situation:
+      'メモを読んでいます。\n\n新しいパソコンを受け取ったら、まず総務部に受領のサインをしてから、自分の席に持っていってください。',
+    prompt: '新しいパソコンを受け取ったとき、最初にすることは何ですか？',
+    options: [
+      '総務部に受領のサインをする',
+      '自分の席にすぐ持っていく',
+      'パソコンの電源を入れて動作確認する',
+      '上司に受け取ったことを報告する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Ghi chú nêu rõ thứ tự: ký nhận ở tổng vụ trước, sau đó mang về chỗ ngồi. Việc đầu tiên là ký nhận.',
+  },
+  {
+    id: 'j5_reading_004',
+    level: 'J5',
+    skill: 'reading',
+    difficulty: 'intermediate',
+    title: 'Hỏi về phiếu lương tháng (J5)',
+    situation:
+      '社内掲示板のお知らせを読んでいます。\n\n今月の給与明細は25日に各自の引き出しに入れます。内容に不明な点があれば、経理部の中村までお問い合わせください。',
+    prompt: '給与明細について質問がある場合、どうすればいいですか？',
+    options: [
+      '経理部の中村に問い合わせる',
+      '直接上司に聞く',
+      '25日まで特に何もしない',
+      '人事部に問い合わせる',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Thông báo chỉ rõ: nếu có thắc mắc về phiếu lương thì liên hệ Nakamura ở bộ phận kế toán.',
+  },
+
+  // ── J1+ ─────────────────────────────────────────────────────────────────
+
+  {
+    id: 'j1plus_listening_001',
+    level: 'J1+',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Thông tin nhạy cảm về M&A nội bộ (J1+)',
+    situation:
+      'あなたは部門長です。役員会後に社長から直接指示を受けました。「今回の買収候補先の件ですが、まだ非公開です。現場マネージャーには今後の業務量増加に備えた人員計画を立てるよう伝えてください。ただし、買収の可能性については一切触れないでください。株価への影響があります。なお、弁護士からは関係者への選択的開示は避けるよう指示が来ています。」',
+    prompt: 'この指示を受けた部門長が取るべき行動として最も適切なのはどれですか？',
+    options: [
+      '現場マネージャーに買収計画の詳細を共有し、人員計画を一緒に立てる',
+      '現場マネージャーに買収の可能性は伝えずに、業務量増加を想定した人員計画の策定を依頼する',
+      '弁護士の指示を優先し、人員計画の指示も一切出さない',
+      '人事部に全情報を共有して人員計画を代わりに立ててもらう',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Chỉ thị có hai lớp: (1) yêu cầu lập kế hoạch nhân sự cho lượng công việc tăng thêm, (2) tuyệt đối không đề cập đến khả năng M&A. Phương án B thực hiện được cả hai: đưa ra chỉ thị về nhân sự mà không tiết lộ lý do thực sự. A vi phạm điều kiện bảo mật. C bỏ mất nhiệm vụ lập kế hoạch. D mở rộng phạm vi tiếp cận thông tin trái chỉ đạo của luật sư.',
+  },
+  {
+    id: 'j1plus_listening_002',
+    level: 'J1+',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Phát ngôn tại hội nghị đối ngoại (J1+)',
+    situation:
+      'あなたは海外営業本部長です。役員から次のように言われました。「来月のパートナー会議でA社との提携強化について触れてください。ただし、現在交渉中の独占条項はまだ社外に出せません。提携の方向性は示してよいですが、具体的な条件や独占の話は一切しないでください。また、B社も同席しますので、A社を特別扱いしているように見せないよう配慮してください。」',
+    prompt: 'この指示に基づき、パートナー会議での発言として最も適切なのはどれですか？',
+    options: [
+      'A社との提携強化の方向性を述べ、独占条項を含む具体的な条件は一切触れない',
+      'A社との独占交渉が進んでいることを明確に示し、他社との差別化を強調する',
+      '独占条項の話が出てしまうリスクを避けるため、A社との提携について一切触れない',
+      'B社への配慮として、A社ではなくB社との提携について中心的に話す',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Chỉ thị cho phép đề cập định hướng hợp tác với A, nhưng cấm tiết lộ điều khoản độc quyền và không được để lộ sự ưu đãi đặc biệt. Phương án A đáp ứng đúng: nói về hướng hợp tác, không đề cập điều khoản cụ thể. B vi phạm bảo mật đàm phán. C quá thận trọng, bỏ mất nội dung được phép. D lệch mục tiêu của buổi họp.',
+  },
+  {
+    id: 'j1plus_listening_003',
+    level: 'J1+',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Xử lý khủng hoảng truyền thông có điều kiện (J1+)',
+    situation:
+      'あなたは広報責任者です。経営会議で社長から次の指示を受けました。「今回の製品不具合の件、メディアから問い合わせが来ています。現時点では原因究明中です。謝罪は必要ですが、まだ責任の所在は確定していません。したがって、広報対応としては『確認中』という立場を維持してください。ただし、ユーザの安全に関わる可能性がある点は、事実確認前でも積極的に公表してください。法務は対外発表前の確認を求めています。」',
+    prompt: '広報担当者がすぐに取るべき行動として最も適切なのはどれですか？',
+    options: [
+      '原因が確定するまで一切の対外コメントを差し控え、法務確認を待つ',
+      '責任の所在を明示した謝罪文を法務確認前に即時発表する',
+      'ユーザ安全に関わる可能性のある情報を法務と確認しながら準備し、責任所在については「確認中」の立場でコメントする',
+      '原因と責任をすべて説明した詳細な記者会見を当日中に設定する',
+    ],
+    correctIndex: 2,
+    explanation:
+      'Chỉ thị có nhiều lớp: duy trì lập trường "đang xác nhận" về trách nhiệm, nhưng chủ động công bố thông tin liên quan đến an toàn người dùng, và phải có pháp lý xem trước khi phát ngôn. Phương án C cân bằng đúng cả ba yêu cầu này. A bỏ mất ưu tiên an toàn người dùng. B phát ngôn về trách nhiệm khi chưa xác định và chưa qua pháp lý. D vừa sai nội dung vừa sai quy trình.',
+  },
+  {
+    id: 'j1plus_listening_004',
+    level: 'J1+',
+    skill: 'listening',
+    difficulty: 'advanced',
+    title: 'Leo thang quyết định khi chuỗi phê duyệt gián đoạn (J1+)',
+    situation:
+      'あなたは営業本部の副本部長です。本部長が急病で不在の中、大手取引先から「今週中に契約条件の最終返答をしないと、他社に切り替える」と連絡が来ました。契約額は3億円で、通常は本部長以上の承認が必要です。社長は海外出張中で連絡が難しい状態です。経営企画部長からは「副本部長権限では動けないが、状況は社長に共有する」と言われました。',
+    prompt: 'この状況で副本部長として最も適切な対応はどれですか？',
+    options: [
+      '取引先に「本部長不在のため回答できない」と伝え、来週まで待ってもらう',
+      '自分の判断で契約条件を承認し、後から社長に報告する',
+      '社長への緊急連絡手段を探しながら、取引先には「社内手続き中、確認でき次第連絡する」と伝えて時間を確保する',
+      '経営企画部長に判断を委ねて自分は動かない',
+    ],
+    correctIndex: 2,
+    explanation:
+      'Hai việc song song: tìm cách liên hệ khẩn với người có thẩm quyền (xã trưởng đang công tác), đồng thời giữ quan hệ với đối tác bằng cách thông báo đang xử lý nội bộ mà không hứa hẹn quá quyền. C là phương án duy nhất vừa giữ đối tác không chuyển sang đối thủ, vừa không vượt quyền. A mất cơ hội hợp đồng. B vượt quyền phê duyệt. D né tránh trách nhiệm xử lý tình huống.',
+  },
+
+  {
+    id: 'j1plus_lr_001',
+    level: 'J1+',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Quy trình phê duyệt + chỉ đạo ngoại lệ cấp cao (J1+)',
+    situation:
+      '[社内承認規程]\n・新規取引先との契約：法務・財務・本部長の三者承認が必要\n・既存取引先の契約更新：担当部長承認のみ可\n・例外承認：社長決裁があれば通常フローを省略可能\n\n[社長からのメッセージ]\n「C社との新規契約、今回は私が直接承認します。法務と財務には事後共有で構いません。ただし、財務だけは金額確認を事前に必ずもらってください。来週月曜日の調印に間に合わせてください。」',
+    prompt: '担当者が今週中に完了すべき手続きとして正しいのはどれですか？',
+    options: [
+      '法務・財務・本部長の三者承認をすべて取得してから社長に報告する',
+      '社長承認を先に得て、法務・財務ともに事後共有とする',
+      '財務の金額確認を事前に取得し、社長決裁を受ける。法務は事後共有とする',
+      '担当部長承認のみ取得し、月曜日に調印する',
+    ],
+    correctIndex: 2,
+    explanation:
+      'Quy trình thông thường yêu cầu ba bên, nhưng chỉ đạo của chủ tịch kích hoạt ngoại lệ: chủ tịch phê duyệt trực tiếp. Tuy nhiên, trong chỉ đạo đó có một điều kiện bắt buộc: tài chính phải xác nhận số tiền trước. Pháp lý được phép thông báo sau. Phương án C phản ánh đúng ngoại lệ lẫn điều kiện đính kèm. A bỏ qua chỉ đạo ngoại lệ. B bỏ qua điều kiện tài chính bắt buộc. D nhầm loại hợp đồng.',
+  },
+  {
+    id: 'j1plus_lr_002',
+    level: 'J1+',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Chính sách mới + chỉ đạo miệng có mâu thuẫn thẩm quyền (J1+)',
+    situation:
+      '[新情報セキュリティポリシー（今月施行）]\n・顧客データを含むファイルは社外メール送信禁止\n・クラウドストレージへのアップロードも禁止\n・例外申請は情報セキュリティ委員会に提出、承認まで最低3営業日\n\n[営業本部長からの口頭指示]\n「明日のプレゼン用に顧客リストが必要です。今夜、個人メールに送ってください。緊急なので例外申請は後でまとめて出します。」',
+    prompt: 'この状況での対応として最も適切なのはどれですか？',
+    options: [
+      '本部長の指示に従い、顧客リストを個人メールに送る',
+      '顧客リストの送付は断り、本部長に情報セキュリティポリシーの内容を説明したうえで、社内での安全な共有方法を提案する',
+      'ポリシー施行直後なので、まだ適用されないと判断して送付する',
+      '情報セキュリティ委員会に緊急連絡し、承認なしで送付できるよう交渉する',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Chính sách đã có hiệu lực ngay tháng này, cấm rõ ràng việc gửi dữ liệu khách hàng ra ngoài kể cả email cá nhân. Chỉ thị miệng của cấp trên không thể ghi đè chính sách bảo mật đã được thể chế hóa. Phương án B vừa không vi phạm policy, vừa giải quyết nhu cầu thực tế bằng cách đề xuất phương án thay thế hợp lệ. A vi phạm policy. C hiểu sai về thời điểm hiệu lực. D ủy thác quyết định sai người.',
+  },
+  {
+    id: 'j1plus_lr_003',
+    level: 'J1+',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Báo cáo hội đồng quản trị + điều chỉnh phạm vi (J1+)',
+    situation:
+      '[取締役会向け報告書の作成指針（社内規程）]\n・未確定の財務数値は記載禁止\n・リスク事項は重要度順に列記すること\n・他社との比較は広報確認済みデータのみ使用可\n\n[CFOからの口頭指示]\n「今回の取締役会報告ですが、財務見込みは幅を持たせた形（例：X億〜Y億円）であれば記載して構いません。競合比較は広報未確認でも私が責任を持ちますので入れてください。ただし、リスク列記の順序は私が最終確認してから確定させます。」',
+    prompt: 'このCFO指示に基づいた資料作成として最も適切な対応はどれですか？',
+    options: [
+      '規程通り財務見込みは記載せず、競合比較も広報確認まで待ち、リスク列記はCFO確認後に確定する',
+      '財務見込みを幅付きで記載し、競合比較は広報未確認のまま入れ、リスク列記はCFO確認用の草案として作成する',
+      '財務見込みを幅付きで記載し、競合比較は広報確認が取れるまで空欄のままにし、リスク列記はCFO確認後に確定する',
+      'CFO指示をすべて無視し、社内規程通りに作成してコンプライアンス部門に確認を求める',
+    ],
+    correctIndex: 1,
+    explanation:
+      'CFO có quyền điều chỉnh cách áp dụng quy trình trong phạm vi trách nhiệm của mình. Chỉ đạo gồm ba điểm: (1) tài chính dự kiến cho phép ghi theo dạng biên độ, (2) so sánh cạnh tranh — CFO chịu trách nhiệm nên có thể đưa vào, (3) thứ tự rủi ro chờ CFO duyệt. Phương án B phản ánh đúng cả ba. A từ chối tất cả chỉ đạo của CFO khi CFO có thẩm quyền. C bỏ qua chỉ đạo về cạnh tranh. D không cần thiết và làm chậm tiến độ.',
+  },
+  {
+    id: 'j1plus_lr_004',
+    level: 'J1+',
+    skill: 'listening-reading',
+    difficulty: 'advanced',
+    title: 'Tái cơ cấu ưu tiên khi ngân sách bị cắt (J1+)',
+    situation:
+      '[年間事業計画（承認済み）]\n・Q3新規事業立ち上げ：予算5,000万円\n・既存事業強化：予算3,000万円\n・採用計画：3名\n\n[経営会議での社長発言（今週）]\n「経済環境の変化を受けて、今期の設備投資は全体で30%削減します。ただし、採用は予定通り進めてください。新規事業については、立ち上げ自体は継続しますが、外部委託費用を中心に圧縮してください。既存事業強化は今期は最小限にとどめてください。」',
+    prompt: '事業計画の修正方針として最も適切なものはどれですか？',
+    options: [
+      '全予算項目を一律30%削減し、採用のみ予定通りとする',
+      '採用は予定通り3名、新規事業は外部委託費を削減して継続、既存事業強化は最小限に抑える形で計画を修正する',
+      '新規事業を中止し、削減分をすべて既存事業強化に回す',
+      '投資削減の影響が不明なため、来季に向けた計画修正を提案する',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Chỉ đạo không phải cắt đều 30% mà có ưu tiên rõ ràng: (1) tuyển dụng giữ nguyên, (2) dự án mới tiếp tục nhưng cắt chi phí thuê ngoài, (3) củng cố kinh doanh hiện tại giảm xuống mức tối thiểu. Phương án B phản ánh đúng cả ba ưu tiên này. A áp dụng cắt đều không đúng chỉ đạo. C đình chỉ dự án mới trái ý chủ tịch. D trì hoãn không phù hợp với yêu cầu điều chỉnh ngay.',
+  },
+
+  {
+    id: 'j1plus_reading_001',
+    level: 'J1+',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Hướng dẫn công bố thông tin với điều kiện phân tầng (J1+)',
+    situation:
+      'あなたはIR担当部長です。法務部から次の社内通達が届きました。\n\n件名：適時開示に関する社内運用の明確化\n\n本通達は、金融商品取引法に基づく適時開示義務の社内運用を明確にするものです。以下の基準に従ってください。\n①決定事実（取締役会決議済み）：決議後直ちに開示\n②発生事実（事故・訴訟等）：事実確認後速やかに開示\n③決算情報：所定の手続きを経た後に開示\n④業績予想の修正：修正額が直前予想比10%以上の場合、判明後直ちに開示\n\nなお、開示前に弁護士レビューを受けることを強く推奨しますが、迅速な開示が求められる場合は、弁護士レビューを待たずに開示することも認めます。',
+    prompt: 'この通達の理解として正しいものはどれですか？',
+    options: [
+      '業績予想の修正はどんな場合でも弁護士レビュー後にしか開示できない',
+      '取締役会決議済みの決定事実は、弁護士レビューが完了するまで開示を待つことが求められる',
+      '業績予想の修正幅が直前予想比10%以上の場合は、弁護士レビューを待たずに開示することも認められる',
+      '発生事実の開示は、原因究明が完了してから行う必要がある',
+    ],
+    correctIndex: 2,
+    explanation:
+      'Thông báo nêu rõ: tất cả loại thông tin đều được phép công bố mà không cần chờ luật sư nếu yêu cầu công bố nhanh. Với dự báo kết quả điều chỉnh ≥10%, đây là trường hợp yêu cầu công bố ngay sau khi xác nhận, nên phương án C đúng. A và B đặt điều kiện bắt buộc về luật sư không có trong quy định. D nhầm "phát sinh sự thực" — không cần hoàn thành điều tra nguyên nhân mới được công bố.',
+  },
+  {
+    id: 'j1plus_reading_002',
+    level: 'J1+',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Đề xuất hợp tác với điều khoản ưu tiên cạnh tranh (J1+)',
+    situation:
+      'あなたは事業開発部長です。海外パートナー候補のD社から次のメールを受け取りました。\n\n件名：戦略的パートナーシップの提案\n\n当社はお客様の市場での独占販売権を希望します。独占期間は3年間、その間に最低購入保証量を設定することを提案します。なお、当社は現在、御社の競合であるE社とも並行して協議を進めております。来月末までにご回答いただけない場合、E社との契約を優先させていただく場合があります。\n\nD社',
+    prompt: 'このメールを受け取った事業開発部長として、社内への報告内容として最も適切なのはどれですか？',
+    options: [
+      'D社が独占販売権を要求していることと、E社との並行交渉および月末の回答期限を報告し、独占条件の受諾可否を経営層に判断を仰ぐ',
+      'D社の提案は競合他社への牽制であり信頼性が低いため、無視してよいと判断して報告しない',
+      'D社の独占要求は標準的な条件なので承認し、月末までに回答する旨を自己判断で返信する',
+      '月末の期限を延ばすよう要求し、回答を来年に先送りすることを提案する',
+    ],
+    correctIndex: 0,
+    explanation:
+      'Email chứa nhiều điểm quan trọng cần leo thang lên cấp quản lý: yêu cầu độc quyền 3 năm, số lượng mua tối thiểu bảo đảm, đang đàm phán song song với đối thủ cạnh tranh, và thời hạn trả lời cuối tháng. Tất cả những điểm này vượt thẩm quyền của trưởng phòng. Phương án A mô tả đúng nội dung cần báo cáo. B đánh giá chủ quan về độ tin cậy. C tự quyết định độc quyền vượt thẩm quyền. D mất cơ hội mà không có cơ sở.',
+  },
+  {
+    id: 'j1plus_reading_003',
+    level: 'J1+',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Thông báo tuân thủ + phạm vi áp dụng có ngoại lệ (J1+)',
+    situation:
+      'あなたは製造部門長です。コンプライアンス部門から次の通知が届きました。\n\n件名：サプライヤー監査要件の強化について\n\n来月より、主要サプライヤーに対する年次監査を義務化します。対象は取引額が年間1億円以上のサプライヤーです。ただし、以下の条件をすべて満たす場合は、書面審査への代替が認められます：①過去3年間の監査で重大指摘なし、②ISO認証取得済み、③取引額が5億円未満。\n\nなお、海外サプライヤーについては、対面監査が物理的に困難な場合に限り、代替手段について個別にコンプライアンス部門と協議することができます。',
+    prompt: 'この通知の適用として正しいものはどれですか？',
+    options: [
+      '取引額8億円のサプライヤーがISO認証取得済みで過去3年重大指摘なしであれば、書面審査への代替が認められる',
+      '取引額3億円で過去3年重大指摘なし・ISO認証取得済みの国内サプライヤーは書面審査への代替が認められる',
+      '海外サプライヤーは対面監査が不要で、すべて書面審査に代替できる',
+      '取引額1億円未満のサプライヤーに対しても、来月から監査が義務化される',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Điều kiện được thay thế bằng xem xét văn bản phải thỏa CẢ BA: không có chỉ trích trọng yếu 3 năm qua, có chứng nhận ISO, và dưới 5 tỷ yên. Phương án B thỏa cả ba. Phương án A thất bại ở điều kiện dưới 5 tỷ (8 tỷ > 5 tỷ). C hiểu sai về nhà cung cấp nước ngoài — chỉ được thảo luận cá nhân, không tự động miễn. D sai ngưỡng — chỉ bắt buộc từ 1 tỷ yên trở lên.',
+  },
+  {
+    id: 'j1plus_reading_004',
+    level: 'J1+',
+    skill: 'reading',
+    difficulty: 'advanced',
+    title: 'Phân bổ nguồn lực khi mục tiêu xung đột (J1+)',
+    situation:
+      'あなたは人事部長です。社長から次のメールを受け取りました。\n\n件名：組織強化に関する優先順位の整理\n\n来期に向け、以下の優先順位で組織強化を進めてください。①デジタル人材の採用を最優先とします。②現場管理職の育成プログラムは今期中に設計を完了させてください（実施は来期）。③シニア層の早期退職制度は、労務リスクを慎重に精査したうえで来月中に設計案を提出してください。④全社研修の予算は今期20%削減してください。ただし、コンプライアンス研修だけは削減対象外とします。\n\nなお、採用予算の追加配分については、CFOと別途調整してください。',
+    prompt: 'このメールに基づき、人事部長が今月中に完了すべきことはどれですか？',
+    options: [
+      'デジタル人材の採用を完了させ、全社研修予算を20%削減する',
+      '早期退職制度の設計案を労務リスク精査のうえ提出し、CFOと採用予算の追加配分を調整する',
+      '現場管理職の育成プログラムの設計を完了させ、全社研修予算の削減計画を立てる',
+      'コンプライアンス研修の予算を削減し、その分をデジタル採用予算に回す',
+    ],
+    correctIndex: 1,
+    explanation:
+      'Email có nhiều hạn chót khác nhau. Việc phải hoàn thành trong tháng này: (1) thiết kế chế độ nghỉ hưu sớm sau khi đánh giá rủi ro lao động — "来月中に設計案", (2) điều chỉnh ngân sách tuyển dụng bổ sung với CFO không có hạn chót cụ thể nhưng là việc hiện tại. Phương án B đúng với các ưu tiên trong tháng. A nhầm hoàn thành tuyển dụng với thiết kế chương trình. C đúng việc nhưng hạn chót của chương trình đào tạo là "今期中" không nhất thiết là tháng này. D vi phạm điều kiện ngoại lệ của đào tạo tuân thủ.',
+  },
 ];
