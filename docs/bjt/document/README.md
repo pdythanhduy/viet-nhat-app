@@ -47,6 +47,11 @@ Nguyen tac su dung:
 - Vi du audit 1 de cu the ra file UTF-8: `npm run bjt:audit-mock-v2 -- --exam BJT_MOCK_01 --out docs/bjt/document/mock-v2-audit.txt`.
 - QA checklist theo chuan distractor/role/deadline: `npm run bjt:qa-checklist`.
 - Tu dong bo sung cue explanation cho role/deadline neu thieu: `npm run bjt:qa-fix-cues`.
+- Lam sach explanation de bo cue may va giu van phong tu nhien: `npm run bjt:explanation-cleanup`.
+- Audit distractor (xuat report JSON, mode conservative de giam false-positive): `npm run bjt:distractor-audit`.
+- Neu muon soi ky muc do lien quan voi context (co the nhieu warning hon): `npm run bjt:distractor-audit -- --aggressive`.
+- Tao roadmap coverage gap theo level/topic: `npm run bjt:coverage-gap`.
+- Bo sung mini-batch lap gap J5/J4 (phone/reporting/compliance/legal/finance/incident): `npm run bjt:seed-gap-j54`.
 - Che do gate truoc merge data (fail neu warning vuot baseline hien tai): `npm run bjt:qa-checklist:gate`.
 - Che do nghiem ngat (warning nao cung fail): `npm run bjt:qa-checklist:strict`.
 - Bat git hook de tu dong gate truoc commit/merge commit: `npm run git:hooks:setup`.

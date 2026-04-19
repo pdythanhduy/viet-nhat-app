@@ -20,6 +20,10 @@
     "bjt:qa-fix-cues": "node scripts/bjt-qa-checklist.js --fix-cues",
     "bjt:qa-checklist:strict": "node scripts/bjt-qa-checklist.js --strict",
     "bjt:qa-checklist:gate": "node scripts/bjt-qa-checklist.js --max-warnings 0",
+    "bjt:explanation-cleanup": "node scripts/bjt-explanation-cleanup.js --write",
+    "bjt:distractor-audit": "node scripts/bjt-distractor-audit.js --out docs/bjt/document/partitioned/distractor-audit.json",
+    "bjt:coverage-gap": "node scripts/bjt-coverage-gap.js",
+    "bjt:seed-gap-j54": "node scripts/bjt-seed-gap-batch-j54.js",
     "git:hooks:setup": "node scripts/setup-git-hooks.js",
     "content:audit-encoding": "node scripts/content-encoding-audit.js",
     "content:fix-encoding": "node scripts/content-encoding-audit.js --fix"
