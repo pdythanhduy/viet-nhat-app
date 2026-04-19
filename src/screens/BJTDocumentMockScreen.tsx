@@ -344,7 +344,7 @@ export default function BJTDocumentMockScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 28 },
+  content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
   title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },

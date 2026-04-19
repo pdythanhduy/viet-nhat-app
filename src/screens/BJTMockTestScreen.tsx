@@ -450,8 +450,8 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   emptyText: { fontSize: 14, color: Colors.textSecondary },
-  content: { padding: 16, paddingBottom: 28 },
-  summaryContent: { padding: 16, paddingBottom: 28 },
+  content: { padding: 16, paddingBottom: 108 },
+  summaryContent: { padding: 16, paddingBottom: 108 },
   contentTablet: {
     width: '100%',
     maxWidth: 900,

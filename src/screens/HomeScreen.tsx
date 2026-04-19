@@ -1117,7 +1117,6 @@ export default function HomeScreen() {
             </TouchableOpacity>
           ))}
 
-          <Text style={styles.sectionTitle}>Điểm cần để ý</Text>
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Điểm cần để ý</Text>
             {visibleUpdates.hasMore ? (

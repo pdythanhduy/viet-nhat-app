@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
+  Platform,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -8,7 +9,7 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -39,8 +40,12 @@ function formatTime(totalSeconds: number) {
 }
 
 export default function BJTMockExamsV2Screen() {
+  const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const isTablet = width >= 768;
+  const androidCtaLift = Platform.OS === 'android' ? 14 : 0;
+  const stickyBottomPadding = Math.max(insets.bottom, 12);
+  const stickyContentPadding = 112 + stickyBottomPadding + androidCtaLift;
   const [level, setLevel] = useState<LevelFilter>('all');
   const [selectedExamId, setSelectedExamId] = useState(BJT_MOCK_V2_EXAMS[0]?.examId ?? '');
   const [sessionState, setSessionState] = useState<SessionState>('idle');
@@ -412,7 +417,15 @@ export default function BJTMockExamsV2Screen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={[styles.content, styles.contentWithStickyCta, isTablet && styles.contentTablet]}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={[
+          styles.content,
+          styles.contentWithStickyCta,
+          { paddingBottom: stickyContentPadding },
+          isTablet && styles.contentTablet,
+        ]}
+      >
         <View style={styles.hero}>
           <Text style={styles.title}>50 đề thi V2</Text>
           <Text style={styles.subtitle}>
@@ -515,7 +528,7 @@ export default function BJTMockExamsV2Screen() {
         })}
 
       </ScrollView>
-      <View style={styles.stickyCtaWrap}>
+      <View style={[styles.stickyCtaWrap, { bottom: androidCtaLift, paddingBottom: stickyBottomPadding }]}>
         <TouchableOpacity style={styles.primaryButton} onPress={startSession}>
           <Text style={styles.primaryButtonText}>Bắt đầu {selectedExam.examId}</Text>
         </TouchableOpacity>
@@ -527,7 +540,7 @@ export default function BJTMockExamsV2Screen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 28 },
+  content: { padding: 16, paddingBottom: 108 },
   contentTablet: {
     width: '100%',
     maxWidth: 920,

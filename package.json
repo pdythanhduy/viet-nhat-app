@@ -26,7 +26,8 @@
     "bjt:seed-gap-j54": "node scripts/bjt-seed-gap-batch-j54.js",
     "git:hooks:setup": "node scripts/setup-git-hooks.js",
     "content:audit-encoding": "node scripts/content-encoding-audit.js",
-    "content:fix-encoding": "node scripts/content-encoding-audit.js --fix"
+    "content:fix-encoding": "node scripts/content-encoding-audit.js --fix",
+    "content:qa-admin-guides": "jest adminGuides.qa.test.ts --runInBand"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

@@ -132,7 +132,7 @@ export default function BJTVocabularyScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 32 },
+  content: { padding: 16, paddingBottom: 108 },
   contentTablet: {
     width: '100%',
     maxWidth: 900,

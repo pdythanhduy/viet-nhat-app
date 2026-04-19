@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
@@ -75,8 +75,10 @@ function buildScenarioSkillBreakdown(
 
 export default function BJTQuizScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'BJTQuiz'>>();
+  const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const isTablet = width >= 768;
+  const bottomContentPadding = 28 + Math.max(insets.bottom, 12) + 20;
   const [level, setLevel] = useState<BjtTargetLevel>(route.params?.level ?? 'J3');
   const [filter, setFilter] = useState<FilterId>('all');
   const [adaptiveSkill, setAdaptiveSkill] = useState<BjtSkill | null>(null);
@@ -174,7 +176,14 @@ export default function BJTQuizScreen() {
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
       </View>
 
-      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={[
+          styles.content,
+          { paddingBottom: bottomContentPadding },
+          isTablet && styles.contentTablet,
+        ]}
+      >
         <Text style={styles.title}>Luyện tình huống BJT</Text>
         <Text style={styles.subtitle}>
           Luyện theo từng skill và từng level. Mặc định đang ưu tiên J3 để bám vào nhóm câu đã được review kỹ.

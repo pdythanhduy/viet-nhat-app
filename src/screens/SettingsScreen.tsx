@@ -498,15 +498,13 @@ export default function SettingsScreen() {
         activeOpacity={0.8}
       >
         <View style={styles.rowBetween}>
-          <View style={styles.rowLeft}>
+          <View style={styles.rowLeftTop}>
             <View style={[styles.notifIcon, { backgroundColor: '#EBF5FB' }]}>
               <Ionicons name="chatbubble-ellipses" size={20} color="#2980B9" />
             </View>
-            <View>
+            <View style={styles.feedbackTextWrap}>
               <Text style={styles.sectionTitle}>Góp ý và phản hồi</Text>
-              <Text style={styles.sectionDesc}>
-                Báo lỗi, đề xuất tính năng hoặc liên hệ hỗ trợ
-              </Text>
+              <Text style={styles.feedbackDesc}>Bao loi{'\n'}De xuat tinh nang{'\n'}Lien he ho tro</Text>
             </View>
           </View>
           <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
@@ -723,6 +721,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
     flex: 1,
+  },
+  rowLeftTop: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    flex: 1,
+  },
+  feedbackTextWrap: {
+    flex: 1,
+    minWidth: 0,
+  },
+  feedbackDesc: {
+    fontSize: 13,
+    color: Colors.textSecondary,
+    lineHeight: 20,
+    marginBottom: 0,
   },
   profileSectionText: {
     flex: 1,

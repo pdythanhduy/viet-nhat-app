@@ -3,6 +3,10 @@ const path = require('path');
 
 const TARGET_FILES = [
   'src/constants/content/japanese.ts',
+  'src/constants/content/adminGuides.ts',
+  'src/constants/content/dailyLife.ts',
+  'src/constants/content/emergency.ts',
+  'src/constants/content/jobs.ts',
   'src/constants/content/bjt.ts',
   'docs/bjt/document/partitioned/keigo.json',
   'docs/bjt/document/partitioned/scenarios.json',

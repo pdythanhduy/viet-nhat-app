@@ -58,7 +58,7 @@ const VISA_QUICK_ACTIONS = [
     description: 'Phân biệt tourism, short stay và eVISA hiện hành.',
     icon: 'globe-outline',
     color: '#8E44AD',
-    guideId: 'visa-highlights-2026',
+    guideId: 'japan-policy-2026-action-by-user-type',
   },
   {
     id: 'unsure-visa',
@@ -77,6 +77,11 @@ const VISA_QUICK_ACTIONS = [
     guideId: 'parents-elderly-relatives',
   },
 ] as const;
+
+const FEATURED_GUIDE_ORDER = ['japan-policy-2026-action-by-user-type'] as const;
+const FEATURED_GUIDE_INDEX: ReadonlyMap<string, number> = new Map(
+  FEATURED_GUIDE_ORDER.map((id, index) => [id, index])
+);
 
 export default function AdminScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -128,7 +133,18 @@ export default function AdminScreen() {
         guide.description.toLowerCase().includes(q);
 
       return matchesCategory && matchesSearch;
-    }).sort((a, b) => Number(b.priority === 'high') - Number(a.priority === 'high'));
+    }).sort((a, b) => {
+      const featuredA = FEATURED_GUIDE_INDEX.get(a.id);
+      const featuredB = FEATURED_GUIDE_INDEX.get(b.id);
+
+      if (featuredA !== undefined || featuredB !== undefined) {
+        if (featuredA === undefined) return 1;
+        if (featuredB === undefined) return -1;
+        return featuredA - featuredB;
+      }
+
+      return Number(b.priority === 'high') - Number(a.priority === 'high');
+    });
   }, [activeCategory, search]);
 
   const showVisaQuickSelector = !search.trim() && (activeCategory === 'all' || activeCategory === 'visa');

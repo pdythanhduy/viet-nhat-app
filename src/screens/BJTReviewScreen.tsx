@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
@@ -48,8 +48,10 @@ type ReviewItem = {
 
 export default function BJTReviewScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'BJTReview'>>();
+  const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const isTablet = width >= 768;
+  const bottomContentPadding = Math.max(insets.bottom, 16) + 24;
   const [level, setLevel] = useState<BjtTargetLevel>(route.params?.level ?? 'J3');
   const [sourceFilter, setSourceFilter] = useState<ReviewSourceFilter>('all');
   const [wrongIds, setWrongIds] = useState<string[]>([]);
@@ -154,7 +156,7 @@ export default function BJTReviewScreen() {
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView contentContainerStyle={styles.emptyWrap}>
           <Text style={styles.title}>Ôn lỗi</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips} style={styles.chipsRow}>
             {availableLevels.map((item) => {
               const active = item === level;
               return (
@@ -170,7 +172,7 @@ export default function BJTReviewScreen() {
               );
             })}
           </ScrollView>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips} style={styles.chipsRow}>
             {(Object.keys(SOURCE_LABELS) as ReviewSourceFilter[]).map((item) => {
               const active = item === sourceFilter;
               return (
@@ -249,7 +251,14 @@ export default function BJTReviewScreen() {
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
       </View>
-      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={[
+          styles.content,
+          { paddingBottom: bottomContentPadding },
+          isTablet && styles.contentTablet,
+        ]}
+      >
         <Text style={styles.title}>Ôn lỗi</Text>
         <Text style={styles.subtitle}>
           Chế độ ôn lỗi tổng hợp câu sai từ Luyện tình huống, Mock có giờ và 50 đề. Câu nào làm đúng trong lúc ôn sẽ được gỡ khỏi danh sách lỗi.
@@ -384,7 +393,7 @@ export default function BJTReviewScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 28 },
+  content: { padding: 16, flexGrow: 1 },
   contentTablet: {
     width: '100%',
     maxWidth: 900,
@@ -394,12 +403,11 @@ const styles = StyleSheet.create({
   progressFill: { height: 6, backgroundColor: Colors.primary },
   title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
-  chips: { gap: 8, paddingTop: 14, paddingBottom: 8, paddingRight: 12 },
-  chipsCompact: { gap: 8, paddingBottom: 8, paddingRight: 12 },
+  chips: { gap: 8, paddingTop: 10, paddingBottom: 6, paddingRight: 12, alignItems: 'flex-start' },
+  chipsCompact: { gap: 8, paddingTop: 4, paddingBottom: 6, paddingRight: 12, alignItems: 'flex-start' },
   chip: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: 36,
+    paddingVertical: 5,
     borderRadius: 999,
     backgroundColor: Colors.white,
     borderWidth: 1,
@@ -408,7 +416,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary, textAlign: 'center' },
+  chipText: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    textAlign: 'center',
+    includeFontPadding: false,
+  },
   chipTextActive: { color: Colors.white },
   counterRow: {
     marginTop: 14,
@@ -418,7 +433,7 @@ const styles = StyleSheet.create({
     gap: 12,
     flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1, textAlign: 'center' },
+  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1 },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -440,7 +455,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  skillBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.primary, textAlign: 'center' },
+  skillBadgeText: {
+    fontSize: 11,
+    lineHeight: 14,
+    fontWeight: '700',
+    color: Colors.primary,
+    textAlign: 'center',
+    includeFontPadding: false,
+  },
   levelBadge: {
     alignSelf: 'flex-start',
     minHeight: 30,
@@ -452,7 +474,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  levelBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.white, textAlign: 'center' },
+  levelBadgeText: {
+    fontSize: 11,
+    lineHeight: 14,
+    fontWeight: '700',
+    color: Colors.white,
+    textAlign: 'center',
+    includeFontPadding: false,
+  },
   situation: { marginTop: 10, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', color: Colors.textPrimary },
   options: { marginTop: 14, gap: 10 },
@@ -499,16 +528,16 @@ const styles = StyleSheet.create({
     padding: 24,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 12,
   },
+  chipsRow: { alignSelf: 'stretch' },
   emptyTitle: {
-    marginTop: 12,
     fontSize: 18,
     fontWeight: '800',
     color: Colors.textPrimary,
     textAlign: 'center',
   },
   emptyText: {
-    marginTop: 8,
     fontSize: 13,
     lineHeight: 20,
     color: Colors.textSecondary,

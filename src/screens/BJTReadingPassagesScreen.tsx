@@ -6,8 +6,9 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useWindowDimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
@@ -16,6 +17,10 @@ import { BJT_READING_PASSAGES } from '../constants/content';
 type PassageLevel = 'all' | (typeof BJT_READING_PASSAGES)[number]['lv'];
 
 export default function BJTReadingPassagesScreen() {
+  const { width } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const isTablet = width >= 900;
+
   const [level, setLevel] = useState<PassageLevel>('all');
   const [activeId, setActiveId] = useState(BJT_READING_PASSAGES[0]?.id ?? '');
   const [revealedAnswers, setRevealedAnswers] = useState<Record<string, boolean>>({});
@@ -41,45 +46,62 @@ export default function BJTReadingPassagesScreen() {
   const revealedCount = activePassage
     ? activePassage.questions.filter((_, index) => revealedAnswers[`${activePassage.id}-${index}`]).length
     : 0;
+  const allAnswersRevealed = !!activePassage && revealedCount === activePassage.questions.length;
+  const bottomContentPadding = 96 + Math.max(insets.bottom, 12);
+
+  const toggleAllAnswers = () => {
+    if (!activePassage) return;
+    if (allAnswersRevealed) {
+      setRevealedAnswers({});
+      return;
+    }
+
+    const next: Record<string, boolean> = {};
+    activePassage.questions.forEach((_, idx) => {
+      next[`${activePassage.id}-${idx}`] = true;
+    });
+    setRevealedAnswers(next);
+  };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={[styles.content, { paddingBottom: bottomContentPadding }]}
+      >
         <View style={styles.hero}>
-          <Text style={styles.title}>Bài đọc dài</Text>
+          <Text style={styles.title}>BJT Reading Passages</Text>
           <Text style={styles.subtitle}>
-            10 bài đọc dài từ bộ ultimate. App giữ nguyên bài đọc và đáp án gốc, chỉ thêm bộ lọc level và flow review từng câu hỏi.
+            Chon level, chon bai doc, roi lam cau hoi ngay ben duoi. Man hinh duoc toi uu de thao tac nhanh tren dien
+            thoai va tablet.
           </Text>
         </View>
 
         <View style={styles.summaryCard}>
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Bài đọc</Text>
+            <Text style={styles.metricLabel}>So bai</Text>
             <Text style={styles.metricValue}>{passages.length}</Text>
           </View>
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Câu hỏi</Text>
+            <Text style={styles.metricLabel}>So cau hoi</Text>
             <Text style={styles.metricValue}>{passages.reduce((sum, item) => sum + item.questions.length, 0)}</Text>
           </View>
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Đang chọn</Text>
-            <Text style={styles.metricValueSmall}>{level === 'all' ? 'Tất cả' : level}</Text>
+            <Text style={styles.metricLabel}>Level</Text>
+            <Text style={styles.metricValueSmall}>{level === 'all' ? 'Tat ca' : level}</Text>
           </View>
         </View>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
           {levels.map((item) => {
             const active = item === level;
-            const count = item === 'all' ? BJT_READING_PASSAGES.length : BJT_READING_PASSAGES.filter((entry) => entry.lv === item).length;
+            const count =
+              item === 'all' ? BJT_READING_PASSAGES.length : BJT_READING_PASSAGES.filter((entry) => entry.lv === item).length;
             return (
-              <TouchableOpacity
-                key={item}
-                style={[styles.chip, active && styles.chipActive]}
-                onPress={() => setLevel(item)}
-              >
+              <TouchableOpacity key={item} style={[styles.chip, active && styles.chipActive]} onPress={() => setLevel(item)}>
                 <Text style={[styles.chipText, active && styles.chipTextActive]}>
-                  {item === 'all' ? 'Tất cả' : item} ({count})
+                  {item === 'all' ? 'Tat ca' : item} ({count})
                 </Text>
               </TouchableOpacity>
             );
@@ -87,33 +109,40 @@ export default function BJTReadingPassagesScreen() {
         </ScrollView>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Danh sách bài đọc</Text>
-          {passages.map((item) => {
-            const active = item.id === activePassage?.id;
-            return (
-              <TouchableOpacity
-                key={item.id}
-                style={[styles.listCard, active && styles.listCardActive]}
-                onPress={() => {
-                  setActiveId(item.id);
-                  setRevealedAnswers({});
-                }}
-              >
-                <View style={styles.rowBetween}>
-                  <Text style={styles.levelBadge}>{item.lv}</Text>
-                  <Text style={styles.meta}>{item.id}</Text>
-                </View>
-                <Text style={styles.listTitle}>{item.title}</Text>
-                <Text style={styles.listMeta}>{item.questions.length} câu hỏi</Text>
-              </TouchableOpacity>
-            );
-          })}
+          <View style={styles.rowBetween}>
+            <Text style={styles.sectionTitle}>Danh sach bai doc</Text>
+            <Text style={styles.listHint}>Vuot ngang de chon nhanh</Text>
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.passageRail}>
+            {passages.map((item) => {
+              const active = item.id === activePassage?.id;
+              return (
+                <TouchableOpacity
+                  key={item.id}
+                  style={[styles.railCard, active && styles.railCardActive]}
+                  onPress={() => {
+                    setActiveId(item.id);
+                    setRevealedAnswers({});
+                  }}
+                >
+                  <View style={styles.rowBetween}>
+                    <Text style={styles.levelBadge}>{item.lv}</Text>
+                    <Text style={styles.meta}>{item.id}</Text>
+                  </View>
+                  <Text numberOfLines={2} style={styles.listTitle}>
+                    {item.title}
+                  </Text>
+                  <Text style={styles.listMeta}>{item.questions.length} cau hoi</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
         </View>
 
         {activePassage ? (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Bài đọc đang chọn</Text>
-            <View style={styles.card}>
+            <Text style={styles.sectionTitle}>Noi dung bai doc</Text>
+            <View style={[styles.card, isTablet && styles.cardTablet]}>
               <View style={styles.rowBetween}>
                 <Text style={styles.levelBadge}>{activePassage.lv}</Text>
                 <Text style={styles.meta}>{activePassage.id}</Text>
@@ -123,24 +152,32 @@ export default function BJTReadingPassagesScreen() {
               <View style={styles.noteCard}>
                 <Ionicons name="eye-outline" size={16} color={Colors.primary} />
                 <Text style={styles.noteText}>
-                  Đã mở {revealedCount}/{activePassage.questions.length} đáp án. Dùng màn này để đọc văn bản trước, tự trả lời, rồi mới mở đáp án gốc.
+                  Da mo {revealedCount}/{activePassage.questions.length} dap an.
                 </Text>
               </View>
 
-              <Text style={styles.blockTitle}>Tóm tắt tiếng Việt</Text>
+              <Text style={styles.blockTitle}>Tom tat tieng Viet</Text>
               <Text style={styles.bodyText}>{activePassage.passage_vi}</Text>
 
-              <Text style={styles.blockTitle}>Đoạn đọc tiếng Nhật</Text>
+              <Text style={styles.blockTitle}>Doan van tieng Nhat</Text>
               <Text style={styles.jpText}>{activePassage.passage_jp}</Text>
             </View>
 
-            <Text style={styles.sectionTitle}>Câu hỏi</Text>
+            <View style={styles.rowBetween}>
+              <Text style={styles.sectionTitle}>Cau hoi</Text>
+              <TouchableOpacity style={[styles.answerButton, allAnswersRevealed && styles.answerButtonActive]} onPress={toggleAllAnswers}>
+                <Text style={[styles.answerButtonText, allAnswersRevealed && styles.answerButtonTextActive]}>
+                  {allAnswersRevealed ? 'An tat ca' : 'Mo tat ca'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
             {activePassage.questions.map((question, index) => {
               const answerKey = `${activePassage.id}-${index}`;
               const revealed = revealedAnswers[answerKey] ?? false;
 
               return (
-                <View key={answerKey} style={styles.questionCard}>
+                <View key={answerKey} style={[styles.questionCard, revealed && styles.questionCardRevealed]}>
                   <View style={styles.rowBetween}>
                     <Text style={styles.questionLabel}>Q{index + 1}</Text>
                     <TouchableOpacity
@@ -153,14 +190,14 @@ export default function BJTReadingPassagesScreen() {
                       }
                     >
                       <Text style={[styles.answerButtonText, revealed && styles.answerButtonTextActive]}>
-                        {revealed ? 'Ẩn đáp án' : 'Mở đáp án'}
+                        {revealed ? 'An dap an' : 'Mo dap an'}
                       </Text>
                     </TouchableOpacity>
                   </View>
                   <Text style={styles.jpText}>{question.q}</Text>
                   {revealed ? (
                     <View style={styles.answerBox}>
-                      <Text style={styles.answerLabel}>Đáp án gốc</Text>
+                      <Text style={styles.answerLabel}>Dap an goi y</Text>
                       <Text style={styles.answerText}>{question.a}</Text>
                     </View>
                   ) : null}
@@ -176,7 +213,7 @@ export default function BJTReadingPassagesScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 28 },
+  content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
   title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
@@ -204,17 +241,19 @@ const styles = StyleSheet.create({
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
   chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
-  section: { marginTop: 10 },
+  section: { marginTop: 12 },
   sectionTitle: { marginBottom: 10, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
-  listCard: {
+  listHint: { fontSize: 11, fontWeight: '700', color: Colors.textMuted },
+  passageRail: { gap: 10, paddingRight: 12 },
+  railCard: {
+    width: 260,
     backgroundColor: Colors.card,
     borderRadius: 16,
     padding: 14,
-    marginBottom: 10,
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  listCardActive: { borderColor: Colors.primary, backgroundColor: Colors.accent },
+  railCardActive: { borderColor: Colors.primary, backgroundColor: Colors.accent },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   levelBadge: {
     alignSelf: 'flex-start',
@@ -237,6 +276,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
+  cardTablet: {
+    paddingHorizontal: 20,
+    paddingVertical: 18,
+  },
   cardTitle: { marginTop: 8, fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
   noteCard: {
     marginTop: 12,
@@ -258,6 +301,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderColor: Colors.border,
+  },
+  questionCardRevealed: {
+    borderColor: Colors.primary,
+    backgroundColor: Colors.accent,
   },
   questionLabel: { fontSize: 12, fontWeight: '800', color: Colors.primary },
   answerButton: {

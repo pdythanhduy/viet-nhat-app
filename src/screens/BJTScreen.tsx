@@ -308,7 +308,7 @@ export default function BJTScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { paddingBottom: 32 },
+  content: { paddingBottom: 108 },
   contentTablet: {
     width: '100%',
     maxWidth: 960,
