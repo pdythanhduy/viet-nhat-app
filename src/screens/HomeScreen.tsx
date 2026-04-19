@@ -436,6 +436,7 @@ export default function HomeScreen() {
   const [pinnedBookmarks, setPinnedBookmarks] = useState<Bookmark[]>([]);
   const [inProgressGuides, setInProgressGuides] = useState<InProgressGuide[]>([]);
   const [readyGuides, setReadyGuides] = useState<ReadyGuide[]>([]);
+  const [completedGuideIds, setCompletedGuideIds] = useState<string[]>([]);
   const [savedCounts, setSavedCounts] = useState<SavedCounts>({
     guide: 0,
     'daily-life': 0,
@@ -522,6 +523,7 @@ export default function HomeScreen() {
             .slice(0, 4) as ReadyGuide[];
 
           setReadyGuides(completedItems);
+          setCompletedGuideIds(completedItems.map((item) => item.guideId));
         });
       };
 
@@ -533,6 +535,8 @@ export default function HomeScreen() {
     .map((topicId) => DAILY_LIFE_TOPICS.find((topic) => topic.id === topicId))
     .filter(Boolean);
   const personalizedActions = userProfile ? buildPersonalizedActions(userProfile) : [];
+  const isGuideActionCompleted = (action: PersonalizedAction) =>
+    action.kind === 'guide' && completedGuideIds.includes(action.guideId);
 
   const handleCategoryPress = (tab: CategoryTarget) => {
     if (tab === 'DailyLife') {
@@ -696,6 +700,14 @@ export default function HomeScreen() {
 
               <View style={styles.profileActionsWrap}>
                 {personalizedActions.map((action) => (
+                  (() => {
+                    const completed = isGuideActionCompleted(action);
+                    const actionTitle =
+                      completed && action.id === 'first-7-days'
+                        ? 'Chốt checklist 7 ngày đầu (ĐÃ CHỐT)'
+                        : action.title;
+
+                    return (
                   <TouchableOpacity
                     key={action.id}
                     style={styles.profileActionCard}
@@ -705,11 +717,19 @@ export default function HomeScreen() {
                       <Ionicons name={action.icon} size={18} color={action.color} />
                     </View>
                     <View style={styles.profileActionText}>
-                      <Text style={styles.profileActionTitle}>{action.title}</Text>
+                      <Text style={styles.profileActionTitle}>{actionTitle}</Text>
                       <Text style={styles.profileActionDesc}>{action.description}</Text>
                     </View>
+                    {completed ? (
+                      <View style={styles.stampBadge}>
+                        <Ionicons name="checkmark-done-outline" size={12} color={Colors.white} />
+                        <Text style={styles.stampBadgeText}>ĐÃ CHỐT</Text>
+                      </View>
+                    ) : null}
                     <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
                   </TouchableOpacity>
+                    );
+                  })()
                 ))}
               </View>
             </View>
@@ -1343,6 +1363,22 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     color: Colors.textSecondary,
+  },
+  stampBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: Colors.success,
+    borderRadius: 999,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginRight: 8,
+  },
+  stampBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: Colors.white,
+    letterSpacing: 0.3,
   },
   profileSetupCard: {
     backgroundColor: Colors.accent,

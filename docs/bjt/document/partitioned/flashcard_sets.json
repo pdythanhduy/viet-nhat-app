@@ -1,0 +1,107 @@
+[
+  {
+    "set_id": "fc01",
+    "name": "Chào hỏi cơ bản",
+    "level": "J5-J4",
+    "card_count": 12,
+    "description": "12 câu chào hỏi thiết yếu trong công sở"
+  },
+  {
+    "set_id": "fc02",
+    "name": "Chức vụ công ty",
+    "level": "J5-J4",
+    "card_count": 18,
+    "description": "Từ 社長 đến アルバイト"
+  },
+  {
+    "set_id": "fc03",
+    "name": "Keigo Sonkeigo",
+    "level": "J4-J3",
+    "card_count": 12,
+    "description": "12 cặp động từ tôn kính"
+  },
+  {
+    "set_id": "fc04",
+    "name": "Keigo Kenjougo",
+    "level": "J4-J3",
+    "card_count": 14,
+    "description": "14 cặp động từ khiêm nhường"
+  },
+  {
+    "set_id": "fc05",
+    "name": "Email chuẩn mực",
+    "level": "J3-J2",
+    "card_count": 20,
+    "description": "Từ vựng & cụm từ email chuyên nghiệp"
+  },
+  {
+    "set_id": "fc06",
+    "name": "Tài chính & Kế toán",
+    "level": "J3-J2",
+    "card_count": 30,
+    "description": "Từ 売上 đến 減価償却"
+  },
+  {
+    "set_id": "fc07",
+    "name": "Sản xuất & QC",
+    "level": "J3-J2",
+    "card_count": 28,
+    "description": "Từ vựng nhà máy, kiểm tra chất lượng"
+  },
+  {
+    "set_id": "fc08",
+    "name": "Katakana Business",
+    "level": "J3-J2",
+    "card_count": 42,
+    "description": "Thuật ngữ katakana công sở"
+  },
+  {
+    "set_id": "fc09",
+    "name": "Kinh tế vĩ mô",
+    "level": "J2-J1",
+    "card_count": 25,
+    "description": "Từ vựng đọc hiểu tin tức kinh tế"
+  },
+  {
+    "set_id": "fc10",
+    "name": "Ngữ pháp BJT N2",
+    "level": "J3-J2",
+    "card_count": 30,
+    "description": "30 mẫu ngữ pháp N2 trong BJT"
+  },
+  {
+    "set_id": "fc11",
+    "name": "Ngữ pháp BJT N1",
+    "level": "J2-J1",
+    "card_count": 20,
+    "description": "20 mẫu ngữ pháp N1 nâng cao"
+  },
+  {
+    "set_id": "fc12",
+    "name": "Kanji BJT 200",
+    "level": "J4-J1",
+    "card_count": 200,
+    "description": "200 Kanji + ON/KUN + từ ghép"
+  },
+  {
+    "set_id": "fc13",
+    "name": "Mẫu câu BJT",
+    "level": "J3-J2",
+    "card_count": 25,
+    "description": "25 cụm từ hay gặp trong đề thi"
+  },
+  {
+    "set_id": "fc14",
+    "name": "Hành chính NNN",
+    "level": "J4-J3",
+    "card_count": 18,
+    "description": "Thủ tục cho người nước ngoài"
+  },
+  {
+    "set_id": "fc15",
+    "name": "Đời sống Nhật Bản",
+    "level": "J5-J4",
+    "card_count": 50,
+    "description": "Y tế, nhà ở, giao thông, ngân hàng, thiên tai"
+  }
+]

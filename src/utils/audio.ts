@@ -94,6 +94,8 @@ export async function playJapaneseAudio(text: string, id: string) {
     language: support.language,
     pitch: 1,
     rate: getSpeechRateValue(preferences.speechRate),
+    volume: 1,
+    useApplicationAudioSession: false,
     voice: support.voice,
     onDone: () => {
       if (token === playbackToken) setAudioState({ activeId: null, speaking: false });
@@ -143,6 +145,8 @@ export async function playJapaneseSequence(lines: Array<{ id: string; text: stri
       language: support.language,
       pitch: 1,
       rate: getSpeechRateValue(preferences.speechRate),
+      volume: 1,
+      useApplicationAudioSession: false,
       voice: support.voice,
       onDone: () => speakNext(index + 1),
       onStopped: () => {

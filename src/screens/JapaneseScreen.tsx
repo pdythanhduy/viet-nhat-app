@@ -41,7 +41,7 @@ const TAGS: { id: TagId; label: string }[] = [
   { id: 'agriculture', label: 'Nông nghiệp' },
   { id: 'restaurant', label: 'Nhà hàng' },
   { id: 'health', label: 'Bệnh viện' },
-  { id: 'city', label: 'City hall' },
+  { id: 'city', label: 'Cơ quan' },
   { id: 'money', label: 'Ngân hàng / SIM' },
   { id: 'housing', label: 'Nhà ở / bưu điện' },
 ];
@@ -72,7 +72,7 @@ function getCategoryTags(name: string): TagId[] {
   if (text.includes('nông nghiệp')) tags.add('agriculture');
   if (text.includes('nhà hàng')) tags.add('restaurant');
   if (text.includes('bệnh') || text.includes('khám')) tags.add('health');
-  if (text.includes('city hall')) tags.add('city');
+  if (text.includes('cơ quan')) tags.add('city');
   if (text.includes('ngân hàng') || text.includes('sim') || text.includes('internet')) tags.add('money');
   if (text.includes('nhà') || text.includes('bưu điện')) tags.add('housing');
   return [...tags];
@@ -110,9 +110,7 @@ export default function JapaneseScreen() {
   }, [autoPlayDialogue, expanded]);
 
   useFocusEffect(useCallback(() => {
-    return () => {
-      void stopJapaneseAudio();
-    };
+    return () => { void stopJapaneseAudio(); };
   }, []));
 
   useFocusEffect(useCallback(() => {
@@ -156,8 +154,7 @@ export default function JapaneseScreen() {
     const category = ESSENTIAL_PHRASES.find((item) => item.category === categoryName);
     if (!category) return;
     const content = [
-      category.category,
-      '',
+      category.category, '',
       ...category.phrases.flatMap((phrase) => [phrase.jp, phrase.romaji, phrase.vn, '']),
       ...(category.dialogue ? ['Hội thoại', category.dialogue.situation, '', ...category.dialogue.lines.flatMap((line) => [`${line.speakerLabel}: ${line.jp}`, line.romaji, line.vn, ''])] : []),
     ].join('\n');
@@ -203,195 +200,351 @@ export default function JapaneseScreen() {
   const playDialogueSequence = async (categoryName: string) => {
     const category = ESSENTIAL_PHRASES.find((item) => item.category === categoryName);
     if (!category?.dialogue) return;
-
     const { playJapaneseSequence } = await import('../utils/audio');
     const result = await playJapaneseSequence(
-      category.dialogue.lines.map((line, index) => ({
-        id: `${categoryName}:${index}`,
-        text: line.jp,
-      })),
+      category.dialogue.lines.map((line, index) => ({ id: `${categoryName}:${index}`, text: line.jp })),
       `dialogue-sequence:${categoryName}`
     );
     if (result?.ok === false && result.reason === 'missing-ja-voice') {
-      Alert.alert(
-        'Thiết bị chưa có giọng Nhật',
-        'Máy này hiện chưa có voice tiếng Nhật để phát âm hội thoại. Hãy cài thêm Japanese TTS voice trong phần ngôn ngữ hoặc giọng nói của thiết bị.'
-      );
+      Alert.alert('Thiết bị chưa có giọng Nhật', 'Máy này hiện chưa có voice tiếng Nhật. Hãy cài Japanese TTS voice trong cài đặt ngôn ngữ của thiết bị.');
     }
   };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+
+      {/* Header */}
       <View style={styles.header}>
-        <View style={styles.row}>
-          <View style={{ flex: 1 }}>
+        <View style={styles.headerTop}>
+          <View style={styles.headerText}>
             <Text style={styles.headerTitle}>Tiếng Nhật</Text>
-            <Text style={styles.headerSubtitle}>{getGreeting()} • Câu thực tế để dùng ngay trong đời sống ở Nhật</Text>
+            <Text style={styles.headerSub}>{getGreeting()}</Text>
           </View>
-          {streak ? <View style={styles.streak}><Text style={styles.streakNum}>{streak.currentStreak}</Text><Text style={styles.muted}>ngày</Text></View> : null}
+          {streak ? (
+            <View style={styles.streakBadge}>
+              <Text style={styles.streakNum}>{streak.currentStreak}</Text>
+              <Text style={styles.streakLabel}>ngày</Text>
+            </View>
+          ) : null}
         </View>
-        <TouchableOpacity style={styles.banner} onPress={() => navigation.navigate('JapaneseQuiz', {})}>
-          <View style={styles.row}><Ionicons name="school" size={18} color="#F39C12" /><Text style={styles.bannerText}>Trắc nghiệm tổng hợp</Text></View>
-          <Ionicons name="arrow-forward-circle" size={22} color={Colors.white} />
-        </TouchableOpacity>
-        <View style={styles.quickStudyRow}>
-          <TouchableOpacity style={styles.quickStudyCard} onPress={() => navigation.navigate('JapaneseKana')}>
-            <Ionicons name="grid-outline" size={18} color={Colors.white} />
-            <Text style={styles.quickStudyText}>Hiragana / Katakana</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.quickStudyCard}
-            onPress={() => navigation.navigate('JapaneseQuiz', { direction: 'vn-to-jp' })}
-          >
-            <Ionicons name="swap-horizontal-outline" size={18} color={Colors.white} />
-            <Text style={styles.quickStudyText}>Quiz VI → JP</Text>
-          </TouchableOpacity>
-        </View>
+
         <View style={styles.searchBox}>
-          <Ionicons name="search" size={16} color="rgba(255,255,255,0.75)" />
-          <TextInput style={styles.searchInput} value={search} onChangeText={setSearch} placeholder="Tìm câu, tình huống hoặc từ khóa..." placeholderTextColor="rgba(255,255,255,0.55)" />
+          <Ionicons name="search" size={16} color="rgba(255,255,255,0.7)" />
+          <TextInput
+            style={styles.searchInput}
+            value={search}
+            onChangeText={setSearch}
+            placeholder="Tìm câu, tình huống, từ khóa..."
+            placeholderTextColor="rgba(255,255,255,0.5)"
+          />
+          {search.length > 0 ? (
+            <TouchableOpacity onPress={() => setSearch('')}>
+              <Ionicons name="close-circle" size={16} color="rgba(255,255,255,0.7)" />
+            </TouchableOpacity>
+          ) : null}
+        </View>
+
+        <View style={styles.quickRow}>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JapaneseKana')}>
+            <Ionicons name="grid-outline" size={16} color={Colors.white} />
+            <Text style={styles.quickBtnText}>Bảng chữ</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JapaneseQuiz', {})}>
+            <Ionicons name="help-circle-outline" size={16} color={Colors.white} />
+            <Text style={styles.quickBtnText}>Trắc nghiệm</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('BJT')}>
+            <Ionicons name="briefcase-outline" size={16} color={Colors.white} />
+            <Text style={styles.quickBtnText}>Luyện BJT</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+
+        {/* Tag filter */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tags}>
           {TAGS.map((tag) => (
-            <TouchableOpacity key={tag.id} style={[styles.chip, selectedTag === tag.id && styles.chipActive]} onPress={() => setSelectedTag(tag.id)}>
+            <TouchableOpacity
+              key={tag.id}
+              style={[styles.chip, selectedTag === tag.id && styles.chipActive]}
+              onPress={() => setSelectedTag(tag.id)}
+            >
               <Text style={[styles.chipText, selectedTag === tag.id && styles.chipTextActive]}>{tag.label}</Text>
             </TouchableOpacity>
           ))}
         </ScrollView>
-        <TouchableOpacity style={[styles.toggle, dialogueOnly && styles.toggleActive]} onPress={() => setDialogueOnly((prev) => !prev)}>
+
+        <TouchableOpacity
+          style={[styles.toggle, dialogueOnly && styles.toggleActive]}
+          onPress={() => setDialogueOnly((prev) => !prev)}
+        >
+          <Ionicons
+            name={dialogueOnly ? 'chatbubbles' : 'chatbubbles-outline'}
+            size={14}
+            color={dialogueOnly ? Colors.white : Colors.primary}
+          />
           <Text style={[styles.toggleText, dialogueOnly && styles.toggleTextActive]}>Chỉ mục có hội thoại</Text>
         </TouchableOpacity>
 
+        {/* Search results */}
         {search.trim() ? (
-          <View style={styles.block}>
-            <Text style={styles.blockTitle}>Kết quả tìm kiếm</Text>
-            {searchResults.length === 0 ? <Text style={styles.empty}>Không tìm thấy câu phù hợp.</Text> : searchResults.map(({ category, phrase }) => (
-              <View key={`${category.category}-${phrase.jp}`} style={styles.card}>
-                <View style={styles.inlineRow}>
-                  <Text style={styles.smallLabel}>{category.category}</Text>
-                  <AudioButton audioId={`search:${category.category}:${phrase.jp}`} text={phrase.jp} />
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Kết quả tìm kiếm</Text>
+            {searchResults.length === 0 ? (
+              <Text style={styles.empty}>Không tìm thấy câu phù hợp.</Text>
+            ) : (
+              searchResults.map(({ category, phrase }) => (
+                <View key={`${category.category}-${phrase.jp}`} style={styles.card}>
+                  <View style={styles.cardMeta}>
+                    <Text style={styles.metaLabel}>{category.category}</Text>
+                    <AudioButton audioId={`search:${category.category}:${phrase.jp}`} text={phrase.jp} />
+                  </View>
+                  <Text style={styles.jpText}>{phrase.jp}</Text>
+                  <Text style={styles.romajiText}>{phrase.romaji}</Text>
+                  <Text style={styles.vnText}>{phrase.vn}</Text>
+                  <View style={styles.actions}>
+                    <TouchableOpacity onPress={() => copyPhrase(phrase.jp, phrase.romaji, phrase.vn)}>
+                      <Text style={styles.actionText}>Sao chép</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => bookmarkPhrase(phrase, category.category)}>
+                      <Text style={styles.actionText}>{savedPhrases.has(phrase.jp) ? 'Bỏ lưu' : 'Lưu'}</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <Text style={styles.jp}>{phrase.jp}</Text>
-                <Text style={styles.romaji}>{phrase.romaji}</Text>
-                <Text style={styles.vn}>{phrase.vn}</Text>
-                <View style={styles.actions}><TouchableOpacity onPress={() => copyPhrase(phrase.jp, phrase.romaji, phrase.vn)}><Text style={styles.actionText}>Copy</Text></TouchableOpacity><TouchableOpacity onPress={() => bookmarkPhrase(phrase, category.category)}><Text style={styles.actionText}>{savedPhrases.has(phrase.jp) ? 'Bỏ lưu' : 'Lưu'}</Text></TouchableOpacity></View>
-              </View>
-            ))}
+              ))
+            )}
           </View>
         ) : (
           <>
-            <TouchableOpacity style={styles.bjtCard} onPress={() => navigation.navigate('BJT')}>
-              <View style={styles.bjtCardTop}>
-                <View style={styles.bjtBadge}>
-                  <Ionicons name="briefcase-outline" size={14} color={Colors.primaryDark} />
-                  <Text style={styles.bjtBadgeText}>BJT</Text>
-                </View>
-                <Ionicons name="arrow-forward-circle" size={22} color={Colors.primaryDark} />
-              </View>
-              <Text style={styles.bjtTitle}>Luyện Business Japanese theo hướng BJT</Text>
-              <Text style={styles.bjtDescription}>
-                Mở module mới để học từ vựng công sở, dạng câu hỏi BJT, chiến lược làm bài và lộ trình 14 ngày.
-              </Text>
-              <View style={styles.bjtHighlights}>
-                <Text style={styles.bjtHighlight}>Listening</Text>
-                <Text style={styles.bjtHighlight}>Reading</Text>
-                <Text style={styles.bjtHighlight}>Mock Flow</Text>
-              </View>
-            </TouchableOpacity>
-
+            {/* Từ của hôm nay */}
             <View style={styles.card}>
-              <View style={styles.row}>
-                <View style={styles.inlineRow}>
-                  <Text style={styles.smallLabel}>Từ của hôm nay</Text>
+              <View style={styles.cardHeader}>
+                <View style={styles.cardMeta}>
+                  <Text style={styles.metaLabel}>Từ của hôm nay</Text>
                   <AudioButton audioId={`word:${currentWord.word}`} text={currentWord.word} />
                 </View>
-                <Text style={styles.muted}>{wordIndex + 1}/{JAPANESE_WORDS.length}</Text>
+                <Text style={styles.indexLabel}>{wordIndex + 1}/{JAPANESE_WORDS.length}</Text>
               </View>
-              <Text style={styles.word}>{currentWord.word}</Text>
-              <Text style={styles.romaji}>{currentWord.reading}</Text>
-              {showRomaji ? <Text style={styles.romaji}>{currentWord.romaji}</Text> : null}
-              <Text style={styles.meaning}>{currentWord.meaning}</Text>
-              <View style={styles.subCard}><Text style={styles.smallLabel}>Ví dụ</Text><Text style={styles.jp}>{currentWord.example}</Text>{showRomaji ? <Text style={styles.romaji}>{currentWord.exampleRomaji}</Text> : null}<Text style={styles.vn}>{currentWord.exampleMeaning}</Text></View>
-              {currentWord.culturalNote ? <View style={styles.note}><Text style={styles.smallLabel}>Lưu ý thực tế</Text><Text style={styles.vn}>{currentWord.culturalNote}</Text></View> : null}
-              <View style={styles.actions}><TouchableOpacity onPress={() => setShowRomaji((prev) => !prev)}><Text style={styles.actionText}>{showRomaji ? 'Ẩn romaji' : 'Hiện romaji'}</Text></TouchableOpacity><View style={styles.row}><TouchableOpacity onPress={() => setWordIndex((prev) => (prev - 1 + JAPANESE_WORDS.length) % JAPANESE_WORDS.length)}><Text style={styles.actionText}>Trước</Text></TouchableOpacity><TouchableOpacity onPress={() => setWordIndex((prev) => (prev + 1) % JAPANESE_WORDS.length)}><Text style={styles.actionText}>Sau</Text></TouchableOpacity></View></View>
+              <Text style={styles.wordText}>{currentWord.word}</Text>
+              <Text style={styles.romajiText}>{currentWord.reading}</Text>
+              {showRomaji ? <Text style={styles.romajiText}>{currentWord.romaji}</Text> : null}
+              <Text style={styles.meaningText}>{currentWord.meaning}</Text>
+              <View style={styles.subCard}>
+                <Text style={styles.metaLabel}>Ví dụ</Text>
+                <Text style={styles.jpText}>{currentWord.example}</Text>
+                {showRomaji ? <Text style={styles.romajiText}>{currentWord.exampleRomaji}</Text> : null}
+                <Text style={styles.vnText}>{currentWord.exampleMeaning}</Text>
+              </View>
+              {currentWord.culturalNote ? (
+                <View style={styles.noteCard}>
+                  <Text style={styles.metaLabel}>Lưu ý thực tế</Text>
+                  <Text style={styles.vnText}>{currentWord.culturalNote}</Text>
+                </View>
+              ) : null}
+              <View style={styles.actions}>
+                <TouchableOpacity onPress={() => setShowRomaji((prev) => !prev)}>
+                  <Text style={styles.actionText}>{showRomaji ? 'Ẩn romaji' : 'Hiện romaji'}</Text>
+                </TouchableOpacity>
+                <View style={styles.navRow}>
+                  <TouchableOpacity onPress={() => setWordIndex((prev) => (prev - 1 + JAPANESE_WORDS.length) % JAPANESE_WORDS.length)}>
+                    <Ionicons name="chevron-back-circle-outline" size={22} color={Colors.primary} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => setWordIndex((prev) => (prev + 1) % JAPANESE_WORDS.length)}>
+                    <Ionicons name="chevron-forward-circle-outline" size={22} color={Colors.primary} />
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
 
+            {/* Mẫu câu cơ bản */}
             <View style={styles.card}>
-              <TouchableOpacity style={styles.row} onPress={() => setGrammarExpanded((prev) => !prev)}>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.category}>Mẫu câu cơ bản</Text>
-                  <Text style={styles.muted}>{GRAMMAR_PATTERNS.length} mẫu ngữ pháp thực dụng</Text>
+              <TouchableOpacity style={styles.accordionRow} onPress={() => setGrammarExpanded((prev) => !prev)}>
+                <View style={styles.flex}>
+                  <Text style={styles.cardTitle}>Mẫu câu cơ bản</Text>
+                  <Text style={styles.cardSubtitle}>{GRAMMAR_PATTERNS.length} mẫu ngữ pháp thực dụng</Text>
                 </View>
                 <Ionicons name={grammarExpanded ? 'chevron-up' : 'chevron-down'} size={18} color={Colors.textMuted} />
               </TouchableOpacity>
               {grammarExpanded ? (
-                <View style={{ marginTop: 10 }}>
+                <View style={styles.patternList}>
                   {GRAMMAR_PATTERNS.map((p) => (
                     <TouchableOpacity
                       key={p.pattern}
-                      style={[styles.listItem, { alignItems: 'flex-start' }]}
+                      style={styles.patternItem}
                       onPress={() => setExpandedPattern((prev) => prev === p.pattern ? null : p.pattern)}
                     >
-                      <View style={{ flex: 1 }}>
-                        <View style={styles.inlineRow}>
-                          <Text style={[styles.jp, { color: Colors.primary, fontSize: 14 }]}>{p.pattern}</Text>
-                        </View>
-                        <Text style={styles.meaning}>{p.meaning}</Text>
+                      <View style={styles.flex}>
+                        <Text style={styles.patternText}>{p.pattern}</Text>
+                        <Text style={styles.patternMeaning}>{p.meaning}</Text>
                         {expandedPattern === p.pattern ? (
                           <View style={[styles.subCard, { marginTop: 8 }]}>
-                            <Text style={styles.jp}>{p.example_jp}</Text>
-                            <Text style={styles.romaji}>{p.example_romaji}</Text>
-                            <Text style={styles.vn}>{p.example_vn}</Text>
-                            {p.notes ? <View style={[styles.note, { marginTop: 8 }]}><Text style={styles.smallLabel}>Ghi chú</Text><Text style={styles.vn}>{p.notes}</Text></View> : null}
+                            <Text style={styles.jpText}>{p.example_jp}</Text>
+                            <Text style={styles.romajiText}>{p.example_romaji}</Text>
+                            <Text style={styles.vnText}>{p.example_vn}</Text>
+                            {p.notes ? (
+                              <View style={[styles.noteCard, { marginTop: 8 }]}>
+                                <Text style={styles.metaLabel}>Ghi chú</Text>
+                                <Text style={styles.vnText}>{p.notes}</Text>
+                              </View>
+                            ) : null}
                           </View>
                         ) : null}
                       </View>
-                      <Ionicons name={expandedPattern === p.pattern ? 'chevron-up' : 'chevron-down'} size={16} color={Colors.textMuted} style={{ marginTop: 4 }} />
+                      <Ionicons
+                        name={expandedPattern === p.pattern ? 'chevron-up' : 'chevron-down'}
+                        size={16}
+                        color={Colors.textMuted}
+                        style={{ marginTop: 2 }}
+                      />
                     </TouchableOpacity>
                   ))}
                 </View>
               ) : null}
             </View>
 
-            {recentCategories.length > 0 ? <View style={styles.block}><Text style={styles.blockTitle}>Luyện gần đây</Text><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tags}>{recentCategories.map((item) => <TouchableOpacity key={item.categoryName} style={styles.recent} onPress={() => navigation.navigate('JapanesePractice', { categoryName: item.categoryName, categoryColor: item.categoryColor })}><Text style={styles.recentText}>{item.categoryName}</Text></TouchableOpacity>)}</ScrollView></View> : null}
+            {/* Luyện gần đây */}
+            {recentCategories.length > 0 ? (
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Luyện gần đây</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tags}>
+                  {recentCategories.map((item) => (
+                    <TouchableOpacity
+                      key={item.categoryName}
+                      style={styles.recentChip}
+                      onPress={() => navigation.navigate('JapanesePractice', { categoryName: item.categoryName, categoryColor: item.categoryColor })}
+                    >
+                      <Text style={styles.recentChipText}>{item.categoryName}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
+            ) : null}
 
-            <View style={styles.block}>
-              <Text style={styles.blockTitle}>Câu theo tình huống</Text>
+            {/* Câu theo tình huống */}
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Câu theo tình huống</Text>
               {categories.map((category) => {
                 const stats = getCategoryStats(category.phrases, progress);
                 const dialogueId = `dialogue:${category.category}`;
                 const dialogueSaved = savedDialogues.has(dialogueId);
+                const isOpen = expanded === category.category;
                 return (
                   <View key={category.category} style={styles.card}>
-                    <TouchableOpacity style={styles.row} onPress={() => setExpanded((prev) => prev === category.category ? null : category.category)}>
-                      <View style={{ flex: 1 }}>
-                        <Text style={styles.category}>{category.category}</Text>
-                        <Text style={styles.muted}>{category.phrases.length} câu • {stats.learnedCount}/{stats.total} đã nhớ</Text>
+                    <TouchableOpacity
+                      style={styles.accordionRow}
+                      onPress={() => setExpanded((prev) => prev === category.category ? null : category.category)}
+                    >
+                      <View style={styles.flex}>
+                        <Text style={styles.cardTitle}>{category.category}</Text>
+                        <Text style={styles.cardSubtitle}>{category.phrases.length} câu • {stats.learnedCount}/{stats.total} đã nhớ</Text>
                       </View>
-                      <Text style={[styles.smallLabel, { color: category.color ?? Colors.primary }]}>{Math.round(stats.learnedPercent * 100)}%</Text>
+                      <View style={styles.rightRow}>
+                        <Text style={[styles.percentLabel, { color: category.color ?? Colors.primary }]}>
+                          {Math.round(stats.learnedPercent * 100)}%
+                        </Text>
+                        <Ionicons name={isOpen ? 'chevron-up' : 'chevron-down'} size={16} color={Colors.textMuted} />
+                      </View>
                     </TouchableOpacity>
-                    {expanded === category.category ? (
-                      <>
-                        {category.dialogue ? <View style={styles.subCard}><View style={styles.row}><Text style={styles.smallLabel}>{category.dialogue.situation}</Text><TouchableOpacity onPress={() => void playDialogueSequence(category.category)}><Text style={styles.actionText}>{autoPlayDialogue ? 'Phát toàn bộ' : 'Nghe hội thoại'}</Text></TouchableOpacity></View>{category.dialogue.lines.map((line, index) => <View key={`${category.category}-${index}`} style={{ marginTop: 8 }}><View style={styles.inlineRow}><Text style={styles.smallLabel}>{line.speakerLabel}</Text><AudioButton audioId={`dialogue:${category.category}:${index}`} text={line.jp} /></View><Text style={styles.jp}>{line.jp}</Text><Text style={styles.romaji}>{line.romaji}</Text><Text style={styles.vn}>{line.vn}</Text></View>)}<View style={styles.actions}><TouchableOpacity onPress={() => bookmarkDialogue(category.category)}><Text style={styles.actionText}>{dialogueSaved ? 'Bỏ lưu hội thoại' : 'Lưu hội thoại'}</Text></TouchableOpacity><TouchableOpacity onPress={() => shareDialogue(category.category)}><Text style={styles.actionText}>Chia sẻ</Text></TouchableOpacity></View></View> : null}
+
+                    {isOpen ? (
+                      <View style={styles.expandedBody}>
+                        {/* Hội thoại */}
+                        {category.dialogue ? (
+                          <View style={styles.subCard}>
+                            <View style={styles.cardMeta}>
+                              <Text style={styles.metaLabel}>{category.dialogue.situation}</Text>
+                              <TouchableOpacity onPress={() => void playDialogueSequence(category.category)}>
+                                <Text style={styles.actionText}>Nghe hội thoại</Text>
+                              </TouchableOpacity>
+                            </View>
+                            {category.dialogue.lines.map((line, index) => (
+                              <View key={`${category.category}-${index}`} style={styles.dialogueLine}>
+                                <View style={styles.cardMeta}>
+                                  <Text style={styles.metaLabel}>{line.speakerLabel}</Text>
+                                  <AudioButton audioId={`dialogue:${category.category}:${index}`} text={line.jp} />
+                                </View>
+                                <Text style={styles.jpText}>{line.jp}</Text>
+                                <Text style={styles.romajiText}>{line.romaji}</Text>
+                                <Text style={styles.vnText}>{line.vn}</Text>
+                              </View>
+                            ))}
+                            <View style={styles.actions}>
+                              <TouchableOpacity onPress={() => bookmarkDialogue(category.category)}>
+                                <Text style={styles.actionText}>{dialogueSaved ? 'Bỏ lưu hội thoại' : 'Lưu hội thoại'}</Text>
+                              </TouchableOpacity>
+                              <TouchableOpacity onPress={() => shareDialogue(category.category)}>
+                                <Text style={styles.actionText}>Chia sẻ</Text>
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+                        ) : null}
+
+                        {/* Danh sách câu */}
                         {category.phrases.map((phrase) => {
                           const level = (progress[phrase.jp] ?? 0) as PhraseLevel;
-                          return <View key={phrase.jp} style={styles.listItem}><View style={[styles.dot, { backgroundColor: LEVEL_COLORS[level] }]} /><View style={{ flex: 1 }}><View style={styles.inlineRow}><Text style={styles.jp}>{phrase.jp}</Text><AudioButton audioId={`phrase:${category.category}:${phrase.jp}`} text={phrase.jp} /></View><Text style={styles.romaji}>{phrase.romaji}</Text><Text style={styles.vn}>{phrase.vn}</Text><Text style={[styles.smallLabel, { color: LEVEL_COLORS[level], marginTop: 4 }]}>{LEVEL_LABELS[level]}</Text></View><View><TouchableOpacity onPress={() => copyPhrase(phrase.jp, phrase.romaji, phrase.vn)}><Text style={styles.actionText}>Copy</Text></TouchableOpacity><TouchableOpacity onPress={() => bookmarkPhrase(phrase, category.category)}><Text style={styles.actionText}>{savedPhrases.has(phrase.jp) ? 'Bỏ lưu' : 'Lưu'}</Text></TouchableOpacity></View></View>;
+                          return (
+                            <View key={phrase.jp} style={styles.phraseRow}>
+                              <View style={[styles.dot, { backgroundColor: LEVEL_COLORS[level] }]} />
+                              <View style={styles.flex}>
+                                <View style={styles.cardMeta}>
+                                  <Text style={styles.jpText}>{phrase.jp}</Text>
+                                  <AudioButton audioId={`phrase:${category.category}:${phrase.jp}`} text={phrase.jp} />
+                                </View>
+                                <Text style={styles.romajiText}>{phrase.romaji}</Text>
+                                <Text style={styles.vnText}>{phrase.vn}</Text>
+                                <Text style={[styles.levelLabel, { color: LEVEL_COLORS[level] }]}>{LEVEL_LABELS[level]}</Text>
+                              </View>
+                              <View style={styles.phraseActions}>
+                                <TouchableOpacity onPress={() => copyPhrase(phrase.jp, phrase.romaji, phrase.vn)}>
+                                  <Ionicons name="copy-outline" size={16} color={Colors.textMuted} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => bookmarkPhrase(phrase, category.category)}>
+                                  <Ionicons
+                                    name={savedPhrases.has(phrase.jp) ? 'bookmark' : 'bookmark-outline'}
+                                    size={16}
+                                    color={savedPhrases.has(phrase.jp) ? Colors.primary : Colors.textMuted}
+                                  />
+                                </TouchableOpacity>
+                              </View>
+                            </View>
+                          );
                         })}
-                        <View style={styles.actions}><TouchableOpacity onPress={() => copyCategory(category.category)}><Text style={styles.actionText}>Copy nhóm</Text></TouchableOpacity><TouchableOpacity onPress={() => navigation.navigate('JapanesePractice', { categoryName: category.category, categoryColor: category.color })}><Text style={styles.actionText}>Luyện flashcard</Text></TouchableOpacity><TouchableOpacity onPress={() => navigation.navigate('JapaneseQuiz', { categoryName: category.category, categoryColor: category.color })}><Text style={styles.actionText}>Làm quiz</Text></TouchableOpacity></View>
-                      </>
+
+                        {/* Category actions */}
+                        <View style={styles.categoryActions}>
+                          <TouchableOpacity style={styles.actionPill} onPress={() => navigation.navigate('JapanesePractice', { categoryName: category.category, categoryColor: category.color })}>
+                            <Ionicons name="layers-outline" size={14} color={Colors.primary} />
+                            <Text style={styles.actionPillText}>Flashcard</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.actionPill} onPress={() => navigation.navigate('JapaneseQuiz', { categoryName: category.category, categoryColor: category.color })}>
+                            <Ionicons name="help-circle-outline" size={14} color={Colors.primary} />
+                            <Text style={styles.actionPillText}>Quiz</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.actionPill} onPress={() => copyCategory(category.category)}>
+                            <Ionicons name="copy-outline" size={14} color={Colors.primary} />
+                            <Text style={styles.actionPillText}>Sao chép</Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
                     ) : null}
                   </View>
                 );
               })}
             </View>
 
-            <TouchableOpacity style={[styles.card, { marginBottom: 24 }]} onPress={() => navigation.navigate('AIChat', { title: 'Luyện tiếng Nhật', prefilledQuestion: 'Hãy giúp tôi luyện 5 câu tiếng Nhật ngắn, tự nhiên, dùng trong đời sống ở Nhật. Giải thích bằng tiếng Việt.' })}>
-              <Text style={styles.category}>Nhờ AI luyện thêm</Text>
-              <Text style={styles.vn}>Xin câu mẫu theo đúng tình huống bạn đang gặp.</Text>
+            {/* AI chat */}
+            <TouchableOpacity
+              style={[styles.aiCard, { marginBottom: 28 }]}
+              onPress={() => navigation.navigate('AIChat', { title: 'Luyện tiếng Nhật', prefilledQuestion: 'Hãy giúp tôi luyện 5 câu tiếng Nhật ngắn, tự nhiên, dùng trong đời sống ở Nhật. Giải thích bằng tiếng Việt.' })}
+            >
+              <Ionicons name="sparkles-outline" size={18} color={Colors.primary} />
+              <View style={styles.flex}>
+                <Text style={styles.cardTitle}>Nhờ AI luyện thêm</Text>
+                <Text style={styles.cardSubtitle}>Xin câu mẫu theo đúng tình huống bạn đang gặp.</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
             </TouchableOpacity>
           </>
         )}
@@ -402,102 +555,89 @@ export default function JapaneseScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  header: { backgroundColor: Colors.primary, padding: 16, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 },
-  row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10 },
-  inlineRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  headerTitle: { fontSize: 24, fontWeight: '800', color: Colors.white },
-  headerSubtitle: { marginTop: 4, fontSize: 13, lineHeight: 18, color: 'rgba(255,255,255,0.82)' },
-  streak: { backgroundColor: Colors.white, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 8, alignItems: 'center' },
-  streakNum: { fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
-  banner: { marginTop: 14, borderRadius: 8, padding: 12, backgroundColor: 'rgba(255,255,255,0.12)', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  bannerText: { color: Colors.white, fontSize: 14, fontWeight: '700' },
-  quickStudyRow: { flexDirection: 'row', gap: 10, marginTop: 10 },
-  quickStudyCard: { flex: 1, flexDirection: 'row', gap: 8, alignItems: 'center', justifyContent: 'center', borderRadius: 8, paddingVertical: 10, backgroundColor: 'rgba(255,255,255,0.12)' },
-  quickStudyText: { color: Colors.white, fontSize: 12, fontWeight: '700' },
-  searchBox: { marginTop: 12, borderRadius: 8, backgroundColor: 'rgba(255,255,255,0.12)', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, gap: 8 },
-  searchInput: { flex: 1, color: Colors.white, paddingVertical: 11, fontSize: 14 },
-  content: { flex: 1, paddingHorizontal: 16, paddingTop: 14 },
-  tags: { gap: 8, paddingBottom: 8, paddingRight: 16 },
-  chip: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999, backgroundColor: Colors.card, borderWidth: 1, borderColor: Colors.border },
+
+  // Header
+  header: { backgroundColor: Colors.primary, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 16, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 },
+  headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
+  headerText: { flex: 1 },
+  headerTitle: { fontSize: 22, fontWeight: '800', color: Colors.white },
+  headerSub: { marginTop: 2, fontSize: 12, color: 'rgba(255,255,255,0.75)' },
+  streakBadge: { backgroundColor: 'rgba(255,255,255,0.18)', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, alignItems: 'center' },
+  streakNum: { fontSize: 18, fontWeight: '800', color: Colors.white },
+  streakLabel: { fontSize: 10, color: 'rgba(255,255,255,0.8)', fontWeight: '600' },
+  searchBox: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12 },
+  searchInput: { flex: 1, color: Colors.white, fontSize: 14, paddingVertical: 0 },
+  quickRow: { flexDirection: 'row', gap: 8 },
+  quickBtn: { flex: 1, flexDirection: 'row', gap: 6, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 9 },
+  quickBtnText: { color: Colors.white, fontSize: 12, fontWeight: '700' },
+
+  // Content
+  content: { flex: 1, paddingHorizontal: 14, paddingTop: 14 },
+  tags: { gap: 8, paddingBottom: 10, paddingRight: 16 },
+  chip: { paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999, backgroundColor: Colors.card, borderWidth: 1, borderColor: Colors.border },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
   chipText: { fontSize: 12, fontWeight: '600', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
-  toggle: { alignSelf: 'flex-start', borderRadius: 8, borderWidth: 1, borderColor: Colors.primary, paddingHorizontal: 12, paddingVertical: 8, backgroundColor: Colors.white, marginBottom: 12 },
+  toggle: { flexDirection: 'row', gap: 6, alignSelf: 'flex-start', alignItems: 'center', borderRadius: 10, borderWidth: 1, borderColor: Colors.primary, paddingHorizontal: 12, paddingVertical: 8, backgroundColor: Colors.white, marginBottom: 14 },
   toggleActive: { backgroundColor: Colors.primary },
   toggleText: { color: Colors.primary, fontSize: 12, fontWeight: '700' },
   toggleTextActive: { color: Colors.white },
-  block: { marginBottom: 18 },
-  blockTitle: { marginBottom: 12, fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
-  card: { backgroundColor: Colors.card, borderRadius: 8, padding: 14, marginBottom: 10 },
-  subCard: { backgroundColor: Colors.background, borderRadius: 8, padding: 12, marginTop: 10 },
-  note: { backgroundColor: Colors.warningLight, borderRadius: 8, padding: 12, marginTop: 10 },
-  word: { marginTop: 10, fontSize: 28, fontWeight: '800', color: Colors.textPrimary },
-  meaning: { marginTop: 8, fontSize: 16, fontWeight: '700', color: Colors.primary },
-  category: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary },
-  jp: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary, marginTop: 4 },
-  romaji: { marginTop: 4, fontSize: 12, color: Colors.textSecondary, fontStyle: 'italic' },
-  vn: { marginTop: 5, fontSize: 12, lineHeight: 18, color: Colors.textSecondary },
-  smallLabel: { fontSize: 12, fontWeight: '700', color: Colors.primary },
-  muted: { fontSize: 12, color: Colors.textMuted },
-  empty: { color: Colors.textMuted, textAlign: 'center', lineHeight: 20 },
-  actions: { marginTop: 10, flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+
+  // Sections
+  section: { marginBottom: 16 },
+  sectionTitle: { fontSize: 17, fontWeight: '800', color: Colors.textPrimary, marginBottom: 10 },
+  empty: { color: Colors.textMuted, textAlign: 'center', lineHeight: 20, paddingVertical: 12 },
+
+  // Cards
+  card: { backgroundColor: Colors.card, borderRadius: 14, padding: 14, marginBottom: 10, borderWidth: 1, borderColor: Colors.border },
+  aiCard: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: Colors.card, borderRadius: 14, padding: 14, borderWidth: 1, borderColor: Colors.border },
+  subCard: { backgroundColor: Colors.background, borderRadius: 10, padding: 12, marginTop: 10 },
+  noteCard: { backgroundColor: Colors.warningLight, borderRadius: 10, padding: 12, marginTop: 10 },
+  expandedBody: { marginTop: 12, borderTopWidth: 1, borderTopColor: Colors.border, paddingTop: 12 },
+
+  // Card internals
+  cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
+  cardMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
+  cardTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary },
+  cardSubtitle: { marginTop: 2, fontSize: 12, color: Colors.textMuted },
+  accordionRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  flex: { flex: 1 },
+  rightRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  indexLabel: { fontSize: 12, color: Colors.textMuted },
+  metaLabel: { fontSize: 11, fontWeight: '700', color: Colors.primary },
+  percentLabel: { fontSize: 13, fontWeight: '800' },
+  levelLabel: { marginTop: 4, fontSize: 11, fontWeight: '700' },
+  navRow: { flexDirection: 'row', gap: 4 },
+
+  // Typography
+  wordText: { marginTop: 8, fontSize: 28, fontWeight: '800', color: Colors.textPrimary },
+  meaningText: { marginTop: 6, fontSize: 15, fontWeight: '700', color: Colors.primary },
+  jpText: { marginTop: 4, fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
+  romajiText: { marginTop: 3, fontSize: 12, color: Colors.textSecondary, fontStyle: 'italic' },
+  vnText: { marginTop: 4, fontSize: 12, lineHeight: 17, color: Colors.textSecondary },
+  patternText: { fontSize: 14, fontWeight: '700', color: Colors.primary },
+  patternMeaning: { marginTop: 2, fontSize: 12, color: Colors.textSecondary },
+
+  // Actions
+  actions: { marginTop: 12, flexDirection: 'row', flexWrap: 'wrap', gap: 16 },
   actionText: { color: Colors.primary, fontWeight: '700', fontSize: 12 },
-  recent: { backgroundColor: Colors.card, borderRadius: 8, padding: 10, minWidth: 140 },
-  recentText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
-  listItem: { marginTop: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border, flexDirection: 'row', gap: 10 },
-  dot: { width: 10, height: 10, borderRadius: 999, marginTop: 7 },
-  bjtCard: {
-    backgroundColor: '#EAF3FF',
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#B7D1F1',
-  },
-  bjtCardTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  bjtBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 999,
-    backgroundColor: '#D8E9FB',
-  },
-  bjtBadgeText: {
-    color: Colors.primaryDark,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  bjtTitle: {
-    marginTop: 12,
-    fontSize: 16,
-    fontWeight: '800',
-    color: Colors.primaryDark,
-  },
-  bjtDescription: {
-    marginTop: 6,
-    fontSize: 12,
-    lineHeight: 18,
-    color: Colors.textPrimary,
-  },
-  bjtHighlights: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginTop: 12,
-  },
-  bjtHighlight: {
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 999,
-    backgroundColor: Colors.white,
-    color: Colors.primaryDark,
-    fontSize: 11,
-    fontWeight: '700',
-  },
+  phraseActions: { flexDirection: 'column', gap: 8, justifyContent: 'center' },
+  categoryActions: { marginTop: 12, flexDirection: 'row', gap: 8 },
+  actionPill: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 10, paddingVertical: 7, borderRadius: 999, borderWidth: 1, borderColor: Colors.primary, backgroundColor: Colors.background },
+  actionPillText: { fontSize: 11, fontWeight: '700', color: Colors.primary },
+
+  // Phrase list
+  phraseRow: { marginTop: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border, flexDirection: 'row', gap: 10 },
+  dot: { width: 8, height: 8, borderRadius: 999, marginTop: 8 },
+
+  // Dialogue
+  dialogueLine: { marginTop: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border },
+
+  // Grammar
+  patternList: { marginTop: 10 },
+  patternItem: { flexDirection: 'row', alignItems: 'flex-start', paddingVertical: 10, borderTopWidth: 1, borderTopColor: Colors.border },
+
+  // Recent
+  recentChip: { backgroundColor: Colors.card, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, borderWidth: 1, borderColor: Colors.border, minWidth: 120 },
+  recentChipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
 });

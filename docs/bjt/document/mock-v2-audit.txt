@@ -1,0 +1,19 @@
+BJT mock V2 audit | exams=50
+Source: docs/bjt/document/BJT_50_MOCK_EXAMS_V2.json
+Meta title: BJT模擬試験集 — 50 Đề Thi Mô Phỏng BJT (Expanded)
+Meta version: 2026.2
+Level summary: {"J4":1706,"J3":1760,"J2":534}
+Part summary: {"I":1250,"II":750,"III":2000}
+Unique question signatures: 76
+
+[BJT_MOCK_01] BJT模擬試験 第1回
+questions=80 | time=120 min | parts={"I":25,"II":15,"III":40}
+- e01_q01 | part=I | level=J4 | answer=B
+  q=窓際の席は？
+- e01_q02 | part=I | level=J3 | answer=C
+  q=改善を検討するのは？
+- e01_q03 | part=I | level=J4 | answer=C
+  q=海外送金はどこでできますか？
+- e01_q04 | part=I | level=J4 | answer=C
+  q=女の人が休む理由は？
+

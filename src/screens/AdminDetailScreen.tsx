@@ -8,6 +8,7 @@ import {
   Linking,
   Alert,
   Clipboard,
+  Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -207,6 +208,15 @@ export default function AdminDetailScreen() {
       </View>
 
       <View style={styles.content}>
+        {guide.heroImage && (
+          <View style={styles.heroImageCard}>
+            <Image source={guide.heroImage} style={styles.heroImage} resizeMode="cover" />
+            {guide.heroImageCaption ? (
+              <Text style={styles.imageCaption}>{guide.heroImageCaption}</Text>
+            ) : null}
+          </View>
+        )}
+
         <View style={styles.disclaimerBox}>
           <Ionicons name="information-circle-outline" size={16} color={Colors.primary} />
           <Text style={styles.disclaimerText}>
@@ -376,6 +386,15 @@ export default function AdminDetailScreen() {
               <View style={styles.stepBody}>
                 <Text style={styles.stepDesc}>{step.description}</Text>
 
+                {step.image && (
+                  <View style={styles.stepImageBlock}>
+                    <Image source={step.image} style={styles.stepImage} resizeMode="cover" />
+                    {step.imageCaption ? (
+                      <Text style={styles.imageCaption}>{step.imageCaption}</Text>
+                    ) : null}
+                  </View>
+                )}
+
                 {step.documents.length > 0 && (
                   <View style={styles.docsSection}>
                     <View style={styles.docsSectionTitle}>
@@ -537,6 +556,15 @@ const styles = StyleSheet.create({
     marginTop: -16,
     paddingTop: 20,
     paddingHorizontal: 16,
+  },
+  heroImageCard: {
+    marginBottom: 16,
+  },
+  heroImage: {
+    width: '100%',
+    height: 188,
+    borderRadius: 18,
+    backgroundColor: Colors.border,
   },
   headerActions: {
     flexDirection: 'row',
@@ -869,6 +897,21 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginTop: 12,
     marginBottom: 12,
+  },
+  stepImageBlock: {
+    marginBottom: 12,
+  },
+  stepImage: {
+    width: '100%',
+    height: 192,
+    borderRadius: 14,
+    backgroundColor: Colors.border,
+  },
+  imageCaption: {
+    marginTop: 8,
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
   },
   docsSection: {
     backgroundColor: Colors.background,

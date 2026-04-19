@@ -1,0 +1,85 @@
+{
+  "canonical_source": "BJT_ULTIMATE_BOOK_2026.json",
+  "generated_at": "2026-04-18T13:57:59.437Z",
+  "version": "2026.2",
+  "updated": "2026-04-18",
+  "files": [
+    {
+      "file": "partitioned/meta.json",
+      "top_level_key": "meta",
+      "item_count": null
+    },
+    {
+      "file": "partitioned/vocabulary.json",
+      "top_level_key": "vocabulary",
+      "item_count": 1000
+    },
+    {
+      "file": "partitioned/keigo.json",
+      "top_level_key": "keigo",
+      "item_count": 26
+    },
+    {
+      "file": "partitioned/scenarios.json",
+      "top_level_key": "scenarios",
+      "item_count": 20
+    },
+    {
+      "file": "partitioned/mock_test.json",
+      "top_level_key": "mock_test",
+      "item_count": 60
+    },
+    {
+      "file": "partitioned/email_templates.json",
+      "top_level_key": "email_templates",
+      "item_count": 6
+    },
+    {
+      "file": "partitioned/business_manners.json",
+      "top_level_key": "business_manners",
+      "item_count": 6
+    },
+    {
+      "file": "partitioned/kanji.json",
+      "top_level_key": "kanji",
+      "item_count": 110
+    },
+    {
+      "file": "partitioned/grammar.json",
+      "top_level_key": "grammar",
+      "item_count": 50
+    },
+    {
+      "file": "partitioned/cv_templates.json",
+      "top_level_key": "cv_templates",
+      "item_count": null
+    },
+    {
+      "file": "partitioned/abbreviations.json",
+      "top_level_key": "abbreviations",
+      "item_count": 20
+    },
+    {
+      "file": "partitioned/reading_passages.json",
+      "top_level_key": "reading_passages",
+      "item_count": 10
+    },
+    {
+      "file": "partitioned/flashcard_sets.json",
+      "top_level_key": "flashcard_sets",
+      "item_count": 15
+    },
+    {
+      "file": "partitioned/study_plan.json",
+      "top_level_key": "study_plan",
+      "item_count": 12
+    }
+  ],
+  "legacy_files": [
+    "legacy/bjt_vocab_697.json",
+    "legacy/bjt_878_vocab.json",
+    "legacy/bjt_960_vocab.csv",
+    "legacy/bjt_book_complete_1000.json",
+    "legacy/bjt_book_master_2026.json"
+  ]
+}

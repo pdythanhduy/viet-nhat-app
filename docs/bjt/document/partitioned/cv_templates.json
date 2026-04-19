@@ -1,0 +1,76 @@
+{
+  "rirekisho": {
+    "title": "履歴書 (Rirekisho) — CV kiểu Nhật",
+    "description": "Mẫu CV chuẩn Nhật Bản, thường viết tay hoặc đánh máy theo format cố định",
+    "fields": [
+      {
+        "field_jp": "氏名",
+        "field_vi": "Họ tên",
+        "note": "Viết đầy đủ, kèm furigana"
+      },
+      {
+        "field_jp": "生年月日",
+        "field_vi": "Ngày sinh",
+        "note": "Năm/tháng/ngày, có thể ghi theo lịch Nhật (令和, 平成)"
+      },
+      {
+        "field_jp": "現住所",
+        "field_vi": "Địa chỉ hiện tại",
+        "note": "Ghi đầy đủ kèm số ĐT"
+      },
+      {
+        "field_jp": "学歴",
+        "field_vi": "Học vấn",
+        "note": "Ghi theo thứ tự thời gian, từ cũ đến mới"
+      },
+      {
+        "field_jp": "職歴",
+        "field_vi": "Kinh nghiệm làm việc",
+        "note": "Ghi đầy đủ tên công ty, vị trí, thời gian"
+      },
+      {
+        "field_jp": "免許・資格",
+        "field_vi": "Bằng cấp & Chứng chỉ",
+        "note": "JLPT, BJT, bằng lái, chứng chỉ IT..."
+      },
+      {
+        "field_jp": "志望動機",
+        "field_vi": "Lý do ứng tuyển",
+        "note": "Viết ngắn gọn, cụ thể, liên hệ với công ty"
+      },
+      {
+        "field_jp": "本人希望記入欄",
+        "field_vi": "Mong muốn cá nhân",
+        "note": "Vị trí, mức lương, thời gian bắt đầu"
+      }
+    ],
+    "tips": "Dùng bút đen, không tẩy xóa. Ảnh chụp chuyên nghiệp (3x4cm). Viết kính ngữ."
+  },
+  "shokumukeirekisho": {
+    "title": "職務経歴書 (Shokumukeirekisho) — Bản mô tả kinh nghiệm",
+    "description": "Bổ sung cho Rirekisho, mô tả chi tiết kinh nghiệm và thành tích",
+    "sections": [
+      {
+        "section_jp": "職務要約",
+        "section_vi": "Tóm tắt kinh nghiệm",
+        "note": "2-3 câu tổng quan"
+      },
+      {
+        "section_jp": "職務経歴",
+        "section_vi": "Chi tiết kinh nghiệm",
+        "note": "Theo từng công ty: tên, thời gian, vị trí, mô tả công việc, thành tích"
+      },
+      {
+        "section_jp": "活かせる経験・知識・技術",
+        "section_vi": "KN/Kỹ năng có thể áp dụng",
+        "note": "Liệt kê kỹ năng liên quan đến vị trí ứng tuyển"
+      },
+      {
+        "section_jp": "自己PR",
+        "section_vi": "Tự giới thiệu ưu điểm",
+        "note": "Nêu bật ưu điểm với ví dụ cụ thể"
+      }
+    ],
+    "tips": "Đánh máy (không viết tay). Tối đa 2 trang A4. Dùng số liệu cụ thể."
+  }
+}

@@ -10,7 +10,7 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     exampleRomaji: 'Zairyuu kaado o motte imasu.',
     exampleMeaning: 'Tôi có mang theo thẻ cư trú.',
     culturalNote:
-      'Nên luôn mang theo khi ra ngoài. Ngân hàng, nhà mạng, city hall và nhiều thủ tục sẽ yêu cầu thẻ này.',
+      'Nên luôn mang theo khi ra ngoài. Ngân hàng, nhà mạng, cơ quan và nhiều thủ tục sẽ yêu cầu thẻ này.',
   },
   {
     word: 'マイナンバーカード',
@@ -117,10 +117,10 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     word: '市役所',
     reading: 'しやくしょ',
     romaji: 'shiyakusho',
-    meaning: 'Tòa thị chính / city hall',
+    meaning: 'Tòa thị chính / cơ quan phường',
     example: '市役所で手続きをします。',
     exampleRomaji: 'Shiyakusho de tetsuzuki o shimasu.',
-    exampleMeaning: 'Tôi làm thủ tục ở city hall.',
+    exampleMeaning: 'Tôi làm thủ tục ở cơ quan phường.',
   },
   {
     word: '区役所',
@@ -523,7 +523,7 @@ export const ESSENTIAL_PHRASES: PhraseCategory[] = [
     },
   },
   {
-    category: 'City hall và giấy tờ',
+    category: 'Cơ quan và giấy tờ',
     icon: 'business',
     color: '#117A65',
     phrases: [
@@ -535,7 +535,7 @@ export const ESSENTIAL_PHRASES: PhraseCategory[] = [
       { jp: '今日中に終わりますか。', romaji: 'Kyoujuu ni owarimasu ka.', vn: 'Hôm nay có làm xong trong ngày không?' },
     ],
     dialogue: {
-      situation: 'Đổi địa chỉ tại city hall',
+      situation: 'Đổi địa chỉ tại cơ quan phường',
       lines: [
         {
           speaker: 'A',

@@ -1,4 +1,5 @@
 import { BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import type { BjtPracticeQuestion } from '../types/content';
 
 import {
   filterBjtQuestionsByLevel,
@@ -14,9 +15,19 @@ describe('bjtQuestionLevels', () => {
   });
 
   it('infers legacy levels from difficulty', () => {
-    const legacy = BJT_PRACTICE_QUESTIONS.find((item) => item.id === 'q4');
-    expect(legacy).toBeDefined();
-    expect(getBjtQuestionLevel(legacy!)).toBe('J4');
+    const legacyLikeQuestion: BjtPracticeQuestion = {
+      id: 'legacy-sample',
+      skill: 'reading',
+      difficulty: 'basic',
+      title: 'legacy',
+      situation: 'legacy',
+      prompt: 'legacy',
+      options: ['A', 'B'],
+      correctIndex: 0,
+      explanation: 'legacy',
+    };
+
+    expect(getBjtQuestionLevel(legacyLikeQuestion)).toBe('J4');
   });
 
   it('filters question banks by target level', () => {
@@ -28,10 +39,12 @@ describe('bjtQuestionLevels', () => {
   it('returns available level chips in display order', () => {
     expect(getAvailableBjtLevels(BJT_PRACTICE_QUESTIONS)).toEqual([
       'all',
+      'J5',
       'J4',
       'J3',
       'J2',
       'J1',
+      'J1+',
     ]);
   });
 });

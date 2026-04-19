@@ -32,13 +32,13 @@ describe('japaneseRecentCategories', () => {
   });
 
   it('records unique recent categories and keeps newest first', async () => {
-    await recordRecentJapaneseCategory('City hall và giấy tờ', '#1F618D');
+    await recordRecentJapaneseCategory('Cơ quan và giấy tờ', '#1F618D');
     await recordRecentJapaneseCategory('Đi khám và sức khỏe', '#C0392B');
-    await recordRecentJapaneseCategory('City hall và giấy tờ', '#1F618D');
+    await recordRecentJapaneseCategory('Cơ quan và giấy tờ', '#1F618D');
 
     const items = await loadRecentJapaneseCategories();
     expect(items).toHaveLength(2);
-    expect(items[0].categoryName).toBe('City hall và giấy tờ');
+    expect(items[0].categoryName).toBe('Cơ quan và giấy tờ');
     expect(items[1].categoryName).toBe('Đi khám và sức khỏe');
   });
 });

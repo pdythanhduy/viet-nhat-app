@@ -1,19 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import { BJT_MOCK_V2_EXAMS, BJT_PRACTICE_QUESTIONS } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { BjtTargetLevel, getAvailableBjtLevels, getBjtQuestionLevel } from '../utils/bjtQuestionLevels';
 import { clearBjtWrongQuestions, loadBjtProgress } from '../utils/bjtProgress';
 
 const DIFFICULTY_LABELS = {
-  basic: 'Basic',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
+  basic: 'Cơ bản',
+  intermediate: 'Trung cấp',
+  advanced: 'Nâng cao',
 } as const;
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
@@ -26,16 +26,48 @@ const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
   'J1+': 'J1+',
 };
 
+const SOURCE_LABELS = {
+  all: 'Tất cả',
+  mock: 'Tình huống / Mock',
+  'mock-v2': '50 đề',
+} as const;
+
+type ReviewSourceFilter = keyof typeof SOURCE_LABELS;
+
+type ReviewItem = {
+  id: string;
+  source: 'scenario' | 'mock' | 'mock-v2';
+  level: string;
+  title: string;
+  subtitle: string;
+  prompt: string;
+  explanation: string;
+  kindLabel: string;
+  options: Array<{ label: string; value: string; correct: boolean }>;
+};
+
 export default function BJTReviewScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'BJTReview'>>();
+  const { width } = useWindowDimensions();
+  const isTablet = width >= 768;
   const [level, setLevel] = useState<BjtTargetLevel>(route.params?.level ?? 'J3');
+  const [sourceFilter, setSourceFilter] = useState<ReviewSourceFilter>('all');
   const [wrongIds, setWrongIds] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
   const [resolvedIds, setResolvedIds] = useState<string[]>([]);
   const [done, setDone] = useState(false);
 
   const availableLevels = useMemo(() => getAvailableBjtLevels(BJT_PRACTICE_QUESTIONS), []);
+  const mockV2QuestionMap = useMemo(() => {
+    const map = new Map<string, (typeof BJT_MOCK_V2_EXAMS)[number]['questions'][number]>();
+    for (const exam of BJT_MOCK_V2_EXAMS) {
+      for (const question of exam.questions) {
+        map.set(question.id, question);
+      }
+    }
+    return map;
+  }, []);
 
   const reloadWrongIds = React.useCallback(async () => {
     const progress = await loadBjtProgress();
@@ -49,20 +81,69 @@ export default function BJTReviewScreen() {
     void reloadWrongIds();
   }, [reloadWrongIds]);
 
+  const allQuestions = useMemo(() => {
+    return wrongIds
+      .map((id) => {
+        const legacy = BJT_PRACTICE_QUESTIONS.find((item) => item.id === id);
+        if (legacy) {
+          return {
+            id: legacy.id,
+            source: 'mock' as const,
+            level: getBjtQuestionLevel(legacy),
+            title: legacy.title,
+            subtitle: `${legacy.skill} • ${DIFFICULTY_LABELS[legacy.difficulty]}`,
+            prompt: legacy.prompt,
+            explanation: legacy.explanation,
+            kindLabel: 'Scenario / Timed Mock',
+            options: legacy.options.map((option, index) => ({
+              label: String.fromCharCode(65 + index),
+              value: option,
+              correct: index === legacy.correctIndex,
+            })),
+          } satisfies ReviewItem;
+        }
+
+        const mockV2 = mockV2QuestionMap.get(id);
+        if (mockV2) {
+          return {
+            id: mockV2.id,
+            source: 'mock-v2' as const,
+            level: mockV2.level,
+            title: `${mockV2.partName} • ${mockV2.level}`,
+            subtitle: `Mock Exams V2 • Part ${mockV2.part}`,
+            prompt: `${mockV2.passageJp}\n\n${mockV2.questionJp}`,
+            explanation: mockV2.explanation || 'File gốc không cung cấp giải thích cho câu này.',
+            kindLabel: '50 Mock Exams',
+            options: mockV2.options.map((option) => ({
+              label: option.label,
+              value: option.text,
+              correct: option.label === mockV2.answer,
+            })),
+          } satisfies ReviewItem;
+        }
+
+        return null;
+      })
+      .filter(Boolean) as ReviewItem[];
+  }, [mockV2QuestionMap, wrongIds]);
+
   const questions = useMemo(
-    () => BJT_PRACTICE_QUESTIONS.filter((item) => wrongIds.includes(item.id)),
-    [wrongIds]
+    () =>
+      sourceFilter === 'all'
+        ? allQuestions
+        : allQuestions.filter((item) => item.source === sourceFilter),
+    [allQuestions, sourceFilter]
   );
 
   const currentQuestion = questions[currentIndex];
-  const answered = selectedIndex !== null;
+  const answered = selectedLabel !== null;
 
   const resetReview = (nextLevel?: BjtTargetLevel) => {
     if (nextLevel) {
       setLevel(nextLevel);
     }
     setCurrentIndex(0);
-    setSelectedIndex(null);
+    setSelectedLabel(null);
     setResolvedIds([]);
     setDone(false);
   };
@@ -72,7 +153,7 @@ export default function BJTReviewScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView contentContainerStyle={styles.emptyWrap}>
-          <Text style={styles.title}>Review Wrong Answers</Text>
+          <Text style={styles.title}>Ôn lỗi</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
             {availableLevels.map((item) => {
               const active = item === level;
@@ -89,10 +170,32 @@ export default function BJTReviewScreen() {
               );
             })}
           </ScrollView>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+            {(Object.keys(SOURCE_LABELS) as ReviewSourceFilter[]).map((item) => {
+              const active = item === sourceFilter;
+              return (
+                <TouchableOpacity
+                  key={item}
+                  style={[styles.chip, active && styles.chipActive]}
+                  onPress={() => {
+                    setSourceFilter(item);
+                    setCurrentIndex(0);
+                    setSelectedLabel(null);
+                    setResolvedIds([]);
+                    setDone(false);
+                  }}
+                >
+                  <Text style={[styles.chipText, active && styles.chipTextActive]}>
+                    {SOURCE_LABELS[item]}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
           <Ionicons name="checkmark-circle-outline" size={36} color={Colors.success} />
           <Text style={styles.emptyTitle}>Không còn câu sai cho level này</Text>
           <Text style={styles.emptyText}>
-            Review mode chỉ hiện các câu sai gần đây của level {LEVEL_LABELS[level]}.
+            Chế độ ôn lỗi chỉ hiển thị các câu sai gần đây của level {LEVEL_LABELS[level]} theo nguồn {SOURCE_LABELS[sourceFilter]}.
           </Text>
         </ScrollView>
       </SafeAreaView>
@@ -104,7 +207,7 @@ export default function BJTReviewScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
-          <Text style={styles.summaryTitle}>Hoàn thành review</Text>
+          <Text style={styles.summaryTitle}>Hoàn thành ôn lỗi</Text>
           <Text style={styles.summaryText}>
             Đã gỡ {resolvedIds.length} câu ra khỏi danh sách lỗi của {LEVEL_LABELS[level]}.
           </Text>
@@ -123,8 +226,22 @@ export default function BJTReviewScreen() {
     );
   }
 
+  if (!currentQuestion) {
+    return (
+      <SafeAreaView style={styles.container} edges={['top']}>
+        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
+        <View style={styles.summary}>
+          <Text style={styles.summaryTitle}>Không tìm thấy câu hỏi để ôn</Text>
+          <Text style={styles.summaryText}>Danh sách lỗi hiện tại không khớp với nội dung ôn.</Text>
+          <TouchableOpacity style={styles.primaryButton} onPress={() => resetReview()}>
+            <Text style={styles.primaryButtonText}>Tải lại</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   const progressPercent = ((currentIndex + 1) / questions.length) * 100;
-  const currentQuestionLevel = getBjtQuestionLevel(currentQuestion);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -132,10 +249,10 @@ export default function BJTReviewScreen() {
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
       </View>
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>Review Wrong Answers</Text>
+      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
+        <Text style={styles.title}>Ôn lỗi</Text>
         <Text style={styles.subtitle}>
-          Ôn lại các câu sai gần đây theo level. Câu nào làm đúng trong review sẽ được gỡ khỏi danh sách lỗi.
+          Chế độ ôn lỗi tổng hợp câu sai từ Luyện tình huống, Mock có giờ và 50 đề. Câu nào làm đúng trong lúc ôn sẽ được gỡ khỏi danh sách lỗi.
         </Text>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
@@ -154,13 +271,35 @@ export default function BJTReviewScreen() {
             );
           })}
         </ScrollView>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipsCompact}>
+          {(Object.keys(SOURCE_LABELS) as ReviewSourceFilter[]).map((item) => {
+            const active = item === sourceFilter;
+            return (
+              <TouchableOpacity
+                key={item}
+                style={[styles.chip, active && styles.chipActive]}
+                onPress={() => {
+                  setSourceFilter(item);
+                  setCurrentIndex(0);
+                  setSelectedLabel(null);
+                  setResolvedIds([]);
+                  setDone(false);
+                }}
+              >
+                <Text style={[styles.chipText, active && styles.chipTextActive]}>
+                  {SOURCE_LABELS[item]}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
 
         <View style={styles.counterRow}>
           <Text style={styles.counter}>
-            Câu {currentIndex + 1} / {questions.length}
+            Cau {currentIndex + 1} / {questions.length}
           </Text>
           <Text style={styles.counter}>
-            {LEVEL_LABELS[level]} · Đã sửa: {resolvedIds.length}
+            {LEVEL_LABELS[level]} • {SOURCE_LABELS[sourceFilter]} • Da sua {resolvedIds.length}
           </Text>
         </View>
 
@@ -169,29 +308,24 @@ export default function BJTReviewScreen() {
             <Text style={styles.questionTitle}>{currentQuestion.title}</Text>
             <View style={styles.badges}>
               <View style={styles.skillBadge}>
-                <Text style={styles.skillBadgeText}>{currentQuestion.skill}</Text>
-              </View>
-              <View style={styles.difficultyBadge}>
-                <Text style={styles.difficultyBadgeText}>
-                  {DIFFICULTY_LABELS[currentQuestion.difficulty]}
-                </Text>
+                <Text style={styles.skillBadgeText}>{currentQuestion.kindLabel}</Text>
               </View>
               <View style={styles.levelBadge}>
-                <Text style={styles.levelBadgeText}>{currentQuestionLevel}</Text>
+                <Text style={styles.levelBadgeText}>{currentQuestion.level}</Text>
               </View>
             </View>
           </View>
-          <Text style={styles.situation}>{currentQuestion.situation}</Text>
+          <Text style={styles.situation}>{currentQuestion.subtitle}</Text>
           <Text style={styles.prompt}>{currentQuestion.prompt}</Text>
         </View>
 
         <View style={styles.options}>
-          {currentQuestion.options.map((option, index) => {
-            const isCorrect = index === currentQuestion.correctIndex;
-            const isSelected = index === selectedIndex;
+          {currentQuestion.options.map((option) => {
+            const isCorrect = option.correct;
+            const isSelected = option.label === selectedLabel;
             return (
               <TouchableOpacity
-                key={`${currentQuestion.id}-${index}`}
+                key={`${currentQuestion.id}-${option.label}`}
                 style={[
                   styles.option,
                   answered && isCorrect ? styles.optionCorrect : null,
@@ -199,13 +333,15 @@ export default function BJTReviewScreen() {
                 ]}
                 disabled={answered}
                 onPress={() => {
-                  setSelectedIndex(index);
+                  setSelectedLabel(option.label);
                   if (isCorrect && !resolvedIds.includes(currentQuestion.id)) {
                     setResolvedIds((prev) => [...prev, currentQuestion.id]);
                   }
                 }}
               >
-                <Text style={styles.optionText}>{option}</Text>
+                <Text style={styles.optionText}>
+                  {option.label}. {option.value}
+                </Text>
                 {answered && isCorrect ? (
                   <Ionicons name="checkmark-circle" size={20} color={Colors.success} />
                 ) : null}
@@ -219,7 +355,7 @@ export default function BJTReviewScreen() {
 
         {answered ? (
           <View style={styles.explanationCard}>
-            <Text style={styles.explanationTitle}>Giải thích</Text>
+            <Text style={styles.explanationTitle}>Giai thich</Text>
             <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
           </View>
         ) : null}
@@ -233,11 +369,11 @@ export default function BJTReviewScreen() {
                 return;
               }
               setCurrentIndex((prev) => prev + 1);
-              setSelectedIndex(null);
+              setSelectedLabel(null);
             }}
           >
             <Text style={styles.primaryButtonText}>
-              {currentIndex + 1 >= questions.length ? 'Hoàn thành review' : 'Câu tiếp theo'}
+              {currentIndex + 1 >= questions.length ? 'Hoàn thành ôn lỗi' : 'Câu tiếp theo'}
             </Text>
           </TouchableOpacity>
         ) : null}
@@ -249,21 +385,30 @@ export default function BJTReviewScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 28 },
+  contentTablet: {
+    width: '100%',
+    maxWidth: 900,
+    alignSelf: 'center',
+  },
   progressTrack: { height: 6, backgroundColor: Colors.border, overflow: 'hidden' },
   progressFill: { height: 6, backgroundColor: Colors.primary },
   title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
   chips: { gap: 8, paddingTop: 14, paddingBottom: 8, paddingRight: 12 },
+  chipsCompact: { gap: 8, paddingBottom: 8, paddingRight: 12 },
   chip: {
     paddingHorizontal: 12,
     paddingVertical: 8,
+    minHeight: 36,
     borderRadius: 999,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary, textAlign: 'center' },
   chipTextActive: { color: Colors.white },
   counterRow: {
     marginTop: 14,
@@ -271,8 +416,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 12,
+    flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary },
+  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1, textAlign: 'center' },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -280,33 +426,33 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  headerRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12 },
-  badges: { alignItems: 'flex-end', gap: 6 },
+  headerRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
   questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
   skillBadge: {
     alignSelf: 'flex-start',
+    minHeight: 30,
+    minWidth: 96,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 999,
     backgroundColor: Colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  skillBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.primary },
-  difficultyBadge: {
-    alignSelf: 'flex-start',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 999,
-    backgroundColor: Colors.warningLight,
-  },
-  difficultyBadgeText: { fontSize: 11, fontWeight: '700', color: '#B26A00' },
+  skillBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.primary, textAlign: 'center' },
   levelBadge: {
     alignSelf: 'flex-start',
+    minHeight: 30,
+    minWidth: 52,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 999,
     backgroundColor: Colors.primaryLight,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  levelBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.white },
+  levelBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.white, textAlign: 'center' },
   situation: { marginTop: 10, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', color: Colors.textPrimary },
   options: { marginTop: 14, gap: 10 },
@@ -321,20 +467,28 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  optionCorrect: { backgroundColor: Colors.successLight, borderColor: Colors.success },
-  optionWrong: { backgroundColor: Colors.dangerLight, borderColor: Colors.danger },
-  optionText: { flex: 1, fontSize: 13, lineHeight: 19, color: Colors.textPrimary },
+  optionCorrect: {
+    borderColor: Colors.success,
+    backgroundColor: '#EAF9EE',
+  },
+  optionWrong: {
+    borderColor: Colors.danger,
+    backgroundColor: '#FFF1F1',
+  },
+  optionText: { flex: 1, fontSize: 14, lineHeight: 20, color: Colors.textPrimary },
   explanationCard: {
     marginTop: 14,
-    backgroundColor: Colors.accent,
-    borderRadius: 14,
-    padding: 14,
+    backgroundColor: Colors.card,
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
-  explanationTitle: { fontSize: 13, fontWeight: '800', color: Colors.primaryDark, marginBottom: 6 },
-  explanationText: { fontSize: 12, lineHeight: 18, color: Colors.primaryDark },
+  explanationTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary },
+  explanationText: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   primaryButton: {
-    marginTop: 14,
-    borderRadius: 12,
+    marginTop: 18,
+    borderRadius: 14,
     backgroundColor: Colors.primary,
     paddingVertical: 14,
     alignItems: 'center',
@@ -342,13 +496,13 @@ const styles = StyleSheet.create({
   primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800' },
   emptyWrap: {
     flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   emptyTitle: {
     marginTop: 12,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '800',
     color: Colors.textPrimary,
     textAlign: 'center',
@@ -356,11 +510,22 @@ const styles = StyleSheet.create({
   emptyText: {
     marginTop: 8,
     fontSize: 13,
-    lineHeight: 19,
+    lineHeight: 20,
     color: Colors.textSecondary,
     textAlign: 'center',
   },
-  summary: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  summary: {
+    flex: 1,
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   summaryTitle: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
-  summaryText: { marginTop: 8, fontSize: 14, lineHeight: 20, color: Colors.textSecondary, textAlign: 'center' },
+  summaryText: {
+    marginTop: 10,
+    fontSize: 14,
+    lineHeight: 22,
+    color: Colors.textSecondary,
+    textAlign: 'center',
+  },
 });

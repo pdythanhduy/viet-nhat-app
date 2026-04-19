@@ -1,0 +1,1199 @@
+{
+  "total": 200,
+  "description": "200 Kanji thường gặp nhất trong BJT, chia theo chủ đề",
+  "items": [
+    {
+      "kanji": "会",
+      "on": "カイ",
+      "kun": "あう",
+      "vi": "Hội / Gặp",
+      "words": [
+        "会議(kaigi)",
+        "会社(kaisha)",
+        "会長(kaichou)"
+      ]
+    },
+    {
+      "kanji": "社",
+      "on": "シャ",
+      "kun": "やしろ",
+      "vi": "Xã / Công ty",
+      "words": [
+        "会社(kaisha)",
+        "社長(shachou)",
+        "社員(shain)"
+      ]
+    },
+    {
+      "kanji": "部",
+      "on": "ブ",
+      "kun": "",
+      "vi": "Bộ / Phòng",
+      "words": [
+        "部長(buchou)",
+        "営業部(eigyoubu)",
+        "部門(bumon)"
+      ]
+    },
+    {
+      "kanji": "長",
+      "on": "チョウ",
+      "kun": "ながい",
+      "vi": "Trưởng / Dài",
+      "words": [
+        "社長(shachou)",
+        "部長(buchou)",
+        "課長(kachou)"
+      ]
+    },
+    {
+      "kanji": "員",
+      "on": "イン",
+      "kun": "",
+      "vi": "Viên / Thành viên",
+      "words": [
+        "社員(shain)",
+        "委員(iin)",
+        "全員(zen'in)"
+      ]
+    },
+    {
+      "kanji": "営",
+      "on": "エイ",
+      "kun": "いとなむ",
+      "vi": "Kinh doanh",
+      "words": [
+        "営業(eigyou)",
+        "経営(keiei)",
+        "営利(eiri)"
+      ]
+    },
+    {
+      "kanji": "業",
+      "on": "ギョウ",
+      "kun": "わざ",
+      "vi": "Nghiệp / Nghề",
+      "words": [
+        "業務(gyoumu)",
+        "事業(jigyou)",
+        "産業(sangyou)"
+      ]
+    },
+    {
+      "kanji": "務",
+      "on": "ム",
+      "kun": "つとめる",
+      "vi": "Vụ / Nhiệm vụ",
+      "words": [
+        "業務(gyoumu)",
+        "総務(soumu)",
+        "事務(jimu)"
+      ]
+    },
+    {
+      "kanji": "課",
+      "on": "カ",
+      "kun": "",
+      "vi": "Khóa / Ban",
+      "words": [
+        "課長(kachou)",
+        "課題(kadai)",
+        "課金(kakin)"
+      ]
+    },
+    {
+      "kanji": "係",
+      "on": "カイ/ケイ",
+      "kun": "かかる",
+      "vi": "Hệ / Liên quan",
+      "words": [
+        "係長(kakarichou)",
+        "関係(kankei)"
+      ]
+    },
+    {
+      "kanji": "組",
+      "on": "ソ",
+      "kun": "くむ",
+      "vi": "Tổ / Nhóm",
+      "words": [
+        "組織(soshiki)",
+        "組合(kumiai)",
+        "組立(kumitate)"
+      ]
+    },
+    {
+      "kanji": "株",
+      "on": "",
+      "kun": "かぶ",
+      "vi": "Cổ phiếu",
+      "words": [
+        "株式(kabushiki)",
+        "株主(kabunushi)",
+        "株価(kabuka)"
+      ]
+    },
+    {
+      "kanji": "法",
+      "on": "ホウ",
+      "kun": "",
+      "vi": "Pháp / Luật",
+      "words": [
+        "法律(houritsu)",
+        "法人(houjin)",
+        "方法(houhou)"
+      ]
+    },
+    {
+      "kanji": "規",
+      "on": "キ",
+      "kun": "",
+      "vi": "Quy",
+      "words": [
+        "規則(kisoku)",
+        "規模(kibo)",
+        "規格(kikaku)"
+      ]
+    },
+    {
+      "kanji": "制",
+      "on": "セイ",
+      "kun": "",
+      "vi": "Chế / Chế độ",
+      "words": [
+        "制度(seido)",
+        "制限(seigen)",
+        "規制(kisei)"
+      ]
+    },
+    {
+      "kanji": "権",
+      "on": "ケン",
+      "kun": "",
+      "vi": "Quyền",
+      "words": [
+        "権利(kenri)",
+        "権限(kengen)",
+        "人権(jinken)"
+      ]
+    },
+    {
+      "kanji": "約",
+      "on": "ヤク",
+      "kun": "",
+      "vi": "Ước / Hẹn",
+      "words": [
+        "契約(keiyaku)",
+        "約束(yakusoku)",
+        "節約(setsuyaku)"
+      ]
+    },
+    {
+      "kanji": "契",
+      "on": "ケイ",
+      "kun": "ちぎる",
+      "vi": "Khế / Hợp đồng",
+      "words": [
+        "契約(keiyaku)",
+        "契機(keiki)"
+      ]
+    },
+    {
+      "kanji": "令",
+      "on": "レイ",
+      "kun": "",
+      "vi": "Lệnh",
+      "words": [
+        "命令(meirei)",
+        "法令(hourei)",
+        "指令(shirei)"
+      ]
+    },
+    {
+      "kanji": "議",
+      "on": "ギ",
+      "kun": "",
+      "vi": "Nghị",
+      "words": [
+        "会議(kaigi)",
+        "議題(gidai)",
+        "議事録(gijiroku)"
+      ]
+    },
+    {
+      "kanji": "金",
+      "on": "キン",
+      "kun": "かね",
+      "vi": "Kim / Tiền",
+      "words": [
+        "金額(kingaku)",
+        "資金(shikin)",
+        "料金(ryoukin)"
+      ]
+    },
+    {
+      "kanji": "経",
+      "on": "ケイ",
+      "kun": "へる",
+      "vi": "Kinh",
+      "words": [
+        "経済(keizai)",
+        "経営(keiei)",
+        "経費(keihi)"
+      ]
+    },
+    {
+      "kanji": "済",
+      "on": "サイ",
+      "kun": "すむ",
+      "vi": "Tế / Xong",
+      "words": [
+        "経済(keizai)",
+        "返済(hensai)",
+        "決済(kessai)"
+      ]
+    },
+    {
+      "kanji": "売",
+      "on": "バイ",
+      "kun": "うる",
+      "vi": "Bán",
+      "words": [
+        "売上(uriage)",
+        "販売(hanbai)",
+        "売却(baikyaku)"
+      ]
+    },
+    {
+      "kanji": "買",
+      "on": "バイ",
+      "kun": "かう",
+      "vi": "Mua",
+      "words": [
+        "購買(koubai)",
+        "買収(baishuu)",
+        "売買(baibai)"
+      ]
+    },
+    {
+      "kanji": "利",
+      "on": "リ",
+      "kun": "きく",
+      "vi": "Lợi",
+      "words": [
+        "利益(rieki)",
+        "金利(kinri)",
+        "利用(riyou)"
+      ]
+    },
+    {
+      "kanji": "益",
+      "on": "エキ",
+      "kun": "",
+      "vi": "Ích / Lợi",
+      "words": [
+        "利益(rieki)",
+        "収益(shuueki)",
+        "有益(yuueki)"
+      ]
+    },
+    {
+      "kanji": "費",
+      "on": "ヒ",
+      "kun": "ついやす",
+      "vi": "Phí",
+      "words": [
+        "費用(hiyou)",
+        "経費(keihi)",
+        "消費(shouhi)"
+      ]
+    },
+    {
+      "kanji": "税",
+      "on": "ゼイ",
+      "kun": "",
+      "vi": "Thuế",
+      "words": [
+        "税金(zeikin)",
+        "消費税(shouhizei)",
+        "所得税(shotokuzei)"
+      ]
+    },
+    {
+      "kanji": "収",
+      "on": "シュウ",
+      "kun": "おさめる",
+      "vi": "Thu",
+      "words": [
+        "収入(shuunyuu)",
+        "収支(shuushi)",
+        "収益(shuueki)"
+      ]
+    },
+    {
+      "kanji": "支",
+      "on": "シ",
+      "kun": "ささえる",
+      "vi": "Chi",
+      "words": [
+        "支出(shishutsu)",
+        "収支(shuushi)",
+        "支社(shisha)"
+      ]
+    },
+    {
+      "kanji": "算",
+      "on": "サン",
+      "kun": "",
+      "vi": "Toán / Tính",
+      "words": [
+        "計算(keisan)",
+        "予算(yosan)",
+        "決算(kessan)"
+      ]
+    },
+    {
+      "kanji": "価",
+      "on": "カ",
+      "kun": "あたい",
+      "vi": "Giá",
+      "words": [
+        "価格(kakaku)",
+        "評価(hyouka)",
+        "原価(genka)"
+      ]
+    },
+    {
+      "kanji": "格",
+      "on": "カク",
+      "kun": "",
+      "vi": "Cách / Hạng",
+      "words": [
+        "価格(kakaku)",
+        "規格(kikaku)",
+        "資格(shikaku)"
+      ]
+    },
+    {
+      "kanji": "資",
+      "on": "シ",
+      "kun": "",
+      "vi": "Tư / Vốn",
+      "words": [
+        "資料(shiryou)",
+        "資金(shikin)",
+        "投資(toushi)"
+      ]
+    },
+    {
+      "kanji": "投",
+      "on": "トウ",
+      "kun": "なげる",
+      "vi": "Đầu tư / Ném",
+      "words": [
+        "投資(toushi)",
+        "投票(touhyou)",
+        "投入(tounyuu)"
+      ]
+    },
+    {
+      "kanji": "産",
+      "on": "サン",
+      "kun": "うむ",
+      "vi": "Sản",
+      "words": [
+        "生産(seisan)",
+        "産業(sangyou)",
+        "資産(shisan)"
+      ]
+    },
+    {
+      "kanji": "額",
+      "on": "ガク",
+      "kun": "ひたい",
+      "vi": "Ngạch / Số tiền",
+      "words": [
+        "金額(kingaku)",
+        "総額(sougaku)",
+        "定額(teigaku)"
+      ]
+    },
+    {
+      "kanji": "払",
+      "on": "",
+      "kun": "はらう",
+      "vi": "Trả / Thanh toán",
+      "words": [
+        "支払い(shiharai)",
+        "分割払い(bunkatsu barai)"
+      ]
+    },
+    {
+      "kanji": "預",
+      "on": "ヨ",
+      "kun": "あずける",
+      "vi": "Gửi",
+      "words": [
+        "預金(yokin)",
+        "預ける(azukeru)"
+      ]
+    },
+    {
+      "kanji": "報",
+      "on": "ホウ",
+      "kun": "しらせる",
+      "vi": "Báo",
+      "words": [
+        "報告(houkoku)",
+        "情報(jouhou)",
+        "報道(houdou)"
+      ]
+    },
+    {
+      "kanji": "告",
+      "on": "コク",
+      "kun": "つげる",
+      "vi": "Cáo / Báo",
+      "words": [
+        "報告(houkoku)",
+        "広告(koukoku)",
+        "申告(shinkoku)"
+      ]
+    },
+    {
+      "kanji": "連",
+      "on": "レン",
+      "kun": "つらなる",
+      "vi": "Liên",
+      "words": [
+        "連絡(renraku)",
+        "連携(renkei)",
+        "関連(kanren)"
+      ]
+    },
+    {
+      "kanji": "絡",
+      "on": "ラク",
+      "kun": "からむ",
+      "vi": "Lạc / Liên lạc",
+      "words": [
+        "連絡(renraku)",
+        "絡む(karamu)"
+      ]
+    },
+    {
+      "kanji": "相",
+      "on": "ソウ",
+      "kun": "あい",
+      "vi": "Tương / Trao đổi",
+      "words": [
+        "相談(soudan)",
+        "相手(aite)",
+        "相場(souba)"
+      ]
+    },
+    {
+      "kanji": "談",
+      "on": "ダン",
+      "kun": "",
+      "vi": "Đàm / Nói",
+      "words": [
+        "相談(soudan)",
+        "商談(shoudan)",
+        "面談(mendan)"
+      ]
+    },
+    {
+      "kanji": "確",
+      "on": "カク",
+      "kun": "たしか",
+      "vi": "Xác / Chắc chắn",
+      "words": [
+        "確認(kakunin)",
+        "確定(kakutei)",
+        "正確(seikaku)"
+      ]
+    },
+    {
+      "kanji": "認",
+      "on": "ニン",
+      "kun": "みとめる",
+      "vi": "Nhận / Xác nhận",
+      "words": [
+        "確認(kakunin)",
+        "承認(shounin)",
+        "認定(nintei)"
+      ]
+    },
+    {
+      "kanji": "提",
+      "on": "テイ",
+      "kun": "",
+      "vi": "Đề / Đưa ra",
+      "words": [
+        "提案(teian)",
+        "提出(teishutsu)",
+        "提供(teikyou)"
+      ]
+    },
+    {
+      "kanji": "案",
+      "on": "アン",
+      "kun": "",
+      "vi": "Án / Đề xuất",
+      "words": [
+        "提案(teian)",
+        "案件(anken)",
+        "企画案(kikaku an)"
+      ]
+    },
+    {
+      "kanji": "検",
+      "on": "ケン",
+      "kun": "",
+      "vi": "Kiểm",
+      "words": [
+        "検討(kentou)",
+        "検査(kensa)",
+        "検品(kenpin)"
+      ]
+    },
+    {
+      "kanji": "討",
+      "on": "トウ",
+      "kun": "うつ",
+      "vi": "Thảo luận",
+      "words": [
+        "検討(kentou)",
+        "討論(touron)"
+      ]
+    },
+    {
+      "kanji": "決",
+      "on": "ケツ",
+      "kun": "きめる",
+      "vi": "Quyết",
+      "words": [
+        "決定(kettei)",
+        "決算(kessan)",
+        "解決(kaiketsu)"
+      ]
+    },
+    {
+      "kanji": "定",
+      "on": "テイ",
+      "kun": "さだめる",
+      "vi": "Định",
+      "words": [
+        "決定(kettei)",
+        "予定(yotei)",
+        "設定(settei)"
+      ]
+    },
+    {
+      "kanji": "計",
+      "on": "ケイ",
+      "kun": "はかる",
+      "vi": "Kế / Tính",
+      "words": [
+        "計画(keikaku)",
+        "計算(keisan)",
+        "合計(goukei)"
+      ]
+    },
+    {
+      "kanji": "画",
+      "on": "ガ/カク",
+      "kun": "",
+      "vi": "Họa / Kế hoạch",
+      "words": [
+        "計画(keikaku)",
+        "企画(kikaku)",
+        "画面(gamen)"
+      ]
+    },
+    {
+      "kanji": "実",
+      "on": "ジツ",
+      "kun": "みのる",
+      "vi": "Thực",
+      "words": [
+        "実績(jisseki)",
+        "実施(jisshi)",
+        "実現(jitsugen)"
+      ]
+    },
+    {
+      "kanji": "施",
+      "on": "シ",
+      "kun": "ほどこす",
+      "vi": "Thi",
+      "words": [
+        "実施(jisshi)",
+        "施策(shisaku)",
+        "施行(shikou)"
+      ]
+    },
+    {
+      "kanji": "進",
+      "on": "シン",
+      "kun": "すすむ",
+      "vi": "Tiến",
+      "words": [
+        "進捗(shinchoku)",
+        "推進(suishin)",
+        "進行(shinkou)"
+      ]
+    },
+    {
+      "kanji": "捗",
+      "on": "チョク",
+      "kun": "はかどる",
+      "vi": "Tiến độ",
+      "words": [
+        "進捗(shinchoku)"
+      ]
+    },
+    {
+      "kanji": "品",
+      "on": "ヒン",
+      "kun": "しな",
+      "vi": "Phẩm",
+      "words": [
+        "品質(hinshitsu)",
+        "製品(seihin)",
+        "商品(shouhin)"
+      ]
+    },
+    {
+      "kanji": "質",
+      "on": "シツ",
+      "kun": "",
+      "vi": "Chất",
+      "words": [
+        "品質(hinshitsu)",
+        "質問(shitsumon)",
+        "本質(honshitsu)"
+      ]
+    },
+    {
+      "kanji": "製",
+      "on": "セイ",
+      "kun": "",
+      "vi": "Chế tạo",
+      "words": [
+        "製品(seihin)",
+        "製造(seizou)",
+        "製作(seisaku)"
+      ]
+    },
+    {
+      "kanji": "造",
+      "on": "ゾウ",
+      "kun": "つくる",
+      "vi": "Tạo",
+      "words": [
+        "製造(seizou)",
+        "構造(kouzou)",
+        "創造(souzou)"
+      ]
+    },
+    {
+      "kanji": "工",
+      "on": "コウ",
+      "kun": "",
+      "vi": "Công",
+      "words": [
+        "工場(koujou)",
+        "工程(koutei)",
+        "加工(kakou)"
+      ]
+    },
+    {
+      "kanji": "場",
+      "on": "ジョウ",
+      "kun": "ば",
+      "vi": "Trường / Nơi",
+      "words": [
+        "工場(koujou)",
+        "市場(shijou)",
+        "会場(kaijou)"
+      ]
+    },
+    {
+      "kanji": "材",
+      "on": "ザイ",
+      "kun": "",
+      "vi": "Tài / Vật liệu",
+      "words": [
+        "材料(zairyou)",
+        "人材(jinzai)",
+        "素材(sozai)"
+      ]
+    },
+    {
+      "kanji": "料",
+      "on": "リョウ",
+      "kun": "",
+      "vi": "Liệu / Phí",
+      "words": [
+        "資料(shiryou)",
+        "材料(zairyou)",
+        "料金(ryoukin)"
+      ]
+    },
+    {
+      "kanji": "数",
+      "on": "スウ",
+      "kun": "かず",
+      "vi": "Số",
+      "words": [
+        "数量(suuryou)",
+        "数値(suuchi)",
+        "回数(kaisuu)"
+      ]
+    },
+    {
+      "kanji": "量",
+      "on": "リョウ",
+      "kun": "はかる",
+      "vi": "Lượng",
+      "words": [
+        "数量(suuryou)",
+        "量産(ryousan)",
+        "容量(youryou)"
+      ]
+    },
+    {
+      "kanji": "測",
+      "on": "ソク",
+      "kun": "はかる",
+      "vi": "Đo",
+      "words": [
+        "測定(sokutei)",
+        "計測(keisoku)",
+        "予測(yosoku)"
+      ]
+    },
+    {
+      "kanji": "基",
+      "on": "キ",
+      "kun": "もと",
+      "vi": "Cơ / Nền",
+      "words": [
+        "基準(kijun)",
+        "基本(kihon)",
+        "基盤(kiban)"
+      ]
+    },
+    {
+      "kanji": "準",
+      "on": "ジュン",
+      "kun": "",
+      "vi": "Chuẩn",
+      "words": [
+        "基準(kijun)",
+        "準備(junbi)",
+        "水準(suijun)"
+      ]
+    },
+    {
+      "kanji": "改",
+      "on": "カイ",
+      "kun": "あらためる",
+      "vi": "Cải",
+      "words": [
+        "改善(kaizen)",
+        "改定(kaitei)",
+        "改良(kairyou)"
+      ]
+    },
+    {
+      "kanji": "善",
+      "on": "ゼン",
+      "kun": "よい",
+      "vi": "Thiện / Tốt",
+      "words": [
+        "改善(kaizen)",
+        "最善(saizen)",
+        "善処(zensho)"
+      ]
+    },
+    {
+      "kanji": "申",
+      "on": "シン",
+      "kun": "もうす",
+      "vi": "Thân / Nói (khiêm)",
+      "words": [
+        "申す(mousu)",
+        "申請(shinsei)",
+        "申告(shinkoku)"
+      ]
+    },
+    {
+      "kanji": "承",
+      "on": "ショウ",
+      "kun": "うけたまわる",
+      "vi": "Thừa / Nhận",
+      "words": [
+        "承認(shounin)",
+        "承知(shouchi)",
+        "了承(ryoushou)"
+      ]
+    },
+    {
+      "kanji": "拝",
+      "on": "ハイ",
+      "kun": "おがむ",
+      "vi": "Bái / Kính",
+      "words": [
+        "拝見(haiken)",
+        "拝借(haishaku)",
+        "拝啓(haikei)"
+      ]
+    },
+    {
+      "kanji": "御",
+      "on": "ゴ/ギョ",
+      "kun": "お/おん",
+      "vi": "Ngự / Kính",
+      "words": [
+        "御中(onchuu)",
+        "御社(onsha)",
+        "御礼(onrei)"
+      ]
+    },
+    {
+      "kanji": "敬",
+      "on": "ケイ",
+      "kun": "うやまう",
+      "vi": "Kính",
+      "words": [
+        "敬語(keigo)",
+        "敬具(keigu)",
+        "尊敬(sonkei)"
+      ]
+    },
+    {
+      "kanji": "謙",
+      "on": "ケン",
+      "kun": "",
+      "vi": "Khiêm",
+      "words": [
+        "謙譲語(kenjougo)",
+        "謙虚(kenkyo)"
+      ]
+    },
+    {
+      "kanji": "丁",
+      "on": "テイ",
+      "kun": "",
+      "vi": "Đinh / Lịch sự",
+      "words": [
+        "丁寧(teinei)",
+        "丁重(teichou)"
+      ]
+    },
+    {
+      "kanji": "寧",
+      "on": "ネイ",
+      "kun": "",
+      "vi": "Ninh / Yên",
+      "words": [
+        "丁寧(teinei)"
+      ]
+    },
+    {
+      "kanji": "恐",
+      "on": "キョウ",
+      "kun": "おそれる",
+      "vi": "Sợ / Kính",
+      "words": [
+        "恐縮(kyoushuku)",
+        "恐れ入る(osoreireru)"
+      ]
+    },
+    {
+      "kanji": "失",
+      "on": "シツ",
+      "kun": "うしなう",
+      "vi": "Thất / Mất",
+      "words": [
+        "失礼(shitsurei)",
+        "失敗(shippai)",
+        "損失(sonshitsu)"
+      ]
+    },
+    {
+      "kanji": "礼",
+      "on": "レイ",
+      "kun": "",
+      "vi": "Lễ",
+      "words": [
+        "失礼(shitsurei)",
+        "御礼(onrei)",
+        "礼儀(reigi)"
+      ]
+    },
+    {
+      "kanji": "願",
+      "on": "ガン",
+      "kun": "ねがう",
+      "vi": "Nguyện / Xin",
+      "words": [
+        "お願い(onegai)",
+        "志願(shigan)",
+        "出願(shutsugan)"
+      ]
+    },
+    {
+      "kanji": "存",
+      "on": "ソン/ゾン",
+      "kun": "",
+      "vi": "Tồn / Biết",
+      "words": [
+        "存じる(zonjiru)",
+        "存在(sonzai)",
+        "保存(hozon)"
+      ]
+    },
+    {
+      "kanji": "参",
+      "on": "サン",
+      "kun": "まいる",
+      "vi": "Tham / Đi",
+      "words": [
+        "参る(mairu)",
+        "参加(sanka)",
+        "参考(sankou)"
+      ]
+    },
+    {
+      "kanji": "伺",
+      "on": "シ",
+      "kun": "うかがう",
+      "vi": "Hầu / Hỏi",
+      "words": [
+        "伺う(ukagau)",
+        "伺い(ukagai)"
+      ]
+    },
+    {
+      "kanji": "対",
+      "on": "タイ",
+      "kun": "",
+      "vi": "Đối",
+      "words": [
+        "対応(taiou)",
+        "対策(taisaku)",
+        "反対(hantai)"
+      ]
+    },
+    {
+      "kanji": "応",
+      "on": "オウ",
+      "kun": "こたえる",
+      "vi": "Ứng",
+      "words": [
+        "対応(taiou)",
+        "応募(oubo)",
+        "応用(ouyou)"
+      ]
+    },
+    {
+      "kanji": "策",
+      "on": "サク",
+      "kun": "",
+      "vi": "Sách / Kế",
+      "words": [
+        "対策(taisaku)",
+        "政策(seisaku)",
+        "施策(shisaku)"
+      ]
+    },
+    {
+      "kanji": "導",
+      "on": "ドウ",
+      "kun": "みちびく",
+      "vi": "Đạo / Dẫn",
+      "words": [
+        "導入(dounyuu)",
+        "指導(shidou)",
+        "誘導(yuudou)"
+      ]
+    },
+    {
+      "kanji": "入",
+      "on": "ニュウ",
+      "kun": "いれる",
+      "vi": "Nhập",
+      "words": [
+        "導入(dounyuu)",
+        "入社(nyuusha)",
+        "収入(shuunyuu)"
+      ]
+    },
+    {
+      "kanji": "出",
+      "on": "シュツ",
+      "kun": "でる",
+      "vi": "Xuất",
+      "words": [
+        "提出(teishutsu)",
+        "出張(shutchou)",
+        "支出(shishutsu)"
+      ]
+    },
+    {
+      "kanji": "開",
+      "on": "カイ",
+      "kun": "ひらく",
+      "vi": "Khai / Mở",
+      "words": [
+        "開発(kaihatsu)",
+        "開催(kaisai)",
+        "公開(koukai)"
+      ]
+    },
+    {
+      "kanji": "発",
+      "on": "ハツ",
+      "kun": "",
+      "vi": "Phát",
+      "words": [
+        "開発(kaihatsu)",
+        "発表(happyou)",
+        "発注(hatchuu)"
+      ]
+    },
+    {
+      "kanji": "管",
+      "on": "カン",
+      "kun": "くだ",
+      "vi": "Quản",
+      "words": [
+        "管理(kanri)",
+        "管轄(kankatsu)"
+      ]
+    },
+    {
+      "kanji": "理",
+      "on": "リ",
+      "kun": "",
+      "vi": "Lý",
+      "words": [
+        "管理(kanri)",
+        "理由(riyuu)",
+        "処理(shori)"
+      ]
+    },
+    {
+      "kanji": "取",
+      "on": "シュ",
+      "kun": "とる",
+      "vi": "Thủ / Lấy",
+      "words": [
+        "取引(torihiki)",
+        "取得(shutoku)",
+        "取締役(torishimariyaku)"
+      ]
+    },
+    {
+      "kanji": "引",
+      "on": "イン",
+      "kun": "ひく",
+      "vi": "Dẫn / Kéo",
+      "words": [
+        "取引(torihiki)",
+        "引き継ぎ(hikitsugi)",
+        "値引き(nebiki)"
+      ]
+    },
+    {
+      "kanji": "送",
+      "on": "ソウ",
+      "kun": "おくる",
+      "vi": "Tống / Gửi",
+      "words": [
+        "送付(soufu)",
+        "送金(soukin)",
+        "配送(haisou)"
+      ]
+    },
+    {
+      "kanji": "届",
+      "on": "",
+      "kun": "とどける",
+      "vi": "Đến / Khai báo",
+      "words": [
+        "届出(todokede)",
+        "届ける(todokeru)"
+      ]
+    },
+    {
+      "kanji": "受",
+      "on": "ジュ",
+      "kun": "うける",
+      "vi": "Thụ / Nhận",
+      "words": [
+        "受注(juchuu)",
+        "受付(uketsuke)",
+        "受理(juri)"
+      ]
+    },
+    {
+      "kanji": "注",
+      "on": "チュウ",
+      "kun": "そそぐ",
+      "vi": "Chú",
+      "words": [
+        "受注(juchuu)",
+        "注文(chuumon)",
+        "注意(chuui)"
+      ]
+    },
+    {
+      "kanji": "期",
+      "on": "キ",
+      "kun": "",
+      "vi": "Kỳ",
+      "words": [
+        "期限(kigen)",
+        "期間(kikan)",
+        "四半期(shihanki)"
+      ]
+    },
+    {
+      "kanji": "限",
+      "on": "ゲン",
+      "kun": "かぎる",
+      "vi": "Hạn",
+      "words": [
+        "期限(kigen)",
+        "制限(seigen)",
+        "権限(kengen)"
+      ]
+    },
+    {
+      "kanji": "変",
+      "on": "ヘン",
+      "kun": "かわる",
+      "vi": "Biến / Đổi",
+      "words": [
+        "変更(henkou)",
+        "変動(hendou)",
+        "変化(henka)"
+      ]
+    },
+    {
+      "kanji": "更",
+      "on": "コウ",
+      "kun": "さらに",
+      "vi": "Canh / Thêm",
+      "words": [
+        "変更(henkou)",
+        "更新(koushin)"
+      ]
+    }
+  ]
+}

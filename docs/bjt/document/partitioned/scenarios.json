@@ -1,0 +1,637 @@
+[
+  {
+    "id": "s01",
+    "title_vi": "Nghe điện thoại",
+    "title_jp": "電話を受ける",
+    "lv": "J4-J3",
+    "situation": "Khách gọi tìm sếp đang vắng.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "お電話ありがとうございます。ABC株式会社、営業部の田中でございます。",
+        "vi": "Cảm ơn đã gọi. Tanaka, phòng KD, ABC."
+      },
+      {
+        "sp": "相手",
+        "jp": "XYZ商事の山田と申します。佐藤部長はいらっしゃいますか。",
+        "vi": "Yamada từ XYZ. Trưởng phòng Satou có không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "申し訳ございません。佐藤はただいま席を外しております。",
+        "vi": "Xin lỗi. Satou đang vắng."
+      },
+      {
+        "sp": "あなた",
+        "jp": "3時頃には戻る予定です。折り返しお電話いたしましょうか。",
+        "vi": "Khoảng 3h quay lại. Gọi lại nhé?"
+      },
+      {
+        "sp": "相手",
+        "jp": "はい、お願いします。",
+        "vi": "Vâng, nhờ anh."
+      },
+      {
+        "sp": "あなた",
+        "jp": "かしこまりました。念のためお電話番号をお伺いしてもよろしいでしょうか。",
+        "vi": "Vâng. Xin số ĐT để chắc chắn."
+      },
+      {
+        "sp": "あなた",
+        "jp": "復唱いたします。03-1234-5678ですね。佐藤が戻り次第ご連絡いたします。",
+        "vi": "Nhắc lại: 03-1234-5678. Satou quay lại sẽ gọi ngay."
+      }
+    ],
+    "tips": "Không nói lý do sếp vắng. Nhắc lại số ĐT (復唱). Không dùng kính ngữ cho sếp khi nói với người ngoài."
+  },
+  {
+    "id": "s02",
+    "title_vi": "Xin nghỉ phép",
+    "title_jp": "休暇申請",
+    "lv": "J4-J3",
+    "situation": "Xin nghỉ 3 ngày, gặp trưởng ban.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "課長、少々お時間よろしいでしょうか。",
+        "vi": "Trưởng ban, có rảnh không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "来週月曜から水曜まで有給休暇をいただきたいのですが。",
+        "vi": "Muốn xin nghỉ phép thứ 2-4 tuần sau."
+      },
+      {
+        "sp": "課長",
+        "jp": "業務の引き継ぎはどうしますか。",
+        "vi": "Bàn giao thế nào?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "鈴木さんにお願いする予定です。資料も準備しております。",
+        "vi": "Dự định nhờ Suzuki. Tài liệu đã sẵn."
+      }
+    ],
+    "tips": "Chuẩn bị kế hoạch bàn giao TRƯỚC khi xin. Thể hiện trách nhiệm."
+  },
+  {
+    "id": "s03",
+    "title_vi": "Trình bày trong họp",
+    "title_jp": "会議プレゼン",
+    "lv": "J3-J2",
+    "situation": "Báo cáo kết quả quý trước ban lãnh đạo.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "第3四半期の業績について報告させていただきます。",
+        "vi": "Cho phép báo cáo kết quả Q3."
+      },
+      {
+        "sp": "あなた",
+        "jp": "お手元の資料2ページをご覧ください。売上は前年同期比15%増加しております。",
+        "vi": "Xem trang 2. Doanh thu tăng 15% cùng kỳ."
+      },
+      {
+        "sp": "部長",
+        "jp": "来期の見通しは？",
+        "vi": "Dự báo kỳ sau?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "新製品投入により、さらなる成長を見込んでおります。",
+        "vi": "Nhờ SP mới, dự kiến tăng trưởng tiếp."
+      },
+      {
+        "sp": "あなた",
+        "jp": "以上で報告を終わります。ご質問がございましたらお願いいたします。",
+        "vi": "Hết báo cáo. Có câu hỏi xin mời."
+      }
+    ],
+    "tips": "Mở đầu rõ ràng. Dẫn theo tài liệu. Dùng số liệu. Kết bằng mời Q&A."
+  },
+  {
+    "id": "s04",
+    "title_vi": "Email xin lỗi giao hàng trễ",
+    "title_jp": "納品遅延お詫びメール",
+    "lv": "J3-J2",
+    "situation": "Giao hàng trễ 3 ngày.",
+    "dialogue": [
+      {
+        "sp": "email",
+        "jp": "件名：納品遅延のお詫び\n\nXYZ株式会社 山田様\n\nいつもお世話になっております。ABC株式会社の田中です。\n\nこの度は納品が3日遅れましたこと深くお詫び申し上げます。原因は品質検査に時間がかかったためです。\n\n明日中に納品できるよう手配中です。管理体制を見直し再発防止に努めます。\n\nご迷惑をおかけし重ねてお詫び申し上げます。",
+        "vi": "Tiêu đề: Xin lỗi giao hàng trễ\n\nChân thành xin lỗi giao trễ 3 ngày. Nguyên nhân: kiểm tra CL mất thời gian.\nĐang sắp xếp giao ngày mai. Sẽ rà soát hệ thống.\nMột lần nữa xin lỗi."
+      }
+    ],
+    "tips": "(1) Xin lỗi, (2) Nguyên nhân ngắn gọn, (3) Biện pháp khắc phục, (4) Cam kết cải thiện."
+  },
+  {
+    "id": "s05",
+    "title_vi": "Đàm phán giá",
+    "title_jp": "価格交渉",
+    "lv": "J2-J1",
+    "situation": "Khách yêu cầu giảm 20%.",
+    "dialogue": [
+      {
+        "sp": "相手",
+        "jp": "20%のディスカウントをお願いしたいのですが。",
+        "vi": "Muốn giảm 20%."
+      },
+      {
+        "sp": "あなた",
+        "jp": "20%は正直なところ厳しいのですが、長期取引を前提に10%であれば対応可能かと存じます。",
+        "vi": "20% khó, nhưng dựa trên giao dịch dài hạn, 10% thì được."
+      },
+      {
+        "sp": "相手",
+        "jp": "15%ではいかがでしょうか。",
+        "vi": "15% thì sao?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "社内で検討させていただきます。後日ご連絡いたします。",
+        "vi": "Xin bàn nội bộ. Sẽ liên lạc lại."
+      }
+    ],
+    "tips": "Không từ chối thẳng. Dùng 厳しい (khó). Đưa phương án thay thế. Xin thời gian nếu cần."
+  },
+  {
+    "id": "s06",
+    "title_vi": "Giới thiệu bản thân ngày đầu",
+    "title_jp": "初日の自己紹介",
+    "lv": "J4",
+    "situation": "Ngày đầu đi làm, tự giới thiệu trước phòng ban.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "はじめまして。本日より営業部に配属になりました、グエンと申します。ベトナム出身です。",
+        "vi": "Xin chào. Từ hôm nay vào phòng KD, tôi tên Nguyen, từ VN."
+      },
+      {
+        "sp": "あなた",
+        "jp": "前職では製造業で品質管理を3年間担当しておりました。",
+        "vi": "Trước đây phụ trách QC 3 năm."
+      },
+      {
+        "sp": "あなた",
+        "jp": "一日も早く戦力となれるよう精一杯頑張ります。ご指導ご鞭撻のほどよろしくお願いいたします。",
+        "vi": "Cố gắng sớm đóng góp. Mong được chỉ bảo."
+      }
+    ],
+    "tips": "Nói tên rõ, nêu ngắn gọn KN, thể hiện cầu tiến."
+  },
+  {
+    "id": "s07",
+    "title_vi": "Tại bệnh viện",
+    "title_jp": "病院で受診する",
+    "lv": "J4",
+    "situation": "Bạn bị sốt, đi khám bệnh.",
+    "dialogue": [
+      {
+        "sp": "受付",
+        "jp": "保険証をお持ちですか。",
+        "vi": "Có thẻ BH không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "はい、マイナンバーカードで保険証として使えます。",
+        "vi": "Có, dùng thẻ My Number."
+      },
+      {
+        "sp": "医師",
+        "jp": "どうされましたか。",
+        "vi": "Có chuyện gì?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "昨日から38度の熱があります。頭痛と咳もあります。",
+        "vi": "Từ hôm qua sốt 38°C. Đau đầu và ho."
+      },
+      {
+        "sp": "医師",
+        "jp": "では、薬を処方しますので、薬局で受け取ってください。",
+        "vi": "Vậy tôi kê thuốc, nhận ở nhà thuốc nhé."
+      }
+    ],
+    "tips": "Mang thẻ My Number (đã liên kết BH). Mô tả triệu chứng rõ ràng."
+  },
+  {
+    "id": "s08",
+    "title_vi": "Tại ngân hàng",
+    "title_jp": "銀行で口座を開設する",
+    "lv": "J4",
+    "situation": "Mở tài khoản ngân hàng khi mới đến Nhật.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "口座を開設したいのですが。",
+        "vi": "Muốn mở tài khoản."
+      },
+      {
+        "sp": "銀行員",
+        "jp": "在留カードとマイナンバーカードをお持ちですか。",
+        "vi": "Có thẻ cư trú và My Number không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "はい、両方持っています。あと、印鑑も持ってきました。",
+        "vi": "Có cả hai. Và mang cả con dấu."
+      },
+      {
+        "sp": "銀行員",
+        "jp": "ありがとうございます。こちらの用紙にお名前とご住所をご記入ください。",
+        "vi": "Cảm ơn. Hãy điền tên và địa chỉ vào đây."
+      }
+    ],
+    "tips": "Chuẩn bị: thẻ cư trú + My Number + con dấu (hoặc chữ ký). Một số NH yêu cầu giấy xác nhận công việc."
+  },
+  {
+    "id": "s09",
+    "title_vi": "Báo cáo sự cố cho sếp",
+    "title_jp": "トラブル報告",
+    "lv": "J3",
+    "situation": "Phát hiện giao nhầm số lượng cho khách.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "部長、緊急のご報告があります。本日発送した商品に数量の誤りがあることが判明しました。",
+        "vi": "Trưởng phòng, có báo cáo khẩn. Hàng gửi hôm nay bị sai số lượng."
+      },
+      {
+        "sp": "部長",
+        "jp": "原因は？",
+        "vi": "Nguyên nhân?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "ピッキングの段階でダブルチェックが漏れていました。現在、不足分の追加発送を手配中です。お客様には直接お詫びのご連絡をいたします。",
+        "vi": "Khâu lấy hàng bỏ sót kiểm tra kép. Đang sắp xếp gửi bổ sung. Sẽ trực tiếp xin lỗi KH."
+      },
+      {
+        "sp": "部長",
+        "jp": "再発防止策も考えてくれ。",
+        "vi": "Nghĩ cách phòng tránh nữa."
+      },
+      {
+        "sp": "あなた",
+        "jp": "承知いたしました。明日までにご報告いたします。",
+        "vi": "Vâng. Báo cáo trước ngày mai."
+      }
+    ],
+    "tips": "Format báo cáo sự cố: (1) Sự việc, (2) Nguyên nhân, (3) Đang xử lý gì, (4) Phòng ngừa. KHÔNG giấu."
+  },
+  {
+    "id": "s10",
+    "title_vi": "Tiếp khách tại công ty",
+    "title_jp": "来客対応",
+    "lv": "J3",
+    "situation": "Khách đến công ty có hẹn.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "いらっしゃいませ。お約束でいらっしゃいますか。",
+        "vi": "Xin chào. Có hẹn trước ạ?"
+      },
+      {
+        "sp": "客",
+        "jp": "はい、2時に佐藤部長とお約束しているXYZ社の山田です。",
+        "vi": "Vâng, hẹn 2h với trưởng phòng Satou. Yamada từ XYZ."
+      },
+      {
+        "sp": "あなた",
+        "jp": "山田様ですね。お待ちしておりました。会議室にご案内いたします。お飲み物はいかがですか。",
+        "vi": "Anh Yamada. Đã chờ rồi. Mời đến phòng họp. Dùng gì uống ạ?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "佐藤はまもなく参りますので、少々お待ちください。",
+        "vi": "Satou sẽ đến ngay. Xin chờ."
+      }
+    ],
+    "tips": "Dùng kenjougo cho sếp mình (参ります). Mời đồ uống. Dẫn khách lịch sự."
+  },
+  {
+    "id": "s11",
+    "title_vi": "Xin lỗi khi đến muộn",
+    "title_jp": "遅刻のお詫び",
+    "lv": "J4",
+    "situation": "Đến công ty muộn 30 phút vì tàu trễ.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "おはようございます。申し訳ございません。電車の遅延で30分遅れてしまいました。遅延証明書はいただいております。",
+        "vi": "Chào sáng. Xin lỗi. Tàu trễ nên đến muộn 30 phút. Có giấy chứng nhận."
+      },
+      {
+        "sp": "課長",
+        "jp": "わかった。今後は余裕を持って出勤してね。",
+        "vi": "OK. Lần sau đi sớm hơn nhé."
+      },
+      {
+        "sp": "あなた",
+        "jp": "はい、以後気をつけます。",
+        "vi": "Vâng, sẽ cẩn thận."
+      }
+    ],
+    "tips": "Luôn lấy 遅延証明書 ở ga. Báo trước bằng ĐT/LINE nếu biết sẽ trễ."
+  },
+  {
+    "id": "s12",
+    "title_vi": "Từ chối lời mời lịch sự",
+    "title_jp": "誘いを丁寧に断る",
+    "lv": "J3",
+    "situation": "Đồng nghiệp mời đi uống nhưng bạn có việc.",
+    "dialogue": [
+      {
+        "sp": "同僚",
+        "jp": "今日、飲みに行きませんか。",
+        "vi": "Hôm nay đi uống không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "お誘いありがとうございます。ぜひ行きたいのですが、今日はちょっと先約がありまして。また次の機会にぜひお願いします。",
+        "vi": "Cảm ơn lời mời. Rất muốn đi nhưng hôm nay có hẹn rồi. Lần sau nhé."
+      }
+    ],
+    "tips": "Cảm ơn trước → Lý do nhẹ nhàng → Đề nghị lần khác."
+  },
+  {
+    "id": "s13",
+    "title_vi": "Phỏng vấn xin việc",
+    "title_jp": "面接を受ける",
+    "lv": "J3",
+    "situation": "Phỏng vấn xin việc tại công ty Nhật.",
+    "dialogue": [
+      {
+        "sp": "面接官",
+        "jp": "自己紹介をお願いします。",
+        "vi": "Xin hãy tự giới thiệu."
+      },
+      {
+        "sp": "あなた",
+        "jp": "グエンと申します。ベトナムの大学で情報工学を専攻し、卒業後は製造業で3年間品質管理を担当しました。御社の技術力と国際的な事業展開に魅力を感じ、志望いたしました。",
+        "vi": "Tôi là Nguyen. Chuyên ngành CNTT tại VN, sau tốt nghiệp làm QC 3 năm. Ấn tượng bởi kỹ thuật và mở rộng quốc tế của quý công ty."
+      },
+      {
+        "sp": "面接官",
+        "jp": "当社でどのように貢献できると思いますか。",
+        "vi": "Anh nghĩ đóng góp thế nào?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "品質管理の経験を活かし、御社の製品品質の向上に貢献できると考えております。また、ベトナムとの架け橋としても活躍したいです。",
+        "vi": "Dùng KN QC đóng góp nâng CL sản phẩm. Và muốn làm cầu nối VN."
+      }
+    ],
+    "tips": "Dùng 御社(onsha) cho công ty đối phương. Nêu rõ KN + lý do ứng tuyển + đóng góp."
+  },
+  {
+    "id": "s14",
+    "title_vi": "Nhờ đồng nghiệp giúp đỡ",
+    "title_jp": "同僚に依頼する",
+    "lv": "J4",
+    "situation": "Nhờ đồng nghiệp kiểm tra tài liệu.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "鈴木さん、今ちょっとお時間いいですか。",
+        "vi": "Suzuki, giờ rảnh không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "取引先に送る見積書を作ったのですが、数字に間違いがないか確認していただけませんか。",
+        "vi": "Làm xong báo giá, nhờ check số liệu."
+      },
+      {
+        "sp": "鈴木",
+        "jp": "いいですよ。見せてください。",
+        "vi": "Được. Cho xem."
+      },
+      {
+        "sp": "あなた",
+        "jp": "ありがとうございます。助かります。",
+        "vi": "Cảm ơn. Giúp nhiều quá."
+      }
+    ],
+    "tips": "Hỏi trước có rảnh không. Dùng ていただけませんか. Luôn cảm ơn."
+  },
+  {
+    "id": "s15",
+    "title_vi": "Xử lý khiếu nại khách hàng",
+    "title_jp": "クレーム対応",
+    "lv": "J2",
+    "situation": "Khách gọi phàn nàn sản phẩm lỗi.",
+    "dialogue": [
+      {
+        "sp": "客",
+        "jp": "購入した製品の電源が入りません。",
+        "vi": "SP mua không bật được."
+      },
+      {
+        "sp": "あなた",
+        "jp": "大変申し訳ございません。ご不便をおかけして心よりお詫び申し上げます。",
+        "vi": "Vô cùng xin lỗi. Chân thành xin lỗi về bất tiện."
+      },
+      {
+        "sp": "あなた",
+        "jp": "製品番号とご購入日をお伺いしてもよろしいですか。",
+        "vi": "Cho hỏi mã SP và ngày mua?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "すぐに新品との交換を手配いたします。明日中にお届けできますが、ご都合はいかがでしょうか。",
+        "vi": "Sắp xếp đổi mới ngay. Giao mai, có tiện không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "この度は大変ご迷惑をおかけいたしました。品質管理を徹底してまいります。",
+        "vi": "Xin lỗi vì phiền toái. Sẽ quản lý CL triệt để."
+      }
+    ],
+    "tips": "(1) Xin lỗi TRƯỚC, (2) Lắng nghe, (3) Xác nhận thông tin, (4) Giải pháp cụ thể, (5) Cam kết. KHÔNG tranh cãi."
+  },
+  {
+    "id": "s16",
+    "title_vi": "Tại nhà hàng với đối tác",
+    "title_jp": "接待（食事会）",
+    "lv": "J2",
+    "situation": "Tiếp đãi khách hàng tại nhà hàng.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "本日はお忙しい中、お時間をいただきありがとうございます。こちらのお店は和食が評判でして。",
+        "vi": "Cảm ơn đã dành thời gian hôm nay. Nhà hàng này nổi tiếng món Nhật."
+      },
+      {
+        "sp": "客",
+        "jp": "素敵なお店ですね。ありがとうございます。",
+        "vi": "Nhà hàng đẹp quá. Cảm ơn."
+      },
+      {
+        "sp": "あなた",
+        "jp": "お飲み物は何がよろしいですか。ビール、日本酒、ワインがございます。",
+        "vi": "Dùng gì uống ạ? Có bia, rượu Nhật, vang."
+      },
+      {
+        "sp": "あなた",
+        "jp": "本日は楽しいお時間を過ごしていただければ幸いです。お仕事の話は後ほどゆっくりと。",
+        "vi": "Mong hôm nay vui vẻ. Chuyện công việc từ từ sau."
+      },
+      {
+        "sp": "（帰り際）",
+        "jp": "本日はありがとうございました。タクシーをお呼びしましょうか。",
+        "vi": "Cảm ơn hôm nay. Để tôi gọi taxi nhé?"
+      }
+    ],
+    "tips": "Khách ngồi kamiza. Gọi đồ uống cho khách trước. Không vội nói chuyện KD. Tiễn khách lên taxi."
+  },
+  {
+    "id": "s17",
+    "title_vi": "Tại cảnh sát (mất đồ)",
+    "title_jp": "交番で届出を出す",
+    "lv": "J4",
+    "situation": "Bạn bị mất ví, đến đồn cảnh sát khai báo.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "すみません、財布を落としてしまいました。届出を出したいのですが。",
+        "vi": "Xin lỗi, tôi bị mất ví. Muốn khai báo."
+      },
+      {
+        "sp": "警察",
+        "jp": "いつ、どこで落としましたか。",
+        "vi": "Mất khi nào, ở đâu?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "今日の午後2時頃、新宿駅の改札付近だと思います。",
+        "vi": "Khoảng 2h chiều nay, gần cổng soát vé ga Shinjuku."
+      },
+      {
+        "sp": "警察",
+        "jp": "財布の色や中身を教えてください。",
+        "vi": "Cho biết màu ví và bên trong có gì?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "黒い革の財布で、中に在留カードと現金2万円ぐらい入っています。",
+        "vi": "Ví da đen, bên trong có thẻ cư trú và khoảng 20,000 yên."
+      },
+      {
+        "sp": "警察",
+        "jp": "わかりました。遺失届を書いてください。見つかったら連絡します。",
+        "vi": "Hiểu rồi. Viết đơn mất đồ. Tìm thấy sẽ liên lạc."
+      }
+    ],
+    "tips": "Nói rõ: khi nào, ở đâu, đặc điểm vật mất, bên trong có gì. Nhận giấy xác nhận (受理番号)."
+  },
+  {
+    "id": "s18",
+    "title_vi": "Họp brainstorming",
+    "title_jp": "ブレインストーミング",
+    "lv": "J3",
+    "situation": "Họp brainstorm ý tưởng sản phẩm mới.",
+    "dialogue": [
+      {
+        "sp": "司会",
+        "jp": "では、新商品のアイデアについてブレインストーミングを始めましょう。どんな意見でも結構ですので、自由に発言してください。",
+        "vi": "Bắt đầu brainstorm ý tưởng SP mới. Ý kiến gì cũng được, tự do phát biểu."
+      },
+      {
+        "sp": "あなた",
+        "jp": "健康志向の消費者が増えているので、低カロリーのスナック菓子はいかがでしょうか。",
+        "vi": "Người tiêu dùng sức khỏe tăng, snack ít calo thì sao?"
+      },
+      {
+        "sp": "同僚A",
+        "jp": "面白いですね。それに加えて、環境に配慮したパッケージも差別化になると思います。",
+        "vi": "Hay. Thêm nữa, bao bì thân thiện MT cũng là điểm khác biệt."
+      },
+      {
+        "sp": "司会",
+        "jp": "いい意見ですね。他にありますか？",
+        "vi": "Ý kiến hay. Còn gì nữa không?"
+      }
+    ],
+    "tips": "Brainstorm: không phê phán ý tưởng, số lượng > chất lượng, xây dựng trên ý của người khác."
+  },
+  {
+    "id": "s19",
+    "title_vi": "Đổi thẻ cư trú (gia hạn visa)",
+    "title_jp": "在留カードの更新",
+    "lv": "J4",
+    "situation": "Đến Cục Xuất nhập cảnh gia hạn visa.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "すみません、在留期間の更新許可申請をしたいのですが。",
+        "vi": "Xin lỗi, muốn nộp đơn gia hạn lưu trú."
+      },
+      {
+        "sp": "職員",
+        "jp": "申請書と必要書類はお持ちですか。",
+        "vi": "Có đơn và giấy tờ cần thiết không?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "はい、申請書、パスポート、在留カード、会社の在職証明書、課税証明書を持ってきました。",
+        "vi": "Có, đơn, hộ chiếu, thẻ cư trú, giấy tại chức, giấy thuế."
+      },
+      {
+        "sp": "職員",
+        "jp": "写真は貼ってありますか。4cm×3cmのものが必要です。",
+        "vi": "Dán ảnh chưa? Cần 4x3cm."
+      },
+      {
+        "sp": "あなた",
+        "jp": "はい、貼ってあります。",
+        "vi": "Dán rồi."
+      },
+      {
+        "sp": "職員",
+        "jp": "受付番号をお渡しします。審査結果は約2週間後にハガキでお知らせします。",
+        "vi": "Đây là số tiếp nhận. Kết quả khoảng 2 tuần, thông báo bằng bưu thiếp."
+      }
+    ],
+    "tips": "Chuẩn bị: đơn + hộ chiếu + thẻ cư trú + ảnh 4x3 + giấy tờ tùy loại visa. Nộp TRƯỚC 3 tháng khi hết hạn."
+  },
+  {
+    "id": "s20",
+    "title_vi": "Thuyết trình sản phẩm cho khách hàng",
+    "title_jp": "製品プレゼンテーション",
+    "lv": "J2",
+    "situation": "Trình bày sản phẩm mới cho khách hàng tiềm năng.",
+    "dialogue": [
+      {
+        "sp": "あなた",
+        "jp": "本日は貴重なお時間をいただきありがとうございます。弊社の新製品についてご紹介させていただきます。",
+        "vi": "Cảm ơn đã dành thời gian. Xin giới thiệu SP mới."
+      },
+      {
+        "sp": "あなた",
+        "jp": "こちらの製品は従来品と比較して、コストを30%削減しながら、性能を20%向上させることに成功しました。",
+        "vi": "SP này giảm 30% chi phí và tăng 20% hiệu năng so với phiên bản cũ."
+      },
+      {
+        "sp": "客",
+        "jp": "導入にはどのくらいの期間がかかりますか。",
+        "vi": "Triển khai mất bao lâu?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "標準的な導入期間は約3ヶ月です。御社の環境に合わせたカスタマイズも可能です。",
+        "vi": "Tiêu chuẩn khoảng 3 tháng. Có thể customize theo quý công ty."
+      },
+      {
+        "sp": "客",
+        "jp": "見積もりをいただけますか。",
+        "vi": "Cho báo giá?"
+      },
+      {
+        "sp": "あなた",
+        "jp": "もちろんです。来週中にお見積もりをお送りいたします。",
+        "vi": "Dĩ nhiên. Gửi báo giá trong tuần sau."
+      }
+    ],
+    "tips": "Mở: cảm ơn. Nêu ưu điểm bằng số liệu. Trả lời câu hỏi rõ ràng. Kết: hẹn gửi báo giá."
+  }
+]

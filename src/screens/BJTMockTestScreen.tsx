@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -31,10 +31,16 @@ const MOCK_CONFIG: Record<SkillKey, number> = {
 };
 
 const DIFFICULTY_LABELS = {
-  basic: 'Basic',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
+  basic: 'Cơ bản',
+  intermediate: 'Trung cấp',
+  advanced: 'Nâng cao',
 } as const;
+
+const SKILL_LABELS: Record<SkillKey, string> = {
+  listening: 'Nghe',
+  'listening-reading': 'Nghe + Đọc',
+  reading: 'Đọc',
+};
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
   all: 'Tất cả',
@@ -65,6 +71,8 @@ function shuffle<T>(items: T[]) {
 
 export default function BJTMockTestScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'BJTMockTest'>>();
+  const { width } = useWindowDimensions();
+  const isTablet = width >= 768;
   const [level, setLevel] = useState<BjtTargetLevel>(route.params?.level ?? 'J3');
   const [adaptiveSkill, setAdaptiveSkill] = useState<BjtSkill | null>(null);
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
@@ -209,7 +217,7 @@ export default function BJTMockTestScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-        <ScrollView style={styles.container} contentContainerStyle={styles.summaryContent}>
+        <ScrollView style={styles.container} contentContainerStyle={[styles.summaryContent, isTablet && styles.contentTablet]}>
           <Text style={styles.summaryTitle}>Kết quả Mock Test</Text>
           <Text style={styles.summarySub}>
             {score}/{questions.length} câu đúng
@@ -219,9 +227,9 @@ export default function BJTMockTestScreen() {
 
           <View style={styles.statsGrid}>
             {([
-              ['listening', 'Listening'],
-              ['listening-reading', 'Listen + Read'],
-              ['reading', 'Reading'],
+              ['listening', 'Nghe'],
+              ['listening-reading', 'Nghe + Đọc'],
+              ['reading', 'Đọc'],
             ] as const).map(([key, label]) => (
               <View key={key} style={styles.statCard}>
                 <Text style={styles.statLabel}>{label}</Text>
@@ -265,10 +273,10 @@ export default function BJTMockTestScreen() {
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
       </View>
 
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
         <View style={styles.headerRow}>
           <View>
-            <Text style={styles.title}>BJT Timed Mock</Text>
+            <Text style={styles.title}>Mock có giờ</Text>
             <Text style={styles.subtitle}>
               Mock có timer và chọn câu theo level. Mặc định đang tập trung vào J3.
             </Text>
@@ -305,7 +313,8 @@ export default function BJTMockTestScreen() {
         <View style={styles.noticeCard}>
           <Ionicons name="information-circle-outline" size={18} color={Colors.primary} />
           <Text style={styles.noticeText}>
-            Đây là mock nội bộ theo hướng BJT. Nếu level đang chọn không đủ câu trong một skill, app sẽ top-up bằng câu cùng skill từ bank hiện có.
+            Đây là mock nội bộ theo hướng BJT. Nếu level đang chọn không đủ câu trong một skill, app sẽ bổ
+            sung bằng câu cùng skill từ bank hiện có.
           </Text>
         </View>
 
@@ -313,7 +322,7 @@ export default function BJTMockTestScreen() {
           <View style={styles.noticeCard}>
             <Ionicons name="pulse-outline" size={18} color={Colors.primary} />
             <Text style={styles.noticeText}>
-              Adaptive mock đang tăng trọng số cho skill yếu nhất: {adaptiveSkill}.
+              Mock đang tăng trọng số cho kỹ năng yếu nhất: {adaptiveSkill ? SKILL_LABELS[adaptiveSkill] : ''}.
             </Text>
           </View>
         ) : null}
@@ -332,7 +341,7 @@ export default function BJTMockTestScreen() {
             <Text style={styles.questionTitle}>{currentQuestion.title}</Text>
             <View style={styles.questionBadges}>
               <View style={styles.skillChip}>
-                <Text style={styles.skillChipText}>{currentQuestion.skill}</Text>
+                <Text style={styles.skillChipText}>{SKILL_LABELS[currentQuestion.skill]}</Text>
               </View>
               <View style={styles.difficultyChip}>
                 <Text style={styles.difficultyChipText}>
@@ -443,6 +452,11 @@ const styles = StyleSheet.create({
   emptyText: { fontSize: 14, color: Colors.textSecondary },
   content: { padding: 16, paddingBottom: 28 },
   summaryContent: { padding: 16, paddingBottom: 28 },
+  contentTablet: {
+    width: '100%',
+    maxWidth: 900,
+    alignSelf: 'center',
+  },
   progressTrack: { height: 6, backgroundColor: Colors.border, overflow: 'hidden' },
   progressFill: { height: 6, backgroundColor: Colors.primary },
   headerRow: { gap: 12, marginBottom: 12 },
@@ -490,8 +504,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 12,
+    flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary },
+  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1 },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -499,8 +515,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  questionHeader: { flexDirection: 'row', justifyContent: 'space-between', gap: 12 },
-  questionBadges: { alignItems: 'flex-end', gap: 6 },
+  questionHeader: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' },
+  questionBadges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
   questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
   skillChip: {
     alignSelf: 'flex-start',

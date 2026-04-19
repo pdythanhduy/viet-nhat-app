@@ -15,6 +15,16 @@ export interface BjtMockSummary {
   skillBreakdown: Record<BjtSkill, { correct: number; total: number }>;
 }
 
+export interface BjtMockExamV2Summary {
+  examId: string;
+  level: 'J2' | 'J3' | 'J4' | 'all';
+  score: number;
+  total: number;
+  percent: number;
+  completedAt: string;
+  partBreakdown: Record<'I' | 'II' | 'III', { correct: number; total: number }>;
+}
+
 export interface BjtScenarioSession {
   level: BjtProgressLevel;
   answered: number;
@@ -26,8 +36,10 @@ export interface BjtScenarioSession {
 
 export interface BjtWrongQuestion {
   questionId: string;
-  source: 'scenario' | 'mock';
-  skill: BjtSkill;
+  source: 'scenario' | 'mock' | 'mock-v2';
+  skill?: BjtSkill;
+  part?: 'I' | 'II' | 'III';
+  examId?: string;
   level: BjtProgressLevel;
   recordedAt: string;
 }
@@ -44,6 +56,9 @@ export interface BjtProgressData {
   bestMockPercent: number;
   lastMock?: BjtMockSummary;
   mockHistory: BjtMockSummary[];
+  bestMockExamV2Percent: number;
+  lastMockExamV2?: BjtMockExamV2Summary;
+  mockExamsV2History: BjtMockExamV2Summary[];
   weakestSkill?: BjtSkill;
 }
 
@@ -58,6 +73,9 @@ export interface BjtLevelSnapshot {
   bestMockPercent: number;
   lastMock?: BjtMockSummary;
   recentMockHistory: BjtMockSummary[];
+  bestMockExamV2Percent: number;
+  lastMockExamV2?: BjtMockExamV2Summary;
+  recentMockExamsV2History: BjtMockExamV2Summary[];
   weakestSkill?: BjtSkill;
   wrongReviewCount: number;
 }
@@ -81,6 +99,8 @@ const DEFAULT_DATA: BjtProgressData = {
   recentWrongQuestions: [],
   bestMockPercent: 0,
   mockHistory: [],
+  bestMockExamV2Percent: 0,
+  mockExamsV2History: [],
 };
 
 function getWeakestSkill(
@@ -142,6 +162,26 @@ function mergeWrongQuestions(
   ].slice(0, HISTORY_LIMIT * 2);
 }
 
+function mergeWrongQuestionsV2(
+  current: BjtWrongQuestion[],
+  incoming: { questionId: string; examId: string; part: 'I' | 'II' | 'III' }[],
+  level: 'J2' | 'J3' | 'J4' | 'all'
+): BjtWrongQuestion[] {
+  const additions: BjtWrongQuestion[] = incoming.map((item) => ({
+    questionId: item.questionId,
+    source: 'mock-v2',
+    examId: item.examId,
+    part: item.part,
+    level,
+    recordedAt: new Date().toISOString(),
+  }));
+
+  return [
+    ...additions,
+    ...current.filter((item) => !incoming.some((next) => next.questionId === item.questionId)),
+  ].slice(0, HISTORY_LIMIT * 2);
+}
+
 export async function loadBjtProgress(): Promise<BjtProgressData> {
   try {
     const raw = await AsyncStorage.getItem(StorageKeys.bjtProgress);
@@ -163,10 +203,20 @@ export async function loadBjtProgress(): Promise<BjtProgressData> {
         ...item,
         level: item.level ?? 'all',
       })),
+      mockExamsV2History: (parsed.mockExamsV2History ?? []).map((item) => ({
+        ...item,
+        level: item.level ?? 'all',
+      })),
       lastMock: parsed.lastMock
         ? {
             ...parsed.lastMock,
             level: parsed.lastMock.level ?? 'all',
+          }
+        : undefined,
+      lastMockExamV2: parsed.lastMockExamV2
+        ? {
+            ...parsed.lastMockExamV2,
+            level: parsed.lastMockExamV2.level ?? 'all',
           }
         : undefined,
       recentWrongQuestions: (parsed.recentWrongQuestions ?? []).map((item) => ({
@@ -201,6 +251,9 @@ export function getBjtLevelSnapshot(
       : null;
   const bestMockPercent = mockHistory.reduce((best, item) => Math.max(best, item.percent), 0);
   const lastMock = mockHistory[0];
+  const mockExamsV2History = (progress.mockExamsV2History ?? []).filter((item) => item.level === level);
+  const bestMockExamV2Percent = mockExamsV2History.reduce((best, item) => Math.max(best, item.percent), 0);
+  const lastMockExamV2 = mockExamsV2History[0];
 
   return {
     level,
@@ -213,6 +266,9 @@ export function getBjtLevelSnapshot(
     bestMockPercent,
     lastMock,
     recentMockHistory: mockHistory.slice(0, 3),
+    bestMockExamV2Percent,
+    lastMockExamV2,
+    recentMockExamsV2History: mockExamsV2History.slice(0, 3),
     weakestSkill: computeWeakestSkill(scenarioSkillBreakdown, lastMock),
     wrongReviewCount: (progress.recentWrongQuestions ?? []).filter((item) => item.level === level).length,
   };
@@ -306,6 +362,57 @@ export async function recordBjtMockResult(input: {
   };
   await saveBjtProgress(next);
   return next;
+}
+
+export async function recordBjtMockExamV2Result(input: {
+  examId: string;
+  level: 'J2' | 'J3' | 'J4' | 'all';
+  score: number;
+  total: number;
+  partBreakdown: Record<'I' | 'II' | 'III', { correct: number; total: number }>;
+  wrongQuestions?: { questionId: string; examId: string; part: 'I' | 'II' | 'III' }[];
+}): Promise<BjtProgressData> {
+  const current = await loadBjtProgress();
+  const percent = input.total > 0 ? Math.round((input.score / input.total) * 100) : 0;
+  const summary: BjtMockExamV2Summary = {
+    examId: input.examId,
+    level: input.level,
+    score: input.score,
+    total: input.total,
+    percent,
+    completedAt: new Date().toISOString(),
+    partBreakdown: input.partBreakdown,
+  };
+
+  const next: BjtProgressData = {
+    ...current,
+    bestMockExamV2Percent: Math.max(current.bestMockExamV2Percent ?? 0, percent),
+    lastMockExamV2: summary,
+    mockExamsV2History: [summary, ...(current.mockExamsV2History ?? [])].slice(0, HISTORY_LIMIT * 2),
+    recentWrongQuestions: mergeWrongQuestionsV2(
+      current.recentWrongQuestions ?? [],
+      input.wrongQuestions ?? [],
+      input.level
+    ),
+  };
+  await saveBjtProgress(next);
+  return next;
+}
+
+export function getBjtMockExamV2Stats(
+  progress: BjtProgressData,
+  examId: string
+): {
+  attempts: number;
+  bestPercent: number;
+  latest?: BjtMockExamV2Summary;
+} {
+  const history = (progress.mockExamsV2History ?? []).filter((item) => item.examId === examId);
+  return {
+    attempts: history.length,
+    bestPercent: history.reduce((best, item) => Math.max(best, item.percent), 0),
+    latest: history[0],
+  };
 }
 
 export async function clearBjtWrongQuestions(questionIds: string[]): Promise<BjtProgressData> {

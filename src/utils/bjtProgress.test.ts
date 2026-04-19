@@ -2,8 +2,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
   clearBjtWrongQuestions,
+  getBjtMockExamV2Stats,
   getBjtLevelSnapshot,
   loadBjtProgress,
+  recordBjtMockExamV2Result,
   recordBjtMockResult,
   recordBjtScenarioPractice,
   recordBjtVocabularyReview,
@@ -101,6 +103,47 @@ describe('bjtProgress', () => {
     expect(progress.weakestSkill).toBe('listening');
   });
 
+  it('stores Mock Exams V2 history by exam and part', async () => {
+    await recordBjtMockExamV2Result({
+      examId: 'BJT_MOCK_01',
+      level: 'J3',
+      score: 60,
+      total: 80,
+      partBreakdown: {
+        I: { correct: 18, total: 25 },
+        II: { correct: 12, total: 15 },
+        III: { correct: 30, total: 40 },
+      },
+      wrongQuestions: [{ questionId: 'e01_q07', examId: 'BJT_MOCK_01', part: 'I' }],
+    });
+    await recordBjtMockExamV2Result({
+      examId: 'BJT_MOCK_01',
+      level: 'J3',
+      score: 64,
+      total: 80,
+      partBreakdown: {
+        I: { correct: 20, total: 25 },
+        II: { correct: 12, total: 15 },
+        III: { correct: 32, total: 40 },
+      },
+      wrongQuestions: [{ questionId: 'e01_q11', examId: 'BJT_MOCK_01', part: 'II' }],
+    });
+
+    const progress = await loadBjtProgress();
+    expect(progress.bestMockExamV2Percent).toBe(80);
+    expect(progress.lastMockExamV2?.examId).toBe('BJT_MOCK_01');
+    expect(progress.lastMockExamV2?.partBreakdown.III.correct).toBe(32);
+    expect(progress.mockExamsV2History).toHaveLength(2);
+    expect(progress.recentWrongQuestions[0]?.source).toBe('mock-v2');
+    expect(progress.recentWrongQuestions[0]?.examId).toBe('BJT_MOCK_01');
+    expect(progress.recentWrongQuestions[0]?.part).toBe('II');
+
+    const stats = getBjtMockExamV2Stats(progress, 'BJT_MOCK_01');
+    expect(stats.attempts).toBe(2);
+    expect(stats.bestPercent).toBe(80);
+    expect(stats.latest?.percent).toBe(80);
+  });
+
   it('clears reviewed wrong questions', async () => {
     await recordBjtScenarioPractice({
       level: 'J3',
@@ -166,6 +209,7 @@ describe('bjtProgress', () => {
     expect(snapshot.totalScenarioCorrect).toBe(6);
     expect(snapshot.scenarioAccuracy).toBe(75);
     expect(snapshot.bestMockPercent).toBe(70);
+    expect(snapshot.bestMockExamV2Percent).toBe(0);
     expect(snapshot.lastMock?.level).toBe('J3');
     expect(snapshot.wrongReviewCount).toBe(2);
     expect(snapshot.weakestSkill).toBe('reading');

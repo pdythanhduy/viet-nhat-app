@@ -1,0 +1,145 @@
+{
+  "title": "Ký hiệu & Viết tắt công sở Nhật",
+  "items": [
+    {
+      "symbol": "御中",
+      "reading": "onchuu",
+      "vi": "Kính gửi (công ty/phòng ban)",
+      "usage": "Dùng trên bao thư/email gửi cho TỔ CHỨC, KHÔNG dùng cho cá nhân",
+      "example": "ABC株式会社 営業部 御中"
+    },
+    {
+      "symbol": "様",
+      "reading": "sama",
+      "vi": "Ngài / Anh/Chị (kính)",
+      "usage": "Dùng sau TÊN CÁ NHÂN",
+      "example": "田中太郎 様"
+    },
+    {
+      "symbol": "殿",
+      "reading": "dono/tono",
+      "vi": "Ngài (dùng trong nội bộ, từ trên xuống)",
+      "usage": "Dùng trong văn bản nội bộ, cấp trên gửi cấp dưới",
+      "example": "田中太郎 殿"
+    },
+    {
+      "symbol": "各位",
+      "reading": "kakui",
+      "vi": "Các vị / Mọi người",
+      "usage": "Gửi cho nhiều người. KHÔNG thêm 様 sau 各位",
+      "example": "関係者各位 (ĐÚNG) / 各位様 (SAI)"
+    },
+    {
+      "symbol": "〆切",
+      "reading": "shimekiri",
+      "vi": "Hạn chót",
+      "usage": "Viết tắt của 締め切り, thường thấy trên bảng thông báo",
+      "example": "提出〆切：4月30日"
+    },
+    {
+      "symbol": "㊙",
+      "reading": "maruhi",
+      "vi": "Bí mật / Confidential",
+      "usage": "Đánh dấu tài liệu mật",
+      "example": "㊙ 社外秘"
+    },
+    {
+      "symbol": "社外秘",
+      "reading": "shagaihi",
+      "vi": "Cấm phổ biến ra ngoài",
+      "usage": "Tài liệu chỉ dùng nội bộ",
+      "example": "本資料は社外秘です"
+    },
+    {
+      "symbol": "取扱注意",
+      "reading": "toriatsukai chuui",
+      "vi": "Lưu ý khi sử dụng / Handle with care",
+      "usage": "Tài liệu cần cẩn thận",
+      "example": "取扱注意：個人情報含む"
+    },
+    {
+      "symbol": "要返信",
+      "reading": "you henshin",
+      "vi": "Cần trả lời",
+      "usage": "Ghi trên email/tài liệu cần phản hồi",
+      "example": "要返信：4月20日まで"
+    },
+    {
+      "symbol": "FYI",
+      "reading": "efu wai ai",
+      "vi": "Để tham khảo",
+      "usage": "For Your Information",
+      "example": "FYI: 添付の資料をご確認ください"
+    },
+    {
+      "symbol": "ASAP",
+      "reading": "ee esu ee pii",
+      "vi": "Càng sớm càng tốt",
+      "usage": "As Soon As Possible",
+      "example": "この件、ASAP対応お願いします"
+    },
+    {
+      "symbol": "TBD",
+      "reading": "tii bii dii",
+      "vi": "Chưa quyết định",
+      "usage": "To Be Determined",
+      "example": "場所：TBD"
+    },
+    {
+      "symbol": "N/A",
+      "reading": "enu ee",
+      "vi": "Không áp dụng",
+      "usage": "Not Applicable",
+      "example": "該当なし：N/A"
+    },
+    {
+      "symbol": "CC",
+      "reading": "shii shii",
+      "vi": "Đồng gửi",
+      "usage": "Carbon Copy (email)",
+      "example": "部長をCCに入れてください"
+    },
+    {
+      "symbol": "BCC",
+      "reading": "bii shii shii",
+      "vi": "Đồng gửi ẩn",
+      "usage": "Blind Carbon Copy",
+      "example": "他の参加者はBCCで送ります"
+    },
+    {
+      "symbol": "Re:",
+      "reading": "rii",
+      "vi": "Trả lời",
+      "usage": "Reply (email)",
+      "example": "Re: 会議日程について"
+    },
+    {
+      "symbol": "Fw:",
+      "reading": "efu daburu",
+      "vi": "Chuyển tiếp",
+      "usage": "Forward (email)",
+      "example": "Fw: 重要なお知らせ"
+    },
+    {
+      "symbol": "至急",
+      "reading": "shikyuu",
+      "vi": "Gấp",
+      "usage": "Urgent",
+      "example": "【至急】本日中にご回答ください"
+    },
+    {
+      "symbol": "回覧",
+      "reading": "kairan",
+      "vi": "Luân chuyển đọc",
+      "usage": "Circulate",
+      "example": "【回覧】全員確認後、総務部に返却"
+    },
+    {
+      "symbol": "決裁済",
+      "reading": "kessai zumi",
+      "vi": "Đã phê duyệt",
+      "usage": "Approved",
+      "example": "決裁済：2026年4月15日"
+    }
+  ]
+}

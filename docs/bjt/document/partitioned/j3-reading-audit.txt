@@ -1,0 +1,32 @@
+BJT runtime audit | bank=questions | total=6
+Filters: level=J3, skill=reading, id=all
+Level summary: {"J3":6}
+Skill summary: {"reading":6}
+
+[j3_reading_001] Email đổi phòng họp (J3)
+level=J3 | skill=reading | difficulty=intermediate
+prompt=このメールを受け取った山田さんは、次に何をすべきですか？
+situation=社内メールを読んでいます。
+
+件名：会議室変更のお知らせ
+
+山田様
+
+来週月曜日（15日）午後2時からの定例会議ですが、第3会議室が工事のため使用できなくなりました。つきましては、同日同時刻に場所を第1会議室に変更させていただきます。ご参加の皆様には大変ご迷惑をおかけしますが、何卒よろしくお願いいたします。
+
+鈴木
+correct=1/4
+explanation=Email thông báo phòng họp thay đổi từ phòng 3 sang phòng 1, cùng ngày cùng giờ (15日 14:00). Hành động cần thực hiện là đến đúng phòng 1 vào đúng giờ. Các đáp án khác không phù hợp: không cần hỏi về công trình, không cần ...
+
+[j3_reading_002] Quy định kế toán nội bộ (J3)
+level=J3 | skill=reading | difficulty=intermediate
+prompt=この通知の内容として正しいものはどれですか？
+situation=社内掲示板に貼られたお知らせを読んでいます。
+
+【経費精算について】
+今月より、経費精算の提出締め切りを月末から毎月25日に変更します。また、領収書は必ずA4サイズにコピーしてから提出してください。スマートフォンでの写真は受け付けません。なお、25日が土日の場合は、直前の金曜日が締め切りとなります。
+
+経理部
+correct=1/4
+explanation=Thông báo nói rõ: nếu ngày 25 rơi vào cuối tuần thì hạn nộp là thứ Sáu ngay trước đó. Ảnh điện thoại không được chấp nhận, phải copy A4, và hạn nộp đổi từ cuối tháng sang ngày 25.
+

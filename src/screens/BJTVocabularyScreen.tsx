@@ -6,49 +6,57 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { BJT_VOCABULARY } from '../constants/content';
+import { BJT_DOCUMENT_VOCABULARY } from '../constants/content';
 import { recordBjtVocabularyReview } from '../utils/bjtProgress';
 
-const THEMES = [
-  { id: 'all', label: 'Tất cả' },
-  { id: 'email', label: 'Email' },
-  { id: 'meeting', label: 'Meeting' },
-  { id: 'workflow', label: 'Workflow' },
-  { id: 'reporting', label: 'Reporting' },
-  { id: 'sales', label: 'Sales' },
-  { id: 'coordination', label: 'Coordination' },
-] as const;
-
-type ThemeId = (typeof THEMES)[number]['id'];
-
 export default function BJTVocabularyScreen() {
-  const [theme, setTheme] = useState<ThemeId>('all');
-  const [expandedId, setExpandedId] = useState<string | null>(BJT_VOCABULARY[0]?.id ?? null);
+  const { width } = useWindowDimensions();
+  const isTablet = width >= 768;
+  const [theme, setTheme] = useState('all');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const themes = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const item of BJT_DOCUMENT_VOCABULARY) {
+      counts.set(item.theme, (counts.get(item.theme) ?? 0) + 1);
+    }
+    return [
+      { id: 'all', label: `Tất cả (${BJT_DOCUMENT_VOCABULARY.length})` },
+      ...Array.from(counts.entries()).map(([id, count]) => ({
+        id,
+        label: `${id} (${count})`,
+      })),
+    ];
+  }, []);
 
   const items = useMemo(
-    () => (theme === 'all' ? BJT_VOCABULARY : BJT_VOCABULARY.filter((item) => item.theme === theme)),
+    () =>
+      theme === 'all'
+        ? BJT_DOCUMENT_VOCABULARY
+        : BJT_DOCUMENT_VOCABULARY.filter((item) => item.theme === theme),
     [theme]
   );
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <View style={styles.hero}>
-          <Text style={styles.title}>BJT Business Vocabulary</Text>
-          <Text style={styles.subtitle}>
-            Bộ từ vựng tự biên soạn theo ngữ cảnh business Japanese thường gặp trong hướng luyện BJT.
-          </Text>
+      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Từ vựng BJT</Text>
+          <View style={styles.countBadge}>
+            <Text style={styles.countText}>{items.length} từ</Text>
+          </View>
         </View>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
-          {THEMES.map((item) => {
+          {themes.map((item) => {
             const active = item.id === theme;
             return (
               <TouchableOpacity
@@ -62,51 +70,56 @@ export default function BJTVocabularyScreen() {
           })}
         </ScrollView>
 
-        <View style={styles.noteCard}>
-          <Ionicons name="information-circle-outline" size={18} color={Colors.primary} />
-          <Text style={styles.noteText}>
-            Nội dung này không sao chép đề chính thức. Mục tiêu là học đúng kiểu từ vựng, ngữ cảnh và hành động thường gặp trong BJT.
-          </Text>
-        </View>
-
         {items.map((item) => {
           const expanded = expandedId === item.id;
           return (
             <TouchableOpacity
               key={item.id}
               style={styles.card}
-              activeOpacity={0.9}
+              activeOpacity={0.85}
               onPress={() => {
                 setExpandedId((prev) => {
-                  const nextExpanded = prev === item.id ? null : item.id;
-                  if (nextExpanded === item.id) {
-                    void recordBjtVocabularyReview(item.id);
-                  }
-                  return nextExpanded;
+                  const next = prev === item.id ? null : item.id;
+                  if (next === item.id) void recordBjtVocabularyReview(item.id);
+                  return next;
                 });
               }}
             >
-              <View style={styles.cardTop}>
-                <View style={styles.cardTopLeft}>
-                  <View style={styles.inline}>
+              <View style={styles.cardRow}>
+                <View style={styles.cardMain}>
+                  <View style={styles.wordRow}>
                     <Text style={styles.word}>{item.jp}</Text>
-                    <AudioButton audioId={`bjt-vocab:${item.id}`} text={item.jp} backgroundColor={Colors.background} />
+                    <AudioButton audioId={`bjt-vocab:${item.id}`} text={item.jp} backgroundColor={Colors.card} />
                   </View>
-                  <Text style={styles.reading}>{item.reading}</Text>
-                  <Text style={styles.romaji}>{item.romaji}</Text>
+                  {item.reading ? (
+                    <Text style={styles.reading}>{item.reading}</Text>
+                  ) : null}
                   <Text style={styles.meaning}>{item.vn}</Text>
                 </View>
-                <View style={styles.themeBadge}>
-                  <Text style={styles.themeBadgeText}>{item.theme}</Text>
+                <View style={styles.cardRight}>
+                  <View style={styles.themeBadge}>
+                    <Text style={styles.themeBadgeText}>{item.theme}</Text>
+                  </View>
+                  <Ionicons
+                    name={expanded ? 'chevron-up' : 'chevron-down'}
+                    size={14}
+                    color={Colors.textMuted}
+                    style={styles.chevron}
+                  />
                 </View>
               </View>
 
-              {expanded ? (
+              {expanded && (item.exampleJp || item.exampleVn || item.note) ? (
                 <View style={styles.exampleBox}>
-                  <Text style={styles.exampleJp}>{item.exampleJp}</Text>
-                  <Text style={styles.exampleRomaji}>{item.exampleRomaji}</Text>
-                  <Text style={styles.exampleVn}>{item.exampleVn}</Text>
-                  {item.note ? <Text style={styles.exampleNote}>{item.note}</Text> : null}
+                  {item.exampleJp ? (
+                    <Text style={styles.exampleJp}>{item.exampleJp}</Text>
+                  ) : null}
+                  {item.exampleVn ? (
+                    <Text style={styles.exampleVn}>{item.exampleVn}</Text>
+                  ) : null}
+                  {item.note ? (
+                    <Text style={styles.note}>{item.note}</Text>
+                  ) : null}
                 </View>
               ) : null}
             </TouchableOpacity>
@@ -119,74 +132,67 @@ export default function BJTVocabularyScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 28 },
-  hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
-  subtitle: { marginTop: 8, fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
-  chips: { gap: 8, paddingBottom: 8, paddingRight: 12 },
+  content: { padding: 16, paddingBottom: 32 },
+  contentTablet: {
+    width: '100%',
+    maxWidth: 900,
+    alignSelf: 'center',
+  },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14 },
+  title: { fontSize: 22, fontWeight: '800', color: Colors.textPrimary },
+  countBadge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, backgroundColor: Colors.accent },
+  countText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
+  chips: { gap: 8, paddingBottom: 12, paddingRight: 12 },
   chip: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 7,
     borderRadius: 999,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  chipActive: {
-    backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
-  },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
+  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textSecondary },
   chipTextActive: { color: Colors.white },
-  noteCard: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: Colors.accent,
-    borderRadius: 14,
-    padding: 14,
-    marginBottom: 12,
-  },
-  noteText: { flex: 1, fontSize: 12, lineHeight: 18, color: Colors.primaryDark },
   card: {
     backgroundColor: Colors.card,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 8,
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  cardTop: { flexDirection: 'row', gap: 12, justifyContent: 'space-between' },
-  cardTopLeft: { flex: 1 },
-  inline: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  word: { fontSize: 22, fontWeight: '800', color: Colors.textPrimary },
-  reading: { marginTop: 4, fontSize: 12, color: Colors.textSecondary },
-  romaji: { marginTop: 2, fontSize: 12, color: Colors.textMuted, fontStyle: 'italic' },
-  meaning: { marginTop: 8, fontSize: 14, fontWeight: '700', color: Colors.primary },
+  cardRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  cardMain: { flex: 1 },
+  cardRight: { alignItems: 'flex-end', gap: 8 },
+  wordRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  word: { fontSize: 20, fontWeight: '800', color: Colors.textPrimary },
+  reading: { marginTop: 3, fontSize: 12, color: Colors.textSecondary },
+  meaning: { marginTop: 6, fontSize: 14, fontWeight: '700', color: Colors.primary },
   themeBadge: {
-    alignSelf: 'flex-start',
     borderRadius: 999,
     backgroundColor: Colors.background,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
-  themeBadgeText: { fontSize: 11, fontWeight: '700', color: Colors.textSecondary },
+  themeBadgeText: { fontSize: 10, fontWeight: '700', color: Colors.textMuted },
+  chevron: { marginTop: 4 },
   exampleBox: {
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
+    gap: 4,
   },
-  exampleJp: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
-  exampleRomaji: { marginTop: 4, fontSize: 12, fontStyle: 'italic', color: Colors.textSecondary },
-  exampleVn: { marginTop: 6, fontSize: 12, lineHeight: 18, color: Colors.textSecondary },
-  exampleNote: {
-    marginTop: 8,
-    fontSize: 12,
-    lineHeight: 18,
+  exampleJp: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary, lineHeight: 20 },
+  exampleVn: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
+  note: {
+    marginTop: 6,
+    fontSize: 11,
     color: Colors.primaryDark,
     backgroundColor: Colors.accent,
-    borderRadius: 10,
-    padding: 10,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
   },
 });

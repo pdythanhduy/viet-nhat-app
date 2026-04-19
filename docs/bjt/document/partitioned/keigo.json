@@ -1,0 +1,346 @@
+{
+  "intro": "Keigo gồm 3 loại: Sonkeigo (尊敬語) nâng cao người khác, Kenjougo (謙譲語) hạ thấp bản thân, Teineigo (丁寧語) lịch sự chung (です/ます). Quy tắc vàng: Nói với người NGOÀI về sếp mình → Kenjougo. Nói về khách/đối tác → Sonkeigo.",
+  "sonkeigo": [
+    {
+      "id": "k001",
+      "plain": "いる",
+      "prd": "iru",
+      "pvi": "Ở",
+      "keigo": "いらっしゃる",
+      "krd": "irassharu",
+      "kvi": "Ở (kính)",
+      "ex_jp": "社長はいらっしゃいますか。",
+      "ex_vi": "GĐ có ở không?",
+      "lv": "J4"
+    },
+    {
+      "id": "k002",
+      "plain": "行く/来る",
+      "prd": "iku/kuru",
+      "pvi": "Đi/Đến",
+      "keigo": "いらっしゃる/お越しになる/お見えになる",
+      "krd": "irassharu/okoshi ni naru/omie ni naru",
+      "kvi": "Đi/Đến (kính)",
+      "ex_jp": "お客様がお見えになりました。",
+      "ex_vi": "Khách đã đến.",
+      "lv": "J4"
+    },
+    {
+      "id": "k003",
+      "plain": "食べる/飲む",
+      "prd": "taberu/nomu",
+      "pvi": "Ăn/Uống",
+      "keigo": "召し上がる",
+      "krd": "meshiagaru",
+      "kvi": "Dùng (kính)",
+      "ex_jp": "どうぞ召し上がってください。",
+      "ex_vi": "Xin mời dùng.",
+      "lv": "J4"
+    },
+    {
+      "id": "k004",
+      "plain": "言う",
+      "prd": "iu",
+      "pvi": "Nói",
+      "keigo": "おっしゃる",
+      "krd": "ossharu",
+      "kvi": "Nói (kính)",
+      "ex_jp": "部長がおっしゃった通りです。",
+      "ex_vi": "Đúng như trưởng phòng đã nói.",
+      "lv": "J4"
+    },
+    {
+      "id": "k005",
+      "plain": "見る",
+      "prd": "miru",
+      "pvi": "Xem",
+      "keigo": "ご覧になる",
+      "krd": "goran ni naru",
+      "kvi": "Xem (kính)",
+      "ex_jp": "こちらの資料をご覧ください。",
+      "ex_vi": "Xin xem tài liệu này.",
+      "lv": "J4"
+    },
+    {
+      "id": "k006",
+      "plain": "知る",
+      "prd": "shiru",
+      "pvi": "Biết",
+      "keigo": "ご存じ",
+      "krd": "gozonji",
+      "kvi": "Biết (kính)",
+      "ex_jp": "この件についてご存じですか。",
+      "ex_vi": "Anh biết về việc này?",
+      "lv": "J3"
+    },
+    {
+      "id": "k007",
+      "plain": "する",
+      "prd": "suru",
+      "pvi": "Làm",
+      "keigo": "なさる",
+      "krd": "nasaru",
+      "kvi": "Làm (kính)",
+      "ex_jp": "何をなさいますか。",
+      "ex_vi": "Anh sẽ làm gì?",
+      "lv": "J3"
+    },
+    {
+      "id": "k008",
+      "plain": "くれる",
+      "prd": "kureru",
+      "pvi": "Cho (tôi)",
+      "keigo": "くださる",
+      "krd": "kudasaru",
+      "kvi": "Cho (kính)",
+      "ex_jp": "ご意見をくださいますか。",
+      "ex_vi": "Cho ý kiến được không?",
+      "lv": "J3"
+    },
+    {
+      "id": "k009",
+      "plain": "読む",
+      "prd": "yomu",
+      "pvi": "Đọc",
+      "keigo": "お読みになる",
+      "krd": "oyomi ni naru",
+      "kvi": "Đọc (kính)",
+      "ex_jp": "この報告書をお読みになりましたか。",
+      "ex_vi": "Anh đã đọc báo cáo này?",
+      "lv": "J3"
+    },
+    {
+      "id": "k010",
+      "plain": "聞く",
+      "prd": "kiku",
+      "pvi": "Nghe/Hỏi",
+      "keigo": "お聞きになる",
+      "krd": "okiki ni naru",
+      "kvi": "Nghe (kính)",
+      "ex_jp": "何かお聞きになりたいことは？",
+      "ex_vi": "Có gì muốn hỏi không?",
+      "lv": "J3"
+    },
+    {
+      "id": "k011",
+      "plain": "思う",
+      "prd": "omou",
+      "pvi": "Nghĩ",
+      "keigo": "お思いになる",
+      "krd": "oomoi ni naru",
+      "kvi": "Nghĩ (kính)",
+      "ex_jp": "どのようにお思いですか。",
+      "ex_vi": "Anh nghĩ sao?",
+      "lv": "J3"
+    },
+    {
+      "id": "k012",
+      "plain": "待つ",
+      "prd": "matsu",
+      "pvi": "Chờ",
+      "keigo": "お待ちになる",
+      "krd": "omachi ni naru",
+      "kvi": "Chờ (kính)",
+      "ex_jp": "少々お待ちになってください。",
+      "ex_vi": "Xin hãy chờ.",
+      "lv": "J4"
+    }
+  ],
+  "kenjougo": [
+    {
+      "id": "k013",
+      "plain": "いる",
+      "prd": "iru",
+      "pvi": "Ở",
+      "keigo": "おる",
+      "krd": "oru",
+      "kvi": "Ở (khiêm nhường)",
+      "ex_jp": "担当の田中がおります。",
+      "ex_vi": "Người phụ trách Tanaka có mặt.",
+      "lv": "J4"
+    },
+    {
+      "id": "k014",
+      "plain": "行く/来る",
+      "prd": "iku/kuru",
+      "pvi": "Đi/Đến",
+      "keigo": "参る",
+      "krd": "mairu",
+      "kvi": "Đi/Đến (khiêm nhường)",
+      "ex_jp": "すぐに参ります。",
+      "ex_vi": "Tôi đến ngay.",
+      "lv": "J4"
+    },
+    {
+      "id": "k015",
+      "plain": "行く(訪問)",
+      "prd": "iku",
+      "pvi": "Đi thăm",
+      "keigo": "伺う",
+      "krd": "ukagau",
+      "kvi": "Đến thăm (khiêm nhường)",
+      "ex_jp": "午後3時に伺います。",
+      "ex_vi": "Tôi đến lúc 3h chiều.",
+      "lv": "J4"
+    },
+    {
+      "id": "k016",
+      "plain": "言う",
+      "prd": "iu",
+      "pvi": "Nói",
+      "keigo": "申す/申し上げる",
+      "krd": "mousu/moushiageru",
+      "kvi": "Thưa (khiêm nhường)",
+      "ex_jp": "田中と申します。",
+      "ex_vi": "Tôi tên Tanaka.",
+      "lv": "J4"
+    },
+    {
+      "id": "k017",
+      "plain": "する",
+      "prd": "suru",
+      "pvi": "Làm",
+      "keigo": "いたす",
+      "krd": "itasu",
+      "kvi": "Làm (khiêm nhường)",
+      "ex_jp": "確認いたします。",
+      "ex_vi": "Tôi sẽ xác nhận.",
+      "lv": "J4"
+    },
+    {
+      "id": "k018",
+      "plain": "もらう",
+      "prd": "morau",
+      "pvi": "Nhận",
+      "keigo": "いただく",
+      "krd": "itadaku",
+      "kvi": "Nhận (khiêm nhường)",
+      "ex_jp": "ご意見をいただきたいです。",
+      "ex_vi": "Muốn được nhận ý kiến.",
+      "lv": "J4"
+    },
+    {
+      "id": "k019",
+      "plain": "見る",
+      "prd": "miru",
+      "pvi": "Xem",
+      "keigo": "拝見する",
+      "krd": "haiken suru",
+      "kvi": "Xem (khiêm nhường)",
+      "ex_jp": "資料を拝見しました。",
+      "ex_vi": "Đã xem tài liệu.",
+      "lv": "J3"
+    },
+    {
+      "id": "k020",
+      "plain": "知る",
+      "prd": "shiru",
+      "pvi": "Biết",
+      "keigo": "存じる/存じ上げる",
+      "krd": "zonjiru/zonjiageru",
+      "kvi": "Biết (khiêm nhường)",
+      "ex_jp": "はい、存じております。",
+      "ex_vi": "Vâng, tôi biết.",
+      "lv": "J3"
+    },
+    {
+      "id": "k021",
+      "plain": "あげる",
+      "prd": "ageru",
+      "pvi": "Cho/Tặng",
+      "keigo": "差し上げる",
+      "krd": "sashiageru",
+      "kvi": "Cho (khiêm nhường)",
+      "ex_jp": "サンプルを差し上げます。",
+      "ex_vi": "Xin tặng mẫu thử.",
+      "lv": "J3"
+    },
+    {
+      "id": "k022",
+      "plain": "聞く",
+      "prd": "kiku",
+      "pvi": "Hỏi",
+      "keigo": "伺う/拝聴する",
+      "krd": "ukagau/haichou suru",
+      "kvi": "Hỏi (khiêm nhường)",
+      "ex_jp": "一つ伺ってもよろしいですか。",
+      "ex_vi": "Cho hỏi một điều?",
+      "lv": "J3"
+    },
+    {
+      "id": "k023",
+      "plain": "食べる/飲む",
+      "prd": "taberu/nomu",
+      "pvi": "Ăn/Uống",
+      "keigo": "いただく",
+      "krd": "itadaku",
+      "kvi": "Dùng (khiêm nhường)",
+      "ex_jp": "ありがたくいただきます。",
+      "ex_vi": "Xin phép dùng.",
+      "lv": "J4"
+    },
+    {
+      "id": "k024",
+      "plain": "会う",
+      "prd": "au",
+      "pvi": "Gặp",
+      "keigo": "お目にかかる",
+      "krd": "ome ni kakaru",
+      "kvi": "Gặp (khiêm nhường)",
+      "ex_jp": "お目にかかれて光栄です。",
+      "ex_vi": "Vinh hạnh được gặp.",
+      "lv": "J2"
+    },
+    {
+      "id": "k025",
+      "plain": "わかる",
+      "prd": "wakaru",
+      "pvi": "Hiểu",
+      "keigo": "承知する",
+      "krd": "shouchi suru",
+      "kvi": "Ghi nhận (khiêm nhường)",
+      "ex_jp": "承知いたしました。",
+      "ex_vi": "Đã ghi nhận.",
+      "lv": "J4"
+    },
+    {
+      "id": "k026",
+      "plain": "借りる",
+      "prd": "kariru",
+      "pvi": "Mượn",
+      "keigo": "拝借する",
+      "krd": "haishaku suru",
+      "kvi": "Mượn (khiêm nhường)",
+      "ex_jp": "ペンを拝借してもよろしいですか。",
+      "ex_vi": "Cho mượn bút được không?",
+      "lv": "J3"
+    }
+  ],
+  "common_mistakes": [
+    {
+      "mistake": "社長がおっしゃいました (nói với khách)",
+      "correct": "社長が申しておりました",
+      "rule": "Sếp mình + người ngoài → KENJOUGO"
+    },
+    {
+      "mistake": "ご確認いたします",
+      "correct": "確認いたします",
+      "rule": "ご/お không thêm trước hành động của MÌNH khi đã dùng いたす"
+    },
+    {
+      "mistake": "お客様が参りました",
+      "correct": "お客様がいらっしゃいました",
+      "rule": "Khách hàng → SONKEIGO, không dùng kenjougo"
+    },
+    {
+      "mistake": "先生、レポートを拝見してください",
+      "correct": "先生、レポートをご覧になってください",
+      "rule": "Nhờ người khác xem → ご覧になる (sonkeigo)"
+    },
+    {
+      "mistake": "部長様にご報告します",
+      "correct": "部長にご報告します",
+      "rule": "Sếp mình không thêm 様"
+    }
+  ]
+}

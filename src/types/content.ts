@@ -1,3 +1,5 @@
+import type { ImageSourcePropType } from 'react-native';
+
 export type IoniconName = keyof typeof import('@expo/vector-icons').Ionicons.glyphMap;
 
 export type AlertUrgency = 'high' | 'medium' | 'low' | 'info';
@@ -37,6 +39,8 @@ export interface GuideStep {
   description: string;
   documents: string[];
   tip?: string;
+  image?: ImageSourcePropType;
+  imageCaption?: string;
 }
 
 export interface ChecklistItem {
@@ -60,6 +64,8 @@ export interface AdminGuide {
   icon: IoniconName;
   color: string;
   description: string;
+  heroImage?: ImageSourcePropType;
+  heroImageCaption?: string;
   whoIsThisFor?: string[];
   whenToDo?: string[];
   whereToDo?: string[];
@@ -234,6 +240,225 @@ export interface BjtPracticeQuestion {
   options: string[];
   correctIndex: number;
   explanation: string;
+}
+
+export interface BjtDocumentMeta {
+  title: string;
+  version: string;
+  updated: string;
+  totalVocabulary: number;
+  totalKeigo: number;
+  totalScenarios: number;
+  totalMockSets: number;
+  totalEmailTemplates: number;
+  totalManners: number;
+  examQuestions: number;
+  examDuration: string;
+  examFormat: string;
+  examScoring: string;
+  examParts: string[];
+  visaNote2026: string;
+}
+
+export interface BjtKeigoEntry {
+  id: string;
+  plain: string;
+  plainReading: string;
+  plainMeaning: string;
+  keigo: string;
+  keigoReading: string;
+  keigoMeaning: string;
+  exampleJp: string;
+  exampleVi: string;
+  level: string;
+  category: 'sonkeigo' | 'kenjougo' | 'teineigo';
+}
+
+export interface BjtScenarioLine {
+  speaker: string;
+  jp: string;
+  vi: string;
+}
+
+export interface BjtScenarioItem {
+  id: string;
+  titleVi: string;
+  titleJp: string;
+  level: string;
+  situation: string;
+  dialogue: BjtScenarioLine[];
+  tips: string;
+}
+
+export interface BjtDocumentOption {
+  label: string;
+  labelVi: string;
+  value: string;
+}
+
+export interface BjtDocumentMockQuestion {
+  id: string;
+  part: string;
+  type: 'reading' | 'listening' | 'listening-reading';
+  level: string;
+  promptJp: string;
+  promptVi: string;
+  questionJp: string;
+  questionVi: string;
+  options: BjtDocumentOption[];
+  answer: string;
+  explanation: string;
+}
+
+export interface BjtMockV2Option {
+  label: string;
+  text: string;
+}
+
+export interface BjtMockV2Question {
+  id: string;
+  part: 'I' | 'II' | 'III';
+  partName: string;
+  level: BjtAuthoringLevel;
+  passageJp: string;
+  questionJp: string;
+  options: BjtMockV2Option[];
+  answer: string;
+  explanation: string;
+}
+
+export interface BjtMockV2Exam {
+  examId: string;
+  title: string;
+  totalQuestions: number;
+  timeLimitMinutes: number;
+  parts: {
+    I: number;
+    II: number;
+    III: number;
+  };
+  questions: BjtMockV2Question[];
+}
+
+export interface BjtMockV2Meta {
+  title: string;
+  version: string;
+  totalExams: number;
+  totalQuestions: number;
+  uniqueQuestionBank: {
+    notices: number;
+    emails: number;
+    keigo: number;
+    listening: number;
+    listeningReading: number;
+    totalUnique: number;
+  };
+  note: string;
+}
+
+export interface BjtEmailTemplate {
+  id: string;
+  title: string;
+  titleJp: string;
+  level: string;
+  templateJp: string;
+  keyPhrases: string[];
+}
+
+export interface BjtBusinessManner {
+  id: string;
+  category: string;
+  categoryVi: string;
+  description: string;
+  mistakes: string[];
+}
+
+export interface BjtKanjiItem {
+  kanji: string;
+  on: string;
+  kun: string;
+  vi: string;
+  words: string[];
+}
+
+export interface BjtGrammarItem {
+  id: string;
+  pattern: string;
+  reading: string;
+  vi: string;
+  level: string;
+  ex_jp: string;
+  ex_vi: string;
+  usage: string;
+}
+
+export interface BjtCvField {
+  field_jp: string;
+  field_vi: string;
+  note: string;
+}
+
+export interface BjtCvSection {
+  section_jp: string;
+  section_vi: string;
+  note: string;
+}
+
+export interface BjtCvTemplateBlock {
+  title: string;
+  description: string;
+  tips: string;
+  fields?: BjtCvField[];
+  sections?: BjtCvSection[];
+}
+
+export interface BjtAbbreviationItem {
+  symbol: string;
+  reading: string;
+  vi: string;
+  usage: string;
+  example: string;
+}
+
+export interface BjtReadingPassageQuestion {
+  q: string;
+  a: string;
+}
+
+export interface BjtReadingPassage {
+  id: string;
+  title: string;
+  lv: string;
+  passage_jp: string;
+  passage_vi: string;
+  questions: BjtReadingPassageQuestion[];
+}
+
+export interface BjtFlashcardSet {
+  set_id: string;
+  name: string;
+  level: string;
+  card_count: number;
+  description: string;
+}
+
+export interface BjtUltimateStudyWeek {
+  week: number;
+  focus: string;
+  vocab?: string;
+  keigo?: string;
+  grammar?: string;
+  scenario?: string;
+  reading?: string;
+  email?: string;
+  manners?: string;
+  mock?: string;
+  tips?: string;
+}
+
+export interface BjtUltimateStudyPlan {
+  title: string;
+  weeks: BjtUltimateStudyWeek[];
 }
 
 export type BjtAuthoringLevel = 'J5' | 'J4' | 'J3' | 'J2' | 'J1' | 'J1+';

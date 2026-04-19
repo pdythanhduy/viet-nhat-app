@@ -1,0 +1,64 @@
+[
+  {
+    "id": "m01",
+    "cat": "名刺交換",
+    "vi": "Trao danh thiếp",
+    "desc": "Cầm 2 tay, chữ hướng về người nhận. Giới thiệu tên+công ty. Nhận 2 tay, đọc kỹ, đặt trước mặt suốt cuộc họp. Cấp dưới trao trước.",
+    "mistakes": [
+      "Cầm 1 tay",
+      "Viết lên danh thiếp",
+      "Bỏ túi ngay"
+    ]
+  },
+  {
+    "id": "m02",
+    "cat": "お辞儀",
+    "vi": "Cúi chào",
+    "desc": "会釈 15°: đi ngang. 敬礼 30°: khách, sếp. 最敬礼 45°: xin lỗi, VIP. Lưng thẳng, mắt xuống, dừng 1 giây.",
+    "mistakes": [
+      "Quá nhanh",
+      "Nhìn ĐT khi chào"
+    ]
+  },
+  {
+    "id": "m03",
+    "cat": "席順",
+    "vi": "Vị trí ngồi",
+    "desc": "上座: xa cửa nhất→khách/sếp. 下座: gần cửa→cấp dưới. Áp dụng: phòng họp, nhà hàng, taxi.",
+    "mistakes": [
+      "Tự ngồi kamiza",
+      "Không mời khách trước"
+    ]
+  },
+  {
+    "id": "m04",
+    "cat": "報連相",
+    "vi": "Hourensou",
+    "desc": "報告(Báo cáo)+連絡(Liên lạc)+相談(Trao đổi). Nguyên tắc giao tiếp quan trọng nhất. Báo cáo kết quả, liên lạc thông tin, trao đổi khi gặp khó.",
+    "mistakes": [
+      "Giấu vấn đề",
+      "Báo cáo muộn",
+      "Tự quyết không hỏi"
+    ]
+  },
+  {
+    "id": "m05",
+    "cat": "エレベーター",
+    "vi": "Thang máy",
+    "desc": "Cấp dưới giữ nút, cho sếp/khách vào trước. Đứng gần bảng nút. Khi đến tầng, mời khách ra trước.",
+    "mistakes": [
+      "Vào trước sếp",
+      "Nói to trong thang máy"
+    ]
+  },
+  {
+    "id": "m06",
+    "cat": "お茶出し",
+    "vi": "Phục vụ trà",
+    "desc": "Khách trước, sếp khách trước. Đặt phía tay phải. Nói nhẹ: どうぞ.",
+    "mistakes": [
+      "Phục vụ người mình trước",
+      "Đặt trà trên tài liệu"
+    ]
+  }
+]

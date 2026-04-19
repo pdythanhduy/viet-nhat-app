@@ -10,6 +10,10 @@
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "bjt:audit-batch": "node scripts/bjt-audit-batch.js",
+    "bjt:audit-mock-v2": "node scripts/bjt-audit-mock-v2.js",
+    "bjt:audit-runtime": "node scripts/bjt-audit-runtime.js",
+    "bjt:export-legacy-runtime": "node scripts/bjt-export-legacy-runtime.js",
+    "bjt:partition-ultimate": "node scripts/bjt-partition-ultimate.js",
     "bjt:manifest-snippet": "node scripts/bjt-manifest-snippet.js",
     "bjt:init-batch": "node scripts/bjt-init-batch.js"
   },

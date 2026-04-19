@@ -15,6 +15,16 @@ import JobsScreen from '../screens/JobsScreen';
 import JapaneseScreen from '../screens/JapaneseScreen';
 import BJTScreen from '../screens/BJTScreen';
 import BJTVocabularyScreen from '../screens/BJTVocabularyScreen';
+import BJTKeigoScreen from '../screens/BJTKeigoScreen';
+import BJTScenariosScreen from '../screens/BJTScenariosScreen';
+import BJTDocumentMockScreen from '../screens/BJTDocumentMockScreen';
+import BJTBusinessToolkitScreen from '../screens/BJTBusinessToolkitScreen';
+import BJTLanguageAssetsScreen from '../screens/BJTLanguageAssetsScreen';
+import BJTJobDocsScreen from '../screens/BJTJobDocsScreen';
+import BJTReadingPassagesScreen from '../screens/BJTReadingPassagesScreen';
+import BJTFlashcardsScreen from '../screens/BJTFlashcardsScreen';
+import BJTUltimateStudyPlanScreen from '../screens/BJTUltimateStudyPlanScreen';
+import BJTMockExamsV2Screen from '../screens/BJTMockExamsV2Screen';
 import BJTQuizScreen from '../screens/BJTQuizScreen';
 import BJTMockTestScreen from '../screens/BJTMockTestScreen';
 import BJTReviewScreen from '../screens/BJTReviewScreen';
@@ -53,6 +63,16 @@ export type RootStackParamList = {
   JapaneseQuiz: { categoryName?: string; categoryColor?: string; direction?: 'jp-to-vn' | 'vn-to-jp' | 'mixed' };
   BJT: undefined;
   BJTVocabulary: undefined;
+  BJTKeigo: undefined;
+  BJTScenarios: undefined;
+  BJTDocumentMock: undefined;
+  BJTBusinessToolkit: undefined;
+  BJTLanguageAssets: undefined;
+  BJTJobDocs: undefined;
+  BJTReadingPassages: undefined;
+  BJTFlashcards: undefined;
+  BJTUltimateStudyPlan: undefined;
+  BJTMockExamsV2: undefined;
   BJTQuiz: { level?: BjtTargetLevel } | undefined;
   BJTMockTest: { level?: BjtTargetLevel } | undefined;
   BJTReview: { level?: BjtTargetLevel } | undefined;
@@ -188,6 +208,126 @@ export default function AppNavigator() {
           options={{
             headerShown: true,
             headerTitle: 'BJT Vocabulary',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTKeigo"
+          component={BJTKeigoScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Keigo',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTScenarios"
+          component={BJTScenariosScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Scenarios',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTDocumentMock"
+          component={BJTDocumentMockScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Document Mock',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTBusinessToolkit"
+          component={BJTBusinessToolkitScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Business Toolkit',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTLanguageAssets"
+          component={BJTLanguageAssetsScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Language Assets',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTJobDocs"
+          component={BJTJobDocsScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Job Docs',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTReadingPassages"
+          component={BJTReadingPassagesScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Reading Passages',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTFlashcards"
+          component={BJTFlashcardsScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Flashcards',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTUltimateStudyPlan"
+          component={BJTUltimateStudyPlanScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT 12-Week Plan',
+            headerStyle: { backgroundColor: Colors.background },
+            headerTintColor: Colors.textPrimary,
+            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="BJTMockExamsV2"
+          component={BJTMockExamsV2Screen}
+          options={{
+            headerShown: true,
+            headerTitle: 'BJT Mock Exams V2',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
             headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },

@@ -1,0 +1,28 @@
+{
+  "title": "BJT Business Japanese — Sách Ôn Luyện Hoàn Chỉnh",
+  "version": "2026.2",
+  "updated": "2026-04-18",
+  "total_vocab": 1000,
+  "total_keigo": 26,
+  "total_scenarios": 20,
+  "total_mock": 60,
+  "total_emails": 6,
+  "total_manners": 6,
+  "test_info": {
+    "questions": 80,
+    "duration": "120 phút",
+    "format": "CBT tại Pearson VUE",
+    "scoring": "0-800 điểm, 6 levels (J5→J1+)",
+    "parts": [
+      "I:聴解(Nghe)",
+      "II:聴読解(Nghe+Đọc)",
+      "III:読解(Đọc)"
+    ],
+    "visa_2026": "BJT≥400 đủ điều kiện visa 技人国 (từ 4/2026). BJT≥480 cộng 15 điểm visa nhân tài."
+  },
+  "total_kanji": 110,
+  "total_grammar": 50,
+  "total_abbreviations": 20,
+  "total_reading_passages": 10,
+  "total_flashcard_sets": 15
+}

@@ -1,0 +1,961 @@
+﻿id,section,section_vi,japanese,reading,vietnamese,usage,level,example_jp,example_vi
+v001,1.1,Chào hỏi & Giao tiếp hàng ngày,おはようございます,ohayou gozaimasu,Chào buổi sáng (lịch sự),"Đến công ty, gặp đồng nghiệp đầu ngày",J5,おはようございます。今日もよろしくお願いします。,Chào buổi sáng. Hôm nay cũng nhờ giúp đỡ.
+v002,1.1,Chào hỏi & Giao tiếp hàng ngày,お疲れ様です,otsukaresama desu,Anh/chị vất vả rồi,"Chào trong ngày, mở đầu email nội bộ",J5,お疲れ様です。先日の件についてご相談があります。,Vất vả rồi. Có việc muốn trao đổi.
+v003,1.1,Chào hỏi & Giao tiếp hàng ngày,お先に失礼します,osaki ni shitsurei shimasu,Xin phép về trước,Rời công ty trước đồng nghiệp,J5,お先に失礼します。お疲れ様でした。,Xin phép về trước.
+v004,1.1,Chào hỏi & Giao tiếp hàng ngày,いつもお世話になっております,itsumo osewa ni natte orimasu,Luôn nhận được sự giúp đỡ,Mở đầu email/điện thoại với bên ngoài,J4,いつもお世話になっております。ABC株式会社の田中でございます。,Cảm ơn sự hỗ trợ. Tôi là Tanaka từ ABC.
+v005,1.1,Chào hỏi & Giao tiếp hàng ngày,よろしくお願いいたします,yoroshiku onegai itashimasu,Nhờ giúp đỡ (rất lịch sự),"Kết thúc email, yêu cầu",J5,今後ともよろしくお願いいたします。,Mong được giúp đỡ.
+v006,1.1,Chào hỏi & Giao tiếp hàng ngày,失礼いたします,shitsurei itashimasu,Xin phép (vào/rời phòng),"Vào phòng sếp, rời chỗ, cúp điện thoại",J5,失礼いたします。書類をお持ちしました。,Xin phép. Tôi mang tài liệu.
+v007,1.1,Chào hỏi & Giao tiếp hàng ngày,かしこまりました,kashikomarimashita,Vâng ạ (rất lịch sự),Nhận lệnh từ sếp hoặc khách,J4,かしこまりました。すぐに対応いたします。,Vâng ạ. Xử lý ngay.
+v008,1.1,Chào hỏi & Giao tiếp hàng ngày,承知いたしました,shouchi itashimashita,Tôi đã hiểu/ghi nhận,Xác nhận đã nhận thông tin,J4,承知いたしました。明日までに提出いたします。,Đã ghi nhận. Nộp trước ngày mai.
+v009,1.1,Chào hỏi & Giao tiếp hàng ngày,恐れ入りますが,osore irimasu ga,Xin phép hỏi / Xin lỗi nhưng...,Mở đầu yêu cầu lịch sự,J3,恐れ入りますが、お名前をもう一度お伺いしてもよろしいでしょうか。,"Xin lỗi, cho tôi hỏi lại tên?"
+v010,1.1,Chào hỏi & Giao tiếp hàng ngày,申し訳ございません,moushiwake gozaimasen,Xin lỗi (rất lịch sự),"Xin lỗi khách hàng, sếp",J4,大変申し訳ございません。すぐに確認いたします。,Vô cùng xin lỗi. Xác nhận ngay.
+v011,1.1,Chào hỏi & Giao tiếp hàng ngày,お手数をおかけしますが,otesuu wo okake shimasu ga,Phiền anh/chị nhưng...,Nhờ người khác làm việc,J3,お手数をおかけしますが、ご確認いただけますでしょうか。,Phiền anh/chị xác nhận giúp?
+v012,1.1,Chào hỏi & Giao tiếp hàng ngày,ご迷惑をおかけして,gomeiwaku wo okake shite,Gây phiền toái,Xin lỗi về sự bất tiện,J3,ご迷惑をおかけして申し訳ございません。,Xin lỗi vì gây phiền toái.
+v013,1.2,Chức vụ & Tổ chức,会長,kaichou,Chủ tịch HĐQT,Người đứng đầu (danh dự),J3,会長がご挨拶されます。,Chủ tịch sẽ phát biểu.
+v014,1.2,Chức vụ & Tổ chức,社長,shachou,Giám đốc / CEO,Người điều hành cao nhất,J5,社長にご報告いたします。,Báo cáo giám đốc.
+v015,1.2,Chức vụ & Tổ chức,副社長,fukushachou,Phó giám đốc,Vice president,J4,副社長が出席されます。,Phó GĐ sẽ tham dự.
+v016,1.2,Chức vụ & Tổ chức,専務,senmu,GĐ điều hành cấp cao,Senior Managing Director,J3,専務にご確認ください。,Xin xác nhận với chuyên vụ.
+v017,1.2,Chức vụ & Tổ chức,常務,joumu,GĐ điều hành,Managing Director,J3,常務が承認されました。,Thường vụ đã phê duyệt.
+v018,1.2,Chức vụ & Tổ chức,取締役,torishimariyaku,Thành viên HĐQT,Board member,J3,取締役会議が開催されます。,Họp HĐQT sẽ tổ chức.
+v019,1.2,Chức vụ & Tổ chức,部長,buchou,Trưởng phòng,Department manager,J5,部長に報告いたします。,Báo cáo trưởng phòng.
+v020,1.2,Chức vụ & Tổ chức,次長,jichou,Phó phòng,Deputy dept manager,J4,次長が代理で出席します。,Phó phòng dự thay.
+v021,1.2,Chức vụ & Tổ chức,課長,kachou,Trưởng ban,Section chief,J5,課長、お時間よろしいでしょうか。,"Trưởng ban, có rảnh không ạ?"
+v022,1.2,Chức vụ & Tổ chức,係長,kakarichou,Tổ trưởng,Subsection chief,J4,係長に相談してみます。,Trao đổi với tổ trưởng.
+v023,1.2,Chức vụ & Tổ chức,主任,shunin,Chủ nhiệm,Senior staff,J4,主任がチェックしてくれました。,Chủ nhiệm đã kiểm tra.
+v024,1.2,Chức vụ & Tổ chức,先輩,senpai,Tiền bối,Người vào trước,J5,先輩に教えていただきました。,Được tiền bối chỉ dạy.
+v025,1.2,Chức vụ & Tổ chức,後輩,kouhai,Hậu bối,Người vào sau,J5,後輩の指導を担当しています。,Phụ trách hướng dẫn hậu bối.
+v026,1.2,Chức vụ & Tổ chức,同僚,douryou,Đồng nghiệp,Colleague,J5,同僚と協力して進めます。,Hợp tác với đồng nghiệp.
+v027,1.2,Chức vụ & Tổ chức,新入社員,shinnyuushain,Nhân viên mới,New employee,J5,新入社員の研修が始まります。,Đào tạo nhân viên mới bắt đầu.
+v028,1.2,Chức vụ & Tổ chức,正社員,seishain,Nhân viên chính thức,Full-time,J4,正社員として採用されました。,Được tuyển chính thức.
+v029,1.2,Chức vụ & Tổ chức,派遣社員,hakenshain,NV phái cử,Dispatch worker,J4,派遣社員の契約を更新します。,Gia hạn hợp đồng phái cử.
+v030,1.2,Chức vụ & Tổ chức,パート・アルバイト,paato/arubaito,NV bán thời gian,Part-time,J5,アルバイトを募集しています。,Đang tuyển part-time.
+v031,1.3,Phòng ban,営業部,eigyoubu,Phòng Kinh doanh,Sales,J5,営業部の目標を達成しました。,Đạt mục tiêu KD.
+v032,1.3,Phòng ban,総務部,soumubu,Phòng Tổng vụ,General affairs,J4,総務部に届出を出してください。,Nộp đơn cho tổng vụ.
+v033,1.3,Phòng ban,経理部,keiribu,Phòng Kế toán,Accounting,J4,経理部に経費精算を提出します。,Nộp thanh toán cho kế toán.
+v034,1.3,Phòng ban,人事部,jinjibu,Phòng Nhân sự,HR,J4,人事部から連絡がありました。,Có liên lạc từ nhân sự.
+v035,1.3,Phòng ban,企画部,kikakubu,Phòng Kế hoạch,Planning,J4,企画部が新しい提案を出しました。,KH đưa ra đề xuất mới.
+v036,1.3,Phòng ban,製造部,seizoubu,Phòng Sản xuất,Manufacturing,J4,製造部と品質について打ち合わせします。,Họp với SX về chất lượng.
+v037,1.3,Phòng ban,技術部,gijutsubu,Phòng Kỹ thuật,Engineering,J4,技術部に問い合わせてみます。,Hỏi phòng kỹ thuật.
+v038,1.3,Phòng ban,開発部,kaihatsubu,Phòng R&D,Development,J4,開発部が新製品を発表しました。,R&D công bố sản phẩm mới.
+v039,1.3,Phòng ban,法務部,houmubu,Phòng Pháp chế,Legal,J3,契約書は法務部に確認してもらいます。,Hợp đồng nhờ pháp chế xác nhận.
+v040,1.3,Phòng ban,広報部,kouhoubu,Phòng PR,Public relations,J3,広報部がプレスリリースを出しました。,PR phát thông cáo.
+v041,1.3,Phòng ban,情報システム部,jouhou shisutemu bu,Phòng IT,IT department,J3,パソコンの不具合は情報システム部に連絡してください。,PC lỗi liên hệ IT.
+v042,1.4,Họp hành & Báo cáo,会議,kaigi,Cuộc họp,Meeting,J5,午後3時から会議があります。,Có họp từ 3h chiều.
+v043,1.4,Họp hành & Báo cáo,打ち合わせ,uchiawase,Buổi trao đổi / Họp nhỏ,Discussion meeting,J4,クライアントとの打ち合わせがあります。,Có trao đổi với khách.
+v044,1.4,Họp hành & Báo cáo,ミーティング,miitingu,Meeting,Ít trang trọng hơn 会議,J5,朝のミーティングに参加してください。,Tham gia meeting sáng.
+v045,1.4,Họp hành & Báo cáo,議題,gidai,Nghị đề,Agenda item,J4,本日の議題は3つあります。,Hôm nay có 3 nghị đề.
+v046,1.4,Họp hành & Báo cáo,議事録,gijiroku,Biên bản họp,Minutes,J4,議事録を作成して共有してください。,Lập biên bản và chia sẻ.
+v047,1.4,Họp hành & Báo cáo,アジェンダ,ajenda,Chương trình họp,Agenda,J4,会議のアジェンダを事前に送ります。,Gửi trước chương trình họp.
+v048,1.4,Họp hành & Báo cáo,資料,shiryou,Tài liệu,Documents,J5,会議の資料を準備しました。,Đã chuẩn bị tài liệu.
+v049,1.4,Họp hành & Báo cáo,報告,houkoku,Báo cáo,Report,J5,進捗状況を報告いたします。,Báo cáo tiến độ.
+v050,1.4,Họp hành & Báo cáo,連絡,renraku,Liên lạc / Thông báo,"Contact, inform",J5,至急ご連絡ください。,Liên lạc gấp.
+v051,1.4,Họp hành & Báo cáo,相談,soudan,Trao đổi,Consult,J5,ちょっとご相談したいのですが。,Muốn trao đổi chút.
+v052,1.4,Họp hành & Báo cáo,報連相,hourensou,Báo-Liên-Trao (nguyên tắc vàng),報告連絡相談: nguyên tắc giao tiếp cơ bản nhất,J4,報連相を徹底してください。,Tuân thủ Hourensou.
+v053,1.4,Họp hành & Báo cáo,プレゼン,purezen,Thuyết trình,Presentation,J4,来週のプレゼンの準備をしています。,Chuẩn bị thuyết trình tuần sau.
+v054,1.4,Họp hành & Báo cáo,発表,happyou,Phát biểu / Công bố,Announcement,J4,研究結果を発表します。,Công bố kết quả nghiên cứu.
+v055,1.4,Họp hành & Báo cáo,質疑応答,shitsugioutou,Hỏi đáp (Q&A),Q&A session,J3,質疑応答の時間を設けます。,Dành thời gian Q&A.
+v056,1.4,Họp hành & Báo cáo,決議,ketsugi,Quyết nghị,Resolution,J2,全会一致で決議されました。,Nhất trí quyết nghị.
+v057,1.5,Email & Văn bản,件名,kenmei,Tiêu đề email,Subject,J4,件名を明確に書いてください。,Viết tiêu đề rõ ràng.
+v058,1.5,Email & Văn bản,宛先,atesaki,Người nhận (To),Recipient,J4,宛先を間違えないようにしてください。,Đừng nhầm người nhận.
+v059,1.5,Email & Văn bản,CC,shiishii,Đồng gửi,Carbon copy,J4,部長をCCに入れてください。,CC trưởng phòng.
+v060,1.5,Email & Văn bản,添付,tenpu,Đính kèm,Attachment,J4,ファイルを添付いたします。,Đính kèm file.
+v061,1.5,Email & Văn bản,返信,henshin,Trả lời (reply),Reply,J4,ご返信お待ちしております。,Chờ hồi âm.
+v062,1.5,Email & Văn bản,転送,tensou,Chuyển tiếp (forward),Forward,J4,関係者に転送しておきます。,Chuyển tiếp cho người liên quan.
+v063,1.5,Email & Văn bản,見積書,mitsumorisho,Bảng báo giá,Quotation,J3,見積書を作成しました。,Đã lập báo giá.
+v064,1.5,Email & Văn bản,請求書,seikyuusho,Hóa đơn,Invoice,J3,請求書を月末にお送りします。,Gửi hóa đơn cuối tháng.
+v065,1.5,Email & Văn bản,契約書,keiyakusho,Hợp đồng,Contract,J3,契約書に署名捺印をお願いします。,Ký tên đóng dấu hợp đồng.
+v066,1.5,Email & Văn bản,納品書,nouhinsho,Phiếu giao hàng,Delivery slip,J3,納品書と一緒にお届けします。,Giao kèm phiếu giao hàng.
+v067,1.5,Email & Văn bản,領収書,ryoushuusho,Biên lai,Receipt,J4,領収書を発行してください。,Phát hành biên lai.
+v068,1.5,Email & Văn bản,稟議書,ringisho,Đơn xin phê duyệt nội bộ,Internal approval form,J2,稟議書を回して承認を得ます。,Luân chuyển đơn phê duyệt.
+v069,1.6,Công việc & Nhân sự,業務,gyoumu,Nghiệp vụ,Business operations,J5,業務内容を説明します。,Giải thích nội dung công việc.
+v070,1.6,Công việc & Nhân sự,担当,tantou,Phụ trách,In charge,J5,この案件の担当は佐藤です。,Người phụ trách là Satou.
+v071,1.6,Công việc & Nhân sự,締め切り,shimekiri,Hạn chót / Deadline,Due date,J5,締め切りは来週の金曜日です。,Deadline thứ Sáu tuần sau.
+v072,1.6,Công việc & Nhân sự,納期,nouki,Thời hạn giao hàng,Delivery deadline,J3,納期に間に合うよう努力します。,Cố gắng kịp deadline giao hàng.
+v073,1.6,Công việc & Nhân sự,進捗,shinchoku,Tiến độ,Progress,J4,進捗はいかがですか。,Tiến độ sao rồi?
+v074,1.6,Công việc & Nhân sự,引き継ぎ,hikitsugi,Bàn giao,Handover,J4,退職前に引き継ぎを完了させます。,Bàn giao trước khi nghỉ.
+v075,1.6,Công việc & Nhân sự,残業,zangyou,Tăng ca,Overtime,J5,今月は残業が多いです。,Tháng này tăng ca nhiều.
+v076,1.6,Công việc & Nhân sự,有給休暇,yuukyuu kyuuka,Nghỉ phép có lương,Paid leave,J4,有給休暇を取りたいです。,Muốn xin nghỉ phép.
+v077,1.6,Công việc & Nhân sự,出張,shutchou,Đi công tác,Business trip,J4,来週大阪に出張します。,Tuần sau công tác Osaka.
+v078,1.6,Công việc & Nhân sự,研修,kenshuu,Đào tạo,Training,J4,ビジネスマナー研修があります。,Có đào tạo ứng xử.
+v079,1.6,Công việc & Nhân sự,配属,haizoku,Phân công,Assignment,J4,営業部に配属されました。,Được phân công vào KD.
+v080,1.6,Công việc & Nhân sự,異動,idou,Chuyển công tác,Transfer,J3,来月、本社に異動になります。,Tháng sau chuyển về trụ sở.
+v081,1.6,Công việc & Nhân sự,昇進,shoushin,Thăng chức,Promotion,J3,課長に昇進しました。,Thăng chức trưởng ban.
+v082,1.6,Công việc & Nhân sự,退職,taishoku,Nghỉ việc,Resignation,J4,退職届を提出しました。,Nộp đơn nghỉ việc.
+v083,1.6,Công việc & Nhân sự,面接,mensetsu,Phỏng vấn,Interview,J4,面接は来週の月曜日です。,Phỏng vấn thứ Hai tuần sau.
+v084,1.6,Công việc & Nhân sự,履歴書,rirekisho,CV kiểu Nhật,Resume,J4,履歴書を提出してください。,Nộp CV.
+v085,1.6,Công việc & Nhân sự,給与,kyuuyo,Lương,Salary,J4,給与は毎月25日支払いです。,Lương trả ngày 25.
+v086,1.6,Công việc & Nhân sự,賞与,shouyo,Thưởng,Bonus,J3,夏と冬に賞与があります。,Có thưởng hè và đông.
+v087,1.6,Công việc & Nhân sự,手当,teate,Phụ cấp,Allowance,J4,交通手当が支給されます。,Được phụ cấp đi lại.
+v088,1.7,Kinh doanh & Đàm phán,取引,torihiki,Giao dịch,Transaction,J3,新規取引を開始します。,Bắt đầu giao dịch mới.
+v089,1.7,Kinh doanh & Đàm phán,取引先,torihikisaki,Đối tác KD,Business partner,J3,取引先を訪問します。,Thăm đối tác.
+v090,1.7,Kinh doanh & Đàm phán,顧客,kokyaku,Khách hàng,Customer,J3,顧客満足度を向上させます。,Nâng cao hài lòng KH.
+v091,1.7,Kinh doanh & Đàm phán,商談,shoudan,Thương thảo,Business talk,J3,商談が成立しました。,Thương thảo thành công.
+v092,1.7,Kinh doanh & Đàm phán,提案,teian,Đề xuất,Proposal,J3,新しい提案をいたします。,Đưa ra đề xuất mới.
+v093,1.7,Kinh doanh & Đàm phán,検討,kentou,Xem xét / Cân nhắc,"Review, consider",J3,ご検討いただければ幸いです。,Rất vui nếu cân nhắc.
+v094,1.7,Kinh doanh & Đàm phán,交渉,koushou,Đàm phán,Negotiation,J3,条件について交渉します。,Đàm phán điều kiện.
+v095,1.7,Kinh doanh & Đàm phán,受注,juchuu,Nhận đơn hàng,Receive order,J3,大型案件を受注しました。,Nhận đơn hàng lớn.
+v096,1.7,Kinh doanh & Đàm phán,発注,hatchuu,Đặt hàng,Place order,J3,部品を発注してください。,Đặt hàng linh kiện.
+v097,1.7,Kinh doanh & Đàm phán,納品,nouhin,Giao hàng,Delivery,J3,来週月曜日に納品いたします。,Giao hàng thứ Hai tuần sau.
+v098,1.7,Kinh doanh & Đàm phán,在庫,zaiko,Tồn kho,Inventory,J3,在庫を確認します。,Kiểm tra tồn kho.
+v099,1.7,Kinh doanh & Đàm phán,見積もり,mitsumori,Báo giá,Estimate,J3,見積もりを出してください。,Gửi báo giá.
+v100,1.7,Kinh doanh & Đàm phán,値引き,nebiki,Giảm giá,Discount,J3,10%の値引きが可能です。,Có thể giảm 10%.
+v101,1.7,Kinh doanh & Đàm phán,競合,kyougou,Đối thủ cạnh tranh,Competitor,J2,競合他社を分析します。,Phân tích đối thủ.
+v102,1.7,Kinh doanh & Đàm phán,シェア,shea,Thị phần,Market share,J2,市場シェアを拡大します。,Mở rộng thị phần.
+v103,1.8,Tài chính & Kế toán,売上,uriage,Doanh thu,Revenue,J3,今月の売上は前年比10%増です。,Doanh thu tăng 10%.
+v104,1.8,Tài chính & Kế toán,利益,rieki,Lợi nhuận,Profit,J3,営業利益が改善しました。,Lợi nhuận KD cải thiện.
+v105,1.8,Tài chính & Kế toán,損失,sonshitsu,Tổn thất / Lỗ,Loss,J3,為替差損が発生しました。,Phát sinh lỗ tỷ giá.
+v106,1.8,Tài chính & Kế toán,経費,keihi,Chi phí,Expenses,J3,経費を削減する必要があります。,Cần cắt giảm chi phí.
+v107,1.8,Tài chính & Kế toán,予算,yosan,Ngân sách,Budget,J3,来年度の予算を策定中です。,Đang lập ngân sách.
+v108,1.8,Tài chính & Kế toán,決算,kessan,Quyết toán,Financial settlement,J2,四半期決算の報告書を準備します。,Chuẩn bị báo cáo quyết toán quý.
+v109,1.8,Tài chính & Kế toán,投資,toushi,Đầu tư,Investment,J3,設備投資を行います。,Đầu tư thiết bị.
+v110,1.8,Tài chính & Kế toán,株式,kabushiki,Cổ phiếu,Stock,J2,株式を上場する予定です。,Dự kiến niêm yết.
+v111,1.8,Tài chính & Kế toán,原価,genka,Giá vốn,Cost price,J3,原価を下げる方法を検討します。,Xem xét giảm giá thành.
+v112,1.8,Tài chính & Kế toán,収支,shuushi,Thu chi,Income/expenditure,J3,月次の収支報告を出します。,Báo cáo thu chi hàng tháng.
+v113,1.9,Điện thoại & Tiếp khách,お電話ありがとうございます,odenwa arigatou gozaimasu,Cảm ơn đã gọi điện,Nhấc máy tại công ty,J4,お電話ありがとうございます。ABC株式会社でございます。,Cảm ơn đã gọi. Đây là công ty ABC.
+v114,1.9,Điện thoại & Tiếp khách,少々お待ちください,shoushou omachi kudasai,Xin chờ một chút,"Chuyển máy, tra thông tin",J4,少々お待ちください。おつなぎいたします。,Xin chờ. Tôi chuyển máy.
+v115,1.9,Điện thoại & Tiếp khách,伝言,dengon,Lời nhắn,Message,J4,伝言をお預かりしましょうか。,Để tôi nhận lời nhắn?
+v116,1.9,Điện thoại & Tiếp khách,折り返し,orikaeshi,Gọi lại,Return call,J4,折り返しお電話いたします。,Sẽ gọi lại.
+v117,1.9,Điện thoại & Tiếp khách,席を外しております,seki wo hazushite orimasu,Đang vắng chỗ,Sếp/đồng nghiệp không có,J4,佐藤はただいま席を外しております。,Satou đang vắng chỗ.
+v118,1.9,Điện thoại & Tiếp khách,名刺,meishi,Danh thiếp,Business card,J4,名刺を交換しましょう。,Trao đổi danh thiếp.
+v119,1.9,Điện thoại & Tiếp khách,ご案内いたします,goannai itashimasu,Tôi xin hướng dẫn,Dẫn khách đến phòng họp,J3,会議室にご案内いたします。,Hướng dẫn đến phòng họp.
+v120,1.10,Sản xuất & Chất lượng,製品,seihin,Sản phẩm,Product,J4,新製品を発売します。,Ra mắt SP mới.
+v121,1.10,Sản xuất & Chất lượng,部品,buhin,Linh kiện,Parts,J4,部品が不足しています。,Thiếu linh kiện.
+v122,1.10,Sản xuất & Chất lượng,品質,hinshitsu,Chất lượng,Quality,J4,品質管理を徹底します。,Quản lý CL triệt để.
+v123,1.10,Sản xuất & Chất lượng,検品,kenpin,Kiểm tra hàng,Inspection,J3,出荷前に検品を行います。,Kiểm tra trước khi xuất.
+v124,1.10,Sản xuất & Chất lượng,不良品,furyouhin,Hàng lỗi,Defective,J3,不良品の発生率を下げます。,Giảm tỷ lệ lỗi.
+v125,1.10,Sản xuất & Chất lượng,出荷,shukka,Xuất hàng,Shipment,J3,本日中に出荷します。,Xuất hàng trong ngày.
+v126,1.10,Sản xuất & Chất lượng,仕様,shiyou,Thông số kỹ thuật,Specification,J3,仕様書を確認してください。,Xác nhận bản spec.
+v127,1.10,Sản xuất & Chất lượng,工程,koutei,Quy trình / Công đoạn,Process,J3,製造工程を見直します。,Rà soát quy trình SX.
+v128,1.11,Katakana Business Terms,リスケ,risuke,Dời lịch,Reschedule,J4,打ち合わせをリスケしたいのですが。,Muốn dời lịch họp.
+v129,1.11,Katakana Business Terms,フィードバック,fiido bakku,Phản hồi,Feedback,J4,フィードバックをお願いします。,Xin cho phản hồi.
+v130,1.11,Katakana Business Terms,コンセンサス,konsensasu,Đồng thuận,Consensus,J3,チーム内のコンセンサスを得ます。,Đạt đồng thuận trong nhóm.
+v131,1.11,Katakana Business Terms,エスカレーション,esukareeshon,Chuyển lên cấp trên,Escalation,J3,この問題はエスカレーションが必要です。,Cần chuyển lên cấp trên.
+v132,1.11,Katakana Business Terms,コンプライアンス,konpuraiansu,Tuân thủ pháp luật,Compliance,J2,コンプライアンスを遵守してください。,Tuân thủ quy định.
+v133,1.11,Katakana Business Terms,アサイン,asain,Phân công,Assign,J3,新しいタスクにアサインされました。,Được phân công task mới.
+v134,1.11,Katakana Business Terms,KPI,kei pii ai,Chỉ số hiệu suất,Key Performance Indicator,J2,KPIを設定しましょう。,Đặt KPI.
+v135,1.11,Katakana Business Terms,PDCAサイクル,PDCA saikuru,Chu trình PDCA,Plan-Do-Check-Act,J3,PDCAサイクルを回して改善します。,Cải tiến qua PDCA.
+v136,1.11,Katakana Business Terms,リソース,risosu,Nguồn lực,Resources,J3,リソースが足りません。,Không đủ nguồn lực.
+v137,1.11,Katakana Business Terms,ローンチ,roonchi,Ra mắt,Launch,J3,来月新サービスをローンチします。,Ra mắt dịch vụ mới tháng sau.
+v138,1.11,Katakana Business Terms,ペンディング,pendingu,Tạm hoãn,Pending,J3,この案件はペンディングにしてください。,Tạm hoãn dự án này.
+v139,1.11,Katakana Business Terms,フィックス,fikkusu,Chốt,Fix/finalize,J3,日程をフィックスしましょう。,Chốt lịch.
+v140,1.11,Katakana Business Terms,OJT,oo jei tii,Đào tạo tại chỗ,On the Job Training,J4,新人はOJTで学びます。,NV mới học qua OJT.
+v141,1.11,Katakana Business Terms,ナレッジ,narejji,Kiến thức,Knowledge sharing,J3,ナレッジを共有しましょう。,Chia sẻ kiến thức.
+v142,1.11,Katakana Business Terms,コスト,kosuto,Chi phí,Cost,J4,コスト削減に取り組みます。,Nỗ lực giảm chi phí.
+v143,1.11,Katakana Business Terms,ニーズ,niizu,Nhu cầu,Needs,J3,顧客のニーズを把握します。,Nắm nhu cầu KH.
+v144,1.11,Katakana Business Terms,マイルストーン,mairusutoon,Cột mốc,Milestone,J2,プロジェクトのマイルストーンを確認します。,Xác nhận cột mốc dự án.
+v145,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),在留カード,zairyuu kaado,Thẻ cư trú,Residence card,J4,在留カードを常に携帯してください。,Luôn mang theo thẻ cư trú.
+v146,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),在留資格,zairyuu shikaku,Tư cách lưu trú / Visa,Status of residence,J4,在留資格の変更手続きをします。,Làm thủ tục đổi visa.
+v147,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),技術・人文知識・国際業務,gijutsu jinbun chishiki kokusai gyoumu,Kỹ thuật/Nhân văn/Quốc tế,Visa làm việc phổ biến nhất,J3,技人国ビザで働いています。,Làm việc với visa kỹ nhân quốc.
+v148,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),特定技能,tokutei ginou,Kỹ năng đặc định,Specified skilled worker,J3,特定技能1号で来日しました。,Đến Nhật với visa KNĐD 1.
+v149,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),健康保険,kenkou hoken,Bảo hiểm y tế,Health insurance,J4,健康保険に加入しています。,Đã tham gia BHYT.
+v150,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),厚生年金,kousei nenkin,Bảo hiểm hưu trí,Pension,J3,厚生年金の保険料が天引きされます。,Phí BHHT bị trừ từ lương.
+v151,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),雇用保険,koyou hoken,BH thất nghiệp,Employment insurance,J3,雇用保険の手続きをしてください。,Làm thủ tục BH thất nghiệp.
+v152,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),マイナンバー,mainanbaa,Mã số cá nhân,My Number,J4,マイナンバーカードを作りましたか。,Đã làm thẻ My Number chưa?
+v153,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),確定申告,kakutei shinkoku,Khai thuế cuối năm,Tax return,J3,確定申告の時期が来ました。,Đến mùa khai thuế.
+v154,1.12,Pháp luật & Bảo hiểm (cho người nước ngoài),源泉徴収,gensen choushuu,Khấu trừ thuế tại nguồn,Withholding tax,J2,給与から源泉徴収されます。,Thuế khấu trừ từ lương.
+v155,2.1,Chào hỏi & Ứng xử (bổ sung),ごぶさたしております,gobusata shite orimasu,Lâu rồi không liên lạc,Gặp lại sau thời gian dài,J3,ごぶさたしております。お元気でしたか。,Lâu không gặp. Anh khỏe không?
+v156,2.1,Chào hỏi & Ứng xử (bổ sung),お久しぶりです,ohisashiburi desu,Lâu rồi không gặp,Chào lại sau thời gian dài (ít trang trọng hơn),J4,お久しぶりです。お変わりないですか。,Lâu quá. Anh vẫn khỏe chứ?
+v157,2.1,Chào hỏi & Ứng xử (bổ sung),お忙しいところ恐れ入ります,oisogashii tokoro osore irimasu,"Biết anh bận, xin phép...",Mở đầu khi nhờ việc người bận,J3,お忙しいところ恐れ入りますが、少々お時間をいただけますか。,"Biết anh bận, có thể dành chút thời gian?"
+v158,2.1,Chào hỏi & Ứng xử (bổ sung),とんでもございません,tondemo gozaimasen,Không có gì đâu ạ,Đáp lại lời khen/cảm ơn,J3,とんでもございません。当然のことです。,Không có gì. Đó là việc nên làm.
+v159,2.1,Chào hỏi & Ứng xử (bổ sung),おかげさまで,okagesamade,Nhờ ơn (anh/chị),Thể hiện biết ơn sự giúp đỡ,J4,おかげさまで、プロジェクトは順調です。,"Nhờ ơn mọi người, dự án thuận lợi."
+v160,2.1,Chào hỏi & Ứng xử (bổ sung),ご無理なさらないでください,gomuri nasaranaide kudasai,Đừng cố quá sức,Thể hiện quan tâm đồng nghiệp,J3,ご無理なさらないでください。お体を大切に。,Đừng cố quá. Giữ gìn sức khỏe.
+v161,2.1,Chào hỏi & Ứng xử (bổ sung),お力になれれば幸いです,ochikara ni narereba saiwai desu,Nếu giúp được thì vui,Đề nghị giúp đỡ lịch sự,J3,何かお力になれれば幸いです。,Nếu giúp được gì thì vui lắm.
+v162,2.1,Chào hỏi & Ứng xử (bổ sung),気をつけてお帰りください,ki wo tsukete okaeri kudasai,Về cẩn thận nhé,Tiễn khách về,J4,本日はありがとうございました。気をつけてお帰りください。,Cảm ơn hôm nay. Về cẩn thận nhé.
+v163,2.1,Chào hỏi & Ứng xử (bổ sung),お邪魔いたします,ojama itashimasu,Xin phép làm phiền,Khi vào phòng người khác,J4,お邪魔いたします。少しご相談があります。,Xin phép. Có chút muốn trao đổi.
+v164,2.1,Chào hỏi & Ứng xử (bổ sung),ご足労いただき,gosokurou itadaki,Phiền anh đến tận nơi,Cảm ơn khách đã bỏ công đến,J2,ご足労いただきありがとうございます。,Cảm ơn đã bỏ công đến.
+v165,2.2,Họp hành (bổ sung),議長,gichou,Chủ tọa,Người điều hành cuộc họp,J3,議長が会議を進行します。,Chủ tọa điều hành họp.
+v166,2.2,Họp hành (bổ sung),採決,saiketsu,Biểu quyết,Vote trong cuộc họp,J2,採決を取ります。,Tiến hành biểu quyết.
+v167,2.2,Họp hành (bổ sung),満場一致,manjou icchi,Nhất trí toàn bộ,Unanimous,J2,満場一致で承認されました。,Được nhất trí phê duyệt.
+v168,2.2,Họp hành (bổ sung),異議,igi,Ý kiến phản đối,Objection,J2,異議はありませんか。,Có ý kiến phản đối không?
+v169,2.2,Họp hành (bổ sung),可決,kaketsu,Thông qua,Approve (vote),J2,提案が可決されました。,Đề xuất được thông qua.
+v170,2.2,Họp hành (bổ sung),否決,hiketsu,Bác bỏ,Reject (vote),J2,提案が否決されました。,Đề xuất bị bác bỏ.
+v171,2.2,Họp hành (bổ sung),審議,shingi,Thẩm nghị / Xem xét,Deliberation,J2,この案件は来週審議します。,Vụ này tuần sau xem xét.
+v172,2.2,Họp hành (bổ sung),出席者,shussekisha,Người tham dự,Attendee,J4,出席者は10名です。,Có 10 người tham dự.
+v173,2.2,Họp hành (bổ sung),欠席,kesseki,Vắng mặt,Absent,J4,本日の会議は欠席いたします。,Hôm nay tôi vắng họp.
+v174,2.2,Họp hành (bổ sung),定例会議,teirei kaigi,Họp định kỳ,Regular meeting,J4,毎週月曜に定例会議があります。,Họp định kỳ thứ Hai mỗi tuần.
+v175,2.2,Họp hành (bổ sung),臨時会議,rinji kaigi,Họp bất thường,Emergency meeting,J3,臨時会議を招集します。,Triệu tập họp bất thường.
+v176,2.2,Họp hành (bổ sung),多数決,tasuuketsu,Biểu quyết đa số,Majority vote,J2,多数決で決定します。,Quyết định bằng đa số.
+v177,2.2,Họp hành (bổ sung),意見交換,iken koukan,Trao đổi ý kiến,Exchange opinions,J3,活発な意見交換が行われました。,Diễn ra trao đổi ý kiến sôi nổi.
+v178,2.2,Họp hành (bổ sung),結論,ketsuron,Kết luận,Conclusion,J3,結論を出しましょう。,Hãy đưa ra kết luận.
+v179,2.2,Họp hành (bổ sung),要約,youyaku,Tóm tắt,Summary,J3,会議の要約をお送りします。,Gửi bản tóm tắt cuộc họp.
+v180,2.3,Email & Văn bản (bổ sung),お知らせ,oshirase,Thông báo,Notice/announcement,J4,重要なお知らせがあります。,Có thông báo quan trọng.
+v181,2.3,Email & Văn bản (bổ sung),ご案内,goannai,Hướng dẫn / Giới thiệu,Guidance,J4,新サービスのご案内です。,Giới thiệu dịch vụ mới.
+v182,2.3,Email & Văn bản (bổ sung),ご依頼,goirai,Yêu cầu (kính),Request (polite),J3,ご依頼の件、承りました。,Đã tiếp nhận yêu cầu.
+v183,2.3,Email & Văn bản (bổ sung),ご報告,gohoukoku,Báo cáo (kính),Report (polite),J3,進捗のご報告です。,Đây là báo cáo tiến độ.
+v184,2.3,Email & Văn bản (bổ sung),ご査収,gosashuu,Xin xem và nhận,Please review and accept,J2,添付ファイルをご査収ください。,Xin xem và nhận file đính kèm.
+v185,2.3,Email & Văn bản (bổ sung),ご検討,gokentou,Xem xét (kính),Please consider,J3,ご検討のほどよろしくお願いいたします。,Xin vui lòng xem xét.
+v186,2.3,Email & Văn bản (bổ sung),ご了承,goryoushou,Thông cảm / Chấp thuận,Understanding,J3,何卒ご了承ください。,Xin hãy thông cảm.
+v187,2.3,Email & Văn bản (bổ sung),ご容赦,goyousha,Tha thứ,Forgiveness,J2,ご容赦いただければ幸いです。,Mong được tha thứ.
+v188,2.3,Email & Văn bản (bổ sung),拝啓,haikei,Kính gửi (thư trang trọng),Dear Sir/Madam,J2,拝啓 時下ますますご清栄のこととお慶び申し上げます。,"Kính gửi, chúc quý ngài thịnh vượng."
+v189,2.3,Email & Văn bản (bổ sung),敬具,keigu,Kính thư (kết thư),Sincerely,J2,何卒よろしくお願い申し上げます。敬具,Kính mong giúp đỡ. Kính thư.
+v190,2.3,Email & Văn bản (bổ sung),追伸,tsuishin,P.S. / Tái bút,Postscript,J3,追伸：来週の予定もお知らせください。,P.S.: Cũng cho biết lịch tuần sau.
+v191,2.3,Email & Văn bản (bổ sung),別紙,besshi,Tài liệu đính kèm (giấy),Attached document,J3,詳細は別紙をご参照ください。,Chi tiết xin xem tài liệu kèm.
+v192,2.3,Email & Văn bản (bổ sung),草案,souan,Bản thảo / Dự thảo,Draft,J2,契約書の草案を作成しました。,Đã lập dự thảo hợp đồng.
+v193,2.3,Email & Văn bản (bổ sung),修正,shuusei,Sửa chữa / Chỉnh sửa,Revision,J3,資料を修正しました。,Đã chỉnh sửa tài liệu.
+v194,2.3,Email & Văn bản (bổ sung),承認,shounin,Phê duyệt,Approval,J3,上司の承認を得てください。,Hãy xin phê duyệt sếp.
+v195,2.3,Email & Văn bản (bổ sung),却下,kyakka,Từ chối / Bác bỏ,Rejection,J2,申請が却下されました。,Đơn bị bác bỏ.
+v196,2.3,Email & Văn bản (bổ sung),通達,tsuutatsu,Thông đạt / Chỉ thị,Directive,J2,本社から通達がありました。,Có chỉ thị từ trụ sở chính.
+v197,2.3,Email & Văn bản (bổ sung),回覧,kairan,Luân chuyển (tài liệu),Circulate,J3,この文書を回覧してください。,Hãy luân chuyển văn bản này.
+v198,2.3,Email & Văn bản (bổ sung),押印,ouin,Đóng dấu,Stamp/seal,J3,契約書に押印をお願いします。,Xin đóng dấu vào hợp đồng.
+v199,2.3,Email & Văn bản (bổ sung),捺印,natsuin,Đóng dấu (cá nhân),Personal seal,J3,捺印をお願いいたします。,Xin đóng dấu cá nhân.
+v200,2.4,Kinh doanh (bổ sung),売上高,uriage daka,Tổng doanh thu,Total sales revenue,J3,今年度の売上高は10億円です。,Tổng doanh thu năm nay 1 tỷ yên.
+v201,2.4,Kinh doanh (bổ sung),営業利益,eigyou rieki,Lợi nhuận kinh doanh,Operating profit,J2,営業利益が前年比20%増加しました。,Lợi nhuận KD tăng 20%.
+v202,2.4,Kinh doanh (bổ sung),経常利益,keijou rieki,Lợi nhuận thường xuyên,Ordinary profit,J2,経常利益は5億円です。,Lợi nhuận thường xuyên 500 triệu yên.
+v203,2.4,Kinh doanh (bổ sung),純利益,jun rieki,Lợi nhuận ròng,Net profit,J2,純利益が過去最高を記録しました。,Lợi nhuận ròng cao nhất lịch sử.
+v204,2.4,Kinh doanh (bổ sung),赤字,akaji,Lỗ / Thâm hụt,Deficit/loss,J3,今期は赤字になりそうです。,Kỳ này có vẻ sẽ lỗ.
+v205,2.4,Kinh doanh (bổ sung),黒字,kuroji,Lãi / Thặng dư,Surplus/profit,J3,来期は黒字化を目指します。,Kỳ sau nhắm đến có lãi.
+v206,2.4,Kinh doanh (bổ sung),債務,saimu,Nợ / Nghĩa vụ tài chính,Debt/liability,J1,債務を返済する計画です。,Có kế hoạch trả nợ.
+v207,2.4,Kinh doanh (bổ sung),債権,saiken,Quyền đòi nợ / Trái quyền,Credit/claim,J1,債権の回収を急ぎます。,Gấp thu hồi nợ.
+v208,2.4,Kinh doanh (bổ sung),資産,shisan,Tài sản,Assets,J2,会社の総資産は100億円です。,Tổng tài sản công ty 10 tỷ yên.
+v209,2.4,Kinh doanh (bổ sung),負債,fusai,Nợ phải trả,Liabilities,J2,負債を減らす必要があります。,Cần giảm nợ phải trả.
+v210,2.4,Kinh doanh (bổ sung),配当金,haitoukin,Cổ tức,Dividend,J2,配当金を増やします。,Tăng cổ tức.
+v211,2.4,Kinh doanh (bổ sung),為替,kawase,Tỷ giá,Exchange rate,J3,為替レートが変動しています。,Tỷ giá đang biến động.
+v212,2.4,Kinh doanh (bổ sung),円高,endaka,Yên tăng giá,Strong yen,J3,円高が輸出企業に影響しています。,Yên mạnh ảnh hưởng xuất khẩu.
+v213,2.4,Kinh doanh (bổ sung),円安,enyasu,Yên giảm giá,Weak yen,J3,円安で輸入コストが上がりました。,Yên yếu làm chi phí nhập tăng.
+v214,2.4,Kinh doanh (bổ sung),年商,nenshou,Doanh thu hàng năm,Annual revenue,J3,年商50億円の企業です。,Công ty doanh thu 5 tỷ/năm.
+v215,2.4,Kinh doanh (bổ sung),四半期,shihanki,Quý (3 tháng),Quarter,J3,第1四半期の結果を報告します。,Báo cáo kết quả Q1.
+v216,2.4,Kinh doanh (bổ sung),上半期,kamihanki,Nửa đầu năm,First half,J3,上半期の業績は好調でした。,Nửa đầu năm KQ tốt.
+v217,2.4,Kinh doanh (bổ sung),下半期,shimohanki,Nửa cuối năm,Second half,J3,下半期の目標を設定します。,Đặt mục tiêu nửa cuối năm.
+v218,2.4,Kinh doanh (bổ sung),年度,nendo,Năm tài khóa,Fiscal year,J3,来年度の計画を策定中です。,Đang lập kế hoạch năm sau.
+v219,2.4,Kinh doanh (bổ sung),実績,jisseki,Thành tích / Kết quả thực tế,Actual results,J3,前年度の実績を分析します。,Phân tích kết quả năm trước.
+v220,2.4,Kinh doanh (bổ sung),目標,mokuhyou,Mục tiêu,Target/goal,J4,売上目標を達成しました。,Đạt mục tiêu doanh thu.
+v221,2.4,Kinh doanh (bổ sung),達成,tassei,Đạt được,Achievement,J4,目標達成率は95%です。,Tỷ lệ đạt mục tiêu 95%.
+v222,2.4,Kinh doanh (bổ sung),前年比,zennenhi,So với năm trước,Year-on-year,J3,前年比10%増です。,Tăng 10% so năm trước.
+v223,2.4,Kinh doanh (bổ sung),前月比,zengetsuhi,So với tháng trước,Month-on-month,J3,前月比で5%減少しました。,Giảm 5% so tháng trước.
+v224,2.4,Kinh doanh (bổ sung),見通し,mitooshi,Dự báo / Triển vọng,Outlook/forecast,J3,来期の見通しは明るいです。,Triển vọng kỳ sau sáng.
+v225,2.4,Kinh doanh (bổ sung),業績,gyouseki,Thành tích kinh doanh,Business performance,J3,業績が回復しました。,Thành tích KD phục hồi.
+v226,2.4,Kinh doanh (bổ sung),増収,zoushuu,Tăng doanh thu,Revenue increase,J2,増収増益を達成しました。,Đạt tăng doanh thu tăng lợi nhuận.
+v227,2.4,Kinh doanh (bổ sung),減収,genshuu,Giảm doanh thu,Revenue decrease,J2,減収の原因を分析します。,Phân tích nguyên nhân giảm DT.
+v228,2.4,Kinh doanh (bổ sung),増益,zoueki,Tăng lợi nhuận,Profit increase,J2,増益の要因は人件費削減です。,Tăng LN nhờ giảm nhân công.
+v229,2.4,Kinh doanh (bổ sung),減益,geneki,Giảm lợi nhuận,Profit decrease,J2,減益が続いています。,Lợi nhuận tiếp tục giảm.
+v230,2.5,Marketing & Bán hàng,マーケティング,maaketeingu,Marketing,Marketing,J3,マーケティング戦略を見直します。,Rà soát chiến lược marketing.
+v231,2.5,Marketing & Bán hàng,ターゲット,taagetto,Đối tượng mục tiêu,Target,J3,ターゲット層は20代女性です。,Đối tượng: phụ nữ 20 tuổi.
+v232,2.5,Marketing & Bán hàng,ブランド,burando,Thương hiệu,Brand,J3,ブランドイメージを向上させます。,Nâng cao hình ảnh thương hiệu.
+v233,2.5,Marketing & Bán hàng,プロモーション,puromooshon,Khuyến mãi / Quảng bá,Promotion,J3,新製品のプロモーションを行います。,Quảng bá sản phẩm mới.
+v234,2.5,Marketing & Bán hàng,キャンペーン,kyanpeen,Chiến dịch,Campaign,J4,夏のキャンペーンを企画しています。,Đang lên kế hoạch chiến dịch hè.
+v235,2.5,Marketing & Bán hàng,広告,koukoku,Quảng cáo,Advertisement,J4,広告費を増やします。,Tăng chi phí quảng cáo.
+v236,2.5,Marketing & Bán hàng,宣伝,senden,Tuyên truyền / Quảng bá,Publicity,J4,新サービスを宣伝します。,Quảng bá dịch vụ mới.
+v237,2.5,Marketing & Bán hàng,顧客満足度,kokyaku manzokudo,Mức hài lòng KH,Customer satisfaction,J2,顧客満足度調査を実施します。,Khảo sát hài lòng KH.
+v238,2.5,Marketing & Bán hàng,リピーター,ripiitaa,Khách quay lại,Repeat customer,J3,リピーターを増やす施策が必要です。,Cần biện pháp tăng khách quay lại.
+v239,2.5,Marketing & Bán hàng,クレーム,kureemu,Khiếu nại,Complaint,J4,クレーム対応を改善します。,Cải thiện xử lý khiếu nại.
+v240,2.5,Marketing & Bán hàng,アフターサービス,afutaa saabisu,Dịch vụ hậu mãi,After-sales service,J3,アフターサービスを充実させます。,Nâng cao dịch vụ hậu mãi.
+v241,2.5,Marketing & Bán hàng,市場調査,shijou chousa,Nghiên cứu thị trường,Market research,J2,市場調査の結果を報告します。,Báo cáo kết quả NCTT.
+v242,2.5,Marketing & Bán hàng,需要,juyou,Nhu cầu (thị trường),Demand,J3,需要が増加しています。,Nhu cầu đang tăng.
+v243,2.5,Marketing & Bán hàng,供給,kyoukyuu,Cung cấp,Supply,J3,供給が追いついていません。,Cung không theo kịp cầu.
+v244,2.5,Marketing & Bán hàng,市場,shijou,Thị trường,Market,J3,海外市場に進出します。,Tiến vào thị trường nước ngoài.
+v245,2.5,Marketing & Bán hàng,販売,hanbai,Bán hàng,Sales,J4,販売数量が伸びています。,Số lượng bán tăng.
+v246,2.5,Marketing & Bán hàng,仕入れ,shiire,Nhập hàng / Mua vào,Procurement,J3,仕入れ先を変更します。,Đổi nhà cung cấp.
+v247,2.5,Marketing & Bán hàng,卸売,oroshiuri,Bán buôn,Wholesale,J3,卸売価格で提供します。,Cung cấp giá sỉ.
+v248,2.5,Marketing & Bán hàng,小売,kouri,Bán lẻ,Retail,J3,小売価格は3000円です。,Giá bán lẻ 3000 yên.
+v249,2.5,Marketing & Bán hàng,利益率,riekiritsu,Tỷ suất lợi nhuận,Profit margin,J2,利益率を改善する必要があります。,Cần cải thiện tỷ suất LN.
+v250,2.6,Sản xuất & QC (bổ sung),品質管理,hinshitsu kanri,Quản lý chất lượng,Quality control (QC),J3,品質管理を徹底します。,Quản lý CL triệt để.
+v251,2.6,Sản xuất & QC (bổ sung),品質保証,hinshitsu hoshou,Đảm bảo chất lượng,Quality assurance (QA),J2,品質保証部門が検査します。,Bộ phận QA sẽ kiểm tra.
+v252,2.6,Sản xuất & QC (bổ sung),改善,kaizen,Cải thiện / Kaizen,Improvement (Kaizen),J3,改善活動を推進します。,Đẩy mạnh hoạt động kaizen.
+v253,2.6,Sản xuất & QC (bổ sung),歩留まり,budomari,Tỷ lệ thành phẩm,Yield rate,J2,歩留まりを向上させます。,Nâng cao tỷ lệ thành phẩm.
+v254,2.6,Sản xuất & QC (bổ sung),ロット,rotto,Lô hàng,Lot,J3,ロットごとに検査します。,Kiểm tra theo lô.
+v255,2.6,Sản xuất & QC (bổ sung),試作,shisaku,Làm mẫu thử,Prototype,J3,試作品を作成しました。,Đã làm sản phẩm thử.
+v256,2.6,Sản xuất & QC (bổ sung),量産,ryousan,Sản xuất hàng loạt,Mass production,J3,来月から量産を開始します。,Tháng sau bắt đầu SX hàng loạt.
+v257,2.6,Sản xuất & QC (bổ sung),金型,kanagata,Khuôn (kim loại),Mold/die,J3,金型の修理が必要です。,Cần sửa khuôn.
+v258,2.6,Sản xuất & QC (bổ sung),材料,zairyou,Nguyên liệu / Vật liệu,Material,J4,材料を発注してください。,Hãy đặt nguyên liệu.
+v259,2.6,Sản xuất & QC (bổ sung),原材料,genzairyou,Nguyên vật liệu,Raw material,J3,原材料費が高騰しています。,Giá NVL đang tăng cao.
+v260,2.6,Sản xuất & QC (bổ sung),組立,kumitate,Lắp ráp,Assembly,J3,組立ラインの効率を上げます。,Nâng hiệu suất dây chuyền lắp ráp.
+v261,2.6,Sản xuất & QC (bổ sung),検査,kensa,Kiểm tra,Inspection,J3,出荷前検査を行います。,Kiểm tra trước xuất hàng.
+v262,2.6,Sản xuất & QC (bổ sung),測定,sokutei,Đo lường,Measurement,J3,寸法を測定します。,Đo kích thước.
+v263,2.6,Sản xuất & QC (bổ sung),基準,kijun,Tiêu chuẩn,Standard/criteria,J3,品質基準を満たしています。,Đạt tiêu chuẩn chất lượng.
+v264,2.6,Sản xuất & QC (bổ sung),規格,kikaku,Quy cách / Quy chuẩn,Specification/standard,J3,規格外の製品が見つかりました。,Phát hiện SP ngoài quy cách.
+v265,2.6,Sản xuất & QC (bổ sung),ライン,rain,Dây chuyền,Line,J4,ラインを停止してください。,Hãy dừng dây chuyền.
+v266,2.6,Sản xuất & QC (bổ sung),設備,setsubi,Thiết bị,Equipment/facility,J3,設備のメンテナンスを行います。,Bảo trì thiết bị.
+v267,2.6,Sản xuất & QC (bổ sung),保守,hoshu,Bảo trì / Bảo dưỡng,Maintenance,J3,定期保守を実施します。,Thực hiện bảo trì định kỳ.
+v268,2.6,Sản xuất & QC (bổ sung),安全,anzen,An toàn,Safety,J4,安全第一で作業してください。,Làm việc an toàn trên hết.
+v269,2.6,Sản xuất & QC (bổ sung),災害,saigai,Tai nạn / Thiên tai,Disaster/accident,J3,労働災害を防止します。,Phòng ngừa tai nạn lao động.
+v270,2.7,IT & Công nghệ (bổ sung),ソフトウェア,sofutowea,Phần mềm,Software,J4,ソフトウェアをインストールしてください。,Hãy cài phần mềm.
+v271,2.7,IT & Công nghệ (bổ sung),ハードウェア,haadowea,Phần cứng,Hardware,J4,ハードウェアの交換が必要です。,Cần thay phần cứng.
+v272,2.7,IT & Công nghệ (bổ sung),データベース,deetabeesu,Cơ sở dữ liệu,Database,J3,データベースを更新します。,Cập nhật CSDL.
+v273,2.7,IT & Công nghệ (bổ sung),ネットワーク,nettowaku,Mạng,Network,J4,ネットワーク障害が発生しました。,Xảy ra sự cố mạng.
+v274,2.7,IT & Công nghệ (bổ sung),プログラム,puroguramu,Chương trình,Program,J4,新しいプログラムを開発します。,Phát triển chương trình mới.
+v275,2.7,IT & Công nghệ (bổ sung),アプリ,apuri,Ứng dụng,Application/App,J4,業務用アプリを導入します。,Triển khai app nghiệp vụ.
+v276,2.7,IT & Công nghệ (bổ sung),AI,ee ai,Trí tuệ nhân tạo,Artificial Intelligence,J3,AIを活用して業務を効率化します。,Dùng AI tăng hiệu quả công việc.
+v277,2.7,IT & Công nghệ (bổ sung),DX,dii ekkusu,Chuyển đổi số,Digital Transformation,J2,DXを推進しています。,Đang đẩy mạnh chuyển đổi số.
+v278,2.7,IT & Công nghệ (bổ sung),IoT,ai oo tii,Vạn vật kết nối,Internet of Things,J2,IoTセンサーを導入しました。,Đã triển khai cảm biến IoT.
+v279,2.7,IT & Công nghệ (bổ sung),ログイン,roguin,Đăng nhập,Login,J4,システムにログインしてください。,Hãy đăng nhập hệ thống.
+v280,2.7,IT & Công nghệ (bổ sung),パスワード,pasuwaado,Mật khẩu,Password,J4,パスワードを変更してください。,Hãy đổi mật khẩu.
+v281,2.7,IT & Công nghệ (bổ sung),ダウンロード,daunroodo,Tải xuống,Download,J4,資料をダウンロードしてください。,Hãy tải tài liệu.
+v282,2.7,IT & Công nghệ (bổ sung),アップロード,appuroodo,Tải lên,Upload,J4,ファイルをアップロードしてください。,Hãy upload file.
+v283,2.7,IT & Công nghệ (bổ sung),ウイルス,uirusu,Virus,Virus,J4,ウイルスに感染しました。,Bị nhiễm virus.
+v284,2.7,IT & Công nghệ (bổ sung),フィッシング,fisshingu,Lừa đảo trực tuyến,Phishing,J3,フィッシングメールに注意してください。,Cẩn thận email lừa đảo.
+v285,2.7,IT & Công nghệ (bổ sung),リモートワーク,rimooto waaku,Làm việc từ xa,Remote work,J4,リモートワークが普及しています。,Làm việc từ xa phổ biến.
+v286,2.7,IT & Công nghệ (bổ sung),テレワーク,tere waaku,Làm việc từ xa,Telework,J4,テレワーク制度を導入しました。,Đã áp dụng chế độ telework.
+v287,2.7,IT & Công nghệ (bổ sung),オンライン会議,onrain kaigi,Họp trực tuyến,Online meeting,J4,オンライン会議のリンクを送ります。,Gửi link họp online.
+v288,2.7,IT & Công nghệ (bổ sung),プロジェクト管理,purojekuto kanri,Quản lý dự án,Project management,J3,プロジェクト管理ツールを使っています。,Đang dùng tool quản lý DA.
+v289,2.7,IT & Công nghệ (bổ sung),仕様書,shiyousho,Tài liệu spec,Specification document,J3,仕様書に基づいて開発します。,Phát triển theo tài liệu spec.
+v290,2.8,Nhân sự & Lao động (bổ sung),採用,saiyou,Tuyển dụng,Hiring,J3,新卒採用を行います。,Tuyển dụng sinh viên mới.
+v291,2.8,Nhân sự & Lao động (bổ sung),求人,kyuujin,Tuyển dụng / Tin tuyển,Job opening,J4,求人広告を出しました。,Đăng tin tuyển dụng.
+v292,2.8,Nhân sự & Lao động (bổ sung),応募,oubo,Ứng tuyển,Apply,J4,この職種に応募したいです。,Muốn ứng tuyển vị trí này.
+v293,2.8,Nhân sự & Lao động (bổ sung),内定,naitei,Nhận offer / Quyết định nội bộ,Job offer,J3,内定をいただきました。,Đã nhận được offer.
+v294,2.8,Nhân sự & Lao động (bổ sung),入社,nyuusha,Vào công ty,Join company,J4,来月入社する予定です。,Dự kiến vào công ty tháng sau.
+v295,2.8,Nhân sự & Lao động (bổ sung),試用期間,shiyou kikan,Thời gian thử việc,Probation,J3,試用期間は3ヶ月です。,Thử việc 3 tháng.
+v296,2.8,Nhân sự & Lao động (bổ sung),解雇,kaiko,Sa thải,Dismissal/firing,J2,不当解雇は法律で禁止されています。,Sa thải bất hợp lý bị cấm.
+v297,2.8,Nhân sự & Lao động (bổ sung),定年,teinen,Tuổi nghỉ hưu,Retirement age,J3,定年は65歳です。,Tuổi nghỉ hưu là 65.
+v298,2.8,Nhân sự & Lao động (bổ sung),転職,tenshoku,Đổi việc,Change jobs,J3,転職を考えています。,Đang nghĩ đến đổi việc.
+v299,2.8,Nhân sự & Lao động (bổ sung),福利厚生,fukuri kousei,Phúc lợi,Benefits/welfare,J3,福利厚生が充実しています。,Phúc lợi đầy đủ.
+v300,2.8,Nhân sự & Lao động (bổ sung),社会保険,shakai hoken,Bảo hiểm xã hội,Social insurance,J3,社会保険に加入しています。,Đã tham gia BHXH.
+v301,2.8,Nhân sự & Lao động (bổ sung),労働基準法,roudou kijunhou,Luật tiêu chuẩn LĐ,Labor Standards Act,J2,労働基準法を遵守してください。,Tuân thủ luật LĐ.
+v302,2.8,Nhân sự & Lao động (bổ sung),就業規則,shuugyou kisoku,Nội quy lao động,Work regulations,J3,就業規則を確認してください。,Hãy xem nội quy.
+v303,2.8,Nhân sự & Lao động (bổ sung),人事評価,jinji hyouka,Đánh giá nhân sự,Performance review,J3,人事評価の時期です。,Đến kỳ đánh giá.
+v304,2.8,Nhân sự & Lao động (bổ sung),昇給,shoukyuu,Tăng lương,Salary increase,J3,昇給は年1回です。,Tăng lương 1 lần/năm.
+v305,2.8,Nhân sự & Lao động (bổ sung),減給,genkyuu,Giảm lương,Salary cut,J2,減給処分を受けました。,Bị xử phạt giảm lương.
+v306,2.8,Nhân sự & Lao động (bổ sung),年末調整,nenmatsu chousei,Quyết toán thuế cuối năm,Year-end tax adjustment,J3,年末調整の書類を提出してください。,Nộp giấy tờ quyết toán thuế.
+v307,2.8,Nhân sự & Lao động (bổ sung),扶養,fuyou,Người phụ thuộc,Dependent,J3,扶養家族がいますか。,Có người phụ thuộc không?
+v308,2.8,Nhân sự & Lao động (bổ sung),通勤,tsuukin,Đi làm / Đi lại,Commute,J4,通勤時間は1時間です。,Thời gian đi làm 1 tiếng.
+v309,2.8,Nhân sự & Lao động (bổ sung),時間外労働,jikangai roudou,Làm ngoài giờ,Overtime work,J3,時間外労働は月45時間が上限です。,Ngoài giờ tối đa 45h/tháng.
+v310,2.9,Pháp luật & Hợp đồng,法律,houritsu,Pháp luật / Luật,Law,J3,法律を遵守してください。,Tuân thủ pháp luật.
+v311,2.9,Pháp luật & Hợp đồng,法令,hourei,Pháp lệnh,Laws and regulations,J2,関連法令を確認します。,Xác nhận pháp lệnh liên quan.
+v312,2.9,Pháp luật & Hợp đồng,規約,kiyaku,Quy ước / Điều khoản,Terms/rules,J3,利用規約に同意してください。,Đồng ý điều khoản sử dụng.
+v313,2.9,Pháp luật & Hợp đồng,条項,joukou,Điều khoản,Clause/article,J2,契約書の第3条項を確認してください。,Xác nhận điều khoản thứ 3.
+v314,2.9,Pháp luật & Hợp đồng,条件,jouken,Điều kiện,Condition/terms,J3,取引条件を交渉します。,Đàm phán điều kiện giao dịch.
+v315,2.9,Pháp luật & Hợp đồng,義務,gimu,Nghĩa vụ,Obligation,J2,契約上の義務を果たします。,Thực hiện nghĩa vụ hợp đồng.
+v316,2.9,Pháp luật & Hợp đồng,権利,kenri,Quyền,Right,J2,著作権を保護します。,Bảo vệ quyền tác giả.
+v317,2.9,Pháp luật & Hợp đồng,違反,ihan,Vi phạm,Violation,J2,規則に違反しています。,Vi phạm quy tắc.
+v318,2.9,Pháp luật & Hợp đồng,罰則,bassoku,Chế tài / Phạt,Penalty,J2,罰則が適用されます。,Áp dụng chế tài.
+v319,2.9,Pháp luật & Hợp đồng,訴訟,soshou,Kiện tụng,Lawsuit,J1,訴訟を回避したいです。,Muốn tránh kiện tụng.
+v320,2.9,Pháp luật & Hợp đồng,和解,wakai,Hòa giải,Settlement,J1,和解が成立しました。,Đã hòa giải thành công.
+v321,2.9,Pháp luật & Hợp đồng,紛争,funsou,Tranh chấp,Dispute,J2,紛争を解決します。,Giải quyết tranh chấp.
+v322,2.9,Pháp luật & Hợp đồng,知的財産,chiteki zaisan,Sở hữu trí tuệ,Intellectual property,J1,知的財産権を守ります。,Bảo vệ quyền SHTT.
+v323,2.9,Pháp luật & Hợp đồng,特許,tokkyo,Bằng sáng chế,Patent,J2,特許を申請しました。,Đã nộp đơn bằng sáng chế.
+v324,2.9,Pháp luật & Hợp đồng,商標,shouhyou,Nhãn hiệu,Trademark,J2,商標を登録します。,Đăng ký nhãn hiệu.
+v325,2.9,Pháp luật & Hợp đồng,秘密保持契約,himitsu hoji keiyaku,Thỏa thuận bảo mật,NDA,J2,秘密保持契約を締結します。,Ký thỏa thuận bảo mật.
+v326,2.9,Pháp luật & Hợp đồng,損害賠償,songai baishou,Bồi thường thiệt hại,Compensation,J1,損害賠償を請求されました。,Bị yêu cầu bồi thường.
+v327,2.9,Pháp luật & Hợp đồng,免責,menseki,Miễn trách,Disclaimer,J1,免責事項をご確認ください。,Hãy xem điều khoản miễn trách.
+v328,2.9,Pháp luật & Hợp đồng,有効期限,yuukou kigen,Thời hạn hiệu lực,Expiration date,J3,契約の有効期限は来年3月末です。,Hợp đồng hết hạn cuối T3 năm sau.
+v329,2.9,Pháp luật & Hợp đồng,更新,koushin,Gia hạn / Cập nhật,Renewal/update,J3,契約を更新します。,Gia hạn hợp đồng.
+v330,2.10,Logistics & Vận chuyển,物流,butsuryuu,Logistics / Vận chuyển,Logistics,J3,物流コストを削減します。,Giảm chi phí logistics.
+v331,2.10,Logistics & Vận chuyển,配送,haisou,Giao hàng / Vận chuyển,Delivery/shipping,J3,配送日を指定できます。,Có thể chỉ định ngày giao.
+v332,2.10,Logistics & Vận chuyển,輸送,yusou,Vận chuyển,Transport,J3,国際輸送の手配をします。,Sắp xếp vận chuyển quốc tế.
+v333,2.10,Logistics & Vận chuyển,輸出,yushutsu,Xuất khẩu,Export,J3,製品を海外に輸出しています。,Đang xuất khẩu SP ra nước ngoài.
+v334,2.10,Logistics & Vận chuyển,輸入,yunyuu,Nhập khẩu,Import,J3,原材料を輸入しています。,Đang nhập khẩu NVL.
+v335,2.10,Logistics & Vận chuyển,通関,tsuukan,Thông quan,Customs clearance,J2,通関手続きを行います。,Làm thủ tục thông quan.
+v336,2.10,Logistics & Vận chuyển,関税,kanzei,Thuế quan,Customs duty,J2,関税がかかります。,Phải chịu thuế quan.
+v337,2.10,Logistics & Vận chuyển,倉庫,souko,Kho,Warehouse,J3,倉庫に保管しています。,Đang lưu kho.
+v338,2.10,Logistics & Vận chuyển,荷物,nimotsu,Hàng hóa / Bưu kiện,Package/cargo,J4,荷物が届きました。,Hàng đã đến.
+v339,2.10,Logistics & Vận chuyển,梱包,konpou,Đóng gói,Packing,J3,丁寧に梱包してください。,Hãy đóng gói cẩn thận.
+v340,2.10,Logistics & Vận chuyển,追跡,tsuiseki,Theo dõi,Tracking,J3,荷物の追跡番号をお知らせします。,Thông báo mã theo dõi hàng.
+v341,2.10,Logistics & Vận chuyển,到着,touchaku,Đến nơi,Arrival,J4,荷物は明日到着予定です。,Hàng dự kiến đến mai.
+v342,2.10,Logistics & Vận chuyển,遅延,chien,Chậm trễ,Delay,J3,配送に遅延が発生しています。,Giao hàng bị chậm.
+v343,2.10,Logistics & Vận chuyển,返品,henpin,Trả hàng,Return,J3,不良品を返品します。,Trả lại hàng lỗi.
+v344,2.10,Logistics & Vận chuyển,交換,koukan,Đổi hàng,Exchange,J3,新品と交換いたします。,Đổi hàng mới.
+v345,2.11,Quản trị & Chiến lược,経営,keiei,Kinh doanh / Quản trị,Management,J2,経営戦略を策定します。,Lập chiến lược quản trị.
+v346,2.11,Quản trị & Chiến lược,戦略,senryaku,Chiến lược,Strategy,J2,中期経営戦略を発表しました。,Công bố chiến lược trung hạn.
+v347,2.11,Quản trị & Chiến lược,方針,houshin,Phương châm / Chính sách,Policy/direction,J3,会社の方針に従ってください。,Tuân theo phương châm công ty.
+v348,2.11,Quản trị & Chiến lược,計画,keikaku,Kế hoạch,Plan,J4,事業計画を作成します。,Lập kế hoạch kinh doanh.
+v349,2.11,Quản trị & Chiến lược,企業,kigyou,Doanh nghiệp,Company/enterprise,J3,大企業と中小企業。,Doanh nghiệp lớn và vừa nhỏ.
+v350,2.11,Quản trị & Chiến lược,事業,jigyou,Sự nghiệp / Mảng KD,Business/project,J3,新規事業を立ち上げます。,Khởi động mảng KD mới.
+v351,2.11,Quản trị & Chiến lược,合併,gappei,Sáp nhập,Merger,J1,2社が合併しました。,2 công ty sáp nhập.
+v352,2.11,Quản trị & Chiến lược,買収,baishuu,Mua lại / Thâu tóm,Acquisition,J1,競合他社を買収します。,Mua lại đối thủ.
+v353,2.11,Quản trị & Chiến lược,提携,teikei,Hợp tác / Liên kết,Partnership/alliance,J2,業務提携を結びました。,Ký kết hợp tác kinh doanh.
+v354,2.11,Quản trị & Chiến lược,子会社,kogaisha,Công ty con,Subsidiary,J2,海外に子会社があります。,Có công ty con ở nước ngoài.
+v355,2.11,Quản trị & Chiến lược,本社,honsha,Trụ sở chính,Headquarters,J4,本社は東京にあります。,Trụ sở chính ở Tokyo.
+v356,2.11,Quản trị & Chiến lược,支社,shisha,Chi nhánh,Branch office,J4,大阪に支社があります。,Có chi nhánh ở Osaka.
+v357,2.11,Quản trị & Chiến lược,工場,koujou,Nhà máy,Factory,J4,工場を見学します。,Tham quan nhà máy.
+v358,2.11,Quản trị & Chiến lược,海外進出,kaigai shinshutsu,Tiến ra nước ngoài,Overseas expansion,J2,東南アジアに海外進出します。,Tiến ra ĐNA.
+v359,2.11,Quản trị & Chiến lược,撤退,tettai,Rút lui,Withdrawal,J1,不採算事業から撤退します。,Rút khỏi mảng KD lỗ.
+v360,2.11,Quản trị & Chiến lược,リストラ,risutora,Tái cấu trúc / Cắt giảm,Restructuring,J2,リストラが行われました。,Đã thực hiện tái cấu trúc.
+v361,2.11,Quản trị & Chiến lược,コスト削減,kosuto sakugen,Cắt giảm chi phí,Cost reduction,J3,コスト削減に取り組んでいます。,Đang cắt giảm chi phí.
+v362,2.11,Quản trị & Chiến lược,効率化,kouritsuka,Nâng cao hiệu quả,Efficiency improvement,J3,業務の効率化を図ります。,Nâng hiệu quả nghiệp vụ.
+v363,2.11,Quản trị & Chiến lược,生産性,seisansei,Năng suất,Productivity,J3,生産性を向上させます。,Nâng cao năng suất.
+v364,2.11,Quản trị & Chiến lược,持続可能,jizoku kanou,Bền vững,Sustainable,J2,持続可能な経営を目指します。,Hướng đến quản trị bền vững.
+v365,2.12,Cuộc sống công sở,通勤電車,tsuukin densha,Tàu đi làm,Commuter train,J5,通勤電車が遅れています。,Tàu đi làm bị trễ.
+v366,2.12,Cuộc sống công sở,定時,teiji,Giờ tan ca,Regular hours,J4,定時に退社します。,Về đúng giờ.
+v367,2.12,Cuộc sống công sở,始業,shigyou,Bắt đầu làm việc,Start of work,J4,始業は9時です。,Bắt đầu lúc 9h.
+v368,2.12,Cuộc sống công sở,終業,shuugyou,Kết thúc làm việc,End of work,J4,終業は18時です。,Kết thúc lúc 18h.
+v369,2.12,Cuộc sống công sở,昼休み,hiruyasumi,Nghỉ trưa,Lunch break,J5,昼休みは12時からです。,Nghỉ trưa từ 12h.
+v370,2.12,Cuộc sống công sở,休憩,kyuukei,Nghỉ giải lao,Break,J4,10分間の休憩を取ります。,Nghỉ giải lao 10 phút.
+v371,2.12,Cuộc sống công sở,忘年会,bounenkai,Tiệc cuối năm,Year-end party,J4,忘年会の幹事を担当します。,Phụ trách tổ chức tiệc cuối năm.
+v372,2.12,Cuộc sống công sở,歓迎会,kangeikai,Tiệc chào mừng,Welcome party,J4,新入社員の歓迎会があります。,Có tiệc chào mừng NV mới.
+v373,2.12,Cuộc sống công sở,送別会,soubetsukai,Tiệc chia tay,Farewell party,J4,退職する方の送別会を開きます。,Tổ chức tiệc chia tay người nghỉ việc.
+v374,2.12,Cuộc sống công sở,飲み会,nomikai,Đi nhậu / Đi uống,Drinking party,J5,今夜飲み会がありますが、参加しますか。,"Tối nay có đi uống, anh tham gia không?"
+v375,2.12,Cuộc sống công sở,二次会,nijikai,Tiệc vòng 2,After-party,J4,二次会はカラオケです。,Vòng 2 đi karaoke.
+v376,2.12,Cuộc sống công sở,幹事,kanji,Người tổ chức,Organizer,J4,忘年会の幹事は私です。,Tôi là người tổ chức tiệc cuối năm.
+v377,2.12,Cuộc sống công sở,名札,nafuda,Bảng tên,Name tag,J4,名札を付けてください。,Hãy đeo bảng tên.
+v378,2.12,Cuộc sống công sở,制服,seifuku,Đồng phục,Uniform,J4,制服を着用してください。,Hãy mặc đồng phục.
+v379,2.12,Cuộc sống công sở,社員証,shainnshou,Thẻ nhân viên,Employee ID,J4,社員証を忘れないでください。,Đừng quên thẻ nhân viên.
+v380,2.12,Cuộc sống công sở,ロッカー,rokkaa,Tủ đựng đồ,Locker,J4,ロッカーの鍵を受け取ってください。,Nhận chìa khóa tủ.
+v381,2.12,Cuộc sống công sở,食堂,shokudou,Nhà ăn,Cafeteria,J5,社員食堂で昼食を取ります。,Ăn trưa ở nhà ăn.
+v382,2.12,Cuộc sống công sở,社宅,shataku,Nhà công ty,Company housing,J3,社宅に住んでいます。,Đang ở nhà công ty.
+v383,2.12,Cuộc sống công sở,転勤,tenkin,Chuyển nơi làm việc,Transfer (relocation),J3,来月、名古屋に転勤になりました。,Tháng sau chuyển đến Nagoya.
+v384,2.12,Cuộc sống công sở,単身赴任,tanshin funin,Đi công tác một mình (gia đình ở lại),Solo transfer,J2,単身赴任で大阪に行きます。,"Đi Osaka một mình, GĐ ở lại."
+v385,2.13,Katakana Business (bổ sung),ベンチマーク,benchmaaku,Tiêu chuẩn so sánh,Benchmark,J2,競合他社をベンチマークします。,Lấy đối thủ làm chuẩn so sánh.
+v386,2.13,Katakana Business (bổ sung),ボトルネック,botorunekku,Nút thắt / Điểm nghẽn,Bottleneck,J2,生産のボトルネックを特定します。,Xác định điểm nghẽn SX.
+v387,2.13,Katakana Business (bổ sung),シナジー,shinajii,Hiệu ứng cộng hưởng,Synergy,J1,合併によるシナジー効果を期待しています。,Kỳ vọng hiệu ứng cộng hưởng từ sáp nhập.
+v388,2.13,Katakana Business (bổ sung),ガバナンス,gabannansu,Quản trị (doanh nghiệp),Governance,J1,コーポレートガバナンスを強化します。,Tăng cường quản trị DN.
+v389,2.13,Katakana Business (bổ sung),コミットメント,komittomento,Cam kết,Commitment,J2,目標へのコミットメントが重要です。,Cam kết với mục tiêu là quan trọng.
+v390,2.13,Katakana Business (bổ sung),ステークホルダー,suteekuhorudaa,Bên liên quan,Stakeholder,J1,ステークホルダーに説明します。,Giải thích cho các bên liên quan.
+v391,2.13,Katakana Business (bổ sung),デューデリジェンス,dyuuderijensu,Thẩm tra / DD,Due Diligence,J1,買収前にデューデリジェンスを行います。,Thẩm tra trước khi mua lại.
+v392,2.13,Katakana Business (bổ sung),キャッシュフロー,kyasshufuroo,Dòng tiền,Cash flow,J2,キャッシュフローを改善します。,Cải thiện dòng tiền.
+v393,2.13,Katakana Business (bổ sung),サプライチェーン,sapurai cheen,Chuỗi cung ứng,Supply chain,J2,サプライチェーンを最適化します。,Tối ưu hóa chuỗi cung ứng.
+v394,2.13,Katakana Business (bổ sung),アウトソーシング,autososhingu,Thuê ngoài,Outsourcing,J3,ITのアウトソーシングを検討しています。,Đang xem xét thuê ngoài IT.
+v395,2.13,Katakana Business (bổ sung),クロージング,kuroojingu,Chốt deal / Kết thúc,Closing,J2,今月中にクロージングしたいです。,Muốn chốt deal trong tháng.
+v396,2.13,Katakana Business (bổ sung),ROI,aa oo ai,Tỷ suất hoàn vốn,Return on Investment,J2,ROIを計算してください。,Hãy tính ROI.
+v397,2.13,Katakana Business (bổ sung),BtoB,bii tuu bii,Doanh nghiệp - Doanh nghiệp,Business to Business,J3,BtoB向けのサービスです。,Dịch vụ cho B2B.
+v398,2.13,Katakana Business (bổ sung),BtoC,bii tuu shii,Doanh nghiệp - Người tiêu dùng,Business to Consumer,J3,BtoC市場に参入します。,Tham gia thị trường B2C.
+v399,2.13,Katakana Business (bổ sung),スキーム,sukiimu,Kế hoạch / Cơ chế,Scheme,J2,新しいビジネススキームを提案します。,Đề xuất cơ chế KD mới.
+v400,2.13,Katakana Business (bổ sung),ソリューション,soryuushon,Giải pháp,Solution,J3,最適なソリューションを提供します。,Cung cấp giải pháp tối ưu.
+v401,2.13,Katakana Business (bổ sung),ワークライフバランス,waaku raifu baransu,Cân bằng công việc-cuộc sống,Work-life balance,J3,ワークライフバランスを重視しています。,Coi trọng cân bằng CV-CS.
+v402,2.13,Katakana Business (bổ sung),ハラスメント,harasumento,Quấy rối,Harassment,J3,ハラスメントは禁止されています。,Quấy rối bị cấm.
+v403,2.13,Katakana Business (bổ sung),パワハラ,pawahara,Bắt nạt quyền lực,Power harassment,J3,パワハラ防止法が施行されています。,Luật chống bắt nạt quyền lực đã có hiệu lực.
+v404,2.13,Katakana Business (bổ sung),セクハラ,sekuhara,Quấy rối tình dục,Sexual harassment,J3,セクハラは厳しく禁止されています。,Quấy rối tình dục bị cấm nghiêm.
+v405,2.13,Katakana Business (bổ sung),ダイバーシティ,daibashitii,Đa dạng,Diversity,J2,ダイバーシティを推進しています。,Đang thúc đẩy đa dạng.
+v406,2.13,Katakana Business (bổ sung),SDGs,esu dii jiizu,Mục tiêu phát triển bền vững,Sustainable Development Goals,J2,SDGsに取り組んでいます。,Đang thực hiện SDGs.
+v407,2.13,Katakana Business (bổ sung),カーボンニュートラル,kaabon nyuutoraru,Trung hòa carbon,Carbon neutral,J1,2050年カーボンニュートラルを目指します。,Hướng đến trung hòa carbon 2050.
+v408,2.13,Katakana Business (bổ sung),コーポレート,kooporeeto,Doanh nghiệp (corporate),Corporate,J2,コーポレートサイトを刷新しました。,Đã làm mới website DN.
+v409,2.13,Katakana Business (bổ sung),ベンチャー,benchaa,Khởi nghiệp,Venture,J3,ベンチャー企業を支援しています。,Đang hỗ trợ DN khởi nghiệp.
+v410,2.14,Từ vựng đề thi BJT,対応,taiou,Ứng phó / Xử lý,Response/handling,J4,早急に対応いたします。,Xử lý gấp.
+v411,2.14,Từ vựng đề thi BJT,処理,shori,Xử lý,Processing,J4,書類を処理しました。,Đã xử lý giấy tờ.
+v412,2.14,Từ vựng đề thi BJT,手配,tehai,Sắp xếp / Chuẩn bị,Arrangement,J3,出張の手配をお願いします。,Nhờ sắp xếp công tác.
+v413,2.14,Từ vựng đề thi BJT,手続き,tetsuzuki,Thủ tục,Procedure,J4,入社手続きを完了しました。,Hoàn thành thủ tục nhập xã.
+v414,2.14,Từ vựng đề thi BJT,問い合わせ,toiawase,Hỏi thăm / Liên hệ,Inquiry,J4,お問い合わせありがとうございます。,Cảm ơn đã liên hệ.
+v415,2.14,Từ vựng đề thi BJT,見直し,minaoshi,Rà soát / Xem lại,Review/revise,J3,計画を見直します。,Rà soát kế hoạch.
+v416,2.14,Từ vựng đề thi BJT,取り組み,torikumi,Nỗ lực / Hoạt động,Effort/initiative,J3,環境への取り組みを強化します。,Tăng cường nỗ lực về môi trường.
+v417,2.14,Từ vựng đề thi BJT,方策,housaku,Biện pháp / Phương sách,Measure/countermeasure,J2,具体的な方策を検討します。,Xem xét biện pháp cụ thể.
+v418,2.14,Từ vựng đề thi BJT,施策,shisaku,Chính sách / Biện pháp,Policy measure,J2,新たな施策を導入します。,Đưa ra biện pháp mới.
+v419,2.14,Từ vựng đề thi BJT,是正,zesei,Chỉnh sửa / Khắc phục,Correction,J2,問題を是正します。,Khắc phục vấn đề.
+v420,2.14,Từ vựng đề thi BJT,改定,kaitei,Cải định / Sửa đổi,Revision (rules),J2,料金を改定しました。,Đã sửa đổi giá.
+v421,2.14,Từ vựng đề thi BJT,施行,shikou,Thi hành / Có hiệu lực,Enforcement,J2,新法が施行されました。,Luật mới có hiệu lực.
+v422,2.14,Từ vựng đề thi BJT,適用,tekiyou,Áp dụng,Application,J2,新制度が適用されます。,Chế độ mới được áp dụng.
+v423,2.14,Từ vựng đề thi BJT,策定,sakutei,Lập / Xây dựng,Formulation,J2,計画を策定しています。,Đang lập kế hoạch.
+v424,2.14,Từ vựng đề thi BJT,推進,suishin,Thúc đẩy,Promotion/advancement,J2,プロジェクトを推進します。,Thúc đẩy dự án.
+v425,2.14,Từ vựng đề thi BJT,促進,sokushin,Xúc tiến / Thúc đẩy,Promotion,J2,販売促進活動を行います。,Thực hiện hoạt động xúc tiến bán hàng.
+v426,2.14,Từ vựng đề thi BJT,削減,sakugen,Cắt giảm,Reduction,J3,コストを削減します。,Cắt giảm chi phí.
+v427,2.14,Từ vựng đề thi BJT,拡大,kakudai,Mở rộng,Expansion,J3,事業を拡大します。,Mở rộng kinh doanh.
+v428,2.14,Từ vựng đề thi BJT,縮小,shukushou,Thu nhỏ / Giảm quy mô,Reduction/downsizing,J2,事業を縮小します。,Giảm quy mô KD.
+v429,2.14,Từ vựng đề thi BJT,統合,tougou,Hợp nhất / Tích hợp,Integration,J2,システムを統合します。,Hợp nhất hệ thống.
+v430,2.14,Từ vựng đề thi BJT,分析,bunseki,Phân tích,Analysis,J3,データを分析します。,Phân tích dữ liệu.
+v431,2.14,Từ vựng đề thi BJT,評価,hyouka,Đánh giá,Evaluation,J3,結果を評価します。,Đánh giá kết quả.
+v432,2.14,Từ vựng đề thi BJT,導入,dounyuu,Triển khai / Đưa vào,Introduction/implementation,J3,新システムを導入します。,Triển khai hệ thống mới.
+v433,2.14,Từ vựng đề thi BJT,運用,unyou,Vận hành,Operation/management,J3,システムを運用しています。,Đang vận hành hệ thống.
+v434,2.14,Từ vựng đề thi BJT,維持,iji,Duy trì,Maintenance,J3,品質を維持します。,Duy trì chất lượng.
+v435,2.14,Từ vựng đề thi BJT,改良,kairyou,Cải tiến,Improvement,J3,製品を改良しました。,Đã cải tiến sản phẩm.
+v436,2.14,Từ vựng đề thi BJT,開発,kaihatsu,Phát triển,Development,J3,新製品を開発します。,Phát triển SP mới.
+v437,2.14,Từ vựng đề thi BJT,研究,kenkyuu,Nghiên cứu,Research,J3,市場を研究しています。,Đang nghiên cứu thị trường.
+v438,2.14,Từ vựng đề thi BJT,実施,jisshi,Thực hiện,Implementation,J3,計画を実施します。,Thực hiện kế hoạch.
+v439,2.14,Từ vựng đề thi BJT,完了,kanryou,Hoàn thành,Completion,J4,作業が完了しました。,Công việc đã hoàn thành.
+v440,2.14,Từ vựng đề thi BJT,進行,shinkou,Tiến hành,Progress/proceeding,J3,プロジェクトは順調に進行しています。,Dự án đang tiến hành thuận lợi.
+v441,2.14,Từ vựng đề thi BJT,遂行,suikou,Thi hành / Hoàn thành,Execution,J1,任務を遂行します。,Thi hành nhiệm vụ.
+v442,2.14,Từ vựng đề thi BJT,遵守,junshu,Tuân thủ,Compliance,J2,規則を遵守してください。,Tuân thủ quy tắc.
+v443,2.14,Từ vựng đề thi BJT,把握,haaku,Nắm bắt,Grasp/understanding,J2,状況を把握しています。,Đã nắm bắt tình hình.
+v444,2.14,Từ vựng đề thi BJT,精査,seisa,Rà soát kỹ,Scrutiny,J1,報告書を精査します。,Rà soát kỹ báo cáo.
+v445,2.14,Từ vựng đề thi BJT,妥当,datou,Thỏa đáng / Hợp lý,Appropriate,J2,この価格は妥当です。,Giá này hợp lý.
+v446,2.14,Từ vựng đề thi BJT,最善,saizen,Tốt nhất,Best,J3,最善を尽くします。,Cố gắng hết sức.
+v447,2.14,Từ vựng đề thi BJT,不備,fubi,Thiếu sót,Deficiency,J2,書類に不備があります。,Giấy tờ có thiếu sót.
+v448,2.14,Từ vựng đề thi BJT,過失,kashitsu,Sơ suất / Lỗi,Negligence,J1,過失による事故です。,Tai nạn do sơ suất.
+v449,2.14,Từ vựng đề thi BJT,瑕疵,kashi,Khuyết tật / Lỗi (pháp lý),Defect (legal),J1,瑕疵がある場合は返品できます。,Có lỗi thì được trả hàng.
+v450,3.1,Động từ hành động công sở,提出する,teishutsu suru,Nộp / Đệ trình,Submit,J4,書類を提出してください。,Hãy nộp giấy tờ.
+v451,3.1,Động từ hành động công sở,作成する,sakusei suru,Tạo / Lập,Create/make,J4,報告書を作成しました。,Đã lập báo cáo.
+v452,3.1,Động từ hành động công sở,記入する,kinyuu suru,Điền vào,Fill in,J4,申請書に記入してください。,Hãy điền vào đơn.
+v453,3.1,Động từ hành động công sở,記載する,kisai suru,Ghi chép / Ghi rõ,Describe/state,J3,詳細を記載してください。,Hãy ghi rõ chi tiết.
+v454,3.1,Động từ hành động công sở,提供する,teikyou suru,Cung cấp,Provide,J3,情報を提供します。,Cung cấp thông tin.
+v455,3.1,Động từ hành động công sở,依頼する,irai suru,Yêu cầu / Nhờ,Request,J3,翻訳を依頼しました。,Đã nhờ dịch.
+v456,3.1,Động từ hành động công sở,指示する,shiji suru,Chỉ thị / Ra lệnh,Instruct,J3,部長が指示しました。,Trưởng phòng đã chỉ thị.
+v457,3.1,Động từ hành động công sở,承認する,shounin suru,Phê duyệt,Approve,J3,申請を承認しました。,Đã phê duyệt đơn.
+v458,3.1,Động từ hành động công sở,却下する,kyakka suru,Bác bỏ,Reject,J2,提案が却下されました。,Đề xuất bị bác bỏ.
+v459,3.1,Động từ hành động công sở,延期する,enki suru,Hoãn lại,Postpone,J3,会議を延期します。,Hoãn cuộc họp.
+v460,3.1,Động từ hành động công sở,中止する,chuushi suru,Hủy bỏ,Cancel,J4,イベントを中止します。,Hủy sự kiện.
+v461,3.1,Động từ hành động công sở,再開する,saikai suru,Tái khởi động,Resume,J3,生産を再開しました。,Đã tái khởi động SX.
+v462,3.1,Động từ hành động công sở,調整する,chousei suru,Điều chỉnh,Adjust/coordinate,J3,スケジュールを調整します。,Điều chỉnh lịch.
+v463,3.1,Động từ hành động công sở,管理する,kanri suru,Quản lý,Manage,J3,在庫を管理します。,Quản lý tồn kho.
+v464,3.1,Động từ hành động công sở,監督する,kantoku suru,Giám sát,Supervise,J2,工事を監督します。,Giám sát công trình.
+v465,3.1,Động từ hành động công sở,交付する,koufu suru,Cấp phát,Issue/grant,J2,証明書を交付します。,Cấp giấy chứng nhận.
+v466,3.1,Động từ hành động công sở,発行する,hakkou suru,Phát hành,Issue/publish,J3,領収書を発行します。,Phát hành biên lai.
+v467,3.1,Động từ hành động công sở,通知する,tsuuchi suru,Thông báo,Notify,J3,結果を通知します。,Thông báo kết quả.
+v468,3.1,Động từ hành động công sở,開催する,kaisai suru,Tổ chức (sự kiện),Hold/organize,J3,セミナーを開催します。,Tổ chức seminar.
+v469,3.1,Động từ hành động công sở,参加する,sanka suru,Tham gia,Participate,J4,会議に参加します。,Tham gia họp.
+v470,3.1,Động từ hành động công sở,出席する,shusseki suru,Dự / Có mặt,Attend,J4,式典に出席します。,Dự lễ.
+v471,3.1,Động từ hành động công sở,着手する,chakushu suru,Bắt tay vào,Start working on,J2,新プロジェクトに着手します。,Bắt tay vào dự án mới.
+v472,3.1,Động từ hành động công sở,遂行する,suikou suru,Thi hành,Execute/carry out,J1,任務を遂行します。,Thi hành nhiệm vụ.
+v473,3.1,Động từ hành động công sở,委託する,itaku suru,Ủy thác,Entrust/outsource,J2,業務を外部に委託します。,Ủy thác cho bên ngoài.
+v474,3.1,Động từ hành động công sở,委任する,inin suru,Ủy nhiệm,Delegate,J2,権限を委任します。,Ủy nhiệm quyền hạn.
+v475,3.1,Động từ hành động công sở,辞退する,jitai suru,Từ chối (lịch sự),Decline,J2,今回は辞退させていただきます。,Lần này xin phép từ chối.
+v476,3.1,Động từ hành động công sở,催促する,saisoku suru,Nhắc nhở / Giục,Remind/urge,J3,返信を催促します。,Nhắc trả lời.
+v477,3.1,Động từ hành động công sở,督促する,tokusoku suru,Đôn đốc,Press/urge strongly,J2,支払いを督促します。,Đôn đốc thanh toán.
+v478,3.1,Động từ hành động công sở,要請する,yousei suru,Yêu cầu (chính thức),Request formally,J2,政府に支援を要請しました。,Đã yêu cầu chính phủ hỗ trợ.
+v479,3.1,Động từ hành động công sở,申請する,shinsei suru,Xin / Nộp đơn,Apply,J4,ビザを申請します。,Nộp đơn xin visa.
+v480,3.2,Tính từ & Trạng từ công sở,適切な,tekisetsu na,Thích hợp / Phù hợp,Appropriate,J3,適切な対応をお願いします。,Hãy xử lý phù hợp.
+v481,3.2,Tính từ & Trạng từ công sở,迅速な,jinsoku na,Nhanh chóng,Prompt/swift,J3,迅速な対応ありがとうございます。,Cảm ơn xử lý nhanh.
+v482,3.2,Tính từ & Trạng từ công sở,円滑な,enkatsu na,Trôi chảy / Suôn sẻ,Smooth,J2,円滑なコミュニケーションが重要です。,Giao tiếp suôn sẻ rất quan trọng.
+v483,3.2,Tính từ & Trạng từ công sở,具体的な,gutaiteki na,Cụ thể,Specific/concrete,J3,具体的な数字を教えてください。,Cho biết con số cụ thể.
+v484,3.2,Tính từ & Trạng từ công sở,効率的な,kouritsuteki na,Hiệu quả,Efficient,J3,効率的に作業を進めます。,Làm việc hiệu quả.
+v485,3.2,Tính từ & Trạng từ công sở,積極的な,sekkyokuteki na,Tích cực / Chủ động,Proactive,J3,積極的に取り組んでください。,Hãy chủ động làm.
+v486,3.2,Tính từ & Trạng từ công sở,消極的な,shoukyokuteki na,Tiêu cực / Thụ động,Passive/negative,J3,消極的な姿勢は避けましょう。,Tránh thái độ thụ động.
+v487,3.2,Tính từ & Trạng từ công sở,柔軟な,juunan na,Linh hoạt,Flexible,J3,柔軟に対応します。,Xử lý linh hoạt.
+v488,3.2,Tính từ & Trạng từ công sở,厳格な,genkaku na,Nghiêm ngặt,Strict,J2,厳格なルールが適用されます。,Áp dụng quy tắc nghiêm.
+v489,3.2,Tính từ & Trạng từ công sở,慎重な,shinchou na,Cẩn trọng,Careful/cautious,J3,慎重に検討してください。,Hãy cẩn trọng xem xét.
+v490,3.2,Tính từ & Trạng từ công sở,緊急の,kinkyuu no,Khẩn cấp,Urgent,J4,緊急の対応が必要です。,Cần xử lý khẩn.
+v491,3.2,Tính từ & Trạng từ công sở,至急,shikyuu,Gấp / Khẩn cấp,ASAP/urgent,J4,至急ご連絡ください。,Liên lạc gấp.
+v492,3.2,Tính từ & Trạng từ công sở,早急に,sakkyuu ni,Sớm nhất có thể,As soon as possible,J3,早急に対応いたします。,Xử lý sớm nhất.
+v493,3.2,Tính từ & Trạng từ công sở,順調に,junchou ni,Thuận lợi,Smoothly,J3,プロジェクトは順調に進んでいます。,Dự án tiến hành thuận lợi.
+v494,3.2,Tính từ & Trạng từ công sở,概ね,oomune,Nhìn chung / Đại thể,Generally/mostly,J2,概ね良好な結果でした。,Nhìn chung kết quả tốt.
+v495,3.2,Tính từ & Trạng từ công sở,前向きに,maemuki ni,Tích cực / Hướng về phía trước,Positively,J3,前向きに検討します。,Sẽ xem xét tích cực.
+v496,3.2,Tính từ & Trạng từ công sở,引き続き,hikitsuzuki,Tiếp tục,Continuing,J3,引き続きよろしくお願いします。,Mong tiếp tục hợp tác.
+v497,3.2,Tính từ & Trạng từ công sở,万全の,banzen no,Hoàn hảo / Đầy đủ,Perfect/thorough,J2,万全の準備をしました。,Đã chuẩn bị kỹ lưỡng.
+v498,3.2,Tính từ & Trạng từ công sở,不可欠な,fukaketsu na,Không thể thiếu,Indispensable,J2,チームワークは不可欠です。,Teamwork không thể thiếu.
+v499,3.2,Tính từ & Trạng từ công sở,妥当な,datou na,Thỏa đáng / Hợp lý,Reasonable,J2,妥当な価格です。,Giá hợp lý.
+v500,3.3,Kinh tế vĩ mô (đọc hiểu BJT),景気,keiki,Tình hình kinh tế,Economic conditions,J3,景気が回復しています。,KT đang phục hồi.
+v501,3.3,Kinh tế vĩ mô (đọc hiểu BJT),不況,fukyou,Suy thoái,Recession,J2,不況で売上が落ちました。,DT giảm do suy thoái.
+v502,3.3,Kinh tế vĩ mô (đọc hiểu BJT),好況,koukyou,Thịnh vượng,Boom/prosperity,J2,好況が続いています。,Kinh tế thịnh vượng.
+v503,3.3,Kinh tế vĩ mô (đọc hiểu BJT),インフレ,infure,Lạm phát,Inflation,J3,インフレが進んでいます。,Lạm phát đang tăng.
+v504,3.3,Kinh tế vĩ mô (đọc hiểu BJT),デフレ,defure,Giảm phát,Deflation,J3,長期デフレから脱却しました。,Thoát khỏi giảm phát dài hạn.
+v505,3.3,Kinh tế vĩ mô (đọc hiểu BJT),金利,kinri,Lãi suất,Interest rate,J3,金利が引き上げられました。,Lãi suất được nâng.
+v506,3.3,Kinh tế vĩ mô (đọc hiểu BJT),物価,bukka,Giá cả (chung),Prices (general),J3,物価が上昇しています。,Giá cả đang tăng.
+v507,3.3,Kinh tế vĩ mô (đọc hiểu BJT),消費税,shouhizei,Thuế tiêu dùng,Consumption tax,J4,消費税は10%です。,Thuế tiêu dùng 10%.
+v508,3.3,Kinh tế vĩ mô (đọc hiểu BJT),所得税,shotokuzei,Thuế thu nhập,Income tax,J3,所得税を納めます。,Đóng thuế thu nhập.
+v509,3.3,Kinh tế vĩ mô (đọc hiểu BJT),法人税,houjinzei,Thuế doanh nghiệp,Corporate tax,J2,法人税率が変更されました。,Thuế suất DN đã đổi.
+v510,3.3,Kinh tế vĩ mô (đọc hiểu BJT),GDP,jii dii pii,Tổng SP quốc nội,Gross Domestic Product,J2,日本のGDPは世界第4位です。,GDP Nhật đứng thứ 4 TG.
+v511,3.3,Kinh tế vĩ mô (đọc hiểu BJT),貿易,boueki,Thương mại / Mậu dịch,Trade,J3,貿易収支が赤字です。,Cán cân thương mại thâm hụt.
+v512,3.3,Kinh tế vĩ mô (đọc hiểu BJT),貿易摩擦,boueki masatsu,Ma sát thương mại,Trade friction,J1,日米間の貿易摩擦。,Ma sát TM Nhật-Mỹ.
+v513,3.3,Kinh tế vĩ mô (đọc hiểu BJT),規制,kisei,Quy chế / Quy định,Regulation,J2,規制を緩和します。,Nới lỏng quy định.
+v514,3.3,Kinh tế vĩ mô (đọc hiểu BJT),規制緩和,kisei kanwa,Nới lỏng quy định,Deregulation,J1,規制緩和で新規参入が増えました。,Nới lỏng→tăng DN mới tham gia.
+v515,3.3,Kinh tế vĩ mô (đọc hiểu BJT),少子高齢化,shoushi koureika,Ít con + già hóa,Aging society with fewer children,J2,少子高齢化が深刻です。,Già hóa + ít con nghiêm trọng.
+v516,3.3,Kinh tế vĩ mô (đọc hiểu BJT),人手不足,hitode busoku,Thiếu nhân lực,Labor shortage,J3,人手不足が深刻化しています。,Thiếu NL ngày càng nghiêm trọng.
+v517,3.3,Kinh tế vĩ mô (đọc hiểu BJT),働き方改革,hatarakikata kaikaku,Cải cách cách thức làm việc,Work style reform,J3,働き方改革を推進しています。,Đang đẩy mạnh cải cách LV.
+v518,3.3,Kinh tế vĩ mô (đọc hiểu BJT),雇用,koyou,Tuyển dụng / Thuê,Employment,J3,雇用を維持します。,Duy trì việc làm.
+v519,3.3,Kinh tế vĩ mô (đọc hiểu BJT),失業率,shitsugyouritsu,Tỷ lệ thất nghiệp,Unemployment rate,J2,失業率は3%です。,Tỷ lệ thất nghiệp 3%.
+v520,3.3,Kinh tế vĩ mô (đọc hiểu BJT),賃金,chingin,Tiền công / Lương,Wages,J3,最低賃金が引き上げられました。,Lương tối thiểu được nâng.
+v521,3.3,Kinh tế vĩ mô (đọc hiểu BJT),物流費,butsuryuuhi,Chi phí logistics,Logistics cost,J2,物流費が高騰しています。,Chi phí vận chuyển tăng cao.
+v522,3.3,Kinh tế vĩ mô (đọc hiểu BJT),半導体,handoutai,Bán dẫn,Semiconductor,J2,半導体不足が続いています。,Thiếu chip bán dẫn kéo dài.
+v523,3.3,Kinh tế vĩ mô (đọc hiểu BJT),脱炭素,datsu tanso,Phi carbon,Decarbonization,J1,脱炭素社会を目指します。,Hướng tới xã hội phi carbon.
+v524,3.3,Kinh tế vĩ mô (đọc hiểu BJT),再生可能エネルギー,saisei kanou enerugii,Năng lượng tái tạo,Renewable energy,J2,再生可能エネルギーの導入を進めます。,Triển khai NL tái tạo.
+v525,3.4,Mẫu câu thường gặp trong BJT,ご了承ください,goryoushou kudasai,Xin thông cảm,Please understand,J3,予告なく変更する場合がございます。ご了承ください。,Có thể đổi không báo trước. Xin thông cảm.
+v526,3.4,Mẫu câu thường gặp trong BJT,ご不明な点,gofumei na ten,Điểm chưa rõ,Any unclear points,J3,ご不明な点がございましたらお気軽にどうぞ。,Có gì chưa rõ xin cứ hỏi.
+v527,3.4,Mẫu câu thường gặp trong BJT,差し支えなければ,sashitsukae nakereba,Nếu không phiền,If you don't mind,J3,差し支えなければ、理由を教えていただけますか。,"Nếu không phiền, cho biết lý do?"
+v528,3.4,Mẫu câu thường gặp trong BJT,お手すきの際に,otesuki no sai ni,Khi nào rảnh,When you have a moment,J3,お手すきの際にご確認ください。,Khi rảnh hãy xác nhận.
+v529,3.4,Mẫu câu thường gặp trong BJT,取り急ぎ,toriisogi,Vội vàng thông báo,Quickly/in haste,J3,取り急ぎご報告まで。,Vội thông báo.
+v530,3.4,Mẫu câu thường gặp trong BJT,念のため,nen no tame,Để chắc chắn,Just in case,J4,念のため確認いたします。,Xác nhận cho chắc.
+v531,3.4,Mẫu câu thường gặp trong BJT,お忙しいところ,oisogashii tokoro,Trong lúc bận,Despite being busy,J3,お忙しいところすみません。,Xin lỗi trong lúc bận.
+v532,3.4,Mẫu câu thường gặp trong BJT,ご多忙中,gotabouchuu,Trong lúc bận rộn,During your busy schedule,J2,ご多忙中恐れ入りますが。,"Biết anh bận, xin phép."
+v533,3.4,Mẫu câu thường gặp trong BJT,何卒,nanitozo,Xin hãy (rất lịch sự),Please (very formal),J2,何卒よろしくお願い申し上げます。,Kính mong giúp đỡ.
+v534,3.4,Mẫu câu thường gặp trong BJT,つきましては,tsukimashite wa,Vì vậy / Do đó,Therefore (formal),J2,つきましては、下記をご確認ください。,"Vì vậy, xin xác nhận bên dưới."
+v535,3.4,Mẫu câu thường gặp trong BJT,ご査収ください,gosashuu kudasai,Xin nhận và kiểm tra,Please review and accept,J2,資料をお送りしますのでご査収ください。,"Gửi tài liệu, xin kiểm tra."
+v536,3.4,Mẫu câu thường gặp trong BJT,お見積もりをお願いします,omitsumori wo onegai shimasu,Nhờ báo giá,Please provide a quote,J3,この案件のお見積もりをお願いします。,Nhờ báo giá dự án này.
+v537,3.4,Mẫu câu thường gặp trong BJT,ご検討のほど,gokentou no hodo,Xin vui lòng xem xét,Please consider,J3,ご検討のほどよろしくお願いいたします。,Xin vui lòng xem xét.
+v538,3.4,Mẫu câu thường gặp trong BJT,折り返しご連絡いたします,orikaeshi gorenraku itashimasu,Sẽ liên lạc lại,Will contact you back,J3,確認後、折り返しご連絡いたします。,Sau khi xác nhận sẽ liên lạc lại.
+v539,3.4,Mẫu câu thường gặp trong BJT,ご都合のよい日時,gotsugou no yoi nichiji,Thời gian thuận tiện,Convenient date/time,J3,ご都合のよい日時をお知らせください。,Cho biết thời gian thuận tiện.
+v540,3.4,Mẫu câu thường gặp trong BJT,お手数ですが,otesuu desu ga,Phiền nhưng...,Sorry for the trouble but...,J3,お手数ですが、再送していただけますか。,Phiền nhưng gửi lại được không?
+v541,3.4,Mẫu câu thường gặp trong BJT,お気軽にお問い合わせください,okigaru ni otoiawase kudasai,Đừng ngại liên hệ,Feel free to contact us,J3,ご質問があればお気軽にお問い合わせください。,Có thắc mắc đừng ngại liên hệ.
+v542,3.4,Mẫu câu thường gặp trong BJT,以上になります,ijou ni narimasu,Trên đây là tất cả,That is all,J4,ご報告は以上になります。,Báo cáo trên đây là hết.
+v543,3.4,Mẫu câu thường gặp trong BJT,ご参考までに,gosankou made ni,Để tham khảo,For your reference,J3,ご参考までにデータをお送りします。,Gửi dữ liệu để tham khảo.
+v544,3.4,Mẫu câu thường gặp trong BJT,お差し支えなければ,osashitsukae nakereba,Nếu không phiền (rất lịch sự),If it's not inconvenient,J2,お差し支えなければお名前をお聞かせください。,Nếu không phiền cho biết tên.
+v545,3.4,Mẫu câu thường gặp trong BJT,ご査収のほど,gosashuu no hodo,Xin vui lòng nhận,Please accept/review,J2,ご査収のほどよろしくお願いいたします。,Xin vui lòng nhận và kiểm tra.
+v546,3.4,Mẫu câu thường gặp trong BJT,別途,betto,Riêng / Khác,Separately,J2,詳細は別途ご連絡します。,Chi tiết sẽ liên lạc riêng.
+v547,3.4,Mẫu câu thường gặp trong BJT,追って,otte,Sau đó / Sẽ...sau,Later/subsequently,J2,追ってご連絡いたします。,Sẽ liên lạc sau.
+v548,3.4,Mẫu câu thường gặp trong BJT,先般,senpan,Hôm trước / Gần đây,Recently/the other day,J2,先般のお打ち合わせの件ですが。,Về buổi họp hôm trước.
+v549,3.4,Mẫu câu thường gặp trong BJT,過日,kajitsu,Ngày trước,The other day (formal),J1,過日はお世話になりました。,Hôm trước được giúp đỡ nhiều.
+v550,3.5,Từ vựng đa ngành bổ sung,顧問,komon,Cố vấn,Advisor/consultant,J2,顧問弁護士に相談します。,Trao đổi với luật sư cố vấn.
+v551,3.5,Từ vựng đa ngành bổ sung,監査,kansa,Kiểm toán,Audit,J2,内部監査を実施します。,Thực hiện kiểm toán nội bộ.
+v552,3.5,Từ vựng đa ngành bổ sung,精算,seisan,Thanh toán / Quyết toán,Settlement/reimbursement,J3,経費を精算してください。,Hãy thanh toán kinh phí.
+v553,3.5,Từ vựng đa ngành bổ sung,立替,tatekae,Ứng trước / Tạm ứng,Advance payment,J3,立替経費を申請します。,Nộp đơn chi phí ứng trước.
+v554,3.5,Từ vựng đa ngành bổ sung,振込,furikomi,Chuyển khoản,Bank transfer,J4,銀行振込でお支払いください。,Thanh toán bằng chuyển khoản.
+v555,3.5,Từ vựng đa ngành bổ sung,引き落とし,hikiotoshi,Trừ tự động,Automatic debit,J4,口座から引き落とされます。,Tự động trừ từ tài khoản.
+v556,3.5,Từ vựng đa ngành bổ sung,口座,kouza,Tài khoản (ngân hàng),Bank account,J4,口座を開設しました。,Đã mở tài khoản.
+v557,3.5,Từ vựng đa ngành bổ sung,印鑑,inkan,Con dấu cá nhân,Personal seal,J4,印鑑を持参してください。,Mang theo con dấu.
+v558,3.5,Từ vựng đa ngành bổ sung,届出,todokede,Khai báo / Đăng ký,Notification/report,J3,届出を提出してください。,Hãy nộp đơn khai báo.
+v559,3.5,Từ vựng đa ngành bổ sung,届出書,todokedesho,Đơn khai báo,Notification form,J3,届出書を記入してください。,Hãy điền đơn khai báo.
+v560,3.5,Từ vựng đa ngành bổ sung,受付,uketsuke,Lễ tân / Tiếp nhận,Reception,J4,受付で名前を記入してください。,Ghi tên ở lễ tân.
+v561,3.5,Từ vựng đa ngành bổ sung,窓口,madoguchi,Quầy / Cổng giao dịch,Counter/window,J4,1番窓口にお越しください。,Đến quầy số 1.
+v562,3.5,Từ vựng đa ngành bổ sung,担当者,tantousha,Người phụ trách,Person in charge,J4,担当者に確認します。,Xác nhận với người phụ trách.
+v563,3.5,Từ vựng đa ngành bổ sung,責任者,sekininsha,Người chịu trách nhiệm,Person responsible,J3,責任者を呼んでください。,Gọi người chịu trách nhiệm.
+v564,3.5,Từ vựng đa ngành bổ sung,代表者,daihyousha,Người đại diện,Representative,J3,代表者が署名します。,Người đại diện ký.
+v565,3.5,Từ vựng đa ngành bổ sung,委員会,iinkai,Ủy ban / Ban,Committee,J2,安全委員会を設置します。,Thành lập ủy ban an toàn.
+v566,3.5,Từ vựng đa ngành bổ sung,規模,kibo,Quy mô,Scale/size,J3,事業規模を拡大します。,Mở rộng quy mô KD.
+v567,3.5,Từ vựng đa ngành bổ sung,業界,gyoukai,Ngành / Lĩnh vực,Industry,J3,IT業界で働いています。,Làm việc trong ngành IT.
+v568,3.5,Từ vựng đa ngành bổ sung,業種,gyoushu,Loại hình KD,Type of business,J3,さまざまな業種のお客様。,KH đa dạng loại hình KD.
+v569,3.5,Từ vựng đa ngành bổ sung,実態,jittai,Thực trạng,Actual state,J2,市場の実態を調査します。,Điều tra thực trạng thị trường.
+v570,3.5,Từ vựng đa ngành bổ sung,動向,doukou,Xu hướng / Động thái,Trend/movement,J2,業界の動向を分析します。,Phân tích xu hướng ngành.
+v571,3.5,Từ vựng đa ngành bổ sung,傾向,keikou,Xu hướng,Tendency/trend,J3,消費者の傾向を把握します。,Nắm xu hướng người tiêu dùng.
+v572,3.5,Từ vựng đa ngành bổ sung,需給,jukyuu,Cung cầu,Supply and demand,J2,需給バランスが崩れています。,Cân bằng cung cầu bị vỡ.
+v573,3.5,Từ vựng đa ngành bổ sung,見込み,mikomi,Dự kiến / Triển vọng,Prospect/expectation,J3,売上の見込みは100億円です。,DT dự kiến 10 tỷ yên.
+v574,3.5,Từ vựng đa ngành bổ sung,見通し,mitooshi,Triển vọng / Dự báo,Outlook,J3,経済の見通しは不透明です。,Triển vọng KT không rõ ràng.
+v575,3.5,Từ vựng đa ngành bổ sung,成果,seika,Thành quả,Achievement/result,J3,大きな成果を上げました。,Đạt thành quả lớn.
+v576,3.5,Từ vựng đa ngành bổ sung,課題,kadai,Vấn đề / Thách thức,Issue/challenge,J3,いくつかの課題が残っています。,Còn một số thách thức.
+v577,3.5,Từ vựng đa ngành bổ sung,懸念,kenen,Lo ngại,Concern,J2,品質に懸念があります。,Có lo ngại về chất lượng.
+v578,3.5,Từ vựng đa ngành bổ sung,リスク,risuku,Rủi ro,Risk,J3,リスクを最小限にします。,Giảm thiểu rủi ro.
+v579,3.5,Từ vựng đa ngành bổ sung,対策,taisaku,Đối sách / Biện pháp,Countermeasure,J3,再発防止の対策を講じます。,Đưa ra biện pháp phòng tránh.
+v580,3.5,Từ vựng đa ngành bổ sung,措置,sochi,Biện pháp (chính thức),Measure (formal),J2,緊急措置を取りました。,Đã thực hiện biện pháp khẩn.
+v581,3.5,Từ vựng đa ngành bổ sung,妥結,daketsu,Thỏa thuận,Settlement/agreement,J1,交渉が妥結しました。,Đàm phán đã thỏa thuận.
+v582,3.5,Từ vựng đa ngành bổ sung,合意,goui,Đồng ý / Thỏa thuận,Agreement/consensus,J2,両社の合意が得られました。,Đã đạt thỏa thuận 2 bên.
+v583,3.5,Từ vựng đa ngành bổ sung,協力,kyouryoku,Hợp tác,Cooperation,J4,ご協力をお願いいたします。,Nhờ hợp tác.
+v584,3.5,Từ vựng đa ngành bổ sung,連携,renkei,Liên kết / Phối hợp,Coordination,J3,各部署と連携します。,Phối hợp với các phòng ban.
+v585,3.5,Từ vựng đa ngành bổ sung,調達,choutatsu,Mua sắm / Thu mua,Procurement,J2,資材を調達します。,Mua sắm vật tư.
+v586,3.5,Từ vựng đa ngành bổ sung,入札,nyuusatsu,Đấu thầu,Bid/tender,J2,入札に参加します。,Tham gia đấu thầu.
+v587,3.5,Từ vựng đa ngành bổ sung,落札,rakusatsu,Trúng thầu,Winning bid,J2,当社が落札しました。,Công ty ta trúng thầu.
+v588,3.5,Từ vựng đa ngành bổ sung,不祥事,fushouji,Bê bối / Scandal,Scandal,J1,不祥事が発覚しました。,Bê bối bị phát giác.
+v589,3.5,Từ vựng đa ngành bổ sung,内部告発,naibu kokuhatsu,Tố giác nội bộ,Whistleblowing,J1,内部告発制度を設けました。,Lập chế độ tố giác nội bộ.
+v590,3.5,Từ vựng đa ngành bổ sung,情報漏洩,jouhou rouei,Rò rỉ thông tin,Data leak,J2,情報漏洩を防止します。,Phòng chống rò rỉ thông tin.
+v591,3.5,Từ vựng đa ngành bổ sung,個人情報,kojin jouhou,Thông tin cá nhân,Personal information,J3,個人情報を保護します。,Bảo vệ thông tin cá nhân.
+v592,3.5,Từ vựng đa ngành bổ sung,守秘義務,shuhi gimu,Nghĩa vụ bảo mật,Confidentiality obligation,J2,守秘義務を遵守してください。,Tuân thủ nghĩa vụ bảo mật.
+v593,3.5,Từ vựng đa ngành bổ sung,機密,kimitsu,Cơ mật / Bí mật,Confidential,J2,機密情報を取り扱います。,Xử lý thông tin cơ mật.
+v594,3.5,Từ vựng đa ngành bổ sung,善処する,zensho suru,Xử lý tốt nhất có thể,Handle appropriately,J1,善処いたします。,Sẽ xử lý tốt nhất.
+v595,3.5,Từ vựng đa ngành bổ sung,尽力する,jinryoku suru,Nỗ lực hết sức,Make every effort,J2,問題解決に尽力いたします。,Nỗ lực hết sức giải quyết.
+v596,3.5,Từ vựng đa ngành bổ sung,精進する,shoujin suru,Phấn đấu / Nỗ lực,Strive/devote oneself,J2,今後も精進してまいります。,Sẽ tiếp tục phấn đấu.
+v597,4.1,Thời gian & Số liệu,前期,zenki,Kỳ trước,Previous period,J3,前期の業績を振り返ります。,Nhìn lại KQ kỳ trước.
+v598,4.1,Thời gian & Số liệu,今期,konki,Kỳ này,Current period,J3,今期の目標は売上10%増です。,Mục tiêu kỳ này: DT +10%.
+v599,4.1,Thời gian & Số liệu,来期,raiki,Kỳ sau,Next period,J3,来期の予算を策定中です。,Đang lập ngân sách kỳ sau.
+v600,4.1,Thời gian & Số liệu,累計,ruikei,Lũy kế,Cumulative,J2,累計売上は50億円です。,DT lũy kế 5 tỷ yên.
+v601,4.1,Thời gian & Số liệu,月次,getsuji,Hàng tháng,Monthly,J3,月次報告を提出します。,Nộp báo cáo hàng tháng.
+v602,4.1,Thời gian & Số liệu,週次,shuuji,Hàng tuần,Weekly,J3,週次ミーティングがあります。,Có meeting hàng tuần.
+v603,4.1,Thời gian & Số liệu,日次,nichiji,Hàng ngày,Daily,J3,日次の売上データを確認します。,Kiểm tra DT hàng ngày.
+v604,4.1,Thời gian & Số liệu,年次,nenji,Hàng năm,Annual,J3,年次報告書を作成します。,Lập báo cáo hàng năm.
+v605,4.1,Thời gian & Số liệu,期限,kigen,Thời hạn,Deadline/expiry,J4,提出期限は金曜日です。,Hạn nộp thứ Sáu.
+v606,4.1,Thời gian & Số liệu,期日,kijitsu,Ngày ấn định,Due date,J3,支払い期日を確認してください。,Xác nhận ngày thanh toán.
+v607,4.1,Thời gian & Số liệu,暦年,rekinen,Năm dương lịch,Calendar year,J2,暦年ベースで計算します。,Tính theo năm dương lịch.
+v608,4.1,Thời gian & Số liệu,年度末,nendomatu,Cuối năm tài khóa,End of fiscal year,J3,年度末は3月です。,Cuối năm tài khóa là T3.
+v609,4.1,Thời gian & Số liệu,中間,chuukan,Giữa kỳ,Mid-term,J3,中間決算を発表しました。,Đã công bố quyết toán giữa kỳ.
+v610,4.1,Thời gian & Số liệu,通期,tsuuki,Cả năm,Full year,J2,通期の見通しを上方修正しました。,Nâng dự báo cả năm.
+v611,4.1,Thời gian & Số liệu,概算,gaisan,Ước tính,Rough estimate,J2,概算で300万円かかります。,Ước tính tốn 3 triệu yên.
+v612,4.1,Thời gian & Số liệu,割合,wariai,Tỷ lệ,Ratio/proportion,J3,女性社員の割合は40%です。,Tỷ lệ NV nữ 40%.
+v613,4.1,Thời gian & Số liệu,増減,zougen,Tăng giảm,Increase/decrease,J3,売上の増減を分析します。,Phân tích tăng giảm DT.
+v614,4.1,Thời gian & Số liệu,横ばい,yokobai,Đi ngang / Không đổi,Flat/unchanged,J3,売上は横ばいでした。,DT đi ngang.
+v615,4.1,Thời gian & Số liệu,微増,bizou,Tăng nhẹ,Slight increase,J2,微増にとどまりました。,Chỉ tăng nhẹ.
+v616,4.1,Thời gian & Số liệu,急増,kyuuzou,Tăng vọt,Sharp increase,J2,注文が急増しています。,Đơn hàng tăng vọt.
+v617,4.1,Thời gian & Số liệu,激減,gekigen,Giảm mạnh,Sharp decrease,J2,来客数が激減しました。,Lượng khách giảm mạnh.
+v618,4.1,Thời gian & Số liệu,回復,kaifuku,Phục hồi,Recovery,J3,景気が回復しています。,KT đang phục hồi.
+v619,4.1,Thời gian & Số liệu,推移,suii,Biến động / Diễn biến,Trend/change,J2,売上の推移をグラフで示します。,Biểu đồ diễn biến DT.
+v620,4.1,Thời gian & Số liệu,上昇,joushou,Tăng lên,Rise/increase,J3,株価が上昇しました。,Giá CP tăng.
+v621,4.1,Thời gian & Số liệu,下落,geraku,Giảm xuống,Fall/decline,J3,株価が下落しました。,Giá CP giảm.
+v622,4.2,Đàm phán nâng cao,譲歩する,jouho suru,Nhượng bộ,Concede,J2,一部譲歩する用意があります。,Sẵn sàng nhượng bộ một phần.
+v623,4.2,Đàm phán nâng cao,妥協する,dakyou suru,Thỏa hiệp,Compromise,J2,お互いに妥協しましょう。,Hãy cùng thỏa hiệp.
+v624,4.2,Đàm phán nâng cao,提示する,teiji suru,Đưa ra / Trình bày,Present/propose,J3,新しい条件を提示します。,Đưa ra điều kiện mới.
+v625,4.2,Đàm phán nâng cao,交わす,kawasu,Trao đổi (hợp đồng),Exchange,J2,契約を交わしました。,Đã ký hợp đồng.
+v626,4.2,Đàm phán nâng cao,締結する,teiketsu suru,Ký kết,Conclude/sign,J2,業務提携を締結しました。,Đã ký kết hợp tác.
+v627,4.2,Đàm phán nâng cao,破棄する,haki suru,Hủy bỏ,Cancel/revoke,J1,契約を破棄します。,Hủy hợp đồng.
+v628,4.2,Đàm phán nâng cao,違約金,iyakukin,Tiền phạt vi phạm,Penalty fee,J1,違約金が発生します。,Phát sinh tiền phạt.
+v629,4.2,Đàm phán nâng cao,相見積もり,aimitsumori,Xin giá nhiều nơi,Comparative quotes,J3,相見積もりを取ってください。,Hãy xin báo giá từ nhiều nơi.
+v630,4.2,Đàm phán nâng cao,ネゴ,nego,Đàm phán (tắt),Negotiation (abbr),J3,価格のネゴが必要です。,Cần đàm phán giá.
+v631,4.2,Đàm phán nâng cao,落としどころ,otoshidokoro,Điểm thỏa hiệp,Middle ground,J2,落としどころを探りましょう。,Hãy tìm điểm thỏa hiệp.
+v632,4.2,Đàm phán nâng cao,仮契約,karikeiyaku,Hợp đồng tạm,Provisional contract,J2,まず仮契約を結びましょう。,Trước hết ký HĐ tạm.
+v633,4.2,Đàm phán nâng cao,本契約,honkeiyaku,Hợp đồng chính thức,Formal contract,J2,本契約は来月締結予定です。,HĐ chính thức ký tháng sau.
+v634,4.2,Đàm phán nâng cao,独占契約,dokusen keiyaku,Hợp đồng độc quyền,Exclusive contract,J1,独占契約を提案します。,Đề xuất HĐ độc quyền.
+v635,4.2,Đàm phán nâng cao,代理店,dairiten,Đại lý,Agency/dealer,J3,販売代理店を募集しています。,Đang tuyển đại lý bán.
+v636,4.2,Đàm phán nâng cao,仲介,chuukai,Trung gian / Môi giới,Mediation,J2,仲介業者を通じて契約しました。,Ký HĐ qua môi giới.
+v637,4.3,Tổng hợp bổ sung,議論,giron,Thảo luận,Discussion/debate,J3,この問題について議論します。,Thảo luận vấn đề này.
+v638,4.3,Tổng hợp bổ sung,論点,ronten,Luận điểm,Point of argument,J2,論点を整理しましょう。,Hãy sắp xếp luận điểm.
+v639,4.3,Tổng hợp bổ sung,焦点,shouten,Tiêu điểm,Focus,J2,焦点を絞りましょう。,Hãy thu hẹp tiêu điểm.
+v640,4.3,Tổng hợp bổ sung,優先,yuusen,Ưu tiên,Priority,J3,この案件を優先してください。,Hãy ưu tiên vụ này.
+v641,4.3,Tổng hợp bổ sung,優先順位,yuusen juni,Thứ tự ưu tiên,Priority order,J3,優先順位を決めましょう。,Hãy xếp thứ tự ưu tiên.
+v642,4.3,Tổng hợp bổ sung,基盤,kiban,Nền tảng,Foundation/base,J2,事業基盤を強化します。,Củng cố nền tảng KD.
+v643,4.3,Tổng hợp bổ sung,展望,tenbou,Triển vọng / Tầm nhìn,Outlook/vision,J2,来年度の展望を語ります。,Nói về triển vọng năm sau.
+v644,4.3,Tổng hợp bổ sung,見解,kenkai,Quan điểm / Ý kiến,View/opinion,J2,当社の見解を述べます。,Trình bày quan điểm công ty.
+v645,4.3,Tổng hợp bổ sung,所見,shoken,Nhận xét / Ý kiến,Observation/comment,J1,監査の所見を報告します。,Báo cáo nhận xét kiểm toán.
+v646,4.3,Tổng hợp bổ sung,裁量,sairyou,Quyền quyết định,Discretion,J1,部長の裁量に任せます。,Để trưởng phòng quyết định.
+v647,4.3,Tổng hợp bổ sung,権限,kengen,Quyền hạn,Authority,J2,決裁権限を持っています。,Có quyền phê duyệt.
+v648,4.3,Tổng hợp bổ sung,決裁,kessai,Phê duyệt (chi tiêu),Approval (financial),J2,決裁を取ってください。,Hãy xin phê duyệt.
+v649,4.3,Tổng hợp bổ sung,稟議,ringi,Trình duyệt nội bộ,Internal approval process,J2,稟議を通す必要があります。,Cần qua quy trình phê duyệt.
+v650,4.3,Tổng hợp bổ sung,案件,anken,Vụ việc / Dự án,Case/project,J3,新規案件を担当します。,Phụ trách dự án mới.
+v651,4.3,Tổng hợp bổ sung,事例,jirei,Ví dụ / Trường hợp,Case/example,J3,成功事例を紹介します。,Giới thiệu case thành công.
+v652,4.3,Tổng hợp bổ sung,実例,jitsurei,Ví dụ thực tế,Actual example,J3,実例を挙げて説明します。,Giải thích bằng ví dụ thực.
+v653,4.3,Tổng hợp bổ sung,概要,gaiyou,Tổng quan,Overview/summary,J3,プロジェクトの概要を説明します。,Giải thích tổng quan DA.
+v654,4.3,Tổng hợp bổ sung,詳細,shousai,Chi tiết,Details,J3,詳細は後日お知らせします。,Chi tiết thông báo sau.
+v655,4.3,Tổng hợp bổ sung,趣旨,shushi,Chủ đích / Mục đích,Purpose/intent,J2,提案の趣旨を説明します。,Giải thích mục đích đề xuất.
+v656,4.3,Tổng hợp bổ sung,背景,haikei,Bối cảnh,Background,J3,提案の背景を説明します。,Giải thích bối cảnh đề xuất.
+v657,4.3,Tổng hợp bổ sung,根拠,konkyo,Căn cứ / Cơ sở,Basis/grounds,J2,データに基づく根拠があります。,Có căn cứ dựa trên dữ liệu.
+v658,4.3,Tổng hợp bổ sung,妥当性,datousei,Tính hợp lý,Validity/reasonableness,J1,この計画の妥当性を検証します。,Kiểm chứng tính hợp lý.
+v659,4.3,Tổng hợp bổ sung,可能性,kanousei,Khả năng,Possibility,J3,成功の可能性が高いです。,Khả năng thành công cao.
+v660,4.3,Tổng hợp bổ sung,実現性,jitsugensei,Tính khả thi,Feasibility,J2,実現性を評価します。,Đánh giá tính khả thi.
+v661,4.3,Tổng hợp bổ sung,採算,saisan,Hiệu quả tài chính,Profitability,J2,採算が合いません。,Không hiệu quả về tài chính.
+v662,4.3,Tổng hợp bổ sung,費用対効果,hiyou tai kouka,Hiệu quả chi phí,Cost-effectiveness,J2,費用対効果を検討します。,Xem xét hiệu quả chi phí.
+v663,4.3,Tổng hợp bổ sung,メリット,meritto,Lợi ích / Ưu điểm,Merit/advantage,J4,この提案のメリットは何ですか。,Lợi ích của đề xuất?
+v664,4.3,Tổng hợp bổ sung,デメリット,demeritto,Nhược điểm,Demerit/disadvantage,J4,デメリットも考慮してください。,Cũng xem xét nhược điểm.
+v665,4.3,Tổng hợp bổ sung,ジレンマ,jirenma,Tình thế khó xử,Dilemma,J2,コスト削減と品質維持のジレンマ。,Khó xử giữa giảm phí và giữ CL.
+v666,4.3,Tổng hợp bổ sung,トレードオフ,toreedo ofu,Đánh đổi,Trade-off,J2,スピードと品質のトレードオフです。,Đánh đổi giữa tốc độ và CL.
+v667,4.3,Tổng hợp bổ sung,フォローアップ,forooappu,Theo dõi sau,Follow-up,J3,フォローアップをお願いします。,Nhờ theo dõi tiếp.
+v668,4.3,Tổng hợp bổ sung,ブレインストーミング,burein sutoomingu,Tư duy sáng tạo nhóm,Brainstorming,J3,ブレインストーミングを行いましょう。,Hãy brainstorm.
+v669,4.3,Tổng hợp bổ sung,ファシリテーター,fashiriteeta,Người điều phối,Facilitator,J2,会議のファシリテーターを務めます。,Làm người điều phối cuộc họp.
+v670,4.3,Tổng hợp bổ sung,タスク,tasuku,Nhiệm vụ,Task,J4,タスクを分担しましょう。,Hãy phân chia nhiệm vụ.
+v671,4.3,Tổng hợp bổ sung,デッドライン,deddorain,Hạn chót,Deadline,J4,デッドラインは金曜日です。,Deadline thứ Sáu.
+v672,4.3,Tổng hợp bổ sung,バッファ,baffa,Dự phòng / Đệm,Buffer,J3,スケジュールにバッファを持たせます。,Để dư thời gian dự phòng.
+v673,4.3,Tổng hợp bổ sung,ボトムアップ,botomu appu,Từ dưới lên,Bottom-up,J2,ボトムアップの提案を歓迎します。,Hoan nghênh đề xuất từ dưới lên.
+v674,4.3,Tổng hợp bổ sung,トップダウン,toppu daun,Từ trên xuống,Top-down,J2,トップダウンの指示が出ました。,Có chỉ thị từ trên xuống.
+v675,4.3,Tổng hợp bổ sung,プロセス,purosesu,Quy trình,Process,J3,業務プロセスを改善します。,Cải tiến quy trình.
+v676,4.3,Tổng hợp bổ sung,アウトプット,autoputto,Kết quả đầu ra,Output,J3,アウトプットの質を上げます。,Nâng chất lượng đầu ra.
+v677,4.3,Tổng hợp bổ sung,インプット,inputto,Đầu vào,Input,J3,情報のインプットが必要です。,Cần đầu vào thông tin.
+v678,4.3,Tổng hợp bổ sung,スループット,suruuputto,Lưu lượng xử lý,Throughput,J1,スループットを向上させます。,Nâng lưu lượng xử lý.
+v679,4.3,Tổng hợp bổ sung,ワークフロー,waakufuroo,Quy trình làm việc,Workflow,J3,ワークフローを見直します。,Rà soát workflow.
+v680,4.3,Tổng hợp bổ sung,グローバル,guroobaru,Toàn cầu,Global,J3,グローバルに展開します。,Triển khai toàn cầu.
+v681,4.3,Tổng hợp bổ sung,ローカライズ,rookaraizu,Bản địa hóa,Localize,J2,製品をローカライズします。,Bản địa hóa sản phẩm.
+v682,4.3,Tổng hợp bổ sung,イノベーション,inobeeshon,Đổi mới sáng tạo,Innovation,J2,イノベーションを推進します。,Thúc đẩy đổi mới.
+v683,4.3,Tổng hợp bổ sung,パラダイムシフト,paradaimu shifuto,Thay đổi mô hình,Paradigm shift,J1,業界のパラダイムシフトが起きています。,Đang xảy ra thay đổi mô hình ngành.
+v684,4.3,Tổng hợp bổ sung,レガシー,regashii,Di sản / Cũ kỹ,Legacy,J2,レガシーシステムを刷新します。,Thay thế hệ thống cũ.
+v685,4.3,Tổng hợp bổ sung,サステナビリティ,sasutenabiritii,Tính bền vững,Sustainability,J1,サステナビリティを重視しています。,Coi trọng tính bền vững.
+v686,4.3,Tổng hợp bổ sung,フレームワーク,fureemuwaaku,Khung / Framework,Framework,J2,分析のフレームワークを使います。,Dùng framework phân tích.
+v687,4.3,Tổng hợp bổ sung,ベストプラクティス,besuto purakutisu,Thực hành tốt nhất,Best practice,J2,ベストプラクティスを共有します。,Chia sẻ best practice.
+v688,4.3,Tổng hợp bổ sung,パフォーマンス,pafoomansu,Hiệu suất,Performance,J3,パフォーマンスを向上させます。,Nâng hiệu suất.
+v689,4.3,Tổng hợp bổ sung,モチベーション,mochiveeshon,Động lực,Motivation,J3,社員のモチベーションを上げます。,Nâng động lực NV.
+v690,4.3,Tổng hợp bổ sung,エンゲージメント,engeeji mento,Sự gắn kết,Engagement,J2,社員エンゲージメントを高めます。,Tăng gắn kết NV.
+v691,4.3,Tổng hợp bổ sung,オンボーディング,onboodingu,Hội nhập NV mới,Onboarding,J2,オンボーディングプログラムを整備します。,Xây dựng chương trình onboarding.
+v692,4.3,Tổng hợp bổ sung,メンタリング,mentaringu,Cố vấn 1-1,Mentoring,J2,メンタリング制度を導入しました。,Đã áp dụng chế độ mentoring.
+v693,4.3,Tổng hợp bổ sung,コーチング,koochingu,Huấn luyện,Coaching,J2,管理職向けのコーチング研修。,Đào tạo coaching cho quản lý.
+v694,4.3,Tổng hợp bổ sung,ピア,pia,Ngang hàng,Peer,J2,ピアレビューを行います。,Thực hiện đánh giá ngang hàng.
+v695,4.3,Tổng hợp bổ sung,クリティカル,kuritikaru,Quan trọng / Tới hạn,Critical,J2,クリティカルな問題が発生しました。,Xảy ra vấn đề nghiêm trọng.
+v696,4.3,Tổng hợp bổ sung,ドラスティック,dorasutikku,Quyết liệt,Drastic,J1,ドラスティックな改革が必要です。,Cần cải cách quyết liệt.
+v697,4.3,Tổng hợp bổ sung,コンティンジェンシー,kontinjenshii,Dự phòng / Bất ngờ,Contingency,J1,コンティンジェンシープランを用意します。,Chuẩn bị kế hoạch dự phòng.
+v698,5.1,Giao tiếp xã giao,ご苦労様です,gokurousama desu,Vất vả rồi (dùng cho cấp dưới),"Chỉ sếp nói với NV, KHÔNG dùng ngược lại",J4,ご苦労様です。今日も頑張ってくれてありがとう。,Vất vả rồi. Cảm ơn hôm nay cũng cố gắng.
+v699,5.1,Giao tiếp xã giao,お待たせいたしました,omatase itashimashita,Xin lỗi đã để chờ,Khi quay lại sau khi để khách chờ,J4,お待たせいたしました。資料をお持ちしました。,Xin lỗi để chờ. Đã mang tài liệu.
+v700,5.1,Giao tiếp xã giao,ご遠慮なく,goenryo naku,Đừng ngại,Mời khách/đối tác thoải mái,J3,ご遠慮なくお申し付けください。,"Đừng ngại, cứ nói."
+v701,5.1,Giao tiếp xã giao,恐縮ですが,kyoushuku desu ga,Rất ngại nhưng...,Nhờ việc khi thấy áy náy,J2,恐縮ですが、もう一度説明していただけますか。,"Rất ngại, nhưng giải thích lại được không?"
+v702,5.1,Giao tiếp xã giao,光栄です,kouei desu,Vinh dự,"Khi được khen, được mời",J3,お招きいただき光栄です。,Vinh dự được mời.
+v703,5.1,Giao tiếp xã giao,お陰様で,okagesama de,Nhờ phúc (của mọi người),Đáp lại khi được hỏi thăm,J3,お陰様で、元気にしております。,"Nhờ phúc mọi người, tôi vẫn khỏe."
+v704,5.1,Giao tiếp xã giao,ご指摘ありがとうございます,goshiteki arigatou,Cảm ơn đã chỉ ra,Khi người khác chỉ ra lỗi,J3,ご指摘ありがとうございます。すぐに修正いたします。,Cảm ơn đã chỉ ra. Sửa ngay.
+v705,5.1,Giao tiếp xã giao,お気遣いなく,okizukai naku,Đừng bận tâm,Khi người khác lo lắng cho mình,J3,お気遣いなく。大丈夫です。,Đừng bận tâm. Không sao.
+v706,5.2,Hành chính (NNN tại Nhật),転入届,tennyuu todoke,Đơn chuyển đến,Nộp khi chuyển đến nơi ở mới,J4,転入届を14日以内に提出してください。,Nộp đơn chuyển đến trong 14 ngày.
+v707,5.2,Hành chính (NNN tại Nhật),転出届,tenshutsu todoke,Đơn chuyển đi,Nộp khi rời nơi ở cũ,J4,引っ越し前に転出届を出してください。,Nộp đơn chuyển đi trước khi dọn nhà.
+v708,5.2,Hành chính (NNN tại Nhật),住民票,juuminhyou,Giấy đăng ký cư dân,Resident record,J4,住民票を取得してください。,Hãy lấy giấy đăng ký cư dân.
+v709,5.2,Hành chính (NNN tại Nhật),戸籍,koseki,Hộ tịch,Family register,J3,戸籍謄本が必要です。,Cần bản sao hộ tịch.
+v710,5.2,Hành chính (NNN tại Nhật),国民健康保険,kokumin kenkou hoken,BHYT quốc dân,National health insurance,J3,国民健康保険に加入してください。,Hãy tham gia BHYT quốc dân.
+v711,5.2,Hành chính (NNN tại Nhật),年金,nenkin,Lương hưu / Pension,Pension,J3,年金を納めていますか。,Anh có đóng pension không?
+v712,5.2,Hành chính (NNN tại Nhật),住民税,juuminzei,Thuế cư dân,Resident tax,J3,住民税は6月に届きます。,Thuế cư dân đến vào T6.
+v713,5.2,Hành chính (NNN tại Nhật),国民年金,kokumin nenkin,Lương hưu quốc dân,National pension,J3,国民年金の免除申請ができます。,Có thể xin miễn pension quốc dân.
+v714,5.2,Hành chính (NNN tại Nhật),脱退一時金,dattai ichijikin,Tiền hoàn lương hưu,Lump-sum withdrawal (pension),J2,帰国後に脱退一時金を申請できます。,Về nước có thể xin hoàn pension.
+v715,5.2,Hành chính (NNN tại Nhật),永住権,eijuuken,Quyền vĩnh trú,Permanent residence,J3,永住権を申請する予定です。,Dự kiến xin quyền vĩnh trú.
+v716,5.2,Hành chính (NNN tại Nhật),帰化,kika,Nhập tịch,Naturalization,J2,日本に帰化しました。,Đã nhập tịch Nhật.
+v717,5.2,Hành chính (NNN tại Nhật),資格外活動許可,shikakugai katsudou kyoka,Giấy phép hoạt động ngoài tư cách,Permission for activities outside status,J3,アルバイトには資格外活動許可が必要です。,Làm thêm cần giấy phép hoạt động ngoài.
+v718,5.2,Hành chính (NNN tại Nhật),再入国許可,sainyuukoku kyoka,Giấy phép tái nhập cảnh,Re-entry permit,J3,みなし再入国許可で出国できます。,Xuất cảnh bằng giấy phép tái nhập mặc định.
+v719,5.2,Hành chính (NNN tại Nhật),入管,nyuukan,Cục Xuất nhập cảnh,Immigration bureau,J4,入管でビザの手続きをします。,Làm thủ tục visa ở nhập cảnh.
+v720,5.2,Hành chính (NNN tại Nhật),市役所,shiyakusho,Tòa thị chính,City hall,J4,市役所で住民登録をします。,Đăng ký cư dân ở tòa thị chính.
+v721,5.2,Hành chính (NNN tại Nhật),区役所,kuyakusho,Văn phòng quận,Ward office,J4,区役所で届出を出します。,Nộp đơn ở văn phòng quận.
+v722,5.2,Hành chính (NNN tại Nhật),ハローワーク,haroo waaku,Trung tâm việc làm,Public employment agency,J4,ハローワークで仕事を探します。,Tìm việc ở Hello Work.
+v723,5.2,Hành chính (NNN tại Nhật),労働基準監督署,roudou kijun kantokusho,Sở giám sát tiêu chuẩn LĐ,Labor Standards Inspection Office,J2,労働基準監督署に相談できます。,Có thể tư vấn ở sở giám sát LĐ.
+v724,5.3,Y tế & Sức khỏe,病院,byouin,Bệnh viện,Hospital,J5,病院に行きます。,Đi bệnh viện.
+v725,5.3,Y tế & Sức khỏe,診察,shinsatsu,Khám bệnh,Medical examination,J4,診察を受けます。,Đi khám.
+v726,5.3,Y tế & Sức khỏe,処方箋,shohousen,Đơn thuốc,Prescription,J3,処方箋をもらいました。,Đã lấy đơn thuốc.
+v727,5.3,Y tế & Sức khỏe,薬局,yakkyoku,Nhà thuốc,Pharmacy,J4,薬局で薬を受け取ります。,Nhận thuốc ở nhà thuốc.
+v728,5.3,Y tế & Sức khỏe,症状,shoujou,Triệu chứng,Symptoms,J3,症状を説明してください。,Hãy mô tả triệu chứng.
+v729,5.3,Y tế & Sức khỏe,診断,shindan,Chẩn đoán,Diagnosis,J3,医師の診断を受けました。,Đã được bác sĩ chẩn đoán.
+v730,5.3,Y tế & Sức khỏe,入院,nyuuin,Nhập viện,Hospitalization,J4,入院が必要です。,Cần nhập viện.
+v731,5.3,Y tế & Sức khỏe,退院,taiin,Xuất viện,Discharge,J4,来週退院できます。,Tuần sau được xuất viện.
+v732,5.3,Y tế & Sức khỏe,救急車,kyuukyuusha,Xe cấp cứu,Ambulance,J4,救急車を呼んでください。119番です。,Gọi cấp cứu. Số 119.
+v733,5.3,Y tế & Sức khỏe,健康診断,kenkou shindan,Khám sức khỏe định kỳ,Health checkup,J4,会社の健康診断があります。,Có khám sức khỏe công ty.
+v734,5.3,Y tế & Sức khỏe,保険証,hokenshou,Thẻ bảo hiểm,Insurance card,J4,保険証を持っていますか。,Có thẻ BH không?
+v735,5.3,Y tế & Sức khỏe,窓口負担,madoguchi futan,Phần tự trả tại quầy,Co-payment,J3,窓口負担は30%です。,Tự trả 30% tại quầy.
+v736,5.3,Y tế & Sức khỏe,高額療養費,kougaku ryouyouhi,Chế độ chặn viện phí,High-cost medical care,J2,高額療養費制度で上限額が決まります。,Chế độ chặn viện phí có mức trần.
+v737,5.4,Nhà ở & Đời sống,賃貸,chintai,Thuê nhà,Rental,J4,賃貸マンションに住んでいます。,Đang thuê chung cư.
+v738,5.4,Nhà ở & Đời sống,家賃,yachin,Tiền thuê nhà,Rent,J4,家賃は月8万円です。,"Tiền thuê 80,000 yên/tháng."
+v739,5.4,Nhà ở & Đời sống,敷金,shikikin,Tiền đặt cọc,Security deposit,J3,敷金は家賃2ヶ月分です。,Cọc bằng 2 tháng tiền thuê.
+v740,5.4,Nhà ở & Đời sống,礼金,reikin,Tiền cảm ơn (cho chủ nhà),Key money,J3,礼金は家賃1ヶ月分です。,Tiền cảm ơn 1 tháng tiền thuê.
+v741,5.4,Nhà ở & Đời sống,更新料,koushinryou,Phí gia hạn hợp đồng,Renewal fee,J3,2年ごとに更新料がかかります。,2 năm 1 lần có phí gia hạn.
+v742,5.4,Nhà ở & Đời sống,不動産,fudousan,Bất động sản,Real estate,J3,不動産屋で部屋を探します。,Tìm phòng ở tiệm BĐS.
+v743,5.4,Nhà ở & Đời sống,管理費,kanrihi,Phí quản lý,Management fee,J3,管理費は月5000円です。,Phí quản lý 5000 yên/tháng.
+v744,5.4,Nhà ở & Đời sống,光熱費,kounentsuhi,Tiền điện nước ga,Utility bills,J4,光熱費は別途かかります。,Điện nước ga tính riêng.
+v745,5.4,Nhà ở & Đời sống,引っ越し,hikkoshi,Chuyển nhà,Moving,J4,来月引っ越しする予定です。,Tháng sau dự kiến chuyển nhà.
+v746,5.4,Nhà ở & Đời sống,粗大ゴミ,sodai gomi,Rác cồng kềnh,Oversized garbage,J4,粗大ゴミは有料で回収されます。,Rác cồng kềnh thu phí.
+v747,5.4,Nhà ở & Đời sống,町内会,chounaikai,Hội dân phố,Neighborhood association,J3,町内会に参加しています。,Tham gia hội dân phố.
+v748,5.4,Nhà ở & Đời sống,自治体,jichitai,Chính quyền địa phương,Local government,J3,自治体のサービスを利用します。,Dùng dịch vụ chính quyền.
+v749,5.5,Giao thông,定期券,teikiken,Vé tháng,Commuter pass,J4,定期券を購入しました。,Đã mua vé tháng.
+v750,5.5,Giao thông,乗り換え,norikae,Đổi tàu,Transfer,J4,次の駅で乗り換えてください。,Đổi tàu ở ga tiếp.
+v751,5.5,Giao thông,遅延,chien,Trễ / Chậm,Delay,J4,電車が遅延しています。,Tàu bị trễ.
+v752,5.5,Giao thông,遅延証明書,chien shoumeisho,Giấy chứng nhận tàu trễ,Delay certificate,J4,遅延証明書をもらってください。,Hãy lấy giấy chứng nhận trễ.
+v753,5.5,Giao thông,運賃,unchin,Tiền tàu / Cước phí,Fare,J4,運賃は320円です。,Cước phí 320 yên.
+v754,5.5,Giao thông,改札,kaisatsu,Cổng soát vé,Ticket gate,J4,改札を通ってください。,Đi qua cổng soát vé.
+v755,5.5,Giao thông,終電,shuuden,Tàu cuối,Last train,J4,終電は23時50分です。,Tàu cuối 23:50.
+v756,5.5,Giao thông,始発,shihatsu,Tàu đầu,First train,J4,始発は5時15分です。,Tàu đầu 5:15.
+v757,5.5,Giao thông,運転見合わせ,unten miawase,Tạm dừng chạy tàu,Service suspension,J3,事故のため運転見合わせです。,Dừng chạy do tai nạn.
+v758,5.5,Giao thông,振替輸送,furikae yusou,Vận chuyển thay thế,Alternative transport,J3,振替輸送を利用してください。,Hãy dùng vận chuyển thay thế.
+v759,5.6,Ngân hàng & Tài chính cá nhân,口座開設,kouza kaisetsu,Mở tài khoản,Open account,J4,銀行口座を開設したいです。,Muốn mở tài khoản ngân hàng.
+v760,5.6,Ngân hàng & Tài chính cá nhân,預金,yokin,Tiền gửi,Deposit,J4,普通預金口座を開設します。,Mở tài khoản tiền gửi thường.
+v761,5.6,Ngân hàng & Tài chính cá nhân,送金,soukin,Chuyển tiền,Remittance,J3,ベトナムに送金します。,Chuyển tiền về Việt Nam.
+v762,5.6,Ngân hàng & Tài chính cá nhân,海外送金,kaigai soukin,Chuyển tiền quốc tế,International transfer,J3,海外送金の手数料はいくらですか。,Phí chuyển tiền QT bao nhiêu?
+v763,5.6,Ngân hàng & Tài chính cá nhân,ATM,ee tii emu,Máy rút tiền,ATM,J5,ATMでお金を引き出します。,Rút tiền ở ATM.
+v764,5.6,Ngân hàng & Tài chính cá nhân,暗証番号,anshou bangou,Mã PIN,PIN number,J4,暗証番号を入力してください。,Hãy nhập mã PIN.
+v765,5.6,Ngân hàng & Tài chính cá nhân,通帳,tsuuchou,Sổ tiết kiệm,Bankbook,J4,通帳を記帳してください。,Hãy cập nhật sổ.
+v766,5.6,Ngân hàng & Tài chính cá nhân,手数料,tesuuryou,Phí dịch vụ,Service fee,J4,手数料は無料です。,Miễn phí dịch vụ.
+v767,5.6,Ngân hàng & Tài chính cá nhân,利息,risoku,Lãi suất (tiền gửi),Interest,J3,利息はほぼゼロです。,Lãi suất gần 0.
+v768,5.6,Ngân hàng & Tài chính cá nhân,ローン,roon,Vay / Khoản vay,Loan,J3,住宅ローンを組みました。,Đã vay mua nhà.
+v769,5.6,Ngân hàng & Tài chính cá nhân,クレジットカード,kurejitto kaado,Thẻ tín dụng,Credit card,J4,クレジットカードで支払います。,Thanh toán bằng thẻ tín dụng.
+v770,5.6,Ngân hàng & Tài chính cá nhân,分割払い,bunkatsu barai,Trả góp,Installment,J3,分割払いは可能ですか。,Có thể trả góp không?
+v771,5.6,Ngân hàng & Tài chính cá nhân,確定申告,kakutei shinkoku,Khai thuế,Tax return,J3,確定申告をしましたか。,Đã khai thuế chưa?
+v772,5.6,Ngân hàng & Tài chính cá nhân,ふるさと納税,furusato nouzei,Nộp thuế quê hương,Hometown tax donation,J3,ふるさと納税をしています。,Tôi đang dùng Furusato nouzei.
+v773,5.7,Thiên tai & An toàn,地震,jishin,Động đất,Earthquake,J5,地震が起きました。,Động đất xảy ra.
+v774,5.7,Thiên tai & An toàn,津波,tsunami,Sóng thần,Tsunami,J4,津波警報が出ています。,Có cảnh báo sóng thần.
+v775,5.7,Thiên tai & An toàn,台風,taifuu,Bão,Typhoon,J4,台風が接近しています。,Bão đang tiến gần.
+v776,5.7,Thiên tai & An toàn,避難,hinan,Sơ tán / Tránh nạn,Evacuation,J4,避難してください。,Hãy sơ tán.
+v777,5.7,Thiên tai & An toàn,避難所,hinanjo,Nơi sơ tán,Evacuation shelter,J4,近くの避難所に行ってください。,Đến nơi sơ tán gần nhất.
+v778,5.7,Thiên tai & An toàn,防災,bousai,Phòng chống thiên tai,Disaster prevention,J3,防災訓練に参加してください。,Tham gia diễn tập phòng chống.
+v779,5.7,Thiên tai & An toàn,緊急連絡先,kinkyuu renrakusaki,Số liên lạc khẩn cấp,Emergency contact,J4,緊急連絡先を登録してください。,Đăng ký số liên lạc khẩn.
+v780,5.7,Thiên tai & An toàn,消防署,shoubousho,Sở cứu hỏa,Fire station,J4,火事は119番です。,Cháy gọi 119.
+v781,5.7,Thiên tai & An toàn,警察,keisatsu,Cảnh sát,Police,J5,警察は110番です。,Cảnh sát gọi 110.
+v782,5.7,Thiên tai & An toàn,交番,kouban,Đồn cảnh sát nhỏ,Police box,J4,近くの交番に届けてください。,Báo ở đồn cảnh sát gần nhất.
+v783,5.8,Đọc biểu đồ & Bảng (BJT Part II),グラフ,gurafu,Biểu đồ,Graph,J4,グラフを見てください。,Xin xem biểu đồ.
+v784,5.8,Đọc biểu đồ & Bảng (BJT Part II),棒グラフ,bou gurafu,Biểu đồ cột,Bar chart,J3,棒グラフで比較します。,So sánh bằng biểu đồ cột.
+v785,5.8,Đọc biểu đồ & Bảng (BJT Part II),折れ線グラフ,oresen gurafu,Biểu đồ đường,Line chart,J3,折れ線グラフで推移を示します。,Biểu đồ đường thể hiện diễn biến.
+v786,5.8,Đọc biểu đồ & Bảng (BJT Part II),円グラフ,en gurafu,Biểu đồ tròn,Pie chart,J3,円グラフでシェアを表します。,Biểu đồ tròn thể hiện thị phần.
+v787,5.8,Đọc biểu đồ & Bảng (BJT Part II),表,hyou,Bảng,Table,J4,この表をご覧ください。,Xin xem bảng này.
+v788,5.8,Đọc biểu đồ & Bảng (BJT Part II),軸,jiku,Trục (biểu đồ),Axis,J3,横軸は月、縦軸は売上です。,"Trục ngang: tháng, trục dọc: DT."
+v789,5.8,Đọc biểu đồ & Bảng (BJT Part II),項目,koumoku,Hạng mục / Mục,Item/category,J3,各項目を確認してください。,Xác nhận từng hạng mục.
+v790,5.8,Đọc biểu đồ & Bảng (BJT Part II),数値,suuchi,Số liệu / Giá trị,Numerical value,J3,正確な数値を記入してください。,Điền số liệu chính xác.
+v791,5.8,Đọc biểu đồ & Bảng (BJT Part II),単位,tani,Đơn vị,Unit,J4,単位は万円です。,Đơn vị: vạn yên.
+v792,5.8,Đọc biểu đồ & Bảng (BJT Part II),合計,goukei,Tổng cộng,Total,J4,合計は100万円です。,Tổng cộng 1 triệu yên.
+v793,5.8,Đọc biểu đồ & Bảng (BJT Part II),平均,heikin,Trung bình,Average,J4,平均値を計算します。,Tính giá trị trung bình.
+v794,5.8,Đọc biểu đồ & Bảng (BJT Part II),最大,saidai,Lớn nhất,Maximum,J4,最大値は500です。,Giá trị lớn nhất 500.
+v795,5.8,Đọc biểu đồ & Bảng (BJT Part II),最小,saishou,Nhỏ nhất,Minimum,J4,最小値は10です。,Giá trị nhỏ nhất 10.
+v796,5.8,Đọc biểu đồ & Bảng (BJT Part II),比較,hikaku,So sánh,Comparison,J3,前年と比較します。,So sánh với năm trước.
+v797,5.8,Đọc biểu đồ & Bảng (BJT Part II),推移,suii,Diễn biến / Biến động,Trend/transition,J2,価格の推移を分析します。,Phân tích diễn biến giá.
+v798,5.8,Đọc biểu đồ & Bảng (BJT Part II),傾向,keikou,Xu hướng,Tendency,J3,上昇傾向にあります。,Có xu hướng tăng.
+v799,5.8,Đọc biểu đồ & Bảng (BJT Part II),構成,kousei,Cấu thành / Thành phần,Composition,J3,売上の構成比を示します。,Thể hiện tỷ lệ cấu thành DT.
+v800,5.8,Đọc biểu đồ & Bảng (BJT Part II),占める,shimeru,Chiếm,Account for,J3,アジアが売上の60%を占めています。,Châu Á chiếm 60% DT.
+v801,5.8,Đọc biểu đồ & Bảng (BJT Part II),達する,tassuru,Đạt đến,Reach,J3,売上が10億円に達しました。,DT đạt 1 tỷ yên.
+v802,5.8,Đọc biểu đồ & Bảng (BJT Part II),下回る,shitamawaru,Thấp hơn,Fall below,J3,目標を下回りました。,Thấp hơn mục tiêu.
+v803,5.8,Đọc biểu đồ & Bảng (BJT Part II),上回る,uwamawaru,Cao hơn,Exceed,J3,目標を上回りました。,Cao hơn mục tiêu.
+v804,5.8,Đọc biểu đồ & Bảng (BJT Part II),著しい,ichijirushii,Đáng kể,Remarkable/significant,J2,著しい成長を遂げました。,Tăng trưởng đáng kể.
+v805,5.8,Đọc biểu đồ & Bảng (BJT Part II),堅調な,kenchou na,Vững chắc,Steady/solid,J2,売上は堅調に推移しています。,DT biến động vững chắc.
+v806,5.8,Đọc biểu đồ & Bảng (BJT Part II),低迷する,teimei suru,Ì ạch / Trì trệ,Stagnate,J2,売上が低迷しています。,DT đang trì trệ.
+v807,5.8,Đọc biểu đồ & Bảng (BJT Part II),持ち直す,mochinaosu,Phục hồi,Recover,J2,業績が持ち直しました。,Thành tích đã phục hồi.
+v808,5.9,Email nâng cao,ご多用中,gotayouchuu,Trong lúc bận nhiều việc,During your busy time,J2,ご多用中のところ恐れ入りますが。,"Biết anh bận nhiều việc, xin phép."
+v809,5.9,Email nâng cao,ご高配,gokohai,Sự quan tâm (kính),Kind consideration,J1,平素よりご高配を賜り。,Luôn nhận được sự quan tâm.
+v810,5.9,Email nâng cao,ご厚情,gokojou,Ân tình,Kind feelings,J1,ご厚情に感謝いたします。,Cảm tạ ân tình.
+v811,5.9,Email nâng cao,ご笑覧,goshouran,Xin vui lòng xem (khiêm),Please take a look (humble),J1,ご笑覧いただければ幸いです。,Rất vui nếu xem giúp.
+v812,5.9,Email nâng cao,ご自愛ください,gojiai kudasai,Giữ gìn sức khỏe,Please take care,J3,季節の変わり目ですので、ご自愛ください。,"Đang giao mùa, giữ gìn sức khỏe."
+v813,5.9,Email nâng cao,略儀ながら,ryakugi nagara,Tuy không đầy đủ lễ nghi,Despite the informality,J1,略儀ながらメールにてご挨拶申し上げます。,"Tuy không đủ lễ nghi, xin chào qua email."
+v814,5.9,Email nâng cao,お目通し,ometoshi,Xem qua,Quick look/review,J2,お目通しいただければ幸いです。,Rất vui nếu xem qua.
+v815,5.9,Email nâng cao,ご査閲,gosatsuetsu,Xem xét (rất trang trọng),Review (very formal),J1,ご査閲のほどお願いいたします。,Xin vui lòng xem xét.
+v816,5.9,Email nâng cao,時下,jika,Hiện nay / Dạo này,At present,J1,時下ますますご清栄のこととお慶び申し上げます。,Chúc quý ngài ngày càng thịnh vượng.
+v817,5.9,Email nâng cao,平素,heiso,Thường ngày,Usually/always,J2,平素よりお世話になっております。,Thường ngày vẫn nhận sự giúp đỡ.
+v818,5.10,Sản xuất & Kỹ thuật (nâng cao),受入検査,ukeirekensa,Kiểm tra đầu vào,Incoming inspection,J3,受入検査を実施します。,Kiểm tra hàng nhận vào.
+v819,5.10,Sản xuất & Kỹ thuật (nâng cao),抜き取り検査,nukitorikensa,Kiểm tra mẫu,Sampling inspection,J3,抜き取り検査を行います。,Kiểm tra lấy mẫu.
+v820,5.10,Sản xuất & Kỹ thuật (nâng cao),全数検査,zensuu kensa,Kiểm tra toàn bộ,100% inspection,J3,全数検査に切り替えます。,Chuyển sang kiểm tra 100%.
+v821,5.10,Sản xuất & Kỹ thuật (nâng cao),公差,kousa,Dung sai,Tolerance,J2,公差は±0.1mmです。,Dung sai ±0.1mm.
+v822,5.10,Sản xuất & Kỹ thuật (nâng cao),寸法,sunpou,Kích thước,Dimension,J3,寸法を測定してください。,Đo kích thước.
+v823,5.10,Sản xuất & Kỹ thuật (nâng cao),治具,jigu,Đồ gá / Jig,Jig/fixture,J3,治具を使って固定します。,Dùng jig để cố định.
+v824,5.10,Sản xuất & Kỹ thuật (nâng cao),刃物,hamono,Dao cắt (máy),Cutting tool,J3,刃物を交換してください。,Hãy thay dao cắt.
+v825,5.10,Sản xuất & Kỹ thuật (nâng cao),潤滑油,junkatsuyu,Dầu bôi trơn,Lubricant,J3,潤滑油を補充してください。,Bổ sung dầu bôi trơn.
+v826,5.10,Sản xuất & Kỹ thuật (nâng cao),稼働率,kadouritsu,Tỷ lệ hoạt động,Operation rate,J2,稼働率を上げます。,Nâng tỷ lệ hoạt động.
+v827,5.10,Sản xuất & Kỹ thuật (nâng cao),故障,koshou,Hỏng / Sự cố,Breakdown,J4,機械が故障しました。,Máy bị hỏng.
+v828,5.10,Sản xuất & Kỹ thuật (nâng cao),修理,shuuri,Sửa chữa,Repair,J4,修理に出します。,Đưa đi sửa.
+v829,5.10,Sản xuất & Kỹ thuật (nâng cao),交換,koukan,Thay thế,Replace/exchange,J4,部品を交換してください。,Hãy thay linh kiện.
+v830,5.10,Sản xuất & Kỹ thuật (nâng cao),点検,tenken,Kiểm tra định kỳ,Inspection/checkup,J3,設備の点検を行います。,Kiểm tra thiết bị.
+v831,5.10,Sản xuất & Kỹ thuật (nâng cao),整備,seibi,Bảo dưỡng / Chỉnh bị,Maintenance,J3,車両の整備を行います。,Bảo dưỡng xe.
+v832,5.10,Sản xuất & Kỹ thuật (nâng cao),試運転,shiunten,Chạy thử,Test run,J3,機械の試運転を行います。,Chạy thử máy.
+v833,5.10,Sản xuất & Kỹ thuật (nâng cao),段取り,dandori,Chuẩn bị (setup),Setup/preparation,J3,段取りを済ませてください。,Hãy hoàn tất chuẩn bị.
+v834,5.10,Sản xuất & Kỹ thuật (nâng cao),手順,tejun,Trình tự / Thủ tục,Procedure/steps,J3,作業手順を確認してください。,Xác nhận trình tự làm việc.
+v835,5.10,Sản xuất & Kỹ thuật (nâng cao),マニュアル,manyuaru,Hướng dẫn sử dụng,Manual,J4,マニュアルを読んでください。,Hãy đọc hướng dẫn.
+v836,5.10,Sản xuất & Kỹ thuật (nâng cao),作業標準,sagyou hyoujun,Tiêu chuẩn tác nghiệp,Work standard,J2,作業標準に従ってください。,Tuân theo tiêu chuẩn tác nghiệp.
+v837,5.10,Sản xuất & Kỹ thuật (nâng cao),5S,go esu,5S (Sàng lọc-Sắp xếp-Sạch sẽ-Săn sóc-Sẵn sàng),5S methodology,J3,5S活動を推進しています。,Đang đẩy mạnh 5S.
+v838,5.11,Họp & Hội nghị (nâng cao),株主総会,kabunushi soukai,Đại hội cổ đông,Shareholders' meeting,J1,株主総会を開催します。,Tổ chức đại hội cổ đông.
+v839,5.11,Họp & Hội nghị (nâng cao),取締役会,torishimariyaku kai,Họp HĐQT,Board meeting,J1,取締役会で決議されました。,Được HĐQT quyết nghị.
+v840,5.11,Họp & Hội nghị (nâng cao),経営会議,keiei kaigi,Họp ban điều hành,Management meeting,J2,経営会議の結果を共有します。,Chia sẻ kết quả họp BĐH.
+v841,5.11,Họp & Hội nghị (nâng cao),部門会議,bumon kaigi,Họp phòng ban,Department meeting,J3,部門会議を毎月開催します。,Họp phòng ban mỗi tháng.
+v842,5.11,Họp & Hội nghị (nâng cao),全体会議,zentai kaigi,Họp toàn thể,All-hands meeting,J3,全体会議で発表があります。,Có phát biểu ở họp toàn thể.
+v843,5.11,Họp & Hội nghị (nâng cao),懇親会,konshinkai,Tiệc giao lưu,Social gathering,J3,会議の後に懇親会があります。,Sau họp có tiệc giao lưu.
+v844,5.11,Họp & Hội nghị (nâng cao),総会,soukai,Tổng hội / Đại hội,General assembly,J2,年次総会を開催します。,Tổ chức đại hội hàng năm.
+v845,5.11,Họp & Hội nghị (nâng cao),式典,shikiten,Lễ / Nghi thức,Ceremony,J3,創立記念式典に出席します。,Dự lễ kỷ niệm thành lập.
+v846,5.11,Họp & Hội nghị (nâng cao),祝辞,shukuji,Lời chúc mừng,Congratulatory speech,J2,社長が祝辞を述べました。,GĐ đọc lời chúc.
+v847,5.11,Họp & Hội nghị (nâng cao),挨拶文,aisatsubun,Bài phát biểu / Lời chào,Greeting speech,J3,挨拶文を準備してください。,Chuẩn bị bài phát biểu.
+v848,5.12,Từ vựng cơ bản J5,会社,kaisha,Công ty,Company,J5,会社に行きます。,Đi công ty.
+v849,5.12,Từ vựng cơ bản J5,仕事,shigoto,Công việc,Work/job,J5,仕事が忙しいです。,Công việc bận.
+v850,5.12,Từ vựng cơ bản J5,電話,denwa,Điện thoại,Telephone,J5,電話をかけます。,Gọi điện.
+v851,5.12,Từ vựng cơ bản J5,コピー,kopii,Photocopy,Copy,J5,この書類をコピーしてください。,Hãy photo tài liệu này.
+v852,5.12,Từ vựng cơ bản J5,FAX,fakkusu,Fax,Fax,J5,FAXで送ります。,Gửi bằng fax.
+v853,5.12,Từ vựng cơ bản J5,パソコン,pasokon,Máy tính,Computer,J5,パソコンを使います。,Dùng máy tính.
+v854,5.12,Từ vựng cơ bản J5,プリンター,purintaa,Máy in,Printer,J5,プリンターが動きません。,Máy in không chạy.
+v855,5.12,Từ vựng cơ bản J5,机,tsukue,Bàn làm việc,Desk,J5,机の上に置いてください。,Đặt trên bàn.
+v856,5.12,Từ vựng cơ bản J5,椅子,isu,Ghế,Chair,J5,椅子に座ってください。,Mời ngồi.
+v857,5.12,Từ vựng cơ bản J5,名前,namae,Tên,Name,J5,お名前を教えてください。,Cho biết tên.
+v858,5.12,Từ vựng cơ bản J5,住所,juusho,Địa chỉ,Address,J5,住所を書いてください。,Viết địa chỉ.
+v859,5.12,Từ vựng cơ bản J5,電話番号,denwa bangou,Số điện thoại,Phone number,J5,電話番号を教えてください。,Cho số ĐT.
+v860,5.12,Từ vựng cơ bản J5,メールアドレス,meeru adoresu,Địa chỉ email,Email address,J5,メールアドレスを教えてください。,Cho email.
+v861,5.12,Từ vựng cơ bản J5,予約,yoyaku,Đặt chỗ / Đặt lịch,Reservation,J5,レストランを予約しました。,Đã đặt nhà hàng.
+v862,5.12,Từ vựng cơ bản J5,約束,yakusoku,Hẹn / Hứa,Appointment/promise,J5,明日3時にお約束があります。,Ngày mai có hẹn lúc 3h.
+v863,5.12,Từ vựng cơ bản J5,紹介,shoukai,Giới thiệu,Introduction,J4,自己紹介をしてください。,Hãy tự giới thiệu.
+v864,5.12,Từ vựng cơ bản J5,説明,setsumei,Giải thích,Explanation,J4,詳しく説明してください。,Giải thích chi tiết.
+v865,5.12,Từ vựng cơ bản J5,質問,shitsumon,Câu hỏi,Question,J5,質問がありますか。,Có câu hỏi không?
+v866,5.12,Từ vựng cơ bản J5,回答,kaitou,Trả lời,Answer/reply,J4,回答をお待ちしております。,Chờ trả lời.
+v867,5.12,Từ vựng cơ bản J5,変更,henkou,Thay đổi,Change,J4,予定を変更します。,Đổi kế hoạch.
+v868,5.12,Từ vựng cơ bản J5,準備,junbi,Chuẩn bị,Preparation,J4,会議の準備をします。,Chuẩn bị họp.
+v869,5.12,Từ vựng cơ bản J5,確認,kakunin,Xác nhận,Confirmation,J4,もう一度確認してください。,Hãy xác nhận lại.
+v870,5.12,Từ vựng cơ bản J5,注意,chuui,Chú ý / Cẩn thận,Attention/caution,J4,注意してください。,Hãy cẩn thận.
+v871,5.12,Từ vựng cơ bản J5,失敗,shippai,Thất bại / Sai lầm,Failure/mistake,J4,失敗から学びます。,Học từ sai lầm.
+v872,5.12,Từ vựng cơ bản J5,成功,seikou,Thành công,Success,J4,プロジェクトが成功しました。,Dự án thành công.
+v873,5.12,Từ vựng cơ bản J5,問題,mondai,Vấn đề,Problem,J4,問題が発生しました。,Xảy ra vấn đề.
+v874,5.12,Từ vựng cơ bản J5,解決,kaiketsu,Giải quyết,Solution,J4,問題を解決しました。,Đã giải quyết VĐ.
+v875,5.12,Từ vựng cơ bản J5,原因,genin,Nguyên nhân,Cause,J4,原因を調査しています。,Đang điều tra nguyên nhân.
+v876,5.12,Từ vựng cơ bản J5,結果,kekka,Kết quả,Result,J4,結果を報告します。,Báo cáo kết quả.
+v877,5.12,Từ vựng cơ bản J5,影響,eikyou,Ảnh hưởng,Impact/influence,J3,業績に影響があります。,Có ảnh hưởng đến thành tích.
+v878,5.12,Từ vựng cơ bản J5,改善,kaizen,Cải thiện,Improvement,J3,業務を改善します。,Cải thiện công việc.
+v879,6.1,Bảo hiểm & Phúc lợi,社会保険料,shakai hokenryou,Phí BHXH,Social insurance premium,J3,社会保険料が給与から天引きされます。,Phí BHXH bị trừ từ lương.
+v880,6.1,Bảo hiểm & Phúc lợi,介護保険,kaigo hoken,BH chăm sóc dài hạn,Long-term care insurance,J3,40歳から介護保険に加入します。,Từ 40 tuổi tham gia BH chăm sóc.
+v881,6.1,Bảo hiểm & Phúc lợi,産休,sankyuu,Nghỉ thai sản,Maternity leave,J3,産休を取得します。,Xin nghỉ thai sản.
+v882,6.1,Bảo hiểm & Phúc lợi,育休,ikukyuu,Nghỉ nuôi con,Childcare leave,J3,育休は最長2年取得できます。,Nghỉ nuôi con tối đa 2 năm.
+v883,6.1,Bảo hiểm & Phúc lợi,傷病手当,shoubyou teate,Trợ cấp ốm đau,Sickness benefit,J2,傷病手当金を申請します。,Nộp đơn trợ cấp ốm đau.
+v884,6.1,Bảo hiểm & Phúc lợi,退職金,taishokukin,Tiền thôi việc,Severance pay,J3,退職金制度があります。,Có chế độ tiền thôi việc.
+v885,6.1,Bảo hiểm & Phúc lợi,企業年金,kigyou nenkin,Lương hưu DN,Corporate pension,J2,企業年金に加入しています。,Đang tham gia pension DN.
+v886,6.1,Bảo hiểm & Phúc lợi,交通費,koutsuuhi,Phí đi lại,Transportation cost,J4,交通費は全額支給されます。,Phí đi lại được trả toàn bộ.
+v887,6.1,Bảo hiểm & Phúc lợi,住宅手当,juutaku teate,Phụ cấp nhà ở,Housing allowance,J3,住宅手当が月3万円支給されます。,"Phụ cấp nhà 30,000 yên/tháng."
+v888,6.1,Bảo hiểm & Phúc lợi,家族手当,kazoku teate,Phụ cấp gia đình,Family allowance,J3,扶養家族1人につき1万円の家族手当があります。,"Phụ cấp GĐ 10,000 yên/người phụ thuộc."
+v889,6.2,Họp online & DX,画面共有,gamen kyouyuu,Chia sẻ màn hình,Screen sharing,J4,画面共有してもらえますか。,Chia sẻ màn hình được không?
+v890,6.2,Họp online & DX,ミュート,myuuto,Tắt mic,Mute,J4,ミュートを解除してください。,Hãy bật mic.
+v891,6.2,Họp online & DX,チャット,chatto,Chat,Chat,J4,チャットで質問してください。,Hỏi qua chat.
+v892,6.2,Họp online & DX,ブレイクアウトルーム,bureiku auto ruumu,Phòng thảo luận nhóm nhỏ,Breakout room,J3,ブレイクアウトルームに分かれます。,Chia thành phòng nhỏ.
+v893,6.2,Họp online & DX,録画,rokuga,Ghi hình,Recording,J4,会議を録画してもよろしいですか。,Ghi hình cuộc họp được không?
+v894,6.2,Họp online & DX,ペーパーレス,peepaa resu,Không giấy,Paperless,J3,ペーパーレス化を推進しています。,Đang đẩy mạnh giảm giấy.
+v895,6.2,Họp online & DX,電子署名,denshi shomei,Chữ ký điện tử,Digital signature,J3,電子署名で契約できます。,Ký HĐ bằng chữ ký điện tử.
+v896,6.2,Họp online & DX,RPA,aaru pii ee,Tự động hóa quy trình,Robotic Process Automation,J2,RPAで定型業務を自動化しています。,Tự động hóa nghiệp vụ bằng RPA.
+v897,6.2,Họp online & DX,SaaS,saasu,Phần mềm dịch vụ,Software as a Service,J2,SaaSを導入しました。,Đã triển khai SaaS.
+v898,6.2,Họp online & DX,ビッグデータ,biggu deeta,Dữ liệu lớn,Big data,J2,ビッグデータを活用した分析。,Phân tích dùng big data.
+v899,6.3,Hợp đồng & Pháp lý (bổ sung),甲,kou,Bên A (hợp đồng),Party A,J2,甲は株式会社ABCとする。,Bên A là công ty ABC.
+v900,6.3,Hợp đồng & Pháp lý (bổ sung),乙,otsu,Bên B (hợp đồng),Party B,J2,乙は株式会社XYZとする。,Bên B là công ty XYZ.
+v901,6.3,Hợp đồng & Pháp lý (bổ sung),効力,kouryoku,Hiệu lực,Validity/force,J2,本契約は締結日より効力を生じる。,HĐ có hiệu lực từ ngày ký.
+v902,6.3,Hợp đồng & Pháp lý (bổ sung),解約,kaiyaku,Hủy hợp đồng,Termination,J3,解約する場合は30日前に通知してください。,Hủy HĐ báo trước 30 ngày.
+v903,6.3,Hợp đồng & Pháp lý (bổ sung),遵守事項,junshu jikou,Điều cần tuân thủ,Compliance matters,J2,遵守事項を確認してください。,Xác nhận điều cần tuân thủ.
+v904,6.3,Hợp đồng & Pháp lý (bổ sung),瑕疵担保,kashi tanpo,Bảo đảm khuyết tật,Warranty against defects,J1,瑕疵担保責任を負います。,Chịu trách nhiệm bảo đảm.
+v905,6.3,Hợp đồng & Pháp lý (bổ sung),不可抗力,fukakou ryoku,Bất khả kháng,Force majeure,J1,不可抗力による遅延は免責とする。,Trễ do bất khả kháng được miễn.
+v906,6.3,Hợp đồng & Pháp lý (bổ sung),準拠法,junkyohou,Luật áp dụng,Governing law,J1,準拠法は日本法とする。,Luật áp dụng là luật Nhật.
+v907,6.3,Hợp đồng & Pháp lý (bổ sung),管轄裁判所,kankatsu saibansho,Tòa án có thẩm quyền,Jurisdiction court,J1,東京地方裁判所を管轄裁判所とする。,Tòa Tokyo có thẩm quyền.
+v908,6.3,Hợp đồng & Pháp lý (bổ sung),公正証書,kousei shousho,Văn bản công chứng,Notarized document,J1,公正証書を作成します。,Lập văn bản công chứng.
+v909,6.4,Phỏng vấn xin việc,志望動機,shibou douki,Lý do ứng tuyển,Motivation for applying,J3,志望動機を教えてください。,Cho biết lý do ứng tuyển.
+v910,6.4,Phỏng vấn xin việc,自己PR,jiko pii aaru,Tự giới thiệu ưu điểm,Self-promotion,J3,自己PRをお願いします。,Hãy tự giới thiệu ưu điểm.
+v911,6.4,Phỏng vấn xin việc,長所,chousho,Ưu điểm,Strengths,J4,あなたの長所は何ですか。,Ưu điểm của anh là gì?
+v912,6.4,Phỏng vấn xin việc,短所,tansho,Nhược điểm,Weaknesses,J4,短所をどう克服していますか。,Khắc phục nhược điểm thế nào?
+v913,6.4,Phỏng vấn xin việc,前職,zenshoku,Công ty trước,Previous job,J4,前職ではどのような仕事をしていましたか。,Ở công ty trước làm gì?
+v914,6.4,Phỏng vấn xin việc,退職理由,taishoku riyuu,Lý do nghỉ việc,Reason for leaving,J3,前職の退職理由を教えてください。,Lý do nghỉ việc cũ?
+v915,6.4,Phỏng vấn xin việc,希望年収,kibou nenshuu,Mức lương mong muốn,Expected salary,J3,希望年収を教えてください。,Cho biết mức lương mong muốn.
+v916,6.4,Phỏng vấn xin việc,入社可能日,nyuusha kanou bi,Ngày có thể bắt đầu,Available start date,J3,入社可能日はいつですか。,Khi nào có thể bắt đầu?
+v917,6.4,Phỏng vấn xin việc,選考,senkou,Tuyển chọn,Selection process,J3,選考の流れを説明します。,Giải thích quy trình tuyển chọn.
+v918,6.4,Phỏng vấn xin việc,適性検査,tekisei kensa,Kiểm tra năng lực,Aptitude test,J3,適性検査を受けていただきます。,Sẽ làm bài test năng lực.
+v919,6.4,Phỏng vấn xin việc,最終面接,saishuu mensetsu,Phỏng vấn cuối,Final interview,J3,最終面接の日程をお知らせします。,Thông báo lịch PV cuối.
+v920,6.4,Phỏng vấn xin việc,内定通知,naitei tsuuchi,Thông báo nhận việc,Job offer notice,J3,内定通知をお送りいたします。,Gửi thông báo nhận việc.
+v921,6.5,Tổng hợp cuối,本日,honjitsu,Hôm nay (trang trọng),Today (formal),J4,本日はお忙しい中ありがとうございます。,Cảm ơn hôm nay trong lúc bận.
+v922,6.5,Tổng hợp cuối,先日,senjitsu,Hôm trước,The other day,J4,先日はありがとうございました。,Hôm trước cảm ơn.
+v923,6.5,Tổng hợp cuối,後日,gojitsu,Sau này / Hôm sau,Later date,J3,後日改めてご連絡します。,Sẽ liên lạc lại sau.
+v924,6.5,Tổng hợp cuối,当日,toujitsu,Ngày hôm đó,On the day,J4,当日は10時に集合してください。,Ngày đó tập hợp lúc 10h.
+v925,6.5,Tổng hợp cuối,翌日,yokujitsu,Ngày hôm sau,Next day,J3,翌日に返信しました。,Hôm sau đã trả lời.
+v926,6.5,Tổng hợp cuối,前日,zenjitsu,Ngày hôm trước,Previous day,J3,前日までにご連絡ください。,Liên lạc trước 1 ngày.
+v927,6.5,Tổng hợp cuối,早朝,souchou,Sáng sớm,Early morning,J3,早朝の会議は避けたいです。,Muốn tránh họp sáng sớm.
+v928,6.5,Tổng hợp cuối,深夜,shin'ya,Đêm khuya,Late night,J3,深夜残業は健康に悪いです。,Tăng ca khuya hại sức khỏe.
+v929,6.5,Tổng hợp cuối,年始,nenshi,Đầu năm,New Year,J3,年始のご挨拶を申し上げます。,Lời chào đầu năm.
+v930,6.5,Tổng hợp cuối,年末,nenmatsu,Cuối năm,Year end,J3,年末の業務を整理します。,Sắp xếp công việc cuối năm.
+v931,6.5,Tổng hợp cuối,上旬,joujun,Đầu tháng (1-10),Early (month),J3,来月上旬に会議を開きます。,Họp đầu tháng sau.
+v932,6.5,Tổng hợp cuối,中旬,chuujun,Giữa tháng (11-20),Mid (month),J3,5月中旬に出張します。,Công tác giữa T5.
+v933,6.5,Tổng hợp cuối,下旬,gejun,Cuối tháng (21-末),Late (month),J3,3月下旬に完了予定です。,Dự kiến xong cuối T3.
+v934,6.5,Tổng hợp cuối,直ちに,tadachi ni,Ngay lập tức,Immediately,J3,直ちに対応いたします。,Xử lý ngay.
+v935,6.5,Tổng hợp cuối,速やかに,sumiyaka ni,Nhanh chóng,Promptly,J2,速やかにご報告ください。,Hãy báo cáo nhanh.
+v936,6.5,Tổng hợp cuối,可及的速やかに,kakyuuteki sumiyaka ni,Càng sớm càng tốt,As soon as possible,J1,可及的速やかに対応します。,Xử lý sớm nhất có thể.
+v937,6.5,Tổng hợp cuối,随時,zuiji,Bất cứ lúc nào,At any time,J2,随時ご連絡ください。,Liên lạc bất cứ lúc nào.
+v938,6.5,Tổng hợp cuối,適宜,tekigi,Tùy lúc / Linh hoạt,As appropriate,J2,適宜ご判断ください。,Hãy linh hoạt quyết định.
+v939,6.5,Tổng hợp cuối,逐次,chikuji,Lần lượt,Sequentially,J1,逐次報告してください。,Báo cáo lần lượt.
+v940,6.5,Tổng hợp cuối,一斉に,issei ni,Đồng loạt,All at once,J2,一斉にメールを送信します。,Gửi email đồng loạt.
+v941,6.5,Tổng hợp cuối,段階的に,dankai teki ni,Từng bước,Gradually/in stages,J2,段階的に導入します。,Triển khai từng bước.
+v942,6.5,Tổng hợp cuối,抜本的に,bappon teki ni,Triệt để / Từ gốc,Fundamentally,J1,抜本的な改革が必要です。,Cần cải cách triệt để.
+v943,6.5,Tổng hợp cuối,包括的に,houkatsu teki ni,Toàn diện,Comprehensively,J1,包括的に検討します。,Xem xét toàn diện.
+v944,6.5,Tổng hợp cuối,暫定的に,zantei teki ni,Tạm thời,Provisionally,J2,暫定的な対応を行います。,Xử lý tạm thời.
+v945,6.5,Tổng hợp cuối,恒久的に,koukyuu teki ni,Vĩnh viễn / Lâu dài,Permanently,J1,恒久的な解決策を模索します。,Tìm giải pháp lâu dài.
+v946,6.5,Tổng hợp cuối,表面的に,hyoumen teki ni,Bề ngoài,Superficially,J2,表面的な対策では不十分です。,Biện pháp bề ngoài không đủ.
+v947,6.5,Tổng hợp cuối,根本的に,konpon teki ni,Về căn bản,Fundamentally,J2,根本的な原因を突き止めます。,Xác định nguyên nhân căn bản.
+v948,6.5,Tổng hợp cuối,相対的に,soutai teki ni,Tương đối,Relatively,J2,相対的に見て良い結果です。,Tương đối mà nói KQ tốt.
+v949,6.5,Tổng hợp cuối,絶対的に,zettai teki ni,Tuyệt đối,Absolutely,J2,絶対的な基準はありません。,Không có tiêu chuẩn tuyệt đối.
+v950,6.5,Tổng hợp cuối,総合的に,sougou teki ni,Tổng hợp,Comprehensively,J2,総合的に判断します。,Đánh giá tổng hợp.
+v951,6.5,Tổng hợp cuối,画期的な,kakki teki na,Đột phá,Groundbreaking,J1,画期的な新製品を開発しました。,Phát triển SP đột phá.
+v952,6.5,Tổng hợp cuối,飛躍的な,hiyaku teki na,Nhảy vọt,Dramatic/leaping,J1,飛躍的な成長を遂げました。,Đạt tăng trưởng nhảy vọt.
+v953,6.5,Tổng hợp cuối,先駆的な,senku teki na,Tiên phong,Pioneering,J1,先駆的な取り組みとして注目されています。,Được chú ý như nỗ lực tiên phong.
+v954,6.5,Tổng hợp cuối,多角的に,takaku teki ni,Đa chiều / Đa diện,From multiple angles,J1,多角的に分析します。,Phân tích đa chiều.
+v955,6.5,Tổng hợp cuối,自発的に,jihatsu teki ni,Tự phát / Chủ động,Voluntarily,J2,自発的に行動してください。,Hãy chủ động hành động.
+v956,6.5,Tổng hợp cuối,効果的に,kouka teki ni,Hiệu quả,Effectively,J3,時間を効果的に使いましょう。,Hãy dùng thời gian hiệu quả.
+v957,6.5,Tổng hợp cuối,計画的に,keikaku teki ni,Có kế hoạch,Systematically,J3,計画的に進めてください。,Hãy tiến hành có kế hoạch.
+v958,6.5,Tổng hợp cuối,建設的な,kensetsu teki na,Xây dựng (ý kiến),Constructive,J2,建設的なご意見をお願いします。,Xin ý kiến xây dựng.
+v959,6.5,Tổng hợp cuối,現実的な,genjitsu teki na,Thực tế,Realistic,J3,現実的な目標を設定しましょう。,Đặt mục tiêu thực tế.
+v960,6.5,Tổng hợp cuối,具体的に,gutai teki ni,Cụ thể,Specifically,J3,具体的に教えていただけますか。,Nói cụ thể được không?

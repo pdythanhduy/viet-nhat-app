@@ -1,0 +1,86 @@
+{
+  "title": "Kế hoạch ôn luyện BJT 12 tuần",
+  "weeks": [
+    {
+      "week": 1,
+      "focus": "Chào hỏi + Chức vụ + Keigo cơ bản",
+      "vocab": "v001-v030",
+      "keigo": "k001-k008",
+      "scenario": "s01,s06"
+    },
+    {
+      "week": 2,
+      "focus": "Phòng ban + Họp hành + Hourensou",
+      "vocab": "v031-v056",
+      "grammar": "g01-g05",
+      "scenario": "s03"
+    },
+    {
+      "week": 3,
+      "focus": "Email + Văn bản + Ký hiệu",
+      "vocab": "v057-v072",
+      "email": "e01-e03",
+      "reading": "rp01,rp03"
+    },
+    {
+      "week": 4,
+      "focus": "Công việc + Nhân sự + Phỏng vấn",
+      "vocab": "v069-v092",
+      "scenario": "s02,s13",
+      "reading": "rp04"
+    },
+    {
+      "week": 5,
+      "focus": "Kinh doanh + Đàm phán",
+      "vocab": "v088-v108",
+      "keigo": "k009-k026",
+      "scenario": "s05"
+    },
+    {
+      "week": 6,
+      "focus": "Tài chính + Kế toán",
+      "vocab": "v103-v122",
+      "grammar": "g06-g15",
+      "reading": "rp02,rp08"
+    },
+    {
+      "week": 7,
+      "focus": "Điện thoại + Tiếp khách + Danh thiếp",
+      "vocab": "v113-v132",
+      "scenario": "s01,s10,s11",
+      "manners": "m01-m06"
+    },
+    {
+      "week": 8,
+      "focus": "Sản xuất + IT + Katakana",
+      "vocab": "v120-v170",
+      "reading": "rp07,rp09"
+    },
+    {
+      "week": 9,
+      "focus": "Kinh tế vĩ mô + Pháp luật",
+      "vocab": "v171-v200 + kinh tế",
+      "grammar": "g16-g30",
+      "reading": "rp10"
+    },
+    {
+      "week": 10,
+      "focus": "Ngữ pháp N1 + Từ vựng nâng cao",
+      "vocab": "J1 vocab",
+      "grammar": "g31-g50",
+      "reading": "rp05,rp06"
+    },
+    {
+      "week": 11,
+      "focus": "Mock Test 1-30 + Ôn tổng hợp",
+      "mock": "q01-q30",
+      "scenario": "s14-s20"
+    },
+    {
+      "week": 12,
+      "focus": "Mock Test 31-60 + Tổng ôn + Chiến lược thi",
+      "mock": "q31-q60",
+      "tips": "Chiến lược làm bài, quản lý thời gian"
+    }
+  ]
+}

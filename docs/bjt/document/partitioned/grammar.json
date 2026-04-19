@@ -1,0 +1,506 @@
+{
+  "total": 50,
+  "description": "50 mẫu ngữ pháp N2-N1 thường gặp trong BJT",
+  "items": [
+    {
+      "id": "g01",
+      "pattern": "〜に伴い",
+      "reading": "ni tomonai",
+      "vi": "Kèm theo / Đi kèm với",
+      "level": "N2",
+      "ex_jp": "システム変更に伴い、操作方法が変わります。",
+      "ex_vi": "Kèm theo đổi hệ thống, cách thao tác sẽ đổi.",
+      "usage": "Dùng khi A xảy ra thì B cũng xảy ra theo"
+    },
+    {
+      "id": "g02",
+      "pattern": "〜に基づき",
+      "reading": "ni motozuki",
+      "vi": "Dựa trên / Căn cứ vào",
+      "level": "N2",
+      "ex_jp": "調査結果に基づき、計画を修正します。",
+      "ex_vi": "Dựa trên kết quả điều tra, sẽ sửa kế hoạch.",
+      "usage": "Dùng khi lấy A làm căn cứ cho B"
+    },
+    {
+      "id": "g03",
+      "pattern": "〜にあたって",
+      "reading": "ni atatte",
+      "vi": "Nhân dịp / Khi thực hiện",
+      "level": "N2",
+      "ex_jp": "プロジェクト開始にあたって、方針を説明します。",
+      "ex_vi": "Nhân dịp bắt đầu dự án, giải thích phương châm.",
+      "usage": "Nhân dịp sự kiện quan trọng"
+    },
+    {
+      "id": "g04",
+      "pattern": "〜に際して",
+      "reading": "ni saishite",
+      "vi": "Nhân dịp / Khi",
+      "level": "N2",
+      "ex_jp": "契約締結に際して、条件を確認してください。",
+      "ex_vi": "Khi ký hợp đồng, hãy xác nhận điều kiện.",
+      "usage": "Tương tự にあたって, trang trọng hơn"
+    },
+    {
+      "id": "g05",
+      "pattern": "〜につき",
+      "reading": "ni tsuki",
+      "vi": "Vì / Do",
+      "level": "N2",
+      "ex_jp": "設備点検につき、一時休業いたします。",
+      "ex_vi": "Do kiểm tra thiết bị, tạm nghỉ.",
+      "usage": "Nêu lý do (thông báo, biển báo)"
+    },
+    {
+      "id": "g06",
+      "pattern": "〜において",
+      "reading": "ni oite",
+      "vi": "Tại / Trong",
+      "level": "N2",
+      "ex_jp": "会議において決定された事項です。",
+      "ex_vi": "Việc được quyết định tại cuộc họp.",
+      "usage": "Chỉ nơi chốn/phạm vi (trang trọng)"
+    },
+    {
+      "id": "g07",
+      "pattern": "〜に関して",
+      "reading": "ni kanshite",
+      "vi": "Liên quan đến / Về",
+      "level": "N2",
+      "ex_jp": "この件に関して、ご意見をお聞かせください。",
+      "ex_vi": "Về việc này, cho ý kiến.",
+      "usage": "Dùng thay について (trang trọng hơn)"
+    },
+    {
+      "id": "g08",
+      "pattern": "〜につきまして",
+      "reading": "ni tsukimashite",
+      "vi": "Về / Liên quan",
+      "level": "N2",
+      "ex_jp": "お問い合わせの件につきまして、回答いたします。",
+      "ex_vi": "Về vấn đề đã hỏi, xin trả lời.",
+      "usage": "Dạng kính ngữ của について"
+    },
+    {
+      "id": "g09",
+      "pattern": "〜を踏まえて",
+      "reading": "wo fumaete",
+      "vi": "Dựa trên / Căn cứ vào",
+      "level": "N1",
+      "ex_jp": "市場動向を踏まえて、戦略を見直します。",
+      "ex_vi": "Căn cứ xu hướng thị trường, rà soát chiến lược.",
+      "usage": "Dựa trên kinh nghiệm/dữ liệu để hành động"
+    },
+    {
+      "id": "g10",
+      "pattern": "〜を通じて",
+      "reading": "wo tsuujite",
+      "vi": "Thông qua / Suốt",
+      "level": "N2",
+      "ex_jp": "この経験を通じて、多くのことを学びました。",
+      "ex_vi": "Thông qua kinh nghiệm này, học được nhiều.",
+      "usage": "Thông qua phương tiện/thời gian"
+    },
+    {
+      "id": "g11",
+      "pattern": "〜上",
+      "reading": "jou",
+      "vi": "Trên phương diện / Về mặt",
+      "level": "N2",
+      "ex_jp": "法律上、問題があります。",
+      "ex_vi": "Về mặt pháp luật, có vấn đề.",
+      "usage": "Chỉ phương diện, khía cạnh"
+    },
+    {
+      "id": "g12",
+      "pattern": "〜次第",
+      "reading": "shidai",
+      "vi": "Ngay khi / Tùy thuộc",
+      "level": "N2",
+      "ex_jp": "届き次第、ご連絡いたします。",
+      "ex_vi": "Ngay khi nhận được, sẽ liên lạc.",
+      "usage": "Ngay khi A xong thì làm B"
+    },
+    {
+      "id": "g13",
+      "pattern": "〜に応じて",
+      "reading": "ni oujite",
+      "vi": "Tùy theo / Theo",
+      "level": "N2",
+      "ex_jp": "能力に応じて給与が決まります。",
+      "ex_vi": "Lương được quyết định tùy theo năng lực.",
+      "usage": "Thay đổi linh hoạt theo điều kiện"
+    },
+    {
+      "id": "g14",
+      "pattern": "〜をもって",
+      "reading": "wo motte",
+      "vi": "Bằng / Lấy làm",
+      "level": "N1",
+      "ex_jp": "本日をもって、契約を終了します。",
+      "ex_vi": "Lấy ngày hôm nay, chấm dứt hợp đồng.",
+      "usage": "Lấy A làm mốc (thời gian/phương tiện)"
+    },
+    {
+      "id": "g15",
+      "pattern": "〜にもかかわらず",
+      "reading": "ni mo kakawarazu",
+      "vi": "Mặc dù / Bất chấp",
+      "level": "N2",
+      "ex_jp": "努力したにもかかわらず、目標に届きませんでした。",
+      "ex_vi": "Mặc dù đã nỗ lực, không đạt mục tiêu.",
+      "usage": "Kết quả ngược với mong đợi"
+    },
+    {
+      "id": "g16",
+      "pattern": "〜ものの",
+      "reading": "mono no",
+      "vi": "Tuy...nhưng",
+      "level": "N2",
+      "ex_jp": "売上は増加したものの、利益は減少しました。",
+      "ex_vi": "Tuy DT tăng nhưng LN giảm.",
+      "usage": "Thừa nhận A nhưng ngược B"
+    },
+    {
+      "id": "g17",
+      "pattern": "〜一方で",
+      "reading": "ippou de",
+      "vi": "Một mặt / Trong khi",
+      "level": "N2",
+      "ex_jp": "コストを削減する一方で、品質は維持します。",
+      "ex_vi": "Một mặt giảm chi phí, mặt khác giữ CL.",
+      "usage": "Đối lập hoặc bổ sung hai mặt"
+    },
+    {
+      "id": "g18",
+      "pattern": "〜に先立ち",
+      "reading": "ni sakidachi",
+      "vi": "Trước khi",
+      "level": "N1",
+      "ex_jp": "発売に先立ち、記者会見を行います。",
+      "ex_vi": "Trước khi bán, tổ chức họp báo.",
+      "usage": "Trước sự kiện quan trọng"
+    },
+    {
+      "id": "g19",
+      "pattern": "〜を余儀なくされる",
+      "reading": "wo yogi naku sareru",
+      "vi": "Bị buộc phải",
+      "level": "N1",
+      "ex_jp": "計画の変更を余儀なくされました。",
+      "ex_vi": "Bị buộc phải đổi kế hoạch.",
+      "usage": "Bị ép buộc bởi hoàn cảnh"
+    },
+    {
+      "id": "g20",
+      "pattern": "〜かねる",
+      "reading": "kaneru",
+      "vi": "Không thể / Khó lòng",
+      "level": "N2",
+      "ex_jp": "ご要望にはお応えしかねます。",
+      "ex_vi": "Khó lòng đáp ứng yêu cầu.",
+      "usage": "Từ chối lịch sự"
+    },
+    {
+      "id": "g21",
+      "pattern": "〜かねない",
+      "reading": "kanenai",
+      "vi": "Có thể (tiêu cực)",
+      "level": "N2",
+      "ex_jp": "このままでは赤字になりかねません。",
+      "ex_vi": "Cứ thế này có thể sẽ lỗ.",
+      "usage": "Cảnh báo hậu quả xấu"
+    },
+    {
+      "id": "g22",
+      "pattern": "〜ざるを得ない",
+      "reading": "zaru wo enai",
+      "vi": "Không thể không / Buộc phải",
+      "level": "N2",
+      "ex_jp": "値上げせざるを得ない状況です。",
+      "ex_vi": "Tình huống buộc phải tăng giá.",
+      "usage": "Bắt buộc, không có lựa chọn khác"
+    },
+    {
+      "id": "g23",
+      "pattern": "〜に他ならない",
+      "reading": "ni hoka naranai",
+      "vi": "Không gì khác ngoài / Chính là",
+      "level": "N1",
+      "ex_jp": "成功は社員の努力に他なりません。",
+      "ex_vi": "Thành công chính là nhờ nỗ lực NV.",
+      "usage": "Nhấn mạnh lý do duy nhất"
+    },
+    {
+      "id": "g24",
+      "pattern": "〜てはじめて",
+      "reading": "te hajimete",
+      "vi": "Chỉ khi...mới",
+      "level": "N2",
+      "ex_jp": "実際に働いてはじめて、ビジネスマナーの重要性がわかりました。",
+      "ex_vi": "Chỉ khi thực sự làm mới hiểu tầm quan trọng.",
+      "usage": "Nhờ A mới biết/hiểu B"
+    },
+    {
+      "id": "g25",
+      "pattern": "〜てこそ",
+      "reading": "te koso",
+      "vi": "Chỉ khi...mới thực sự",
+      "level": "N1",
+      "ex_jp": "チームで協力してこそ、大きな成果が出せます。",
+      "ex_vi": "Chỉ khi hợp tác team mới đạt thành quả lớn.",
+      "usage": "Nhấn mạnh điều kiện cần thiết"
+    },
+    {
+      "id": "g26",
+      "pattern": "〜を前提に",
+      "reading": "wo zentei ni",
+      "vi": "Dựa trên tiền đề",
+      "level": "N1",
+      "ex_jp": "長期契約を前提に、価格を交渉します。",
+      "ex_vi": "Dựa trên tiền đề HĐ dài hạn, đàm phán giá.",
+      "usage": "Lấy A làm điều kiện tiên quyết"
+    },
+    {
+      "id": "g27",
+      "pattern": "〜に限り",
+      "reading": "ni kagiri",
+      "vi": "Chỉ giới hạn ở",
+      "level": "N2",
+      "ex_jp": "初回に限り、無料でご提供します。",
+      "ex_vi": "Chỉ lần đầu được miễn phí.",
+      "usage": "Giới hạn phạm vi áp dụng"
+    },
+    {
+      "id": "g28",
+      "pattern": "〜に限らず",
+      "reading": "ni kagirazu",
+      "vi": "Không giới hạn ở",
+      "level": "N2",
+      "ex_jp": "日本に限らず、海外でも販売しています。",
+      "ex_vi": "Không chỉ Nhật, còn bán ở nước ngoài.",
+      "usage": "Mở rộng phạm vi"
+    },
+    {
+      "id": "g29",
+      "pattern": "〜はもとより",
+      "reading": "wa motoyori",
+      "vi": "Dĩ nhiên...mà còn",
+      "level": "N1",
+      "ex_jp": "品質はもとより、コストパフォーマンスも重視しています。",
+      "ex_vi": "Dĩ nhiên CL, mà còn coi trọng chi phí hiệu quả.",
+      "usage": "A đương nhiên, B cũng vậy"
+    },
+    {
+      "id": "g30",
+      "pattern": "〜をはじめ",
+      "reading": "wo hajime",
+      "vi": "Bắt đầu từ / Đứng đầu là",
+      "level": "N2",
+      "ex_jp": "社長をはじめ、幹部全員が出席しました。",
+      "ex_vi": "Đứng đầu là GĐ, toàn bộ lãnh đạo tham dự.",
+      "usage": "Liệt kê, bắt đầu từ đại diện"
+    },
+    {
+      "id": "g31",
+      "pattern": "〜に沿って",
+      "reading": "ni sotte",
+      "vi": "Theo / Dọc theo",
+      "level": "N2",
+      "ex_jp": "方針に沿って行動してください。",
+      "ex_vi": "Hãy hành động theo phương châm.",
+      "usage": "Tuân theo quy tắc/kế hoạch"
+    },
+    {
+      "id": "g32",
+      "pattern": "〜向け",
+      "reading": "muke",
+      "vi": "Dành cho",
+      "level": "N2",
+      "ex_jp": "法人向けのサービスです。",
+      "ex_vi": "Dịch vụ dành cho DN.",
+      "usage": "Chỉ đối tượng mục tiêu"
+    },
+    {
+      "id": "g33",
+      "pattern": "〜上で",
+      "reading": "ue de",
+      "vi": "Sau khi / Trên cơ sở",
+      "level": "N2",
+      "ex_jp": "検討した上で、回答いたします。",
+      "ex_vi": "Sau khi xem xét, sẽ trả lời.",
+      "usage": "Sau khi hoàn thành A, làm B"
+    },
+    {
+      "id": "g34",
+      "pattern": "〜以上は",
+      "reading": "ijou wa",
+      "vi": "Đã...thì phải",
+      "level": "N2",
+      "ex_jp": "引き受けた以上は、責任を持って完成させます。",
+      "ex_vi": "Đã nhận thì phải hoàn thành có trách nhiệm.",
+      "usage": "Cam kết sau khi đã quyết định"
+    },
+    {
+      "id": "g35",
+      "pattern": "〜にわたって",
+      "reading": "ni watatte",
+      "vi": "Suốt / Trải dài",
+      "level": "N2",
+      "ex_jp": "3年にわたって、この事業を推進してきました。",
+      "ex_vi": "Suốt 3 năm đã thúc đẩy sự nghiệp này.",
+      "usage": "Kéo dài qua thời gian/không gian"
+    },
+    {
+      "id": "g36",
+      "pattern": "〜をめぐって",
+      "reading": "wo megutte",
+      "vi": "Xoay quanh / Về vấn đề",
+      "level": "N1",
+      "ex_jp": "新制度をめぐって、議論が続いています。",
+      "ex_vi": "Thảo luận đang tiếp tục xoay quanh chế độ mới.",
+      "usage": "Tranh luận/vấn đề xoay quanh A"
+    },
+    {
+      "id": "g37",
+      "pattern": "〜てならない",
+      "reading": "te naranai",
+      "vi": "Không thể không (cảm xúc mạnh)",
+      "level": "N2",
+      "ex_jp": "今後の業績が心配でなりません。",
+      "ex_vi": "Không thể không lo lắng về thành tích tương lai.",
+      "usage": "Cảm xúc mãnh liệt"
+    },
+    {
+      "id": "g38",
+      "pattern": "〜ないことには",
+      "reading": "nai koto ni wa",
+      "vi": "Nếu không...thì không thể",
+      "level": "N2",
+      "ex_jp": "データを見ないことには、判断できません。",
+      "ex_vi": "Nếu không xem dữ liệu thì không thể phán đoán.",
+      "usage": "Điều kiện bắt buộc"
+    },
+    {
+      "id": "g39",
+      "pattern": "〜としても",
+      "reading": "to shite mo",
+      "vi": "Cho dù...đi nữa",
+      "level": "N2",
+      "ex_jp": "コストが安いとしても、品質は妥協できません。",
+      "ex_vi": "Cho dù rẻ cũng không thỏa hiệp CL.",
+      "usage": "Giả định nhượng bộ nhưng vẫn giữ lập trường"
+    },
+    {
+      "id": "g40",
+      "pattern": "〜ように",
+      "reading": "you ni",
+      "vi": "Để / Làm sao cho",
+      "level": "N3",
+      "ex_jp": "納期に間に合うように対応します。",
+      "ex_vi": "Xử lý để kịp deadline.",
+      "usage": "Mục đích"
+    },
+    {
+      "id": "g41",
+      "pattern": "〜とともに",
+      "reading": "to tomo ni",
+      "vi": "Cùng với / Đồng thời",
+      "level": "N2",
+      "ex_jp": "売上の増加とともに、コストも上がっています。",
+      "ex_vi": "Cùng với tăng DT, chi phí cũng tăng.",
+      "usage": "Song song, đồng thời"
+    },
+    {
+      "id": "g42",
+      "pattern": "〜つつある",
+      "reading": "tsutsu aru",
+      "vi": "Đang dần",
+      "level": "N2",
+      "ex_jp": "状況は改善しつつあります。",
+      "ex_vi": "Tình hình đang dần cải thiện.",
+      "usage": "Quá trình đang diễn ra dần dần"
+    },
+    {
+      "id": "g43",
+      "pattern": "〜にあたる",
+      "reading": "ni ataru",
+      "vi": "Tương đương / Đúng là",
+      "level": "N2",
+      "ex_jp": "これは規則違反にあたります。",
+      "ex_vi": "Điều này tương đương vi phạm quy tắc.",
+      "usage": "Thuộc về/tương đương"
+    },
+    {
+      "id": "g44",
+      "pattern": "〜わけにはいかない",
+      "reading": "wake ni wa ikanai",
+      "vi": "Không thể (vì lý do đạo đức/xã hội)",
+      "level": "N2",
+      "ex_jp": "お客様の要望を無視するわけにはいきません。",
+      "ex_vi": "Không thể phớt lờ yêu cầu KH.",
+      "usage": "Không thể làm vì trách nhiệm"
+    },
+    {
+      "id": "g45",
+      "pattern": "〜に過ぎない",
+      "reading": "ni suginai",
+      "vi": "Chỉ là / Không hơn",
+      "level": "N2",
+      "ex_jp": "これは一時的な対策に過ぎません。",
+      "ex_vi": "Đây chỉ là biện pháp tạm thời.",
+      "usage": "Hạ thấp mức độ"
+    },
+    {
+      "id": "g46",
+      "pattern": "〜どころか",
+      "reading": "dokoro ka",
+      "vi": "Chẳng những...mà còn",
+      "level": "N2",
+      "ex_jp": "改善するどころか、悪化しています。",
+      "ex_vi": "Chẳng những cải thiện, còn xấu đi.",
+      "usage": "Ngược hoàn toàn với mong đợi"
+    },
+    {
+      "id": "g47",
+      "pattern": "〜にとどまらず",
+      "reading": "ni todomarazu",
+      "vi": "Không dừng lại ở / Không chỉ",
+      "level": "N1",
+      "ex_jp": "国内にとどまらず、海外にも展開しています。",
+      "ex_vi": "Không chỉ trong nước, còn mở rộng nước ngoài.",
+      "usage": "Vượt qua phạm vi dự kiến"
+    },
+    {
+      "id": "g48",
+      "pattern": "〜を問わず",
+      "reading": "wo towazu",
+      "vi": "Bất kể / Không kể",
+      "level": "N2",
+      "ex_jp": "経験を問わず、応募できます。",
+      "ex_vi": "Bất kể kinh nghiệm, đều có thể ứng tuyển.",
+      "usage": "Không phân biệt điều kiện"
+    },
+    {
+      "id": "g49",
+      "pattern": "〜たところ",
+      "reading": "ta tokoro",
+      "vi": "Khi thử...thì (kết quả)",
+      "level": "N2",
+      "ex_jp": "調査したところ、原因が判明しました。",
+      "ex_vi": "Khi điều tra thì phát hiện nguyên nhân.",
+      "usage": "Kết quả sau khi thực hiện"
+    },
+    {
+      "id": "g50",
+      "pattern": "〜てまいります",
+      "reading": "te mairimasu",
+      "vi": "Sẽ tiếp tục (khiêm nhường)",
+      "level": "N2",
+      "ex_jp": "今後も品質向上に努めてまいります。",
+      "ex_vi": "Sẽ tiếp tục nỗ lực nâng CL.",
+      "usage": "Cam kết lịch sự (email, phát biểu)"
+    }
+  ]
+}

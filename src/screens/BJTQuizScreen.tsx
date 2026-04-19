@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,18 +17,24 @@ import {
 
 const FILTERS = [
   { id: 'all', label: 'Tất cả' },
-  { id: 'listening', label: 'Listening' },
-  { id: 'listening-reading', label: 'Listen + Read' },
-  { id: 'reading', label: 'Reading' },
+  { id: 'listening', label: 'Nghe' },
+  { id: 'listening-reading', label: 'Nghe + Đọc' },
+  { id: 'reading', label: 'Đọc' },
 ] as const;
 
 type FilterId = (typeof FILTERS)[number]['id'];
 
 const DIFFICULTY_LABELS = {
-  basic: 'Basic',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
+  basic: 'Cơ bản',
+  intermediate: 'Trung cấp',
+  advanced: 'Nâng cao',
 } as const;
+
+const SKILL_LABELS: Record<BjtSkill, string> = {
+  listening: 'Nghe',
+  'listening-reading': 'Nghe + Đọc',
+  reading: 'Đọc',
+};
 
 const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
   all: 'Tất cả',
@@ -69,6 +75,8 @@ function buildScenarioSkillBreakdown(
 
 export default function BJTQuizScreen() {
   const route = useRoute<RouteProp<RootStackParamList, 'BJTQuiz'>>();
+  const { width } = useWindowDimensions();
+  const isTablet = width >= 768;
   const [level, setLevel] = useState<BjtTargetLevel>(route.params?.level ?? 'J3');
   const [filter, setFilter] = useState<FilterId>('all');
   const [adaptiveSkill, setAdaptiveSkill] = useState<BjtSkill | null>(null);
@@ -166,17 +174,17 @@ export default function BJTQuizScreen() {
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
       </View>
 
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <Text style={styles.title}>BJT Scenario Practice</Text>
+      <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
+        <Text style={styles.title}>Luyện tình huống BJT</Text>
         <Text style={styles.subtitle}>
-          Luyện theo từng skill và từng level. Mặc định đang ưu tiên J3 để bám vào batch đã được review kỹ.
+          Luyện theo từng skill và từng level. Mặc định đang ưu tiên J3 để bám vào nhóm câu đã được review kỹ.
         </Text>
 
         {filter === 'all' && adaptiveSkill ? (
           <View style={styles.infoCard}>
             <Ionicons name="pulse-outline" size={16} color={Colors.primary} />
             <Text style={styles.infoText}>
-              Adaptive focus đang ưu tiên skill yếu nhất: {adaptiveSkill}.
+              Đang ưu tiên kỹ năng yếu nhất: {adaptiveSkill ? SKILL_LABELS[adaptiveSkill] : ''}.
             </Text>
           </View>
         ) : null}
@@ -227,7 +235,7 @@ export default function BJTQuizScreen() {
             <Text style={styles.questionTitle}>{currentQuestion.title}</Text>
             <View style={styles.badges}>
               <View style={styles.skillBadge}>
-                <Text style={styles.skillBadgeText}>{currentQuestion.skill}</Text>
+                <Text style={styles.skillBadgeText}>{SKILL_LABELS[currentQuestion.skill]}</Text>
               </View>
               <View style={styles.difficultyBadge}>
                 <Text style={styles.difficultyBadgeText}>
@@ -329,6 +337,11 @@ export default function BJTQuizScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 28 },
+  contentTablet: {
+    width: '100%',
+    maxWidth: 900,
+    alignSelf: 'center',
+  },
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   emptyText: { fontSize: 14, color: Colors.textSecondary },
   progressTrack: { height: 6, backgroundColor: Colors.border, overflow: 'hidden' },
@@ -362,8 +375,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 12,
+    flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary },
+  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1 },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -371,8 +386,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  headerRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12 },
-  badges: { alignItems: 'flex-end', gap: 6 },
+  headerRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
   questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
   skillBadge: {
     alignSelf: 'flex-start',
