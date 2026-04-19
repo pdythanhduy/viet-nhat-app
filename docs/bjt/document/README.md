@@ -45,6 +45,11 @@ Nguyen tac su dung:
 - Vi du review tu vung: `npm run bjt:audit-runtime -- --bank vocabulary --theme email --limit 5`.
 - Neu can audit bo `50 mock exams`, chay `npm run bjt:audit-mock-v2 -- --limit 2`.
 - Vi du audit 1 de cu the ra file UTF-8: `npm run bjt:audit-mock-v2 -- --exam BJT_MOCK_01 --out docs/bjt/document/mock-v2-audit.txt`.
+- QA checklist theo chuan distractor/role/deadline: `npm run bjt:qa-checklist`.
+- Tu dong bo sung cue explanation cho role/deadline neu thieu: `npm run bjt:qa-fix-cues`.
+- Che do gate truoc merge data (fail neu warning vuot baseline hien tai): `npm run bjt:qa-checklist:gate`.
+- Che do nghiem ngat (warning nao cung fail): `npm run bjt:qa-checklist:strict`.
+- Bat git hook de tu dong gate truoc commit/merge commit: `npm run git:hooks:setup`.
 - Neu PowerShell hien thi Unicode loi, ghi report ra file UTF-8: `npm run bjt:audit-runtime -- --bank questions --level J3 --limit 3 --out docs/bjt/document/partitioned/j3-audit.txt`.
 - Neu van muon xem ngay trong terminal, them `--escape-unicode` de in dang `\uXXXX` chinh xac.
 - File trong `legacy/` chi de doi chieu lich su, khong nen dung lam nguon cho app.

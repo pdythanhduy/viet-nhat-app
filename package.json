@@ -15,7 +15,14 @@
     "bjt:export-legacy-runtime": "node scripts/bjt-export-legacy-runtime.js",
     "bjt:partition-ultimate": "node scripts/bjt-partition-ultimate.js",
     "bjt:manifest-snippet": "node scripts/bjt-manifest-snippet.js",
-    "bjt:init-batch": "node scripts/bjt-init-batch.js"
+    "bjt:init-batch": "node scripts/bjt-init-batch.js",
+    "bjt:qa-checklist": "node scripts/bjt-qa-checklist.js",
+    "bjt:qa-fix-cues": "node scripts/bjt-qa-checklist.js --fix-cues",
+    "bjt:qa-checklist:strict": "node scripts/bjt-qa-checklist.js --strict",
+    "bjt:qa-checklist:gate": "node scripts/bjt-qa-checklist.js --max-warnings 0",
+    "git:hooks:setup": "node scripts/setup-git-hooks.js",
+    "content:audit-encoding": "node scripts/content-encoding-audit.js",
+    "content:fix-encoding": "node scripts/content-encoding-audit.js --fix"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

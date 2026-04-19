@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+echo "[bjt-hook] Running BJT QA gate before commit..."
+npm run -s bjt:qa-checklist:gate
+

@@ -48,7 +48,7 @@
       "水曜日の午後までに資料を完成させ、会議当日に配布する"
     ],
     "correctIndex": 0,
-    "explanation": "Yêu cầu gồm tài liệu tổng hợp doanh số tháng trước có biểu đồ, gửi cho Tanaka, trước trưa thứ Tư. Chỉ đáp án đầu tiên đáp ứng đủ ba điều kiện."
+    "explanation": "Yêu cầu gồm tài liệu tổng hợp doanh số tháng trước có biểu đồ, gửi cho Tanaka, trước trưa thứ Tư. Chỉ đáp án đầu tiên đáp ứng đủ ba điều kiện. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_reading_004",
@@ -65,7 +65,7 @@
       "取引先への連絡内容の詳細"
     ],
     "correctIndex": 0,
-    "explanation": "Trong ba dự án, chỉ dự án B đang có rủi ro tiến độ. Vì vậy điều cần xác nhận đầu tiên là ngày hoàn thành mới của dự án B."
+    "explanation": "Trong ba dự án, chỉ dự án B đang có rủi ro tiến độ. Vì vậy điều cần xác nhận đầu tiên là ngày hoàn thành mới của dự án B. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_listening_001",
@@ -82,7 +82,7 @@
       "松本商事との今後の取引を見直す必要があると伝える"
     ],
     "correctIndex": 0,
-    "explanation": "Đối tác xin lùi giao hàng từ ngày mai sang thứ Ba tuần tới. Hành động đầu tiên cụ thể và rõ ràng nhất là thông báo cho đối tác rằng cần xác nhận nội bộ và sẽ gọi lại — đây là phản ứng chuyên nghiệp phổ biến trong mọi tình huống thay đổi lịch giao hàng. A đúng và là hành động giao tiếp trực tiếp với người gọi. B quá vội (chưa xác nhận nội bộ). C không hợp lý vì chưa có thông tin về yêu cầu bắt buộc. D không phù hợp và không liên quan đến tình huống này."
+    "explanation": "Đối tác xin lùi giao hàng từ ngày mai sang thứ Ba tuần tới. Hành động đầu tiên cụ thể và rõ ràng nhất là thông báo cho đối tác rằng cần xác nhận nội bộ và sẽ gọi lại — đây là phản ứng chuyên nghiệp phổ biến trong mọi tình huống thay đổi lịch giao hàng. A đúng và là hành động giao tiếp trực tiếp với người gọi. B quá vội (chưa xác nhận nội bộ). C không hợp lý vì chưa có thông tin về yêu cầu bắt buộc. D không phù hợp và không liên quan đến tình huống này. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_listening_002",
@@ -116,7 +116,7 @@
       "注文情報を確認せずにすぐ新しい商品を送ると約束する"
     ],
     "correctIndex": 2,
-    "explanation": "Khách đang khiếu nại. Bước đầu tiên đúng quy trình là xin lỗi và xin thời gian để xác nhận cách xử lý trước khi hứa hẹn bất cứ điều gì."
+    "explanation": "Khách đang khiếu nại. Bước đầu tiên đúng quy trình là xin lỗi và xin thời gian để xác nhận cách xử lý trước khi hứa hẹn bất cứ điều gì. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j3_listening_004",
@@ -133,7 +133,7 @@
       "点検の担当者に4階への立ち入りを禁止するよう伝える"
     ],
     "correctIndex": 1,
-    "explanation": "Thông báo yêu cầu lưu dữ liệu trước, và nếu có thể thì chuyển sang tầng khác. Đáp án đúng là làm cả hai việc theo mức ưu tiên đó."
+    "explanation": "Thông báo yêu cầu lưu dữ liệu trước, và nếu có thể thì chuyển sang tầng khác. Đáp án đúng là làm cả hai việc theo mức ưu tiên đó. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_lr_001",
@@ -184,7 +184,7 @@
       "高橋さんに吉田さんのパートを代わりに担当してもらうよう頼む"
     ],
     "correctIndex": 1,
-    "explanation": "Tin nhắn mới chỉ thay đổi người phụ trách phần của Yoshida, còn thời gian và địa điểm giữ nguyên. Vì vậy Yamaguchi phải chuẩn bị thêm phần của Yoshida."
+    "explanation": "Tin nhắn mới chỉ thay đổi người phụ trách phần của Yoshida, còn thời gian và địa điểm giữ nguyên. Vì vậy Yamaguchi phải chuẩn bị thêm phần của Yoshida. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_lr_004",
@@ -201,7 +201,7 @@
       "翌営業日中に上司に報告し、改善計画書を提出する"
     ],
     "correctIndex": 3,
-    "explanation": "68% nằm trong nhóm dưới 70%, nên phải vừa báo cáo cho cấp trên trong ngày làm việc tiếp theo vừa nộp kế hoạch cải thiện."
+    "explanation": "68% nằm trong nhóm dưới 70%, nên phải vừa báo cáo cho cấp trên trong ngày làm việc tiếp theo vừa nộp kế hoạch cải thiện. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_listening_005",
@@ -218,7 +218,7 @@
       "遅延の原因だけ報告し、対応策は別途後日提出する"
     ],
     "correctIndex": 0,
-    "explanation": "Chỉ thị có ba yêu cầu đồng thời: (1) báo cáo tiến độ 10 phút, (2) gửi tài liệu qua email trước 17h ngày hôm trước, (3) nếu chậm tiến độ thì PHẢI bao gồm cả nguyên nhân lẫn biện pháp xử lý. Phương án A đáp ứng đầy đủ cả ba. B, C, D đều bỏ mất ít nhất một yêu cầu."
+    "explanation": "Chỉ thị có ba yêu cầu đồng thời: (1) báo cáo tiến độ 10 phút, (2) gửi tài liệu qua email trước 17h ngày hôm trước, (3) nếu chậm tiến độ thì PHẢI bao gồm cả nguyên nhân lẫn biện pháp xử lý. Phương án A đáp ứng đầy đủ cả ba. B, C, D đều bỏ mất ít nhất một yêu cầu. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_lr_005",
@@ -235,7 +235,7 @@
       "金曜日14:00、会議室C"
     ],
     "correctIndex": 0,
-    "explanation": "Hai thay đổi cần xử lý đồng thời: (1) phòng họp đổi từ A sang C, (2) giờ bắt đầu dời muộn 30 phút (14:00 → 14:30). A phản ánh đúng cả hai. B sai chiều dời giờ. C giữ nhầm phòng cũ. D chỉ đổi phòng mà bỏ mất thay đổi giờ."
+    "explanation": "Hai thay đổi cần xử lý đồng thời: (1) phòng họp đổi từ A sang C, (2) giờ bắt đầu dời muộn 30 phút (14:00 → 14:30). A phản ánh đúng cả hai. B sai chiều dời giờ. C giữ nhầm phòng cũ. D chỉ đổi phòng mà bỏ mất thay đổi giờ. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j3_reading_005",
@@ -252,7 +252,7 @@
       "印刷業者への事前連絡のみ"
     ],
     "correctIndex": 0,
-    "explanation": "Email nêu chuỗi phụ thuộc: (1) xác nhận mẫu sản phẩm → (2) hoàn thiện tài liệu → (3) cấp trên duyệt → (4) in ấn. Để bắt đầu in phải hoàn thành cả bước 1 và bước 3. B bỏ mất điều kiện mẫu. C bỏ mất điều kiện duyệt cấp trên. D không có trong email."
+    "explanation": "Email nêu chuỗi phụ thuộc: (1) xác nhận mẫu sản phẩm → (2) hoàn thiện tài liệu → (3) cấp trên duyệt → (4) in ấn. Để bắt đầu in phải hoàn thành cả bước 1 và bước 3. B bỏ mất điều kiện mẫu. C bỏ mất điều kiện duyệt cấp trên. D không có trong email. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j3_reading_006",
@@ -286,7 +286,7 @@
       "日程が確定するまで待ってからプレゼン資料の準備を始める"
     ],
     "correctIndex": 2,
-    "explanation": "Cấp trên sẽ tự xác nhận lịch với đối tác và sẽ chia sẻ lại khi đã chốt. Việc của nhân viên ngay bây giờ là tiếp tục chuẩn bị tài liệu và sắp xếp nội dung giải thích trước hạn đầu tuần sau. Phương án C đúng vì phản ánh cả hai phần việc thuộc phạm vi của nhân viên. Phương án A sai hạn — nộp vào đầu tuần sau chứ không phải tuần này. Phương án B vượt quyền vì cấp trên đã nhận phần liên hệ đối tác. Phương án D thụ động, chờ lịch chốt rồi mới làm sẽ làm chậm tiến độ chuẩn bị."
+    "explanation": "Cấp trên sẽ tự xác nhận lịch với đối tác và sẽ chia sẻ lại khi đã chốt. Việc của nhân viên ngay bây giờ là tiếp tục chuẩn bị tài liệu và sắp xếp nội dung giải thích trước hạn đầu tuần sau. Phương án C đúng vì phản ánh cả hai phần việc thuộc phạm vi của nhân viên. Phương án A sai hạn — nộp vào đầu tuần sau chứ không phải tuần này. Phương án B vượt quyền vì cấp trên đã nhận phần liên hệ đối tác. Phương án D thụ động, chờ lịch chốt rồi mới làm sẽ làm chậm tiến độ chuẩn bị. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_listening_002",
@@ -303,7 +303,7 @@
       "鈴木さんに直接電話して、スケジュールだけ確認する"
     ],
     "correctIndex": 0,
-    "explanation": "Có hai thay đổi cùng lúc: người tham dự (từ Yamada sang Suzuki) và địa điểm (từ công ty mình sang công ty đối tác). Cần xác nhận cả hai trước khi trả lời. Phương án A bao gồm đủ hai điểm cần kiểm tra. Phương án B không cần thiết — đây là thay đổi hậu cần trong phạm vi quyền coordinator. Phương án C quá vội, chưa kiểm tra nội bộ. Phương án D chỉ kiểm tra một trong hai điều cần xác nhận."
+    "explanation": "Có hai thay đổi cùng lúc: người tham dự (từ Yamada sang Suzuki) và địa điểm (từ công ty mình sang công ty đối tác). Cần xác nhận cả hai trước khi trả lời. Phương án A bao gồm đủ hai điểm cần kiểm tra. Phương án B không cần thiết — đây là thay đổi hậu cần trong phạm vi quyền coordinator. Phương án C quá vội, chưa kiểm tra nội bộ. Phương án D chỉ kiểm tra một trong hai điều cần xác nhận. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_listening_003",
@@ -320,7 +320,7 @@
       "15日の中間報告が難しいと判断し、今すぐ部長に相談する"
     ],
     "correctIndex": 1,
-    "explanation": "Ngay bây giờ PM có hai việc: (1) thông báo ngay cho nhóm về thay đổi hạn chót (速やかに周知), (2) bắt đầu chuẩn bị báo cáo trung gian trước ngày 15. Điều phối bộ phận là việc của cấp trên. Phương án A nhảy cóc qua bước trung gian. Phương án C vượt phạm vi — cấp trên đã đảm nhận điều phối. Phương án D quá vội — leo thang chỉ khi thực sự cần (前もって = báo trước thời hạn, không phải leo thang ngay lập tức)."
+    "explanation": "Ngay bây giờ PM có hai việc: (1) thông báo ngay cho nhóm về thay đổi hạn chót (速やかに周知), (2) bắt đầu chuẩn bị báo cáo trung gian trước ngày 15. Điều phối bộ phận là việc của cấp trên. Phương án A nhảy cóc qua bước trung gian. Phương án C vượt phạm vi — cấp trên đã đảm nhận điều phối. Phương án D quá vội — leo thang chỉ khi thực sự cần (前もって = báo trước thời hạn, không phải leo thang ngay lập tức). Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j2_listening_004",
@@ -337,7 +337,7 @@
       "調査結果を課長に今日中に口頭で報告する"
     ],
     "correctIndex": 1,
-    "explanation": "Chuỗi thời hạn: hôm nay → điều tra nguyên nhân (今日中に調べる). Sáng mai → báo cáo miệng cho trưởng nhóm. Tuần sau thứ Hai → nộp báo cáo văn bản. Phương án B khớp đúng với nhiệm vụ hôm nay. Phương án A là nhiệm vụ tuần sau. Phương án C không được yêu cầu. Phương án D nhầm thời hạn — báo cáo miệng là sáng mai, không phải hôm nay."
+    "explanation": "Chuỗi thời hạn: hôm nay → điều tra nguyên nhân (今日中に調べる). Sáng mai → báo cáo miệng cho trưởng nhóm. Tuần sau thứ Hai → nộp báo cáo văn bản. Phương án B khớp đúng với nhiệm vụ hôm nay. Phương án A là nhiệm vụ tuần sau. Phương án C không được yêu cầu. Phương án D nhầm thời hạn — báo cáo miệng là sáng mai, không phải hôm nay. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_lr_001",
@@ -354,7 +354,7 @@
       "B案の再提案を断る旨を取引先に返信する"
     ],
     "correctIndex": 0,
-    "explanation": "Cấp trên đã phân công rõ ràng: bạn xử lý A, cấp trên xử lý B. Phương án A đúng với phân công này. Các phương án còn lại hoặc làm sai phạm vi việc, hoặc tự thêm bước không cần thiết."
+    "explanation": "Cấp trên đã phân công rõ ràng: bạn xử lý A, cấp trên xử lý B. Phương án A đúng với phân công này. Các phương án còn lại hoặc làm sai phạm vi việc, hoặc tự thêm bước không cần thiết. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_lr_002",
@@ -371,7 +371,7 @@
       "議事録と口頭指示の矛盾を確認するため、まず部長に連絡する"
     ],
     "correctIndex": 1,
-    "explanation": "Chỉ thị miệng của trưởng phòng cập nhật và làm rõ biên bản họp: kiểm tra hệ thống trong tháng này, tài liệu hướng dẫn trước giữa tháng sau. Phương án A bỏ qua cập nhật miệng. Phương án C bỏ qua hạn kiểm tra hệ thống trong tháng này. Phương án D không cần thiết vì chỉ đạo miệng đã đủ rõ."
+    "explanation": "Chỉ thị miệng của trưởng phòng cập nhật và làm rõ biên bản họp: kiểm tra hệ thống trong tháng này, tài liệu hướng dẫn trước giữa tháng sau. Phương án A bỏ qua cập nhật miệng. Phương án C bỏ qua hạn kiểm tra hệ thống trong tháng này. Phương án D không cần thiết vì chỉ đạo miệng đã đủ rõ. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_lr_003",
@@ -388,7 +388,7 @@
       "会議室の使用申請を管理部門に提出する"
     ],
     "correctIndex": 1,
-    "explanation": "Cấp trên đưa ra thứ tự rõ ràng: trước tiên xác nhận Tanaka, sau đó mới cập nhật hệ thống. Phương án B phản ánh đúng thứ tự có điều kiện này. Phương án A bỏ qua bước xác nhận bắt buộc. Phương án C còn quá sớm. Phương án D không được đề cập."
+    "explanation": "Cấp trên đưa ra thứ tự rõ ràng: trước tiên xác nhận Tanaka, sau đó mới cập nhật hệ thống. Phương án B phản ánh đúng thứ tự có điều kiện này. Phương án A bỏ qua bước xác nhận bắt buộc. Phương án C còn quá sớm. Phương án D không được đề cập. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_lr_004",
@@ -405,7 +405,7 @@
       "翌月処理でも業務に支障がないと判断し、27日（月）に申請する"
     ],
     "correctIndex": 2,
-    "explanation": "Là trưởng nhóm chịu trách nhiệm cho cả nhóm, hành động đúng là xác minh trực tiếp với tổng vụ trước khi thông báo. Thông tin nghe lại từ hành lang chưa phải nguồn xác nhận chính thức."
+    "explanation": "Là trưởng nhóm chịu trách nhiệm cho cả nhóm, hành động đúng là xác minh trực tiếp với tổng vụ trước khi thông báo. Thông tin nghe lại từ hành lang chưa phải nguồn xác nhận chính thức. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_001",
@@ -422,7 +422,7 @@
       "上司が遅れる場合に備え、進捗報告の資料を山本さんが独自に作成する"
     ],
     "correctIndex": 1,
-    "explanation": "Từ email, có hai nhiệm vụ rõ ràng trước cuộc họp: chuyển tiếp tài liệu cho cả nhóm khi nhận được, và thu thập câu hỏi cùng mối quan tâm để báo lại cho cấp trên trước cuộc họp."
+    "explanation": "Từ email, có hai nhiệm vụ rõ ràng trước cuộc họp: chuyển tiếp tài liệu cho cả nhóm khi nhận được, và thu thập câu hỏi cùng mối quan tâm để báo lại cho cấp trên trước cuộc họp. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_002",
@@ -439,7 +439,7 @@
       "まず①と③を完成させ、②は経営会議後に部長と相談して追加する"
     ],
     "correctIndex": 2,
-    "explanation": "Theo chỉ thị: nộp bản chỉnh sửa trước 17h thứ Tư. Nếu dữ liệu cạnh tranh không thu thập được kịp, cần báo cho cấp trên trong ngày thứ Ba. Phương án C phản ánh đúng cả hai mốc này."
+    "explanation": "Theo chỉ thị: nộp bản chỉnh sửa trước 17h thứ Tư. Nếu dữ liệu cạnh tranh không thu thập được kịp, cần báo cho cấp trên trong ngày thứ Ba. Phương án C phản ánh đúng cả hai mốc này. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_003",
@@ -456,7 +456,7 @@
       "来月分のテレワーク申請を今月初めにまとめて提出する"
     ],
     "correctIndex": 1,
-    "explanation": "Thông báo nêu rõ: tháng này tiếp tục theo quy trình cũ, còn quy trình mới áp dụng từ tháng sau. Vì vậy phương án B là đúng cho thời điểm hiện tại."
+    "explanation": "Thông báo nêu rõ: tháng này tiếp tục theo quy trình cũ, còn quy trình mới áp dụng từ tháng sau. Vì vậy phương án B là đúng cho thời điểm hiện tại. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_004",
@@ -473,7 +473,7 @@
       "人事部と面談の日程調整を行う"
     ],
     "correctIndex": 1,
-    "explanation": "Chuỗi thời hạn trong thông báo cho thấy trước ngày 20 cần gửi tờ tự đánh giá cho thành viên. Các việc còn lại diễn ra sau đó."
+    "explanation": "Chuỗi thời hạn trong thông báo cho thấy trước ngày 20 cần gửi tờ tự đánh giá cho thành viên. Các việc còn lại diễn ra sau đó. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_listening_005",
@@ -490,7 +490,7 @@
       "契約書を今月中に締結してから来月の条件で支払う"
     ],
     "correctIndex": 0,
-    "explanation": "Chỉ thị phân biệt rõ: trường hợp ĐÃ thỏa thuận thanh toán cuối tháng này thì giữ nguyên theo thỏa thuận cũ. Quy trình mới chỉ áp dụng từ tháng sau và với các hợp đồng chưa ký. Phương án A đúng theo ngoại lệ đó."
+    "explanation": "Chỉ thị phân biệt rõ: trường hợp ĐÃ thỏa thuận thanh toán cuối tháng này thì giữ nguyên theo thỏa thuận cũ. Quy trình mới chỉ áp dụng từ tháng sau và với các hợp đồng chưa ký. Phương án A đúng theo ngoại lệ đó. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j2_lr_005",
@@ -507,7 +507,7 @@
       "緊急業務かどうか不明なので残業しない"
     ],
     "correctIndex": 1,
-    "explanation": "Quy định cho phép đăng ký sau vào ngày hôm sau với trường hợp công việc khẩn. Cấp trên đã xác nhận đây là công việc khẩn và hướng dẫn nộp đơn vào ngày kia (= ngày hôm sau so với ngày làm thêm). Phương án B đúng theo cả quy định lẫn chỉ thị."
+    "explanation": "Quy định cho phép đăng ký sau vào ngày hôm sau với trường hợp công việc khẩn. Cấp trên đã xác nhận đây là công việc khẩn và hướng dẫn nộp đơn vào ngày kia (= ngày hôm sau so với ngày làm thêm). Phương án B đúng theo cả quy định lẫn chỉ thị. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_005",
@@ -524,7 +524,7 @@
       "新様式の配布を待ってから25日以降に提出できる"
     ],
     "correctIndex": 0,
-    "explanation": "Email phân biệt ba mốc thời gian: tháng này nộp theo hạn cũ (ngày 10), tháng sau là tháng chuyển tiếp được gia hạn đến ngày 12, từ tháng sau nữa áp dụng hạn mới (ngày 7). Câu hỏi hỏi về tháng sau, nên A là đáp án đúng."
+    "explanation": "Email phân biệt ba mốc thời gian: tháng này nộp theo hạn cũ (ngày 10), tháng sau là tháng chuyển tiếp được gia hạn đến ngày 12, từ tháng sau nữa áp dụng hạn mới (ngày 7). Câu hỏi hỏi về tháng sau, nên A là đáp án đúng. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j2_reading_006",
@@ -558,7 +558,7 @@
       "先方にも同じ資料を共有し、認識をそろえておく"
     ],
     "correctIndex": 1,
-    "explanation": "Chỉ thị có ba lớp: vẫn chuẩn bị đề xuất nội bộ, được nêu hiệu quả kỳ vọng, nhưng không được khẳng định thời điểm bắt đầu và không được gửi nguyên tài liệu đó cho đối tác. Phương án B phản ánh đúng cả ba điều kiện. A dùng diễn đạt quá mức. C dừng toàn bộ công việc là sai vì cấp trên vẫn yêu cầu chuẩn bị. D vi phạm giới hạn '社内説明用'."
+    "explanation": "Chỉ thị có ba lớp: vẫn chuẩn bị đề xuất nội bộ, được nêu hiệu quả kỳ vọng, nhưng không được khẳng định thời điểm bắt đầu và không được gửi nguyên tài liệu đó cho đối tác. Phương án B phản ánh đúng cả ba điều kiện. A dùng diễn đạt quá mức. C dừng toàn bộ công việc là sai vì cấp trên vẫn yêu cầu chuẩn bị. D vi phạm giới hạn '社内説明用'. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_listening_002",
@@ -575,7 +575,7 @@
       "取引先側の見込み違いだと説明して、調整し直してもらう"
     ],
     "correctIndex": 2,
-    "explanation": "Ở đây phải giữ cân bằng giữa không hứa quá quyền hạn và không làm đối tác mất niềm tin. Phương án C là đáp án đúng vì vừa trung thực về trạng thái 'đang xác nhận cuối cùng', vừa hứa mốc phản hồi tiếp theo. A là cam kết quá sớm. B quá cứng khi chưa xác định là không thể. D đẩy trách nhiệm sang khách là phản ứng nghiệp vụ kém."
+    "explanation": "Ở đây phải giữ cân bằng giữa không hứa quá quyền hạn và không làm đối tác mất niềm tin. Phương án C là đáp án đúng vì vừa trung thực về trạng thái 'đang xác nhận cuối cùng', vừa hứa mốc phản hồi tiếp theo. A là cam kết quá sớm. B quá cứng khi chưa xác định là không thể. D đẩy trách nhiệm sang khách là phản ứng nghiệp vụ kém. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_listening_003",
@@ -609,7 +609,7 @@
       "回線の不安定さを避けるため、5階だけ別日に点検すると伝える"
     ],
     "correctIndex": 1,
-    "explanation": "Điểm khó là không chỉ truyền đạt 'vẫn hoạt động được', mà phải truyền đạt cả điều kiện kèm theo về rủi ro ngay sau chuyển đổi điện. B là đáp án duy nhất bao gồm đủ hai ý. A bỏ mất cảnh báo quan trọng. C và D trái với chỉ đạo."
+    "explanation": "Điểm khó là không chỉ truyền đạt 'vẫn hoạt động được', mà phải truyền đạt cả điều kiện kèm theo về rủi ro ngay sau chuyển đổi điện. B là đáp án duy nhất bao gồm đủ hai ý. A bỏ mất cảnh báo quan trọng. C và D trái với chỉ đạo. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_lr_001",
@@ -626,7 +626,7 @@
       "先方送付用のみを先に作り、経営会議資料は後回しにする"
     ],
     "correctIndex": 1,
-    "explanation": "Phải kết hợp cả rule sheet và chỉ thị miệng: được làm tài liệu nội bộ trước, chưa được gửi ra ngoài, và nếu có số liệu dự báo thì phải ghi rõ điều kiện tiền đề. B là phương án duy nhất đáp ứng đủ ba điểm."
+    "explanation": "Phải kết hợp cả rule sheet và chỉ thị miệng: được làm tài liệu nội bộ trước, chưa được gửi ra ngoài, và nếu có số liệu dự báo thì phải ghi rõ điều kiện tiền đề. B là phương án duy nhất đáp ứng đủ ba điểm. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_lr_002",
@@ -643,7 +643,7 @@
       "FAQを先に顧客へ送り、営業資料は後で修正する"
     ],
     "correctIndex": 1,
-    "explanation": "Biên bản gốc chưa đủ, nhưng phát biểu bổ sung đã siết điều kiện FAQ: không chỉ chờ PR mà còn phải chờ pháp lý. Trong khi đó tài liệu sales vẫn giữ deadline cũ. B là phương án đúng; các phương án khác làm sai thứ tự hoặc làm sai điều kiện công bố."
+    "explanation": "Biên bản gốc chưa đủ, nhưng phát biểu bổ sung đã siết điều kiện FAQ: không chỉ chờ PR mà còn phải chờ pháp lý. Trong khi đó tài liệu sales vẫn giữ deadline cũ. B là phương án đúng; các phương án khác làm sai thứ tự hoặc làm sai điều kiện công bố. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1_lr_003",
@@ -660,7 +660,7 @@
       "急ぎ案件なので承認を飛ばして先に発注し、後で報告する"
     ],
     "correctIndex": 1,
-    "explanation": "Điểm khó là phải nhìn bản chất tổng chi phí thay vì tách hóa đơn hình thức. 18万円 + 2.5万円 vượt ngưỡng 20万円, nên không thể chỉ xem phần thiết bị riêng lẻ. B là phương án đúng và an toàn nhất."
+    "explanation": "Điểm khó là phải nhìn bản chất tổng chi phí thay vì tách hóa đơn hình thức. 18万円 + 2.5万円 vượt ngưỡng 20万円, nên không thể chỉ xem phần thiết bị riêng lẻ. B là phương án đúng và an toàn nhất. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1_lr_004",
@@ -677,7 +677,7 @@
       "顧客向け文面は不要なので、運用担当への一次連絡だけ行う"
     ],
     "correctIndex": 2,
-    "explanation": "Vừa phải chuẩn bị nhanh, vừa phải tuân thủ hai điều kiện: không khẳng định nguyên nhân khi chưa rõ và không phát hành trước khi PR duyệt. C là đáp án duy nhất thỏa cả hai. A và B đều sai ở cách xử lý nguyên nhân hoặc timing phát hành. D bỏ qua chỉ thị trực tiếp của cấp trên."
+    "explanation": "Vừa phải chuẩn bị nhanh, vừa phải tuân thủ hai điều kiện: không khẳng định nguyên nhân khi chưa rõ và không phát hành trước khi PR duyệt. C là đáp án duy nhất thỏa cả hai. A và B đều sai ở cách xử lý nguyên nhân hoặc timing phát hành. D bỏ qua chỉ thị trực tiếp của cấp trên. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1_reading_001",
@@ -694,7 +694,7 @@
       "資料だけ作成し、想定質問は会議後にまとめる"
     ],
     "correctIndex": 1,
-    "explanation": "Email yêu cầu rất rõ ba điểm: tách phần đã chắc với phần đang chờ xác nhận, phần chờ xác nhận có thể ghi dự kiến nhưng không được đọc như đã chốt, và chuẩn bị thêm bản câu hỏi dự kiến. B là đáp án duy nhất đáp ứng đủ."
+    "explanation": "Email yêu cầu rất rõ ba điểm: tách phần đã chắc với phần đang chờ xác nhận, phần chờ xác nhận có thể ghi dự kiến nhưng không được đọc như đã chốt, và chuẩn bị thêm bản câu hỏi dự kiến. B là đáp án duy nhất đáp ứng đủ. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_reading_002",
@@ -745,7 +745,7 @@
       "費用条件が暫定なので、次回提案自体を延期する"
     ],
     "correctIndex": 1,
-    "explanation": "Điểm mấu chốt là sếp đã đổi thứ tự ưu tiên của đề xuất và cũng tách rõ bản nội bộ với bản đối ngoại. B phản ánh đúng cả cấu trúc trình bày mới lẫn cách xử lý số liệu tạm thời. A vi phạm rule về số liệu chưa duyệt. C đi ngược định hướng. D dừng cả đề xuất là quá mức."
+    "explanation": "Điểm mấu chốt là sếp đã đổi thứ tự ưu tiên của đề xuất và cũng tách rõ bản nội bộ với bản đối ngoại. B phản ánh đúng cả cấu trúc trình bày mới lẫn cách xử lý số liệu tạm thời. A vi phạm rule về số liệu chưa duyệt. C đi ngược định hướng. D dừng cả đề xuất là quá mức. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_listening_005",
@@ -762,7 +762,7 @@
       "現場部門と法務部の両方に全情報を共有して一緒に対応策を立てる"
     ],
     "correctIndex": 1,
-    "explanation": "Chỉ thị kiểm soát thông tin ở ba tầng độc lập: (1) đối ngoại xử lý như vấn đề thông thường, (2) nội bộ chỉ pháp lý và lập kế hoạch kinh doanh được biết chi tiết, (3) phòng ban nghiệp vụ chỉ cần biết về khả năng có yêu cầu kiểm tra dữ liệu, (4) nếu tiếp diễn thì báo cáo hàng tuần. Phương án B phản ánh đúng cả bốn điểm. A và C mở rộng phạm vi thông tin ngoài cho phép. D nhầm ranh giới chia sẻ nội bộ."
+    "explanation": "Chỉ thị kiểm soát thông tin ở ba tầng độc lập: (1) đối ngoại xử lý như vấn đề thông thường, (2) nội bộ chỉ pháp lý và lập kế hoạch kinh doanh được biết chi tiết, (3) phòng ban nghiệp vụ chỉ cần biết về khả năng có yêu cầu kiểm tra dữ liệu, (4) nếu tiếp diễn thì báo cáo hàng tuần. Phương án B phản ánh đúng cả bốn điểm. A và C mở rộng phạm vi thông tin ngoài cho phép. D nhầm ranh giới chia sẻ nội bộ. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1_lr_005",
@@ -779,7 +779,7 @@
       "損害賠償の明示がないため通常クレームとして部門長のみに報告する"
     ],
     "correctIndex": 1,
-    "explanation": "Quy định yêu cầu báo cáo cho trưởng phòng trong 24 giờ, và với khiếu nại nghiêm trọng thì đồng thời báo pháp lý. Cấp trên xác định đây là trường hợp cần xử lý tương đương khiếu nại nghiêm trọng, và vì trưởng phòng vắng mặt thì thay bằng phó trưởng phòng. Phương án B đúng theo cả quy định lẫn chỉ thị bổ sung. A vi phạm mốc 24 giờ. C bỏ mất yêu cầu song song với khách. D đánh giá sai mức độ khi bỏ qua dấu hiệu \"thông qua luật sư\"."
+    "explanation": "Quy định yêu cầu báo cáo cho trưởng phòng trong 24 giờ, và với khiếu nại nghiêm trọng thì đồng thời báo pháp lý. Cấp trên xác định đây là trường hợp cần xử lý tương đương khiếu nại nghiêm trọng, và vì trưởng phòng vắng mặt thì thay bằng phó trưởng phòng. Phương án B đúng theo cả quy định lẫn chỉ thị bổ sung. A vi phạm mốc 24 giờ. C bỏ mất yêu cầu song song với khách. D đánh giá sai mức độ khi bỏ qua dấu hiệu \"thông qua luật sư\". Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_reading_005",
@@ -796,7 +796,7 @@
       "今月以前に作成された文書なので改定前の基準が適用される"
     ],
     "correctIndex": 0,
-    "explanation": "Biên bản họp nội bộ có thời hạn lưu 3 năm, tài liệu này mới 2 năm — chưa đến hạn. Điều kiện \"được phép hủy tài liệu hết hạn\" trong thông báo chỉ áp dụng với tài liệu ĐÃ vượt hạn trước tháng này, không áp dụng cho tài liệu còn trong hạn. A là đáp án đúng. B nhầm điều kiện \"không liên quan tranh chấp\" là đủ để hủy bất kỳ lúc nào — nhưng điều kiện đó chỉ dành cho tài liệu đã quá hạn. C và D đều thêm điều kiện không có trong quy định."
+    "explanation": "Biên bản họp nội bộ có thời hạn lưu 3 năm, tài liệu này mới 2 năm — chưa đến hạn. Điều kiện \"được phép hủy tài liệu hết hạn\" trong thông báo chỉ áp dụng với tài liệu ĐÃ vượt hạn trước tháng này, không áp dụng cho tài liệu còn trong hạn. A là đáp án đúng. B nhầm điều kiện \"không liên quan tranh chấp\" là đủ để hủy bất kỳ lúc nào — nhưng điều kiện đó chỉ dành cho tài liệu đã quá hạn. C và D đều thêm điều kiện không có trong quy định. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1_reading_006",
@@ -813,7 +813,7 @@
       "800万円を400万円ずつ2回に分けて申請し、各件を事業部長承認で通す"
     ],
     "correctIndex": 1,
-    "explanation": "14 tháng > 12 tháng → khoản đầu tư bổ sung này được tính là dự án mới, phán đoán theo số tiền mới (800万円), không theo tổng cũ. 800万円 rơi vào nhóm ② (500万円以上2,000万円未満) → cần chữ ký liên danh của trưởng phòng kinh doanh và trưởng phòng tài chính. A sai khi áp dụng lịch sử phê duyệt cũ thay vì tiêu chí số tiền mới. C sai khi coi đây là dự án cũ (14 tháng > 12 tháng). D là chiến thuật chia nhỏ để lách ngưỡng — vi phạm tinh thần quy trình và không được phép."
+    "explanation": "14 tháng > 12 tháng → khoản đầu tư bổ sung này được tính là dự án mới, phán đoán theo số tiền mới (800万円), không theo tổng cũ. 800万円 rơi vào nhóm ② (500万円以上2,000万円未満) → cần chữ ký liên danh của trưởng phòng kinh doanh và trưởng phòng tài chính. A sai khi áp dụng lịch sử phê duyệt cũ thay vì tiêu chí số tiền mới. C sai khi coi đây là dự án cũ (14 tháng > 12 tháng). D là chiến thuật chia nhỏ để lách ngưỡng — vi phạm tinh thần quy trình và không được phép. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j4_listening_001",
@@ -830,7 +830,7 @@
       "明日の午後3時の資料をすぐ捨てること"
     ],
     "correctIndex": 0,
-    "explanation": "Đối tác muốn đổi lịch từ chiều mai sang sáng thứ Hai tuần tới. Việc đầu tiên cần xác nhận là bản thân hoặc công ty mình có thể tham gia vào thời gian mới hay không."
+    "explanation": "Đối tác muốn đổi lịch từ chiều mai sang sáng thứ Hai tuần tới. Việc đầu tiên cần xác nhận là bản thân hoặc công ty mình có thể tham gia vào thời gian mới hay không. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_listening_002",
@@ -847,7 +847,7 @@
       "2階で点検作業を行う"
     ],
     "correctIndex": 0,
-    "explanation": "Thông báo nói rõ sau 6 giờ tối lối ra vào tầng 1 sẽ được kiểm tra, nên người về sau thời điểm đó cần dùng cửa tầng 2."
+    "explanation": "Thông báo nói rõ sau 6 giờ tối lối ra vào tầng 1 sẽ được kiểm tra, nên người về sau thời điểm đó cần dùng cửa tầng 2. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_listening_003",
@@ -864,7 +864,7 @@
       "佐藤さんの名刺"
     ],
     "correctIndex": 0,
-    "explanation": "Sato phụ trách thuyết trình, còn Tanaka phụ trách phát tài liệu. Vì vậy Tanaka cần chuẩn bị tài liệu để phát trước buổi họp."
+    "explanation": "Sato phụ trách thuyết trình, còn Tanaka phụ trách phát tài liệu. Vì vậy Tanaka cần chuẩn bị tài liệu để phát trước buổi họp. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j4_listening_004",
@@ -881,7 +881,7 @@
       "木曜日に口頭でだけ報告する"
     ],
     "correctIndex": 0,
-    "explanation": "Yêu cầu gồm ba điểm rõ ràng: hạn là thứ Sáu 4 giờ chiều, gửi bằng email, và định dạng PDF."
+    "explanation": "Yêu cầu gồm ba điểm rõ ràng: hạn là thứ Sáu 4 giờ chiều, gửi bằng email, và định dạng PDF. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_lr_001",
@@ -898,7 +898,7 @@
       "来客対応を削除する"
     ],
     "correctIndex": 0,
-    "explanation": "Lịch ban đầu là thứ Tư 14:00, nhưng tin nhắn mới cho biết khách đổi sang 15:00 cùng ngày. Vì vậy chỉ cần đổi giờ sang 15:00."
+    "explanation": "Lịch ban đầu là thứ Tư 14:00, nhưng tin nhắn mới cho biết khách đổi sang 15:00 cùng ngày. Vì vậy chỉ cần đổi giờ sang 15:00. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j4_lr_002",
@@ -915,7 +915,7 @@
       "午後まで何もしない"
     ],
     "correctIndex": 0,
-    "explanation": "Ghi chú cho biết giấy ở kho tầng 3, còn đồng nghiệp yêu cầu trước mắt chỉ lấy lượng dùng trong buổi sáng. Đó là việc cần làm đầu tiên."
+    "explanation": "Ghi chú cho biết giấy ở kho tầng 3, còn đồng nghiệp yêu cầu trước mắt chỉ lấy lượng dùng trong buổi sáng. Đó là việc cần làm đầu tiên. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_lr_003",
@@ -932,7 +932,7 @@
       "相手に明日また電話してくださいとだけ言う"
     ],
     "correctIndex": 0,
-    "explanation": "Quy định nội bộ đã nêu rõ: nếu người phụ trách vắng mặt thì nói sẽ xác nhận rồi gọi lại. Vì vậy đây là phản hồi đúng."
+    "explanation": "Quy định nội bộ đã nêu rõ: nếu người phụ trách vắng mặt thì nói sẽ xác nhận rồi gọi lại. Vì vậy đây là phản hồi đúng. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j4_lr_004",
@@ -949,7 +949,7 @@
       "申請はまだ不要である"
     ],
     "correctIndex": 0,
-    "explanation": "Người này về từ chuyến công tác vào thứ Hai, nên phải nộp chi phí trong vòng 3 ngày, tức chậm nhất là thứ Năm."
+    "explanation": "Người này về từ chuyến công tác vào thứ Hai, nên phải nộp chi phí trong vòng 3 ngày, tức chậm nhất là thứ Năm. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_reading_001",
@@ -966,7 +966,7 @@
       "会議は今日10時から行われる"
     ],
     "correctIndex": 0,
-    "explanation": "Email xác nhận đã nhận tài liệu và nói rõ cuộc họp vẫn diễn ra theo kế hoạch vào 10 giờ sáng ngày mai."
+    "explanation": "Email xác nhận đã nhận tài liệu và nói rõ cuộc họp vẫn diễn ra theo kế hoạch vào 10 giờ sáng ngày mai. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_reading_002",
@@ -983,7 +983,7 @@
       "午後5時以降に片づければよい"
     ],
     "correctIndex": 0,
-    "explanation": "Thông báo yêu cầu trước 5 giờ chiều thứ Sáu phải dọn mặt bàn và cất đồ quý vào ngăn kéo."
+    "explanation": "Thông báo yêu cầu trước 5 giờ chiều thứ Sáu phải dọn mặt bàn và cất đồ quý vào ngăn kéo. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_reading_003",
@@ -1000,7 +1000,7 @@
       "会議室AとB"
     ],
     "correctIndex": 0,
-    "explanation": "Phòng A được dùng tự do vào buổi sáng. Phòng B đang có người dùng từ 9 đến 11 giờ, còn phòng C kín cả ngày. Vì vậy lúc 10 giờ chỉ có phòng A trống."
+    "explanation": "Phòng A được dùng tự do vào buổi sáng. Phòng B đang có người dùng từ 9 đến 11 giờ, còn phòng C kín cả ngày. Vì vậy lúc 10 giờ chỉ có phòng A trống. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_reading_004",
@@ -1017,7 +1017,7 @@
       "保存せずに取引先へ送り返す"
     ],
     "correctIndex": 0,
-    "explanation": "Chỉ thị có hai bước rõ ràng: lưu hóa đơn tháng 4 theo từng đối tác vào thư mục, sau đó báo lại cho cấp trên."
+    "explanation": "Chỉ thị có hai bước rõ ràng: lưu hóa đơn tháng 4 theo từng đối tác vào thư mục, sau đó báo lại cho cấp trên. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_listening_005",
@@ -1034,7 +1034,7 @@
       "来週月曜日まで待って再確認する"
     ],
     "correctIndex": 0,
-    "explanation": "Chỉ thị phân nhánh: nếu có điểm đáng chú ý thì báo ngay, nếu không có vấn đề thì đưa vào báo cáo tuần thứ Sáu. Câu hỏi hỏi trường hợp không có vấn đề → A là đúng. B nhầm áp dụng nhánh \"có vấn đề\"."
+    "explanation": "Chỉ thị phân nhánh: nếu có điểm đáng chú ý thì báo ngay, nếu không có vấn đề thì đưa vào báo cáo tuần thứ Sáu. Câu hỏi hỏi trường hợp không có vấn đề → A là đúng. B nhầm áp dụng nhánh \"có vấn đề\". Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_lr_005",
@@ -1051,7 +1051,7 @@
       "来月の予算になるまで待つ"
     ],
     "correctIndex": 0,
-    "explanation": "Giá 35,000円 vượt ngưỡng 30,000円, nên cần phê duyệt của trưởng nhóm trước khi mua. B sai vì không xin phép. C và D không phản ánh đúng quy trình."
+    "explanation": "Giá 35,000円 vượt ngưỡng 30,000円, nên cần phê duyệt của trưởng nhóm trước khi mua. B sai vì không xin phép. C và D không phản ánh đúng quy trình. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j4_reading_005",
@@ -1068,7 +1068,7 @@
       "上司への進捗報告書の作成"
     ],
     "correctIndex": 0,
-    "explanation": "Email phân công rõ từng người: Tanaka kiểm tra tồn kho, Yamamoto liên hệ xác nhận giao hàng, Suzuki chuẩn bị đặt hàng. Câu hỏi hỏi về Yamamoto → A là đúng."
+    "explanation": "Email phân công rõ từng người: Tanaka kiểm tra tồn kho, Yamamoto liên hệ xác nhận giao hàng, Suzuki chuẩn bị đặt hàng. Câu hỏi hỏi về Yamamoto → A là đúng. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j4_reading_006",
@@ -1085,7 +1085,7 @@
       "人事部に書類を直接提出する"
     ],
     "correctIndex": 0,
-    "explanation": "Quy định có ngoại lệ cho bệnh đột xuất: cần liên hệ cấp trên trực tiếp trước 9 giờ sáng ngay trong ngày đó. A là đáp án đúng. B áp dụng quy trình bình thường cho tình huống khẩn. C kết luận sai — ngoại lệ vẫn được tính phép năm nếu báo đúng hạn."
+    "explanation": "Quy định có ngoại lệ cho bệnh đột xuất: cần liên hệ cấp trên trực tiếp trước 9 giờ sáng ngay trong ngày đó. A là đáp án đúng. B áp dụng quy trình bình thường cho tình huống khẩn. C kết luận sai — ngoại lệ vẫn được tính phép năm nếu báo đúng hạn. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_listening_001",
@@ -1102,7 +1102,7 @@
       "他の社員に連絡する"
     ],
     "correctIndex": 0,
-    "explanation": "Cấp trên yêu cầu đặt phòng họp. Việc cần làm ngay là đặt phòng họp cho cuộc họp 3 giờ chiều nay."
+    "explanation": "Cấp trên yêu cầu đặt phòng họp. Việc cần làm ngay là đặt phòng họp cho cuộc họp 3 giờ chiều nay. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_listening_002",
@@ -1119,7 +1119,7 @@
       "明日電話する"
     ],
     "correctIndex": 0,
-    "explanation": "Đồng nghiệp nhắn lại rằng Suzuki-san sẽ gọi lại lúc 2 giờ chiều. Đó là điều Suzuki-san sẽ làm tiếp theo."
+    "explanation": "Đồng nghiệp nhắn lại rằng Suzuki-san sẽ gọi lại lúc 2 giờ chiều. Đó là điều Suzuki-san sẽ làm tiếp theo. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_listening_003",
@@ -1136,7 +1136,7 @@
       "電気代の明細を確認する"
     ],
     "correctIndex": 0,
-    "explanation": "Cấp trên yêu cầu tắt điện khi ra về bắt đầu từ ngày mai. Đó là điều cần chú ý."
+    "explanation": "Cấp trên yêu cầu tắt điện khi ra về bắt đầu từ ngày mai. Đó là điều cần chú ý. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j5_listening_004",
@@ -1153,7 +1153,7 @@
       "参加者10人に連絡する"
     ],
     "correctIndex": 0,
-    "explanation": "Yêu cầu rõ ràng là photo 10 bản tài liệu. Đó là việc cần làm ngay."
+    "explanation": "Yêu cầu rõ ràng là photo 10 bản tài liệu. Đó là việc cần làm ngay. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_lr_001",
@@ -1170,7 +1170,7 @@
       "打ち合わせはキャンセルになった"
     ],
     "correctIndex": 0,
-    "explanation": "Lịch ban đầu là thứ Hai 10 giờ, nhưng ghi chú mới thông báo đổi sang thứ Ba 10 giờ. Chỉ ngày thay đổi, giờ giữ nguyên."
+    "explanation": "Lịch ban đầu là thứ Hai 10 giờ, nhưng ghi chú mới thông báo đổi sang thứ Ba 10 giờ. Chỉ ngày thay đổi, giờ giữ nguyên. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_lr_002",
@@ -1204,7 +1204,7 @@
       "来週月曜日"
     ],
     "correctIndex": 0,
-    "explanation": "Thông báo nói bắt đầu lúc 5 giờ chiều, tin nhắn đổi sang thứ Năm. Kết hợp hai thông tin: thứ Năm 5 giờ chiều."
+    "explanation": "Thông báo nói bắt đầu lúc 5 giờ chiều, tin nhắn đổi sang thứ Năm. Kết hợp hai thông tin: thứ Năm 5 giờ chiều. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_lr_004",
@@ -1238,7 +1238,7 @@
       "会議室Aで朝礼が行われる"
     ],
     "correctIndex": 0,
-    "explanation": "Email nêu rõ: họp sáng ngày mai lúc 9 giờ tại phòng họp B, Sato chuẩn bị tài liệu."
+    "explanation": "Email nêu rõ: họp sáng ngày mai lúc 9 giờ tại phòng họp B, Sato chuẩn bị tài liệu. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_reading_002",
@@ -1255,7 +1255,7 @@
       "総務部に相談する"
     ],
     "correctIndex": 0,
-    "explanation": "Thông báo nói tầng 1 không dùng được, hãy dùng nhà vệ sinh tầng 2. Đáp án đúng là dùng tầng 2."
+    "explanation": "Thông báo nói tầng 1 không dùng được, hãy dùng nhà vệ sinh tầng 2. Đáp án đúng là dùng tầng 2. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_reading_003",
@@ -1289,7 +1289,7 @@
       "人事部に問い合わせる"
     ],
     "correctIndex": 0,
-    "explanation": "Thông báo chỉ rõ: nếu có thắc mắc về phiếu lương thì liên hệ Nakamura ở bộ phận kế toán."
+    "explanation": "Thông báo chỉ rõ: nếu có thắc mắc về phiếu lương thì liên hệ Nakamura ở bộ phận kế toán. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_listening_005",
@@ -1306,7 +1306,7 @@
       "山田さんにメールで連絡する"
     ],
     "correctIndex": 0,
-    "explanation": "Cấp trên nói số fax ở trang bìa tài liệu. Trước khi gửi phải kiểm tra số fax đó trước."
+    "explanation": "Cấp trên nói số fax ở trang bìa tài liệu. Trước khi gửi phải kiểm tra số fax đó trước. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j5_listening_006",
@@ -1323,7 +1323,7 @@
       "会議資料2部"
     ],
     "correctIndex": 0,
-    "explanation": "Cấp trên yêu cầu cụ thể: chuẩn bị trà (お茶) cho 2 người đón khách ngày mai."
+    "explanation": "Cấp trên yêu cầu cụ thể: chuẩn bị trà (お茶) cho 2 người đón khách ngày mai. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j5_lr_005",
@@ -1340,7 +1340,7 @@
       "翌日まで返信を待つ"
     ],
     "correctIndex": 0,
-    "explanation": "Quy định nội bộ yêu cầu mọi email gửi khách đều phải được cấp trên xem trước. Dù nội dung đã có, vẫn phải xác nhận với cấp trên trước khi gửi."
+    "explanation": "Quy định nội bộ yêu cầu mọi email gửi khách đều phải được cấp trên xem trước. Dù nội dung đã có, vẫn phải xác nhận với cấp trên trước khi gửi. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j5_reading_005",
@@ -1391,7 +1391,7 @@
       "B社への配慮として、A社ではなくB社との提携について中心的に話す"
     ],
     "correctIndex": 0,
-    "explanation": "Chỉ thị cho phép đề cập định hướng hợp tác với A, nhưng cấm tiết lộ điều khoản độc quyền và không được để lộ sự ưu đãi đặc biệt. Phương án A đáp ứng đúng: nói về hướng hợp tác, không đề cập điều khoản cụ thể. B vi phạm bảo mật đàm phán. C quá thận trọng, bỏ mất nội dung được phép. D lệch mục tiêu của buổi họp."
+    "explanation": "Chỉ thị cho phép đề cập định hướng hợp tác với A, nhưng cấm tiết lộ điều khoản độc quyền và không được để lộ sự ưu đãi đặc biệt. Phương án A đáp ứng đúng: nói về hướng hợp tác, không đề cập điều khoản cụ thể. B vi phạm bảo mật đàm phán. C quá thận trọng, bỏ mất nội dung được phép. D lệch mục tiêu của buổi họp. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1plus_listening_003",
@@ -1408,7 +1408,7 @@
       "原因と責任をすべて説明した詳細な記者会見を当日中に設定する"
     ],
     "correctIndex": 2,
-    "explanation": "Chỉ thị có nhiều lớp: duy trì lập trường \"đang xác nhận\" về trách nhiệm, nhưng chủ động công bố thông tin liên quan đến an toàn người dùng, và phải có pháp lý xem trước khi phát ngôn. Phương án C cân bằng đúng cả ba yêu cầu này. A bỏ mất ưu tiên an toàn người dùng. B phát ngôn về trách nhiệm khi chưa xác định và chưa qua pháp lý. D vừa sai nội dung vừa sai quy trình."
+    "explanation": "Chỉ thị có nhiều lớp: duy trì lập trường \"đang xác nhận\" về trách nhiệm, nhưng chủ động công bố thông tin liên quan đến an toàn người dùng, và phải có pháp lý xem trước khi phát ngôn. Phương án C cân bằng đúng cả ba yêu cầu này. A bỏ mất ưu tiên an toàn người dùng. B phát ngôn về trách nhiệm khi chưa xác định và chưa qua pháp lý. D vừa sai nội dung vừa sai quy trình. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1plus_listening_004",
@@ -1425,7 +1425,7 @@
       "経営企画部長に判断を委ねて自分は動かない"
     ],
     "correctIndex": 2,
-    "explanation": "Hai việc song song: tìm cách liên hệ khẩn với người có thẩm quyền (xã trưởng đang công tác), đồng thời giữ quan hệ với đối tác bằng cách thông báo đang xử lý nội bộ mà không hứa hẹn quá quyền. C là phương án duy nhất vừa giữ đối tác không chuyển sang đối thủ, vừa không vượt quyền. A mất cơ hội hợp đồng. B vượt quyền phê duyệt. D né tránh trách nhiệm xử lý tình huống."
+    "explanation": "Hai việc song song: tìm cách liên hệ khẩn với người có thẩm quyền (xã trưởng đang công tác), đồng thời giữ quan hệ với đối tác bằng cách thông báo đang xử lý nội bộ mà không hứa hẹn quá quyền. C là phương án duy nhất vừa giữ đối tác không chuyển sang đối thủ, vừa không vượt quyền. A mất cơ hội hợp đồng. B vượt quyền phê duyệt. D né tránh trách nhiệm xử lý tình huống. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Role boundary] Follow assigned authority; do not exceed role. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_lr_001",
@@ -1442,7 +1442,7 @@
       "担当部長承認のみ取得し、月曜日に調印する"
     ],
     "correctIndex": 2,
-    "explanation": "Quy trình thông thường yêu cầu ba bên, nhưng chỉ đạo của chủ tịch kích hoạt ngoại lệ: chủ tịch phê duyệt trực tiếp. Tuy nhiên, trong chỉ đạo đó có một điều kiện bắt buộc: tài chính phải xác nhận số tiền trước. Pháp lý được phép thông báo sau. Phương án C phản ánh đúng ngoại lệ lẫn điều kiện đính kèm. A bỏ qua chỉ đạo ngoại lệ. B bỏ qua điều kiện tài chính bắt buộc. D nhầm loại hợp đồng."
+    "explanation": "Quy trình thông thường yêu cầu ba bên, nhưng chỉ đạo của chủ tịch kích hoạt ngoại lệ: chủ tịch phê duyệt trực tiếp. Tuy nhiên, trong chỉ đạo đó có một điều kiện bắt buộc: tài chính phải xác nhận số tiền trước. Pháp lý được phép thông báo sau. Phương án C phản ánh đúng ngoại lệ lẫn điều kiện đính kèm. A bỏ qua chỉ đạo ngoại lệ. B bỏ qua điều kiện tài chính bắt buộc. D nhầm loại hợp đồng. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_lr_002",
@@ -1459,7 +1459,7 @@
       "情報セキュリティ委員会に緊急連絡し、承認なしで送付できるよう交渉する"
     ],
     "correctIndex": 1,
-    "explanation": "Chính sách đã có hiệu lực ngay tháng này, cấm rõ ràng việc gửi dữ liệu khách hàng ra ngoài kể cả email cá nhân. Chỉ thị miệng của cấp trên không thể ghi đè chính sách bảo mật đã được thể chế hóa. Phương án B vừa không vi phạm policy, vừa giải quyết nhu cầu thực tế bằng cách đề xuất phương án thay thế hợp lệ. A vi phạm policy. C hiểu sai về thời điểm hiệu lực. D ủy thác quyết định sai người."
+    "explanation": "Chính sách đã có hiệu lực ngay tháng này, cấm rõ ràng việc gửi dữ liệu khách hàng ra ngoài kể cả email cá nhân. Chỉ thị miệng của cấp trên không thể ghi đè chính sách bảo mật đã được thể chế hóa. Phương án B vừa không vi phạm policy, vừa giải quyết nhu cầu thực tế bằng cách đề xuất phương án thay thế hợp lệ. A vi phạm policy. C hiểu sai về thời điểm hiệu lực. D ủy thác quyết định sai người. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_lr_003",
@@ -1493,7 +1493,7 @@
       "投資削減の影響が不明なため、来季に向けた計画修正を提案する"
     ],
     "correctIndex": 1,
-    "explanation": "Chỉ đạo không phải cắt đều 30% mà có ưu tiên rõ ràng: (1) tuyển dụng giữ nguyên, (2) dự án mới tiếp tục nhưng cắt chi phí thuê ngoài, (3) củng cố kinh doanh hiện tại giảm xuống mức tối thiểu. Phương án B phản ánh đúng cả ba ưu tiên này. A áp dụng cắt đều không đúng chỉ đạo. C đình chỉ dự án mới trái ý chủ tịch. D trì hoãn không phù hợp với yêu cầu điều chỉnh ngay."
+    "explanation": "Chỉ đạo không phải cắt đều 30% mà có ưu tiên rõ ràng: (1) tuyển dụng giữ nguyên, (2) dự án mới tiếp tục nhưng cắt chi phí thuê ngoài, (3) củng cố kinh doanh hiện tại giảm xuống mức tối thiểu. Phương án B phản ánh đúng cả ba ưu tiên này. A áp dụng cắt đều không đúng chỉ đạo. C đình chỉ dự án mới trái ý chủ tịch. D trì hoãn không phù hợp với yêu cầu điều chỉnh ngay. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_reading_001",
@@ -1510,7 +1510,7 @@
       "発生事実の開示は、原因究明が完了してから行う必要がある"
     ],
     "correctIndex": 2,
-    "explanation": "Thông báo nêu rõ: tất cả loại thông tin đều được phép công bố mà không cần chờ luật sư nếu yêu cầu công bố nhanh. Với dự báo kết quả điều chỉnh ≥10%, đây là trường hợp yêu cầu công bố ngay sau khi xác nhận, nên phương án C đúng. A và B đặt điều kiện bắt buộc về luật sư không có trong quy định. D nhầm \"phát sinh sự thực\" — không cần hoàn thành điều tra nguyên nhân mới được công bố."
+    "explanation": "Thông báo nêu rõ: tất cả loại thông tin đều được phép công bố mà không cần chờ luật sư nếu yêu cầu công bố nhanh. Với dự báo kết quả điều chỉnh ≥10%, đây là trường hợp yêu cầu công bố ngay sau khi xác nhận, nên phương án C đúng. A và B đặt điều kiện bắt buộc về luật sư không có trong quy định. D nhầm \"phát sinh sự thực\" — không cần hoàn thành điều tra nguyên nhân mới được công bố. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1plus_reading_002",
@@ -1561,7 +1561,7 @@
       "コンプライアンス研修の予算を削減し、その分をデジタル採用予算に回す"
     ],
     "correctIndex": 1,
-    "explanation": "Email có nhiều hạn chót khác nhau. Việc phải hoàn thành trong tháng này: (1) thiết kế chế độ nghỉ hưu sớm sau khi đánh giá rủi ro lao động — \"来月中に設計案\", (2) điều chỉnh ngân sách tuyển dụng bổ sung với CFO không có hạn chót cụ thể nhưng là việc hiện tại. Phương án B đúng với các ưu tiên trong tháng. A nhầm hoàn thành tuyển dụng với thiết kế chương trình. C đúng việc nhưng hạn chót của chương trình đào tạo là \"今期中\" không nhất thiết là tháng này. D vi phạm điều kiện ngoại lệ của đào tạo tuân thủ."
+    "explanation": "Email có nhiều hạn chót khác nhau. Việc phải hoàn thành trong tháng này: (1) thiết kế chế độ nghỉ hưu sớm sau khi đánh giá rủi ro lao động — \"来月中に設計案\", (2) điều chỉnh ngân sách tuyển dụng bổ sung với CFO không có hạn chót cụ thể nhưng là việc hiện tại. Phương án B đúng với các ưu tiên trong tháng. A nhầm hoàn thành tuyển dụng với thiết kế chương trình. C đúng việc nhưng hạn chót của chương trình đào tạo là \"今期中\" không nhất thiết là tháng này. D vi phạm điều kiện ngoại lệ của đào tạo tuân thủ. Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1plus_listening_005",
@@ -1578,7 +1578,7 @@
       "アナリスト照会を通じて情報を市場に流し、正式開示の代替とする"
     ],
     "correctIndex": 1,
-    "explanation": "Khi pháp lý nội bộ cảnh báo khả năng vi phạm nghĩa vụ công bố, giám đốc điều hành cần leo thang để làm rõ pháp lý trước khi hành động, không phải tự quyết một chiều. B là phương án duy nhất vừa tôn trọng quy trình pháp lý vừa không tuân thủ mù quáng chỉ thị có rủi ro. A tuân thủ chỉ thị nhưng bỏ qua cảnh báo pháp lý quan trọng. C đưa ra kết luận không có cơ sở pháp lý. D vi phạm nguyên tắc công bố bình đẳng (公平開示)."
+    "explanation": "Khi pháp lý nội bộ cảnh báo khả năng vi phạm nghĩa vụ công bố, giám đốc điều hành cần leo thang để làm rõ pháp lý trước khi hành động, không phải tự quyết một chiều. B là phương án duy nhất vừa tôn trọng quy trình pháp lý vừa không tuân thủ mù quáng chỉ thị có rủi ro. A tuân thủ chỉ thị nhưng bỏ qua cảnh báo pháp lý quan trọng. C đưa ra kết luận không có cơ sở pháp lý. D vi phạm nguyên tắc công bố bình đẳng (公平開示). Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   },
   {
     "id": "j1plus_lr_005",
@@ -1595,7 +1595,7 @@
       "規程の金額基準を超えているため、代表取締役の指示には従わない"
     ],
     "correctIndex": 1,
-    "explanation": "Hợp đồng 15 tỷ yên, độc quyền 3 năm là \"thay đổi chiến lược trọng yếu\" → nguyên tắc cần nghị quyết HĐQT. Tuy nhiên quy định cho phép đại diện công ty phê duyệt khẩn trước khi họp. B vận dụng đúng cả hai: tiến hành theo quy trình khẩn hợp lệ, đồng thời bảo đảm phê duyệt chính thức tại HĐQT tiếp theo. A đơn giản hóa quá mức, bỏ qua nghĩa vụ đảm bảo phê duyệt chính thức. C ngừng hoàn toàn, không tận dụng cơ chế khẩn hợp lệ. D từ chối hành động là sai khi cơ chế khẩn đã được quy định rõ."
+    "explanation": "Hợp đồng 15 tỷ yên, độc quyền 3 năm là \"thay đổi chiến lược trọng yếu\" → nguyên tắc cần nghị quyết HĐQT. Tuy nhiên quy định cho phép đại diện công ty phê duyệt khẩn trước khi họp. B vận dụng đúng cả hai: tiến hành theo quy trình khẩn hợp lệ, đồng thời bảo đảm phê duyệt chính thức tại HĐQT tiếp theo. A đơn giản hóa quá mức, bỏ qua nghĩa vụ đảm bảo phê duyệt chính thức. C ngừng hoàn toàn, không tận dụng cơ chế khẩn hợp lệ. D từ chối hành động là sai khi cơ chế khẩn đã được quy định rõ. Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_reading_005",
@@ -1612,7 +1612,7 @@
       "重要事実が漏洩した可能性があっても、確定するまで報告を控える"
     ],
     "correctIndex": 0,
-    "explanation": "③の規定: 部下への伝達は業務上必要な人だけに限定し、その根拠を記録すること。A はこれを正しく反映している。B は「必要な範囲に限定」に反する。C は照会先の誤り — 範囲不明の場合は秘密管理委員会に確認すると通達に明記されている。D は④の即時報告義務に違反。"
+    "explanation": "③の規定: 部下への伝達は業務上必要な人だけに限定し、その根拠を記録すること。A はこれを正しく反映している。B は「必要な範囲に限定」に反する。C は照会先の誤り — 範囲不明の場合は秘密管理委員会に確認すると通達に明記されている。D は④の即時報告義務に違反。 Đồng thời cần bám đúng mốc thời gian/締め切り đã nêu để tránh xử lý sai thứ tự. [Deadline] Follow the stated time/deadline order."
   },
   {
     "id": "j1plus_reading_006",
@@ -1629,6 +1629,6 @@
       "F社との契約があるため、G社からの打診を即座に断り記録も残さない"
     ],
     "correctIndex": 2,
-    "explanation": "二つの義務を同時に管理しなければならない: (1) 第3条の独占条項がG社との提携を実際に禁じているか確認する必要がある、(2) 第12条によりF社との契約の存在自体を関係者以外に開示できない。C のみが両方を正しく処理している。A は第3条違反の可能性を確認せずに進む。B は第7条と第12条に違反してF社契約内容をG社に開示する。D は断るだけで記録を残さないのは事業プロセスとして不完全。"
+    "explanation": "二つの義務を同時に管理しなければならない: (1) 第3条の独占条項がG社との提携を実際に禁じているか確認する必要がある、(2) 第12条によりF社との契約の存在自体を関係者以外に開示できない。C のみが両方を正しく処理している。A は第3条違反の可能性を確認せずに進む。B は第7条と第12条に違反してF社契約内容をG社に開示する。D は断るだけで記録を残さないのは事業プロセスとして不完全。 Theo phân công và thẩm quyền vai trò trong tình huống, không tự ý vượt quyền."
   }
 ]
