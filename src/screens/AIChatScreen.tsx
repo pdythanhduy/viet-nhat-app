@@ -65,6 +65,7 @@ function buildSystemPrompt(profile: UserProfile | null): string {
 }
 
 const STORAGE_KEY = StorageKeys.aiChatHistory;
+const AI_CONSENT_STORAGE_KEY = StorageKeys.aiThirdPartyConsent;
 /** Legacy storage key used before v1 versioning. Kept for one-time migration. */
 const STORAGE_KEY_LEGACY = StorageKeys.aiChatHistoryLegacy;
 
@@ -74,6 +75,7 @@ export default function AIChatScreen() {
   const [inputText, setInputText] = useState(route.params?.prefilledQuestion || '');
   const [isLoading, setIsLoading] = useState(false);
   const [apiKey, setApiKey] = useState('');
+  const [hasAiSharingConsent, setHasAiSharingConsent] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
   const inputRef = useRef<TextInput>(null);
@@ -87,6 +89,7 @@ export default function AIChatScreen() {
   useEffect(() => {
     loadHistory();
     loadApiKey();
+    loadAiSharingConsent();
     loadUserProfile().then(setUserProfile).catch(() => undefined);
   }, []);
 
@@ -98,6 +101,46 @@ export default function AIChatScreen() {
       // ignore
     }
   };
+
+  const loadAiSharingConsent = async () => {
+    try {
+      const consent = await AsyncStorage.getItem(AI_CONSENT_STORAGE_KEY);
+      setHasAiSharingConsent(consent === 'accepted');
+    } catch {
+      setHasAiSharingConsent(false);
+    }
+  };
+
+  const requestAiSharingConsent = async (): Promise<boolean> =>
+    new Promise((resolve) => {
+      Alert.alert(
+        'Gửi dữ liệu sang Anthropic Claude',
+        [
+          'Để trả lời câu hỏi, AI Chat sẽ gửi nội dung bạn nhập, các tin nhắn gần nhất trong cuộc trò chuyện và tóm tắt hồ sơ cá nhân hóa nếu bạn đã thiết lập sang Anthropic Claude API.',
+          'Không nhập thông tin quá nhạy cảm như mã số cá nhân, số thẻ, mật khẩu, giấy tờ định danh hoặc dữ liệu y tế chi tiết.',
+          'Bạn có đồng ý gửi dữ liệu này sang Anthropic để xử lý câu trả lời không?',
+        ].join('\n\n'),
+        [
+          {
+            text: 'Không đồng ý',
+            style: 'cancel',
+            onPress: () => resolve(false),
+          },
+          {
+            text: 'Đồng ý gửi',
+            onPress: async () => {
+              try {
+                await AsyncStorage.setItem(AI_CONSENT_STORAGE_KEY, 'accepted');
+                setHasAiSharingConsent(true);
+                resolve(true);
+              } catch {
+                resolve(false);
+              }
+            },
+          },
+        ]
+      );
+    });
 
   useEffect(() => {
     // Consume the skip flag set during history restore; clear it so subsequent
@@ -177,6 +220,11 @@ export default function AIChatScreen() {
         [{ text: 'OK' }]
       );
       return;
+    }
+
+    if (!hasAiSharingConsent) {
+      const granted = await requestAiSharingConsent();
+      if (!granted) return;
     }
 
     const userMessage: Message = {
@@ -309,6 +357,18 @@ export default function AIChatScreen() {
             <View style={styles.aiDisclaimerBox}>
               <Ionicons name="information-circle-outline" size={15} color={Colors.textSecondary} />
               <Text style={styles.aiDisclaimerText}>{Disclaimers.ai}</Text>
+            </View>
+
+            <View style={styles.aiDisclosureBox}>
+              <Ionicons name="shield-checkmark-outline" size={17} color={Colors.primary} />
+              <View style={styles.aiDisclosureText}>
+                <Text style={styles.aiDisclosureTitle}>Trước khi dùng AI Chat</Text>
+                <Text style={styles.aiDisclosureDesc}>
+                  Khi bạn gửi câu hỏi, app sẽ gửi nội dung bạn nhập, các tin nhắn gần nhất và
+                  tóm tắt hồ sơ cá nhân hóa nếu có sang Anthropic Claude API để tạo câu trả lời.
+                  App sẽ hỏi sự đồng ý của bạn trước lần gửi đầu tiên.
+                </Text>
+              </View>
             </View>
 
             <Text style={styles.quickPromptsTitle}>Câu hỏi gợi ý:</Text>
@@ -537,6 +597,32 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: Colors.textSecondary,
     lineHeight: 16,
+  },
+  aiDisclosureBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: '#EEF6FF',
+    borderWidth: 1,
+    borderColor: '#B9D9F7',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 16,
+    width: '100%',
+  },
+  aiDisclosureText: {
+    flex: 1,
+  },
+  aiDisclosureTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: Colors.primary,
+    marginBottom: 3,
+  },
+  aiDisclosureDesc: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: Colors.textSecondary,
   },
   quickPromptsTitle: {
     fontSize: 13,

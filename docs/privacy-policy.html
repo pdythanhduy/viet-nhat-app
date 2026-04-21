@@ -95,7 +95,7 @@
 
       <div class="card">
         <h1>Privacy Policy</h1>
-        <p class="meta">Last updated: 2026-04-11</p>
+        <p class="meta">Last updated: 2026-04-21</p>
 
         <p>
           This Privacy Policy applies to the mobile application <code>Viet Nhat</code>
@@ -136,15 +136,32 @@
           <li>Your API key is stored locally on your device using secure device storage.</li>
           <li>The App does not sell or issue API keys.</li>
           <li>
-            When you use AI chat, your prompt and conversation content are sent directly to
-            Anthropic's API using the API key you provided.
+            Before the App sends data to the AI service for the first time, the App asks for
+            your permission in the AI Chat screen.
+          </li>
+          <li>
+            When you use AI chat and give permission, the App sends your current prompt, recent
+            conversation messages, and a short personalized profile summary if you have set one
+            to Anthropic's Claude API using the API key you provided.
+          </li>
+          <li>
+            This data is sent only to generate the AI response you requested. The App does not
+            send AI chat content to our own server.
+          </li>
+          <li>
+            You should not enter highly sensitive information such as passwords, payment card
+            numbers, government identification numbers, detailed medical information, or other
+            data you do not want processed by Anthropic.
           </li>
           <li>
             Your use of the AI feature is also subject to Anthropic's own terms and privacy
             practices.
           </li>
         </ul>
-        <p>If you do not enter an API key, the AI feature will not work.</p>
+        <p>
+          If you do not enter an API key or do not give permission for AI data sharing, the AI
+          feature will not send messages to Anthropic and will not work.
+        </p>
 
         <h2>4. Local Notifications</h2>
         <p>
@@ -186,7 +203,7 @@
           <li>Expo libraries</li>
           <li>Apple App Store</li>
           <li>Google Play</li>
-          <li>Anthropic API, if you use the AI feature</li>
+          <li>Anthropic Claude API, if you use the AI feature and give permission</li>
           <li>your email app, if you send feedback</li>
         </ul>
 
