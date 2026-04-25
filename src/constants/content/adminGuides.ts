@@ -5129,6 +5129,123 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'tokutei-katsudo-46-job-hunt',
+    category: 'visa',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Visa tìm việc sau tốt nghiệp ĐH Nhật (特定活動46号)',
+    titleJp: '特定活動46号・日本語を使った職種への就職活動',
+    icon: 'briefcase-outline',
+    color: '#2E86C1',
+    description: 'Sinh viên tốt nghiệp đại học Nhật có thể xin ở lại tối đa 2 năm để tìm việc — nhưng chỉ dành cho người có tiếng Nhật cao và muốn làm việc trong vai trò dùng tiếng Nhật là chính. Phải xin trước khi visa du học hết hạn.',
+    whoIsThisFor: [
+      'Du học sinh vừa tốt nghiệp đại học 4 năm hoặc sau đại học tại Nhật và chưa tìm được việc trước khi visa hết hạn.',
+      'Người có tiếng Nhật N1 (JLPT) hoặc tốt nghiệp chuyên ngành tiếng Nhật/văn hóa/xã hội Nhật tại Nhật.',
+      'Không dành cho người chỉ học trường tiếng Nhật (日本語学校) mà chưa vào đại học/cao học.',
+    ],
+    whenToDo: [
+      'Nộp đơn TRƯỚC KHI visa du học hết hạn — thường trong 2–3 tháng cuối trước khi tốt nghiệp hoặc ngay sau lễ tốt nghiệp.',
+      'Nếu visa đã hết hạn: không thể xin từ trong nước — phải xuất cảnh và xin lại từ đầu (rất phức tạp). Đừng để hết hạn.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra bạn có đủ điều kiện không',
+        description: 'ISA quy định 特定活動46号 áp dụng cho người đáp ứng ĐỦ các điều kiện sau:\n\n1. Tốt nghiệp đại học 4 năm (学士) hoặc sau đại học (修士・博士) tại Nhật.\n\n2. Tiếng Nhật cao: có JLPT N1, hoặc chuyên ngành học là tiếng Nhật / văn hóa Nhật / nghiên cứu Nhật Bản (日本語・日本文化・日本社会関係).\n\n3. Mục tiêu: tìm việc trong các vị trí mà khả năng tiếng Nhật là yếu tố cốt lõi của công việc (日本語を用いた業務に従事することを希望) — không phải bất kỳ công việc nào.\n\nNếu có N1 nhưng tốt nghiệp ngành kỹ thuật → vẫn đủ điều kiện vì N1 đã thỏa yêu cầu tiếng Nhật.',
+        documents: [],
+        tip: 'N2 không đủ cho 特定活動46号. Nếu chỉ có N2, visa tiêu chuẩn sau tốt nghiệp vẫn là 就職活動のための特定活動 thông thường (ngắn hơn, điều kiện khác) hoặc chuyển sang 技術・人文知識・国際業務 khi đã có offer.',
+      },
+      {
+        step: 2,
+        title: 'Quyền được làm việc trong thời gian tìm việc',
+        description: '特定活動46号 cho phép làm việc bán thời gian tối đa 28 giờ/tuần trong thời gian chờ tìm được việc — nhưng chỉ ở các vị trí đòi hỏi sử dụng tiếng Nhật (không phải mọi loại công việc). Ví dụ hợp lệ: phiên dịch, hỗ trợ khách hàng tiếng Nhật, nhân viên cửa hàng, dạy tiếng Việt kết hợp tiếng Nhật.\n\nCác công việc chân tay thuần túy (kho vận, xây dựng, nông nghiệp) không thuộc phạm vi của 46号 trong giai đoạn này.',
+        documents: [],
+        tip: 'Nếu muốn làm full-time: phải có offer chính thức và chuyển sang tư cách 技術・人文知識・国際業務 hoặc phù hợp trước khi bắt đầu. Không được làm full-time dưới 特定活動46号 khi chưa có tư cách lao động.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị hồ sơ và nộp tại ISA',
+        description: 'Hồ sơ cần có:\n• Đơn 在留資格変更許可申請 (đổi từ 留学 sang 特定活動)\n• 指定書申請書 ghi rõ mục đích: tìm việc theo 特定活動46号\n• Bằng tốt nghiệp hoặc giấy xác nhận tốt nghiệp (卒業証明書) từ trường Nhật\n• Thành tích học tập (成績証明書)\n• Kết quả JLPT N1 (giấy chứng nhận — không phải thẻ) hoặc bảng điểm chứng minh chuyên ngành tiếng Nhật/văn hóa Nhật\n• Hộ chiếu và 在留カード\n• Bằng chứng tài chính đủ để sống trong thời gian tìm việc (sao kê ngân hàng)',
+        documents: [
+          'Đơn 在留資格変更許可申請',
+          '卒業証明書 từ đại học Nhật',
+          '成績証明書',
+          'Giấy chứng nhận JLPT N1 (hoặc bằng chứng chuyên ngành tiếng Nhật)',
+          'Hộ chiếu và 在留カード',
+          'Sao kê tài khoản ngân hàng (chứng minh tài chính)',
+        ],
+        tip: 'Trường đại học thường cấp 卒業証明書 miễn phí ngay khi ra trường — xin ngay lúc nhận bằng, không chờ đến khi cần. Một số trường cần 1–2 tuần để cấp nếu không xin trước.',
+      },
+      {
+        step: 4,
+        title: 'Thời hạn và gia hạn',
+        description: '特定活動46号 cấp lần đầu: 1 năm. Có thể gia hạn thêm 1 lần → tổng tối đa 2 năm.\n\nNếu tìm được việc trong thời gian này: nộp đơn đổi sang tư cách lưu trú phù hợp (thường là 技術・人文知識・国際業務) trước khi bắt đầu làm full-time.\n\nNếu sau 2 năm vẫn chưa tìm được việc: không thể gia hạn thêm — phải xuất cảnh hoặc đổi sang tư cách khác nếu có lý do hợp lệ.',
+        documents: [
+          'Báo cáo hoạt động tìm việc (求職活動状況報告書 — một số ISA yêu cầu khi gia hạn)',
+          'Hộ chiếu và 在留カード',
+        ],
+        tip: 'Khi gia hạn, ISA có thể hỏi về hoạt động tìm việc thực tế. Giữ hồ sơ: email liên lạc với công ty, lịch sử ứng tuyển, tham gia hội chợ việc làm (就職フェア) — đây là bằng chứng bạn đang thực sự tìm việc.',
+      },
+    ],
+  },
+  {
+    id: 'annual-health-checkup-kensin',
+    category: 'health',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Khám sức khỏe định kỳ miễn phí (健康診断)',
+    titleJp: '定期健康診断・特定健診・事業者健診',
+    icon: 'fitness-outline',
+    color: '#117A65',
+    description: 'Người lao động tại Nhật được khám sức khỏe miễn phí hàng năm — theo luật, công ty BẮT BUỘC phải tổ chức cho nhân viên. Người đóng 国民健康保険 cũng có chương trình 特定健診 miễn phí từ 40 tuổi. Đây là quyền lợi nhiều người không biết và bỏ qua.',
+    whoIsThisFor: [
+      'Người đi làm tại Nhật theo hợp đồng lao động — bất kể toàn thời gian hay bán thời gian đủ điều kiện.',
+      'Người đóng 国民健康保険 (bảo hiểm quốc dân) từ 40 đến 74 tuổi — có quyền làm 特定健診 miễn phí.',
+      'Người muốn hiểu kết quả xét nghiệm máu, huyết áp và các chỉ số trong phiếu khám tiếng Nhật.',
+    ],
+    whenToDo: [
+      'Người đi làm: công ty thường tổ chức 1 lần/năm — thường vào mùa xuân (tháng 4–6) hoặc thu (tháng 9–11). Tham gia khi công ty thông báo.',
+      '特定健診 (40–74 tuổi, 国民健康保険): municipal office gửi phiếu 受診券 vào khoảng tháng 5–6 hàng năm — dùng phiếu đến cơ sở y tế đăng ký trước cuối năm tài khóa (tháng 3 năm sau).',
+      'Nếu không nhận được thông báo từ công ty sau 1 năm làm việc: chủ động hỏi phòng nhân sự.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Hiểu 2 loại khám chính',
+        description: '定期健康診断 (事業者健診) — Người đi làm:\nTheo Luật An toàn-Vệ sinh lao động (労働安全衛生法), mọi công ty BẮT BUỘC tổ chức khám sức khỏe cho nhân viên ít nhất 1 lần/năm — miễn phí hoàn toàn. Nội dung: đo chiều cao, cân nặng, thị lực, thính lực, huyết áp, chụp X-quang ngực, xét nghiệm máu (lipid, đường huyết, gan), xét nghiệm nước tiểu, điện tâm đồ (từ 35 tuổi).\n\nPart-time đủ điều kiện: làm từ 75% giờ chuẩn của nhân viên chính thức trở lên (thường từ ~30 giờ/tuần) và hợp đồng từ 1 năm trở lên.\n\n特定健診 — Người đóng 国民健康保険, 40–74 tuổi:\nChương trình kiểm tra nguy cơ hội chứng chuyển hóa (メタボリックシンドローム). Dùng phiếu 受診券 do municipal office gửi, đến cơ sở y tế ký kết — thường miễn phí hoặc đồng chi trả rất thấp.',
+        documents: [],
+        tip: 'Nếu làm part-time và không chắc mình đủ điều kiện khám qua công ty, hỏi thẳng phòng nhân sự. Nếu không đủ điều kiện qua công ty, hỏi municipal office về 特定健診 hoặc khám tự trả qua bảo hiểm y tế.',
+      },
+      {
+        step: 2,
+        title: 'Tham gia khám và đọc kết quả',
+        description: 'Sau khi khám, nhận phiếu kết quả (健診結果) — thường bằng tiếng Nhật. Các chỉ số quan trọng cần biết:\n\n• 血圧 (huyết áp): bình thường < 130/85 mmHg. Nếu ≥ 140/90 → trao đổi bác sĩ.\n• BMI và 腹囲 (vòng eo): nam > 85 cm / nữ > 90 cm là nguy cơ.\n• 血糖 (đường huyết lúc đói): bình thường < 100 mg/dL; HbA1c < 5.6%.\n• LDL (cholesterol xấu): bình thường < 120 mg/dL.\n• γ-GTP và GOT/GPT: chỉ số gan — thường tăng nếu uống nhiều rượu.\n• 尿酸 (acid uric): > 7.0 mg/dL → nguy cơ gout.\n\nKết quả có ký hiệu A–E hoặc ○/△/×: A hoặc ○ = bình thường; D hoặc × = cần tái khám.',
+        documents: [],
+        tip: 'Giữ tất cả phiếu kết quả khám theo từng năm — bác sĩ sẽ dùng để so sánh xu hướng. Nếu chỉ số thay đổi đột ngột dù vẫn trong ngưỡng bình thường, đó cũng là tín hiệu cần chú ý.',
+      },
+      {
+        step: 3,
+        title: 'Khi có chỉ số bất thường: bước tiếp theo',
+        description: 'Nếu kết quả có mục ghi 要再検査 (cần tái khám) hoặc 要精密検査 (cần khám chuyên sâu): đây là chỉ dẫn y tế nghiêm túc — không bỏ qua chỉ vì cảm thấy ổn.\n\nCông ty phải thông báo kết quả và khuyến nghị y tế cho nhân viên theo luật. Bạn có thể yêu cầu gặp bác sĩ lao động (産業医) của công ty để giải thích kết quả.\n\nTái khám (再検査) thường tự trả qua bảo hiểm y tế — mang theo thẻ bảo hiểm (健康保険証 hoặc マイナ保険証) và phiếu kết quả 健診 khi đi.',
+        documents: [
+          'Phiếu kết quả 健診 (健診結果通知書)',
+          'Thẻ bảo hiểm y tế khi đi tái khám',
+        ],
+        tip: 'Nếu lo ngại ngôn ngữ khi đi tái khám: nhiều bệnh viện lớn có phiên dịch hoặc hỗ trợ đa ngôn ngữ qua điện thoại. AMDA (03-6233-9266) cung cấp dịch vụ phiên dịch y tế qua điện thoại cho người nước ngoài.',
+      },
+      {
+        step: 4,
+        title: 'Bổ sung: khám phụ khoa và ung thư định kỳ (がん検診)',
+        description: 'Ngoài 健診 tiêu chuẩn, municipal office thường tổ chức hoặc hỗ trợ chi phí cho:\n\n• 乳がん検診 (ung thư vú): khuyến nghị 2 năm/lần từ 40 tuổi.\n• 子宮頸がん検診 (ung thư cổ tử cung): 2 năm/lần từ 20 tuổi.\n• 大腸がん検診 (ung thư đại tràng): hàng năm từ 40 tuổi.\n• 胃がん検診 (ung thư dạ dày): từ 50 tuổi.\n\nPhiếu 受診券 cho các loại khám này thường được gửi chung với 特定健診 hoặc tại municipal office. Chi phí thường rất thấp (500–1,000 yên) hoặc miễn phí tùy địa phương và độ tuổi.',
+        documents: [
+          'Phiếu 受診券 do municipal office gửi (nếu có)',
+          'Thẻ bảo hiểm y tế',
+        ],
+        tip: 'Phụ nữ nên đặc biệt chú ý 子宮頸がん検診 từ 20 tuổi — đây là loại ung thư hoàn toàn có thể phát hiện sớm và điều trị hiệu quả. Nhiều địa phương gửi phiếu miễn phí cho lần đầu khám.',
+      },
+    ],
+  },
 ];
 
 
