@@ -5426,6 +5426,61 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'credit-card-for-foreigners',
+    category: 'money',
+    lastVerified: '2026-04-26',
+    priority: 'normal',
+    title: 'Làm thẻ tín dụng tại Nhật',
+    titleJp: 'クレジットカード申請・信用情報の作り方',
+    icon: 'card',
+    color: '#6C3483',
+    description: 'Người nước ngoài mới sang Nhật thường bị từ chối thẻ tín dụng vì chưa có lịch sử tín dụng (信用情報) tại Nhật. Guide này giải thích cách bắt đầu đúng, thẻ nào dễ được duyệt nhất và cách xây dựng tín dụng để mở rộng quyền lợi về sau.',
+    whoIsThisFor: [
+      'Người mới sang Nhật và muốn làm thẻ tín dụng nhưng chưa biết bắt đầu từ đâu.',
+      'Người đã bị từ chối thẻ tín dụng và muốn hiểu lý do, cách cải thiện.',
+      'Người muốn xây dựng 信用情報 để sau này dễ vay 住宅ローン hoặc xe ô tô.',
+    ],
+    whenToDo: [
+      'Sau khi có tài khoản ngân hàng Nhật và đã cư trú ít nhất 3–6 tháng — nhiều công ty thẻ yêu cầu tài khoản ngân hàng Nhật để trích nợ tự động (口座振替).',
+      'Không nên nộp đơn xin nhiều thẻ cùng lúc — mỗi lần xin bị ghi vào 信用情報 và nhiều lần từ chối liên tiếp làm xấu hồ sơ.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Hiểu tại sao người nước ngoài dễ bị từ chối',
+        description: 'Nhật Bản dùng hệ thống 信用情報 (credit bureau) quản lý bởi 3 tổ chức chính: CIC, JICC và 全国銀行個人信用情報センター (KSC). Khi mới sang Nhật, bạn không có hồ sơ trong hệ thống này — gọi là "薄い信用情報" (thin file). Công ty thẻ không thể đánh giá rủi ro nên từ chối.\n\nNgoài ra, các yếu tố làm khó thêm:\n• Thời hạn lưu trú ngắn còn lại trên 在留カード.\n• Chưa có hợp đồng lao động ổn định hoặc thu nhập thấp.\n• Địa chỉ thay đổi nhiều lần trong thời gian ngắn.\n• Chưa có tài khoản ngân hàng Nhật đủ lâu.',
+        documents: [],
+        tip: 'Không cần lo lắng quá — đây là tình trạng bình thường với bất kỳ người nào mới đến một quốc gia mới, kể cả người Nhật khi sang Mỹ lần đầu. Giải pháp là xây dựng từng bước, không phải chờ đợi.',
+      },
+      {
+        step: 2,
+        title: 'Bắt đầu với thẻ dễ được duyệt nhất',
+        description: 'Theo thứ tự ưu tiên cho người mới:\n\n1. **Thẻ debit có chức năng Visa/Mastercard**: không cần xét duyệt tín dụng — mở cùng tài khoản ngân hàng (Rakuten Bank, SBI Shinsei, PayPay Bank đều cấp). Dùng để thanh toán trực tuyến và tích điểm, nhưng không xây dựng 信用情報.\n\n2. **Thẻ tín dụng từ ngân hàng bạn đang có tài khoản**: dễ được xét duyệt hơn vì ngân hàng đã biết lịch sử giao dịch của bạn. Ưu tiên: Rakuten Card (dễ nhất, phổ biến nhất với người nước ngoài), PayPay Card, au PAY Card.\n\n3. **Thẻ từ cửa hàng hoặc dịch vụ**: Amazon Mastercard, AEON Card, Dcard — thường xét duyệt dễ hơn thẻ ngân hàng truyền thống.\n\n4. **Thẻ từ ngân hàng lớn (SMBC, MUFG, みずほ)**: khó hơn, thường cần 1–2 năm lịch sử tín dụng tại Nhật.',
+        documents: [],
+        tip: 'Rakuten Card là điểm khởi đầu được nhiều người nước ngoài khuyên dùng nhất: không phí thường niên, tích điểm Rakuten, xét duyệt tương đối dễ nếu có thu nhập ổn định và 在留カード còn hơn 1 năm.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị hồ sơ xin thẻ',
+        description: 'Thông tin cần cung cấp khi đăng ký (thường online, mất 10–15 phút):\n\n• Họ tên (romaji khớp với 在留カード và hộ chiếu)\n• Địa chỉ hiện tại (tiếng Nhật, chính xác theo 住民票)\n• Ngày sinh, quốc tịch\n• Tình trạng việc làm và thu nhập năm (年収)\n• Thông tin 在留カード: số thẻ, tư cách lưu trú, ngày hết hạn\n• Tài khoản ngân hàng Nhật để thanh toán tự động\n• Số điện thoại Nhật (bắt buộc cho xác thực)\n\nThẻ vật lý gửi về nhà sau 1–2 tuần nếu được duyệt.',
+        documents: [
+          '在留カード (số thẻ, tư cách lưu trú, ngày hết hạn)',
+          'Tài khoản ngân hàng Nhật (số tài khoản và tên ngân hàng)',
+          'Số điện thoại Nhật',
+          'Thu nhập năm ước tính (年収) — không cần chứng từ khi đăng ký online',
+        ],
+        tip: 'Điền tên và địa chỉ chính xác 100% như trên 在留カード — sai một chữ có thể bị từ chối tự động. Tư cách lưu trú và ngày hết hạn là thông tin công ty thẻ kiểm tra kỹ nhất.',
+      },
+      {
+        step: 4,
+        title: 'Xây dựng 信用情報 để nâng hạn mức và mở rộng quyền lợi',
+        description: 'Sau khi có thẻ đầu tiên, dùng đúng cách để xây dựng hồ sơ tín dụng:\n\n• Dùng đều hàng tháng: thanh toán điện, gas, điện thoại, Netflix qua thẻ — tạo lịch sử giao dịch đều đặn.\n• Thanh toán đầy đủ (全額払い) đúng hạn hàng tháng — không trả trễ dù chỉ 1 lần, vì ghi vào 信用情報 ngay.\n• Không dùng quá 30% hạn mức: nếu hạn mức 30 vạn yên, giữ số dư dưới 9 vạn yên tại bất kỳ thời điểm nào.\n• Sau 6–12 tháng: có thể xin nâng hạn mức hoặc xin thêm thẻ từ công ty khác.\n\nTránh: trả trả góp (リボ払い) — lãi suất 15–18%/năm, rất cao; và dịch vụ キャッシング (rút tiền mặt từ thẻ tín dụng) trừ trường hợp khẩn cấp.',
+        documents: [],
+        tip: 'Sau 1–2 năm có lịch sử tín dụng tốt, bạn có thể tra 信用情報 của mình miễn phí tại CIC (cic.co.jp) qua app hoặc bưu điện — hữu ích để biết hồ sơ mình ra sao trước khi xin vay lớn như 住宅ローン.',
+      },
+    ],
+  },
 ];
 
 
