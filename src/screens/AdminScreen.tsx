@@ -324,7 +324,7 @@ export default function AdminScreen() {
           <View style={styles.emptyBox}>
             <Ionicons name="search-outline" size={36} color={Colors.textMuted} />
             <Text style={styles.emptyText}>Không tìm thấy thủ tục nào</Text>
-            <Text style={styles.emptySubText}>Thử từ khóa khác hoặc hỏi AI bên dưới</Text>
+            <Text style={styles.emptySubText}>Thử từ khóa khác hoặc chọn danh mục phía trên</Text>
           </View>
         )}
 
