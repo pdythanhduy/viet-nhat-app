@@ -1,7 +1,7 @@
 ﻿import type { AdminGuide, ContentMetadata } from '../../types/content';
 
 export const ADMIN_CONTENT_META: ContentMetadata = {
-  lastUpdated: '2026-04-19',
+  lastUpdated: '2026-04-26',
   sources: [
     { label: '出入国在留管理庁', url: 'https://www.moj.go.jp/isa/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
@@ -5243,6 +5243,66 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Thẻ bảo hiểm y tế',
         ],
         tip: 'Phụ nữ nên đặc biệt chú ý 子宮頸がん検診 từ 20 tuổi — đây là loại ung thư hoàn toàn có thể phát hiện sớm và điều trị hiệu quả. Nhiều địa phương gửi phiếu miễn phí cho lần đầu khám.',
+      },
+    ],
+  },
+  {
+    id: 'moped-motorcycle-registration',
+    category: 'traffic',
+    lastVerified: '2026-04-26',
+    priority: 'normal',
+    title: 'Đăng ký xe máy / xe tay ga tại Nhật',
+    titleJp: '原付・小型二輪・軽自動車の登録手続き',
+    icon: 'speedometer-outline',
+    color: '#784212',
+    description: 'Hướng dẫn đăng ký và sử dụng xe hai bánh tại Nhật: 原付 (xe ≤50cc), 小型二輪 (51–125cc) và 軽二輪 (126–250cc). Bao gồm loại bằng lái cần có, bảo hiểm bắt buộc và thủ tục đăng ký tại municipal office hoặc 軽自動車検査協会.',
+    whoIsThisFor: [
+      'Người muốn mua hoặc đang sở hữu xe máy/xe tay ga tại Nhật và cần biết thủ tục đăng ký đúng luật.',
+      'Người từ Việt Nam sang có bằng lái xe máy và muốn hiểu bằng nào dùng được cho loại xe nào ở Nhật.',
+      'Người mua xe cũ (中古) và cần chuyển tên đăng ký hoặc đăng ký lại.',
+    ],
+    whenToDo: [
+      'Ngay khi mua xe mới hoặc nhận xe cũ — không được đi trước khi có số đăng ký (ナンバープレート) và bảo hiểm bắt buộc (自賠責保険).',
+      'Khi chuyển địa chỉ sang tỉnh/thành phố khác: cần đổi ナンバープレート trong vòng 15 ngày (với 軽二輪 và 小型二輪 đăng ký tại 軽自動車検査協会).',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Xác định loại xe và loại bằng lái cần có',
+        description: 'Nhật phân loại xe hai bánh theo dung tích động cơ — mỗi loại có thủ tục đăng ký và yêu cầu bằng lái khác nhau:\n\n• 原付一種 (≤50cc): đăng ký tại municipal office (市区町村役場), nhận ナンバー ngay trong ngày. Cần bằng 原付免許 (thi riêng) hoặc bất kỳ bằng lái ô tô nào (普通免許 trở lên). Tốc độ tối đa 30 km/h, cấm đi 2 hàng trên đường chính.\n\n• 原付二種 / 小型二輪 (51–125cc): đăng ký tại municipal office (thủ tục tương tự nhưng phân loại khác). Cần bằng 普通二輪免許 (小型限定 trở lên). Không bị giới hạn 30 km/h như 原付一種.\n\n• 軽二輪 (126–250cc): đăng ký tại 軽自動車検査協会. Cần bằng 普通二輪免許. Không cần 車検 (kiểm định định kỳ).\n\n• 小型自動二輪 / 二輪自動車 (>250cc): đăng ký tại 運輸支局, cần 車検 định kỳ 2 năm. Cần bằng 普通二輪 hoặc 大型二輪.',
+        documents: [],
+        tip: 'Bằng lái xe máy Việt Nam KHÔNG được dùng trực tiếp tại Nhật — phải đổi sang bằng Nhật. Quy trình đổi bằng xe máy tương tự đổi bằng ô tô (xem guide "Đổi bằng lái xe" riêng). Bằng quốc tế (IDP) theo Công ước Geneva 1949 được chấp nhận tạm thời 1 năm kể từ khi nhập cảnh.',
+      },
+      {
+        step: 2,
+        title: 'Đăng ký 原付 tại municipal office',
+        description: 'Với xe ≤125cc, đăng ký tại quầy 税務課 hoặc 市民課 của municipal office nơi bạn cư trú:\n\n1. Điền mẫu 軽自動車税(種別割)申告書 (mẫu tại quầy, miễn phí).\n2. Nộp kèm: chứng nhận xuất xứ/mua bán xe (販売証明書 từ đại lý, hoặc 譲渡証明書 nếu mua xe cũ từ cá nhân), 在留カード.\n3. Nhận ナンバープレート ngay trong ngày — gắn lên xe trước khi đi.\n\nMua xe mới từ đại lý: đại lý thường làm thủ tục hộ.\nMua xe cũ từ cá nhân: bạn tự làm tại municipal office.',
+        documents: [
+          '販売証明書 (từ đại lý) hoặc 譲渡証明書 + 廃車証明書 (mua xe cũ cá nhân)',
+          '在留カード',
+          'Mẫu đơn đăng ký (lấy tại quầy)',
+        ],
+        tip: 'Phí đăng ký 原付 không tốn nhiều, nhưng 軽自動車税 hàng năm sẽ được gửi vào tháng 5 — 原付一種: 2,000 yên/năm, 原付二種: 2,400–3,600 yên/năm. Không bỏ qua hóa đơn này.',
+      },
+      {
+        step: 3,
+        title: 'Mua bảo hiểm bắt buộc 自賠責保険',
+        description: '自賠責保険 (bảo hiểm trách nhiệm dân sự bắt buộc) là điều kiện PHẢI CÓ trước khi đi xe trên đường — không có là vi phạm luật, bị phạt nặng và bị giam bằng lái.\n\nMua ở đâu: tại đại lý xe khi mua xe mới, tại các cửa hàng tiện lợi lớn (7-Eleven, FamilyMart có máy bán), tại bảo hiểm công ty (損保ジャパン, 東京海上 v.v.) hoặc online.\n\nMức phí (2026): 原付一種 ~7,060 yên/2 năm, 原付二種 ~8,850 yên/2 năm, 軽二輪 ~9,950 yên/2 năm.\n\n自賠責 chỉ chi trả thiệt hại cho người khác (bên thứ ba), không bồi thường thiệt hại cho chính xe hoặc người lái. Nên mua thêm 任意保険 (bảo hiểm tự nguyện) để bảo vệ toàn diện hơn.',
+        documents: [
+          'Thông tin xe: số khung (車体番号), dung tích (排気量), ナンバー',
+        ],
+        tip: 'Giấy 自賠責保険 phải mang theo khi đi xe. Nếu bị cảnh sát kiểm tra và không có giấy này, bị phạt tiền và có thể bị tước bằng lái dù xe có đăng ký đúng.',
+      },
+      {
+        step: 4,
+        title: 'Chuyển tên khi mua xe cũ từ cá nhân',
+        description: 'Khi mua 原付 cũ từ người khác:\n\n1. Người bán làm thủ tục 廃車 (hủy đăng ký) tại municipal office và nhận 廃車証明書.\n2. Bạn mang 廃車証明書 + 譲渡証明書 (giấy chuyển nhượng, người bán ký) đến municipal office nơi bạn ở để đăng ký tên mới.\n3. Nhận ナンバー mới của địa phương bạn.\n\nVới 軽二輪 (126–250cc) và xe >250cc: thủ tục phức tạp hơn, qua 軽自動車検査協会 hoặc 運輸支局. Cân nhắc nhờ đại lý xe hoặc 行政書士 làm hộ nếu lần đầu.',
+        documents: [
+          '廃車証明書 (do người bán cấp từ municipal office)',
+          '譲渡証明書 (người bán ký)',
+          '在留カード của bạn',
+        ],
+        tip: 'Không nên đi xe khi ナンバー vẫn còn tên người bán — nếu bị tai nạn hoặc vi phạm, đăng ký sai tên gây rất nhiều phức tạp pháp lý. Đổi tên ngay khi nhận xe.',
       },
     ],
   },
