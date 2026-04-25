@@ -4702,6 +4702,125 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'residence-card-physical-renewal',
+    category: 'immigration',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Gia hạn thẻ cư trú vật lý (在留カード更新)',
+    titleJp: '在留カードの有効期間更新',
+    icon: 'card-outline',
+    color: '#2471A3',
+    description: 'Gia hạn hiệu lực vật lý của thẻ cư trú (在留カード). Thủ tục này khác với gia hạn tư cách lưu trú (visa) — áp dụng khi thẻ hết hạn nhưng tư cách lưu trú vẫn còn hiệu lực.',
+    whoIsThisFor: [
+      'Người có 永住者 (vĩnh trú) hoặc trẻ em dưới 16 tuổi — hai nhóm duy nhất cần gia hạn thẻ vật lý mà không kèm gia hạn tư cách lưu trú.',
+      'Người 永住者: thẻ có hiệu lực 7 năm (từ 16 tuổi), cần gia hạn trước khi hết hạn.',
+      'Trẻ em dưới 16 tuổi: thẻ có hiệu lực đến sinh nhật 16 tuổi — tự động cần đổi thẻ khi đủ 16.',
+      'Người có tư cách lưu trú thời hạn (kỹ sư, SSW, du học v.v.) KHÔNG dùng thủ tục này — thẻ vật lý được cấp mới tự động khi gia hạn tư cách lưu trú.',
+    ],
+    whenToDo: [
+      'Nộp trong vòng 2 tháng trước ngày hết hạn ghi trên thẻ (有効期間満了日).',
+      'Người 永住者 đủ 16 tuổi: nộp đổi thẻ trong vòng 30 ngày kể từ sinh nhật 16 tuổi.',
+      'Trẻ dưới 16 tuổi đủ 16 tuổi: tương tự, nộp trong vòng 30 ngày sau sinh nhật.',
+      'Có thể nộp sớm hơn 2 tháng nếu muốn chủ động, nhưng thường không cần thiết.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Chuẩn bị hồ sơ',
+        description: 'Điền mẫu 在留カード有効期間更新申請書 — tải trên website của 出入国在留管理庁 (ISA) hoặc lấy tại Immigration Bureau. Ảnh thẻ 4×3 cm nền trắng, chụp trong vòng 3 tháng, không đội mũ, không kính (tùy quy định từng văn phòng).',
+        documents: [
+          '在留カード hiện tại',
+          'Passport còn hiệu lực',
+          'Mẫu đơn 在留カード有効期間更新申請書 đã điền',
+          'Ảnh thẻ 4×3 cm (nền trắng, chụp trong 3 tháng)',
+        ],
+        tip: 'Không cần nộp giấy tờ chứng minh thu nhập hay hợp đồng lao động — thủ tục này chỉ gia hạn thẻ vật lý, không xét lại tư cách lưu trú.',
+      },
+      {
+        step: 2,
+        title: 'Nộp tại Immigration Bureau (出入国在留管理局)',
+        description: 'Đến trực tiếp tại văn phòng ISA có thẩm quyền theo địa chỉ cư trú. Không thể nộp tại municipal office cho thủ tục này. Số thứ tự thường đông vào sáng thứ Hai — nên đi giữa tuần hoặc đặt lịch hẹn trực tuyến nếu văn phòng hỗ trợ.',
+        documents: [
+          'Toàn bộ hồ sơ từ bước 1',
+        ],
+        tip: 'Một số văn phòng ISA lớn (Tokyo, Osaka, Nagoya) có hệ thống đặt lịch hẹn trực tuyến tại ims.moj.go.jp — đặt trước giúp tránh chờ đợi dài.',
+      },
+      {
+        step: 3,
+        title: 'Nhận thông báo và lấy thẻ mới',
+        description: 'Sau khi nộp, bạn nhận được giấy biên nhận (申請受理票). Thời gian xử lý thường 2–4 tuần. ISA sẽ gửi ハガキ (bưu thiếp) thông báo khi thẻ sẵn sàng — mang theo ハガキ, passport và thẻ cũ để nhận thẻ mới.',
+        documents: [
+          'Giấy biên nhận (申請受理票)',
+          'ハガキ thông báo từ ISA',
+          'Passport',
+          'Thẻ cư trú cũ (nộp lại khi nhận thẻ mới)',
+        ],
+        tip: 'Trong thời gian chờ thẻ mới, thẻ cũ vẫn còn hiệu lực pháp lý nếu bạn đang trong quá trình gia hạn. Nếu cần xuất nhập cảnh trong thời gian này, hỏi ISA về 出国記録 để tránh rắc rối ở biên giới.',
+      },
+    ],
+  },
+  {
+    id: 'open-bank-account',
+    category: 'daily-law',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Mở tài khoản ngân hàng tại Nhật',
+    titleJp: '外国人の銀行口座開設',
+    icon: 'business',
+    color: '#1A8C4E',
+    description: 'Hướng dẫn thực tế mở tài khoản ngân hàng cho người nước ngoài tại Nhật. Nhiều ngân hàng yêu cầu cư trú từ 6 tháng trở lên, nhưng có lựa chọn phù hợp cho người mới sang.',
+    whoIsThisFor: [
+      'Người nước ngoài mới sang Nhật cần tài khoản để nhận lương, chuyển tiền về nước hoặc thanh toán hóa đơn.',
+      'Người đang đi làm — hầu hết công ty Nhật yêu cầu tài khoản ngân hàng Nhật để trả lương.',
+      'Du học sinh cần tài khoản để nhận học bổng, trả học phí và tiền thuê nhà.',
+    ],
+    whenToDo: [
+      'Sau khi có 在留カード và địa chỉ đăng ký cư trú (住民登録) — đây là điều kiện tối thiểu.',
+      'Japan Post Bank (ゆうちょ銀行) và một số ngân hàng online chấp nhận từ ngay sau khi có thẻ cư trú, không yêu cầu thời gian cư trú tối thiểu.',
+      'Nên mở ngay tuần đầu tiên nếu có thể — lương tháng đầu tiên thường bị trì hoãn nếu chưa có tài khoản.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Chọn ngân hàng phù hợp',
+        description: 'Ba lựa chọn phổ biến nhất cho người nước ngoài mới sang:\n\n• ゆうちょ銀行 (Japan Post Bank): dễ mở nhất, chấp nhận ngay khi có 在留カード, có mặt tại mọi bưu điện trên toàn quốc, phí thấp.\n\n• 住信SBIネット銀行 (SBI Shinsei): ngân hàng online, hỗ trợ đa ngôn ngữ, phí chuyển tiền quốc tế thấp, không yêu cầu thời gian cư trú tối thiểu với một số tư cách lưu trú.\n\n• 三菱UFJ / みずほ / 三井住友: ngân hàng truyền thống lớn — thường yêu cầu đã cư trú 6 tháng trở lên và tài liệu bổ sung. Phù hợp hơn khi đã ổn định.',
+        documents: [],
+        tip: 'Nếu công ty đã chỉ định ngân hàng cụ thể để nhận lương, hãy mở tài khoản đó trước. Hỏi bộ phận nhân sự (総務・人事) của công ty ngay tuần đầu làm việc.',
+      },
+      {
+        step: 2,
+        title: 'Chuẩn bị giấy tờ',
+        description: 'Giấy tờ cơ bản cho hầu hết ngân hàng: 在留カード (bắt buộc), passport, và bằng chứng địa chỉ. Bằng chứng địa chỉ có thể là 住民票 (lấy tại municipal office, phí ~300 yên), hóa đơn điện/nước/gas đứng tên bạn, hoặc ハガキ từ municipal office gửi đến địa chỉ hiện tại.',
+        documents: [
+          '在留カード còn hiệu lực',
+          'Passport',
+          'Bằng chứng địa chỉ: 住民票 hoặc hóa đơn tiện ích đứng tên bạn',
+          'Con dấu 印鑑 (một số ngân hàng truyền thống yêu cầu — ngân hàng online thường không cần)',
+        ],
+        tip: '住民票 là giấy tờ địa chỉ chắc chắn nhất — lấy tại municipal office trong cùng buổi làm 転入届 để tiết kiệm thời gian đi lại.',
+      },
+      {
+        step: 3,
+        title: 'Đến chi nhánh hoặc đăng ký online',
+        description: 'ゆうちょ銀行: đến bất kỳ bưu điện nào, lấy số, điền mẫu tại quầy — thường xong trong 30–60 phút, thẻ ATM gửi về nhà sau 1–2 tuần.\n\nNgân hàng online (SBI v.v.): tải app, chụp ảnh 在留カード và passport qua app — xử lý 3–7 ngày làm việc.\n\nNgân hàng truyền thống lớn: đến chi nhánh, mang đủ hồ sơ, có thể cần phiên dịch nếu không nói được tiếng Nhật — một số chi nhánh lớn có nhân viên nói tiếng Anh.',
+        documents: [
+          'Toàn bộ hồ sơ từ bước 2',
+        ],
+        tip: 'Khi điền địa chỉ bằng tiếng Nhật, dùng ứng dụng Japan Post hoặc tra trên j住所 (住所検索) để có định dạng đúng theo chuẩn bưu chính Nhật. Địa chỉ sai là lý do phổ biến nhất khiến hồ sơ bị từ chối.',
+      },
+      {
+        step: 4,
+        title: 'Thiết lập chuyển tiền về Việt Nam',
+        description: 'Sau khi có tài khoản, có thể chuyển tiền về Việt Nam qua: Wise (phí thấp nhất, tỷ giá minh bạch), SBI Remit (liên kết trực tiếp với SBI Shinsei, hỗ trợ tiếng Việt), hoặc 7-Eleven/Lawson ATM kết hợp dịch vụ remittance. Tránh dùng chuyển khoản SWIFT qua ngân hàng truyền thống — phí cao (2,500–5,000 yên/lần) và tỷ giá xấu.',
+        documents: [
+          'Tài khoản ngân hàng Nhật đã kích hoạt',
+          'Số tài khoản ngân hàng Việt Nam nhận tiền',
+        ],
+        tip: 'Wise và SBI Remit yêu cầu xác minh danh tính một lần — chuẩn bị passport và 在留カード để hoàn thành KYC. Sau đó mỗi lần chuyển tiền chỉ mất vài phút.',
+      },
+    ],
+  },
 ];
 
 
