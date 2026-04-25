@@ -4759,6 +4759,119 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'garbage-sorting-rules',
+    category: 'daily-law',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Phân loại rác đúng cách tại Nhật',
+    titleJp: 'ごみの分け方・出し方',
+    icon: 'leaf-outline',
+    color: '#27AE60',
+    description: 'Nhật Bản có quy định phân loại rác nghiêm ngặt và khác nhau theo từng địa phương. Bỏ rác sai loại hoặc sai ngày có thể bị từ chối thu gom và ảnh hưởng quan hệ hàng xóm.',
+    whoIsThisFor: [
+      'Người mới sang Nhật và chưa quen quy tắc phân loại rác.',
+      'Người vừa chuyển nhà sang địa phương mới — quy định rác khác nhau hoàn toàn giữa các quận/thành phố.',
+      'Người chuẩn bị chuyển ra khỏi nhà và cần xử lý đồ đạc lớn (粗大ゴミ) đúng cách.',
+    ],
+    whenToDo: [
+      'Ngay khi dọn vào nhà mới: lấy lịch phân loại rác (ゴミカレンダー) của khu vực tại municipal office, tòa nhà, hoặc app của thành phố.',
+      'Trước khi chuyển nhà: đăng ký thu gom 粗大ゴミ ít nhất 1–2 tuần trước ngày chuyển.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Nắm 4 loại rác cơ bản',
+        description: '燃えるゴミ (rác đốt được): thức ăn thừa, giấy bẩn, vải cũ, rác nhà bếp thông thường. Đây là loại thu gom thường xuyên nhất (2–3 lần/tuần).\n\n燃えないゴミ (rác không đốt được): đồ thủy tinh, gốm sứ, đồ kim loại nhỏ, đồ nhựa cứng (tùy địa phương có thể tách riêng). Thu gom ít thường xuyên hơn, thường 2 lần/tháng.\n\n資源ゴミ (rác tái chế): chai PET, lon nhôm/sắt, hộp giấy, chai thủy tinh, báo/tạp chí. Nhiều nơi yêu cầu rửa sạch trước khi bỏ.\n\n粗大ゴミ (đồ đạc cồng kềnh): nội thất, xe đạp, thiết bị gia dụng lớn — phải đăng ký riêng, không bỏ tự do ra điểm rác thường.',
+        documents: [],
+        tip: 'Tải app "ごみ分別アプリ" của thành phố nơi bạn sống (ví dụ: Tokyo là "東京ごみ分別案内", Osaka là "大阪市ごみ分別アプリ") — nhập tên đồ vật để biết bỏ loại nào và ngày nào.',
+      },
+      {
+        step: 2,
+        title: 'Đọc và tuân thủ lịch rác khu vực',
+        description: 'Mỗi khu vực (町丁目) có lịch riêng quy định ngày thu gom từng loại rác trong tuần. Ví dụ: 月・木 = thứ 2 và thứ 5 là 燃えるゴミ; 火 = thứ 3 là 資源ゴミ. Rác phải đặt ra điểm tập kết (集積所) của khu phố trước 8h sáng ngày thu gom, không bỏ tối hôm trước.\n\nKhông đặt rác sai điểm — mỗi tòa nhà hoặc khu phố có điểm quy định riêng.',
+        documents: [
+          'ゴミカレンダー (lịch rác khu vực — nhận từ municipal office hoặc tòa nhà khi dọn vào)',
+        ],
+        tip: 'Nếu rác bị để lại (không được thu), thường có tờ giấy ghi lý do đính vào túi. Mang rác về, phân loại lại và bỏ đúng ngày tiếp theo.',
+      },
+      {
+        step: 3,
+        title: 'Quy tắc đóng gói và túi rác',
+        description: 'Nhiều địa phương yêu cầu dùng túi rác có màu hoặc có logo của thành phố (指定ゴミ袋) — bán tại convenience store và siêu thị. Bỏ rác bằng túi thường có thể bị từ chối.\n\nChai PET: tháo nắp và nhãn (bỏ vào 燃えるゴミ), bẹp chai trước khi bỏ vào thùng 資源.\nLon và hộp: rửa sạch, bẹp nếu được.\nThùng các-tông: tháo dỡ phẳng, buộc thành bó bằng dây.',
+        documents: [],
+        tip: 'Hỏi quản lý tòa nhà (管理人) hoặc hàng xóm về loại túi và điểm bỏ rác ngay khi dọn vào — đây là điều đầu tiên nên hỏi để tránh mâu thuẫn.',
+      },
+      {
+        step: 4,
+        title: 'Xử lý đồ đạc lớn (粗大ゴミ) khi chuyển nhà',
+        description: 'Đồ vật lớn như giường, tủ, xe đạp, máy giặt, TV, tủ lạnh không được bỏ vào rác thường. Có 3 cách:\n\n1. Đăng ký 粗大ゴミ thu gom: gọi điện hoặc đặt online qua cổng municipal office, mua tem 粗大ゴミシール tại convenience store theo mức phí được thông báo (thường 400–2,000 yên/món), dán lên đồ và đặt ra đúng ngày hẹn.\n\n2. Thiết bị gia dụng 4 loại (TV, tủ lạnh, máy giặt, máy điều hòa): theo luật リサイクル法, phải trả qua nhà bán lẻ hoặc công ty thu hồi có phép — không thể đặt làm 粗大ゴミ thông thường.\n\n3. Tặng/bán: Junk Mail, Mercari, Facebook Marketplace nhóm người Việt tại Nhật.',
+        documents: [],
+        tip: 'Tuyệt đối không vứt đồ đạc lớn ra vỉa hè hoặc điểm rác không đăng ký (不法投棄) — vi phạm Luật Xử lý Chất thải Nhật Bản, có thể bị phạt tiền hoặc truy cứu hình sự.',
+      },
+    ],
+  },
+  {
+    id: 'workplace-accident-rousai',
+    category: 'health',
+    lastVerified: '2026-04-25',
+    priority: 'high',
+    title: 'Tai nạn lao động (労災) — quyền lợi và thủ tục',
+    titleJp: '労働災害・労災保険の申請手続き',
+    icon: 'medkit-outline',
+    color: '#C0392B',
+    description: 'Khi bị thương hoặc mắc bệnh do công việc, người lao động nước ngoài có quyền hưởng 労災保険 (bảo hiểm tai nạn lao động) — hoàn toàn độc lập với bảo hiểm y tế thông thường. Công ty không thể từ chối hay che giấu.',
+    whoIsThisFor: [
+      'Người bị thương tại nơi làm việc hoặc trên đường đi làm/về (通勤災害).',
+      'Người mắc bệnh nghề nghiệp do công việc gây ra (職業病): đau lưng mạn tính, điếc tai, ngộ độc hóa chất v.v.',
+      'Người lao động nước ngoài đang làm việc hợp pháp tại Nhật — tất cả đều được bảo vệ bởi 労災保険 bất kể tư cách lưu trú.',
+    ],
+    whenToDo: [
+      'Ngay khi xảy ra tai nạn: đi khám và thông báo cho công ty ngay lập tức — đừng chờ xem tình trạng thế nào.',
+      'Nộp đơn 労災 càng sớm càng tốt — không có thời hạn cứng cho đơn điều trị (療養補償給付), nhưng trợ cấp nghỉ việc (休業補償給付) có giới hạn tính từ ngày nghỉ.',
+      'Ngay cả khi tai nạn xảy ra đã lâu mà chưa làm thủ tục, vẫn có thể nộp — hỏi ハローワーク hoặc 労働基準監督署 để biết tình trạng cụ thể.',
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Đến bệnh viện và khai báo tai nạn lao động',
+        description: 'Đến bệnh viện hoặc phòng khám có nhận 労災 (không phải tất cả đều nhận — hỏi trước hoặc tra cứu trên trang 厚生労働省). Nói với bác sĩ và bệnh viện rằng đây là tai nạn lao động (労災です / 仕事中のケガです) — chi phí điều trị sẽ được 労災保険 chi trả, không dùng 健康保険 thông thường.\n\nNếu cấp cứu trước: vào bệnh viện gần nhất, sau đó báo cho công ty và chuyển hóa đơn sang thanh toán 労災 — bệnh viện sẽ hướng dẫn.',
+        documents: [],
+        tip: 'Không nên dùng 健康保険 (bảo hiểm y tế thông thường) để điều trị tai nạn lao động — nếu lỡ dùng, cần làm thủ tục hoàn trả sau. Nói rõ ngay từ đầu là 労災 để tránh phức tạp.',
+      },
+      {
+        step: 2,
+        title: 'Thông báo cho công ty và yêu cầu làm thủ tục 労災',
+        description: 'Báo cho cấp trên hoặc bộ phận nhân sự ngay trong ngày nếu có thể. Công ty có nghĩa vụ giúp bạn làm thủ tục nộp đơn 労災 (様式第5号 cho điều trị, 様式第8号 cho trợ cấp nghỉ việc). Nếu công ty từ chối hoặc trì hoãn, bạn có thể tự nộp trực tiếp tại 労働基準監督署 mà không cần chữ ký của công ty.',
+        documents: [
+          'Tên, địa chỉ công ty',
+          'Mô tả tai nạn: ngày, giờ, địa điểm, nguyên nhân, công việc đang làm lúc xảy ra tai nạn',
+          'Thông tin bệnh viện điều trị',
+        ],
+        tip: 'Ghi chép hoặc chụp ảnh hiện trường ngay sau tai nạn nếu có thể — bằng chứng sẽ rất quan trọng nếu sau này có tranh chấp về nguyên nhân.',
+      },
+      {
+        step: 3,
+        title: 'Các quyền lợi 労災 có thể nhận',
+        description: '療養補償給付: chi trả toàn bộ chi phí điều trị tại bệnh viện có nhận 労災 — không giới hạn thời gian điều trị.\n\n休業補償給付: nếu phải nghỉ làm từ 4 ngày trở lên do tai nạn, nhận 80% lương ngày trung bình (60% từ 労災 + 20% từ công ty) kể từ ngày thứ 4. Ba ngày đầu tiên công ty bồi thường trực tiếp (休業補償).\n\n障害補償給付: nếu để lại di chứng sau điều trị, nhận trợ cấp tàn tật theo cấp độ (1–14 cấp).\n\n遺族補償給付: nếu tử vong do tai nạn lao động, gia đình được nhận trợ cấp.',
+        documents: [
+          'Giấy chứng nhận của bác sĩ (診断書)',
+          'Mẫu đơn 労災 theo từng loại quyền lợi (lấy tại công ty hoặc 労働基準監督署)',
+        ],
+        tip: 'Nếu tai nạn xảy ra trên đường đi làm hoặc về (kể cả đi bộ, xe đạp), cũng thuộc 労災 (gọi là 通勤災害). Điều kiện: đường đi hợp lý, không ghé chỗ khác vì lý do cá nhân.',
+      },
+      {
+        step: 4,
+        title: 'Khi công ty gây khó dễ hoặc từ chối',
+        description: 'Nếu công ty từ chối ký đơn, che giấu tai nạn hoặc ép bạn dùng 健康保険 thay 労災: đây là vi phạm pháp luật. Bạn có quyền tự nộp đơn tại 労働基準監督署 mà không cần công ty. Ngoài ra liên hệ:\n\n• 労働基準監督署 (Văn phòng giám sát tiêu chuẩn lao động) — tại thành phố bạn làm việc.\n• FRESC (Trung tâm hỗ trợ người nước ngoài) — có phiên dịch tiếng Việt.\n• Nghiệp đoàn lao động (労働組合) nếu bạn là thành viên.',
+        documents: [
+          'Toàn bộ bằng chứng về tai nạn và quá trình điều trị',
+          'Thư từ, tin nhắn liên quan đến việc công ty từ chối (nếu có)',
+        ],
+        tip: 'Người lao động nước ngoài có tư cách lưu trú hợp lệ được bảo vệ đầy đủ bởi Luật Lao động Nhật Bản. Việc sử dụng quyền 労災 không ảnh hưởng đến tư cách lưu trú — đây là quyền lợi hợp pháp, không phải "khiếu nại".',
+      },
+    ],
+  },
 ];
 
 
