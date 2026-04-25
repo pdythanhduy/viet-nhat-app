@@ -4401,6 +4401,242 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'return-to-vietnam-checklist',
+    category: 'immigration',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'Checklist về nước / kết thúc hợp đồng',
+    titleJp: '帰国・在留終了時の手続き',
+    icon: 'airplane',
+    color: '#27AE60',
+    description: 'Tất cả thủ tục cần làm trước và sau khi rời Nhật: chuyển đi khỏi thành phố, hủy bảo hiểm, đóng ngân hàng, hủy điện thoại, hoàn thuế pension và quyết toán thuế.',
+    whoIsThisFor: [
+      'Người kết thúc hợp đồng lao động, chương trình thực tập hoặc khóa học và chuẩn bị về Việt Nam.',
+      'Người muốn rời Nhật vĩnh viễn hoặc tạm thời dài ngày.',
+      'Người đã từng về nước nhưng chưa làm hết thủ tục — đặc biệt pension refund vẫn còn 2 năm để nộp.',
+    ],
+    whenToDo: [
+      'Bắt đầu lên danh sách ít nhất 2–3 tháng trước ngày về — một số thủ tục cần hẹn trước hoặc chờ giấy tờ.',
+      'Nộp 転出届 (chuyển đi) tại municipal office trong vòng 14 ngày trước hoặc sau ngày rời.',
+      'Pension refund (脱退一時金) phải nộp SAU khi đã rời Nhật và trong vòng 2 năm kể từ ngày về.',
+    ],
+    whereToDo: [
+      'Municipal office (市区町村役場): nộp 転出届, hủy 国民健康保険.',
+      'Sân bay xuất cảnh: trả thẻ cư trú tại cửa kiểm tra xuất nhập cảnh.',
+      'Japan Pension Service: nộp đơn 脱退一時金 qua bưu điện từ Việt Nam.',
+      'Ngân hàng: đóng tài khoản hoặc giữ lại để nhận pension refund.',
+      'Nhà mạng điện thoại: hủy hợp đồng SIM và internet.',
+    ],
+    estimatedTime: 'Toàn bộ quá trình mất 1–3 tháng nếu tính cả việc chờ pension refund sau khi về. Thủ tục tại Nhật trước ngày về có thể xử lý trong 1–2 tuần nếu chuẩn bị sớm.',
+    fees: [
+      'Hầu hết thủ tục chuyển đi, hủy bảo hiểm miễn phí.',
+      'Pension refund: bạn NHẬN LẠI tiền đã đóng — không phải nộp thêm. Mức hoàn phụ thuộc số tháng đóng và lương.',
+      'Sau khi nhận pension refund, Japan Pension Service khấu lưu 20.42% thuế. Người Việt Nam có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế VN–Nhật.',
+    ],
+    documentsChecklist: [
+      { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Nộp lại tại cửa kiểm tra xuất nhập cảnh ở sân bay.' },
+      { label: 'Hộ chiếu còn hiệu lực', required: true },
+      { label: 'Giấy 転出証明書 từ municipal office', required: false, note: 'Dùng để đóng tài khoản ngân hàng hoặc làm các thủ tục cần xác nhận đã rời địa chỉ.' },
+      { label: 'Thông tin tài khoản ngân hàng để nhận pension refund', required: false, note: 'Tài khoản Nhật hoặc tài khoản nước ngoài đều được, nhưng tài khoản nước ngoài bị trừ phí chuyển quốc tế.' },
+      { label: 'Bảng lương / 源泉徴収票', required: false, note: 'Cần nếu muốn quyết toán thuế trước khi về hoặc xin hoàn thuế sau.' },
+    ],
+    commonMistakes: [
+      'Về nước mà không nộp 転出届 → tiếp tục bị tính 住民税 (thuế cư dân) năm sau dù không ở Nhật.',
+      'Quên đăng ký pension refund hoặc để quá 2 năm — mất toàn bộ số tiền đã đóng.',
+      'Đóng tài khoản ngân hàng Nhật trước khi nhận pension refund → phải khai tài khoản nước ngoài, bị trừ phí.',
+      'Không hủy SIM hoặc internet trước khi về → bị tính phí hàng tháng sau khi về nước.',
+      'Nghĩ rằng phải đến ISA để trả thẻ cư trú — thực ra nộp luôn tại cửa kiểm tra xuất cảnh ở sân bay.',
+      'Không làm quyết toán thuế (年末調整 hoặc 確定申告) trước khi về → bỏ lỡ khoản hoàn thuế nếu có.',
+    ],
+    faq: [
+      {
+        question: 'Không có tài khoản ngân hàng Nhật để nhận pension refund thì sao?',
+        answer: 'Có thể khai tài khoản ngân hàng nước ngoài trên đơn 脱退一時金. Japan Pension Service sẽ chuyển quốc tế nhưng phí chuyển tiền sẽ bị trừ vào số tiền nhận. Nếu có thể, giữ lại tài khoản Nhật cho đến khi nhận xong.',
+      },
+      {
+        question: 'Về rồi mới nhớ chưa hủy SIM, phải làm thế nào?',
+        answer: 'Gọi đường dây hỗ trợ của nhà mạng từ Việt Nam hoặc nhờ người ở Nhật hủy hộ. Một số nhà mạng cho phép hủy online hoặc qua My Page. Nên làm càng sớm càng tốt để tránh bị tính thêm phí.',
+      },
+      {
+        question: 'Pension refund nộp ở đâu sau khi về Việt Nam?',
+        answer: 'Tải mẫu đơn 脱退一時金 từ trang Japan Pension Service (nenkin.go.jp), điền và gửi bưu điện đến văn phòng Japan Pension Service kèm bản sao hộ chiếu và thẻ cư trú cũ. Thời gian xử lý khoảng 3–6 tháng.',
+      },
+      {
+        question: 'Nếu muốn quay lại Nhật sau này thì nên làm gì khác không?',
+        answer: 'Nếu có kế hoạch quay lại, hãy cân nhắc giữ tài khoản ngân hàng (nhiều ngân hàng cho phép duy trì từ nước ngoài), lưu lại số My Number và hỏi nhà mạng về gói tạm ngưng thay vì hủy hẳn. Pension refund sẽ xóa lịch sử đóng — nếu ở lại lâu dài sau này, không nhận refund có thể có lợi hơn.',
+      },
+    ],
+    officialLinks: [
+      { label: '脱退一時金 — Japan Pension Service', url: 'https://www.nenkin.go.jp/service/jukyu/sonota-kyufu/dattai-ichiji/20150406.html' },
+      { label: '転出届の手続き — 総務省', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/daityo/tetsuduki.html' },
+      { label: '外国人の帰国手続き — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/guide/returnhome.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Nộp 転出届 tại municipal office',
+        description: 'Báo với văn phòng phường/thành phố rằng bạn sẽ rời địa chỉ đó. Nộp trong vòng 14 ngày trước hoặc sau ngày dọn đi. Sau khi nộp, bảo hiểm 国民健康保険 (nếu có) sẽ tự kết thúc theo địa chỉ đó.',
+        documents: [
+          'Thẻ cư trú',
+          'Hộ chiếu',
+          'Thẻ My Number (nếu có)',
+        ],
+        tip: 'Hỏi xin thêm 転出証明書 — giấy này dùng được khi đóng tài khoản ngân hàng hoặc làm các thủ tục sau đó cần xác nhận đã chuyển đi.',
+      },
+      {
+        step: 2,
+        title: 'Hủy SIM, internet và tiện ích (điện, gas, nước)',
+        description: 'Liên hệ nhà mạng và công ty tiện ích ít nhất 1–2 tuần trước ngày dọn ra. Hỏi rõ phí hủy hợp đồng, ngày kết thúc dịch vụ và cách trả thiết bị (modem, router).',
+        documents: [
+          'Số hợp đồng SIM / internet',
+          'Số khách hàng điện/gas/nước',
+        ],
+        tip: 'Chụp ảnh đồng hồ điện, gas, nước vào ngày cuối cùng ở nhà — bằng chứng cho hóa đơn quyết toán cuối.',
+      },
+      {
+        step: 3,
+        title: 'Xử lý tài khoản ngân hàng',
+        description: 'Quyết định đóng hay giữ lại tài khoản. Nếu giữ: kiểm tra ngân hàng có cho phép tài khoản không cư trú không. Nếu đóng: rút hết tiền trước, sau đó ra chi nhánh hoặc làm online. Đừng đóng ngay — chờ đến sau khi nhận pension refund.',
+        documents: [
+          'Sổ ngân hàng hoặc thẻ ATM',
+          'Thẻ cư trú hoặc giấy 転出証明書',
+          'Con dấu (印鑑) nếu có đăng ký khi mở tài khoản',
+        ],
+        tip: 'Nhiều ngân hàng có điều khoản tự đóng tài khoản nếu không có giao dịch dài ngày hoặc nếu phát hiện chủ tài khoản không còn cư trú tại Nhật. Kiểm tra điều khoản với ngân hàng của bạn.',
+      },
+      {
+        step: 4,
+        title: 'Trả thẻ cư trú tại sân bay khi xuất cảnh',
+        description: 'Khi qua cửa kiểm tra xuất nhập cảnh ở sân bay để về nước, nhân viên ISA sẽ nhận lại thẻ cư trú. Đây là bước bắt buộc khi rời Nhật vĩnh viễn hoặc ngừng cư trú dài hạn.',
+        documents: [
+          'Thẻ cư trú (在留カード)',
+          'Hộ chiếu',
+        ],
+        tip: 'Không cần đến ISA riêng để nộp thẻ — làm ngay tại cửa kiểm tra xuất cảnh. Chụp ảnh thẻ cư trú trước khi nộp để lưu số thẻ khi cần cho đơn pension refund.',
+      },
+      {
+        step: 5,
+        title: 'Nộp đơn pension refund (脱退一時金) sau khi về nước',
+        description: 'Nộp đơn xin hoàn lại tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật. Deadline là 2 năm kể từ ngày rời. Sau khi nhận, Japan Pension Service khấu lưu 20.42% thuế — người Việt có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế Việt Nam–Nhật.',
+        documents: [
+          'Mẫu đơn 脱退一時金裁定請求書 (tải từ nenkin.go.jp)',
+          'Bản sao hộ chiếu (trang ảnh và trang con dấu nhập cảnh gần nhất)',
+          'Bản sao thẻ cư trú cũ (đã nộp tại sân bay — dùng ảnh đã chụp trước khi nộp)',
+          'Thông tin tài khoản ngân hàng để nhận tiền',
+        ],
+        tip: 'Số tháng đóng pension càng nhiều thì số tiền hoàn càng lớn. Nếu đóng 3 năm (36 tháng), số tiền hoàn có thể đáng kể. Kiểm tra bảng tính tại trang Japan Pension Service.',
+      },
+    ],
+  },
+  {
+    id: 'myna-portal-digital',
+    category: 'daily-law',
+    lastVerified: '2026-04-25',
+    priority: 'normal',
+    title: 'My Number Card số hóa — マイナポータル',
+    titleJp: 'マイナンバーカード・マイナ保険証・マイナポータル',
+    icon: 'phone-portrait',
+    color: '#2980B9',
+    description: 'Dùng My Number Card như thẻ bảo hiểm y tế số (マイナ保険証), tra cứu lịch sử pension/thuế/y tế và làm thủ tục hành chính online — đặc biệt quan trọng từ 2024 khi thẻ bảo hiểm truyền thống ngừng cấp mới.',
+    whoIsThisFor: [
+      'Người đã có My Number Card vật lý (thẻ nhựa) và muốn dùng được nhiều tính năng hơn.',
+      'Người cần dùng thẻ bảo hiểm y tế khi đi khám — từ tháng 12/2024, thẻ bảo hiểm truyền thống không còn được cấp mới.',
+      'Người muốn tra cứu lịch sử pension, chi phí y tế hoặc nộp thuế online không cần đến cơ quan.',
+    ],
+    whenToDo: [
+      'Ngay khi nhận My Number Card — đăng ký マイナポータル và liên kết bảo hiểm y tế.',
+      'Khi thay đổi bảo hiểm y tế (đổi việc, mất việc): cần liên kết lại bảo hiểm mới.',
+      'Trước khi thẻ bảo hiểm cũ hết hạn: kiểm tra マイナ保険証 đã hoạt động chưa để không bị gián đoạn khi đi khám.',
+    ],
+    whereToDo: [
+      'App マイナポータル (iOS / Android): đăng ký và tra cứu thông tin.',
+      'Kiosk tại bệnh viện hoặc phòng khám: liên kết bảo hiểm y tế lần đầu.',
+      'Municipal office: reset PIN nếu quên, hỗ trợ đăng ký.',
+      'Convenience store (Lawson, Seven, FamilyMart): in giấy tờ hành chính có xác thực.',
+    ],
+    estimatedTime: 'Đăng ký マイナポータル và liên kết bảo hiểm mất khoảng 10–15 phút. Phản ánh lên hệ thống thường mất 1–3 ngày.',
+    fees: [
+      'Tất cả tính năng cơ bản của マイナポータル và マイナ保険証 miễn phí.',
+      'In giấy tờ hành chính tại convenience store: khoảng 200–300 yên/tờ (rẻ hơn đến municipal office).',
+    ],
+    documentsChecklist: [
+      { label: 'My Number Card (thẻ nhựa vật lý)', required: true, note: 'Khác với "通知カード" (giấy thông báo số) — giấy đó không dùng được để xác thực.' },
+      { label: 'PIN 4 chữ số (利用者証明用電子証明書の暗証番号)', required: true, note: 'PIN đã đặt khi làm thẻ. Nếu quên, phải đến municipal office để reset — mang theo thẻ và hộ chiếu.' },
+      { label: 'Smartphone có NFC (để đọc thẻ)', required: true, note: 'Hầu hết iPhone và Android hiện đại đều có NFC. Kiểm tra cài đặt nếu không chắc.' },
+    ],
+    commonMistakes: [
+      'Nhầm My Number Card (thẻ nhựa xanh) với 通知カード (tờ giấy màu nâu/vàng gửi khi cấp số) — tờ giấy đó không dùng để đăng ký được.',
+      'Quên PIN và không biết phải làm gì — cần đến municipal office để reset, không thể reset online.',
+      'Liên kết bảo hiểm một lần xong tưởng dùng mãi — khi đổi việc hoặc đổi bảo hiểm phải liên kết lại bảo hiểm mới.',
+      'Dùng マイナ保険証 tại bệnh viện chưa hỗ trợ — kiểm tra biển hiệu "マイナンバーカード対応" ở phòng khám trước khi đến.',
+      'Nghĩ rằng thẻ bảo hiểm cũ đã bị hủy — thẻ cũ vẫn dùng được đến ngày hết hạn in trên thẻ.',
+    ],
+    faq: [
+      {
+        question: 'Thẻ bảo hiểm y tế cũ của tôi có còn dùng được không?',
+        answer: 'Có, vẫn dùng được cho đến ngày hết hạn in trên thẻ (thường 1 năm kể từ ngày cấp). Từ tháng 12/2024, thẻ mới không còn được cấp nên sau khi thẻ hết hạn bạn cần dùng マイナ保険証 hoặc xin "資格確認書" (giấy xác nhận tư cách bảo hiểm tạm thời) từ cơ quan bảo hiểm.',
+      },
+      {
+        question: 'Tôi đổi việc thì マイナ保険証 có tự cập nhật không?',
+        answer: 'Không tự cập nhật ngay. Sau khi tham gia bảo hiểm mới (shakai hoken hoặc kokuho), cần liên kết lại bảo hiểm mới qua kiosk ở bệnh viện hoặc qua マイナポータル. Thường mất 1–3 ngày để phản ánh lên hệ thống.',
+      },
+      {
+        question: 'Không có điện thoại NFC thì có dùng được không?',
+        answer: 'Vẫn dùng được マイナ保険証 tại bệnh viện có kiosk đọc thẻ — không nhất thiết phải qua điện thoại. Nhưng để dùng マイナポータル app đầy đủ thì cần điện thoại có NFC.',
+      },
+      {
+        question: 'Thông tin trên マイナポータル có bị lộ ra không?',
+        answer: 'マイナポータル yêu cầu xác thực bằng My Number Card và PIN mỗi lần đăng nhập, không lưu thông tin đăng nhập. Dữ liệu cá nhân do cơ quan nhà nước quản lý, không chia sẻ ra bên thứ ba ngoài mục đích hành chính.',
+      },
+    ],
+    officialLinks: [
+      { label: 'マイナポータル — デジタル庁', url: 'https://myna.go.jp/' },
+      { label: 'マイナ保険証の利用申込 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/index_16743.html' },
+      { label: 'マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Tải app マイナポータル và đăng ký tài khoản',
+        description: 'Tải app "マイナポータル" từ App Store hoặc Google Play. Mở app, chọn "利用者登録" và đặt thẻ My Number lên mặt lưng điện thoại khi được yêu cầu. Nhập PIN 4 chữ số đã đặt khi làm thẻ.',
+        documents: [
+          'My Number Card (thẻ nhựa)',
+          'PIN 4 chữ số của thẻ',
+          'Điện thoại có NFC',
+        ],
+        tip: 'Nếu app báo lỗi đọc thẻ: thử đặt thẻ ở vị trí khác trên lưng điện thoại (vùng NFC khác nhau tùy máy), tháo ốp lưng dày ra và giữ yên thẻ trong khi đọc.',
+      },
+      {
+        step: 2,
+        title: 'Liên kết bảo hiểm y tế (マイナ保険証)',
+        description: 'Tại phòng khám hoặc bệnh viện có kiosk đọc thẻ (biển "マイナンバーカード対応"), chọn "健康保険証の利用申込" và đặt thẻ vào máy. Hoặc làm qua マイナポータル app trong mục "健康保険証利用登録". Sau khi liên kết, dùng My Number Card thay thẻ bảo hiểm khi đăng ký khám.',
+        documents: [
+          'My Number Card',
+          'PIN 4 chữ số',
+        ],
+        tip: 'Liên kết chỉ cần làm một lần. Sau khi đổi việc/đổi bảo hiểm cần làm lại với bảo hiểm mới — nhưng quy trình giống hệt lần đầu.',
+      },
+      {
+        step: 3,
+        title: 'Tra cứu thông tin pension và chi phí y tế',
+        description: 'Trong app マイナポータル, vào mục "わたしの情報" để xem: lịch sử đóng pension (年金情報), chi phí khám bệnh đã dùng bảo hiểm trong năm (医療費情報) và thông tin hành chính khác. Dữ liệu y tế dùng được khi làm 確定申告 để xin khấu trừ chi phí y tế.',
+        documents: [],
+        tip: '医療費情報 trên マイナポータル thường phản ánh chậm 2–3 tháng sau khi khám. Cuối năm là thời điểm tốt để tổng hợp cho 確定申告.',
+      },
+      {
+        step: 4,
+        title: 'In giấy tờ hành chính tại convenience store',
+        description: 'Tại máy in của Lawson, Seven-Eleven hoặc FamilyMart, chọn "行政サービス" và đặt My Number Card vào máy đọc. Có thể in: 住民票 (chứng nhận cư trú), 印鑑登録証明書, 戸籍証明書 và một số giấy tờ khác — rẻ hơn và nhanh hơn đến municipal office.',
+        documents: [
+          'My Number Card',
+          'PIN 4 chữ số',
+          '200–300 yên tiền mặt',
+        ],
+        tip: 'Giấy in tại convenience store có hiệu lực pháp lý như bản gốc từ municipal office — được chấp nhận ở ngân hàng, ISA và hầu hết cơ quan.',
+      },
+    ],
+  },
 ];
 
 
