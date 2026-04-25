@@ -324,45 +324,6 @@ export default function SettingsScreen() {
         </View>
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Cách lấy API key</Text>
-        <View style={styles.step}>
-          <View style={styles.stepNum}>
-            <Text style={styles.stepNumText}>1</Text>
-          </View>
-          <Text style={styles.stepText}>
-            Truy cập <Text style={styles.link}>console.anthropic.com</Text> trên trình duyệt
-          </Text>
-        </View>
-        <View style={styles.step}>
-          <View style={styles.stepNum}>
-            <Text style={styles.stepNumText}>2</Text>
-          </View>
-          <Text style={styles.stepText}>Đăng ký tài khoản hoặc đăng nhập</Text>
-        </View>
-        <View style={styles.step}>
-          <View style={styles.stepNum}>
-            <Text style={styles.stepNumText}>3</Text>
-          </View>
-          <Text style={styles.stepText}>
-            Vào mục <Text style={styles.bold}>API Keys</Text> và nhấn{' '}
-            <Text style={styles.bold}>Create Key</Text>
-          </Text>
-        </View>
-        <View style={styles.step}>
-          <View style={styles.stepNum}>
-            <Text style={styles.stepNumText}>4</Text>
-          </View>
-          <Text style={styles.stepText}>Copy key và dán vào ô bên trên</Text>
-        </View>
-        <View style={styles.noteBox}>
-          <Ionicons name="information-circle-outline" size={16} color={Colors.primary} />
-          <Text style={styles.noteText}>
-            Hãy kiểm tra chính sách và mức giá hiện hành trực tiếp trên Anthropic trước khi dùng.
-          </Text>
-        </View>
-      </View>
-
       <TouchableOpacity
         style={styles.section}
         onPress={() => navigation.navigate('Feedback')}
@@ -375,7 +336,7 @@ export default function SettingsScreen() {
             </View>
             <View style={styles.feedbackTextWrap}>
               <Text style={styles.sectionTitle}>Góp ý và phản hồi</Text>
-              <Text style={styles.feedbackDesc}>Bao loi{'\n'}De xuat tinh nang{'\n'}Lien he ho tro</Text>
+              <Text style={styles.feedbackDesc}>Báo lỗi · Đề xuất tính năng · Liên hệ hỗ trợ</Text>
             </View>
           </View>
           <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
@@ -455,40 +416,6 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     lineHeight: 20,
     marginBottom: 14,
-  },
-  step: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 10,
-    marginBottom: 10,
-  },
-  stepNum: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    backgroundColor: Colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 1,
-  },
-  stepNumText: {
-    color: Colors.white,
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  stepText: {
-    flex: 1,
-    fontSize: 13,
-    color: Colors.textSecondary,
-    lineHeight: 20,
-  },
-  link: {
-    color: Colors.primary,
-    fontWeight: '600',
-  },
-  bold: {
-    fontWeight: '700',
-    color: Colors.textPrimary,
   },
   noteBox: {
     flexDirection: 'row',

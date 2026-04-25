@@ -301,14 +301,4 @@ const styles = StyleSheet.create({
   tipText: { flex: 1, fontSize: 12, lineHeight: 18, fontWeight: '500' },
   noContentBox: { alignItems: 'center', paddingVertical: 40, gap: 8 },
   noContentText: { fontSize: 14, color: Colors.textMuted },
-  askAiButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 10,
-    padding: 16,
-    borderRadius: 16,
-    marginTop: 8,
-  },
-  askAiText: { fontSize: 15, fontWeight: '700', color: Colors.white },
 });

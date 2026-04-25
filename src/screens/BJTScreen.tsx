@@ -111,6 +111,13 @@ export default function BJTScreen() {
           </View>
           <Text style={styles.heroTitle}>{BJT_OVERVIEW.title}</Text>
           <Text style={styles.heroSubtitle}>{BJT_OVERVIEW.subtitle}</Text>
+          <TouchableOpacity
+            style={styles.primaryButton}
+            onPress={() => openRoute('BJTQuiz')}
+          >
+            <Ionicons name="play-circle-outline" size={16} color={Colors.white} />
+            <Text style={styles.primaryButtonText}>Bắt đầu luyện ngay</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Mục tiêu */}
@@ -430,8 +437,6 @@ const styles = StyleSheet.create({
   toolLabel: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary, lineHeight: 17 },
 
   /* Study plan */
-  aiLinkRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 10 },
-  aiLinkText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
   planCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',

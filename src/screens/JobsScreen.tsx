@@ -799,15 +799,4 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary + '30',
   },
   metaText: { flex: 1, fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
-  aiCard: {
-    backgroundColor: Colors.primary,
-    borderRadius: 16,
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  aiText: { flex: 1 },
-  aiTitle: { fontSize: 14, fontWeight: '700', color: Colors.white, marginBottom: 2 },
-  aiSub: { fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 17 },
 });

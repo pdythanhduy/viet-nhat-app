@@ -493,18 +493,4 @@ const styles = StyleSheet.create({
   emptyState: { alignItems: 'center', paddingVertical: 40, gap: 8 },
   emptyTitle: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
   emptyText: { fontSize: 13, color: Colors.textSecondary, textAlign: 'center', lineHeight: 18 },
-  aiCard: {
-    backgroundColor: Colors.white,
-    borderRadius: 16,
-    padding: 16,
-    marginTop: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    borderWidth: 1.5,
-    borderColor: `${Colors.primary}26`,
-  },
-  aiTextWrap: { flex: 1 },
-  aiTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
-  aiSub: { fontSize: 12, color: Colors.textSecondary, marginTop: 2, lineHeight: 17 },
 });
