@@ -534,18 +534,6 @@ export default function JapaneseScreen() {
               })}
             </View>
 
-            {/* AI chat */}
-            <TouchableOpacity
-              style={[styles.aiCard, { marginBottom: 28 }]}
-              onPress={() => navigation.navigate('AIChat', { title: 'Luyện tiếng Nhật', prefilledQuestion: 'Hãy giúp tôi luyện 5 câu tiếng Nhật ngắn, tự nhiên, dùng trong đời sống ở Nhật. Giải thích bằng tiếng Việt.' })}
-            >
-              <Ionicons name="sparkles-outline" size={18} color={Colors.primary} />
-              <View style={styles.flex}>
-                <Text style={styles.cardTitle}>Nhờ AI luyện thêm</Text>
-                <Text style={styles.cardSubtitle}>Xin câu mẫu theo đúng tình huống bạn đang gặp.</Text>
-              </View>
-              <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
-            </TouchableOpacity>
           </>
         )}
       </ScrollView>

@@ -358,23 +358,6 @@ export default function AdminScreen() {
           </TouchableOpacity>
         ))}
 
-        <TouchableOpacity
-          style={styles.aiCard}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: 'Hỏi về thủ tục hành chính',
-              prefilledQuestion: 'Tôi cần hỏi về thủ tục hành chính tại Nhật Bản. ',
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={22} color={Colors.white} />
-          <View style={styles.aiTextContainer}>
-            <Text style={styles.aiTitle}>Có câu hỏi khác?</Text>
-            <Text style={styles.aiSub}>Hỏi trợ lý AI ngay</Text>
-          </View>
-          <Ionicons name="arrow-forward" size={18} color={Colors.white} />
-        </TouchableOpacity>
-
         <View style={{ height: 24 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>

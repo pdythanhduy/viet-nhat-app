@@ -32,7 +32,6 @@ import JapanesePracticeScreen from '../screens/JapanesePracticeScreen';
 import JapaneseQuizScreen from '../screens/JapaneseQuizScreen';
 import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
 import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
-import AIChatScreen from '../screens/AIChatScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
@@ -55,7 +54,6 @@ export type TabParamList = {
 
 export type RootStackParamList = {
   MainTabs: NavigatorScreenParams<TabParamList> | undefined;
-  AIChat: { prefilledQuestion?: string; title?: string };
   AdminDetail: { guideId: string };
   DailyLife: undefined;
   DailyLifeDetail: { topicId: string };
@@ -148,18 +146,6 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MainTabs" component={TabNavigator} />
-        <Stack.Screen
-          name="AIChat"
-          component={AIChatScreen}
-          options={{
-            headerShown: true,
-            headerTitle: 'Trợ lý AI',
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
-            presentation: 'modal',
-          }}
-        />
         <Stack.Screen
           name="AdminDetail"
           component={AdminDetailScreen}

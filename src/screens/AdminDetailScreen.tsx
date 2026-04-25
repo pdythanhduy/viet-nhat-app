@@ -481,19 +481,6 @@ export default function AdminDetailScreen() {
           </View>
         )}
 
-        {/* Ask AI about this guide */}
-        <TouchableOpacity
-          style={[styles.askAiButton, { backgroundColor: guide.color }]}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: guide.title,
-              prefilledQuestion: `Tôi cần được tư vấn chi tiết hơn về quy trình "${guide.title}" (${guide.titleJp}) ở Nhật Bản. `,
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={20} color={Colors.white} />
-          <Text style={styles.askAiText}>Hỏi AI về {guide.title}</Text>
-        </TouchableOpacity>
         <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>

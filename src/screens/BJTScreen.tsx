@@ -111,16 +111,6 @@ export default function BJTScreen() {
           </View>
           <Text style={styles.heroTitle}>{BJT_OVERVIEW.title}</Text>
           <Text style={styles.heroSubtitle}>{BJT_OVERVIEW.subtitle}</Text>
-          <TouchableOpacity
-            style={styles.primaryButton}
-            onPress={() => navigation.navigate('AIChat', {
-              title: 'BJT Coach',
-              prefilledQuestion: 'Hãy đóng vai BJT coach. Lập cho tôi một buổi luyện 20 phút gồm 5 từ business, 1 đoạn nghe ngắn, 1 email ngắn và giải thích đáp án bằng tiếng Việt.',
-            })}
-          >
-            <Ionicons name="sparkles-outline" size={16} color={Colors.white} />
-            <Text style={styles.primaryButtonText}>Học với AI Coach</Text>
-          </TouchableOpacity>
         </View>
 
         {/* Mục tiêu */}
@@ -272,16 +262,6 @@ export default function BJTScreen() {
 
         {/* Kế hoạch 14 ngày */}
         <Section title="Kế hoạch 14 ngày">
-          <TouchableOpacity
-            style={styles.aiLinkRow}
-            onPress={() => navigation.navigate('AIChat', {
-              title: 'BJT Study Plan',
-              prefilledQuestion: 'Dựa trên kế hoạch BJT 14 ngày, hãy cá nhân hóa thành lịch học 30 phút mỗi ngày cho người đi làm và yếu listening.',
-            })}
-          >
-            <Ionicons name="sparkles-outline" size={14} color={Colors.primary} />
-            <Text style={styles.aiLinkText}>Cá nhân hóa với AI</Text>
-          </TouchableOpacity>
           {BJT_STUDY_PLAN.map((day) => (
             <View key={day.day} style={styles.planCard}>
               <View style={styles.planDay}>

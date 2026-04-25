@@ -202,20 +202,6 @@ export default function LaborGuideScreen() {
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.aiButton}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: 'Cẩm nang lao động',
-              prefilledQuestion:
-                'Tôi cần được tư vấn về hợp đồng lao động, tiền lương, làm thêm giờ, bảo hiểm và cách xử lý khi công ty có dấu hiệu vi phạm tại Nhật Bản.',
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={20} color={Colors.white} />
-          <Text style={styles.aiText}>Hỏi AI về hợp đồng và quyền lợi</Text>
-        </TouchableOpacity>
-
         <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>

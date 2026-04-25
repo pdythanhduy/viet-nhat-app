@@ -672,12 +672,6 @@ export default function HomeScreen() {
             <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Saved')}>
               <Ionicons name="bookmark-outline" size={22} color={Colors.white} />
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.headerIconBtn}
-              onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI' })}
-            >
-              <Ionicons name="chatbubble-ellipses" size={22} color={Colors.white} />
-            </TouchableOpacity>
           </View>
         </View>
 
@@ -1190,19 +1184,6 @@ export default function HomeScreen() {
             <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.quickAiCard} onPress={() => navigation.navigate('AIChat', { title: 'Trợ lý AI' })}>
-            <View style={styles.quickAiLeft}>
-              <View style={styles.quickAiIconBg}>
-                <Ionicons name="sparkles" size={20} color={Colors.white} />
-              </View>
-              <View style={styles.quickAiText}>
-                <Text style={styles.quickAiTitle}>Hỏi AI theo tình huống</Text>
-                <Text style={styles.quickAiSub}>Dùng khi bạn có câu hỏi cụ thể như đổi nhà, đi khám, đổi việc hay mời người thân sang Nhật.</Text>
-              </View>
-            </View>
-            <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
-          </TouchableOpacity>
-
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Liên hệ khẩn và hỗ trợ</Text>
             <TouchableOpacity onPress={() => navigation.navigate('EmergencyHub')}>
@@ -1624,12 +1605,6 @@ const styles = StyleSheet.create({
   allGuidesText: { flex: 1 },
   allGuidesTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary, marginBottom: 3 },
   allGuidesDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
-  quickAiCard: { backgroundColor: Colors.white, borderRadius: 16, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 12, marginBottom: 4, borderWidth: 1.5, borderColor: `${Colors.primary}30`, gap: 12 },
-  quickAiLeft: { flexDirection: 'row', alignItems: 'center', gap: 12, flex: 1 },
-  quickAiText: { flex: 1 },
-  quickAiIconBg: { width: 44, height: 44, borderRadius: 12, backgroundColor: Colors.primary, justifyContent: 'center', alignItems: 'center' },
-  quickAiTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
-  quickAiSub: { fontSize: 12, color: Colors.textSecondary, marginTop: 2, lineHeight: 17 },
   emergencyContainer: { gap: 10 },
   emergencyCard: { backgroundColor: Colors.white, borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 },
   emergencyIcon: { width: 44, height: 44, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },

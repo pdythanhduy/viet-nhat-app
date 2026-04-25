@@ -373,27 +373,6 @@ export default function DailyLifeScreen() {
           </View>
         )}
 
-        <TouchableOpacity
-          style={styles.aiCard}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: 'Cuộc sống ở Nhật',
-              prefilledQuestion:
-                search.trim() ||
-                'Tôi cần tư vấn một tình huống sinh hoạt hằng ngày ở Nhật. Hãy hỏi ngược lại để làm rõ rồi trả lời ngắn gọn, thực tế.',
-            })
-          }
-        >
-          <Ionicons name="chatbubbles" size={24} color={Colors.primary} />
-          <View style={styles.aiTextWrap}>
-            <Text style={styles.aiTitle}>Có tình huống cụ thể?</Text>
-            <Text style={styles.aiSub}>
-              Hỏi AI về chuyển nhà, đi khám, nhận hàng, đi tàu hoặc chuyện sinh hoạt bạn đang gặp.
-            </Text>
-          </View>
-          <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
-        </TouchableOpacity>
-
         <View style={{ height: 28 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>

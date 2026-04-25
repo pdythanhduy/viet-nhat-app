@@ -221,20 +221,6 @@ export default function LaborHelpScreen() {
           <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.aiButton}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: 'Khiếu nại lao động',
-              prefilledQuestion:
-                'Tôi đang gặp vấn đề lao động tại Nhật. Hãy giúp tôi sắp xếp việc cần làm ngay, bằng chứng cần giữ và nơi nên liên hệ trước.',
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={20} color={Colors.white} />
-          <Text style={styles.aiText}>Hỏi AI cách xử lý tình huống</Text>
-        </TouchableOpacity>
-
         <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>

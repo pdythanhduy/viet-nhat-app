@@ -505,24 +505,6 @@ export default function JobsScreen() {
           </Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.aiCard}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: 'Tư vấn việc làm',
-              prefilledQuestion:
-                'Tôi là người Việt Nam muốn tìm việc tại Nhật. Hãy tư vấn về loại visa phù hợp, CV tiếng Nhật, phỏng vấn, lương, hợp đồng, bảo hiểm và quyền lợi lao động cần biết.',
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={20} color={Colors.white} />
-          <View style={styles.aiText}>
-            <Text style={styles.aiTitle}>Hỏi AI về việc làm</Text>
-            <Text style={styles.aiSub}>CV, phỏng vấn, visa, hợp đồng, quyền lợi...</Text>
-          </View>
-          <Ionicons name="arrow-forward" size={18} color={Colors.white} />
-        </TouchableOpacity>
-
         <View style={{ height: 24 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
     </SafeAreaView>

@@ -207,19 +207,6 @@ export default function DailyLifeDetailScreen() {
           </View>
         )}
 
-        <TouchableOpacity
-          style={[styles.askAiButton, { backgroundColor: topic.color }]}
-          onPress={() =>
-            navigation.navigate('AIChat', {
-              title: topic.title,
-              prefilledQuestion: topic.prefilledQuestion,
-            })
-          }
-        >
-          <Ionicons name="sparkles" size={20} color={Colors.white} />
-          <Text style={styles.askAiText}>Hỏi AI thêm về {topic.title}</Text>
-        </TouchableOpacity>
-
         <View style={{ height: 32 + Math.max(insets.bottom, 12) }} />
       </View>
     </ScrollView>

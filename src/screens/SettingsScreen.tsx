@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   ScrollView,
@@ -15,7 +14,6 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import ProfileSetupModal from '../components/ProfileSetupModal';
-import { deleteClaudeApiKey, loadClaudeApiKey, saveClaudeApiKey } from '../utils/apiKeyStorage';
 import { getJapaneseVoiceSupport } from '../utils/audio';
 import {
   JapaneseAudioPreferences,
@@ -38,10 +36,6 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 export default function SettingsScreen() {
   const navigation = useNavigation<NavigationProp>();
   const [dateCount, setDateCount] = useState(0);
-  const [apiKey, setApiKey] = useState('');
-  const [savedKey, setSavedKey] = useState('');
-  const [showKey, setShowKey] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [audioPrefs, setAudioPrefs] = useState<JapaneseAudioPreferences>({
@@ -54,7 +48,6 @@ export default function SettingsScreen() {
   const [hasJapaneseVoice, setHasJapaneseVoice] = useState<boolean | null>(null);
 
   useEffect(() => {
-    loadApiKey();
     loadUserProfile().then(setUserProfile);
     loadJapaneseAudioPreferences().then(setAudioPrefs);
     getJapaneseVoiceSupport().then((support) => setHasJapaneseVoice(support.supported));
@@ -68,70 +61,6 @@ export default function SettingsScreen() {
       getJapaneseVoiceSupport().then((support) => setHasJapaneseVoice(support.supported));
     }, [])
   );
-
-  const loadApiKey = async () => {
-    try {
-      const key = await loadClaudeApiKey();
-      if (key) {
-        setSavedKey(key);
-        setApiKey(key);
-      }
-    } catch {
-      // ignore local read errors
-    }
-  };
-
-  const saveApiKey = async () => {
-    const trimmed = apiKey.trim();
-
-    if (!trimmed) {
-      Alert.alert('Lỗi', 'Vui lòng nhập API key trước khi lưu.');
-      return;
-    }
-
-    if (!trimmed.startsWith('sk-ant-')) {
-      Alert.alert(
-        'API key không hợp lệ',
-        'Claude API key phải bắt đầu bằng "sk-ant-". Vui lòng kiểm tra lại.'
-      );
-      return;
-    }
-
-    setIsSaving(true);
-    try {
-      await saveClaudeApiKey(trimmed);
-      setSavedKey(trimmed);
-      Alert.alert('Thành công', 'Đã lưu API key. Bạn có thể dùng AI Chat ngay bây giờ.');
-    } catch {
-      Alert.alert('Lỗi', 'Không thể lưu API key. Thử lại sau.');
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const deleteApiKey = () => {
-    Alert.alert(
-      'Xóa API key',
-      'Bạn có chắc muốn xóa API key không? Tính năng AI Chat sẽ ngừng hoạt động.',
-      [
-        { text: 'Hủy', style: 'cancel' },
-        {
-          text: 'Xóa',
-          style: 'destructive',
-          onPress: async () => {
-            await deleteClaudeApiKey();
-            setSavedKey('');
-            setApiKey('');
-          },
-        },
-      ]
-    );
-  };
-
-  const maskedKey = savedKey
-    ? `${savedKey.slice(0, 10)}****************${savedKey.slice(-4)}`
-    : '';
-  const hasKey = !!savedKey;
 
   const handleSaveProfile = async (input: {
     visaStatus: UserProfile['visaStatus'];
@@ -224,64 +153,6 @@ export default function SettingsScreen() {
       <View style={styles.pageHeader}>
         <Ionicons name="settings" size={28} color={Colors.primary} />
         <Text style={styles.pageTitle}>Cài đặt</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Trợ lý AI (Claude API)</Text>
-        <Text style={styles.sectionDesc}>
-          Để dùng tính năng AI Chat, bạn cần nhập API key từ Anthropic. Key được lưu trên thiết
-          bị của bạn, không gửi về máy chủ riêng của app.
-        </Text>
-
-        <View style={[styles.statusBadge, hasKey ? styles.statusOk : styles.statusMissing]}>
-          <Ionicons
-            name={hasKey ? 'checkmark-circle' : 'alert-circle'}
-            size={16}
-            color={hasKey ? Colors.success : Colors.warning}
-          />
-          <Text
-            style={[styles.statusText, hasKey ? styles.statusTextOk : styles.statusTextMissing]}
-          >
-            {hasKey ? `Đã cấu hình: ${maskedKey}` : 'Chưa có API key'}
-          </Text>
-        </View>
-
-        <View style={styles.inputRow}>
-          <TextInput
-            style={styles.input}
-            value={apiKey}
-            onChangeText={setApiKey}
-            placeholder="sk-ant-api03-..."
-            placeholderTextColor={Colors.textMuted}
-            secureTextEntry={!showKey}
-            autoCapitalize="none"
-            autoCorrect={false}
-            spellCheck={false}
-          />
-          <TouchableOpacity style={styles.eyeBtn} onPress={() => setShowKey((value) => !value)}>
-            <Ionicons
-              name={showKey ? 'eye-off-outline' : 'eye-outline'}
-              size={20}
-              color={Colors.textSecondary}
-            />
-          </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity
-          style={[styles.saveBtn, isSaving && styles.saveBtnDisabled]}
-          onPress={saveApiKey}
-          disabled={isSaving}
-        >
-          <Ionicons name="save-outline" size={18} color={Colors.white} />
-          <Text style={styles.saveBtnText}>{isSaving ? 'Đang lưu...' : 'Lưu API key'}</Text>
-        </TouchableOpacity>
-
-        {hasKey ? (
-          <TouchableOpacity style={styles.deleteBtn} onPress={deleteApiKey}>
-            <Ionicons name="trash-outline" size={16} color={Colors.danger} />
-            <Text style={styles.deleteBtnText}>Xóa API key</Text>
-          </TouchableOpacity>
-        ) : null}
       </View>
 
       <TouchableOpacity
@@ -584,83 +455,6 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     lineHeight: 20,
     marginBottom: 14,
-  },
-  statusBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginBottom: 14,
-  },
-  statusOk: {
-    backgroundColor: Colors.successLight,
-  },
-  statusMissing: {
-    backgroundColor: Colors.warningLight,
-  },
-  statusText: {
-    fontSize: 13,
-    fontWeight: '600',
-    flex: 1,
-  },
-  statusTextOk: {
-    color: Colors.success,
-  },
-  statusTextMissing: {
-    color: Colors.warning,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1.5,
-    borderColor: Colors.border,
-    borderRadius: 10,
-    backgroundColor: Colors.background,
-    marginBottom: 12,
-    paddingRight: 4,
-  },
-  input: {
-    flex: 1,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    fontSize: 14,
-    color: Colors.textPrimary,
-    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
-  },
-  eyeBtn: {
-    padding: 10,
-  },
-  saveBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    backgroundColor: Colors.primary,
-    borderRadius: 10,
-    paddingVertical: 13,
-    marginBottom: 10,
-  },
-  saveBtnDisabled: {
-    opacity: 0.6,
-  },
-  saveBtnText: {
-    color: Colors.white,
-    fontWeight: '700',
-    fontSize: 15,
-  },
-  deleteBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-    paddingVertical: 10,
-  },
-  deleteBtnText: {
-    color: Colors.danger,
-    fontSize: 14,
-    fontWeight: '600',
   },
   step: {
     flexDirection: 'row',
