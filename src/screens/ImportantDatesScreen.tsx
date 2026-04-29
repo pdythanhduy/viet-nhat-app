@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   backBtn: { padding: 2 },
-  headerTitle: { flex: 1, fontSize: 18, fontWeight: '700', color: Colors.white, marginLeft: 12 },
+  headerTitle: { flex: 1, fontSize: 18, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.white, marginLeft: 12 },
   addBtn: { padding: 4 },
   content: { padding: 16 },
   infoBox: {
@@ -438,9 +438,9 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary + '30',
   },
   infoText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
-  bold: { fontWeight: '700', color: Colors.primary },
+  bold: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   emptyBox: { alignItems: 'center', paddingVertical: 48, gap: 10 },
-  emptyTitle: { fontSize: 17, fontWeight: '700', color: Colors.textSecondary },
+  emptyTitle: { fontSize: 17, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary },
   emptyDesc: { fontSize: 13, color: Colors.textMuted, textAlign: 'center', paddingHorizontal: 24 },
   emptyAddBtn: {
     flexDirection: 'row',
@@ -452,7 +452,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     marginTop: 8,
   },
-  emptyAddText: { color: Colors.white, fontWeight: '700', fontSize: 14 },
+  emptyAddText: { color: Colors.white, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 14 },
   dateCard: {
     backgroundColor: Colors.white,
     borderRadius: 16,
@@ -469,10 +469,10 @@ const styles = StyleSheet.create({
   },
   iconBg: { width: 50, height: 50, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
   dateInfo: { flex: 1 },
-  dateLabel: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary, marginBottom: 2 },
+  dateLabel: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, marginBottom: 2 },
   dateValue: { fontSize: 13, color: Colors.textSecondary, marginBottom: 6 },
   statusBadge: { alignSelf: 'flex-start', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 4 },
-  statusText: { fontSize: 12, fontWeight: '700' },
+  statusText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
   deleteBtn: { padding: 8 },
   // Modal
   modalOverlay: {
@@ -501,8 +501,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  modalTitle: { fontSize: 17, fontWeight: '700', color: Colors.textPrimary },
-  fieldLabel: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, marginBottom: 8 },
+  modalTitle: { fontSize: 17, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
+  fieldLabel: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary, marginBottom: 8 },
   presetsScroll: { marginBottom: 16 },
   presetChip: {
     flexDirection: 'row',
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     backgroundColor: Colors.white,
   },
-  presetText: { fontSize: 13, fontWeight: '600', color: Colors.textSecondary },
+  presetText: { fontSize: 13, fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold', color: Colors.textSecondary },
   textInput: {
     borderWidth: 1.5,
     borderColor: Colors.border,
@@ -547,7 +547,7 @@ const styles = StyleSheet.create({
   pickerCol: { alignItems: 'center' },
   pickerColLabel: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textMuted,
     letterSpacing: 0.5,
     textTransform: 'uppercase',
@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  previewDate: { fontSize: 15, fontWeight: '800' },
+  previewDate: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
   saveBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -578,5 +578,5 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     paddingVertical: 15,
   },
-  saveBtnText: { color: Colors.white, fontWeight: '700', fontSize: 15 },
+  saveBtnText: { color: Colors.white, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 15 },
 });

@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
   progressTrack: { height: 6, backgroundColor: Colors.border, overflow: 'hidden' },
   progressFill: { height: 6, backgroundColor: Colors.primary },
   headerRow: { gap: 12, marginBottom: 12 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
   timerCard: {
     alignSelf: 'flex-start',
@@ -473,7 +473,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   timerCardDanger: { backgroundColor: Colors.dangerLight },
-  timerText: { fontSize: 13, fontWeight: '800', color: Colors.primary },
+  timerText: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary },
   timerTextDanger: { color: Colors.danger },
   chips: { gap: 8, paddingBottom: 10, paddingRight: 12 },
   chip: {
@@ -485,7 +485,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
   },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  chipText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
   noticeCard: {
     flexDirection: 'row',
@@ -507,7 +507,7 @@ const styles = StyleSheet.create({
     gap: 12,
     flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1 },
+  counter: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary, flexShrink: 1 },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -517,7 +517,7 @@ const styles = StyleSheet.create({
   },
   questionHeader: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' },
   questionBadges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
-  questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
+  questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   skillChip: {
     alignSelf: 'flex-start',
     paddingHorizontal: 10,
@@ -525,7 +525,7 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     backgroundColor: Colors.accent,
   },
-  skillChipText: { fontSize: 11, fontWeight: '700', color: Colors.primary },
+  skillChipText: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   difficultyChip: {
     alignSelf: 'flex-start',
     paddingHorizontal: 10,
@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     backgroundColor: Colors.warningLight,
   },
-  difficultyChipText: { fontSize: 11, fontWeight: '700', color: '#B26A00' },
+  difficultyChipText: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: '#B26A00' },
   levelChip: {
     alignSelf: 'flex-start',
     paddingHorizontal: 10,
@@ -541,9 +541,9 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     backgroundColor: Colors.primaryLight,
   },
-  levelChipText: { fontSize: 11, fontWeight: '700', color: Colors.white },
+  levelChipText: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.white },
   situation: { marginTop: 10, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
-  prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', color: Colors.textPrimary },
+  prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   options: { marginTop: 14, gap: 10 },
   option: {
     flexDirection: 'row',
@@ -565,7 +565,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
   },
-  explanationTitle: { fontSize: 13, fontWeight: '800', color: Colors.primaryDark, marginBottom: 6 },
+  explanationTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primaryDark, marginBottom: 6 },
   explanationText: { fontSize: 12, lineHeight: 18, color: Colors.primaryDark },
   primaryButton: {
     marginTop: 14,
@@ -574,10 +574,10 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     alignItems: 'center',
   },
-  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800' },
-  summaryTitle: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
+  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
+  summaryTitle: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, textAlign: 'center' },
   summarySub: { marginTop: 8, fontSize: 14, color: Colors.textSecondary, textAlign: 'center' },
-  summaryPercent: { marginTop: 12, fontSize: 36, fontWeight: '800', color: Colors.primary, textAlign: 'center' },
+  summaryPercent: { marginTop: 12, fontSize: 36, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary, textAlign: 'center' },
   summaryNote: { marginTop: 12, fontSize: 12, lineHeight: 18, color: Colors.textSecondary, textAlign: 'center' },
   statsGrid: { flexDirection: 'row', gap: 10, marginTop: 16 },
   statCard: {
@@ -589,8 +589,8 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
     alignItems: 'center',
   },
-  statLabel: { fontSize: 11, fontWeight: '700', color: Colors.textSecondary, textAlign: 'center' },
-  statValue: { marginTop: 8, fontSize: 22, fontWeight: '800', color: Colors.textPrimary },
+  statLabel: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary, textAlign: 'center' },
+  statValue: { marginTop: 8, fontSize: 22, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   reviewCard: {
     marginTop: 16,
     backgroundColor: Colors.card,
@@ -599,9 +599,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  reviewTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary, marginBottom: 10 },
+  reviewTitle: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 10 },
   reviewItem: { paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border },
-  reviewSkill: { fontSize: 11, fontWeight: '700', color: Colors.primary, textTransform: 'uppercase' },
-  reviewQuestion: { marginTop: 4, fontSize: 13, fontWeight: '700', color: Colors.textPrimary },
+  reviewSkill: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary, textTransform: 'uppercase' },
+  reviewQuestion: { marginTop: 4, fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   reviewExplanation: { marginTop: 4, fontSize: 12, lineHeight: 18, color: Colors.textSecondary },
 });

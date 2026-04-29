@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   backBtn: { paddingTop: 2 },
   headerText: { flex: 1 },
-  headerTitle: { fontSize: 22, fontWeight: '800', color: Colors.white, marginBottom: 6 },
+  headerTitle: { fontSize: 22, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white, marginBottom: 6 },
   headerDesc: { fontSize: 13, lineHeight: 19, color: 'rgba(255,255,255,0.88)' },
   content: {
     flex: 1,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: 'center',
   },
-  switchText: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
+  switchText: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   switchTextActive: { color: Colors.white },
   noteBox: {
     flexDirection: 'row',
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   quizButtonText: { flex: 1, paddingRight: 12 },
-  quizButtonTitle: { fontSize: 15, fontWeight: '800', color: Colors.white, marginBottom: 4 },
+  quizButtonTitle: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white, marginBottom: 4 },
   quizButtonDesc: { fontSize: 12, lineHeight: 17, color: 'rgba(255,255,255,0.88)' },
   rowCard: {
     backgroundColor: Colors.white,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
     marginBottom: 10,
   },
-  rowTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 10 },
+  rowTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 10 },
   kanaGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   kanaCard: {
     minWidth: 62,
@@ -185,8 +185,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
     alignItems: 'center',
   },
-  kana: { fontSize: 26, fontWeight: '800', color: Colors.textPrimary, marginBottom: 4 },
-  romaji: { fontSize: 12, color: Colors.textSecondary, fontWeight: '700' },
+  kana: { fontSize: 26, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 4 },
+  romaji: { fontSize: 12, color: Colors.textSecondary, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
   tipCard: {
     backgroundColor: Colors.accent,
     borderRadius: 16,
@@ -195,6 +195,6 @@ const styles = StyleSheet.create({
     borderColor: `${Colors.primary}25`,
     marginTop: 4,
   },
-  tipTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 8 },
+  tipTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 8 },
   tipText: { fontSize: 12, lineHeight: 18, color: Colors.textSecondary, marginBottom: 6 },
 });

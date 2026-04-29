@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   card: {
     backgroundColor: Colors.card,
@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  cardTitle: { fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
-  blockTitle: { marginTop: 12, marginBottom: 8, fontSize: 11, fontWeight: '800', color: Colors.textMuted, textTransform: 'uppercase' },
+  cardTitle: { fontSize: 18, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
+  blockTitle: { marginTop: 12, marginBottom: 8, fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textMuted, textTransform: 'uppercase' },
   itemBlock: { marginBottom: 10 },
-  itemTitle: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary, lineHeight: 19, marginBottom: 4 },
+  itemTitle: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, lineHeight: 19, marginBottom: 4 },
   body: { fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
   tipBox: {
     marginTop: 8,

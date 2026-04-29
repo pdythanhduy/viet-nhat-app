@@ -24,8 +24,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'card',
     color: '#185FA5',
     description: 'Mở tài khoản, chuẩn bị giấy tờ, hiểu kiểm tra danh tính và tránh lỗi dễ bị từ chối.',
-    prefilledQuestion:
-      'Hãy hướng dẫn tôi mở tài khoản ngân hàng ở Nhật và chuyển tiền về Việt Nam theo kiểu thực tế, dễ hiểu.',
     sections: [
       {
         title: 'Trước khi ra ngân hàng',
@@ -69,8 +67,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'phone-portrait',
     color: '#2874A6',
     description: 'Chọn loại SIM phù hợp, hiểu điều kiện hợp đồng và tránh các phí hủy hoặc khóa dịch vụ ngoài ý muốn.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách làm SIM, chọn gói điện thoại và lắp internet ở Nhật theo kiểu thực tế cho người mới sang.',
     sections: [
       {
         title: 'Phân biệt thứ mình đang cần',
@@ -82,6 +78,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Một số nhà mạng hoặc gói rẻ có điều kiện về thời gian hợp đồng, phí hủy hoặc giới hạn hỗ trợ tiếng Anh.',
         ],
         tip: 'Đừng ký ngay chỉ vì đang có khuyến mãi. Hãy hỏi rõ phí hàng tháng, phí hủy và giấy tờ cần mang.',
+        image: require('../../../assets/content/daily-life/dl_sim_s1.jpg'),
+        imageCaption: '格安SIM・MVNO — các loại SIM phổ biến tại Nhật, khác nhau về thoại, data và điều kiện hợp đồng',
       },
       {
         title: 'Giấy tờ và kiểm tra danh tính',
@@ -114,8 +112,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'medkit',
     color: '#C0392B',
     description: 'Phân biệt 2 loại bảo hiểm y tế, cách đăng ký, mức đóng thực tế và xử lý khi mất việc hoặc đổi việc.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi bảo hiểm y tế ở Nhật: khi nào vào shakai hoken, khi nào vào kokumin kenko hoken, và cần làm gì khi đi khám.',
     sections: [
       {
         title: 'Hai loại bảo hiểm y tế — phân biệt ngay từ đầu',
@@ -128,6 +124,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Cả hai diện đều cho phép khám với mức tự trả khoảng 30% chi phí (người lớn). Phần còn lại do quỹ bảo hiểm chi trả.',
         ],
         tip: 'Không đăng ký NHK khi đủ điều kiện là vi phạm quy định — và phí sẽ được tính hồi tố từ ngày đăng ký cư trú, không phải từ ngày bạn đăng ký muộn.',
+        image: require('../../../assets/content/daily-life/dl_health-insurance_s1.jpg'),
+        imageCaption: '健康保険証 / 国民健康保険証 — hai loại thẻ bảo hiểm y tế chính tại Nhật',
       },
       {
         title: 'Đăng ký NHK — làm ở đâu và cần gì',
@@ -174,8 +172,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'cash',
     color: '#8E44AD',
     description: 'Hiểu 2 loại nenkin, mức đóng thực tế, miễn giảm khi thu nhập thấp và quan trọng nhất — cách xin hoàn tiền khi rời Nhật.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi Nenkin ở Nhật theo kiểu thực tế: ai phải đóng, đóng ở đâu, xem trên bảng lương thế nào và cần lưu ý gì khi rời Nhật.',
     sections: [
       {
         title: 'Hai loại Nenkin và ai đóng cái nào',
@@ -213,6 +209,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Chú ý: nếu Việt Nam và Nhật Bản có hiệp định bảo hiểm xã hội song phương (đã ký năm 2021), có thể có thêm lựa chọn khác — xem chi tiết tại nenkin.go.jp hoặc lãnh sự quán Nhật Bản.',
         ],
         tip: 'Trước khi về nước: lưu lại số cơ bản của bảo hiểm xã hội (基礎年金番号 — Kiso Nenkin Bangou). Từ tháng 4/2022, 年金手帳 đã bị bãi bỏ — nếu bạn chưa có, Japan Pension Service sẽ cấp 基礎年金番号通知書 thay thế. Nếu mất số này sẽ rất khó xử lý hồ sơ từ Việt Nam.',
+        image: require('../../../assets/content/daily-life/dl_nenkin_s3.jpg'),
+        imageCaption: '脱退一時金申請書 — mẫu xin hoàn tiền nenkin khi rời Nhật, nộp cho Japan Pension Service',
       },
       {
         title: 'Giấy tờ cần giữ liên quan Nenkin',
@@ -235,8 +233,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'home',
     color: '#185FA5',
     description: 'Tiền đầu vào, giấy tờ cần có và việc phải làm ngay ngày đầu nhận nhà.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách thuê nhà ở Nhật theo kiểu thực tế: tiền đầu vào, hồ sơ, nhận nhà, chụp hiện trạng và lỗi thường gặp.',
     sections: [
       {
         title: 'Tiền đầu vào cần tính đủ',
@@ -248,6 +244,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Trước khi ký, nên yêu cầu bên môi giới ghi rõ tổng số tiền vào nhà bằng con số cuối cùng, không hỏi từng khoản rời rạc.',
         ],
         tip: 'Đừng chọn nhà chỉ vì tiền thuê thấp. Hãy nhìn tổng số tiền vào nhà và điều kiện hủy hợp đồng.',
+        image: require('../../../assets/content/daily-life/dl_apartment_s1.jpg'),
+        imageCaption: 'Cửa hàng bất động sản (不動産) — xem niêm yết giá thuê, điều kiện đặt cọc và lễ kim trực tiếp trên cửa kính',
       },
       {
         title: 'Hồ sơ thường bị hỏi',
@@ -272,6 +270,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Giữ email, biên bản bàn giao và ảnh trong cùng một nơi để khi trả nhà còn đối chiếu.',
         ],
         tip: 'Nếu thấy lỗi ngay lúc vào, hãy báo bằng email hoặc tin nhắn có lưu thời gian. Gọi điện xong mà không có dấu vết thì rất yếu.',
+        image: require('../../../assets/content/daily-life/dl_apartment_s3.jpg'),
+        imageCaption: 'Chìa khóa căn hộ Nhật — nhận xong phải chụp toàn bộ hiện trạng nhà ngay hôm đó để đối chiếu khi trả nhà',
       },
       {
         title: 'Những lỗi làm mất tiền khi trả nhà',
@@ -294,8 +294,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'flash',
     color: '#16A085',
     description: 'Tên nhà cung cấp thực tế theo vùng, thứ tự ưu tiên mở dịch vụ, chi phí trung bình và lỗi hay gặp.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách mở điện, nước, gas và internet khi mới chuyển nhà ở Nhật, theo thứ tự nên làm và lỗi hay gặp.',
     sections: [
       {
         title: 'Thứ tự ưu tiên khi mới chuyển nhà',
@@ -308,6 +306,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           '4. Internet: hỏi rõ khi xem nhà — nhà có 光回線 (cáp quang) sẵn hay phải tự đăng ký mới. Nếu phải tự đăng ký, cần đặt trước 2–4 tuần vì có thể cần kỹ thuật viên đến lắp đặt.',
         ],
         tip: 'Trong lúc chờ internet cố định, dùng data điện thoại (pocket wifi hoặc tethering) để không bị đứt mạng. Một số nhà mạng cho mượn thiết bị pocket wifi trong thời gian chờ.',
+        image: require('../../../assets/content/daily-life/dl_utilities_s1.jpg'),
+        imageCaption: 'ガス開栓・引越し手続き — gas phải đặt lịch kỹ thuật viên trước ngày chuyển vào, không tự mở được',
       },
       {
         title: 'Chi phí điện, gas, nước trung bình tham khảo',
@@ -356,8 +356,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'trash',
     color: '#27AE60',
     description: 'Các nhóm rác với tên tiếng Nhật, đồ cần xử lý riêng, quy trình bỏ rác cỡ lớn và lỗi thường bị nhắc nhở.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách phân loại rác ở Nhật theo kiểu dễ làm theo, gồm rác đốt được, không đốt được, tái chế và rác cỡ lớn.',
     sections: [
       {
         title: 'Việc đầu tiên sau khi chuyển đến',
@@ -369,6 +367,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Hỏi ban quản lý tòa nhà: có bắt buộc dùng túi rác màu đặc trưng của quận không — một số quận bán túi rác riêng (指定ごみ袋), bỏ túi khác bị trả lại.',
         ],
         tip: 'Túi rác bị phân loại sai thường không bị thu gom và để lại kèm giấy nhắc. Bị nhắc thường xuyên có thể dẫn đến phàn nàn từ ban quản lý tòa nhà.',
+        image: require('../../../assets/content/daily-life/dl_trash_s1.jpg'),
+        imageCaption: 'Lịch thu rác (ごみ収集カレンダー) — mỗi quận/thành phố có lịch riêng, xin tại văn phòng phường hoặc tải trên website',
       },
       {
         title: 'Các loại rác và tên tiếng Nhật',
@@ -382,6 +382,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           '古着・古紙 (quần áo cũ, giấy cũ): một số khu có điểm thu riêng hoặc ngày thu riêng.',
         ],
         tip: 'Bao bì thực phẩm có ký hiệu "プラ" (nhựa) hoặc "PET" — đây là gợi ý phân loại. Đọc kỹ bao bì trước khi bỏ vào nhóm rác nào.',
+        image: require('../../../assets/content/daily-life/dl_trash_s2.jpg'),
+        imageCaption: 'Phân loại rác theo màu túi và biển báo — mỗi loại có ngày thu gom riêng theo lịch địa phương',
       },
       {
         title: 'Đồ cần xử lý đặc biệt — không được bỏ vào rác thường',
@@ -408,6 +410,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Đồ điện gia dụng lớn (家電リサイクル法): tivi, tủ lạnh, máy giặt, điều hòa không được xử lý qua 粗大ごみ thông thường — phải mang ra điểm thu riêng và trả phí riêng.',
         ],
         tip: 'Không bỏ 粗大ごみ ra đường hoặc điểm rác thường — đây là vi phạm và có thể bị xử phạt. Nếu đồ còn dùng được, đăng lên Mercari hoặc mang đến 2nd Street/Hard Off sẽ kiếm lại được ít tiền thay vì trả phí xử lý.',
+        image: require('../../../assets/content/daily-life/dl_trash_s4.jpg'),
+        imageCaption: 'Rác cỡ lớn (粗大ごみ) chờ thu gom — phải đặt lịch trước và mua phiếu xử lý tại combini',
       },
     ],
   },
@@ -418,8 +422,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'bulb',
     color: '#7D3C98',
     description: 'Những mẹo nhỏ nhưng rất đáng tiền nếu bạn sống ở Nhật hằng ngày, kèm điều kiện áp dụng.',
-    prefilledQuestion:
-      'Hãy cho tôi các mẹo thực tế khi sống ở Nhật, nhưng chỉ lấy những mẹo có điều kiện áp dụng rõ ràng và không gây hiểu lầm.',
     sections: [
       {
         title: 'Có thể lấy 住民票 ở combini, nhưng không phải ai cũng lấy được',
@@ -474,8 +476,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'timer',
     color: '#148F77',
     description: 'Các mẹo nhỏ giúp giảm thời gian xếp hàng, đi lại và chi phí sinh hoạt, có ghi rõ điều kiện áp dụng.',
-    prefilledQuestion:
-      'Hãy cho tôi các mẹo tiết kiệm thời gian và tiền ở Nhật, nhưng phải ghi rõ điều kiện áp dụng và tránh nói chung chung.',
     sections: [
       {
         title: 'Nếu đi một tuyến cố định, hãy kiểm tra 定期券',
@@ -529,53 +529,67 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     titleJp: 'よくある思い違い',
     icon: 'help-circle',
     color: '#AF601A',
-    description: 'Các nhầm lẫn rất hay gặp ở Nhật, nhất là với giấy tờ, bảo hiểm, bưu điện và đời sống hằng ngày.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi những hiểu nhầm phổ biến khi sống ở Nhật, đặc biệt là các nhầm lẫn về giấy tờ, bảo hiểm, nhà ở và bưu điện.',
+    description: 'Những nhầm lẫn thực tế hay gặp nhất về giấy tờ, thuế, bảo hiểm và thủ tục hành chính ở Nhật.',
     sections: [
       {
-        title: 'My Number không phải lúc nào cũng là My Number Card',
+        title: 'My Number ≠ My Number Card — hai thứ hoàn toàn khác nhau',
         content:
-          'Rất nhiều người nghe “cần My Number” rồi tưởng bắt buộc phải có thẻ vật lý. Đây là nhầm lẫn rất phổ biến.',
+          'Khi nghe “cần My Number”, nhiều người vội đi làm thẻ vật lý. Thực ra phần lớn thủ tục chỉ cần số 12 chữ số, không cần thẻ nhựa.',
         items: [
-          'My Number là mã số cá nhân. My Number Card là thẻ nhựa có gắn chức năng xác minh.',
-          'Có thủ tục chỉ hỏi số My Number, nhưng cũng có thủ tục phải dùng chính thẻ để xác thực hoặc lấy giấy ở combini.',
-          'Nếu bạn chưa có thẻ, không có nghĩa là bạn chưa có My Number.',
+          'Chỉ cần số (12 chữ số): khai báo thuế 確定申告, đăng ký bảo hiểm xã hội tại nơi làm, điền form ngân hàng có ô “マイナンバー”.',
+          'Cần thẻ vật lý (My Number Card): in giấy tờ hành chính ở máy combini (コンビニ交付), dùng làm マイナ保険証 thay thẻ bảo hiểm giấy, đăng nhập Mynaportal.',
+          'Số My Number đã tồn tại từ lúc bạn đăng ký 住民票 — xem trong thư 役所 gửi về nhà (phong bì có dán tem màu). Không có thẻ ≠ không có số.',
+          'Làm thẻ My Number Card phải đặt riêng, chờ thư mời khoảng 1 tháng, rồi đến 役所 nhận tận tay — không cấp ngay trong ngày.',
         ],
-        tip: 'Trước khi đi làm thủ tục, hãy phân biệt rõ họ đang cần “số My Number”, “My Number Card” hay “giấy cư trú”.',
+        tip: 'Mỗi lần có thủ tục hỏi My Number, hỏi ngay: “số hay thẻ?” — câu đó tránh được nhiều chuyến đi thừa.',
       },
       {
-        title: 'Có chuyển tiếp thư 1 năm không có nghĩa là mọi thư đều được chuyển',
+        title: '転居届 không bảo vệ được thư ghi “転送不要”',
         content:
-          'Nhiều người đã nộp 転居届 rồi nghĩ thư nào cũng sẽ tự theo sang nhà mới. Điều đó không đúng hoàn toàn.',
+          'Nộp 転居届 ở bưu điện để chuyển tiếp thư là đúng nhưng chưa đủ — nhiều loại thư quan trọng nhất lại chính xác là loại sẽ không đến nhà mới.',
         items: [
-          'Dịch vụ chuyển tiếp thư là miễn phí 1 năm nếu bạn nộp 転居届 đúng cách.',
-          'Có loại thư ghi “転送不要”, dù bạn đã nộp 転居届, thư vẫn không được chuyển tiếp.',
-          'Vì vậy sau khi chuyển nhà, bạn vẫn nên chủ động đổi địa chỉ với ngân hàng, nhà mạng, trường và các bên quan trọng.',
+          '”転送不要” in trên mặt thư: bưu điện sẽ trả thư về nơi gửi thay vì chuyển đến địa chỉ mới, bất kể bạn đã nộp 転居届 hay chưa.',
+          'Những thứ thường ghi 転送不要: thẻ ngân hàng mới/tái cấp, thư thông báo của 役所, thư từ cơ quan thuế, giấy tờ bảo hiểm nhân thọ, bảng sao kê chứng khoán.',
+          'Dịch vụ chuyển tiếp thông thường có thời hạn 1 năm — hết thời hạn, thư về địa chỉ cũ sẽ mất hẳn, không báo lại bạn.',
+          'Sau khi chuyển nhà, cần cập nhật địa chỉ trực tiếp với: ngân hàng, 役所 (住所変更), nhà mạng, bảo hiểm, và trường/công ty.',
         ],
-        tip: 'Đừng coi chuyển tiếp thư là thay thế hoàn toàn cho việc cập nhật địa chỉ với từng dịch vụ.',
+        tip: 'Ưu tiên cập nhật địa chỉ ngân hàng trong tuần đầu sau khi chuyển nhà — thẻ ngân hàng ghi 転送不要 và nếu mất thư, việc xin lại thẻ mới rất mất công.',
       },
       {
-        title: 'Có My Number card không có nghĩa cơ sở y tế nào cũng nhận giống nhau',
+        title: 'Có bảo hiểm y tế không có nghĩa bạn chỉ trả 30%',
         content:
-          'Nhiều người tưởng đã đăng ký マイナ保険証 là đi đâu cũng dùng như nhau. Thực tế việc vận hành còn tùy cơ sở y tế.',
+          'Bảo hiểm y tế Nhật bảo trợ 70% phần trong phạm vi — nhưng rất nhiều dịch vụ phổ biến lại nằm ngoài phạm vi bảo hiểm, bạn trả 100%.',
         items: [
-          'Có danh sách cơ sở y tế và nhà thuốc hỗ trợ sử dụng My Number card như bảo hiểm, nhưng việc vận hành thực tế vẫn khác nhau theo từng nơi.',
-          'Vì vậy khi đi khám ở nơi mới, nhất là lần đầu, vẫn nên kiểm tra trước hoặc chuẩn bị thêm thông tin bảo hiểm nếu cần.',
-          'Đừng suy từ một phòng khám ra toàn bộ hệ thống.',
+          '保険適用 (có bảo hiểm): khám bệnh thông thường, chẩn đoán hình ảnh, thuốc theo đơn, phẫu thuật cần thiết — bạn trả 30%, bảo hiểm trả 70%.',
+          '自由診療 (ngoài bảo hiểm, tự trả 100%): nha khoa thẩm mỹ (tẩy trắng, niềng thẩm mỹ), vaccine tự nguyện (cúm, HPV dành cho người lớn), khám sức khỏe định kỳ theo yêu cầu công ty, phẫu thuật mắt LASIK.',
+          'Phòng riêng tại bệnh viện (差額ベッド代): phần chênh lệch giá phòng riêng so với phòng thường không thuộc bảo hiểm — có thể tốn thêm 5,000–20,000 yên/ngày.',
+          'Chi phí đặt kính, kính áp tròng, thiết bị trợ thính: không bảo hiểm trừ một số trường hợp y tế đặc biệt có chỉ định bác sĩ.',
         ],
-        tip: 'Lần đầu đi khám ở nơi lạ, cứ coi như mình cần xác nhận lại cách họ tiếp nhận trước khi tới.',
+        tip: 'Trước mỗi lần khám, đặc biệt ở nha khoa, hỏi thẳng: “これは保険適用ですか？” — câu này tránh được nhiều bất ngờ khi thanh toán.',
       },
       {
-        title: 'Sống ở Nhật không có nghĩa mọi dịch vụ đều xử lý ngay trong ngày',
+        title: '年末調整 của công ty ≠ bạn không cần khai thuế gì thêm',
         content:
-          'Nhiều người mới sang nghĩ Nhật làm việc rất nhanh nên cái gì cũng xong trong ngày. Thực tế nhiều quy trình vẫn có độ trễ rõ ràng.',
+          'Công ty làm 年末調整 giúp bạn cuối năm là đúng, nhưng nó chỉ tính tiền lương từ đúng công ty đó. Nhiều trường hợp bạn vẫn phải tự nộp 確定申告 thêm.',
         items: [
-          'Đăng ký chuyển tiếp thư có thể mất vài ngày làm việc để phản ánh vào hệ thống.',
-          'Mở gas, nhận My Number card, internet cố định hoặc một số tài khoản ngân hàng có thể cần lịch hẹn hoặc thời gian xử lý riêng.',
-          'Nếu bạn đợi sát hạn mới làm, chính độ trễ bình thường này sẽ biến thành vấn đề.',
+          'Bắt buộc tự nộp 確定申告 nếu: có thu nhập từ 2 nơi trở lên (gồm part-time thứ hai), có thu nhập phụ (freelance, bán hàng, bán lại hàng online) trên 200,000 yên/năm, hoặc nghỉ việc giữa năm mà không vào chỗ mới.',
+          'Nên tự nộp để được hoàn thuế nếu: chi phí y tế trong năm trên 100,000 yên (医療費控除), mới mua nhà lần đầu năm đó (住宅ローン控除 năm đầu bắt buộc tự nộp), hoặc đóng ふるさと納税 nhiều tỉnh mà không dùng ワンストップ特例.',
+          '年末調整 công ty không tính: thu nhập ngoài công ty, khoản khấu trừ y tế, khoản khấu trừ vay nhà năm đầu.',
+          'Hạn nộp 確定申告: 15/2–15/3 cho thu nhập năm trước. Nếu bạn được hoàn tiền (還付申告), nộp muộn cũng không bị phạt — nhưng nếu còn thiếu thuế, sẽ phát sinh lãi chậm nộp.',
         ],
-        tip: 'Ở Nhật, làm đúng sớm hơn một chút thường quan trọng hơn làm nhanh vào phút cuối.',
+        tip: 'Nếu bạn chỉ làm một việc toàn thời gian và không có thu nhập phụ nào cả năm, 年末調整 công ty là đủ. Ngay khi bắt đầu có thêm nguồn thu ngoài lương chính, hãy tìm hiểu về 確定申告 ngay.',
+      },
+      {
+        title: 'Nhiều thứ ở Nhật không xử lý trong ngày — và thời gian chờ khác nhau nhiều',
+        content:
+          'Nhật nổi tiếng hiệu quả, nhưng nhiều thủ tục hành chính và dịch vụ thiết yếu có thời gian xử lý cố định mà không thể rút ngắn dù bạn giải thích gấp.',
+        items: [
+          'My Number Card: đăng ký xong nhận thư mời (~1 tháng), đến 役所 nhận thẻ (thêm vài ngày làm việc). Không thể nhận ngay trong ngày đăng ký.',
+          'Internet cố định (光回線): từ lúc đăng ký đến khi kỹ thuật viên đến kéo dây thường mất 2–4 tuần, một số vùng ngoại ô lên tới 6 tuần.',
+          'Tài khoản ngân hàng truyền thống (Mizuho, SMBC, Mitsubishi UFJ): xét duyệt 1–3 tuần; nếu thời gian ở Nhật dưới 6 tháng, một số chi nhánh từ chối không giải thích.',
+          'Giấy xác nhận cư trú (住民票), con dấu (印鑑登録証明書) tại 役所 đông: thường xong trong ngày nếu đến trực tiếp — nhưng tháng 3–4 (mùa chuyển nhà) chờ lâu hơn đáng kể.',
+        ],
+        tip: 'Thời điểm lý tưởng nhất để làm My Number Card và mở tài khoản ngân hàng là ngay tuần đầu khi bạn đã có địa chỉ ổn định — không phải khi bạn cần chúng gấp.',
       },
     ],
   },
@@ -586,8 +600,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'storefront',
     color: '#2874A6',
     description: 'Những mẹo rất đời thực khi mua đồ, nhận hàng, in giấy và đi lại hằng ngày.',
-    prefilledQuestion:
-      'Hãy cho tôi các mẹo thực tế khi dùng combini, siêu thị và ga tàu ở Nhật, theo kiểu áp dụng được ngay.',
     sections: [
       {
         title: 'Combini không chỉ để mua đồ ăn',
@@ -598,6 +610,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Nhiều loại hóa đơn sinh hoạt hoặc phiếu thanh toán có thể xử lý ở quầy thu ngân combini, rất hữu ích khi bạn chưa kịp cài tự trừ.',
         ],
         tip: 'Nếu bạn mới sang Nhật, nên thử làm quen sớm với máy in đa chức năng ở combini gần nhà. Đây là kỹ năng rất thực dụng.',
+        image: require('../../../assets/content/daily-life/dl_combini_s1.jpg'),
+        imageCaption: 'Quầy dịch vụ combini — in tài liệu, scan, thanh toán hóa đơn, ATM và nhiều dịch vụ khác trong một điểm',
       },
       {
         title: 'Siêu thị có logic riêng, không chỉ là rẻ hơn combini',
@@ -628,8 +642,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'wallet',
     color: '#CB4335',
     description: 'Những khoản tiền người mới ở Nhật rất hay mất vì chủ quan, đọc thiếu hoặc làm sai thứ tự.',
-    prefilledQuestion:
-      'Hãy cho tôi checklist tránh mất tiền oan ở Nhật, theo kiểu thực tế và ưu tiên những lỗi nhiều người mới hay gặp.',
     sections: [
       {
         title: 'Trước khi ký hoặc trả tiền',
@@ -670,8 +682,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'train',
     color: '#E74C3C',
     description: 'Đi tàu cho đỡ lạc, dùng thẻ IC đúng cách và tránh các lỗi xe đạp dễ bị phạt.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách đi tàu, dùng Suica/Pasmo và các lưu ý xe đạp ở Nhật theo kiểu thực tế cho người mới.',
     sections: [
       {
         title: 'Đi tàu cho người mới',
@@ -683,6 +693,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Dùng app như Google Maps hoặc Yahoo!乗換案内 để xem đúng ga, đúng platform và giờ tàu.',
         ],
         tip: 'Lúc mới đi, nên chụp màn hình lộ trình trước khi xuống ga. Trong ga lớn rất dễ mất mạng hoặc đi nhầm hướng.',
+        image: require('../../../assets/content/daily-life/dl_transportation_s1.jpg'),
+        imageCaption: 'Cổng soát vé (改札口) — chạm thẻ IC lúc vào và lúc ra, quên chạm lúc ra sẽ bị lỗi thẻ',
       },
       {
         title: 'Suica, Pasmo và nạp tiền',
@@ -693,6 +705,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Nếu bạn đi làm cố định một tuyến, nên hỏi thêm vé tháng để tiết kiệm.',
         ],
         tip: 'Hãy kiểm tra số dư trước giờ cao điểm. Hết tiền trong lúc chen cổng rất dễ rối.',
+        image: require('../../../assets/content/daily-life/dl_transportation_s2.jpg'),
+        imageCaption: 'Thẻ Suica (ICカード) — nạp tiền tại máy trong ga, combini hoặc ATM',
       },
       {
         title: 'Xe đạp: đi rất tiện nhưng luật siết mạnh',
@@ -704,6 +718,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Nếu cần xem thay đổi pháp lý mới hơn, nên mở guide luật xe đạp trong tab Thủ tục.',
         ],
         tip: 'Nếu đi xe đạp đi làm mỗi ngày, nên kiểm tra luôn bảo hiểm trách nhiệm dân sự xe đạp của khu bạn.',
+        image: require('../../../assets/content/daily-life/dl_transportation_s3.jpg'),
+        imageCaption: 'Bãi giữ xe đạp (駐輪場) gần ga tàu — đậu đúng chỗ để tránh bị kéo đi và mất phí chuộc',
       },
     ],
   },
@@ -714,8 +730,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'basket',
     color: '#F39C12',
     description: 'Chuỗi siêu thị rẻ nên biết, cách đọc nhãn thịt và hạn dùng, và mẹo mua cuối ngày.',
-    prefilledQuestion:
-      'Hãy hướng dẫn tôi cách mua thực phẩm ở Nhật theo kiểu tiết kiệm và dễ hiểu: nên mua ở đâu, đọc hạn dùng thế nào và tránh nhầm gì.',
     sections: [
       {
         title: 'Siêu thị và chuỗi nên biết theo mục đích',
@@ -730,6 +744,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Combini (7-Eleven, Lawson, FamilyMart): tiện nhưng giá cao hơn 20–40% so với siêu thị — chỉ nên ghé khi cần gấp.',
         ],
         tip: 'Nếu gần Gyomu Super, đây là ưu tiên số 1 cho gạo, dầu ăn, gia vị và đồ đông lạnh. Một số chi nhánh có gia vị Đông Nam Á và nguyên liệu nấu ăn châu Á.',
+        image: require('../../../assets/content/daily-life/dl_grocery_s1.jpg'),
+        imageCaption: 'Siêu thị Nhật — mỗi chuỗi có điểm mạnh khác nhau về giá và chủng loại hàng',
       },
       {
         title: 'Đọc nhãn thịt và kiêng ăn không cần biết nhiều tiếng Nhật',
@@ -744,6 +760,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           '合いびき肉 (あいびきにく): thịt xay hỗn hợp bò và heo trộn lẫn — hay nhầm nhất.',
         ],
         tip: 'Dùng Google Translate camera chụp bao bì là cách nhanh nhất khi không chắc. Cũng nên kiểm tra phần 原材料 (nguyên liệu) trong đồ chế biến sẵn nếu kiêng.',
+        image: require('../../../assets/content/daily-life/dl_grocery_s2.jpg'),
+        imageCaption: 'Nhãn thịt tươi tại siêu thị — ghi rõ loại thịt (豚肉/牛肉/鶏肉) và xuất xứ (国産/輸入)',
       },
       {
         title: 'Phân biệt 賞味期限 và 消費期限',
@@ -755,6 +773,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Ngày ghi trên bao bì thường theo thứ tự: năm / tháng / ngày (例: 26.05.15 = 15 tháng 5 năm 2026).',
         ],
         tip: 'Nếu mua đồ làm sẵn (お惣菜) cuối ngày được giảm giá, kiểm tra 消費期限 — nhiều thứ hạn trong ngày hôm đó.',
+        image: require('../../../assets/content/daily-life/dl_grocery_s3.jpg'),
+        imageCaption: '賞味期限 = ngon nhất trước ngày; 消費期限 = hạn an toàn — không dùng sau ngày này',
       },
       {
         title: 'Mua cuối ngày để tiết kiệm đáng kể',
@@ -767,6 +787,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Rau củ theo mùa thường rẻ hơn 30–50% so với trái mùa — tra từ khóa “旬の野菜” để biết mùa nào có gì.',
         ],
         tip: 'Không mua giảm giá vì giảm nếu không dùng kịp. Chỉ mua thêm khi có thể nấu ngay hoặc đông lạnh được.',
+        image: require('../../../assets/content/daily-life/dl_grocery_s4.jpg'),
+        imageCaption: 'Nhãn 半額 (giảm 50%) dán lên đồ sắp hết hạn — thường xuất hiện từ 17–19h tại siêu thị',
       },
     ],
   },
@@ -777,8 +799,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'cash',
     color: '#9B59B6',
     description: 'Rút tiền, furikomi, hóa đơn và các lỗi rất dễ làm tài khoản bị phiền.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách dùng ATM, chuyển khoản trong Nhật và các lưu ý thực tế khi dùng tài khoản ngân hàng hằng ngày.',
     sections: [
       {
         title: 'Dùng tài khoản hằng ngày cho gọn',
@@ -789,6 +809,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Combini ATM tiện nhưng có thể tính phí theo giờ hoặc theo ngân hàng.',
         ],
         tip: 'Sau khi mở tài khoản, hãy thử đăng nhập app và làm một giao dịch nhỏ để chắc chắn mọi thứ đã hoạt động.',
+        image: require('../../../assets/content/daily-life/dl_banking_s1.jpg'),
+        imageCaption: 'ATM tại combini (セブン銀行・ゆうちょ銀行) — dùng được 24/7, một số ngân hàng tính phí ngoài giờ hành chính',
       },
       {
         title: 'Chuyển khoản trong Nhật',
@@ -799,6 +821,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Lần đầu chuyển tiền nhà hoặc tiền học, nên xin ảnh chụp thông tin tài khoản thay vì gõ theo trí nhớ.',
         ],
         tip: 'Nếu là khoản quan trọng, hãy kiểm tra lại từng số trước khi bấm xác nhận. Sai một ký tự vẫn có thể đi nhầm.',
+        image: require('../../../assets/content/daily-life/dl_banking_s2.jpg'),
+        imageCaption: 'Màn hình chuyển khoản (振込) — cần đúng tên ngân hàng, chi nhánh, số tài khoản và tên người nhận bằng kana',
       },
       {
         title: 'Điều tuyệt đối không nên làm',
@@ -819,8 +843,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'medical',
     color: '#E74C3C',
     description: 'Chọn đúng loại phòng khám, mang đủ giấy tờ, vượt rào ngôn ngữ và biết khi nào gọi 119.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách đi khám ở Nhật theo kiểu thực tế: clinic, bệnh viện lớn, giấy tờ cần mang và chi phí cơ bản.',
     sections: [
       {
         title: 'Chọn đúng loại phòng khám — đỡ mất tiền và thời gian',
@@ -835,6 +857,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           '歯科 (nha khoa): đau răng, sâu răng, nhổ răng — không nằm trong bảo hiểm y tế thông thường một phần.',
         ],
         tip: 'Tìm clinic bằng Google Maps: gõ "内科 クリニック 近く" hoặc "皮膚科 近く". Nhiều nơi cho đặt lịch qua app hoặc website để không phải chờ quá lâu.',
+        image: require('../../../assets/content/daily-life/dl_hospital_s1.jpg'),
+        imageCaption: 'Bảng hiệu phòng khám (クリニック) — tìm đúng tên chuyên khoa như 内科, 皮膚科 trước khi vào',
       },
       {
         title: 'Giấy tờ cần mang và chi phí thực tế',
@@ -872,6 +896,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Nếu tỉnh bạn không có #7119: gọi số tư vấn y tế khẩn cấp của tỉnh đó (tìm trên website tỉnh) hoặc hỏi trực tiếp tại trung tâm hỗ trợ người nước ngoài.',
         ],
         tip: 'Lưu 119 và số hỗ trợ y tế tỉnh bạn vào danh bạ ngay hôm nay — lúc cấp cứu không có thời gian tìm kiếm.',
+        image: require('../../../assets/content/daily-life/dl_hospital_s4.jpg'),
+        imageCaption: 'Gọi 119 ngay khi khẩn cấp — xe cứu thương hoàn toàn miễn phí, gọi #7119 khi không chắc có cần gọi 119 không',
       },
     ],
   },
@@ -881,29 +907,57 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     titleJp: '給与明細・税の書類',
     icon: 'receipt',
     color: '#D35400',
-    description: 'Hiểu phiếu lương, giấy tổng kết cuối năm và lúc nào cần giữ lại cho hồ sơ.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi các giấy tờ lương và thuế thường gặp ở Nhật theo kiểu dễ hiểu, đặc biệt lúc đổi việc hoặc làm hồ sơ.',
+    description: 'Hiểu từng khoản trong phiếu lương, tại sao lương giảm từ tháng 6, và khi nào cần giữ 源泉徴収票.',
     sections: [
       {
-        title: '3 loại giấy nhiều người đi làm hay gặp',
-        content: 'Bạn không cần nhớ toàn bộ hệ thống thuế, nhưng nên nhận ra vài loại giấy rất hay được hỏi lại.',
+        title: 'Đọc phiếu lương (給与明細) — từng khoản là gì',
+        content:
+          'Phiếu lương chia 2 phần: 支給 (khoản nhận) và 控除 (khoản bị trừ). Chênh lệch giữa hai phần là 差引支給額 — tiền thực về tài khoản.',
         items: [
-          'Phiếu lương hàng tháng để xem lương gộp, khấu trừ và lương thực nhận.',
-          'Giấy tổng kết thu nhập cuối năm để dùng khi làm hồ sơ ngân hàng, visa hoặc khai thuế.',
-          'Giấy liên quan thuế cư dân do nơi cư trú hoặc công ty xử lý tùy trường hợp.',
+          '支給 gồm: 基本給 (lương cơ bản), 残業代 (tăng ca), các 手当 (phụ cấp giao thông, nhà ở, chuyên cần...).',
+          '控除 gồm: 健康保険 (~5% lương), 厚生年金 (~9.15%), 雇用保険 (~0.6%), 所得税 (thuế thu nhập khấu trừ tại nguồn), 住民税 (thuế cư dân — từ tháng 6 năm thứ hai).',
+          'Nếu 残業代 = 0 trong tháng bạn làm thêm giờ, hỏi HR ngay — đây là dấu hiệu không trả tăng ca hợp lệ.',
+          'Tổng 控除 thường chiếm 20–25% lương gộp — nếu cao hơn đột ngột mà không rõ lý do, kiểm tra lại từng dòng.',
         ],
-        tip: 'Nên giữ bản scan hoặc ảnh chụp rõ của các giấy này. Đổi việc rồi mới đi tìm lại thường rất mệt.',
+        tip: 'Lần đầu nhận phiếu lương, so 差引支給額 với tiền thực chuyển vào tài khoản — nếu khớp, mọi thứ OK. Nếu lệch, hỏi HR.',
+        image: require('../../../assets/content/daily-life/dl_tax_s1.jpg'),
+        imageCaption: '給与明細 — phiếu lương hàng tháng ghi rõ lương gộp, khấu trừ thuế và các khoản bảo hiểm',
       },
       {
-        title: 'Khi nào cần đặc biệt để ý',
-        content: 'Bạn không cần kiểm từng con số mỗi tháng, nhưng có vài thời điểm bắt buộc nên xem kỹ.',
+        title: '源泉徴収票 — giấy tổng kết thu nhập năm',
+        content:
+          'Đây là giấy tờ tài chính quan trọng nhất bạn nhận mỗi năm. Công ty phát vào tháng 12 hoặc đầu tháng 1 năm sau.',
         items: [
-          'Khi đổi việc giữa năm hoặc nghỉ việc trước cuối năm.',
-          'Khi lương thực nhận thấp bất thường và bạn không hiểu khoản trừ nào vừa tăng.',
-          'Khi làm thủ tục visa, thuê nhà, vay tiền hoặc chứng minh thu nhập.',
+          '支払金額: tổng thu nhập gộp cả năm — số quan trọng nhất khi làm hồ sơ ngân hàng, vay nhà, gia hạn visa hoặc nộp 確定申告.',
+          '源泉徴収税額: tổng thuế đã trừ qua lương — dùng để tính hoàn thuế nếu nộp 確定申告.',
+          'Khi nghỉ việc giữa năm: công ty phát 源泉徴収票 trong vòng 1 tháng — cần cho công ty mới để làm 年末調整 chính xác.',
+          'Nếu mất: phải xin lại từ công ty cũ (không tự in được). Quá trình có thể mất vài tuần nếu công ty đã thay người phụ trách.',
         ],
-        tip: 'Phần thuế sâu hơn như 年末調整 hay 確定申告 đã có guide riêng trong tab Thủ tục.',
+        tip: 'Nhận 源泉徴収票 xong là chụp ảnh ngay, lưu vào cloud. Đây là giấy dùng đi dùng lại mỗi khi cần chứng minh thu nhập.',
+      },
+      {
+        title: '住民税 — tại sao lương tháng 6 tự nhiên giảm',
+        content:
+          '住民税 (thuế cư dân) là khoản bắt đầu bị trừ từ tháng 6 của năm thứ hai ở Nhật. Đây là lý do phổ biến nhất khiến lương thực nhận tháng 6 giảm bất ngờ.',
+        items: [
+          '住民税 tính dựa trên thu nhập của năm trước — được thông báo mỗi tháng 6, thu qua lương từ tháng 6 đến tháng 5 năm sau (12 kỳ).',
+          'Năm đầu tiên ở Nhật (thu nhập thấp hoặc bằng 0): chưa bị trừ 住民税. Từ năm thứ hai trở đi, khoản này tự kích hoạt — nhiều người không biết trước.',
+          'Mức 住民税 khoảng 10% thu nhập chịu thuế cộng thêm khoản cố định theo địa phương (~5,000–6,000 yên/tháng) — tổng cộng thường là 8,000–20,000+ yên/tháng.',
+          'Khi nghỉ việc: 住民税 còn lại trong năm sẽ bị trừ một lần vào lương cuối (一括徴収), hoặc tự nộp theo phiếu từ 市区町村.',
+        ],
+        tip: 'Lương tháng 6 giảm ~10,000–25,000 yên so với tháng 5? Gần như chắc chắn là 住民税 vừa kích hoạt. Đây là bình thường, không phải lỗi.',
+      },
+      {
+        title: 'Giấy tờ cuối năm công ty phát — đừng bỏ qua',
+        content:
+          'Tháng 11–12, nhiều công ty phát thêm mẫu giấy để nhân viên khai giảm thuế trong 年末調整. Khai đúng sẽ được hoàn thuế ngay trong tháng 12.',
+        items: [
+          '扶養控除等(異動)申告書: khai người phụ thuộc (vợ/chồng không có thu nhập, con dưới 16 tuổi). Không khai thì thuế cao hơn mức cần thiết.',
+          '保険料控除申告書: khai bảo hiểm nhân thọ tự đóng, iDeCo (個人型確定拠出年金), bảo hiểm nhân thọ vợ/chồng — mỗi khoản giảm thuế trực tiếp.',
+          '住宅ローン控除 (từ năm thứ hai mua nhà trở đi): năm đầu phải tự nộp 確定申告, từ năm thứ hai công ty xử lý qua 年末調整 nếu bạn nộp giấy đúng hạn.',
+          'Những mẫu này phải nộp đúng hạn cho HR — nộp trễ thường xử lý lại vào tháng 1 năm sau.',
+        ],
+        tip: 'Nếu bạn đang đóng iDeCo hoặc bảo hiểm nhân thọ riêng, đừng quên khai — mỗi năm có thể giảm vài chục nghìn yên thuế phải nộp.',
       },
     ],
   },
@@ -914,8 +968,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'mail',
     color: '#2980B9',
     description: 'Nhận thư bảo đảm, gửi đồ, xử lý phiếu giao hàng lại và tránh thất lạc giấy tờ.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi cách nhận hàng, nhận thư bảo đảm và gửi đồ ở Nhật theo kiểu thực tế, dễ làm theo.',
     sections: [
       {
         title: 'Những loại thư và phiếu hay gặp',
@@ -926,6 +978,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Giấy báo thanh toán hoặc giấy nhắc nếu bạn chưa trả đúng hạn một số dịch vụ.',
         ],
         tip: 'Thư có dấu đỏ, thư bảo đảm hoặc thư từ cơ quan hành chính nên xử lý trước. Đừng để dồn rồi quên.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s1.jpg'),
+        imageCaption: 'Bưu điện Nhật (郵便局) — nhận biết qua ký hiệu 〒 màu đỏ đặc trưng của Japan Post',
       },
       {
         title: 'Cách nhận hàng cho đỡ lỡ',
@@ -936,6 +990,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Với giấy tờ quan trọng, nên kiểm tra tên người nhận và địa chỉ thật kỹ từ trước.',
         ],
         tip: 'Người mới chuyển nhà rất hay quên đổi địa chỉ nhận hàng, dẫn đến đơn vẫn chạy về chỗ cũ.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s2.jpg'),
+        imageCaption: 'Phiếu giao hàng lại (不在票) — điền vào để đặt lịch giao lại hoặc chọn nhận tại điểm tiện hơn',
       },
       {
         title: 'Gửi đồ và gửi giấy tờ',
@@ -946,6 +1002,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Khi gửi quốc tế, phải kiểm tra trước loại hàng bị hạn chế và mẫu khai cần điền.',
         ],
         tip: 'Nếu là hồ sơ quan trọng, chụp lại trước khi gửi và giữ biên nhận đến khi nơi nhận xác nhận đã nhận đủ.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s3.jpg'),
+        imageCaption: 'Quầy gửi hàng tại bưu điện — gửi giấy tờ quan trọng nên chọn dịch vụ có tracking và ký nhận',
       },
     ],
   },
@@ -956,8 +1014,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'warning',
     color: '#C0392B',
     description: 'Hiểu thang cảnh báo, cài app đúng, chuẩn bị túi khẩn cấp và biết phải làm gì trong 30 giây đầu.',
-    prefilledQuestion:
-      'Hãy hướng dẫn tôi cách chuẩn bị ứng phó động đất và mưa lớn ở Nhật theo kiểu thực tế cho người sống một mình.',
     sections: [
       {
         title: 'Cài app và hiểu hệ thống cảnh báo của Nhật',
@@ -986,6 +1042,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Tiền mặt: ATM và thẻ thường không dùng được sau thảm họa lớn.',
         ],
         tip: 'Để túi này ngay cạnh cửa ra vào hoặc dưới gầm giường — không để trong tủ sâu. Kiểm tra pin và hạn đồ ăn mỗi 6 tháng.',
+        image: require('../../../assets/content/daily-life/dl_earthquake_s2.jpg'),
+        imageCaption: 'Túi khẩn cấp (非常持出袋) với đồ dùng 3 ngày — nước, đồ ăn khô, đèn pin, sạc dự phòng, giấy tờ quan trọng',
       },
       {
         title: 'Trong 30 giây đầu khi động đất xảy ra',
@@ -999,6 +1057,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Không chạy ra cầu thang hoặc cửa ngay khi đang rung — chờ rung mạnh qua đi trước.',
         ],
         tip: 'Sau rung chính có thể có dư chấn (余震) — đừng nghĩ đã xong. Tiếp tục đề phòng và nghe cảnh báo chính thức.',
+        image: require('../../../assets/content/daily-life/dl_earthquake_s3.jpg'),
+        imageCaption: 'Tư thế bảo vệ khi động đất — chui xuống bàn, che đầu, bám giữ (Drop-Cover-Hold)',
       },
       {
         title: 'Sau động đất và ứng phó bão / mưa lớn',
@@ -1012,6 +1072,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Bão (台風): theo dõi đường đi bão qua NHK World hoặc Yahoo!防災. Tích nước, thức ăn và sạc điện thoại trước khi bão đến.',
         ],
         tip: 'Lúc thiên tai, chỉ tin vào thông báo chính thức từ chính quyền địa phương và NHK. Tin từ mạng xã hội rất dễ sai lệch trong thời điểm hỗn loạn.',
+        image: require('../../../assets/content/daily-life/dl_earthquake_s4.jpg'),
+        imageCaption: 'Biển chỉ điểm sơ tán (避難場所) — biển xanh chữ trắng, tra vị trí trên bản đồ phường trước khi cần',
       },
     ],
   },
@@ -1022,8 +1084,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'people-circle',
     color: '#2E4057',
     description: 'Quy tắc trên tàu điện, với hàng xóm, nơi làm việc và chỗ công cộng — tránh vô tình gây phiền dù không cố ý.',
-    prefilledQuestion:
-      'Hãy giải thích cho tôi các quy tắc lịch sự và văn hóa quan trọng ở Nhật theo kiểu thực tế, bao gồm trên tàu, với hàng xóm và nơi công cộng.',
     sections: [
       {
         title: 'Trên tàu điện và tàu ngầm',
@@ -1038,6 +1098,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Thang cuốn (escalator): ở Tokyo — đứng bên trái, bên phải để người đi nhanh. Ở Osaka — ngược lại, đứng bên phải. Hiện các ga khuyến khích đứng cả hai bên nhưng thực tế vẫn theo thói quen cũ.',
         ],
         tip: 'Ăn uống trên tàu thường (trừ Shinkansen và tàu đường dài có ghế ngồi) là điều khiến hành khách Nhật khó chịu dù không ai nói thẳng.',
+        image: require('../../../assets/content/daily-life/dl_manners_s1.jpg'),
+        imageCaption: 'Biển nội quy trên tàu điện Nhật — không gọi điện, nhường ghế ưu tiên, giữ yên lặng trong toa',
       },
       {
         title: 'Hàng xóm và tòa nhà chung cư',
@@ -1075,6 +1137,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Khăn tắm nhỏ: được mang vào khu tắm nhưng không được thả xuống bồn chung — gấp lại để trên đầu hoặc để ngoài bồn.',
         ],
         tip: 'Nhiều 銭湯 (senTO) địa phương có giá rất rẻ (500–600 yên ở Tokyo) và là trải nghiệm văn hóa thực sự đáng thử.',
+        image: require('../../../assets/content/daily-life/dl_manners_s4.jpg'),
+        imageCaption: 'Cổng vào銭湯 / 温泉 — tắm sạch tại vòi sen trước khi vào bồn chung, không mang điện thoại vào khu tắm',
       },
     ],
   },
@@ -1085,8 +1149,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'pricetag',
     color: '#8E44AD',
     description: 'Khai thác Daiso, Don Quijote, cửa hàng đồ cũ và Mercari để sống tốt hơn mà tốn ít hơn.',
-    prefilledQuestion:
-      'Hãy cho tôi hướng dẫn thực tế về cách mua sắm thông minh ở Nhật: cửa hàng 100 yên, Donki, đồ cũ và mua online theo kiểu tiết kiệm nhất.',
     sections: [
       {
         title: 'Cửa hàng 100 yên — mua gì thì đáng, mua gì thì không',
@@ -1146,8 +1208,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'restaurant',
     color: '#C0392B',
     description: 'Mua nước mắm, rau Việt, bún phở ở đâu — theo từng vùng, theo chuỗi siêu thị và theo app.',
-    prefilledQuestion:
-      'Hãy cho tôi hướng dẫn thực tế về cách tìm nguyên liệu nấu ăn Việt Nam ở Nhật: mua ở đâu, thay thế gì khi không có và lưu ý gì khi nấu bếp Nhật.',
     sections: [
       {
         title: 'Siêu thị và chuỗi cửa hàng có nguyên liệu châu Á',
@@ -1161,6 +1221,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Siêu thị châu Á chuyên biệt: ở hầu hết tỉnh đều có ít nhất 1 cửa hàng chuyên đồ châu Á — tìm bằng Google Maps với từ khóa "アジア食材 近く" hoặc "ベトナム食材".',
         ],
         tip: 'Kaldi là lựa chọn dễ nhất toàn quốc. Nếu không tìm thấy chi nhánh gần, website Kaldi (kaldi.co.jp) có ship toàn quốc.',
+        image: require('../../../assets/content/daily-life/dl_vietnamese-ingredients_s1.jpg'),
+        imageCaption: 'カルディコーヒーファーム — chuỗi toàn quốc có gia vị châu Á, nước mắm, mì gạo và nguyên liệu Đông Nam Á',
       },
       {
         title: 'Khu phố và chợ châu Á theo vùng',
@@ -1211,8 +1273,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'heart-circle-outline',
     color: '#8E44AD',
     description: 'Cô đơn, áp lực, không hiểu văn hóa — rất bình thường khi mới sang Nhật. Biết gọi cho ai và tìm hỗ trợ ở đâu là điều quan trọng.',
-    prefilledQuestion:
-      'Tôi đang cảm thấy rất áp lực và cô đơn khi sống ở Nhật. Có đường dây hỗ trợ nào cho người Việt không và tôi có thể tìm trợ giúp tâm lý ở đâu?',
     sections: [
       {
         title: 'Đường dây hỗ trợ — gọi ngay khi cần',
@@ -1275,8 +1335,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'partly-sunny-outline',
     color: '#2980B9',
     description: 'Nhật Bản có 4 mùa rõ rệt và một số hiện tượng thời tiết đặc thù — biết trước để chuẩn bị quần áo, sức khoẻ và chi phí điện nước đúng mùa.',
-    prefilledQuestion:
-      'Hãy mô tả 4 mùa ở Nhật Bản theo từng tháng — thời tiết, nhiệt độ, những thứ cần chuẩn bị và những điều người Việt mới sang hay bị bất ngờ.',
     sections: [
       {
         title: 'Xuân và mùa hoa anh đào (tháng 3–5)',
@@ -1290,6 +1348,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Tháng 5 (Golden Week): nhiều ngày lễ liên tiếp (29/4–5/5). Tàu xe, khách sạn, nhà hàng rất đông — đặt trước nếu cần đi đâu.',
         ],
         tip: 'App Yahoo!天気・災害 có phần dự báo 花粉情報 (mức phấn hoa theo ngày và tỉnh) — rất hữu ích trong mùa này.',
+        image: require('../../../assets/content/daily-life/dl_seasons_s1.jpg'),
+        imageCaption: 'Hoa anh đào (桜) nở tháng 3–4 — thời gian nở chỉ khoảng 1–2 tuần, theo dõi dự báo sakura trên Yahoo!天気',
       },
       {
         title: 'Mùa mưa và hè nóng (tháng 6–9)',
@@ -1303,6 +1363,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           '🌀 Bão (台風 / taifu): mùa cao điểm tháng 8–10. Khi có cảnh báo: không ra ngoài khi gió cấp 8+, tích nước và đồ ăn trước 1–2 ngày, sạc đầy pin dự phòng. Theo dõi qua Yahoo!防災速報 hoặc NHK.',
         ],
         tip: 'Mua 経口補水液 (OS-1 hoặc tương đương) trữ sẵn — đây là nước bù điện giải cho người bị sốc nhiệt, hiệu quả hơn nước lọc thường khi cơ thể đã mệt.',
+        image: require('../../../assets/content/daily-life/dl_seasons_s2.jpg'),
+        imageCaption: 'Cảnh báo bão/mưa lớn mùa hè — theo dõi qua Yahoo!防災速報, tích nước và sạc điện thoại trước khi bão đến',
       },
       {
         title: 'Thu dễ chịu và lá đỏ (tháng 10–11)',
@@ -1315,6 +1377,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Chuẩn bị mua đồ đông sớm (tháng 10): áo phao, áo len dày, giày chống nước. Sau tháng 11 hàng sale thu đông hay hết size.',
         ],
         tip: 'Tháng 11 có nhiều đợt sale lớn (Black Friday, cuối mùa thu đông) tại AEON, Uniqlo và Don Quijote — thời điểm tốt để mua đồ đông giá tốt.',
+        image: require('../../../assets/content/daily-life/dl_seasons_s3.jpg'),
+        imageCaption: 'Lá đỏ mùa thu (紅葉 / もみじ) — tháng 10–11 tùy vùng, công viên và đền chùa rất đông vào cuối tuần',
       },
       {
         title: 'Mùa đông và tuyết (tháng 12–2)',
@@ -1329,6 +1393,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Da khô và nứt nẻ: độ ẩm trong nhà mùa đông xuống dưới 30% — dùng máy tạo ẩm (加湿器) và kem dưỡng tay. Bán phổ biến ở Daiso và dược phòng.',
         ],
         tip: 'Uniqlo HEATTECH là lớp lót giữ nhiệt rất phổ biến — mua 2–3 bộ từ tháng 11 trước khi hết size. Loại Extra Warm dành cho vùng có tuyết.',
+        image: require('../../../assets/content/daily-life/dl_seasons_s4.jpg'),
+        imageCaption: 'Mùa đông có tuyết ở Nhật — Tokyo/Osaka ít tuyết, còn Niigata/Hokkaido có thể 1–3m tuyết',
       },
     ],
   },
@@ -1339,8 +1405,6 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
     icon: 'gift-outline',
     color: '#E67E22',
     description: 'Người đi làm tại Nhật có thể quyên góp cho địa phương khác và nhận quà đặc sản — đồng thời được khấu trừ thuế địa phương tương đương. Người nước ngoài cư trú hợp pháp cũng dùng được.',
-    prefilledQuestion:
-      'Hãy giải thích ふるさと納税 cho tôi: tôi là người Việt đang đi làm ở Nhật, tôi có được dùng không, cách làm và những điều cần lưu ý là gì?',
     sections: [
       {
         title: 'ふるさと納税 là gì và ai được dùng',
@@ -1354,6 +1418,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Quà rất đa dạng: gạo, thịt bò Wagyu, hải sản, trái cây, mỹ phẩm, vé du lịch — tùy địa phương.',
         ],
         tip: 'Tra hạn mức của bạn tại satofull.jp hoặc furusato-tax.jp — nhập thu nhập và hoàn cảnh gia đình để biết có thể quyên tối đa bao nhiêu trước khi bắt đầu.',
+        image: require('../../../assets/content/daily-life/dl_furusato_s1.jpg'),
+        imageCaption: 'ふるさと納税 返礼品 — quà đặc sản địa phương nhận được khi quyên góp, chỉ tốn 2.000 yên phí tự chịu',
       },
       {
         title: 'Cách làm — 2 phương pháp thủ tục',
@@ -1367,6 +1433,8 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Nếu làm ワンストップ: địa phương gửi đơn qua bưu điện → điền, kèm bản sao giấy tờ tùy thân và gửi lại. Một số nền tảng cho phép làm online qua My Number Card.',
         ],
         tip: 'Dùng Rakuten ふるさと納税 nếu bạn đã có tài khoản Rakuten — tích điểm Rakuten thêm từ việc quyên, đặc biệt hiệu quả trong các đợt sale 0 và 5 của Rakuten.',
+        image: require('../../../assets/content/daily-life/dl_furusato_s2.jpg'),
+        imageCaption: 'さとふる / ふるなび — các nền tảng ふるさと納税 phổ biến để tra quà và hoàn tất thủ tục',
       },
       {
         title: 'Những điều cần cẩn thận',
@@ -1380,6 +1448,129 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Quà có thể giao chậm 1–3 tháng và không hoàn được — chọn mặt hàng và địa phương rõ ràng trước khi xác nhận.',
         ],
         tip: 'Người mới sang Nhật nên đợi đến khi có 1 năm làm việc đầy đủ mới thử — khi đó thu nhập ổn định, hạn mức dễ tính và không lo bị thiệt do thu nhập bất thường.',
+      },
+    ],
+  },
+  {
+    id: 'moving-out-checklist',
+    title: 'Trả nhà đúng cách (退去手続き)',
+    titleJp: '退去手続き・原状回復・敷金返還',
+    icon: 'home-outline',
+    color: '#6C3483',
+    description: 'Trả nhà sai thứ tự hoặc không hiểu nguyên tắc 原状回復 có thể mất tiền cọc oan hoặc bị đòi thêm tiền sửa chữa. Guide này giải thích rõ từng bước và quyền lợi của bạn.',
+    sections: [
+      {
+        title: 'Thông báo trả nhà đúng hạn',
+        content:
+          'Hầu hết hợp đồng thuê nhà ở Nhật yêu cầu báo trước 1 tháng trước ngày trả nhà. Một số hợp đồng yêu cầu 2 tháng. Báo trễ hoặc không báo có thể bị tính thêm tiền thuê.',
+        items: [
+          'Đọc hợp đồng thuê nhà (賃貸借契約書) để xác nhận thời hạn báo trước (解約予告期間).',
+          'Gửi thông báo bằng văn bản (fax, thư hoặc email) — không chỉ gọi điện. Giữ lại bản sao.',
+          'Xác nhận ngày trả nhà chính thức với chủ nhà hoặc công ty quản lý (管理会社).',
+          'Không ngừng trả tiền nhà trước ngày trả nhà chính thức, kể cả khi đã dọn đồ đi rồi.',
+        ],
+        tip: 'Nếu ký hợp đồng qua môi giới, liên hệ môi giới để nhận hướng dẫn thủ tục — nhiều chỗ có form thông báo tiêu chuẩn.',
+      },
+      {
+        title: 'Hiểu nguyên tắc 原状回復 trước khi bàn giao',
+        content:
+          '原状回復 không có nghĩa bạn phải trả nhà y như mới. Hướng dẫn của 国土交通省 phân rõ: hao mòn tự nhiên (経年変化) là trách nhiệm chủ nhà; hư hại do lỗi người thuê mới phải bồi thường.',
+        items: [
+          'Chủ nhà chịu: phai màu tường do ánh sáng, hao mòn sàn do đi lại bình thường, ố vàng nhẹ theo thời gian.',
+          'Người thuê chịu: đóng đinh nhiều lỗ lớn vào tường, vết bẩn không lau kịp thời, bỏng thuốc lá, vỡ kính do bất cẩn.',
+          'Nếu chủ nhà yêu cầu trả chi phí mà bạn cho là hao mòn tự nhiên, có thể khiếu nại dựa vào Hướng dẫn 国土交通省.',
+          'Chụp ảnh toàn bộ nhà trước khi bàn giao — từng góc, từng vết bẩn, từng bộ phận.',
+        ],
+        tip: 'Khi ký hợp đồng lúc vào nhà có biên bản hiện trạng không? Nếu có, so sánh với tình trạng hiện tại để biết điều gì đã thay đổi trong thời gian thuê.',
+        image: require('../../../assets/content/daily-life/dl_moving-out_s2.jpg'),
+        imageCaption: '原状回復チェック — phân biệt hao mòn tự nhiên (chủ nhà chịu) và hư hại do lỗi người thuê',
+      },
+      {
+        title: 'Buổi kiểm tra bàn giao (立会い) và nhận lại tiền cọc',
+        content:
+          'Đa phần hợp đồng có 立会い — kiểm tra nhà cùng đại diện chủ nhà hoặc quản lý ngay trước khi nộp chìa khóa.',
+        items: [
+          'Mời người quen đi cùng nếu có thể — tránh bị ép ký những khoản không đồng ý.',
+          'Không ký xác nhận thiệt hại nếu không đồng ý — ghi "確認中" (đang xem xét) hoặc xin thêm thời gian.',
+          '敷金 (tiền cọc) phải được hoàn trả trong thời hạn hợp lý (thường 1 tháng sau khi trả nhà) sau khi trừ chi phí sửa chữa hợp lệ.',
+          'Nếu tranh chấp về 敷金: liên hệ 消費生活センター của phường hoặc 国民生活センター để được tư vấn miễn phí.',
+        ],
+        tip: 'Lỗ đinh nhỏ dùng để treo tranh thường không bị tính phí theo hướng dẫn 国土交通省 — đây là điều nhiều người không biết và bị tính oan.',
+      },
+      {
+        title: 'Thay đổi địa chỉ và hủy dịch vụ sau khi trả nhà',
+        content:
+          'Trả nhà mà quên đổi địa chỉ hành chính hoặc hủy dịch vụ là lỗi rất phổ biến và gây rắc rối kéo dài.',
+        items: [
+          'Đến phường cũ làm 転出届 (khai báo chuyển đi) — có thể làm trước ngày chuyển tối đa 14 ngày.',
+          'Đến phường mới làm 転入届 trong vòng 14 ngày sau khi chuyển đến.',
+          'Đăng ký chuyển tiếp thư tại bưu điện (郵便局) — có hiệu lực 1 năm, làm online tại kuronekoyamato.co.jp hoặc trực tiếp tại bưu điện.',
+          'Hủy hoặc chuyển địa chỉ: điện, nước, gas, internet, bảo hiểm, ngân hàng, nơi làm việc.',
+          'Hoàn trả chìa khóa theo đúng số lượng ghi trong hợp đồng — thiếu chìa khóa sẽ bị tính phí làm lại.',
+        ],
+        tip: 'Lập danh sách tất cả dịch vụ đang dùng ngay từ khi quyết định chuyển nhà — tránh quên hủy dịch vụ và tiếp tục bị tính phí sau khi đã ra đi.',
+      },
+    ],
+  },
+  {
+    id: 'used-goods-mercari',
+    title: 'Mua và bán đồ cũ (メルカリ・リサイクル)',
+    titleJp: 'フリマアプリ・リサイクルショップ活用術',
+    icon: 'pricetag-outline',
+    color: '#D35400',
+    description: 'Nhật Bản có hệ sinh thái đồ cũ chất lượng cao và giá rẻ — từ app bán hàng đến chuỗi cửa hàng thu mua. Biết cách dùng đúng giúp tiết kiệm lớn khi mới sang và kiếm thêm thu nhập hợp pháp khi dọn đồ.',
+    sections: [
+      {
+        title: 'メルカリ — mua và bán trực tuyến',
+        content:
+          'メルカリ là app bán hàng cũ lớn nhất Nhật Bản, hoạt động tốt ngay cả với người chưa giỏi tiếng Nhật.',
+        items: [
+          'Tạo tài khoản với số điện thoại Nhật — xác minh bằng SMS.',
+          'Khi mua: kiểm tra ảnh kỹ, đọc phần "商品の状態" (tình trạng hàng) và chính sách ship của người bán.',
+          'Khi bán: chụp ảnh rõ, ghi đúng tình trạng hàng, đặt giá bằng cách tìm hàng tương tự đã bán (mục "販売済み").',
+          'Phí メルカリ: 10% trên giá bán — trừ trực tiếp từ tiền bán.',
+          'Tiền bán hàng giữ trong ví メルカリ — rút vào tài khoản ngân hàng Nhật (phí 200 yên nếu rút dưới 10.000 yên).',
+          'Giao hàng: dùng らくらくメルカリ便 (Yamato) hoặc ゆうゆうメルカリ便 (Japan Post) — giá rẻ hơn giao hàng thường và che địa chỉ cả hai bên.',
+        ],
+        tip: 'Người mua Nhật thường nhắn tin hỏi trước khi mua. Trả lời nhanh sẽ tăng uy tín. Dùng Google Translate hoặc DeepL để dịch tin nhắn nếu cần.',
+        image: require('../../../assets/content/daily-life/dl_mercari_s1.jpg'),
+        imageCaption: 'メルカリ — app flea market lớn nhất Nhật Bản, mua bán đồ cũ an toàn và tiện lợi',
+      },
+      {
+        title: 'Cửa hàng thu mua — bán nhanh, nhận tiền ngay tại chỗ',
+        content:
+          'Nếu cần bán nhanh hoặc không muốn xử lý app, cửa hàng thu mua là lựa chọn tiện lợi.',
+        items: [
+          'ハードオフ: mua lại điện tử, nhạc cụ, thiết bị âm thanh, đồ gia dụng — trả giá tại chỗ.',
+          'ブックオフ: sách, manga, truyện, CD, DVD, game — trả giá tại chỗ.',
+          'セカンドストリート (2nd Street): quần áo, đồ gia dụng, đồ nội thất nhỏ.',
+          'Lưu ý: giá thu mua ở cửa hàng luôn thấp hơn メルカリ đáng kể — đổi lại nhận tiền ngay, không cần chờ.',
+        ],
+        tip: 'Mang sạch và đầy đủ phụ kiện (dây, hộp, sách hướng dẫn) khi đến cửa hàng — hàng có hộp gốc thường được trả giá cao hơn đáng kể.',
+      },
+      {
+        title: 'Phân biệt đồ nên bán vs. nên bỏ (粗大ゴミ)',
+        content:
+          'Không phải đồ cũ nào cũng bán được. Nhầm giữa bán và bỏ sẽ mất thời gian hoặc phát sinh chi phí.',
+        items: [
+          'Nên bán: điện tử còn hoạt động, quần áo brand-name tình trạng tốt, đồ gia dụng nhỏ, đồ chơi, sách.',
+          'Nên bỏ 粗大ゴミ: đồ hỏng, đồ không ai muốn mua, nội thất cũ kỹ.',
+          '粗大ゴミ phải đăng ký với phường và mua tem xử lý trước — không được vứt ra đường hay vào thùng rác thường.',
+          'Không bỏ đồ điện tử lớn (tivi, tủ lạnh, máy giặt, điều hòa) vào rác thường — có quy định riêng theo 家電リサイクル法, phải trả phí xử lý.',
+        ],
+        tip: 'Nếu không chắc đồ có giá trị không, search trên メルカリ xem có người đang bán không và giá bao nhiêu — 30 giây là biết.',
+      },
+      {
+        title: 'Lưu ý pháp lý khi bán đồ cũ',
+        content:
+          'Bán đồ cũ qua メルカリ hoặc cửa hàng là hoàn toàn hợp pháp và rất phổ biến ở Nhật.',
+        items: [
+          'Thu nhập từ bán đồ cá nhân đã dùng (生活用動産) thường được miễn thuế theo luật Nhật.',
+          'Nếu mua đồ mới để bán lại kinh doanh hoặc thu nhập lớn: có thể cần 古物商許可 (giấy phép kinh doanh đồ cũ) và khai thuế riêng.',
+          'Không bán hàng giả mạo nhãn hiệu (偽ブランド品) — vi phạm nghiêm trọng, bị xóa tài khoản và có thể bị khởi tố.',
+          'Không bán đồ của người khác mà không được phép — kể cả đồ nhặt được hoặc nhận giữ hộ.',
+        ],
+        tip: 'Giữ lịch sử giao dịch trong app メルカリ nếu sau này có câu hỏi về thuế — dùng để xác minh đây là bán đồ cá nhân, không phải kinh doanh.',
       },
     ],
   },

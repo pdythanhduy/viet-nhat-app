@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
   },
   sectionLabel: {
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 10,
     marginTop: 8,
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
   },
   optionTitle: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     lineHeight: 18,
   },
@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
   listOptionText: {
     flex: 1,
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
   },
   householdRow: {
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   },
   householdText: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
   },
   input: {
@@ -369,6 +369,6 @@ const styles = StyleSheet.create({
   saveBtnText: {
     color: Colors.white,
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
   },
 });

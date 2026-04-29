@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
   },
   headerSub: {
@@ -433,7 +433,7 @@ const styles = StyleSheet.create({
   },
   filterText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
   },
   filterTextActive: {
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
   },
   quickSectionTitle: {
     fontSize: 17,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -470,12 +470,12 @@ const styles = StyleSheet.create({
   },
   statusSectionTitle: {
     fontSize: 16,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
   },
   statusSectionMeta: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textMuted,
   },
   statusCard: {
@@ -501,7 +501,7 @@ const styles = StyleSheet.create({
   },
   statusTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -527,7 +527,7 @@ const styles = StyleSheet.create({
   },
   quickTitle: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -538,7 +538,7 @@ const styles = StyleSheet.create({
   },
   resultsCount: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold',
     color: Colors.textMuted,
     paddingHorizontal: 16,
     marginBottom: 10,
@@ -567,7 +567,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 15,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
   },
   emptySubText: {
@@ -606,7 +606,7 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     fontSize: 15,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -634,7 +634,7 @@ const styles = StyleSheet.create({
   },
   priorityText: {
     fontSize: 10,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.danger,
   },
   stepsText: {

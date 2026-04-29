@@ -9,6 +9,7 @@ import {
   Alert,
   Clipboard,
   Image,
+  useWindowDimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -25,6 +26,11 @@ import {
   loadGuideChecklistProgress,
   toggleGuideChecklistItem,
 } from '../utils/guideChecklistProgress';
+import {
+  clearGuideStepProgress,
+  loadGuideStepProgress,
+  toggleGuideStep,
+} from '../utils/guideStepProgress';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
@@ -33,10 +39,13 @@ export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
   const insets = useSafeAreaInsets();
+  const { width: windowWidth } = useWindowDimensions();
   const guideId = route.params.guideId;
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
+  const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
   // Hooks must be called unconditionally — before any early return.
   useEffect(() => {
@@ -49,6 +58,11 @@ export default function AdminDetailScreen() {
     loadGuideChecklistProgress(guideId).then((checked) => {
       setCheckedChecklistItems(new Set(checked));
     });
+  }, [guideId]);
+
+  useEffect(() => {
+    if (!guideId) return;
+    loadGuideStepProgress(guideId).then(setCompletedSteps);
   }, [guideId]);
 
   const guide = ADMIN_GUIDES.find((g) => g.id === guideId);
@@ -173,6 +187,16 @@ export default function AdminDetailScreen() {
     setCheckedChecklistItems(new Set());
   };
 
+  const handleToggleStep = async (stepIndex: number) => {
+    const next = await toggleGuideStep(guide.id, stepIndex);
+    setCompletedSteps(new Set(next));
+  };
+
+  const handleClearStepProgress = async () => {
+    await clearGuideStepProgress(guide.id);
+    setCompletedSteps(new Set());
+  };
+
   const checklistTotal = guide.documentsChecklist?.length ?? 0;
   const checklistDone = guide.documentsChecklist?.filter((item) =>
     checkedChecklistItems.has(item.label)
@@ -210,7 +234,7 @@ export default function AdminDetailScreen() {
       <View style={styles.content}>
         {guide.heroImage && (
           <View style={styles.heroImageCard}>
-            <Image source={guide.heroImage} style={styles.heroImage} resizeMode="cover" />
+            <Image source={guide.heroImage} style={[styles.heroImage, { width: windowWidth - 32 }]} resizeMode="cover" />
             {guide.heroImageCaption ? (
               <Text style={styles.imageCaption}>{guide.heroImageCaption}</Text>
             ) : null}
@@ -332,41 +356,83 @@ export default function AdminDetailScreen() {
         )}
 
         {/* Progress indicator */}
-        <Text style={styles.detailSectionTitle}>Các bước thực hiện</Text>
+        <View style={styles.stepProgressHeader}>
+          <Text style={[styles.detailSectionTitle, { marginBottom: 0 }]}>Các bước thực hiện</Text>
+          {completedSteps.size > 0 && (
+            <Text style={styles.stepProgressCount}>
+              {completedSteps.size}/{guide.steps.length} bước đã xong
+            </Text>
+          )}
+        </View>
         <View style={styles.progressContainer}>
-          {guide.steps.map((step, index) => (
-            <React.Fragment key={step.step}>
-              <View
-                style={[
-                  styles.progressDot,
-                  { backgroundColor: guide.color },
-                ]}
-              >
-                <Text style={styles.progressNum}>{step.step}</Text>
-              </View>
-              {index < guide.steps.length - 1 && (
-                <View style={[styles.progressLine, { backgroundColor: guide.color + '40' }]} />
-              )}
-            </React.Fragment>
-          ))}
+          {guide.steps.map((step, index) => {
+            const isActive = expandedStep === index;
+            const isDone = completedSteps.has(index);
+            const dotColor = isDone ? '#27AE60' : isActive ? guide.color : guide.color + '40';
+            const lineColor =
+              isDone && completedSteps.has(index + 1) ? '#27AE60' : guide.color + '40';
+            return (
+              <React.Fragment key={step.step}>
+                <TouchableOpacity
+                  onPress={() => setExpandedStep(isActive ? null : index)}
+                  style={[
+                    styles.progressDot,
+                    { backgroundColor: dotColor },
+                    isActive && styles.progressDotActive,
+                  ]}
+                >
+                  {isDone ? (
+                    <Ionicons name="checkmark" size={14} color={Colors.white} />
+                  ) : (
+                    <Text style={[styles.progressNum, { color: isActive ? Colors.white : guide.color }]}>
+                      {step.step}
+                    </Text>
+                  )}
+                </TouchableOpacity>
+                {index < guide.steps.length - 1 && (
+                  <View style={[styles.progressLine, { backgroundColor: lineColor }]} />
+                )}
+              </React.Fragment>
+            );
+          })}
         </View>
 
         {/* Steps */}
-        {guide.steps.map((step, index) => (
+        {guide.steps.map((step, index) => {
+          const stepDone = completedSteps.has(index);
+          return (
           <TouchableOpacity
             key={step.step}
-            style={styles.stepCard}
+            style={[
+              styles.stepCard,
+              expandedStep === index && { borderColor: guide.color, borderWidth: 1.5 },
+              stepDone && styles.stepCardDone,
+            ]}
             onPress={() => setExpandedStep(expandedStep === index ? null : index)}
             activeOpacity={0.8}
           >
             <View style={styles.stepHeader}>
               <View style={styles.stepHeaderLeft}>
-                <View style={[styles.stepNum, { backgroundColor: guide.color }]}>
-                  <Text style={styles.stepNumText}>{step.step}</Text>
+                <View style={[styles.stepNum, { backgroundColor: stepDone ? '#27AE60' : guide.color }]}>
+                  {stepDone ? (
+                    <Ionicons name="checkmark" size={14} color={Colors.white} />
+                  ) : (
+                    <Text style={styles.stepNumText}>{step.step}</Text>
+                  )}
                 </View>
-                <Text style={styles.stepTitle}>{step.title}</Text>
+                <Text style={[styles.stepTitle, stepDone && styles.stepTitleDone]}>{step.title}</Text>
               </View>
               <View style={styles.stepHeaderActions}>
+                <TouchableOpacity
+                  style={[
+                    styles.stepDoneButton,
+                    stepDone && { backgroundColor: '#27AE60', borderColor: '#27AE60' },
+                  ]}
+                  onPress={() => handleToggleStep(index)}
+                  hitSlop={8}
+                >
+                  {stepDone && <Ionicons name="checkmark" size={13} color={Colors.white} />}
+                </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.stepCopyButton}
                   onPress={() => copyStep(step)}
@@ -388,7 +454,7 @@ export default function AdminDetailScreen() {
 
                 {step.image && (
                   <View style={styles.stepImageBlock}>
-                    <Image source={step.image} style={styles.stepImage} resizeMode="cover" />
+                    <Image source={step.image} style={[styles.stepImage, { width: windowWidth - 64 }]} resizeMode="cover" />
                     {step.imageCaption ? (
                       <Text style={styles.imageCaption}>{step.imageCaption}</Text>
                     ) : null}
@@ -423,7 +489,21 @@ export default function AdminDetailScreen() {
               </View>
             )}
           </TouchableOpacity>
-        ))}
+          );
+        })}
+
+        {completedSteps.size > 0 && completedSteps.size === guide.steps.length && (
+          <View style={[styles.completionBanner, { backgroundColor: '#27AE6010', borderColor: '#27AE6030' }]}>
+            <Ionicons name="checkmark-done-circle" size={26} color="#27AE60" />
+            <View style={styles.completionTextBlock}>
+              <Text style={[styles.completionTitle, { color: '#27AE60' }]}>Đã hoàn thành tất cả bước!</Text>
+              <Text style={styles.completionSubtitle}>Đặt lại nếu bạn cần làm lại từ đầu.</Text>
+            </View>
+            <TouchableOpacity onPress={handleClearStepProgress} style={styles.completionResetBtn}>
+              <Text style={styles.completionResetText}>Đặt lại</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {guide.commonMistakes && guide.commonMistakes.length > 0 && (
           <View style={styles.detailSection}>
@@ -440,12 +520,27 @@ export default function AdminDetailScreen() {
         {guide.faq && guide.faq.length > 0 && (
           <View style={styles.detailSection}>
             <Text style={styles.detailSectionTitle}>Câu hỏi thường gặp</Text>
-            {guide.faq.map((item) => (
-              <View key={item.question} style={styles.faqItem}>
-                <Text style={styles.faqQuestion}>{item.question}</Text>
-                <Text style={styles.faqAnswer}>{item.answer}</Text>
-              </View>
-            ))}
+            {guide.faq.map((item, index) => {
+              const open = expandedFaqIndex === index;
+              return (
+                <TouchableOpacity
+                  key={item.question}
+                  style={styles.faqItem}
+                  onPress={() => setExpandedFaqIndex(open ? null : index)}
+                  activeOpacity={0.8}
+                >
+                  <View style={styles.faqHeader}>
+                    <Text style={[styles.faqQuestion, { flex: 1 }]}>{item.question}</Text>
+                    <Ionicons
+                      name={open ? 'chevron-up' : 'chevron-down'}
+                      size={16}
+                      color={Colors.textMuted}
+                    />
+                  </View>
+                  {open && <Text style={styles.faqAnswer}>{item.answer}</Text>}
+                </TouchableOpacity>
+              );
+            })}
           </View>
         )}
 
@@ -527,7 +622,7 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
     marginBottom: 6,
   },
@@ -548,7 +643,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   heroImage: {
-    width: '100%',
     height: 188,
     borderRadius: 18,
     backgroundColor: Colors.border,
@@ -602,7 +696,7 @@ const styles = StyleSheet.create({
   },
   priorityTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -624,7 +718,7 @@ const styles = StyleSheet.create({
   },
   detailSectionTitle: {
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 12,
   },
@@ -648,7 +742,7 @@ const styles = StyleSheet.create({
   },
   resetChecklistText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
   },
   copySectionButton: {
@@ -664,7 +758,7 @@ const styles = StyleSheet.create({
   },
   copySectionButtonText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
   },
   checklistProgressBar: {
     height: 6,
@@ -682,7 +776,7 @@ const styles = StyleSheet.create({
   },
   infoBlockTitle: {
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     marginBottom: 7,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
@@ -744,7 +838,7 @@ const styles = StyleSheet.create({
   },
   requiredText: {
     fontSize: 10,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
   },
   requiredTextOn: {
     color: Colors.danger,
@@ -757,7 +851,7 @@ const styles = StyleSheet.create({
   },
   checklistLabel: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 2,
   },
@@ -787,19 +881,28 @@ const styles = StyleSheet.create({
   faqItem: {
     borderTopWidth: 1,
     borderTopColor: Colors.border,
-    paddingTop: 10,
-    marginTop: 10,
+    paddingTop: 12,
+    paddingBottom: 4,
+    marginTop: 8,
+  },
+  faqHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    marginBottom: 4,
   },
   faqQuestion: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
-    marginBottom: 5,
+    lineHeight: 19,
   },
   faqAnswer: {
     fontSize: 13,
     color: Colors.textSecondary,
     lineHeight: 19,
+    marginTop: 6,
+    marginBottom: 6,
   },
   progressDot: {
     width: 32,
@@ -808,9 +911,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  progressDotActive: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.18,
+    shadowRadius: 6,
+    elevation: 4,
+  },
   progressNum: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.white,
   },
   progressLine: {
@@ -855,13 +968,13 @@ const styles = StyleSheet.create({
   },
   stepNumText: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
   },
   stepTitle: {
     flex: 1,
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
   },
   stepCopyButton: {
@@ -889,7 +1002,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   stepImage: {
-    width: '100%',
     height: 192,
     borderRadius: 14,
     backgroundColor: Colors.border,
@@ -914,7 +1026,7 @@ const styles = StyleSheet.create({
   },
   docsTitleText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
   },
   docItem: {
     flexDirection: 'row',
@@ -971,7 +1083,7 @@ const styles = StyleSheet.create({
   },
   linksSectionTitle: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
@@ -1003,5 +1115,66 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: '500',
     lineHeight: 18,
+  },
+  stepProgressHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  stepProgressCount: {
+    fontSize: 12,
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
+    color: '#27AE60',
+  },
+  stepCardDone: {
+    opacity: 0.72,
+  },
+  stepTitleDone: {
+    color: Colors.textMuted,
+    textDecorationLine: 'line-through',
+  },
+  stepDoneButton: {
+    width: 26,
+    height: 26,
+    borderRadius: 8,
+    borderWidth: 1.5,
+    borderColor: Colors.border,
+    backgroundColor: Colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  completionBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    borderRadius: 14,
+    borderWidth: 1,
+    padding: 14,
+    marginBottom: 14,
+  },
+  completionTextBlock: {
+    flex: 1,
+  },
+  completionTitle: {
+    fontSize: 13,
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
+    marginBottom: 2,
+  },
+  completionSubtitle: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+  },
+  completionResetBtn: {
+    borderRadius: 8,
+    backgroundColor: Colors.background,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  completionResetText: {
+    fontSize: 12,
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textSecondary,
   },
 });

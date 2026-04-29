@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   headerLabel: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: 'rgba(255,255,255,0.82)',
     marginBottom: 4,
     textTransform: 'uppercase',
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
     marginBottom: 6,
   },
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   progressTitle: {
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
   },
   progressPct: {
     fontSize: 20,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
   },
   progressTrack: {
     height: 8,
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -310,6 +310,6 @@ const styles = StyleSheet.create({
   },
   actionBtnText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
   },
 });

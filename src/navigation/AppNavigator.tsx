@@ -134,7 +134,7 @@ function TabNavigator() {
           headerTitle: 'Cài đặt',
           headerStyle: { backgroundColor: Colors.primary },
           headerTintColor: Colors.white,
-          headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+          headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
         }}
       />
     </Tab.Navigator>
@@ -153,7 +153,7 @@ export default function AppNavigator() {
             headerShown: true,
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
@@ -164,7 +164,7 @@ export default function AppNavigator() {
             headerTitle: 'Cuộc sống hằng ngày',
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
@@ -174,7 +174,7 @@ export default function AppNavigator() {
             headerShown: true,
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
@@ -185,7 +185,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Business Japanese',
             headerStyle: { backgroundColor: Colors.primaryDark },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
@@ -196,7 +196,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Vocabulary',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -208,7 +208,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Keigo',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -220,7 +220,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Scenarios',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -232,7 +232,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Document Mock',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -244,7 +244,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Business Toolkit',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -256,7 +256,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Language Assets',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -268,7 +268,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Job Docs',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -280,7 +280,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Reading Passages',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -292,7 +292,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Flashcards',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -304,7 +304,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT 12-Week Plan',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -316,7 +316,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Mock Exams V2',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -328,7 +328,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Scenario Practice',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -340,7 +340,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Mock Test',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -352,7 +352,7 @@ export default function AppNavigator() {
             headerTitle: 'BJT Review Mode',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -363,7 +363,7 @@ export default function AppNavigator() {
             headerShown: true,
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -374,7 +374,7 @@ export default function AppNavigator() {
             headerShown: true,
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -400,7 +400,7 @@ export default function AppNavigator() {
             headerTitle: 'Góp ý và phản hồi',
             headerStyle: { backgroundColor: Colors.background },
             headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17, color: Colors.textPrimary },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
             headerShadowVisible: false,
           }}
         />
@@ -412,7 +412,7 @@ export default function AppNavigator() {
             headerTitle: 'Cẩm nang lao động',
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
@@ -423,7 +423,7 @@ export default function AppNavigator() {
             headerTitle: 'Khiếu nại / cần giúp gì',
             headerStyle: { backgroundColor: Colors.primary },
             headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />
@@ -443,8 +443,8 @@ const TAB_BAR = Platform.select({
   default: { height: 84, paddingTop: 6, paddingBottom: 20 },
 });
 const TAB_LABEL = Platform.select({
-  android: { fontSize: 12, marginBottom: 2 },
-  default: { fontSize: 11, marginBottom: 0 },
+  android: { fontSize: 12, marginBottom: 2, lineHeight: 18 },
+  default: { fontSize: 11, marginBottom: 2, lineHeight: 17 },
 });
 
 const styles = StyleSheet.create({
@@ -460,8 +460,9 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   tabLabel: {
-    fontWeight: '600',
+    fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold',
     fontSize: TAB_LABEL.fontSize,
+    lineHeight: TAB_LABEL.lineHeight,
     marginBottom: TAB_LABEL.marginBottom,
   },
 });

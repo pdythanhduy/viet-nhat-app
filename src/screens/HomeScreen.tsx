@@ -22,6 +22,7 @@ import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';
 import { loadRecentJapaneseCategories, RecentJapaneseCategory } from '../utils/japaneseRecentCategories';
 import { loadBookmarks, Bookmark } from '../utils/bookmarks';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
+import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
 import {
   buildUserProfileSummary,
   dismissUserProfilePrompt,
@@ -435,6 +436,7 @@ export default function HomeScreen() {
   const [savedBookmarks, setSavedBookmarks] = useState<Bookmark[]>([]);
   const [pinnedBookmarks, setPinnedBookmarks] = useState<Bookmark[]>([]);
   const [inProgressGuides, setInProgressGuides] = useState<InProgressGuide[]>([]);
+  const [inProgressStepGuides, setInProgressStepGuides] = useState<InProgressGuide[]>([]);
   const [readyGuides, setReadyGuides] = useState<ReadyGuide[]>([]);
   const [completedGuideIds, setCompletedGuideIds] = useState<string[]>([]);
   const [savedCounts, setSavedCounts] = useState<SavedCounts>({
@@ -524,6 +526,20 @@ export default function HomeScreen() {
 
           setReadyGuides(completedItems);
           setCompletedGuideIds(completedItems.map((item) => item.guideId));
+        });
+
+        loadAllGuideStepProgress().then((progressMap) => {
+          const stepItems = ADMIN_GUIDES.map((guide) => {
+            const total = guide.steps.length;
+            if (total === 0) return null;
+            const checked = (progressMap[guide.id] ?? []).length;
+            if (checked === 0 || checked >= total) return null;
+            return { guideId: guide.id, title: guide.title, checked, total, color: guide.color };
+          })
+            .filter(Boolean)
+            .sort((a, b) => (b!.checked / b!.total) - (a!.checked / a!.total))
+            .slice(0, 4) as InProgressGuide[];
+          setInProgressStepGuides(stepItems);
         });
       };
 
@@ -900,6 +916,48 @@ export default function HomeScreen() {
             </>
           ) : null}
 
+          {inProgressStepGuides.length > 0 ? (
+            <>
+              <View style={styles.sectionTitleRow}>
+                <Text style={styles.sectionTitle}>Đang làm dở thủ tục</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Admin' })}>
+                  <Text style={styles.sectionLink}>Xem tất cả</Text>
+                </TouchableOpacity>
+              </View>
+              {inProgressStepGuides.map((item) => (
+                <TouchableOpacity
+                  key={`step-progress-${item.guideId}`}
+                  style={styles.priorityCard}
+                  onPress={() => navigation.navigate('AdminDetail', { guideId: item.guideId })}
+                >
+                  <View style={styles.priorityLeft}>
+                    <View style={[styles.priorityIconBg, { backgroundColor: `${item.color}18` }]}>
+                      <Ionicons name="checkmark-circle-outline" size={18} color={item.color} />
+                    </View>
+                    <View style={styles.priorityTextBlock}>
+                      <Text style={styles.priorityCardTitle}>{item.title}</Text>
+                      <Text style={styles.priorityCardDesc}>
+                        Đang làm dở: {item.checked}/{item.total} bước đã xong.
+                      </Text>
+                      <View style={styles.priorityProgressBar}>
+                        <View
+                          style={[
+                            styles.priorityProgressFill,
+                            {
+                              width: `${(item.checked / item.total) * 100}%`,
+                              backgroundColor: item.color,
+                            },
+                          ]}
+                        />
+                      </View>
+                    </View>
+                  </View>
+                  <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                </TouchableOpacity>
+              ))}
+            </>
+          ) : null}
+
           {(recentDailyTopics.length > 0 || recentJapaneseCategories.length > 0) ? (
             <>
               <Text style={styles.sectionTitle}>Tiếp tục gần đây</Text>
@@ -1235,7 +1293,7 @@ const styles = StyleSheet.create({
     paddingRight: 12,
   },
   greeting: { fontSize: 14, color: 'rgba(255,255,255,0.8)', marginBottom: 4 },
-  appName: { fontSize: 28, fontWeight: '800', color: Colors.white },
+  appName: { fontSize: 28, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
   subtitle: { marginTop: 4, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18 },
   headerButtons: {
     flexDirection: 'row',
@@ -1287,7 +1345,7 @@ const styles = StyleSheet.create({
   },
   profileHeroLabel: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.primary,
     marginBottom: 3,
     textTransform: 'uppercase',
@@ -1295,7 +1353,7 @@ const styles = StyleSheet.create({
   },
   profileHeroTitle: {
     fontSize: 17,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -1335,7 +1393,7 @@ const styles = StyleSheet.create({
   },
   profileActionTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -1356,7 +1414,7 @@ const styles = StyleSheet.create({
   },
   stampBadgeText: {
     fontSize: 10,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
     letterSpacing: 0.3,
   },
@@ -1386,7 +1444,7 @@ const styles = StyleSheet.create({
   },
   profileSetupTitle: {
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -1409,7 +1467,7 @@ const styles = StyleSheet.create({
   },
   profileSetupTagText: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.primary,
   },
   alertCard: {
@@ -1427,7 +1485,7 @@ const styles = StyleSheet.create({
   alertHigh: { backgroundColor: Colors.dangerLight, borderColor: '#E74C3C28' },
   alertLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, flex: 1 },
   alertTextContainer: { flex: 1 },
-  alertTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  alertTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   alertDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   priorityCard: {
     backgroundColor: Colors.white,
@@ -1452,7 +1510,7 @@ const styles = StyleSheet.create({
   priorityTextBlock: { flex: 1 },
   priorityCardTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -1495,7 +1553,7 @@ const styles = StyleSheet.create({
   readyTextBlock: { flex: 1 },
   readyCardTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 3,
   },
@@ -1504,7 +1562,7 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     lineHeight: 17,
   },
-  sectionTitle: { fontSize: 17, fontWeight: '800', color: Colors.textPrimary, marginTop: 12, marginBottom: 12 },
+  sectionTitle: { fontSize: 17, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginTop: 12, marginBottom: 12 },
   sectionTitleRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -1517,7 +1575,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
   },
-  sectionLink: { fontSize: 12, fontWeight: '700', color: Colors.primary },
+  sectionLink: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   recentRow: { gap: 10, paddingRight: 12, marginBottom: 4 },
   noteGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 4 },
   noteCard: {
@@ -1537,13 +1595,13 @@ const styles = StyleSheet.create({
   },
   noteCount: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 2,
   },
   noteTitle: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
   },
   recentCard: {
@@ -1560,12 +1618,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  recentLabel: { fontSize: 11, fontWeight: '700', color: Colors.textMuted, marginBottom: 4 },
-  recentTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, lineHeight: 18 },
+  recentLabel: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textMuted, marginBottom: 4 },
+  recentTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, lineHeight: 18 },
   categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 8 },
   categoryCard: { width: '47%', borderRadius: 16, padding: 16, alignItems: 'center', backgroundColor: Colors.white },
   categoryIconBg: { width: 52, height: 52, borderRadius: 14, justifyContent: 'center', alignItems: 'center', marginBottom: 12 },
-  categoryTitle: { fontSize: 14, fontWeight: '700', lineHeight: 20, textAlign: 'center' },
+  categoryTitle: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', lineHeight: 20, textAlign: 'center' },
   firstStepsCard: {
     backgroundColor: Colors.accent,
     borderRadius: 16,
@@ -1581,36 +1639,36 @@ const styles = StyleSheet.create({
   firstStepsLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, flex: 1 },
   firstStepsIconBg: { width: 40, height: 40, borderRadius: 12, backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center' },
   firstStepsText: { flex: 1 },
-  firstStepsTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  firstStepsTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   firstStepsDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   updatesContainer: { gap: 10, marginBottom: 4 },
   updateCard: { backgroundColor: Colors.white, borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: Colors.border },
   updateIcon: { width: 42, height: 42, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
   updateInfo: { flex: 1 },
-  updateTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  updateTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   updateDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   familyGroupsWrap: { gap: 12 },
   familyGroupCard: { backgroundColor: Colors.white, borderRadius: 16, padding: 14, borderWidth: 1, borderColor: Colors.border },
-  familyGroupTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  familyGroupTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   familyGroupDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17, marginBottom: 10 },
   familyVisaCard: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10, borderTopWidth: 1, borderTopColor: Colors.border },
   familyVisaCardFirst: { borderTopWidth: 0, paddingTop: 0 },
   familyVisaIconBg: { width: 40, height: 40, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
   familyVisaInfo: { flex: 1 },
-  familyVisaTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  familyVisaTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   familyVisaDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   allGuidesCard: { backgroundColor: Colors.accent, borderRadius: 16, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginTop: 12, borderWidth: 1, borderColor: `${Colors.primary}30` },
   allGuidesLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, flex: 1 },
   allGuidesIconBg: { width: 40, height: 40, borderRadius: 12, backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center' },
   allGuidesText: { flex: 1 },
-  allGuidesTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary, marginBottom: 3 },
+  allGuidesTitle: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, marginBottom: 3 },
   allGuidesDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   emergencyContainer: { gap: 10 },
   emergencyCard: { backgroundColor: Colors.white, borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 },
   emergencyIcon: { width: 44, height: 44, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
   emergencyInfo: { flex: 1 },
-  emergencyName: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary },
+  emergencyName: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   emergencyNameJp: { fontSize: 11, color: Colors.textMuted, marginTop: 1 },
-  emergencyNumber: { fontSize: 15, fontWeight: '800', marginTop: 3 },
+  emergencyNumber: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', marginTop: 3 },
   bottomPad: { height: 24 },
 });

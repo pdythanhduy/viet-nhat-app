@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  modeChipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  modeChipText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   modeChipTextActive: { color: Colors.white },
   topRow: {
     marginTop: 16,
@@ -299,8 +299,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  counter: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
-  scoreSmall: { fontSize: 13, fontWeight: '700', color: Colors.primary },
+  counter: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
+  scoreSmall: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   questionCard: {
     marginTop: 18,
     backgroundColor: Colors.white,
@@ -308,10 +308,10 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
   },
-  label: { fontSize: 12, fontWeight: '700', color: Colors.primary, marginBottom: 10 },
+  label: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary, marginBottom: 10 },
   questionJp: {
     fontSize: 28,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     textAlign: 'center',
   },
@@ -343,7 +343,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.dangerLight,
   },
   optionTextWrap: { flex: 1 },
-  optionText: { fontSize: 14, fontWeight: '600', color: Colors.textPrimary },
+  optionText: { fontSize: 14, fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold', color: Colors.textPrimary },
   optionSubText: {
     marginTop: 4,
     fontSize: 12,
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
   summary: { paddingVertical: 40 },
   title: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     textAlign: 'center',
   },
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
   percent: {
     marginTop: 12,
     fontSize: 34,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     textAlign: 'center',
   },
   score: { marginTop: 6, fontSize: 15, color: Colors.textSecondary, textAlign: 'center' },
@@ -378,12 +378,12 @@ const styles = StyleSheet.create({
   },
   reviewTitle: {
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 10,
   },
   reviewItem: { paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border },
-  reviewJp: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
+  reviewJp: { fontSize: 15, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   reviewRomaji: {
     marginTop: 4,
     fontSize: 12,
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
   },
   reviewVn: { marginTop: 4, fontSize: 12, color: Colors.textSecondary },
   primaryButton: { borderRadius: 8, paddingVertical: 14, alignItems: 'center' },
-  primaryButtonText: { color: Colors.white, fontWeight: '700' },
+  primaryButtonText: { color: Colors.white, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
   secondaryButton: {
     marginTop: 12,
     borderRadius: 8,
@@ -402,5 +402,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.white,
   },
-  secondaryButtonText: { color: Colors.textPrimary, fontWeight: '700' },
+  secondaryButtonText: { color: Colors.textPrimary, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
 });

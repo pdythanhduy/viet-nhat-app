@@ -62,7 +62,6 @@ const SEARCH_INDEX: SearchResultItem[] = [
       topic.title,
       topic.titleJp,
       topic.description,
-      topic.prefilledQuestion,
       ...(topic.sections?.flatMap((section) => [
         section.title,
         section.content ?? '',

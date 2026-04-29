@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   summaryCard: { flexDirection: 'row', gap: 10, marginBottom: 12 },
   metricCard: {
@@ -208,9 +208,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  metricLabel: { fontSize: 11, fontWeight: '700', color: Colors.textSecondary, marginBottom: 6 },
-  metricValue: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
-  metricValueSmall: { fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
+  metricLabel: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary, marginBottom: 6 },
+  metricValue: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
+  metricValueSmall: { fontSize: 18, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   chips: { gap: 8, paddingBottom: 8, paddingRight: 12 },
   chip: {
     paddingHorizontal: 12,
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.card,
   },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  chipText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
   noteCard: {
     flexDirection: 'row',
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   noteText: { flex: 1, fontSize: 12, lineHeight: 18, color: Colors.primaryDark },
-  sectionTitle: { marginBottom: 10, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
+  sectionTitle: { marginBottom: 10, fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   card: {
     width: '47%',
@@ -244,11 +244,11 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
   },
   cardActive: { borderColor: Colors.primary, backgroundColor: Colors.accent },
-  level: { fontSize: 11, fontWeight: '800', color: Colors.primary, textTransform: 'uppercase' },
-  cardTitle: { marginTop: 8, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
-  count: { marginTop: 6, fontSize: 20, fontWeight: '800', color: Colors.primaryDark },
+  level: { fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary, textTransform: 'uppercase' },
+  cardTitle: { marginTop: 8, fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
+  count: { marginTop: 6, fontSize: 20, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primaryDark },
   bodyText: { marginTop: 8, fontSize: 12, lineHeight: 18, color: Colors.textSecondary },
-  meta: { marginTop: 10, fontSize: 11, fontWeight: '700', color: Colors.textMuted, textTransform: 'uppercase' },
+  meta: { marginTop: 10, fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textMuted, textTransform: 'uppercase' },
   detailCard: {
     marginTop: 16,
     backgroundColor: Colors.card,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
   },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   flex: { flex: 1 },
-  detailTitle: { fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
+  detailTitle: { fontSize: 18, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   detailMeta: { marginTop: 4, fontSize: 12, color: Colors.textSecondary },
   detailDescription: { marginTop: 10, fontSize: 13, lineHeight: 19, color: Colors.textPrimary },
   studyBox: {
@@ -268,8 +268,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
     padding: 14,
   },
-  studyLabel: { fontSize: 11, fontWeight: '800', color: Colors.textMuted, textTransform: 'uppercase' },
-  studyTitle: { marginTop: 6, fontSize: 14, fontWeight: '800', color: Colors.textPrimary },
+  studyLabel: { fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textMuted, textTransform: 'uppercase' },
+  studyTitle: { marginTop: 6, fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   studyText: { marginTop: 6, fontSize: 12, lineHeight: 18, color: Colors.textSecondary },
   primaryButton: {
     marginTop: 14,
@@ -281,5 +281,5 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     backgroundColor: Colors.primary,
   },
-  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800' },
+  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
 });

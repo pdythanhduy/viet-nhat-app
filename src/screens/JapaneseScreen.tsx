@@ -548,32 +548,32 @@ const styles = StyleSheet.create({
   header: { backgroundColor: Colors.primary, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 16, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 },
   headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
   headerText: { flex: 1 },
-  headerTitle: { fontSize: 22, fontWeight: '800', color: Colors.white },
+  headerTitle: { fontSize: 22, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
   headerSub: { marginTop: 2, fontSize: 12, color: 'rgba(255,255,255,0.75)' },
   streakBadge: { backgroundColor: 'rgba(255,255,255,0.18)', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, alignItems: 'center' },
-  streakNum: { fontSize: 18, fontWeight: '800', color: Colors.white },
-  streakLabel: { fontSize: 10, color: 'rgba(255,255,255,0.8)', fontWeight: '600' },
+  streakNum: { fontSize: 18, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
+  streakLabel: { fontSize: 10, color: 'rgba(255,255,255,0.8)', fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold' },
   searchBox: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12 },
   searchInput: { flex: 1, color: Colors.white, fontSize: 14, paddingVertical: 0 },
   quickRow: { flexDirection: 'row', gap: 8 },
   quickBtn: { flex: 1, flexDirection: 'row', gap: 6, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 9 },
-  quickBtnText: { color: Colors.white, fontSize: 12, fontWeight: '700' },
+  quickBtnText: { color: Colors.white, fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
 
   // Content
   content: { flex: 1, paddingHorizontal: 14, paddingTop: 14 },
   tags: { gap: 8, paddingBottom: 10, paddingRight: 16 },
   chip: { paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999, backgroundColor: Colors.card, borderWidth: 1, borderColor: Colors.border },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '600', color: Colors.textPrimary },
+  chipText: { fontSize: 12, fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
   toggle: { flexDirection: 'row', gap: 6, alignSelf: 'flex-start', alignItems: 'center', borderRadius: 10, borderWidth: 1, borderColor: Colors.primary, paddingHorizontal: 12, paddingVertical: 8, backgroundColor: Colors.white, marginBottom: 14 },
   toggleActive: { backgroundColor: Colors.primary },
-  toggleText: { color: Colors.primary, fontSize: 12, fontWeight: '700' },
+  toggleText: { color: Colors.primary, fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
   toggleTextActive: { color: Colors.white },
 
   // Sections
   section: { marginBottom: 16 },
-  sectionTitle: { fontSize: 17, fontWeight: '800', color: Colors.textPrimary, marginBottom: 10 },
+  sectionTitle: { fontSize: 17, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 10 },
   empty: { color: Colors.textMuted, textAlign: 'center', lineHeight: 20, paddingVertical: 12 },
 
   // Cards
@@ -586,33 +586,33 @@ const styles = StyleSheet.create({
   // Card internals
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
   cardMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
-  cardTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary },
+  cardTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   cardSubtitle: { marginTop: 2, fontSize: 12, color: Colors.textMuted },
   accordionRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   flex: { flex: 1 },
   rightRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   indexLabel: { fontSize: 12, color: Colors.textMuted },
-  metaLabel: { fontSize: 11, fontWeight: '700', color: Colors.primary },
-  percentLabel: { fontSize: 13, fontWeight: '800' },
-  levelLabel: { marginTop: 4, fontSize: 11, fontWeight: '700' },
+  metaLabel: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
+  percentLabel: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
+  levelLabel: { marginTop: 4, fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
   navRow: { flexDirection: 'row', gap: 4 },
 
   // Typography
-  wordText: { marginTop: 8, fontSize: 28, fontWeight: '800', color: Colors.textPrimary },
-  meaningText: { marginTop: 6, fontSize: 15, fontWeight: '700', color: Colors.primary },
-  jpText: { marginTop: 4, fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
+  wordText: { marginTop: 8, fontSize: 28, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
+  meaningText: { marginTop: 6, fontSize: 15, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
+  jpText: { marginTop: 4, fontSize: 15, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   romajiText: { marginTop: 3, fontSize: 12, color: Colors.textSecondary, fontStyle: 'italic' },
   vnText: { marginTop: 4, fontSize: 12, lineHeight: 17, color: Colors.textSecondary },
-  patternText: { fontSize: 14, fontWeight: '700', color: Colors.primary },
+  patternText: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   patternMeaning: { marginTop: 2, fontSize: 12, color: Colors.textSecondary },
 
   // Actions
   actions: { marginTop: 12, flexDirection: 'row', flexWrap: 'wrap', gap: 16 },
-  actionText: { color: Colors.primary, fontWeight: '700', fontSize: 12 },
+  actionText: { color: Colors.primary, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 12 },
   phraseActions: { flexDirection: 'column', gap: 8, justifyContent: 'center' },
   categoryActions: { marginTop: 12, flexDirection: 'row', gap: 8 },
   actionPill: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 10, paddingVertical: 7, borderRadius: 999, borderWidth: 1, borderColor: Colors.primary, backgroundColor: Colors.background },
-  actionPillText: { fontSize: 11, fontWeight: '700', color: Colors.primary },
+  actionPillText: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
 
   // Phrase list
   phraseRow: { marginTop: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: Colors.border, flexDirection: 'row', gap: 10 },
@@ -627,5 +627,5 @@ const styles = StyleSheet.create({
 
   // Recent
   recentChip: { backgroundColor: Colors.card, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, borderWidth: 1, borderColor: Colors.border, minWidth: 120 },
-  recentChipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  recentChipText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
 });

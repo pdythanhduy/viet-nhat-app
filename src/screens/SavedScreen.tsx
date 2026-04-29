@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     flex: 1,
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.white,
   },
   headerActions: {
@@ -573,12 +573,12 @@ const styles = StyleSheet.create({
   headerActionText: {
     fontSize: 13,
     color: 'rgba(255,255,255,0.92)',
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
   },
   clearBtn: {
     fontSize: 13,
     color: 'rgba(255,255,255,0.8)',
-    fontWeight: '600',
+    fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold',
   },
   emptyContainer: {
     flex: 1,
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 17,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
     textAlign: 'center',
   },
@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
   },
   filterChipText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
   },
   filterChipTextActive: {
@@ -660,7 +660,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 15,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
   },
   guideCard: {
@@ -704,7 +704,7 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -737,7 +737,7 @@ const styles = StyleSheet.create({
   },
   phraseCatText: {
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.primary,
   },
   phraseBody: {
@@ -746,7 +746,7 @@ const styles = StyleSheet.create({
   },
   phraseJp: {
     fontSize: 17,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 2,
   },
@@ -776,7 +776,7 @@ const styles = StyleSheet.create({
   },
   dialogueSituation: {
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 8,
   },
@@ -785,13 +785,13 @@ const styles = StyleSheet.create({
   },
   dialoguePreviewSpeaker: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.primary,
     marginBottom: 2,
   },
   dialoguePreviewJp: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 2,
   },

@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   introTexts: { flex: 1 },
-  introTitle: { fontSize: 15, fontWeight: '800', color: Colors.primary, marginBottom: 3 },
+  introTitle: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary, marginBottom: 3, lineHeight: 22 },
   introDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   card: {
     backgroundColor: Colors.white,
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 2,
   },
-  cardTitle: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary, marginBottom: 14 },
+  cardTitle: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, marginBottom: 14, lineHeight: 21 },
   starsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -264,8 +264,9 @@ const styles = StyleSheet.create({
   starLabel: {
     textAlign: 'center',
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: '#F39C12',
+    lineHeight: 21,
   },
   typeGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   typeChip: {
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1.5,
   },
-  typeChipText: { fontSize: 13, fontWeight: '700' },
+  typeChipText: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', lineHeight: 20 },
   textInput: {
     borderWidth: 1.5,
     borderColor: Colors.border,
@@ -311,7 +312,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   submitBtnDisabled: { opacity: 0.45 },
-  submitBtnText: { fontSize: 16, fontWeight: '800', color: Colors.white },
+  submitBtnText: { fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white, lineHeight: 24 },
   requiredHint: {
     textAlign: 'center',
     fontSize: 12,
@@ -347,7 +348,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 4,
   },
-  thankYouTitle: { fontSize: 26, fontWeight: '800', color: Colors.textPrimary },
+  thankYouTitle: { fontSize: 26, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, lineHeight: 34 },
   thankYouDesc: {
     fontSize: 14,
     color: Colors.textSecondary,
@@ -361,5 +362,5 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 14,
   },
-  doneBtnText: { fontSize: 15, fontWeight: '700', color: Colors.white },
+  doneBtnText: { fontSize: 15, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.white, lineHeight: 22 },
 });

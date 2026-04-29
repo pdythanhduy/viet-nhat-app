@@ -92,6 +92,8 @@ export interface DailyLifeSection {
   content?: string;
   items?: string[];
   tip?: string;
+  image?: ImageSourcePropType;
+  imageCaption?: string;
 }
 
 export interface DailyLifeTopic {
@@ -101,7 +103,6 @@ export interface DailyLifeTopic {
   icon: IoniconName;
   color: string;
   description: string;
-  prefilledQuestion: string;
   sections?: DailyLifeSection[];
 }
 

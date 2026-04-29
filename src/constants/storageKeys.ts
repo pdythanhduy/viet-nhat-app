@@ -12,4 +12,5 @@ export const StorageKeys = {
   studyReminderEnabled: 'study_reminder_enabled_v1',
   userProfile: 'user_profile_v1',
   userProfilePromptDismissed: 'user_profile_prompt_dismissed_v1',
+  guideStepProgress: 'guide_step_progress_v1',
 } as const;

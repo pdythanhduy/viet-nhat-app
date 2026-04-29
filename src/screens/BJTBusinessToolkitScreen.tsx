@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   tabRow: { flexDirection: 'row', gap: 8, marginBottom: 12 },
   tabButton: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   tabButtonActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  tabText: { fontSize: 12, fontWeight: '800', color: Colors.textPrimary },
+  tabText: { fontSize: 12, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   tabTextActive: { color: Colors.white },
   card: {
     backgroundColor: Colors.card,
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  level: { fontSize: 11, fontWeight: '800', color: Colors.primary, textTransform: 'uppercase' },
-  cardTitle: { marginTop: 6, fontSize: 18, fontWeight: '800', color: Colors.textPrimary },
+  level: { fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary, textTransform: 'uppercase' },
+  cardTitle: { marginTop: 6, fontSize: 18, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   cardSubtitle: { marginTop: 4, fontSize: 13, color: Colors.textSecondary },
   templateBox: {
     marginTop: 12,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   templateText: { fontSize: 13, color: Colors.textPrimary, lineHeight: 20 },
-  blockTitle: { marginTop: 12, marginBottom: 8, fontSize: 11, fontWeight: '800', color: Colors.textMuted, textTransform: 'uppercase' },
+  blockTitle: { marginTop: 12, marginBottom: 8, fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textMuted, textTransform: 'uppercase' },
   bulletRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginBottom: 7 },
   bullet: { width: 6, height: 6, borderRadius: 3, marginTop: 6, backgroundColor: Colors.primary },
   bulletText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },

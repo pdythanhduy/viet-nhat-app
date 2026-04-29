@@ -347,7 +347,7 @@ export default function SettingsScreen() {
         <Text style={styles.sectionTitle}>Thông tin ứng dụng</Text>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Phiên bản</Text>
-          <Text style={styles.infoValue}>1.0.0</Text>
+          <Text style={styles.infoValue}>1.1.0</Text>
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Nền tảng</Text>
@@ -394,8 +394,9 @@ const styles = StyleSheet.create({
   },
   pageTitle: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
+    lineHeight: 32,
   },
   section: {
     backgroundColor: Colors.card,
@@ -407,9 +408,10 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     marginBottom: 8,
+    lineHeight: 24,
   },
   sectionDesc: {
     fontSize: 13,
@@ -482,8 +484,9 @@ const styles = StyleSheet.create({
   },
   rateChipText: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
+    lineHeight: 20,
   },
   rateChipTextActive: {
     color: Colors.white,
@@ -521,11 +524,11 @@ const styles = StyleSheet.create({
   },
   infoValue: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold',
     color: Colors.textPrimary,
   },
   infoLink: {
     color: Colors.primary,
-    fontWeight: '600',
+    fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold',
   },
 });

@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   headerLabel: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: 'rgba(255,255,255,0.78)',
     marginBottom: 4,
     textTransform: 'uppercase',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.white,
     marginBottom: 6,
   },
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 17,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 10,
   },
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
   },
   scenarioTitle: {
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 4,
   },
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   },
   scenarioActionText: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
   },
   contactsWrap: {
     gap: 10,
@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
   },
   contactTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     marginBottom: 2,
   },
@@ -346,6 +346,6 @@ const styles = StyleSheet.create({
   },
   contactNumber: {
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
   },
 });

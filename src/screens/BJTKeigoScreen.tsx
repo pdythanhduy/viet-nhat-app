@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   chips: { gap: 8, paddingBottom: 10, paddingRight: 12 },
   chip: {
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
   },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  chipText: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary },
+  chipText: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   chipTextActive: { color: Colors.white },
   warningCard: {
     marginBottom: 12,
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.warning + '40',
   },
-  warningTitle: { fontSize: 13, fontWeight: '800', color: Colors.textPrimary, marginBottom: 8 },
+  warningTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 8 },
   warningItem: {
     marginBottom: 8,
   },
@@ -159,11 +159,11 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
   },
   rowBetween: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, marginBottom: 10 },
-  level: { fontSize: 11, fontWeight: '800', color: Colors.primary, textTransform: 'uppercase' },
-  category: { fontSize: 11, fontWeight: '700', color: Colors.textMuted, textTransform: 'uppercase' },
-  sectionLabel: { marginTop: 4, marginBottom: 4, fontSize: 11, fontWeight: '800', color: Colors.textMuted, textTransform: 'uppercase' },
-  jp: { fontSize: 18, fontWeight: '700', color: Colors.textPrimary },
-  jpStrong: { fontSize: 19, fontWeight: '800', color: Colors.primaryDark },
+  level: { fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primary, textTransform: 'uppercase' },
+  category: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textMuted, textTransform: 'uppercase' },
+  sectionLabel: { marginTop: 4, marginBottom: 4, fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textMuted, textTransform: 'uppercase' },
+  jp: { fontSize: 18, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
+  jpStrong: { fontSize: 19, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.primaryDark },
   meta: { marginTop: 4, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
   exampleBox: {
     marginTop: 12,
@@ -171,6 +171,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: Colors.accent,
   },
-  exampleJp: { fontSize: 14, fontWeight: '700', color: Colors.textPrimary, lineHeight: 20 },
+  exampleJp: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, lineHeight: 20 },
   exampleVi: { marginTop: 6, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
 });

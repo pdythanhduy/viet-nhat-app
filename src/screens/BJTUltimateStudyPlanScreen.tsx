@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 108 },
   hero: { marginBottom: 14 },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   card: {
     backgroundColor: Colors.card,
@@ -89,9 +89,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  weekBadgeText: { color: Colors.white, fontSize: 14, fontWeight: '800' },
+  weekBadgeText: { color: Colors.white, fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
   flex: { flex: 1 },
-  cardTitle: { fontSize: 16, fontWeight: '800', color: Colors.textPrimary, marginBottom: 4 },
+  cardTitle: { fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 4 },
   bodyText: { fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
   itemRow: {
     marginTop: 10,
@@ -99,6 +99,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: Colors.border,
   },
-  itemLabel: { fontSize: 11, fontWeight: '800', color: Colors.textMuted, textTransform: 'uppercase', marginBottom: 4 },
+  itemLabel: { fontSize: 11, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textMuted, textTransform: 'uppercase', marginBottom: 4 },
   itemValue: { fontSize: 13, lineHeight: 19, color: Colors.textPrimary },
 });

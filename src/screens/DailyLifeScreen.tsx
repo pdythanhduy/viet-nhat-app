@@ -387,7 +387,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 24,
   },
-  headerTitle: { fontSize: 24, fontWeight: '800', color: Colors.white },
+  headerTitle: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
   headerSubtitle: {
     fontSize: 13,
     color: 'rgba(255,255,255,0.8)',
@@ -437,7 +437,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
   },
   filterChipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  filterChipText: { fontSize: 12, fontWeight: '600', color: Colors.textSecondary },
+  filterChipText: { fontSize: 12, fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold', color: Colors.textSecondary },
   filterChipTextActive: { color: Colors.white },
   groupBlock: { marginBottom: 18 },
   groupTitleRow: {
@@ -445,8 +445,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  groupTitle: { fontSize: 17, fontWeight: '800', color: Colors.textPrimary },
-  groupMeta: { fontSize: 11, fontWeight: '700', color: Colors.textMuted },
+  groupTitle: { fontSize: 17, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
+  groupMeta: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textMuted },
   groupDesc: {
     fontSize: 12,
     color: Colors.textSecondary,
@@ -469,7 +469,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  quickTitle: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary, lineHeight: 18 },
+  quickTitle: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, lineHeight: 18 },
   topicCard: {
     backgroundColor: Colors.white,
     borderRadius: 16,
@@ -488,9 +488,9 @@ const styles = StyleSheet.create({
   },
   topicInfo: { flex: 1 },
   topicJp: { fontSize: 11, color: Colors.textMuted, marginBottom: 3 },
-  topicTitle: { fontSize: 14, fontWeight: '800', color: Colors.textPrimary, marginBottom: 3 },
+  topicTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   topicDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   emptyState: { alignItems: 'center', paddingVertical: 40, gap: 8 },
-  emptyTitle: { fontSize: 15, fontWeight: '700', color: Colors.textPrimary },
+  emptyTitle: { fontSize: 15, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   emptyText: { fontSize: 13, color: Colors.textSecondary, textAlign: 'center', lineHeight: 18 },
 });

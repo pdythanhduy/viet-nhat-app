@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   Alert,
   Clipboard,
+  Image,
+  useWindowDimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -28,8 +30,11 @@ export default function DailyLifeDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
   const insets = useSafeAreaInsets();
+  const { width: windowWidth } = useWindowDimensions();
+  const imageWidth = windowWidth - 64;
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
   const [bookmarked, setBookmarked] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
   const topic = DAILY_LIFE_TOPICS.find((item) => item.id === route.params.topicId);
   if (!topic) return null;
@@ -182,6 +187,20 @@ export default function DailyLifeDetailScreen() {
                     </View>
                   ) : null}
 
+                  {section.image && !imageErrors[index] && (
+                    <View style={styles.sectionImageWrap}>
+                      <Image
+                        source={section.image}
+                        style={[styles.sectionImage, { width: imageWidth }]}
+                        resizeMode="cover"
+                        onError={() => setImageErrors((prev) => ({ ...prev, [index]: true }))}
+                      />
+                      {section.imageCaption ? (
+                        <Text style={styles.sectionImageCaption}>{section.imageCaption}</Text>
+                      ) : null}
+                    </View>
+                  )}
+
                   {section.tip ? (
                     <View
                       style={[
@@ -230,7 +249,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.22)',
   },
   topicJp: { fontSize: 13, color: 'rgba(255,255,255,0.78)', marginBottom: 4 },
-  topicTitle: { fontSize: 22, fontWeight: '800', color: Colors.white, marginBottom: 6 },
+  topicTitle: { fontSize: 22, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white, marginBottom: 6 },
   topicDesc: { fontSize: 13, color: 'rgba(255,255,255,0.9)', lineHeight: 19 },
   content: {
     backgroundColor: Colors.background,
@@ -268,8 +287,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexShrink: 0,
   },
-  sectionNumText: { fontSize: 13, fontWeight: '800', color: Colors.white },
-  sectionTitle: { flex: 1, fontSize: 14, fontWeight: '700', color: Colors.textPrimary },
+  sectionNumText: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
+  sectionTitle: { flex: 1, fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   sectionCopyBtn: {
     width: 28,
     height: 28,
@@ -299,6 +318,25 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   tipText: { flex: 1, fontSize: 12, lineHeight: 18, fontWeight: '500' },
+  sectionImageWrap: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginTop: 12,
+    marginBottom: 10,
+    backgroundColor: '#f0f0f0',
+  },
+  sectionImage: {
+    height: 180,
+  },
+  sectionImageCaption: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    textAlign: 'center',
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    fontStyle: 'italic',
+    backgroundColor: '#f8f8f8',
+  },
   noContentBox: { alignItems: 'center', paddingVertical: 40, gap: 8 },
   noContentText: { fontSize: 14, color: Colors.textMuted },
 });

@@ -401,7 +401,7 @@ const styles = StyleSheet.create({
   },
   progressTrack: { height: 6, backgroundColor: Colors.border, overflow: 'hidden' },
   progressFill: { height: 6, backgroundColor: Colors.primary },
-  title: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary },
+  title: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   subtitle: { marginTop: 8, fontSize: 13, lineHeight: 19, color: Colors.textSecondary },
   chips: { gap: 8, paddingTop: 10, paddingBottom: 6, paddingRight: 12, alignItems: 'flex-start' },
   chipsCompact: { gap: 8, paddingTop: 4, paddingBottom: 6, paddingRight: 12, alignItems: 'flex-start' },
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   chipText: {
     fontSize: 12,
     lineHeight: 16,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
     textAlign: 'center',
     includeFontPadding: false,
@@ -433,7 +433,7 @@ const styles = StyleSheet.create({
     gap: 12,
     flexWrap: 'wrap',
   },
-  counter: { fontSize: 13, fontWeight: '700', color: Colors.textSecondary, flexShrink: 1 },
+  counter: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary, flexShrink: 1 },
   questionCard: {
     backgroundColor: Colors.card,
     borderRadius: 16,
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
   },
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' },
   badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
-  questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', color: Colors.textPrimary },
+  questionTitle: { flex: 1, fontSize: 16, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   skillBadge: {
     alignSelf: 'flex-start',
     minHeight: 30,
@@ -458,7 +458,7 @@ const styles = StyleSheet.create({
   skillBadgeText: {
     fontSize: 11,
     lineHeight: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.primary,
     textAlign: 'center',
     includeFontPadding: false,
@@ -477,13 +477,13 @@ const styles = StyleSheet.create({
   levelBadgeText: {
     fontSize: 11,
     lineHeight: 14,
-    fontWeight: '700',
+    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.white,
     textAlign: 'center',
     includeFontPadding: false,
   },
   situation: { marginTop: 10, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
-  prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', color: Colors.textPrimary },
+  prompt: { marginTop: 12, fontSize: 15, lineHeight: 22, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
   options: { marginTop: 14, gap: 10 },
   option: {
     flexDirection: 'row',
@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.border,
   },
-  explanationTitle: { fontSize: 15, fontWeight: '800', color: Colors.textPrimary },
+  explanationTitle: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary },
   explanationText: { marginTop: 8, fontSize: 13, lineHeight: 20, color: Colors.textSecondary },
   primaryButton: {
     marginTop: 18,
@@ -522,7 +522,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     alignItems: 'center',
   },
-  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800' },
+  primaryButtonText: { color: Colors.white, fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold' },
   emptyWrap: {
     flexGrow: 1,
     padding: 24,
@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
   chipsRow: { alignSelf: 'stretch' },
   emptyTitle: {
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.textPrimary,
     textAlign: 'center',
   },
@@ -549,7 +549,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  summaryTitle: { fontSize: 24, fontWeight: '800', color: Colors.textPrimary, textAlign: 'center' },
+  summaryTitle: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, textAlign: 'center' },
   summaryText: {
     marginTop: 10,
     fontSize: 14,
