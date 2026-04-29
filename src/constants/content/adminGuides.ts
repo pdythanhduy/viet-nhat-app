@@ -269,12 +269,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Đến municipal office nơi ở mới',
-        description: 'Đến 市役所/区役所 nơi bạn chuyển đến để làm 転入届 hoặc thủ tục địa chỉ tương ứng.',
+        title: 'Điền 住民異動届 tại municipal office',
+        description: '**Các trường trên 住民異動届:**\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 異動事由 | 転居 (cùng thành phố) / 転入 (từ nơi khác) |\n| 転入（居）年月日 | Ngày thực sự chuyển đến |\n| 新住所 | Địa chỉ mới khớp với hợp đồng thuê |\n| 氏名 | Tên theo 在留カード |\n| 生年月日 | Ngày sinh |\n| 在留資格 | Copy chính xác từ 在留カード |\n\nSau khi nộp: nhân viên đóng dấu địa chỉ mới lên mặt sau **在留カード** ngay tại quầy.',
         documents: [
           'Thẻ cư trú',
           'My Number Card nếu có',
-          '転出証明書 nếu chuyển từ thành phố khác và được yêu cầu',
+          '転出証明書 nếu chuyển từ thành phố khác',
         ],
         tip: 'Cập nhật địa chỉ cho My Number Card, bảo hiểm, ngân hàng, điện thoại và bưu điện sau khi chuyển nhà.',
       },
@@ -686,8 +686,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 3,
-        title: 'Điền đơn và nộp hồ sơ',
-        description: 'Điền mẫu đăng ký tại quầy và nộp cùng các giấy tờ đã chuẩn bị.',
+        title: 'Điền 加入申請書 tại quầy',
+        description: '**Các trường chính trên 国民健康保険 加入申請書:**\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo hộ chiếu; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦: dương lịch) |\n| 在留資格 | Copy chính xác từ 在留カード |\n| 在留期間満了日 | Ngày hết hạn trên 在留カード |\n| 在留カード番号 | 12 ký tự (2 chữ + 8 số + 2 chữ) |\n| 加入年月日 | Ngày mất bảo hiểm công ty hoặc ngày nhập cảnh |\n| 保険料支払方法 | 口座振替 (auto-debit) hoặc 納付書 (hóa đơn) |\n\nNếu chọn **口座振替**: mang sổ tài khoản hoặc thẻ ATM. Điền thêm: 金融機関名, 支店名, 口座種類 (普通), 口座番号 (7 chữ số), 口座名義 (KATAKANA).',
         documents: [],
         tip: 'Từ 02/12/2025, hệ thống dùng マイナ保険証 hoặc 資格確認書. Người chưa có My Number Card hoặc chưa liên kết bảo hiểm sẽ dùng 資格確認書 do bên bảo hiểm cấp.',
       },
@@ -4404,8 +4404,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Đến ハローワーク đăng ký thất nghiệp',
-        description: 'Mang đủ hồ sơ đến ハローワーク gần chỗ cư trú. Điền đơn đăng ký, nộp hồ sơ và nhận ngày tham dự buổi giải thích 雇用保険説明会 (thường 1–2 tuần sau).',
+        title: 'Đến ハローワーク đăng ký — điền 求職票',
+        description: 'Tại quầy, nhân viên sẽ yêu cầu điền **求職票** (phiếu đăng ký tìm việc):\n\n| Trường | Nội dung |\n|---|---|\n| 氏名 / フリガナ | Tên + KATAKANA |\n| 希望職種 | Loại công việc mong muốn |\n| 希望勤務地 | Khu vực muốn làm việc |\n| 雇用形態 | 正社員, 契約社員, パート... |\n| 最終学歴 | Bằng cấp cao nhất |\n| 職歴 | Nơi làm gần nhất, chức vụ, thời gian |\n| 自己PR | Điểm mạnh, kỹ năng ngắn gọn |\n\nSau khi nộp đủ hồ sơ: nhận **雇用保険受給資格者証** (thẻ thụ hưởng trợ cấp) và ngày tham dự **雇用保険説明会** — buổi giải thích bắt buộc tham dự trước khi nhận tiền, thường 1–2 tuần sau ngày đăng ký.',
         documents: ['Toàn bộ hồ sơ nêu trên'],
         tip: 'Hỏi xem ハローワーク có phiên dịch hoặc tài liệu đa ngôn ngữ không — một số chi nhánh lớn hỗ trợ tiếng Việt hoặc tiếng Anh.',
       },

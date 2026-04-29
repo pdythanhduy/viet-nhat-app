@@ -22,6 +22,7 @@ import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { recordRecentDailyLifeTopic } from '../utils/dailyLifeRecentTopics';
 import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import type { DailyLifeSection } from '../types/content';
+import RichText from '../components/RichText';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'DailyLifeDetail'>;
@@ -174,7 +175,14 @@ export default function DailyLifeDetailScreen() {
 
               {expandedSection === index ? (
                 <View style={styles.sectionBody}>
-                  {section.content ? <Text style={styles.sectionContent}>{section.content}</Text> : null}
+                  {section.content ? (
+                    <RichText
+                      text={section.content}
+                      textStyle={styles.sectionContent}
+                      containerStyle={styles.sectionContentContainer}
+                      accentColor={topic.color}
+                    />
+                  ) : null}
 
                   {section.items?.length ? (
                     <View style={styles.itemsList}>
@@ -303,7 +311,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: Colors.border,
   },
-  sectionContent: { fontSize: 13, color: Colors.textSecondary, lineHeight: 20, marginTop: 12, marginBottom: 10 },
+  sectionContentContainer: { marginTop: 12, marginBottom: 10 },
+  sectionContent: { fontSize: 13, color: Colors.textSecondary, lineHeight: 20 },
   itemsList: { gap: 8, marginBottom: 10 },
   itemRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   itemBullet: { width: 6, height: 6, borderRadius: 3, marginTop: 6, flexShrink: 0 },

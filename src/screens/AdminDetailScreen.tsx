@@ -31,6 +31,7 @@ import {
   loadGuideStepProgress,
   toggleGuideStep,
 } from '../utils/guideStepProgress';
+import RichText from '../components/RichText';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
@@ -450,7 +451,12 @@ export default function AdminDetailScreen() {
 
             {expandedStep === index && (
               <View style={styles.stepBody}>
-                <Text style={styles.stepDesc}>{step.description}</Text>
+                <RichText
+                  text={step.description}
+                  textStyle={styles.stepDesc}
+                  containerStyle={styles.stepDescContainer}
+                  accentColor={guide.color}
+                />
 
                 {step.image && (
                   <View style={styles.stepImageBlock}>
@@ -991,12 +997,14 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: Colors.border,
   },
+  stepDescContainer: {
+    marginTop: 12,
+    marginBottom: 12,
+  },
   stepDesc: {
     fontSize: 13,
     color: Colors.textSecondary,
     lineHeight: 20,
-    marginTop: 12,
-    marginBottom: 12,
   },
   stepImageBlock: {
     marginBottom: 12,
