@@ -47,7 +47,7 @@ function isSeparator(cells: string[]): boolean {
   return cells.every((c) => /^:?-+:?$/.test(c));
 }
 
-function InlineText({ text, style }: { text: string; style?: StyleProp<TextStyle> }) {
+export function RichInline({ text, style }: { text: string; style?: StyleProp<TextStyle> }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   if (parts.length === 1) {
     return <Text style={style}>{text}</Text>;
@@ -76,7 +76,7 @@ export default function RichText({ text, textStyle, containerStyle, accentColor 
       {blocks.map((block, i) => {
         if (block.type === 'text') {
           return (
-            <InlineText
+            <RichInline
               key={i}
               text={block.content}
               style={[styles.defaultText, textStyle, i > 0 && styles.blockSpacing]}

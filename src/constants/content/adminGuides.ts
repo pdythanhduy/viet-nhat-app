@@ -2184,6 +2184,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         ],
         tip: 'Không dùng file cũ truyền tay.',
       },
+      {
+        step: 4,
+        title: '⚠️ Sắp có: 在留カード tích hợp My Number (dự kiến 14/06/2026)',
+        description: 'ISA đang chuẩn bị hệ thống **在留カード mới tích hợp với My Number Card**. Theo thông tin đang được công bố:\n\n• Thẻ mới lưu thông tin (thời hạn, tư cách) vào **chip** thay vì in trực tiếp lên mặt thẻ.\n• Yêu cầu **lấy dấu vân tay và chữ ký điện tử** khi nhận thẻ — không được nhờ người khác nhận thay.\n• Phải đến **trực tiếp tại cục xuất nhập cảnh** để nhận.\n\n⚠️ Thông tin đang trong giai đoạn chuyển tiếp — xác nhận lại tại trang chính thức ISA trước khi làm thủ tục.',
+        documents: [],
+        tip: 'Theo dõi trang chính thức ISA để nắm mốc áp dụng chính xác. Chưa cần hành động ngay nếu thẻ của bạn còn hiệu lực.',
+      },
     ],
   },
   {
@@ -5020,13 +5027,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Điều kiện thông thường: sống ở Nhật liên tục 10 năm, trong đó có ít nhất 5 năm làm việc hoặc có tư cách lao động.',
       'Điều kiện rút ngắn: vợ/chồng người Nhật/永住者 (3 năm), Highly Skilled Professional từ 70 điểm (3 năm), 80 điểm (1 năm).',
-      'Có thể nộp khi tư cách lưu trú hiện tại còn từ 3 năm trở lên — nộp khi còn ít hơn sẽ bị không đủ điều kiện.',
+      '⚠️ Thay đổi từ 24/02/2026: tư cách lưu trú hiện tại phải là loại 5 năm (在留期間5年) — người đang giữ thẻ 3 năm không đủ điều kiện nộp. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027.',
     ],
     steps: [
       {
         step: 1,
         title: 'Kiểm tra đủ điều kiện không',
-        description: 'ISA xét dựa trên 4 tiêu chí chính:\n\n1. Thời gian cư trú liên tục: không được rời Nhật quá 100 ngày/năm hoặc 1 lần quá 3 tháng trong giai đoạn xét.\n\n2. Tuân thủ pháp luật: không có tiền án, không vi phạm Luật Xuất nhập cảnh, không nợ thuế hay bảo hiểm.\n\n3. Năng lực tài chính độc lập: thu nhập và tài sản đủ để không cần hỗ trợ nhà nước — ISA không công bố ngưỡng cụ thể nhưng thực tế ~3 triệu yên/năm là tham khảo phổ biến.\n\n4. Có lợi cho nước Nhật: điều kiện chung nhất, thường được hiểu là có lịch sử đóng thuế và bảo hiểm đầy đủ.',
+        description: 'ISA xét dựa trên 4 tiêu chí chính:\n\n**1. Thời gian cư trú liên tục:** không được rời Nhật quá 100 ngày/năm hoặc 1 lần quá 3 tháng trong giai đoạn xét.\n\n**2. Tuân thủ pháp luật:** không có tiền án, không vi phạm Luật Xuất nhập cảnh, không nợ thuế hay bảo hiểm.\n\n**3. Năng lực tài chính độc lập:** thu nhập và tài sản đủ để không cần hỗ trợ nhà nước — ~3 triệu yên/năm là tham khảo phổ biến. Từ tháng 6/2026 ISA có thể dùng My Number để kiểm tra thực tế lịch sử nộp thuế và bảo hiểm.\n\n**4. Tư cách lưu trú phải là loại 5 năm** (hiệu lực từ 24/02/2026): người đang giữ thẻ 3 năm không được nộp. Gia hạn lên 5 năm trước rồi mới nộp 永住. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027 — xác nhận lại với ISA.',
         documents: [],
         tip: 'Kiểm tra lịch sử xuất nhập cảnh trên passport trước — mỗi lần nhập cảnh có đóng dấu. Nếu đã ở Nhật qua nhiều visa, tính tổng thời gian thực tế ở Nhật, không phải thời gian hiệu lực visa.',
       },

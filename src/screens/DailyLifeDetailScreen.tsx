@@ -22,7 +22,7 @@ import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { recordRecentDailyLifeTopic } from '../utils/dailyLifeRecentTopics';
 import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import type { DailyLifeSection } from '../types/content';
-import RichText from '../components/RichText';
+import RichText, { RichInline } from '../components/RichText';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'DailyLifeDetail'>;
@@ -189,7 +189,7 @@ export default function DailyLifeDetailScreen() {
                       {section.items.map((item, itemIndex) => (
                         <View key={`${topic.id}-${index}-${itemIndex}`} style={styles.itemRow}>
                           <View style={[styles.itemBullet, { backgroundColor: topic.color }]} />
-                          <Text style={styles.itemText}>{item}</Text>
+                          <RichInline text={item} style={styles.itemText} />
                         </View>
                       ))}
                     </View>
