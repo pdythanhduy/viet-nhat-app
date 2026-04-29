@@ -204,13 +204,27 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
         items: [
           'Điều kiện: đã đóng Nenkin ít nhất 6 tháng, không có quốc tịch Nhật, đã xuất cảnh khỏi Nhật, chưa có quyền hưởng lương hưu Nhật.',
           'Thời hạn nộp đơn: trong vòng 2 năm kể từ ngày xuất cảnh — sau thời hạn này mất quyền xin hoàn.',
-          'Cách xin: nộp đơn bằng bưu điện hoặc qua người đại diện ở Nhật lên Japan Pension Service (日本年金機構) sau khi đã ra khỏi Nhật. Mẫu đơn có trên nenkin.go.jp.',
-          'Số tiền hoàn lại: tính theo số tháng đóng và mức lương — không phải toàn bộ số đã đóng. Giới hạn hoàn lại tối đa là 60 tháng đóng 厚生年金 (kiểm tra quy định hiện hành vì có thể cập nhật).',
-          'Chú ý: nếu Việt Nam và Nhật Bản có hiệp định bảo hiểm xã hội song phương (đã ký năm 2021), có thể có thêm lựa chọn khác — xem chi tiết tại nenkin.go.jp hoặc lãnh sự quán Nhật Bản.',
+          'Cách xin: gửi bưu điện hoặc qua người đại diện ở Nhật lên Japan Pension Service (日本年金機構) sau khi đã ra khỏi Nhật. Mẫu đơn 脱退一時金請求書 tải tại nenkin.go.jp.',
+          'Số tiền hoàn: tính theo số tháng đóng và mức lương bình quân — không phải toàn bộ. Tối đa 60 tháng 厚生年金 (kiểm tra quy định hiện hành tại nenkin.go.jp).',
+          'Lưu ý hiệp định song phương Việt–Nhật (ký 2021): nếu bạn có thể tính thời gian đóng BHXH Việt Nam vào hồ sơ Nhật, xem thêm tại nenkin.go.jp hoặc hỏi lãnh sự quán.',
         ],
-        tip: 'Trước khi về nước: lưu lại số cơ bản của bảo hiểm xã hội (基礎年金番号 — Kiso Nenkin Bangou). Từ tháng 4/2022, 年金手帳 đã bị bãi bỏ — nếu bạn chưa có, Japan Pension Service sẽ cấp 基礎年金番号通知書 thay thế. Nếu mất số này sẽ rất khó xử lý hồ sơ từ Việt Nam.',
+        tip: 'Trước khi về nước: chụp ảnh 基礎年金番号通知書 (giấy thông báo số nenkin). Từ tháng 4/2022, 年金手帳 đã bị bãi bỏ — số này là định danh duy nhất để nộp hồ sơ từ Việt Nam.',
         image: require('../../../assets/content/daily-life/dl_nenkin_s3.jpg'),
         imageCaption: '脱退一時金申請書 — mẫu xin hoàn tiền nenkin khi rời Nhật, nộp cho Japan Pension Service',
+      },
+      {
+        title: 'Điền form 脱退一時金請求書 — từng trường và phần ngân hàng nước ngoài',
+        content:
+          'Form này gồm 2 phần: thông tin cá nhân và thông tin ngân hàng nhận tiền. Phần ngân hàng nước ngoài là nơi nhiều người điền sai nhất.',
+        items: [
+          '【Thông tin cá nhân】 氏名: họ tên đầy đủ bằng chữ Latin như trong hộ chiếu. 生年月日: ngày sinh theo định dạng 年/月/日 (ví dụ: 1995年03月20日). 国籍: "ベトナム".',
+          '【Thông tin cá nhân】 基礎年金番号: số 10 chữ số trên giấy thông báo nenkin — chia làm 2 phần "4 số — 6 số". Ví dụ: "1234 — 567890".',
+          '【Thông tin cá nhân】 最後に日本に住所を有しなくなった年月日: ngày bạn rời Nhật lần cuối (ngày xuất cảnh trên hộ chiếu).',
+          '【Ngân hàng nước ngoài】 SWIFT/BICコード: mã định danh ngân hàng quốc tế. Một số ngân hàng Việt Nam: Vietcombank → BFTVVNVX, BIDV → BIDVVNVX, Vietinbank → ICBKVNVX, Agribank → VBAAVNVX, Techcombank → VTCBVNVX.',
+          '【Ngân hàng nước ngoài】 口座名義 (tên chủ tài khoản): viết đúng y chang tên trong hồ sơ ngân hàng Việt Nam — thường là họ tên IN HOA không dấu theo thứ tự tên-họ. Ví dụ: "VAN A NGUYEN" hoặc "NGUYEN VAN A" tùy ngân hàng. Sai tên là tiền bị trả về.',
+          '【Ngân hàng nước ngoài】 口座番号: số tài khoản ngân hàng Việt Nam (không phải số thẻ). Tìm trong app ngân hàng phần "thông tin tài khoản".',
+        ],
+        tip: 'Chuẩn bị trước khi điền: ảnh chụp 基礎年金番号通知書, hộ chiếu (trang có ảnh + trang stamp xuất cảnh), và screenshot thông tin tài khoản ngân hàng Việt Nam. Gửi kèm bản photo hộ chiếu 2 trang trên khi nộp đơn.',
       },
       {
         title: 'Giấy tờ cần giữ liên quan Nenkin',
@@ -252,12 +266,25 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
         content:
           'Bộ hồ sơ khác nhau theo từng công ty, nhưng có vài giấy tờ gần như lúc nào cũng cần.',
         items: [
-          'Thẻ cư trú, hộ chiếu, số điện thoại đang dùng ở Nhật.',
-          'Giấy xác nhận việc làm hoặc giấy tờ chứng minh thu nhập. Nếu mới sang, công ty có thể phải xác nhận thêm.',
-          'Địa chỉ cư trú hiện tại, người liên hệ khẩn cấp, giấy cư trú nếu bên cho thuê yêu cầu.',
-          'Nếu không có người bảo lãnh cá nhân, bạn thường sẽ dùng công ty bảo lãnh và trả phí riêng.',
+          'Thẻ cư trú (在留カード) và hộ chiếu — bản gốc để xác nhận, bản photo để nộp kèm hồ sơ.',
+          'Giấy xác nhận việc làm (在職証明書) hoặc giấy tờ chứng minh thu nhập (源泉徴収票 / phiếu lương 3 tháng gần nhất). Người mới sang dưới 1 năm thường cần thêm thư xác nhận từ công ty.',
+          'Số điện thoại Nhật đang dùng — không thể để số Việt Nam vì bên cho thuê cần liên lạc ngay.',
+          'Nếu không có người bảo lãnh cá nhân: dùng công ty bảo lãnh (保証会社) — phí thường 0.5–1 tháng tiền nhà, trả một lần khi ký.',
         ],
-        tip: 'Nếu hồ sơ của bạn còn yếu, nên nói thật ngay từ đầu để môi giới lọc đúng nhóm nhà có khả năng đậu.',
+        tip: 'Nếu hồ sơ còn yếu (ví dụ mới sang, visa còn ngắn, thu nhập thấp), nói thật ngay từ đầu để môi giới lọc đúng nhóm nhà có khả năng đậu — thay vì nộp nhiều chỗ rồi bị từ chối cùng lúc.',
+      },
+      {
+        title: 'Điền 入居申込書 — form đăng ký vào ở, từng ô quan trọng',
+        content:
+          'Đây là form môi giới đưa trước khi xét duyệt. Điền đầy đủ và chính xác ngay lần đầu tạo ấn tượng tốt — điền thiếu làm chậm quá trình.',
+        items: [
+          '氏名 + フリガナ: họ tên đầy đủ và cách đọc bằng KATAKANA. Ví dụ: 氏名 → "Nguyen Van A", フリガナ → "グエン バン ア". Lưu ý: phải viết katakana, không phải hiragana.',
+          '在留資格 / 在留期間: sao chép chính xác từ thẻ cư trú. Ví dụ: 在留資格 → "技術・人文知識・国際業務", 在留期間 → "2027年03月15日まで".',
+          '勤務先: tên công ty, địa chỉ, số điện thoại công ty và 雇用形態 (正社員/契約社員/アルバイト). Nếu mới bắt đầu làm, ghi thêm 入社日 (ngày vào công ty).',
+          '年収 (thu nhập hằng năm): điền tổng lương gộp trước thuế. Nếu chưa đủ 1 năm: lương tháng × 12. Ví dụ lương 250,000 yên/tháng → ghi "300万円" (3.000.000 yên).',
+          '緊急連絡先: họ tên, quan hệ, số điện thoại và địa chỉ. Gia đình ở Việt Nam ghi số quốc tế (+84...). Quan hệ ghi bằng tiếng Nhật: 父 (cha), 母 (mẹ), 兄 (anh), 姉 (chị), 友人 (bạn bè).',
+        ],
+        tip: 'Chuẩn bị trước khi đến văn phòng: thu nhập hằng năm ước tính, địa chỉ và số điện thoại công ty, và thông tin liên hệ khẩn cấp. Mang theo thẻ cư trú và hộ chiếu để đối chiếu.',
       },
       {
         title: 'Ngày nhận nhà phải làm ngay',
@@ -444,6 +471,17 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
           'Không nên nộp sát ngày chuyển nhà rồi nghĩ thư sẽ tự chuyển ngay trong hôm đó.',
         ],
         tip: 'Đây là việc rất đáng làm ngay khi đổi nhà, vì thư từ ngân hàng, trường, bảo hiểm và cơ quan nhà nước thường tới rải rác trong vài tuần.',
+      },
+      {
+        title: 'Điền form 転居届 và 住民異動届 khi chuyển nhà',
+        content:
+          'Khi chuyển nhà ở Nhật có hai loại thủ tục khác nhau hay bị nhầm: một loại ở 役所 để cập nhật hộ khẩu, một loại ở bưu điện để chuyển tiếp thư. Cả hai đều cần làm.',
+        items: [
+          '【Tại 役所 — Cập nhật địa chỉ hộ khẩu (住民異動届)】\n・Điền form 住民異動届 tại quầy 市区町村役所.\n・異動事由: chọn “転居” (cùng thành phố/quận) hoặc “転入” (từ nơi khác đến) — đọc kỹ, chọn sai sẽ phải làm lại.\n・転出入年月日: ngày bạn thực sự chuyển đến.\n・新住所: địa chỉ mới chính xác như trên hợp đồng thuê nhà.\n・氏名 + 生年月日 + 現住所 (địa chỉ cũ): điền đúng với 在留カード.\n・Mang theo: 在留カード (bắt buộc), My Number Card hoặc thông báo My Number, 印鑑 nếu có.\n・Sau khi làm xong: 在留カード sẽ được đóng dấu địa chỉ mới ngay tại quầy.',
+          '【Tại bưu điện — Chuyển tiếp thư 1 năm (転居届)】\n・Lấy form 転居届 (mẫu màu vàng) tại quầy bưu điện hoặc tải trên website e転居.\n・Ghi: 旧住所 (địa chỉ cũ), 新住所 (địa chỉ mới), 氏名, ngày chuyển đến.\n・Nộp tại quầy kèm giấy tờ xác minh danh tính (My Number Card hoặc 在留カード).\n・Hiệu lực bắt đầu sau 3–5 ngày làm việc và kéo dài 1 năm.',
+          '⚠️ Quan trọng: 転居届 ở bưu điện KHÔNG bao gồm thư có in “転送不要” — loại này bưu điện sẽ trả về nơi gửi. Thư ngân hàng, thẻ My Number, thông báo từ cơ quan nhà nước thường là loại 転送不要. Phải tự liên hệ từng nơi để đổi địa chỉ.',
+        ],
+        tip: 'Làm cả hai càng sớm càng tốt — lý tưởng nhất là trong 14 ngày kể từ ngày chuyển nhà. Nếu chuyển từ quận/thành phố khác: làm 転出届 ở nơi cũ trước, rồi mang giấy 転出証明書 đến 役所 nơi mới.',
       },
       {
         title: 'My Number card có thể đăng ký dùng như bảo hiểm, nhưng phải đăng ký trước',
@@ -813,14 +851,17 @@ export const DAILY_LIFE_TOPICS: DailyLifeTopic[] = [
         imageCaption: 'ATM tại combini (セブン銀行・ゆうちょ銀行) — dùng được 24/7, một số ngân hàng tính phí ngoài giờ hành chính',
       },
       {
-        title: 'Chuyển khoản trong Nhật',
-        content: 'Furikomi là giao dịch rất phổ biến, nhưng sai thông tin người nhận thì xử lý không vui chút nào.',
+        title: 'Điền form furikomi (振込) — từng trường cụ thể',
+        content:
+          'Chuyển khoản nội địa Nhật có 5 trường bắt buộc. Sai ở 預金種目 hoặc 口座名義 là hai lỗi phổ biến nhất — tiền không đến hoặc bị hoàn về.',
         items: [
-          'Thường cần tên ngân hàng, chi nhánh, loại tài khoản, số tài khoản và tên người nhận.',
-          'Tên người nhận đôi khi phải nhập bằng kana theo đúng định dạng hệ thống yêu cầu.',
-          'Lần đầu chuyển tiền nhà hoặc tiền học, nên xin ảnh chụp thông tin tài khoản thay vì gõ theo trí nhớ.',
+          '① 金融機関名 — tên ngân hàng người nhận: "みずほ銀行", "三菱UFJ銀行", "ゆうちょ銀行", "PayPay銀行"... Phải đúng tên đầy đủ bằng tiếng Nhật.',
+          '② 支店名 — tên chi nhánh: ví dụ "新宿支店", "渋谷支店". Tra trong app ngân hàng người nhận hoặc hỏi trực tiếp — không đoán. Sai chi nhánh là chuyển nhầm.',
+          '③ 預金種目 — loại tài khoản: gần như luôn chọn 普通 (thông thường / savings). 当座 là tài khoản đặc biệt dành cho doanh nghiệp — chọn nhầm tiền sẽ không đến nơi.',
+          '④ 口座番号 — số tài khoản: thường 7 chữ số. Nếu số ngắn hơn, thêm số 0 ở đầu. Ví dụ nhận được "12345" → nhập "0012345".',
+          '⑤ 口座名義 — tên người nhận bằng KATAKANA: ví dụ "グエン バン ア" (Nguyễn Văn A). Viết họ trước, tên sau, cách nhau bằng dấu cách. Hệ thống đối chiếu tên với hồ sơ ngân hàng — sai một ký tự là bị từ chối tự động.',
         ],
-        tip: 'Nếu là khoản quan trọng, hãy kiểm tra lại từng số trước khi bấm xác nhận. Sai một ký tự vẫn có thể đi nhầm.',
+        tip: 'Khi nhận thông tin tài khoản từ ai đó, xin ảnh chụp màn hình trong app ngân hàng của họ thay vì gõ tay qua tin nhắn — tránh nhầm số và nhầm ký tự katakana.',
         image: require('../../../assets/content/daily-life/dl_banking_s2.jpg'),
         imageCaption: 'Màn hình chuyển khoản (振込) — cần đúng tên ngân hàng, chi nhánh, số tài khoản và tên người nhận bằng kana',
       },
