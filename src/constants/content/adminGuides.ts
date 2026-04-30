@@ -313,13 +313,15 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Chuẩn bị đơn khai báo',
-        description: 'Tải mẫu đơn từ trang ISA hoặc lấy tại cục xuất nhập cảnh.',
+        title: 'Điền 住居地以外の記載事項変更届出書 và nộp tại ISA',
+        description: '**Thông tin cần điền trên đơn** (tải từ trang ISA):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / 在留カード番号 | Tên và số thẻ hiện tại (trước khi đổi) |\n| 生年月日 / 在留資格 | Copy từ thẻ cư trú hiện tại |\n| 変更の内容 | Chọn mục thay đổi: 氏名 / 生年月日 / 性別 / 国籍・地域 |\n| 変更前の記載事項 | Thông tin hiện có trên thẻ |\n| 変更後の記載事項 | Thông tin mới (theo hộ chiếu mới hoặc giấy tờ xác nhận) |\n| 変更年月日 | Ngày thay đổi chính thức (ngày đổi tên, ngày nhập quốc tịch...) |\n| 変更の事由 | Lý do: 婚姻 (kết hôn đổi tên), 帰化 (nhập quốc tịch), 訂正 (sửa lỗi)... |\n\nKèm theo: thẻ cư trú + hộ chiếu mới phản ánh thông tin đổi + giấy tờ chứng minh thay đổi (bản dịch nếu cần).',
         documents: [
-          'Đơn khai báo thay đổi thông tin',
-          'Ảnh thẻ nếu được yêu cầu',
+          'Đơn khai báo (tải từ trang ISA hoặc lấy tại quầy cục xuất nhập cảnh)',
+          'Hộ chiếu mới hoặc giấy tờ quốc tịch phản ánh thay đổi',
+          'Thẻ cư trú hiện tại',
+          'Ảnh thẻ 4×3cm nếu được yêu cầu cấp thẻ mới',
         ],
-        tip: 'Thông tin trên giấy tờ nước ngoài có thể cần bản dịch. Hãy xác nhận trước với nơi nộp.',
+        tip: 'Giấy tờ nước ngoài (hộ chiếu Việt Nam, giấy đổi tên) thường cần bản dịch tiếng Nhật có công chứng. Xác nhận yêu cầu cụ thể với cục xuất nhập cảnh trước khi đến.',
       },
       {
         step: 3,
@@ -1167,6 +1169,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         step: 4,
         title: 'Theo dõi và nhận tiền',
         description: 'Thời gian nhận phụ thuộc dịch vụ, giờ làm việc ngân hàng, xác minh bổ sung và phương thức nhận. Giao dịch đầu tiên hoặc giao dịch lớn có thể mất lâu hơn.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s3.jpg'),
+        imageCaption: 'Theo dõi giao dịch qua app — lưu số tham chiếu để liên hệ hỗ trợ nếu tiền chưa đến',
         documents: [],
         tip: 'Hạn mức và phí thay đổi theo dịch vụ, cấp xác minh và luật hiện hành. Kiểm tra trong app/website chính thức ngay trước khi gửi.',
       },
@@ -5954,6 +5958,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Điền tờ khai — mapping từ 源泉徴収票 vào form',
+        image: require('../../../assets/content/daily-life/dl_furusato_s2.jpg'),
+        imageCaption: '寄附金受領証明書 — biên lai ふるさと納税 dùng để khai 寄附金控除 trong 確定申告',
         description: '**Bước 1 — Nhập số từ 源泉徴収票 (giấy do công ty cấp cuối năm):**\n\n| Ô trên form 確定申告 | Lấy từ 源泉徴収票 |\n|---|---|\n| 給与収入金額 | 支払金額 (ô lớn nhất) |\n| 源泉徴収税額 | hệ thống tự tính |\n| 社会保険料控除 | 社会保険料等の金額 |\n| 生命保険料控除 | 生命保険料の控除額|\n\nNếu làm nhiều công ty trong năm: nhập từng 源泉徴収票 một, hệ thống sẽ cộng tổng.\n\n**Bước 2 — Khai thêm các khoản khấu trừ (nếu có):**\n- 医療費控除: nhập tổng tiền khám/thuốc trong năm − 10万円 (phần vượt quá mới được khấu trừ).\n- 住宅ローン控除: nhập số dư vay cuối năm từ giấy 残高証明書 của ngân hàng.\n- 寄附金控除 (ふるさと納税): nhập tổng số tiền đã đóng góp (xem trên 寄附金受領証明書).\n\n**Bước 3 — Nhập tài khoản ngân hàng để nhận hoàn thuế (還付):**\n- 金融機関名、支店名、預金種目 (普通)、口座番号 (7 chữ số)、口座名義 (KATAKANA).\n\n**Bước 4 — Xem lại và nộp:**\nHệ thống hiển thị số tiền được hoàn (還付金) hoặc phải nộp thêm (追納). Kiểm tra kỹ rồi xác nhận nộp.',
         documents: [],
         tip: 'Nếu kết quả cho thấy phải nộp thêm thuế — không phải sai, là bình thường với người có nhiều nguồn thu. Nộp bổ sung trước 15/3 để không bị tính lãi phạt.',
