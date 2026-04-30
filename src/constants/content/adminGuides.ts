@@ -673,6 +673,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Con dấu cá nhân (印鑑) nếu có',
           'Tài khoản ngân hàng (để đăng ký thanh toán tự động)',
         ],
+        image: require('../../../assets/content/daily-life/dl_health-insurance_s1.jpg'),
+        imageCaption: '健康保険証 / 国民健康保険証 — thẻ bảo hiểm y tế, cần mang khi đi khám',
         tip: 'Phí bảo hiểm phụ thuộc địa phương, thu nhập năm trước và số người trong hộ. Hãy xác nhận mức cụ thể tại municipal office nơi bạn sống.',
       },
       {
@@ -1135,6 +1137,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         step: 1,
         title: 'Chọn dịch vụ phù hợp',
         description: 'Các lựa chọn phổ biến gồm SBI Remit, Wise, Seven Bank/Western Union và ngân hàng. So sánh tổng chi phí gồm phí gửi, tỷ giá, phí nạp tiền và cách người nhận nhận tiền.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s2.jpg'),
+        imageCaption: 'ゆうちょ銀行 / Japan Post — một trong những kênh gửi tiền quốc tế quen thuộc với người Việt tại Nhật',
         documents: [],
         tip: 'Chỉ dùng ngân hàng hoặc 資金移動業者 đã đăng ký tại Nhật. Tránh chuyển qua cá nhân trung gian không rõ pháp lý.',
       },
@@ -1644,6 +1648,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'calendar',
     color: '#2E86C1',
     description: 'Checklist chi tiết cho tháng đầu ở Nhật: nhịp công việc hoặc trường lớp, giấy tờ, tiền bạc, đi lại, sức khỏe và những lỗi dễ phát sinh nếu chủ quan.',
+    heroImage: require('../../../assets/content/daily-life/dl_utilities_s1.jpg'),
+    heroImageCaption: 'Tháng đầu ở Nhật — đăng ký điện nước gas, SIM và sắp xếp cuộc sống cơ bản',
     whoIsThisFor: [
       'Người mới sang Nhật để đi làm, thực tập, kỹ năng đặc định, du học hoặc học tiếng.',
       'Người đã qua tuần đầu nhưng vẫn thấy mọi thứ chưa vào nếp và sợ bỏ sót việc quan trọng.',
@@ -3899,6 +3905,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         step: 4,
         title: 'Những thứ tuyệt đối không làm',
         description: 'Đừng bán, cho thuê, cho mượn tài khoản, thẻ ATM, sổ ngân hàng, app, OTP, SIM hay đứng tên hộ. Đây là hành vi có thể kéo bạn vào lừa đảo chuyển tiền, rửa tiền hoặc gian lận tài chính mà về sau rất khó gỡ.',
+        image: require('../../../assets/content/daily-life/dl_banking_s2.jpg'),
+        imageCaption: 'Tài khoản ngân hàng chỉ được dùng đúng tên và mục đích đã đăng ký — cho mượn là vi phạm pháp luật',
         documents: [
           'Không chia sẻ thông tin đăng nhập',
           'Không giao thiết bị chứa app ngân hàng cho người khác',
@@ -4909,6 +4917,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'medkit-outline',
     color: '#C0392B',
     description: 'Khi bị thương hoặc mắc bệnh do công việc, người lao động nước ngoài có quyền hưởng 労災保険 (bảo hiểm tai nạn lao động) — hoàn toàn độc lập với bảo hiểm y tế thông thường. Công ty không thể từ chối hay che giấu.',
+    heroImage: require('../../../assets/content/daily-life/dl_hospital_s4.jpg'),
+    heroImageCaption: '労災 — tai nạn lao động được bảo hiểm toàn bộ; người nước ngoài có đầy đủ quyền lợi như người Nhật',
     whoIsThisFor: [
       'Người bị thương tại nơi làm việc hoặc trên đường đi làm/về (通勤災害).',
       'Người mắc bệnh nghề nghiệp do công việc gây ra (職業病): đau lưng mạn tính, điếc tai, ngộ độc hóa chất v.v.',
