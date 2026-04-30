@@ -893,8 +893,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 3,
-        title: 'Chuẩn bị giấy tờ & đăng ký',
-        description: 'Các ngân hàng thường yêu cầu thẻ cư trú hoặc giấy chứng nhận vĩnh trú đặc biệt. Đăng ký qua PC hoặc khi thông tin giấy tờ chưa đủ có thể cần thêm My Number Card, bằng lái Nhật, giấy xác nhận tư cách bảo hiểm hoặc giấy xác nhận đang làm việc.',
+        title: 'Điền 口座開設申込書 & nộp hồ sơ',
+        description: '**Các trường trên 口座開設申込書** (form đăng ký tại quầy hoặc online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 現住所 | Địa chỉ khớp chính xác với 在留カード |\n| 電話番号 | Số Nhật đang dùng (SIM Nhật) |\n| 職業 | Công ty đang làm hoặc 学生/無職 nếu chưa có |\n| 在留資格 / 在留期限 | Copy từ 在留カード |\n| 口座利用目的 | Thường chọn: 給与受取・生活費 |\n\nNgân hàng online yêu cầu chụp ảnh 在留カード (mặt trước + sau) qua app eKYC.',
         documents: [
           'Thẻ cư trú (在留カード) hoặc Special Permanent Resident Certificate',
           'Giấy tờ có địa chỉ hiện tại khớp với đơn đăng ký',
@@ -1441,6 +1441,14 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         question: 'Bị công ty hoặc nghiệp đoàn giữ hộ chiếu/thẻ cư trú thì làm gì?',
         answer: 'Đây là dấu hiệu rủi ro nghiêm trọng. Hãy lưu bằng chứng và liên hệ cơ quan tư vấn như OTIT, FRESC hoặc 労働基準監督署.',
+      },
+      {
+        question: 'Lương tối thiểu ở Nhật hiện tại là bao nhiêu?',
+        answer: 'Từ tháng 10/2025, lương tối thiểu quốc gia (全国加重平均) là **¥1,121/giờ**. Mức Tokyo cao hơn: **¥1,226/giờ**. Mức này áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能 và 育成就労. Nếu bị trả dưới mức này, bạn có quyền khiếu nại lên 労働基準監督署.',
+      },
+      {
+        question: '特定技能 có những ngành nào?',
+        answer: 'Tính đến 2024, 特定技能 áp dụng cho **16 ngành**: 介護, ビルクリーニング, 素形材・産業機械・電気電子情報関連製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 農業, 漁業, 飲食料品製造業, 外食業, 自動車運送業 (mới thêm), 鉄道 (mới thêm). Trước năm 2024 chỉ có 14 ngành; hai ngành tự động vận tải và đường sắt được bổ sung để giải quyết tình trạng thiếu lao động.',
       },
     ],
     officialLinks: [
@@ -2346,6 +2354,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         question: 'Muốn phân biệt nhanh nên nhìn vào đâu trước?',
         answer: 'Hãy nhìn 3 điểm: mục đích chuyến đi, thời gian ở Nhật và có ý định sống cùng/làm việc hay không. Nếu là sống cùng gia đình lâu dài, nghĩ tới COE và 家族滞在; nếu chỉ sang vài ngày hoặc vài tuần thăm thân thì là 短期滞在; nếu là du lịch trong phạm vi eVISA thì chỉ là tourism ngắn hạn.',
+      },
+      {
+        question: 'Digital Nomad visa cần điều kiện gì và có dành cho người Việt không?',
+        answer: 'Điều kiện chính: thu nhập năm từ **¥10,000,000 (10 triệu yên)** trở lên từ nguồn ngoài Nhật Bản, bảo hiểm y tế/tai nạn tối thiểu ¥10M, và hộ chiếu từ một trong **50+ quốc gia** được chỉ định. Hiện **Việt Nam không nằm trong danh sách** này, nên người mang hộ chiếu Việt Nam chưa đủ điều kiện. Visa áp dụng từ tháng 3/2024, thời hạn 6 tháng, không gia hạn, không cho phép làm việc cho công ty Nhật.',
       },
     ],
     officialLinks: [
@@ -3710,10 +3722,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Không đủ tiền đóng: xin miễn hoặc猶予, đừng để未納',
-        description: '日本年金機構 cho phép xin 全額免除, 一部免除, 納付猶予, 学生納付特例 và các chế độ riêng khác tùy hoàn cảnh. Điểm quan trọng là nộp đơn sớm; cơ quan年金 cho phép truy ngược một khoảng thời gian nhưng không phải vô hạn.',
+        title: 'Điền 国民年金保険料免除・納付猶予申請書 tại 年金事務所',
+        description: '**Các trường trên đơn 免除・猶予申請書**:\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 基礎年金番号 | Số từ 年金手帳 hoặc 基礎年金番号通知書 |\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 住所 | Địa chỉ hiện tại khớp với 住民票 |\n| 免除・猶予の種別 | Chọn: 全額免除 / 一部免除 / 納付猶予 |\n| 申請理由 | Lý do: 失業 / 収入減少 / 学生 / その他 |\n| 世帯主氏名 / 配偶者 | Nếu xét thu nhập chung hộ thì cần điền |\n\n日本年金機構 cho phép truy ngược tối đa 2 năm; nộp đơn sớm để không mất khoảng thời gian được bảo vệ.',
+        image: require('../../../assets/content/daily-life/dl_nenkin_s3.jpg'),
+        imageCaption: '年金事務所 — nơi nộp đơn miễn/猶予 và xử lý các thủ tục 国民年金',
         documents: [
-          'Đơn miễn/猶予',
+          'Đơn miễn/猶予 (nhận tại quầy hoặc in từ website 日本年金機構)',
           'Giấy tờ thu nhập hoặc thất nghiệp nếu cần',
           'Thông tin配偶者/世帯主 trong trường hợp xét điều kiện',
         ],
@@ -4079,10 +4093,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Nộp chuyển đến và kiểm tra thông tin cư trú',
-        description:
-          'Kiểm tra kỹ cách viết tên, ngày sinh, địa chỉ và thành viên hộ gia đình trước khi xác nhận.',
-        documents: ['Mẫu đơn tại quầy', 'Giấy tờ cá nhân'],
+        title: 'Điền 転入届 tại quầy',
+        description: '**Các trường trên 転入届** (hoặc 転居届 nếu chuyển trong cùng thành phố):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 転入年月日 | Ngày thực sự chuyển đến nhà mới |\n| 新住所 | Địa chỉ mới khớp với hợp đồng thuê |\n| 世帯主 | Chủ hộ — thường chính bạn nếu ở một mình |\n| 在留資格 | Copy chính xác từ 在留カード |\n\nSau khi nộp: nhân viên đóng dấu địa chỉ mới lên mặt sau **在留カード** ngay tại quầy.',
+        documents: ['Mẫu đơn tại quầy', 'Thẻ cư trú (在留カード)', 'Hộ chiếu nếu được yêu cầu'],
         tip: 'Sai địa chỉ hoặc sai cách viết tên sẽ kéo theo lỗi ở ngân hàng, điện thoại và hồ sơ khác.',
       },
       {
