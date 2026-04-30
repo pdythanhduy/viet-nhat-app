@@ -405,13 +405,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Khai báo trong vòng 14 ngày',
-        description: 'Khai báo khi chấm dứt hợp đồng, ký hợp đồng mới, hoặc có thay đổi quan trọng về tổ chức tiếp nhận.',
+        title: 'Điền 契約機関に関する届出書 và nộp trong 14 ngày',
+        description: '**Các trường trên 届出書** (tải từ trang ISA hoặc khai online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①活動機関の離脱 (nghỉ việc) hoặc ②活動機関への移籍 (vào công ty mới) |\n| 機関の名称・所在地 | Tên pháp nhân, địa chỉ, số điện thoại công ty (cũ hoặc mới) |\n| 活動内容 | Mô tả công việc: VD "エンジニアとして就労" |\n\nGhi cả hai sự kiện nếu vừa nghỉ vừa chuyển: nộp 2 tờ hoặc ghi cả hai trên cùng 1 tờ nếu mẫu cho phép.',
         documents: [
-          'Mẫu 届出書 tương ứng',
-          'Thông tin pháp nhân/công ty',
+          'Mẫu 届出書 (tải từ trang ISA hoặc khai qua hệ thống 電子届出)',
+          'Thẻ cư trú để tra số thẻ và ngày hết hạn',
         ],
-        tip: 'Có thể khai báo online, gửi bưu điện hoặc nộp trực tiếp tùy trường hợp.',
+        tip: 'Khai báo online qua hệ thống 電子届出 của ISA nhanh nhất — không cần đến quầy. Lưu màn hình xác nhận hoặc in ra để chứng minh khi gia hạn.',
       },
       {
         step: 3,
@@ -545,10 +545,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Tick đúng trên ED card khi xuất cảnh',
-        description: 'Khi rời Nhật, cần thể hiện ý định quay lại bằng cách chọn đúng mục trên tờ khai xuất cảnh/tái nhập cảnh.',
-        documents: [],
-        tip: 'Nếu ra khỏi Nhật mà không có re-entry permission phù hợp, tư cách lưu trú có thể mất.',
+        title: 'Qua cửa kiểm tra xuất cảnh — không cần điền ED card',
+        description: 'Từ tháng 4/2016, Nhật bỏ tờ khai ED card giấy cho người có thẻ cư trú. Khi dùng **みなし再入国許可**, quy trình hiện tại:\n\n1. Xếp hàng cửa kiểm tra xuất nhập cảnh tại sân bay.\n2. Xuất trình **hộ chiếu** và **在留カード**.\n3. Nhân viên ISA quét thẻ cư trú và đóng dấu/xử lý điện tử — không cần điền tờ khai giấy.\n4. Nếu dùng **自動化ゲート** (cổng tự động): quét hộ chiếu và làm theo hướng dẫn màn hình.\n\n⚠️ Không được quay lại sau khi hạn lưu trú hết — みなし再入国 vẫn bị hủy nếu bạn trở về sau ngày hết hạn 在留期間.',
+        documents: [
+          'Hộ chiếu còn hiệu lực',
+          '在留カード còn hiệu lực',
+        ],
+        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh.',
       },
       {
         step: 3,
@@ -577,14 +580,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     steps: [
       {
         step: 1,
-        title: 'Khai báo trong vòng 14 ngày',
-        description: 'Nếu bạn đang ở Nhật với tư cách liên quan đến vợ/chồng và ly hôn hoặc vợ/chồng mất, cần khai báo trong vòng 14 ngày.',
+        title: 'Điền 配偶者に関する届出書 và nộp trong 14 ngày',
+        description: '**Các trường trên 届出書** (tải từ ISA hoặc khai online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①配偶者と離婚した (ly hôn) hoặc ②配偶者が死亡した (vợ/chồng mất) |\n| 配偶者の氏名 | Tên vợ/chồng (người Nhật hoặc người nước ngoài) |\n| 離婚（または死亡）の年月日 | Ngày ly hôn theo 離婚届受理 hoặc ngày tử vong |\n\n⚠️ Khai báo này **không tự động gia hạn hoặc đổi visa**. Sau khi nộp, cần sớm tư vấn ISA về hướng xử lý tư cách lưu trú.',
         documents: [
           'Thẻ cư trú',
-          'Thông tin về ngày ly hôn hoặc ngày vợ/chồng qua đời',
-          'Giấy tờ chứng minh nếu được yêu cầu',
+          'Giấy 離婚届受理証明書 hoặc 死亡診断書 nếu được yêu cầu',
         ],
-        tip: 'Thủ tục này không tự động đổi visa. Sau khai báo, hãy sớm tư vấn ISA nếu cần đổi tư cách lưu trú.',
+        tip: 'Tư cách 日本人の配偶者等 hoặc 永住者の配偶者等 gắn với quan hệ hôn nhân. Sau ly hôn, nếu không có căn cứ lưu trú khác, thời gian xử lý hồ sơ trở nên gấp — đừng để quá deadline 14 ngày.',
       },
       {
         step: 2,
@@ -4606,6 +4608,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         step: 5,
         title: 'Nộp đơn pension refund (脱退一時金) sau khi về nước',
         description: 'Nộp đơn xin hoàn lại tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật. Deadline là 2 năm kể từ ngày rời. Sau khi nhận, Japan Pension Service khấu lưu 20.42% thuế — người Việt có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế Việt Nam–Nhật.',
+        image: require('../../../assets/content/daily-life/dl_post-office_s1.jpg'),
+        imageCaption: 'Gửi đơn 脱退一時金 qua bưu điện từ Việt Nam đến Japan Pension Service — dùng dịch vụ có số theo dõi',
         documents: [
           'Mẫu đơn 脱退一時金裁定請求書 (tải từ nenkin.go.jp)',
           'Bản sao hộ chiếu (trang ảnh và trang con dấu nhập cảnh gần nhất)',
