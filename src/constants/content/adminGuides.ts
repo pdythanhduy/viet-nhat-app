@@ -920,6 +920,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'phone-portrait',
     color: '#D35400',
     description: 'Hướng dẫn đăng ký SIM/eSIM tại Nhật. Từ 2026, xác minh danh tính online có xu hướng chặt hơn, nên cần kiểm tra giấy tờ từng nhà mạng.',
+    heroImage: require('../../../assets/content/daily-life/dl_sim_s1.jpg'),
+    heroImageCaption: 'Đăng ký SIM tại Nhật — cần 在留カード và địa chỉ khớp giấy tờ',
     whoIsThisFor: [
       'Người mới sang Nhật cần số điện thoại để làm ngân hàng, việc làm, trường học và xác thực app.',
       'Người muốn đổi nhà mạng, dùng eSIM hoặc chuyển sang gói rẻ hơn.',
@@ -3789,6 +3791,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'card-outline',
     color: '#1F618D',
     description: 'Guide thực tế về mở tài khoản ngân hàng, chuyển tiền quốc tế, lý do bị yêu cầu xác minh thêm, rủi ro tài khoản bị hạn chế/khóa và những hành vi tuyệt đối không nên làm ở Nhật.',
+    heroImage: require('../../../assets/content/daily-life/dl_banking_s1.jpg'),
+    heroImageCaption: 'Tài khoản ngân hàng tại Nhật — cần địa chỉ và giấy tờ hợp lệ, dùng đúng mục đích đã đăng ký',
     whoIsThisFor: [
       'Người mới sang Nhật muốn mở tài khoản và dùng hợp pháp, ổn định lâu dài.',
       'Người thường xuyên chuyển tiền về Việt Nam hoặc nhận tiền từ nhiều nơi.',
@@ -3996,16 +4000,16 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Gom tài liệu chứng minh',
-        description:
-          'Hồ sơ thường xoay quanh ba nhóm: giấy tờ cá nhân, giấy tờ của bên tiếp nhận và giấy tờ chứng minh bạn đáp ứng điều kiện của diện mới.',
+        title: 'Điền 在留資格変更許可申請書 và gom tài liệu',
+        description: '**Các trường chính trên mẫu đơn** (tải từ trang ISA):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 国籍・地域 | Quốc tịch: ベトナム |\n| 氏名 | Tên theo hộ chiếu (Latin) |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 住居地 | Địa chỉ khớp với 在留カード |\n| 在留資格（変更後）| Tư cách lưu trú mới muốn đổi sang |\n| 在留期間 | Để trống — ISA tự xác định |\n| 勤務先・通学先 | Tên công ty/trường mới, địa chỉ, số điện thoại |\n| 申請人の署名 | Ký tên chính chủ |\n\nKèm theo: hộ chiếu + 在留カード + ảnh 4×3cm + giấy tờ của bên tiếp nhận (hợp đồng, thư tuyển dụng, bằng cấp tuỳ diện).',
         documents: [
           'Hộ chiếu, thẻ cư trú',
-          'Đơn đúng mẫu',
+          'Mẫu đơn 在留資格変更許可申請書 đúng phiên bản (tải từ trang ISA)',
+          'Ảnh 4cm × 3cm nền trắng chụp trong 3 tháng gần nhất',
           'Giấy tờ của công ty hoặc trường mới',
           'Bằng cấp, chứng chỉ, hợp đồng hoặc thư tuyển dụng nếu cần',
         ],
-        tip: 'Đừng chỉ nộp giấy tờ “na ná”. Hồ sơ đổi tư cách thường bị soi kỹ ở phần tính phù hợp của công việc.',
+        tip: 'Đừng chỉ nộp giấy tờ “na ná”. Hồ sơ đổi tư cách thường bị soi kỹ ở phần tính phù hợp của công việc với bằng cấp.',
       },
       {
         step: 3,
@@ -4781,6 +4785,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'business-outline',
     color: '#7D3C98',
     description: 'Thuế địa phương tính dựa trên thu nhập năm trước — hoàn toàn tách biệt với thuế thu nhập (所得税). Nhiều người bất ngờ nhận hóa đơn lớn vào tháng 6 năm thứ hai do không biết cơ chế này.',
+    heroImage: require('../../../assets/content/daily-life/dl_tax_s1.jpg'),
+    heroImageCaption: '住民税決定通知書 — thông báo thuế cư dân gửi đến mỗi năm vào tháng 6',
     whoIsThisFor: [
       'Người đi làm hoặc có thu nhập tại Nhật từ năm thứ hai trở đi — năm đầu tiên chưa phát sinh 住民税.',
       'Người vừa chuyển việc, nghỉ việc hoặc về nước — những thời điểm 住民税 dễ bị bỏ quên nhất.',
@@ -4818,11 +4824,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 4,
-        title: 'Xin giảm hoặc miễn 住民税',
-        description: 'Nếu thu nhập thấp hoặc không có việc làm, có thể xin giảm/miễn một phần 住民税 tại municipal office. Đơn xin (減額・免除申請) thường có hạn nộp sớm trong năm — hỏi quầy 市民税課 của municipal office để biết điều kiện và deadline cụ thể theo địa phương.\n\nLưu ý: không tự động được giảm — phải chủ động nộp đơn.',
+        title: 'Xin giảm/miễn 住民税 — điền đơn tại 市民税課',
+        description: '**Thông tin thường cần khi điền đơn 減額・免除申請**:\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 住所 | Địa chỉ hiện tại khớp với 住民票 |\n| 世帯主 | Chủ hộ (thường chính bạn) |\n| 申請理由 | Lý do: 失業・収入減少・生活困窮 |\n| 収入金額 | Thu nhập năm trước — lấy từ 源泉徴収票 hoặc 確定申告 |\n| 失業の場合 | Đính kèm 離職票 hoặc 雇用保険受給資格者証 |\n\nNộp tại quầy 市民税課 (hoặc 住民税担当) của municipal office. Deadline thường tháng 7–8 — kiểm tra với địa phương vì khác nhau.',
         documents: [
           '在留カード',
           'Giấy tờ chứng minh thu nhập hoặc tình trạng thất nghiệp (離職票, 源泉徴収票 năm trước)',
+          'Đơn xin giảm/miễn (nhận tại quầy hoặc in từ website municipal office)',
         ],
         tip: 'Nếu bạn có thu nhập từ nhiều nguồn (lương công ty + part-time + thu nhập khác), tất cả đều được tổng hợp khi tính 住民税. Khai đầy đủ trong 確定申告 để tránh bị truy thu sau.',
       },
