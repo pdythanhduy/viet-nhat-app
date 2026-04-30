@@ -1152,10 +1152,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 3,
-        title: 'Thực hiện giao dịch',
-        description: 'Nhập chính xác tên người nhận, quốc gia, ngân hàng/địa điểm nhận, số tài khoản hoặc thông tin nhận tiền mặt. Kiểm tra kỹ số tiền người nhận nhận được trước khi xác nhận.',
+        title: 'Điền thông tin giao dịch — không để sai',
+        description: '**Thông tin người nhận cần chuẩn bị trước:**\n\n| Trường | Lưu ý |\n|---|---|\n| 受取人氏名 | Tên Latin khớp chính xác với sổ tài khoản Việt Nam (không dấu) |\n| 受取銀行名 | Tên ngân hàng bằng tiếng Anh (VD: Vietcombank, MB Bank) |\n| 支店名 / Branch | Tên chi nhánh nếu dịch vụ yêu cầu |\n| 口座番号 | Số tài khoản (không phải số thẻ ATM) |\n| SWIFT / BICコード | Mã SWIFT của ngân hàng Việt Nam — tra tại trang ngân hàng |\n| 送金目的 | Chọn: 家族への仕送り (gửi cho gia đình) |\n\nKiểm tra lại số tiền người nhận thực nhận (sau phí + tỷ giá) trước khi bấm xác nhận — không thể hủy sau khi đã gửi.',
         documents: [],
-        tip: 'Tên người nhận phải khớp giấy tờ/tài khoản tại Việt Nam. Sai dấu, thứ tự tên hoặc số tài khoản có thể làm giao dịch chậm hoặc bị hoàn.',
+        tip: 'Tên người nhận phải khớp chính xác với tên trên tài khoản tại Việt Nam — sai thứ tự tên hoặc thiếu chữ có thể khiến tiền bị giữ hoặc hoàn về mất phí.',
       },
       {
         step: 4,
@@ -3330,6 +3330,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'home',
     color: '#2980B9',
     description: 'Guide thực tế về thuê nhà ở Nhật: tiền vào nhà, người bảo lãnh, hợp đồng, hủy hợp đồng,退去費, 原状回復, và phần mua nhà cho người nước ngoài với lưu ý cư trú.',
+    heroImage: require('../../../assets/content/daily-life/dl_apartment_s3.jpg'),
+    heroImageCaption: 'Thuê nhà ở Nhật — cần hiểu rõ tiền cọc, hợp đồng và trách nhiệm khi trả nhà',
     whoIsThisFor: [
       'Người đang tìm nhà thuê đầu tiên ở Nhật hoặc chuẩn bị chuyển nhà.',
       'Người bị báo退去費 cao, bị giữ tiền cọc hoặc bị ép trả phí sửa chữa khó hiểu.',
@@ -4040,6 +4042,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#27AE60',
     description:
       'Thủ tục đăng ký địa chỉ tại municipal office sau khi bạn chuyển đến nơi ở mới. Đây là một trong những việc nền tảng nhất để mở tài khoản, bảo hiểm, My Number và nhiều thủ tục khác.',
+    heroImage: require('../../../assets/content/daily-life/dl_apartment_s1.jpg'),
+    heroImageCaption: 'Chuyển vào nhà mới — một trong những việc đầu tiên cần đăng ký địa chỉ tại municipal office',
     whoIsThisFor: [
       'Người mới sang Nhật có nơi ở cố định và cần đăng ký địa chỉ.',
       'Người chuyển địa chỉ sang thành phố hoặc quận khác trong Nhật.',
@@ -4484,6 +4488,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'airplane',
     color: '#27AE60',
     description: 'Tất cả thủ tục cần làm trước và sau khi rời Nhật: chuyển đi khỏi thành phố, hủy bảo hiểm, đóng ngân hàng, hủy điện thoại, hoàn thuế pension và quyết toán thuế.',
+    heroImage: require('../../../assets/content/daily-life/dl_moving-out_s2.jpg'),
+    heroImageCaption: 'Dọn nhà và chuẩn bị về nước — đừng quên 転出届, hủy SIM và xin pension refund',
     whoIsThisFor: [
       'Người kết thúc hợp đồng lao động, chương trình thực tập hoặc khóa học và chuẩn bị về Việt Nam.',
       'Người muốn rời Nhật vĩnh viễn hoặc tạm thời dài ngày.',
@@ -4548,14 +4554,14 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     steps: [
       {
         step: 1,
-        title: 'Nộp 転出届 tại municipal office',
-        description: 'Báo với văn phòng phường/thành phố rằng bạn sẽ rời địa chỉ đó. Nộp trong vòng 14 ngày trước hoặc sau ngày dọn đi. Sau khi nộp, bảo hiểm 国民健康保険 (nếu có) sẽ tự kết thúc theo địa chỉ đó.',
+        title: 'Điền 転出届 tại municipal office trước khi về',
+        description: '**Các trường trên 転出届** (nhận tại quầy 住民登録 / 市民課):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 現住所 | Địa chỉ hiện tại đang đăng ký |\n| 転出先 | Nếu về nước: ghi 海外 + tên quốc gia (ベトナム) |\n| 転出年月日 | Ngày dự kiến rời địa chỉ / rời Nhật |\n| 世帯主 | Chủ hộ (thường chính bạn nếu ở một mình) |\n\nNộp trong vòng 14 ngày trước hoặc sau ngày thực tế dọn đi. Khi về nước vĩnh viễn, ghi rõ 海外転出.',
         documents: [
           'Thẻ cư trú',
           'Hộ chiếu',
           'Thẻ My Number (nếu có)',
         ],
-        tip: 'Hỏi xin thêm 転出証明書 — giấy này dùng được khi đóng tài khoản ngân hàng hoặc làm các thủ tục sau đó cần xác nhận đã chuyển đi.',
+        tip: 'Xin thêm 転出証明書 sau khi nộp — cần khi đóng tài khoản ngân hàng hoặc xác nhận đã hủy cư trú.',
       },
       {
         step: 2,
@@ -5283,6 +5289,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'fitness-outline',
     color: '#117A65',
     description: 'Người lao động tại Nhật được khám sức khỏe miễn phí hàng năm — theo luật, công ty BẮT BUỘC phải tổ chức cho nhân viên. Người đóng 国民健康保険 cũng có chương trình 特定健診 miễn phí từ 40 tuổi. Đây là quyền lợi nhiều người không biết và bỏ qua.',
+    heroImage: require('../../../assets/content/daily-life/dl_hospital_s1.jpg'),
+    heroImageCaption: '定期健康診断 — khám sức khỏe định kỳ miễn phí, quyền lợi bắt buộc của người lao động tại Nhật',
     whoIsThisFor: [
       'Người đi làm tại Nhật theo hợp đồng lao động — bất kể toàn thời gian hay bán thời gian đủ điều kiện.',
       'Người đóng 国民健康保険 (bảo hiểm quốc dân) từ 40 đến 74 tuổi — có quyền làm 特定健診 miễn phí.',
