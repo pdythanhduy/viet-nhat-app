@@ -47,7 +47,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     documentsChecklist: [
       { label: 'Đơn xin gia hạn thời hạn lưu trú', required: true, note: 'Tải đúng mẫu theo tư cách lưu trú từ trang ISA.' },
-      { label: 'Ảnh thẻ theo quy định', required: true, note: 'Chụp gần đây, đúng kích thước/yêu cầu nền theo mẫu ISA.' },
+      { label: 'Ảnh thẻ縦4cm × 横3cm', required: true, note: 'Nền trắng hoặc sáng màu đơn sắc (không có bóng), chụp trong 3 tháng gần nhất, không đội mũ, không đeo kính tối.' },
       { label: 'Hộ chiếu', required: true, note: 'Mang bản gốc. Nếu không có hộ chiếu hợp lệ, cần giải thích theo hướng dẫn của ISA.' },
       { label: 'Thẻ cư trú hiện tại', required: true, note: 'Mang bản gốc.' },
       { label: 'Giấy chứng nhận đang làm việc / hợp đồng lao động', required: false, note: 'Thường cần với visa đi làm.' },
@@ -109,7 +109,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Giấy tờ phụ thuộc vào loại visa: đi làm, du học, gia đình, kỹ năng đặc định, v.v. Hãy tải đúng mẫu từ trang ISA cho tư cách lưu trú của bạn.',
         documents: [
           'Đơn xin gia hạn thời hạn lưu trú',
-          'Ảnh thẻ theo quy định của ISA',
+          'Ảnh thẻ縦4cm × 横3cm, nền trắng/sáng, chụp trong 3 tháng gần nhất',
           'Giấy tờ chứng minh hoạt động hiện tại: hợp đồng lao động, giấy chứng nhận đang làm việc, giấy nhập học, bảng điểm, giấy tờ gia đình...',
           'Giấy tờ thu nhập/thuế/bảo hiểm nếu được yêu cầu',
         ],
@@ -173,7 +173,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Theo trang ISA, thủ tục này yêu cầu đơn xin, ảnh, hộ chiếu và thẻ cư trú. Trường hợp dưới 16 tuổi hoặc người đại diện làm thay có thể cần giấy tờ bổ sung.',
         documents: [
           'Đơn xin gia hạn hiệu lực thẻ cư trú',
-          'Ảnh thẻ theo quy định',
+          'Ảnh thẻ縦4cm × 横3cm, nền trắng/sáng, chụp trong 3 tháng gần nhất',
           'Hộ chiếu',
           'Thẻ cư trú hiện tại',
         ],
@@ -314,12 +314,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Điền 住居地以外の記載事項変更届出書 và nộp tại ISA',
-        description: '**Thông tin cần điền trên đơn** (tải từ trang ISA):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / 在留カード番号 | Tên và số thẻ hiện tại (trước khi đổi) |\n| 生年月日 / 在留資格 | Copy từ thẻ cư trú hiện tại |\n| 変更の内容 | Chọn mục thay đổi: 氏名 / 生年月日 / 性別 / 国籍・地域 |\n| 変更前の記載事項 | Thông tin hiện có trên thẻ |\n| 変更後の記載事項 | Thông tin mới (theo hộ chiếu mới hoặc giấy tờ xác nhận) |\n| 変更年月日 | Ngày thay đổi chính thức (ngày đổi tên, ngày nhập quốc tịch...) |\n| 変更の事由 | Lý do: 婚姻 (kết hôn đổi tên), 帰化 (nhập quốc tịch), 訂正 (sửa lỗi)... |\n\nKèm theo: thẻ cư trú + hộ chiếu mới phản ánh thông tin đổi + giấy tờ chứng minh thay đổi (bản dịch nếu cần).',
+        description: '**Thông tin cần điền trên đơn** (tải PDF: https://www.moj.go.jp/isa/content/001426705.pdf hoặc nhận tại quầy ISA):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / 在留カード番号 | Tên và số thẻ hiện tại (trước khi đổi) |\n| 生年月日 / 在留資格 | Copy từ thẻ cư trú hiện tại |\n| 変更の内容 | Chọn mục thay đổi: 氏名 / 生年月日 / 性別 / 国籍・地域 |\n| 変更前の記載事項 | Thông tin hiện có trên thẻ |\n| 変更後の記載事項 | Thông tin mới (theo hộ chiếu mới hoặc giấy tờ xác nhận) |\n| 変更年月日 | Ngày thay đổi chính thức (ngày đổi tên, ngày nhập quốc tịch...) |\n| 変更の事由 | Lý do: 婚姻 (kết hôn đổi tên), 帰化 (nhập quốc tịch), 訂正 (sửa lỗi)... |\n\nKèm theo: thẻ cư trú + hộ chiếu mới phản ánh thông tin đổi + giấy tờ chứng minh thay đổi (bản dịch nếu cần).',
         documents: [
-          'Đơn khai báo (tải từ trang ISA hoặc lấy tại quầy cục xuất nhập cảnh)',
+          'Đơn khai báo — tải PDF: https://www.moj.go.jp/isa/content/001426705.pdf hoặc nhận tại quầy ISA',
           'Hộ chiếu mới hoặc giấy tờ quốc tịch phản ánh thay đổi',
           'Thẻ cư trú hiện tại',
-          'Ảnh thẻ 4×3cm nếu được yêu cầu cấp thẻ mới',
+          'Ảnh縦4cm × 横3cm, nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất — chỉ khi được yêu cầu cấp thẻ mới',
         ],
         tip: 'Giấy tờ nước ngoài (hộ chiếu Việt Nam, giấy đổi tên) thường cần bản dịch tiếng Nhật có công chứng. Xác nhận yêu cầu cụ thể với cục xuất nhập cảnh trước khi đến.',
       },
@@ -408,9 +408,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Điền 契約機関に関する届出書 và nộp trong 14 ngày',
-        description: '**Các trường trên 届出書** (tải từ trang ISA hoặc khai online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①活動機関の離脱 (nghỉ việc) hoặc ②活動機関への移籍 (vào công ty mới) |\n| 機関の名称・所在地 | Tên pháp nhân, địa chỉ, số điện thoại công ty (cũ hoặc mới) |\n| 活動内容 | Mô tả công việc: VD "エンジニアとして就労" |\n\nGhi cả hai sự kiện nếu vừa nghỉ vừa chuyển: nộp 2 tờ hoặc ghi cả hai trên cùng 1 tờ nếu mẫu cho phép.',
+        description: '**Các trường trên 届出書** (tải PDF hoặc khai online qua hệ thống 電子届出):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①活動機関の離脱 (nghỉ việc) hoặc ②活動機関への移籍 (vào công ty mới) |\n| 機関の名称・所在地 | Tên pháp nhân, địa chỉ, số điện thoại công ty (cũ hoặc mới) |\n| 活動内容 | Mô tả công việc: VD "エンジニアとして就労" |\n\n**Tải mẫu đơn PDF:**\n- Nghỉ việc (活動機関の離脱): https://www.moj.go.jp/isa/content/930002827.pdf\n- Vào công ty mới (活動機関への移籍): https://www.moj.go.jp/isa/content/930002828.pdf\n- Ghi cả hai sự kiện cùng lúc: https://www.moj.go.jp/isa/content/930002914.pdf',
         documents: [
-          'Mẫu 届出書 (tải từ trang ISA hoặc khai qua hệ thống 電子届出)',
+          'Mẫu 届出書 — tải PDF theo loại sự kiện (link trong mô tả) hoặc khai qua hệ thống 電子届出',
           'Thẻ cư trú để tra số thẻ và ngày hết hạn',
         ],
         tip: 'Khai báo online qua hệ thống 電子届出 của ISA nhanh nhất — không cần đến quầy. Lưu màn hình xác nhận hoặc in ra để chứng minh khi gia hạn.',
@@ -553,7 +553,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Hộ chiếu còn hiệu lực',
           '在留カード còn hiệu lực',
         ],
-        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh.',
+        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh. Tải mẫu đơn 再入国許可申請書 (PDF): https://www.moj.go.jp/isa/content/930004122.pdf',
       },
       {
         step: 3,
@@ -583,7 +583,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 1,
         title: 'Điền 配偶者に関する届出書 và nộp trong 14 ngày',
-        description: '**Các trường trên 届出書** (tải từ ISA hoặc khai online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①配偶者と離婚した (ly hôn) hoặc ②配偶者が死亡した (vợ/chồng mất) |\n| 配偶者の氏名 | Tên vợ/chồng (người Nhật hoặc người nước ngoài) |\n| 離婚（または死亡）の年月日 | Ngày ly hôn theo 離婚届受理 hoặc ngày tử vong |\n\n⚠️ Khai báo này **không tự động gia hạn hoặc đổi visa**. Sau khi nộp, cần sớm tư vấn ISA về hướng xử lý tư cách lưu trú.',
+        description: '**Các trường trên 届出書** (tải PDF: https://www.moj.go.jp/isa/content/930002829.pdf hoặc khai online):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 在留資格 / 在留期間満了日 | Copy từ 在留カード |\n| 在留カード番号 | 12 ký tự trên mặt trước thẻ |\n| 届出事由 | Chọn: ①配偶者と離婚した (ly hôn) hoặc ②配偶者が死亡した (vợ/chồng mất) |\n| 配偶者の氏名 | Tên vợ/chồng (người Nhật hoặc người nước ngoài) |\n| 離婚（または死亡）の年月日 | Ngày ly hôn theo 離婚届受理 hoặc ngày tử vong |\n\n⚠️ Khai báo này **không tự động gia hạn hoặc đổi visa**. Sau khi nộp, cần sớm tư vấn ISA về hướng xử lý tư cách lưu trú.',
         documents: [
           'Thẻ cư trú',
           'Giấy 離婚届受理証明書 hoặc 死亡診断書 nếu được yêu cầu',
@@ -3739,11 +3739,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Điền 国民年金保険料免除・納付猶予申請書 tại 年金事務所',
-        description: '**Các trường trên đơn 免除・猶予申請書**:\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 基礎年金番号 | Số từ 年金手帳 hoặc 基礎年金番号通知書 |\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 住所 | Địa chỉ hiện tại khớp với 住民票 |\n| 免除・猶予の種別 | Chọn: 全額免除 / 一部免除 / 納付猶予 |\n| 申請理由 | Lý do: 失業 / 収入減少 / 学生 / その他 |\n| 世帯主氏名 / 配偶者 | Nếu xét thu nhập chung hộ thì cần điền |\n\n日本年金機構 cho phép truy ngược tối đa 2 năm; nộp đơn sớm để không mất khoảng thời gian được bảo vệ.',
+        description: '**Các trường trên đơn 免除・猶予申請書** (tải PDF: https://www.nenkin.go.jp/shinsei/kokunen/menjoyuyo/menjo.files/mennzyo.pdf hoặc nhận tại quầy 年金事務所):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 基礎年金番号 | Số từ 年金手帳 hoặc 基礎年金番号通知書 |\n| 氏名 / フリガナ | Tên theo 在留カード; フリガナ viết KATAKANA |\n| 生年月日 | Ngày/tháng/năm sinh (西暦 — dương lịch) |\n| 住所 | Địa chỉ hiện tại khớp với 住民票 |\n| 免除・猶予の種別 | Chọn: 全額免除 / 一部免除 / 納付猶予 |\n| 申請理由 | Lý do: 失業 / 収入減少 / 学生 / その他 |\n| 世帯主氏名 / 配偶者 | Nếu xét thu nhập chung hộ thì cần điền |\n\n日本年金機構 cho phép truy ngược tối đa 2 năm; nộp đơn sớm để không mất khoảng thời gian được bảo vệ.',
         image: require('../../../assets/content/daily-life/dl_nenkin_s3.jpg'),
         imageCaption: '年金事務所 — nơi nộp đơn miễn/猶予 và xử lý các thủ tục 国民年金',
         documents: [
-          'Đơn miễn/猶予 (nhận tại quầy hoặc in từ website 日本年金機構)',
+          'Đơn miễn/猶予 — tải PDF: https://www.nenkin.go.jp/shinsei/kokunen/menjoyuyo/menjo.files/mennzyo.pdf hoặc nhận tại quầy 年金事務所',
           'Giấy tờ thu nhập hoặc thất nghiệp nếu cần',
           'Thông tin配偶者/世帯主 trong trường hợp xét điều kiện',
         ],
@@ -3974,7 +3974,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     fees: ['Có lệ phí khi được cấp phép. Kiểm tra biểu phí mới nhất của ISA trước khi nộp.'],
     documentsChecklist: [
       { label: 'Đơn xin đổi tư cách lưu trú đúng mẫu', required: true },
-      { label: 'Ảnh theo quy cách nếu hồ sơ yêu cầu', required: true },
+      { label: 'Ảnh thẻ縦4cm × 横3cm', required: true, note: 'Nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất — bắt buộc kèm theo đơn.' },
       { label: 'Hộ chiếu và thẻ cư trú', required: true },
       { label: 'Tài liệu chứng minh lý do đổi tư cách', required: true },
       { label: 'Giấy tờ của công ty, trường hoặc cơ quan tiếp nhận mới', required: true },
@@ -4017,11 +4017,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Điền 在留資格変更許可申請書 và gom tài liệu',
-        description: '**Các trường chính trên mẫu đơn** (tải từ trang ISA):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 国籍・地域 | Quốc tịch: ベトナム |\n| 氏名 | Tên theo hộ chiếu (Latin) |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 住居地 | Địa chỉ khớp với 在留カード |\n| 在留資格（変更後）| Tư cách lưu trú mới muốn đổi sang |\n| 在留期間 | Để trống — ISA tự xác định |\n| 勤務先・通学先 | Tên công ty/trường mới, địa chỉ, số điện thoại |\n| 申請人の署名 | Ký tên chính chủ |\n\nKèm theo: hộ chiếu + 在留カード + ảnh 4×3cm + giấy tờ của bên tiếp nhận (hợp đồng, thư tuyển dụng, bằng cấp tuỳ diện).',
+        description: '**Các trường chính trên mẫu đơn** (tải PDF: https://www.moj.go.jp/isa/content/930004064.pdf — trang hướng dẫn: https://www.moj.go.jp/isa/applications/procedures/16-2.html):\n\n| Trường | Ghi như thế nào |\n|---|---|\n| 国籍・地域 | Quốc tịch: ベトナム |\n| 氏名 | Tên theo hộ chiếu (Latin) |\n| 生年月日 | Ngày/tháng/năm sinh (西暦) |\n| 住居地 | Địa chỉ khớp với 在留カード |\n| 在留資格（変更後）| Tư cách lưu trú mới muốn đổi sang |\n| 在留期間 | Để trống — ISA tự xác định |\n| 勤務先・通学先 | Tên công ty/trường mới, địa chỉ, số điện thoại |\n| 申請人の署名 | Ký tên chính chủ |\n\nKèm theo: hộ chiếu + 在留カード + ảnh **縦4cm × 横3cm**, nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất + giấy tờ của bên tiếp nhận (hợp đồng, thư tuyển dụng, bằng cấp tuỳ diện).',
         documents: [
           'Hộ chiếu, thẻ cư trú',
-          'Mẫu đơn 在留資格変更許可申請書 đúng phiên bản (tải từ trang ISA)',
-          'Ảnh 4cm × 3cm nền trắng chụp trong 3 tháng gần nhất',
+          'Mẫu đơn 在留資格変更許可申請書 — tải PDF: https://www.moj.go.jp/isa/content/930004064.pdf',
+          'Ảnh縦4cm × 横3cm, nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất',
           'Giấy tờ của công ty hoặc trường mới',
           'Bằng cấp, chứng chỉ, hợp đồng hoặc thư tuyển dụng nếu cần',
         ],
@@ -4432,7 +4432,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: '離職票 — giấy chứng nhận nghỉ việc (離職票-Ⅰ và -Ⅱ)', required: true, note: 'Công ty cấp sau khi nghỉ — thường gồm 2 tờ. Không có thì không thể làm thủ tục.' },
       { label: '雇用保険被保険者証 (thẻ bảo hiểm thất nghiệp)', required: true, note: 'Công ty giữ hộ hoặc bạn có — nếu mất có thể xin cấp lại tại ハローワーク.' },
       { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Xác nhận tư cách lưu trú còn hiệu lực.' },
-      { label: 'Ảnh thẻ 3×2.5cm (2 tấm)', required: true, note: 'Ảnh nền trắng, chụp gần đây.' },
+      { label: 'Ảnh thẻ縦3cm × 横2.5cm (2 tấm)', required: true, note: 'Nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất — đây là kích thước riêng của ハローワーク, khác với ảnh ISA.' },
       { label: 'Tài khoản ngân hàng Nhật (sổ tiết kiệm hoặc thẻ)', required: true, note: 'Trợ cấp chuyển khoản trực tiếp vào tài khoản.' },
       { label: 'Hộ chiếu', required: false, note: 'Một số ハローワーク yêu cầu thêm.' },
     ],
@@ -4447,7 +4447,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Đến ハローワーク đăng ký — điền 求職票',
-        description: 'Tại quầy, nhân viên sẽ yêu cầu điền **求職票** (phiếu đăng ký tìm việc):\n\n| Trường | Nội dung |\n|---|---|\n| 氏名 / フリガナ | Tên + KATAKANA |\n| 希望職種 | Loại công việc mong muốn |\n| 希望勤務地 | Khu vực muốn làm việc |\n| 雇用形態 | 正社員, 契約社員, パート... |\n| 最終学歴 | Bằng cấp cao nhất |\n| 職歴 | Nơi làm gần nhất, chức vụ, thời gian |\n| 自己PR | Điểm mạnh, kỹ năng ngắn gọn |\n\nSau khi nộp đủ hồ sơ: nhận **雇用保険受給資格者証** (thẻ thụ hưởng trợ cấp) và ngày tham dự **雇用保険説明会** — buổi giải thích bắt buộc tham dự trước khi nhận tiền, thường 1–2 tuần sau ngày đăng ký.',
+        description: 'Tại quầy, nhân viên sẽ yêu cầu điền **求職票** (phiếu đăng ký tìm việc). Có thể tải mẫu trống về điền trước: https://www.hellowork.mhlw.go.jp/doc/kyuusyokumousikomisyo.pdf — tuy nhiên **bắt buộc phải đến quầy ハローワーク trực tiếp** để hoàn tất đăng ký, không thể làm online hay bưu điện.\n\n| Trường | Nội dung |\n|---|---|\n| 氏名 / フリガナ | Tên + KATAKANA |\n| 希望職種 | Loại công việc mong muốn |\n| 希望勤務地 | Khu vực muốn làm việc |\n| 雇用形態 | 正社員, 契約社員, パート... |\n| 最終学歴 | Bằng cấp cao nhất |\n| 職歴 | Nơi làm gần nhất, chức vụ, thời gian |\n| 自己PR | Điểm mạnh, kỹ năng ngắn gọn |\n\nSau khi nộp đủ hồ sơ: nhận **雇用保険受給資格者証** (thẻ thụ hưởng trợ cấp) và ngày tham dự **雇用保険説明会** — buổi giải thích bắt buộc tham dự trước khi nhận tiền, thường 1–2 tuần sau ngày đăng ký.',
         documents: ['Toàn bộ hồ sơ nêu trên'],
         tip: 'Hỏi xem ハローワーク có phiên dịch hoặc tài liệu đa ngôn ngữ không — một số chi nhánh lớn hỗ trợ tiếng Việt hoặc tiếng Anh.',
       },
@@ -4611,11 +4611,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 5,
         title: 'Nộp đơn pension refund (脱退一時金) sau khi về nước',
-        description: 'Nộp đơn xin hoàn lại tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật. Deadline là 2 năm kể từ ngày rời. Sau khi nhận, Japan Pension Service khấu lưu 20.42% thuế — người Việt có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế Việt Nam–Nhật.',
+        description: 'Nộp đơn xin hoàn lại tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật. Deadline là 2 năm kể từ ngày rời. Sau khi nhận, Japan Pension Service khấu lưu 20.42% thuế — người Việt có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế Việt Nam–Nhật.\n\nTải mẫu đơn: https://www.nenkin.go.jp/shinsei/jukyu/sonota-kyufu/20150406.html — chọn mẫu **様式第I号** (dành cho người nhận tài khoản nước ngoài hoặc người không có 納税管理人).',
         image: require('../../../assets/content/daily-life/dl_post-office_s1.jpg'),
         imageCaption: 'Gửi đơn 脱退一時金 qua bưu điện từ Việt Nam đến Japan Pension Service — dùng dịch vụ có số theo dõi',
         documents: [
-          'Mẫu đơn 脱退一時金裁定請求書 (tải từ nenkin.go.jp)',
+          'Mẫu đơn 脱退一時金裁定請求書 様式第I号 — tải từ: https://www.nenkin.go.jp/shinsei/jukyu/sonota-kyufu/20150406.html',
           'Bản sao hộ chiếu (trang ảnh và trang con dấu nhập cảnh gần nhất)',
           'Bản sao thẻ cư trú cũ (đã nộp tại sân bay — dùng ảnh đã chụp trước khi nộp)',
           'Thông tin tài khoản ngân hàng để nhận tiền',
