@@ -4752,6 +4752,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nếu sang Nhật vào giữa năm học (tháng 4–3), nên đến trường và municipal office trong vòng 1 tuần để sắp xếp.',
       'Năm học Nhật bắt đầu tháng 4 — nếu đến trước tháng 3, liên hệ ngay để kịp nhập học đầu năm.',
     ],
+    officialLinks: [
+      { label: '外国人の子等の就学に関する手続 — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/shugaku/detail/1422256.htm' },
+      { label: '小・中学校等への就学について — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/shugaku/' },
+    ],
     steps: [
       {
         step: 1,
@@ -4819,6 +4823,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Khi chuyển việc: công ty cũ ngừng trừ từ lương, công ty mới bắt đầu trừ từ tháng tiếp theo hoặc bạn phải tự trả phần còn lại.',
       'Khi nghỉ việc hoặc về nước: phần 住民税 còn lại của năm có thể bị thu gộp một lần — cần xác nhận với công ty và municipal office.',
     ],
+    officialLinks: [
+      { label: '住民税について — 財務省', url: 'https://www.mof.go.jp/tax_information/qanda020.html' },
+      { label: '国税と地方税の種類 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/osirase/9000.htm' },
+    ],
     steps: [
       {
         step: 1,
@@ -4878,6 +4886,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Ngay khi dọn vào nhà mới: lấy lịch phân loại rác (ゴミカレンダー) của khu vực tại municipal office, tòa nhà, hoặc app của thành phố.',
       'Trước khi chuyển nhà: đăng ký thu gom 粗大ゴミ ít nhất 1–2 tuần trước ngày chuyển.',
     ],
+    officialLinks: [
+      { label: '廃棄物等の処理 — 環境省', url: 'https://www.env.go.jp/recycle/waste/index.html' },
+      { label: '家電製品の正しいリユース・リサイクル — 環境省', url: 'https://www.env.go.jp/recycle/kaden/tvrecycle.html' },
+    ],
     steps: [
       {
         step: 1,
@@ -4936,6 +4948,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Ngay khi xảy ra tai nạn: đi khám và thông báo cho công ty ngay lập tức — đừng chờ xem tình trạng thế nào.',
       'Nộp đơn 労災 càng sớm càng tốt — không có thời hạn cứng cho đơn điều trị (療養補償給付), nhưng trợ cấp nghỉ việc (休業補償給付) có giới hạn tính từ ngày nghỉ.',
       'Ngay cả khi tai nạn xảy ra đã lâu mà chưa làm thủ tục, vẫn có thể nộp — hỏi ハローワーク hoặc 労働基準監督署 để biết tình trạng cụ thể.',
+    ],
+    officialLinks: [
+      { label: '労災補償 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/pamphletfaq.html' },
+      { label: '労働災害が発生したとき — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/rousai/index.html' },
     ],
     steps: [
       {
@@ -4999,6 +5015,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Không có hạn định — làm khi cả hai đã sẵn sàng về giấy tờ.',
       'Nếu một người cần visa gia đình (日本人の配偶者等 hoặc 永住者の配偶者等): cần hoàn tất đăng ký kết hôn ở Nhật trước khi nộp đơn đổi tư cách lưu trú.',
       'Nếu muốn đăng ký khai sinh con trong tương lai: hôn nhân cần được công nhận ở cả Nhật lẫn Việt Nam.',
+    ],
+    officialLinks: [
+      { label: '婚姻届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-2' },
+      { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
     ],
     steps: [
       {
@@ -5073,6 +5093,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Điều kiện rút ngắn: vợ/chồng người Nhật/永住者 (3 năm), Highly Skilled Professional từ 70 điểm (3 năm), 80 điểm (1 năm).',
       '⚠️ Thay đổi từ 24/02/2026: tư cách lưu trú hiện tại phải là loại 5 năm (在留期間5年) — người đang giữ thẻ 3 năm không đủ điều kiện nộp. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027.',
     ],
+    officialLinks: [
+      { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
+    ],
     steps: [
       {
         step: 1,
@@ -5140,6 +5163,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nên kiểm tra điểm số trước khi gia hạn visa thường: nếu đủ 70 điểm, đổi sang 高度専門職 có lợi hơn nhiều.',
       'Nếu đang xin visa từ nước ngoài: xin 高度専門職 thẳng thay vì xin visa lao động thông thường nếu đủ điều kiện.',
     ],
+    officialLinks: [
+      { label: '高度人材ポイント制 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/publications/materials/newimmiact_3_index.html' },
+      { label: '高度専門職ポイント計算表 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/newimmiact_3_system_index.html' },
+    ],
     steps: [
       {
         step: 1,
@@ -5198,6 +5225,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nên chuẩn bị hồ sơ ít nhất 3–4 tháng trước ngày 技能実習 hết hạn để có đủ thời gian thi và xử lý hồ sơ ISA.',
       'Nếu đã hoàn thành 技能実習2号 cùng ngành, có thể nộp ngay — không cần đợi hết thêm thời gian.',
     ],
+    officialLinks: [
+      { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
+      { label: '技能実習から特定技能への移行 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/10_00025.html' },
+    ],
     steps: [
       {
         step: 1,
@@ -5255,6 +5286,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Nộp đơn TRƯỚC KHI visa du học hết hạn — thường trong 2–3 tháng cuối trước khi tốt nghiệp hoặc ngay sau lễ tốt nghiệp.',
       'Nếu visa đã hết hạn: không thể xin từ trong nước — phải xuất cảnh và xin lại từ đầu (rất phức tạp). Đừng để hết hạn.',
+    ],
+    officialLinks: [
+      { label: '在留資格「特定活動」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities.html' },
+      { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
     ],
     steps: [
       {
@@ -5319,6 +5354,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       '特定健診 (40–74 tuổi, 国民健康保険): municipal office gửi phiếu 受診券 vào khoảng tháng 5–6 hàng năm — dùng phiếu đến cơ sở y tế đăng ký trước cuối năm tài khóa (tháng 3 năm sau).',
       'Nếu không nhận được thông báo từ công ty sau 1 năm làm việc: chủ động hỏi phòng nhân sự.',
     ],
+    officialLinks: [
+      { label: '健康診断を実施しましょう — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_05927.html' },
+      { label: '労働安全衛生法のあらまし — 厚生労働省', url: 'https://www.check-roudou.mhlw.go.jp/law/anzen.html' },
+    ],
     steps: [
       {
         step: 1,
@@ -5374,6 +5413,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Ngay khi mua xe mới hoặc nhận xe cũ — không được đi trước khi có số đăng ký (ナンバープレート) và bảo hiểm bắt buộc (自賠責保険).',
       'Khi chuyển địa chỉ sang tỉnh/thành phố khác: cần đổi ナンバープレート trong vòng 15 ngày (với 軽二輪 và 小型二輪 đăng ký tại 軽自動車検査協会).',
+    ],
+    officialLinks: [
+      { label: '自賠責保険ポータルサイト — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/' },
+      { label: '軽自動車検査協会', url: 'https://www.keikenkyo.or.jp/' },
     ],
     steps: [
       {
@@ -5434,6 +5477,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Kiểm tra điều kiện vay trước khi ký hợp đồng đặt cọc (売買契約) — một khi đã ký, hủy hợp đồng rất tốn kém.',
       'Nộp đơn xin 住宅ローン控除 trong năm đầu tiên sau khi mua: phải tự làm 確定申告 năm đầu; từ năm thứ 2 công ty có thể làm qua 年末調整.',
+    ],
+    officialLinks: [
+      { label: 'フラット35 — 住宅金融支援機構', url: 'https://www.flat35.com/' },
+      { label: '住宅借入金等特別控除 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1213.htm' },
     ],
     steps: [
       {
@@ -5498,6 +5545,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nộp 青色申告承認申請書 trong vòng 2 tháng kể từ ngày bắt đầu kinh doanh để được áp dụng 青色申告 ngay năm đó.',
       'Nếu đã kinh doanh từ trước mà chưa đăng ký: nộp ngay — không hồi tố nhưng bắt đầu từ đây là đúng hướng.',
     ],
+    officialLinks: [
+      { label: '個人事業の開業届出・廃業届出等手続 — 国税庁', url: 'https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/04.htm' },
+      { label: '所得税の青色申告承認申請手続 — 国税庁', url: 'https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/09.htm' },
+    ],
     steps: [
       {
         step: 1,
@@ -5554,6 +5605,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Sau khi có tài khoản ngân hàng Nhật và đã cư trú ít nhất 3–6 tháng — nhiều công ty thẻ yêu cầu tài khoản ngân hàng Nhật để trích nợ tự động (口座振替).',
       'Không nên nộp đơn xin nhiều thẻ cùng lúc — mỗi lần xin bị ghi vào 信用情報 và nhiều lần từ chối liên tiếp làm xấu hồ sơ.',
+    ],
+    officialLinks: [
+      { label: '信用情報とは — CIC', url: 'https://www.cic.co.jp/confidence/index.html' },
+      { label: '信用情報について — JICC', url: 'https://www.jicc.co.jp/aboutus/credit-info' },
+      { label: '全国銀行個人信用情報センター — 全国銀行協会', url: 'https://www.zenginkyo.or.jp/pcic/' },
     ],
     steps: [
       {
@@ -6152,7 +6208,5 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
   },
 ];
-
-
 
 

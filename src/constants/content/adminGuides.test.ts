@@ -19,11 +19,10 @@ describe('ADMIN_GUIDES content quality', () => {
 
   it('has required category and official source links for every guide', () => {
     for (const guide of ADMIN_GUIDES) {
-      expect(guide.category).toBeDefined();
       expect(VALID_CATEGORIES).toContain(guide.category);
-      expect(guide.officialLinks?.length).toBeGreaterThan(0);
+      expect(guide.officialLinks.length).toBeGreaterThan(0);
 
-      for (const link of guide.officialLinks ?? []) {
+      for (const link of guide.officialLinks) {
         expect(link.label.trim().length).toBeGreaterThan(0);
         expect(link.url).toMatch(/^https:\/\//);
       }

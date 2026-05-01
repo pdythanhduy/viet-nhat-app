@@ -204,7 +204,7 @@ describe('bjt content', () => {
 
   it('tags reviewed J4 runtime items with an explicit J4 level', () => {
     const j4RuntimeItems = BJT_PRACTICE_QUESTIONS.filter((item) => item.id.startsWith('j4_'));
-    expect(j4RuntimeItems).toHaveLength(16);
+    expect(j4RuntimeItems).toHaveLength(20);
     expect(new Set(j4RuntimeItems.map((item) => item.level))).toEqual(new Set(['J4']));
   });
 

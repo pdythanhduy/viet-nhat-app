@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { Platform, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -89,6 +89,39 @@ export type RootStackParamList = {
 const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const HEADER_TITLE_STYLE = {
+  fontWeight: '700',
+  fontFamily: 'BeVietnamPro_700Bold',
+  fontSize: 17,
+} as const;
+
+const primaryHeaderOptions: NativeStackNavigationOptions = {
+  headerShown: true,
+  headerStyle: { backgroundColor: Colors.primary },
+  headerTintColor: Colors.white,
+  headerTitleStyle: HEADER_TITLE_STYLE,
+};
+
+const primaryTabHeaderOptions: BottomTabNavigationOptions = {
+  headerShown: true,
+  headerStyle: { backgroundColor: Colors.primary },
+  headerTintColor: Colors.white,
+  headerTitleStyle: HEADER_TITLE_STYLE,
+};
+
+const primaryDarkHeaderOptions: NativeStackNavigationOptions = {
+  ...primaryHeaderOptions,
+  headerStyle: { backgroundColor: Colors.primaryDark },
+};
+
+const plainHeaderOptions: NativeStackNavigationOptions = {
+  headerShown: true,
+  headerStyle: { backgroundColor: Colors.background },
+  headerTintColor: Colors.textPrimary,
+  headerTitleStyle: { ...HEADER_TITLE_STYLE, color: Colors.textPrimary },
+  headerShadowVisible: false,
+};
+
 function TabNavigator() {
   const insets = useSafeAreaInsets();
   const androidBottomInset = Platform.OS === 'android' ? Math.max(insets.bottom, 8) : 0;
@@ -130,11 +163,8 @@ function TabNavigator() {
         component={SettingsScreen}
         options={{
           tabBarLabel: 'Cài đặt',
-          headerShown: true,
+          ...primaryTabHeaderOptions,
           headerTitle: 'Cài đặt',
-          headerStyle: { backgroundColor: Colors.primary },
-          headerTintColor: Colors.white,
-          headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
         }}
       />
     </Tab.Navigator>
@@ -149,234 +179,150 @@ export default function AppNavigator() {
         <Stack.Screen
           name="AdminDetail"
           component={AdminDetailScreen}
-          options={{
-            headerShown: true,
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
-          }}
+          options={primaryHeaderOptions}
         />
         <Stack.Screen
           name="DailyLife"
           component={DailyLifeScreen}
           options={{
-            headerShown: true,
+            ...primaryHeaderOptions,
             headerTitle: 'Cuộc sống hằng ngày',
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
           name="DailyLifeDetail"
           component={DailyLifeDetailScreen}
-          options={{
-            headerShown: true,
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
-          }}
+          options={primaryHeaderOptions}
         />
         <Stack.Screen
           name="BJT"
           component={BJTScreen}
           options={{
-            headerShown: true,
+            ...primaryDarkHeaderOptions,
             headerTitle: 'BJT Business Japanese',
-            headerStyle: { backgroundColor: Colors.primaryDark },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
           name="BJTVocabulary"
           component={BJTVocabularyScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Vocabulary',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTKeigo"
           component={BJTKeigoScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Keigo',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTScenarios"
           component={BJTScenariosScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Scenarios',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTDocumentMock"
           component={BJTDocumentMockScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Document Mock',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTBusinessToolkit"
           component={BJTBusinessToolkitScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Business Toolkit',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTLanguageAssets"
           component={BJTLanguageAssetsScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Language Assets',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTJobDocs"
           component={BJTJobDocsScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Job Docs',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTReadingPassages"
           component={BJTReadingPassagesScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Reading Passages',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTFlashcards"
           component={BJTFlashcardsScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Flashcards',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTUltimateStudyPlan"
           component={BJTUltimateStudyPlanScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT 12-Week Plan',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTMockExamsV2"
           component={BJTMockExamsV2Screen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Mock Exams V2',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTQuiz"
           component={BJTQuizScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Scenario Practice',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTMockTest"
           component={BJTMockTestScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Mock Test',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="BJTReview"
           component={BJTReviewScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'BJT Review Mode',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="JapanesePractice"
           component={JapanesePracticeScreen}
-          options={{
-            headerShown: true,
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
-          }}
+          options={plainHeaderOptions}
         />
         <Stack.Screen
           name="JapaneseQuiz"
           component={JapaneseQuizScreen}
-          options={{
-            headerShown: true,
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
-          }}
+          options={plainHeaderOptions}
         />
         <Stack.Screen
           name="JapaneseKana"
@@ -396,34 +342,24 @@ export default function AppNavigator() {
           name="Feedback"
           component={FeedbackScreen}
           options={{
-            headerShown: true,
+            ...plainHeaderOptions,
             headerTitle: 'Góp ý và phản hồi',
-            headerStyle: { backgroundColor: Colors.background },
-            headerTintColor: Colors.textPrimary,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17, color: Colors.textPrimary },
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen
           name="LaborGuide"
           component={LaborGuideScreen}
           options={{
-            headerShown: true,
+            ...primaryHeaderOptions,
             headerTitle: 'Cẩm nang lao động',
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen
           name="LaborHelp"
           component={LaborHelpScreen}
           options={{
-            headerShown: true,
+            ...primaryHeaderOptions,
             headerTitle: 'Khiếu nại / cần giúp gì',
-            headerStyle: { backgroundColor: Colors.primary },
-            headerTintColor: Colors.white,
-            headerTitleStyle: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', fontSize: 17 },
           }}
         />
         <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />

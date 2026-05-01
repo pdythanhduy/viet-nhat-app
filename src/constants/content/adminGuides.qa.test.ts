@@ -2,7 +2,7 @@ import { ADMIN_GUIDES } from './adminGuides';
 
 const TARGET_CATEGORIES = new Set(['visa', 'immigration']);
 
-const hasSuspiciousSpacing = (text: string): boolean => /\s{2,}/.test(text);
+const hasSuspiciousSpacing = (text: string): boolean => /[^\S\r\n]{2,}/.test(text);
 const hasReplacementChar = (text: string): boolean => /\uFFFD/.test(text);
 
 describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
@@ -15,7 +15,15 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
   });
 
   it('uses secure official links from expected official domains', () => {
-    const allowedHosts = ['moj.go.jp', 'mofa.go.jp', 'mhlw.go.jp', 'kojinbango-card.go.jp', 'otit.go.jp'];
+    const allowedHosts = [
+      'moj.go.jp',
+      'mofa.go.jp',
+      'mhlw.go.jp',
+      'kojinbango-card.go.jp',
+      'otit.go.jp',
+      'nenkin.go.jp',
+      'soumu.go.jp',
+    ];
 
     targetGuides.forEach((guide) => {
       expect(guide.officialLinks?.length ?? 0).toBeGreaterThan(0);

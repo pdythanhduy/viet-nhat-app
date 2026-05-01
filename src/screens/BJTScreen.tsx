@@ -16,6 +16,23 @@ import { BjtTargetLevel, filterBjtQuestionsByLevel, getAvailableBjtLevels } from
 import { BjtSkill, getBjtLevelSnapshot, loadBjtProgress } from '../utils/bjtProgress';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type BjtActionRoute = 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest';
+type BjtToolRoute =
+  | 'BJTKeigo'
+  | 'BJTScenarios'
+  | 'BJTDocumentMock'
+  | 'BJTMockExamsV2'
+  | 'BJTReadingPassages'
+  | 'BJTBusinessToolkit'
+  | 'BJTLanguageAssets'
+  | 'BJTFlashcards'
+  | 'BJTUltimateStudyPlan'
+  | 'BJTJobDocs';
+type BjtTool = {
+  label: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  route: BjtToolRoute;
+};
 
 const SKILL_TITLES: Record<BjtSkill, string> = {
   listening: 'Nghe',
@@ -35,7 +52,7 @@ const LEVEL_LABELS: Record<BjtTargetLevel, string> = {
 
 const LEVEL_GUIDANCE: Record<
   Exclude<BjtTargetLevel, 'all'>,
-  { title: string; description: string; actionLabel: string; route: 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest' }
+  { title: string; description: string; actionLabel: string; route: BjtActionRoute }
 > = {
   J5: { title: 'Xây nền tảng từ vựng công sở', description: 'Tập trung vào từ vựng công sở cơ bản và các tình huống ngắn, rõ hành động.', actionLabel: 'Mở từ vựng', route: 'BJTVocabulary' },
   J4: { title: 'Củng cố quy trình thường ngày', description: 'Ôn lại email, memo, lịch họp và deadline để quen flow xử lý business.', actionLabel: 'Luyện từ vựng', route: 'BJTVocabulary' },
@@ -47,14 +64,14 @@ const LEVEL_GUIDANCE: Record<
 
 const SKILL_RECOMMENDATIONS: Record<
   BjtSkill,
-  { title: string; description: string; actionLabel: string; route: 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest' }
+  { title: string; description: string; actionLabel: string; route: BjtActionRoute }
 > = {
   listening: { title: 'Tăng tốc độ nghe tình huống ngắn', description: 'Tập trung vào key point, mốc thời gian và hành động cần làm sau cuộc gọi.', actionLabel: 'Luyện tình huống', route: 'BJTQuiz' },
   'listening-reading': { title: 'Luyện đối chiếu nghe và đọc', description: 'Cần ôn dạng email, memo, lịch và thông báo có thông tin cập nhật từ nhiều nguồn.', actionLabel: 'Chạy mock có giờ', route: 'BJTMockTest' },
   reading: { title: 'Tăng tốc độ đọc business text', description: 'Cần luyện email, thông báo và quy trình ngắn để rút ra hành động đúng.', actionLabel: 'Mở gói từ vựng', route: 'BJTVocabulary' },
 };
 
-const TOOLS = [
+const TOOLS: readonly BjtTool[] = [
   { label: 'Tham khảo Keigo', icon: 'school-outline', route: 'BJTKeigo' },
   { label: 'Kho tình huống', icon: 'chatbubbles-outline', route: 'BJTScenarios' },
   { label: 'Mock tài liệu', icon: 'document-text-outline', route: 'BJTDocumentMock' },
@@ -92,11 +109,15 @@ export default function BJTScreen() {
   const levelRecommendation = levelSnapshot?.weakestSkill ? SKILL_RECOMMENDATIONS[levelSnapshot.weakestSkill] : null;
   const wrongReviewCount = levelSnapshot?.wrongReviewCount ?? 0;
 
-  const openRoute = React.useCallback((route: 'BJTVocabulary' | 'BJTQuiz' | 'BJTMockTest') => {
+  const openRoute = React.useCallback((route: BjtActionRoute) => {
     if (route === 'BJTVocabulary') navigation.navigate('BJTVocabulary');
     else if (route === 'BJTQuiz') navigation.navigate('BJTQuiz', { level: targetLevel });
     else navigation.navigate('BJTMockTest', { level: targetLevel });
   }, [navigation, targetLevel]);
+
+  const openToolRoute = React.useCallback((route: BjtToolRoute) => {
+    navigation.navigate(route);
+  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -258,9 +279,9 @@ export default function BJTScreen() {
               <TouchableOpacity
                 key={tool.route}
                 style={styles.toolCell}
-                onPress={() => navigation.navigate(tool.route as any)}
+                onPress={() => openToolRoute(tool.route)}
               >
-                <Ionicons name={tool.icon as any} size={22} color={Colors.primary} />
+                <Ionicons name={tool.icon} size={22} color={Colors.primary} />
                 <Text style={styles.toolLabel}>{tool.label}</Text>
               </TouchableOpacity>
             ))}

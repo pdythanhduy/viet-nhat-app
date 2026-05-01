@@ -15,9 +15,30 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { ADMIN_GUIDES, DAILY_LIFE_TOPICS, EMERGENCY_CONTACTS } from '../constants/content';
 import { loadImportantDates, getDaysUntil } from '../utils/notifications';
-import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from '../navigation/AppNavigator';
 import ProfileSetupModal from '../components/ProfileSetupModal';
 import type { UserProfile } from '../types/profile';
+import {
+  CATEGORIES,
+  FAMILY_VISA_GROUPS,
+  GENERIC_TIPS,
+  LAW_UPDATES,
+  ONBOARDING_GUIDES,
+  buildPersonalizedActions,
+  getGreeting,
+  type ActiveAlert,
+  type CategoryTarget,
+  type InProgressGuide,
+  type PersonalizedAction,
+  type ReadyGuide,
+  type SavedCounts,
+} from './homeScreenContent';
+import {
+  buildChecklistProgressItems,
+  buildCompletedChecklistItems,
+  buildSavedCounts,
+  buildStepProgressItems,
+} from './homeScreenData';
 import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';
 import { loadRecentJapaneseCategories, RecentJapaneseCategory } from '../utils/japaneseRecentCategories';
 import { loadBookmarks, Bookmark } from '../utils/bookmarks';
@@ -33,400 +54,6 @@ import {
 } from '../utils/userProfile';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
-type CategoryTarget = keyof TabParamList | 'DailyLife';
-type TipScreen = 'ImportantDates' | 'Admin';
-
-const CATEGORIES: {
-  id: string;
-  title: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  color: string;
-  bg: string;
-  tab: CategoryTarget;
-}[] = [
-  { id: 'admin', title: 'Thủ tục\nhành chính', icon: 'document-text', color: Colors.primary, bg: Colors.accent, tab: 'Admin' },
-  { id: 'daily', title: 'Cuộc sống\nhằng ngày', icon: 'sunny', color: '#27AE60', bg: Colors.successLight, tab: 'DailyLife' },
-  { id: 'jobs', title: 'Việc làm\nvà quyền lợi', icon: 'briefcase', color: '#9B59B6', bg: '#F3EBF9', tab: 'Jobs' },
-  { id: 'japanese', title: 'Tiếng\nNhật', icon: 'language', color: '#E74C3C', bg: '#FDECEA', tab: 'Japanese' },
-];
-
-const GENERIC_TIPS: {
-  id: string;
-  title: string;
-  description: string;
-  urgency: 'info' | 'medium';
-  icon: keyof typeof Ionicons.glyphMap;
-  screen: TipScreen;
-}[] = [
-  {
-    id: 'tip1',
-    title: 'Thiết lập ngày quan trọng',
-    description: 'Thêm ngày hết hạn thẻ cư trú, bảo hiểm hoặc giấy tờ cá nhân để app nhắc trước khi quá hạn.',
-    urgency: 'info',
-    icon: 'calendar-outline',
-    screen: 'ImportantDates',
-  },
-  {
-    id: 'tip2',
-    title: 'Kiểm tra lại bảo hiểm y tế',
-    description: 'Nếu sống ở Nhật trên 3 tháng mà vẫn chưa chắc mình thuộc diện bảo hiểm nào, nên rà lại sớm.',
-    urgency: 'medium',
-    icon: 'heart-outline',
-    screen: 'Admin',
-  },
-];
-
-const LAW_UPDATES = [
-  {
-    id: 'bike-2026',
-    guideId: 'bicycle-rules-2026',
-    title: 'Luật xe đạp 2026',
-    description: 'Nắm phần blue ticket, điện thoại khi lái và các lỗi dễ bị phạt.',
-    icon: 'bicycle' as keyof typeof Ionicons.glyphMap,
-    color: '#E67E22',
-  },
-  {
-    id: 'health-insurance',
-    guideId: 'health-insurance',
-    title: 'Đi khám và giấy bảo hiểm',
-    description: 'Kiểm tra lại thẻ bảo hiểm hoặc My Number liên kết bảo hiểm trước khi đi khám.',
-    icon: 'heart' as keyof typeof Ionicons.glyphMap,
-    color: '#27AE60',
-  },
-  {
-    id: 'labor-reform',
-    guideId: 'ssw-training-worker-2027',
-    title: 'Cập nhật lao động 2026-2027',
-    description: 'Phần kỹ năng đặc định và cải cách lao động cần theo dõi đúng thời điểm.',
-    icon: 'construct' as keyof typeof Ionicons.glyphMap,
-    color: '#9B59B6',
-  },
-];
-
-const ONBOARDING_GUIDES = [
-  {
-    guideId: 'first-7-days-in-japan',
-    title: '7 ngày đầu mới sang Nhật',
-    description: 'Checklist giấy tờ, địa chỉ, bảo hiểm, sim và ngân hàng trong tuần đầu.',
-    icon: 'rocket-outline' as keyof typeof Ionicons.glyphMap,
-  },
-  {
-    guideId: 'first-30-days-work-study-japan',
-    title: '30 ngày đầu đi làm / đi học',
-    description: 'Rà lại việc đi làm, trường lớp, tiền bạc, đi lại và giấy tờ trong tháng đầu.',
-    icon: 'calendar-outline' as keyof typeof Ionicons.glyphMap,
-  },
-  {
-    guideId: 'first-90-days-in-japan',
-    title: '90 ngày đầu ở Nhật',
-    description: 'Tổng rà 3 tháng đầu: giấy tờ, tiền bạc, sức khỏe và các rủi ro dễ bỏ sót.',
-    icon: 'map-outline' as keyof typeof Ionicons.glyphMap,
-  },
-];
-
-const FAMILY_VISA_GROUPS = [
-  {
-    id: 'visa-entry',
-    title: 'Visa và mời người thân',
-    description: 'Chọn đúng loại hồ sơ ngay từ đầu để đỡ mất thời gian hỏi lại.',
-    items: [
-      {
-        id: 'family-stay',
-        title: 'Sống cùng gia đình ở Nhật',
-        description: 'Bảo lãnh vợ/chồng/con, COE và điều kiện sống dài hạn.',
-        icon: 'people' as keyof typeof Ionicons.glyphMap,
-        color: '#2E86C1',
-        guideId: 'family-stay-invitation',
-      },
-      {
-        id: 'visit-relatives',
-        title: 'Mời người thân sang thăm',
-        description: 'Visa thăm thân ngắn hạn, hồ sơ người mời và người đi khác nhau thế nào.',
-        icon: 'airplane' as keyof typeof Ionicons.glyphMap,
-        color: '#E67E22',
-        guideId: 'short-stay-relative-visit',
-      },
-      {
-        id: 'visa-highlights',
-        title: 'Các diện visa đáng chú ý 2026',
-        description: 'J-Find, Digital Nomad, Start-up, eVISA và cách phân biệt nhanh.',
-        icon: 'globe-outline' as keyof typeof Ionicons.glyphMap,
-        color: '#8E44AD',
-        guideId: 'visa-highlights-2026',
-      },
-    ],
-  },
-  {
-    id: 'family-life',
-    title: 'Gia đình và con nhỏ',
-    description: 'Các việc hay phát sinh sau khi đã sống ở Nhật cùng gia đình.',
-    items: [
-      {
-        id: 'pregnancy-childbirth',
-        title: 'Mang thai và sinh con ở Nhật',
-        description: 'Các mốc trước sinh, sau sinh, trợ cấp và giấy tờ bắt buộc.',
-        icon: 'heart-circle' as keyof typeof Ionicons.glyphMap,
-        color: '#D35454',
-        guideId: 'pregnancy-childbirth-postpartum',
-      },
-      {
-        id: 'baby-born-in-japan',
-        title: 'Con sinh ở Nhật',
-        description: 'Quốc tịch, hộ chiếu, cư trú, My Number và bảo hiểm của em bé.',
-        icon: 'happy' as keyof typeof Ionicons.glyphMap,
-        color: '#F39C12',
-        guideId: 'baby-born-in-japan',
-      },
-      {
-        id: 'parents-elderly',
-        title: 'Cha mẹ và người thân lớn tuổi',
-        description: 'Hiểu đúng giới hạn bảo lãnh dài hạn và các ngoại lệ hiếm.',
-        icon: 'people-circle' as keyof typeof Ionicons.glyphMap,
-        color: '#6C7A99',
-        guideId: 'parents-elderly-relatives',
-      },
-    ],
-  },
-] as const;
-
-function getGreeting() {
-  const hour = new Date().getHours();
-  if (hour < 12) return 'Chào buổi sáng';
-  if (hour < 18) return 'Chào buổi chiều';
-  return 'Chào buổi tối';
-}
-
-interface ActiveAlert {
-  id: string;
-  label: string;
-  daysLeft: number;
-}
-
-interface SavedCounts {
-  guide: number;
-  'daily-life': number;
-  phrase: number;
-  dialogue: number;
-}
-
-interface InProgressGuide {
-  guideId: string;
-  title: string;
-  checked: number;
-  total: number;
-  color: string;
-}
-
-interface ReadyGuide {
-  guideId: string;
-  title: string;
-  total: number;
-  color: string;
-}
-
-type PersonalizedAction =
-  | {
-      id: string;
-      title: string;
-      description: string;
-      icon: keyof typeof Ionicons.glyphMap;
-      color: string;
-      kind: 'guide';
-      guideId: string;
-    }
-  | {
-      id: string;
-      title: string;
-      description: string;
-      icon: keyof typeof Ionicons.glyphMap;
-      color: string;
-      kind: 'tab';
-      tab: keyof TabParamList;
-    }
-  | {
-      id: string;
-      title: string;
-      description: string;
-      icon: keyof typeof Ionicons.glyphMap;
-      color: string;
-      kind: 'screen';
-      screen: 'ImportantDates' | 'DailyLife' | 'LaborGuide' | 'LaborHelp' | 'JourneyChecklist';
-    };
-
-function buildPersonalizedActions(profile: UserProfile): PersonalizedAction[] {
-  const checklistAction: PersonalizedAction = {
-    id: 'journey-checklist',
-    title: 'Mở checklist hành trình',
-    description: 'Danh sách việc nên chốt theo đúng giai đoạn bạn đang ở.',
-    icon: 'list-outline',
-    color: Colors.primary,
-    kind: 'screen',
-    screen: 'JourneyChecklist',
-  };
-
-  if (profile.lifeStage === 'new-arrival') {
-    return [
-      checklistAction,
-      {
-        id: 'first-7-days',
-        title: 'Chốt checklist 7 ngày đầu',
-        description: 'Rà giấy tờ, địa chỉ, bảo hiểm và việc cần làm ngay tuần đầu.',
-        icon: 'rocket-outline',
-        color: Colors.primary,
-        kind: 'guide',
-        guideId: 'first-7-days-in-japan',
-      },
-      {
-        id: 'first-30-days',
-        title: 'Rà 30 ngày đầu',
-        description: 'Kiểm tra sim, ngân hàng, trường/làm việc và các khoản đang dễ quên.',
-        icon: 'calendar-outline',
-        color: '#27AE60',
-        kind: 'guide',
-        guideId: 'first-30-days-work-study-japan',
-      },
-      {
-        id: 'important-dates',
-        title: 'Thiết lập ngày quan trọng',
-        description: 'Bật nhắc trước hạn cho thẻ cư trú, bảo hiểm và các hồ sơ cần gia hạn.',
-        icon: 'alarm-outline',
-        color: '#E67E22',
-        kind: 'screen',
-        screen: 'ImportantDates',
-      },
-    ];
-  }
-
-  if (profile.lifeStage === 'changing-jobs') {
-    return [
-      checklistAction,
-      {
-        id: 'jobs',
-        title: 'Mở tab Việc làm',
-        description: 'Đi thẳng vào nguồn việc phù hợp và các thay đổi luật lao động mới.',
-        icon: 'briefcase-outline',
-        color: '#8E44AD',
-        kind: 'tab',
-        tab: 'Jobs',
-      },
-      {
-        id: 'labor-guide',
-        title: 'Rà hợp đồng trước khi ký',
-        description: 'Xem checklist hỏi lại công ty và các dấu hiệu rủi ro cần tránh.',
-        icon: 'document-text-outline',
-        color: Colors.primary,
-        kind: 'screen',
-        screen: 'LaborGuide',
-      },
-      {
-        id: 'labor-help',
-        title: 'Có vấn đề với công ty',
-        description: 'Đi vào luồng nợ lương, ép OT, giữ giấy tờ hoặc nghỉ việc đúng luật.',
-        icon: 'warning-outline',
-        color: '#E67E22',
-        kind: 'screen',
-        screen: 'LaborHelp',
-      },
-    ];
-  }
-
-  if (profile.lifeStage === 'family-life' || profile.household === 'with-family' || profile.visaStatus === 'family') {
-    return [
-      checklistAction,
-      {
-        id: 'family-stay',
-        title: 'Sống cùng gia đình ở Nhật',
-        description: 'Mở guide bảo lãnh vợ/chồng/con và những điều kiện cần chuẩn bị.',
-        icon: 'people-outline',
-        color: '#2E86C1',
-        kind: 'guide',
-        guideId: 'family-stay-invitation',
-      },
-      {
-        id: 'visit-relatives',
-        title: 'Mời người thân sang thăm',
-        description: 'Phân biệt hồ sơ ngắn hạn, giấy tờ người mời và người đi.',
-        icon: 'airplane-outline',
-        color: '#E67E22',
-        kind: 'guide',
-        guideId: 'short-stay-relative-visit',
-      },
-      {
-        id: 'daily-life',
-        title: 'Mở đời sống hằng ngày',
-        description: 'Rà nhà ở, rác, trường lớp, bệnh viện và việc phát sinh trong gia đình.',
-        icon: 'home-outline',
-        color: '#27AE60',
-        kind: 'screen',
-        screen: 'DailyLife',
-      },
-    ];
-  }
-
-  if (profile.visaStatus === 'student') {
-    return [
-      checklistAction,
-      {
-        id: 'student-30-days',
-        title: 'Rà 30 ngày đầu đi học',
-        description: 'Gom các việc hay phát sinh với trường, baito, sim, ngân hàng và di chuyển.',
-        icon: 'school-outline',
-        color: Colors.primary,
-        kind: 'guide',
-        guideId: 'first-30-days-work-study-japan',
-      },
-      {
-        id: 'jobs-student',
-        title: 'Xem việc làm phù hợp',
-        description: 'Ưu tiên nguồn part-time đúng visa và xem lại giới hạn giờ làm.',
-        icon: 'briefcase-outline',
-        color: '#8E44AD',
-        kind: 'tab',
-        tab: 'Jobs',
-      },
-      {
-        id: 'japanese',
-        title: 'Luyện tiếng Nhật thực tế',
-        description: 'Vào nhanh các mẫu câu dùng ở trường, cửa hàng, bệnh viện và công việc.',
-        icon: 'language-outline',
-        color: '#E74C3C',
-        kind: 'tab',
-        tab: 'Japanese',
-      },
-    ];
-  }
-
-  return [
-    checklistAction,
-    {
-      id: 'important-dates-general',
-      title: 'Giữ nhắc hạn giấy tờ',
-      description: 'Thiết lập nhắc trước hạn cho thẻ cư trú, hộ chiếu và các lịch quan trọng.',
-      icon: 'calendar-outline',
-      color: Colors.primary,
-      kind: 'screen',
-      screen: 'ImportantDates',
-    },
-    {
-      id: 'jobs-general',
-      title: 'Rà quyền lợi công việc',
-      description: 'Kiểm tra lại nguồn việc, hợp đồng và các cập nhật lao động đang áp dụng.',
-      icon: 'briefcase-outline',
-      color: '#8E44AD',
-      kind: 'tab',
-      tab: 'Jobs',
-    },
-    {
-      id: 'daily-life-general',
-      title: 'Cập nhật đời sống thực tế',
-      description: 'Xem lại các chủ đề hay dùng như nhà ở, đi lại, rác, y tế và thủ tục địa phương.',
-      icon: 'sunny-outline',
-      color: '#27AE60',
-      kind: 'screen',
-      screen: 'DailyLife',
-    },
-  ];
-}
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -478,68 +105,19 @@ export default function HomeScreen() {
         loadBookmarks().then((items) => {
           setSavedBookmarks(items.slice(0, 6));
           setPinnedBookmarks(items.filter((item) => !!item.pinnedAt).slice(0, 4));
-          setSavedCounts({
-            guide: items.filter((item) => item.type === 'guide').length,
-            'daily-life': items.filter((item) => item.type === 'daily-life').length,
-            phrase: items.filter((item) => item.type === 'phrase').length,
-            dialogue: items.filter((item) => item.type === 'dialogue').length,
-          });
+          setSavedCounts(buildSavedCounts(items));
         });
         loadAllGuideChecklistProgress().then((progressMap) => {
-          const progressItems = ADMIN_GUIDES.map((guide) => {
-            const total = guide.documentsChecklist?.length ?? 0;
-            if (total === 0) return null;
-
-            const checked = (progressMap[guide.id] ?? []).length;
-            if (checked === 0 || checked >= total) return null;
-
-            return {
-              guideId: guide.id,
-              title: guide.title,
-              checked,
-              total,
-              color: guide.color,
-            };
-          })
-            .filter(Boolean)
-            .sort((a, b) => (b!.checked / b!.total) - (a!.checked / a!.total))
-            .slice(0, 4) as InProgressGuide[];
-
+          const progressItems = buildChecklistProgressItems(ADMIN_GUIDES, progressMap);
           setInProgressGuides(progressItems);
 
-          const completedItems = ADMIN_GUIDES.map((guide) => {
-            const total = guide.documentsChecklist?.length ?? 0;
-            if (total === 0) return null;
-
-            const checked = (progressMap[guide.id] ?? []).length;
-            if (checked < total) return null;
-
-            return {
-              guideId: guide.id,
-              title: guide.title,
-              total,
-              color: guide.color,
-            };
-          })
-            .filter(Boolean)
-            .slice(0, 4) as ReadyGuide[];
-
+          const completedItems = buildCompletedChecklistItems(ADMIN_GUIDES, progressMap);
           setReadyGuides(completedItems);
           setCompletedGuideIds(completedItems.map((item) => item.guideId));
         });
 
         loadAllGuideStepProgress().then((progressMap) => {
-          const stepItems = ADMIN_GUIDES.map((guide) => {
-            const total = guide.steps.length;
-            if (total === 0) return null;
-            const checked = (progressMap[guide.id] ?? []).length;
-            if (checked === 0 || checked >= total) return null;
-            return { guideId: guide.id, title: guide.title, checked, total, color: guide.color };
-          })
-            .filter(Boolean)
-            .sort((a, b) => (b!.checked / b!.total) - (a!.checked / a!.total))
-            .slice(0, 4) as InProgressGuide[];
-          setInProgressStepGuides(stepItems);
+          setInProgressStepGuides(buildStepProgressItems(ADMIN_GUIDES, progressMap));
         });
       };
 

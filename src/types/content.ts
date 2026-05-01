@@ -3,6 +3,7 @@ import type { ImageSourcePropType } from 'react-native';
 export type IoniconName = keyof typeof import('@expo/vector-icons').Ionicons.glyphMap;
 
 export type AlertUrgency = 'high' | 'medium' | 'low' | 'info';
+export type AlertActionScreen = 'Admin' | 'DailyLife' | 'Jobs' | 'Japanese' | 'BJT';
 
 export interface EmergencyContact {
   id: string;
@@ -20,7 +21,7 @@ export interface AlertItem {
   urgency: AlertUrgency;
   daysLeft?: number;
   actionLabel: string;
-  actionScreen: string;
+  actionScreen: AlertActionScreen;
 }
 
 export interface OfficialLink {
@@ -56,8 +57,8 @@ export interface FAQItem {
 
 export interface AdminGuide {
   id: string;
-  category?: AdminGuideCategory;
-  lastVerified?: string;
+  category: AdminGuideCategory;
+  lastVerified: string;
   priority?: 'high' | 'normal';
   title: string;
   titleJp: string;
@@ -74,7 +75,7 @@ export interface AdminGuide {
   documentsChecklist?: ChecklistItem[];
   commonMistakes?: string[];
   faq?: FAQItem[];
-  officialLinks?: OfficialLink[];
+  officialLinks: OfficialLink[];
   steps: GuideStep[];
 }
 
@@ -103,6 +104,7 @@ export interface DailyLifeTopic {
   icon: IoniconName;
   color: string;
   description: string;
+  prefilledQuestion?: string;
   sections?: DailyLifeSection[];
 }
 

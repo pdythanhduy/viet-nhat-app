@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
 
-echo "[bjt-hook] Running BJT QA gate before commit..."
-npm run -s bjt:qa-checklist:gate
-
+echo "[verify-hook] Running pre-commit verification..."
+npm run -s verify:precommit
