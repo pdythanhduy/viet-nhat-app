@@ -162,6 +162,14 @@ export default function AdminScreen() {
   const inProgressGuides = ADMIN_GUIDES.filter((guide) => inProgressGuideIds.includes(guide.id));
   const readyGuides = ADMIN_GUIDES.filter((guide) => readyGuideIds.includes(guide.id));
   const pinnedGuides = ADMIN_GUIDES.filter((guide) => pinnedGuideIds.includes(guide.id));
+  const inProgressStepGuides = ADMIN_GUIDES.filter((guide) => {
+    const done = stepProgressMap[guide.id] ?? 0;
+    return done > 0 && done < guide.steps.length;
+  });
+  const completedStepGuides = ADMIN_GUIDES.filter((guide) => {
+    const done = stepProgressMap[guide.id] ?? 0;
+    return done > 0 && done >= guide.steps.length;
+  });
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -241,6 +249,60 @@ export default function AdminScreen() {
 
         {!search.trim() && (
           <>
+            {inProgressStepGuides.length > 0 && (
+              <View style={styles.statusSection}>
+                <View style={styles.statusSectionHeader}>
+                  <Text style={styles.statusSectionTitle}>Đang thực hiện thủ tục</Text>
+                  <Text style={styles.statusSectionMeta}>{inProgressStepGuides.length} mục</Text>
+                </View>
+                {inProgressStepGuides.slice(0, 3).map((guide) => (
+                  <TouchableOpacity
+                    key={`step-progress-${guide.id}`}
+                    style={styles.statusCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+                  >
+                    <View style={[styles.statusIconBg, { backgroundColor: `${guide.color}18` }]}>
+                      <Ionicons name="navigate-outline" size={18} color={guide.color} />
+                    </View>
+                    <View style={styles.statusInfo}>
+                      <Text style={styles.statusTitle}>{guide.title}</Text>
+                      <Text style={styles.statusDesc}>
+                        {stepProgressMap[guide.id]}/{guide.steps.length} bước đã hoàn thành.
+                      </Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
+            {completedStepGuides.length > 0 && (
+              <View style={styles.statusSection}>
+                <View style={styles.statusSectionHeader}>
+                  <Text style={styles.statusSectionTitle}>Đã hoàn thành thủ tục</Text>
+                  <Text style={styles.statusSectionMeta}>{completedStepGuides.length} mục</Text>
+                </View>
+                {completedStepGuides.slice(0, 3).map((guide) => (
+                  <TouchableOpacity
+                    key={`step-done-${guide.id}`}
+                    style={styles.statusCard}
+                    onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+                  >
+                    <View style={[styles.statusIconBg, { backgroundColor: Colors.successLight }]}>
+                      <Ionicons name="checkmark-circle-outline" size={18} color={Colors.success} />
+                    </View>
+                    <View style={styles.statusInfo}>
+                      <Text style={styles.statusTitle}>{guide.title}</Text>
+                      <Text style={styles.statusDesc}>
+                        Đã hoàn thành cả {guide.steps.length} bước thực hiện.
+                      </Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
             {inProgressGuides.length > 0 && (
               <View style={styles.statusSection}>
                 <View style={styles.statusSectionHeader}>
