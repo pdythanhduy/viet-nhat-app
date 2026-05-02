@@ -53,8 +53,28 @@ const TRAFFIC_STRUCTURED_GUIDE_IDS = [
 ];
 
 const LICENSE_STRUCTURED_GUIDE_IDS = [
+  'drivers-license',
   'drivers-license-renewal',
+  'car-shaken-insurance',
 ];
+
+const TRUSTED_LICENSE_SOURCE_HOSTS = new Set([
+  'www.npa.go.jp',
+  'www.keishicho.metro.tokyo.lg.jp',
+  'english.jaf.or.jp',
+  'www.jaf.or.jp',
+  'jaf.or.jp',
+  'www.jidoushatouroku-portal.mlit.go.jp',
+  'www.mlit.go.jp',
+  'soudanguide.sonpo.or.jp',
+  'www.sonpo.or.jp',
+]);
+
+const REQUIRED_LICENSE_SOURCE_HOSTS: Record<string, string[]> = {
+  'drivers-license': ['www.keishicho.metro.tokyo.lg.jp', 'english.jaf.or.jp'],
+  'drivers-license-renewal': ['www.npa.go.jp', 'www.keishicho.metro.tokyo.lg.jp'],
+  'car-shaken-insurance': ['www.jidoushatouroku-portal.mlit.go.jp', 'soudanguide.sonpo.or.jp'],
+};
 
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
@@ -310,6 +330,23 @@ describe('ADMIN_GUIDES content quality', () => {
       expectRequiredChecklist(guide?.documentsChecklist);
       expectRequiredTextArray(guide?.commonMistakes);
       expectRequiredFaq(guide?.faq);
+    }
+  });
+
+  it('keeps selected license guides tied to trusted official sources', () => {
+    for (const guideId of LICENSE_STRUCTURED_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+      const hosts = new Set((guide?.officialLinks ?? []).map((link) => new URL(link.url).hostname));
+
+      expect(guide).toBeDefined();
+
+      for (const host of hosts) {
+        expect(TRUSTED_LICENSE_SOURCE_HOSTS).toContain(host);
+      }
+
+      for (const requiredHost of REQUIRED_LICENSE_SOURCE_HOSTS[guideId] ?? []) {
+        expect(hosts).toContain(requiredHost);
+      }
     }
   });
 

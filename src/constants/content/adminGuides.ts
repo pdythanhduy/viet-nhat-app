@@ -1206,7 +1206,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'drivers-license',
     category: 'license',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-03',
+    priority: 'normal',
     title: 'Đổi bằng lái xe',
     titleJp: '外国免許切替（外免切替）',
     icon: 'car',
@@ -1265,6 +1266,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     officialLinks: [
       { label: 'Trung tâm cấp phép Tokyo — 警視庁', url: 'https://www.keishicho.metro.tokyo.lg.jp/menkyo/menkyo/kokugai/kokugai05.html' },
       { label: 'Dịch bằng lái — JAF', url: 'https://english.jaf.or.jp/driving-in-japan/drive-in-japan/switch-to-japanese-license' },
+      { label: 'Cách xin bản dịch — JAF', url: 'https://english.jaf.or.jp/driving-in-japan/drive-in-japan/about-dltas' },
     ],
     steps: [
       {
@@ -6664,7 +6666,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'car-shaken-insurance',
     category: 'license',
-    lastVerified: '2026-04-28',
+    lastVerified: '2026-05-03',
     priority: 'normal',
     title: 'Đăng kiểm xe (車検) và bảo hiểm ô tô',
     titleJp: '自動車車検・自賠責保険・任意保険',
@@ -6679,8 +6681,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Người muốn hiểu chi phí thực tế khi sở hữu xe để lập kế hoạch tài chính.',
     ],
     whenToDo: [
-      'Xe mới đăng ký lần đầu: 車検 đầu tiên sau 3 năm. Từ lần 2 trở đi: mỗi 2 năm.',
+      'Với xe con cá nhân phổ biến: 車検 đầu tiên thường sau 3 năm, từ lần 2 trở đi thường mỗi 2 năm. Xe thương mại, xe đặc thù hoặc loại xe khác có thể khác chu kỳ; hãy kiểm tra 車検証 và hướng dẫn MLIT.',
       'Khi mua xe cũ: kiểm tra ngay ngày hết hạn 車検 và 自賠責保険 trước khi ký hợp đồng.',
+      'MLIT hướng dẫn 継続検査 có thể làm từ 2 tháng trước ngày hết hạn 車検; nên đặt lịch sớm để có thời gian sửa xe nếu không đạt.',
       'Không lái xe khi 車検 hoặc 自賠責保険 đã hết hạn — bị phạt nặng và không được bảo hiểm nếu có tai nạn.',
     ],
     whereToDo: [
@@ -6689,21 +6692,24 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     estimatedTime: 'Đưa xe vào garage: thường 1–3 ngày tùy tình trạng và lịch. Tự làm ユーザー車検: có thể hoàn thành trong 1 ngày nếu chuẩn bị đủ.',
     fees: [
-      '自賠責保険: phí cố định theo luật, khoảng 17.000–20.000 yên cho 24 tháng tùy loại xe — kiểm tra mức phí chính thức tại thời điểm làm.',
-      'Phí nhà nước (重量税 + 検査手数料): khoảng 24.000–50.000 yên tùy trọng lượng xe.',
+      '自賠責保険: phí bắt buộc theo loại xe và thời hạn bảo hiểm; kiểm tra bảng phí chính thức tại thời điểm làm vì mức phí có thể thay đổi.',
+      'Phí nhà nước gồm 検査手数料 và 自動車重量税; mức cụ thể phụ thuộc loại xe, trọng lượng, tuổi xe, giảm thuế/eco car và cách nộp.',
       'Phí sửa chữa/thay linh kiện để đạt chuẩn (nếu có): biến động lớn — xác nhận rõ với garage trước khi đồng ý.',
       'Tổng thực tế (garage làm hộ): thường 60.000–150.000 yên tùy xe và tình trạng kỹ thuật.',
     ],
     documentsChecklist: [
       { label: '車検証 (giấy đăng ký xe)', required: true, note: 'Giữ trong xe — nếu mất phải xin cấp lại trước khi đi 車検.' },
       { label: '自賠責保険証明書 (chứng nhận bảo hiểm bắt buộc)', required: true, note: 'Bảo hiểm phải còn hiệu lực — thường gia hạn cùng lúc với 車検.' },
-      { label: '自動車税納税証明書 (biên lai thuế ô tô hằng năm)', required: true, note: 'Gửi qua bưu điện hằng năm. Nếu trả qua app có thể cần xin bản giấy riêng.' },
+      { label: '点検整備記録簿', required: false, note: 'Cần cho ユーザー車検; nếu giao garage, garage có thể chuẩn bị hoặc hướng dẫn.' },
+      { label: '申請書・手数料納付書・自動車重量税納付書', required: false, note: 'Thường lấy/điền tại 運輸支局 hoặc do garage xử lý thay.' },
+      { label: '自動車税納税証明書 (biên lai thuế ô tô hằng năm)', required: false, note: 'MLIT nêu nguyên tắc là không cần nếu hệ thống xác nhận được; vẫn nên chuẩn bị khi mới nộp thuế, chuyển tỉnh hoặc hệ thống chưa phản ánh.' },
       { label: 'Xe sạch, đèn/phanh/còi/lốp/kính gương hoạt động đúng', required: true, note: 'Xe không đạt chuẩn kỹ thuật sẽ bị trả về để sửa trước khi đạt 車検.' },
     ],
     commonMistakes: [
       'Nhầm ngày hết hạn 車検 với ngày hết hạn 自賠責保険 — hai thứ khác nhau dù thường gia hạn cùng lúc.',
       'Mua xe cũ mà không kiểm tra tình trạng 車検 và bảo hiểm — bị "dính" xe đến hạn sớm ngay sau khi mua.',
       'Chỉ có 自賠責保険 mà không có 任意保険 — nếu gây tai nạn lớn, 自賠責 không đủ bù thiệt hại tài sản và vượt trần bồi thường.',
+      'Nghĩ 納税証明書 lúc nào cũng bắt buộc hoặc lúc nào cũng không cần; thực tế phụ thuộc việc hệ thống thuế đã xác nhận được hay chưa.',
       'Không thay lốp, phanh đúng hạn khiến xe không đạt chuẩn 車検 và tốn thêm chi phí sửa gấp.',
       'Lái xe khi 車検 đã hết hạn — đây là vi phạm hình sự, không chỉ bị phạt hành chính.',
     ],
@@ -6726,9 +6732,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
     officialLinks: [
-      { label: '自動車検査(車検)について — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jidosha_fr7_000007.html' },
+      { label: '継続検査（車検） — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/inspection/index.html' },
+      { label: '車検の必要書類 — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/inspection/document/index.html' },
+      { label: '手数料や諸経費 — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/price/index.html' },
       { label: '自賠責保険とは — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/anzen/04relief/jibaiseki.html' },
-      { label: '自動車重量税について — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jidosha_fr7_000007.html' },
+      { label: 'くるまの保険について — 日本損害保険協会', url: 'https://soudanguide.sonpo.or.jp/car/about.html' },
     ],
     steps: [
       {
