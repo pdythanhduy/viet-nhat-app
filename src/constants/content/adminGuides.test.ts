@@ -15,6 +15,14 @@ const VALID_CATEGORIES: AdminGuideCategory[] = [
   'license',
 ];
 
+const CORE_SETUP_GUIDE_IDS = [
+  'residence-card-validity',
+  'residence-card-info-change',
+  're-entry',
+  'spouse-notification',
+  'remittance',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -135,6 +143,23 @@ describe('ADMIN_GUIDES content quality', () => {
       expectRequiredChecklist(guide.documentsChecklist);
       expectRequiredTextArray(guide.commonMistakes);
       expectRequiredFaq(guide.faq);
+    }
+  });
+
+  it('keeps core setup guides structured', () => {
+    for (const guideId of CORE_SETUP_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
     }
   });
 

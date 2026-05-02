@@ -146,11 +146,55 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     id: 'residence-card-validity',
     category: 'immigration',
     lastVerified: '2026-04-10',
+    priority: 'normal',
     title: 'Gia hạn hiệu lực thẻ cư trú',
     titleJp: '在留カードの有効期間の更新申請',
     icon: 'id-card',
     color: '#2980B9',
     description: 'Thủ tục gia hạn hạn sử dụng của thẻ cư trú vật lý. Chủ yếu dành cho người vĩnh trú, Highly Skilled Professional 2 hoặc trẻ em đến mốc 16 tuổi; khác với gia hạn thời hạn lưu trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
+    heroImageCaption: '在留カード - kiểm tra hạn hiệu lực vật lý của thẻ, khác với hạn lưu trú',
+    whoIsThisFor: [
+      'Người có tư cách vĩnh trú hoặc Highly Skilled Professional 2 cần gia hạn hạn hiệu lực vật lý của thẻ cư trú.',
+      'Trẻ em người nước ngoài đến mốc 16 tuổi và cần cập nhật thẻ theo hướng dẫn của ISA.',
+      'Người không đổi tư cách lưu trú nhưng thẻ cư trú vật lý sắp hết hạn.',
+    ],
+    whenToDo: [
+      'Trước khi thẻ cư trú vật lý hết hạn hiệu lực.',
+      'Khi trẻ em đến độ tuổi cần đổi thẻ theo mốc 16 tuổi.',
+      'Không dùng thủ tục này nếu mục tiêu là tiếp tục ở Nhật sau khi visa/tư cách lưu trú hết hạn; khi đó thường là 在留期間更新許可申請.',
+    ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
+      'Hỏi trực tiếp ISA nếu người đại diện hợp pháp nộp thay cho trẻ em hoặc người không thể tự đi.',
+    ],
+    documentsChecklist: [
+      { label: 'Đơn xin gia hạn hiệu lực thẻ cư trú', required: true },
+      { label: 'Ảnh thẻ 4cm x 3cm', required: true, note: 'Nền trắng/sáng, chụp trong 3 tháng gần nhất.' },
+      { label: 'Hộ chiếu', required: true },
+      { label: 'Thẻ cư trú hiện tại', required: true },
+      { label: 'Giấy tờ người đại diện', required: false, note: 'Có thể cần nếu người đại diện nộp thay.' },
+    ],
+    commonMistakes: [
+      'Nhầm thủ tục gia hạn hiệu lực thẻ cư trú với gia hạn thời hạn lưu trú/visa.',
+      'Để thẻ vật lý hết hạn rồi mới chuẩn bị hồ sơ.',
+      'Không kiểm tra lại thông tin in trên thẻ mới khi nhận.',
+      'Dùng ảnh cũ quá 3 tháng hoặc ảnh không đúng kích thước.',
+    ],
+    faq: [
+      {
+        question: 'Thủ tục này có phải gia hạn visa không?',
+        answer: 'Không. Đây là gia hạn hạn hiệu lực của thẻ cư trú vật lý. Nếu bạn cần tiếp tục ở Nhật sau khi thời hạn lưu trú hết hạn, thủ tục thường là 在留期間更新許可申請.',
+      },
+      {
+        question: 'Thủ tục này có mất phí không?',
+        answer: 'Theo hướng dẫn ISA cho thủ tục này, phí không được nêu như thủ tục có lệ phí. Khi đi làm, vẫn nên kiểm tra lại tại trang chính thức hoặc quầy ISA vì yêu cầu có thể khác theo trường hợp.',
+      },
+      {
+        question: 'Sau khi nhận thẻ mới cần kiểm tra gì?',
+        answer: 'Kiểm tra họ tên, ngày sinh, quốc tịch/khu vực, tư cách lưu trú, hạn lưu trú và hạn hiệu lực thẻ. Nếu sai, yêu cầu chỉnh ngay tại quầy.',
+      },
+    ],
     officialLinks: [
       { label: '在留カードの有効期間の更新申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00011.html' },
       { label: 'Tra cứu cục xuất nhập cảnh', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
@@ -293,11 +337,55 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     id: 'residence-card-info-change',
     category: 'immigration',
     lastVerified: '2026-04-10',
+    priority: 'normal',
     title: 'Đổi thông tin trên thẻ cư trú',
     titleJp: '住居地以外の記載事項変更届出',
     icon: 'create',
     color: '#8E44AD',
     description: 'Khai báo khi thay đổi họ tên, ngày sinh, giới tính, quốc tịch/khu vực trên thẻ cư trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
+    heroImageCaption: '在留カード - khai báo thay đổi họ tên, ngày sinh, giới tính hoặc quốc tịch/khu vực',
+    whoIsThisFor: [
+      'Người có thẻ cư trú và đã đổi họ tên, ngày sinh, giới tính hoặc quốc tịch/khu vực.',
+      'Người đổi hộ chiếu hoặc giấy tờ quốc tịch khiến thông tin trên thẻ cư trú không còn khớp.',
+      'Người vừa kết hôn/ly hôn hoặc có thay đổi pháp lý về tên cần cập nhật giấy tờ tại Nhật.',
+    ],
+    whenToDo: [
+      'Trong vòng 14 ngày kể từ ngày phát sinh thay đổi thuộc diện khai báo.',
+      'Trước khi dùng thẻ cư trú cho thủ tục ngân hàng, bảo hiểm, thuê nhà hoặc ISA tiếp theo nếu thông tin đã khác.',
+      'Không dùng thủ tục này để đổi địa chỉ cư trú; địa chỉ là thủ tục riêng tại municipal office.',
+    ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
+      'Có thể kiểm tra mẫu đơn và yêu cầu giấy tờ trên trang ISA trước khi đi.',
+    ],
+    documentsChecklist: [
+      { label: '住居地以外の記載事項変更届出書', required: true },
+      { label: 'Thẻ cư trú hiện tại', required: true },
+      { label: 'Hộ chiếu', required: true },
+      { label: 'Giấy tờ chứng minh thay đổi', required: true, note: 'Ví dụ: hộ chiếu mới, giấy đổi tên, giấy tờ quốc tịch hoặc giấy tờ hộ tịch liên quan.' },
+      { label: 'Bản dịch tiếng Nhật', required: false, note: 'Có thể cần nếu giấy tờ chứng minh không phải tiếng Nhật.' },
+    ],
+    commonMistakes: [
+      'Nhầm đổi thông tin cá nhân với đổi địa chỉ cư trú.',
+      'Chỉ đổi hộ chiếu/ngân hàng mà quên cập nhật thông tin trên thẻ cư trú.',
+      'Không giữ giấy tờ chứng minh ngày thay đổi chính thức.',
+      'Đi ISA thiếu bản dịch hoặc giấy tờ gốc chứng minh thay đổi.',
+    ],
+    faq: [
+      {
+        question: 'Đổi địa chỉ có phải làm ở ISA không?',
+        answer: 'Thông thường không. Đổi địa chỉ cư trú là thủ tục tại municipal office. Bài này dành cho các mục ngoài địa chỉ như họ tên, ngày sinh, giới tính, quốc tịch/khu vực.',
+      },
+      {
+        question: 'Đổi họ sau kết hôn thì có cần khai báo không?',
+        answer: 'Nếu thông tin họ tên trên giấy tờ pháp lý thay đổi và cần cập nhật trên thẻ cư trú, bạn nên khai báo trong thời hạn quy định và mang giấy tờ chứng minh thay đổi.',
+      },
+      {
+        question: 'Nếu giấy tờ chứng minh là tiếng Việt thì sao?',
+        answer: 'Có thể cần bản dịch tiếng Nhật tùy hồ sơ và yêu cầu của ISA. Nên chuẩn bị bản dịch và giữ bản gốc để đối chiếu.',
+      },
+    ],
     officialLinks: [
       { label: '住居地以外の記載事項変更届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00009.html' },
     ],
@@ -530,6 +618,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     id: 're-entry',
     category: 'immigration',
     lastVerified: '2026-04-10',
+    priority: 'normal',
     title: 'Tạm rời Nhật / tái nhập cảnh',
     titleJp: 'みなし再入国許可・再入国許可',
     icon: 'airplane',
@@ -537,6 +626,47 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     description: 'Hướng dẫn ra khỏi Nhật tạm thời và quay lại mà không làm mất tư cách lưu trú.',
     heroImage: require('../../../assets/content/daily-life/ag_re-entry_hero.jpg'),
     heroImageCaption: 'Kiểm tra thẻ cư trú và hộ chiếu trước khi rời Nhật',
+    whoIsThisFor: [
+      'Người đang có thẻ cư trú và muốn rời Nhật tạm thời để du lịch, công tác hoặc về Việt Nam.',
+      'Người dự định quay lại Nhật trong thời hạn được phép và trong hạn lưu trú hiện tại.',
+      'Người chưa chắc nên dùng みなし再入国許可 hay cần xin 再入国許可 chính thức.',
+    ],
+    whenToDo: [
+      'Kiểm tra trước khi mua vé hoặc trước ngày xuất cảnh.',
+      'Xin 再入国許可 chính thức trước khi đi nếu dự định rời Nhật lâu hơn thời hạn của みなし再入国.',
+      'Không rời Nhật nếu hộ chiếu, thẻ cư trú hoặc thời hạn lưu trú sắp hết mà chưa xác nhận phương án quay lại.',
+    ],
+    whereToDo: [
+      'Sân bay/cửa khẩu xuất cảnh: xuất trình hộ chiếu và thẻ cư trú khi dùng みなし再入国.',
+      'Cục xuất nhập cảnh (ISA): xin 再入国許可 chính thức trước khi rời Nhật nếu cần.',
+      'Đại sứ quán/lãnh sự quán Nhật ở nước ngoài không phải nơi gia hạn みなし再入国 thông thường; cần lên kế hoạch trước khi đi.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu còn hiệu lực', required: true },
+      { label: 'Thẻ cư trú còn hiệu lực', required: true },
+      { label: 'Kế hoạch hoặc vé quay lại Nhật', required: false, note: 'Dùng để tự kiểm tra có quay lại kịp hạn hay không.' },
+      { label: 'Đơn 再入国許可申請書', required: false, note: 'Chỉ cần nếu xin 再入国許可 chính thức tại ISA.' },
+    ],
+    commonMistakes: [
+      'Nghĩ みなし再入国 luôn dùng được dù rời Nhật quá lâu.',
+      'Quên kiểm tra ngày hết hạn lưu trú trên thẻ cư trú trước khi đi.',
+      'Rời Nhật khi hộ chiếu sắp hết hạn nhưng chưa kiểm tra điều kiện nhập cảnh/quay lại.',
+      'Không giữ thẻ cư trú khi xuất cảnh, gây khó khăn khi quay lại Nhật.',
+    ],
+    faq: [
+      {
+        question: 'みなし再入国 có cần nộp đơn trước tại ISA không?',
+        answer: 'Thông thường không cần nộp đơn trước nếu bạn thuộc đối tượng được dùng và quay lại trong thời hạn cho phép. Khi xuất cảnh, xuất trình hộ chiếu và thẻ cư trú tại cửa kiểm tra.',
+      },
+      {
+        question: 'Nếu dự định rời Nhật hơn 1 năm thì sao?',
+        answer: 'Không nên chỉ dựa vào みなし再入国. Hãy kiểm tra và xin 再入国許可 chính thức tại ISA trước khi rời Nhật nếu kế hoạch ở ngoài Nhật dài hơn thời hạn của みなし再入国.',
+      },
+      {
+        question: 'Có thể quay lại sau ngày hết hạn lưu trú không?',
+        answer: 'Không nên. みなし再入国 không giúp bạn vượt quá thời hạn lưu trú hiện tại. Cần quay lại trước khi hết hạn hoặc xử lý thủ tục lưu trú phù hợp trước khi đi.',
+      },
+    ],
     officialLinks: [
       { label: 'みなし再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/minashisainyukoku_00001.html' },
       { label: '再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/sainyukoku_00002.html' },
@@ -579,6 +709,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     id: 'spouse-notification',
     category: 'immigration',
     lastVerified: '2026-04-10',
+    priority: 'normal',
     title: 'Thông báo ly hôn / vợ chồng mất',
     titleJp: '配偶者に関する届出',
     icon: 'people',
@@ -586,6 +717,46 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     description: 'Người có tư cách lưu trú dựa trên quan hệ vợ/chồng cần khai báo với ISA khi ly hôn hoặc vợ/chồng qua đời.',
     heroImage: require('../../../assets/content/daily-life/ag_spouse-notif_hero.jpg'),
     heroImageCaption: 'Khai báo thay đổi quan hệ vợ/chồng với ISA',
+    whoIsThisFor: [
+      'Người có tư cách lưu trú dựa trên quan hệ vợ/chồng và đã ly hôn.',
+      'Người có vợ/chồng qua đời khi đang ở Nhật với tư cách lưu trú liên quan đến hôn nhân.',
+      'Người cần biết khai báo này khác với thủ tục đổi tư cách lưu trú sau ly hôn.',
+    ],
+    whenToDo: [
+      'Trong vòng 14 ngày kể từ ngày ly hôn hoặc ngày vợ/chồng qua đời.',
+      'Ngay sau khi có giấy tờ xác nhận sự kiện để tránh khai báo muộn.',
+      'Sau khi khai báo, nên sớm hỏi ISA về phương án giữ/đổi tư cách lưu trú nếu tư cách hiện tại phụ thuộc quan hệ hôn nhân.',
+    ],
+    whereToDo: [
+      'Nộp online, qua bưu điện hoặc trực tiếp theo phương thức ISA chấp nhận.',
+      'Cục xuất nhập cảnh (ISA): hỏi tư vấn nếu cần đổi tư cách lưu trú sau ly hôn hoặc sau khi vợ/chồng mất.',
+    ],
+    documentsChecklist: [
+      { label: '配偶者に関する届出書', required: true },
+      { label: 'Thẻ cư trú', required: true },
+      { label: 'Giấy xác nhận ly hôn hoặc giấy tờ tử vong', required: false, note: 'Có thể cần khi ISA yêu cầu xác nhận sự kiện.' },
+      { label: 'Bằng chứng đã nộp khai báo', required: false, note: 'Giữ lại nếu nộp online hoặc qua bưu điện.' },
+    ],
+    commonMistakes: [
+      'Tưởng ly hôn tại municipal office xong là ISA tự biết và không cần khai báo.',
+      'Nhầm khai báo 配偶者に関する届出 với thủ tục đổi/gia hạn tư cách lưu trú.',
+      'Để quá 14 ngày mới khai báo vì chưa chuẩn bị hướng đổi visa.',
+      'Không giữ bằng chứng đã nộp khai báo.',
+    ],
+    faq: [
+      {
+        question: 'Khai báo này có tự động đổi visa cho tôi không?',
+        answer: 'Không. Đây chỉ là khai báo sự kiện với ISA. Nếu tư cách lưu trú của bạn dựa trên quan hệ vợ/chồng, cần sớm hỏi ISA về hướng đổi tư cách hoặc xử lý hồ sơ tiếp theo.',
+      },
+      {
+        question: 'Nếu đã ly hôn nhưng còn hạn lưu trú dài thì có cần khai không?',
+        answer: 'Có. Nếu thuộc đối tượng phải khai báo 配偶者に関する届出, hạn lưu trú còn dài không làm mất nghĩa vụ khai báo trong thời hạn.',
+      },
+      {
+        question: 'Nộp muộn thì làm sao?',
+        answer: 'Nên nộp càng sớm càng tốt và giải thích trung thực lý do muộn. Khai báo muộn có thể bất lợi khi xét các thủ tục lưu trú sau này.',
+      },
+    ],
     officialLinks: [
       { label: '配偶者に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00016.html' },
     ],
@@ -1135,11 +1306,57 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     id: 'remittance',
     category: 'money',
     lastVerified: '2026-04-10',
+    priority: 'normal',
     title: 'Chuyển tiền về Việt Nam',
     titleJp: 'ベトナムへの海外送金',
     icon: 'send',
     color: '#8E44AD',
     description: 'Hướng dẫn chọn dịch vụ chuyển tiền từ Nhật về Việt Nam. Phí, tỷ giá, hạn mức và thời gian nhận thay đổi theo nhà cung cấp.',
+    heroImage: require('../../../assets/content/daily-life/dl_post-office_s2.jpg'),
+    heroImageCaption: 'Gửi tiền quốc tế - so sánh phí, tỷ giá, hạn mức và cách người nhận nhận tiền',
+    whoIsThisFor: [
+      'Người Việt ở Nhật cần gửi tiền về cho gia đình hoặc tài khoản cá nhân tại Việt Nam.',
+      'Người mới đi làm tại Nhật chưa biết nên dùng ngân hàng, dịch vụ remit hay app chuyển tiền.',
+      'Người muốn tránh trung gian không rõ pháp lý và kiểm tra đúng thông tin người nhận trước khi gửi.',
+    ],
+    whenToDo: [
+      'Trước khi gửi lần đầu, đăng ký và xác minh danh tính sớm vì có thể mất thời gian.',
+      'Kiểm tra phí, tỷ giá và số tiền người nhận thực nhận ngay trước mỗi lần gửi.',
+      'Với khoản lớn hoặc giao dịch đầu tiên, nên gửi sớm hơn hạn cần tiền vì có thể bị xác minh bổ sung.',
+    ],
+    whereToDo: [
+      'Ứng dụng hoặc website của dịch vụ chuyển tiền đã đăng ký tại Nhật.',
+      'ATM/quầy của ngân hàng hoặc dịch vụ như Seven Bank, SBI Remit, Wise tùy nhà cung cấp.',
+      'Danh sách 金融庁 để kiểm tra dịch vụ có đăng ký hợp pháp tại Nhật.',
+    ],
+    documentsChecklist: [
+      { label: 'Thẻ cư trú hoặc giấy tờ định danh được dịch vụ chấp nhận', required: true },
+      { label: 'Giấy tờ My Number', required: false, note: 'Một số dịch vụ yêu cầu khi chuyển tiền quốc tế.' },
+      { label: 'Tài khoản ngân hàng Nhật hoặc phương thức nạp tiền', required: true },
+      { label: 'Thông tin người nhận tại Việt Nam', required: true, note: 'Tên không dấu, ngân hàng, số tài khoản, chi nhánh/SWIFT nếu dịch vụ yêu cầu.' },
+      { label: 'Mục đích chuyển tiền', required: true, note: 'Ví dụ: gửi cho gia đình, chi phí sinh hoạt, tiết kiệm cá nhân.' },
+    ],
+    commonMistakes: [
+      'Chỉ nhìn phí gửi mà không so sánh tỷ giá và số tiền người nhận thực nhận.',
+      'Nhập tên người nhận không khớp tài khoản Việt Nam.',
+      'Gửi qua cá nhân trung gian không rõ pháp lý để được tỷ giá tốt hơn.',
+      'Không lưu mã giao dịch/số tham chiếu để tra soát khi tiền chậm về.',
+      'Gửi sát hạn cần tiền mà không tính thời gian xác minh giao dịch đầu tiên.',
+    ],
+    faq: [
+      {
+        question: 'Nên chọn dịch vụ nào để gửi tiền?',
+        answer: 'Không có dịch vụ tốt nhất cho mọi trường hợp. So sánh tổng chi phí gồm phí gửi, tỷ giá, phí nạp tiền, hạn mức và cách người nhận nhận tiền. Chỉ dùng ngân hàng hoặc 資金移動業者 đã đăng ký tại Nhật.',
+      },
+      {
+        question: 'Có cần My Number khi chuyển tiền quốc tế không?',
+        answer: 'Có thể cần tùy dịch vụ và hình thức xác minh. Một số dịch vụ chuyển tiền quốc tế tại Nhật yêu cầu giấy tờ liên quan My Number ngoài giấy tờ định danh.',
+      },
+      {
+        question: 'Nếu nhập sai số tài khoản hoặc tên người nhận thì sao?',
+        answer: 'Tiền có thể bị giữ, trả về hoặc mất phí xử lý. Trước khi xác nhận, kiểm tra lại tên không dấu, ngân hàng, số tài khoản và chi nhánh/SWIFT nếu dịch vụ yêu cầu.',
+      },
+    ],
     officialLinks: [
       { label: 'SBI Remit — Gửi tiền về Việt Nam', url: 'https://www.remit.co.jp/en/kaigaisoukin/sendremittance/remittancearea/vietnam/' },
       { label: 'Wise Japan', url: 'https://wise.com/jp' },
