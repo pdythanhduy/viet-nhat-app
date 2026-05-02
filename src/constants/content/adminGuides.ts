@@ -5067,6 +5067,38 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nếu sang Nhật vào giữa năm học (tháng 4–3), nên đến trường và municipal office trong vòng 1 tuần để sắp xếp.',
       'Năm học Nhật bắt đầu tháng 4 — nếu đến trước tháng 3, liên hệ ngay để kịp nhập học đầu năm.',
     ],
+    whereToDo: [
+      'Municipal office nơi cư trú: hỏi quầy 学務課, 教育委員会 hoặc bộ phận phụ trách trường học.',
+      'Trường được phân theo 学区: đặt lịch gặp để trao đổi trình độ tiếng Nhật, lớp học và hỗ trợ cần thiết.',
+      'Quầy tư vấn người nước ngoài địa phương: hỏi nếu cần phiên dịch hoặc tài liệu đa ngôn ngữ.',
+    ],
+    documentsChecklist: [
+      { label: 'Passport của con', required: true },
+      { label: 'Thẻ cư trú của con', required: false, note: 'Mang theo nếu đã được cấp.' },
+      { label: 'Giấy tờ tùy thân của phụ huynh', required: true },
+      { label: '就学通知書', required: false, note: 'Nhận sau khi municipal office/教育委員会 chỉ định trường.' },
+      { label: 'Học bạ hoặc giấy tờ học tập từ Việt Nam', required: false, note: 'Giúp trường tham khảo khi xếp lớp và hỗ trợ tiếng Nhật.' },
+    ],
+    commonMistakes: [
+      'Chỉ làm 転入届 xong rồi chờ trường tự liên hệ, không hỏi 教育委員会.',
+      'Không nói rõ con chưa biết tiếng Nhật nên trường không chuẩn bị hỗ trợ phù hợp.',
+      'Tự chọn trường theo ý muốn mà không kiểm tra 学区 được phân theo địa chỉ.',
+      'Không hỏi chương trình 就学援助 dù gia đình có thể đủ điều kiện hỗ trợ chi phí.',
+    ],
+    faq: [
+      {
+        question: 'Con chưa biết tiếng Nhật có vào trường công được không?',
+        answer: 'Có. Khi đăng ký, hãy nói rõ trình độ tiếng Nhật của con để trường và 教育委員会 xem xét hỗ trợ như 日本語学級, 取り出し授業 hoặc giáo viên phụ trách học sinh nước ngoài.',
+      },
+      {
+        question: 'Phụ huynh có được tự chọn trường không?',
+        answer: 'Thông thường trường công được phân theo địa chỉ cư trú, gọi là 学区. Một số địa phương có ngoại lệ hoặc chế độ chọn trường, nhưng cần hỏi 教育委員会 nơi cư trú.',
+      },
+      {
+        question: 'Có phải mua toàn bộ sách giáo khoa không?',
+        answer: 'Sách giáo khoa trường công thường được phát miễn phí. Phụ huynh vẫn cần chuẩn bị dụng cụ học tập, giày trong nhà, ba lô và các đồ theo danh sách trường cung cấp.',
+      },
+    ],
     officialLinks: [
       { label: '外国人の子等の就学に関する手続 — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/shugaku/detail/1422256.htm' },
       { label: '小・中学校等への就学について — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/shugaku/' },
@@ -5138,6 +5170,39 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Khi chuyển việc: công ty cũ ngừng trừ từ lương, công ty mới bắt đầu trừ từ tháng tiếp theo hoặc bạn phải tự trả phần còn lại.',
       'Khi nghỉ việc hoặc về nước: phần 住民税 còn lại của năm có thể bị thu gộp một lần — cần xác nhận với công ty và municipal office.',
     ],
+    whereToDo: [
+      'Bộ phận payroll/HR của công ty: hỏi khi đang bị trừ qua lương theo 特別徴収.',
+      'Municipal office nơi cư trú ngày 1/1 của năm tính thuế: hỏi hóa đơn, nộp 普通徴収, xin giảm/miễn hoặc giấy chứng nhận thuế.',
+      '税務署/e-Tax: xử lý 確定申告 nếu dữ liệu thu nhập năm trước cần khai thêm hoặc sửa.',
+    ],
+    documentsChecklist: [
+      { label: '住民税決定通知書', required: true, note: 'Thông báo mức thuế, thường nhận tháng 6 qua công ty hoặc municipal office.' },
+      { label: '納付書/hóa đơn 普通徴収', required: false, note: 'Cần nếu tự nộp thay vì trừ qua lương.' },
+      { label: '源泉徴収票 hoặc 確定申告控え', required: false, note: 'Dùng để đối chiếu thu nhập năm trước.' },
+      { label: '離職票 hoặc 雇用保険受給資格者証', required: false, note: 'Mang theo nếu xin giảm/miễn do thất nghiệp hoặc thu nhập giảm.' },
+      { label: 'Thẻ cư trú', required: false, note: 'Mang theo khi hỏi trực tiếp tại municipal office.' },
+    ],
+    commonMistakes: [
+      'Nghĩ năm đầu không bị trừ nghĩa là không bao giờ có 住民税.',
+      'Nghỉ việc nhưng không hỏi phần 住民税 còn lại sẽ bị thu như thế nào.',
+      'Bỏ qua hóa đơn 普通徴収 gửi về nhà vì nghĩ công ty vẫn đang trừ qua lương.',
+      'Về nước khi còn 住民税 chưa nộp hoặc chưa có 納税管理人.',
+      'Nhầm 所得税 với 住民税 và nghĩ 年末調整 đã xử lý tất cả.',
+    ],
+    faq: [
+      {
+        question: 'Tại sao tháng 6 tự nhiên lương thực nhận giảm?',
+        answer: '住民税 thường bắt đầu tính chu kỳ mới từ tháng 6 đến tháng 5 năm sau. Nếu công ty thu theo 特別徴収, khoản 住民税 trên bảng lương có thể thay đổi từ tháng 6.',
+      },
+      {
+        question: 'Nghỉ việc rồi có phải nộp 住民税 nữa không?',
+        answer: 'Có. 住民税 dựa trên thu nhập năm trước, nên nghỉ việc không làm mất nghĩa vụ nộp phần còn lại. Hãy hỏi công ty hoặc municipal office xem sẽ trừ gộp vào lương cuối hay chuyển sang hóa đơn tự nộp.',
+      },
+      {
+        question: 'Có xin giảm/miễn 住民税 được không?',
+        answer: 'Có thể tùy địa phương và hoàn cảnh như thất nghiệp, thu nhập giảm mạnh hoặc khó khăn tài chính. Điều kiện và hạn nộp khác nhau theo municipal office, nên hỏi quầy 市民税課 càng sớm càng tốt.',
+      },
+    ],
     officialLinks: [
       { label: '住民税について — 財務省', url: 'https://www.mof.go.jp/tax_information/qanda020.html' },
       { label: '国税と地方税の種類 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/osirase/9000.htm' },
@@ -5200,6 +5265,40 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Ngay khi dọn vào nhà mới: lấy lịch phân loại rác (ゴミカレンダー) của khu vực tại municipal office, tòa nhà, hoặc app của thành phố.',
       'Trước khi chuyển nhà: đăng ký thu gom 粗大ゴミ ít nhất 1–2 tuần trước ngày chuyển.',
+    ],
+    whereToDo: [
+      'Municipal office hoặc website/app của địa phương: lấy ゴミカレンダー và quy định phân loại chính thức.',
+      'Quản lý tòa nhà/ký túc xá: xác nhận điểm đặt rác, giờ bỏ rác và loại túi được dùng.',
+      'Convenience store/siêu thị: mua 指定ゴミ袋 hoặc 粗大ゴミシール nếu địa phương yêu cầu.',
+      'Cổng 粗大ゴミ của địa phương: đặt lịch thu gom đồ lớn trước khi chuyển nhà.',
+    ],
+    documentsChecklist: [
+      { label: 'ゴミカレンダー của khu vực', required: true },
+      { label: '指定ゴミ袋 nếu địa phương yêu cầu', required: false },
+      { label: '粗大ゴミ受付番号 hoặc giấy hẹn thu gom', required: false, note: 'Cần khi đã đăng ký đồ đạc lớn.' },
+      { label: '粗大ゴミシール', required: false, note: 'Mua và dán đúng món đồ theo mức phí được thông báo.' },
+      { label: 'Nội quy tòa nhà/ký túc xá', required: false, note: 'Dùng để biết điểm tập kết rác và giờ được bỏ rác.' },
+    ],
+    commonMistakes: [
+      'Dùng lịch rác của thành phố cũ sau khi đã chuyển nhà.',
+      'Bỏ rác tối hôm trước dù tòa nhà/khu phố yêu cầu chỉ bỏ buổi sáng ngày thu gom.',
+      'Không rửa chai/lon/hộp trước khi bỏ vào 資源ゴミ.',
+      'Bỏ đồ lớn như giường, tủ, xe đạp ra điểm rác thường mà không đăng ký 粗大ゴミ.',
+      'Vứt TV, tủ lạnh, máy giặt, điều hòa như 粗大ゴミ thường dù thuộc nhóm cần xử lý theo リサイクル法.',
+    ],
+    faq: [
+      {
+        question: 'Rác bị dán giấy và không được thu thì làm sao?',
+        answer: 'Mang rác về, đọc lý do trên giấy, phân loại lại hoặc đổi túi/ngày bỏ theo hướng dẫn. Không để nguyên ở điểm tập kết vì có thể gây rắc rối với hàng xóm hoặc quản lý tòa nhà.',
+      },
+      {
+        question: 'Có được bỏ rác tối hôm trước không?',
+        answer: 'Tùy địa phương và tòa nhà. Nhiều nơi yêu cầu bỏ trước giờ thu gom buổi sáng, không bỏ tối hôm trước để tránh mùi và vấn đề vệ sinh. Hãy theo ゴミカレンダー và nội quy tòa nhà.',
+      },
+      {
+        question: 'Đồ lớn khi chuyển nhà xử lý thế nào?',
+        answer: 'Đăng ký 粗大ゴミ với địa phương, mua 粗大ゴミシール đúng mức phí, dán lên đồ và đặt ra đúng ngày hẹn. Thiết bị như TV, tủ lạnh, máy giặt, điều hòa thường phải theo kênh tái chế riêng.',
+      },
     ],
     officialLinks: [
       { label: '廃棄物等の処理 — 環境省', url: 'https://www.env.go.jp/recycle/waste/index.html' },
@@ -5364,6 +5463,52 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Không có hạn định — làm khi cả hai đã sẵn sàng về giấy tờ.',
       'Nếu một người cần visa gia đình (日本人の配偶者等 hoặc 永住者の配偶者等): cần hoàn tất đăng ký kết hôn ở Nhật trước khi nộp đơn đổi tư cách lưu trú.',
       'Nếu muốn đăng ký khai sinh con trong tương lai: hôn nhân cần được công nhận ở cả Nhật lẫn Việt Nam.',
+    ],
+    whereToDo: [
+      'Municipal office nơi một trong hai người cư trú hoặc nơi có hộ tịch của phía người Nhật.',
+      'Đại sứ quán hoặc Tổng lãnh sự quán Việt Nam tại Nhật: đăng ký hoặc ghi chú hôn nhân để phía Việt Nam công nhận.',
+      'ISA: hỏi thủ tục đổi tư cách lưu trú nếu sau kết hôn cần chuyển sang diện vợ/chồng.',
+    ],
+    documentsChecklist: [
+      { label: '婚姻届 có chữ ký hai người và hai nhân chứng', required: true },
+      { label: 'Hộ chiếu của cả hai', required: true },
+      { label: 'Thẻ cư trú của người nước ngoài', required: true },
+      {
+        label: 'Giấy xác nhận tình trạng hôn nhân từ Việt Nam',
+        required: true,
+        note: 'Cần kiểm tra yêu cầu hợp pháp hóa, bản dịch và thời hạn sử dụng với municipal office.',
+      },
+      {
+        label: '戸籍謄本 của phía người Nhật',
+        required: false,
+        note: 'Có thể cần nếu nộp ở nơi khác 本籍地.',
+      },
+      {
+        label: '婚姻受理証明書',
+        required: false,
+        note: 'Xin sau khi nộp thành công để dùng cho thủ tục phía Việt Nam và visa.',
+      },
+    ],
+    commonMistakes: [
+      'Không hỏi municipal office trước nên thiếu giấy tờ hoặc bản dịch.',
+      'Nộp 婚姻届 xong nhưng quên đăng ký hoặc ghi chú với phía Việt Nam.',
+      'Không xin 婚姻受理証明書 ngay sau khi hồ sơ được nhận.',
+      'Tưởng kết hôn tự động đổi visa; thực tế phải nộp thủ tục 在留資格変更 nếu cần.',
+      'Không kiểm tra yêu cầu đặt hẹn tại Đại sứ quán hoặc Tổng lãnh sự quán Việt Nam trước khi đi.',
+    ],
+    faq: [
+      {
+        question: 'Kết hôn tại Nhật xong có tự động được công nhận tại Việt Nam không?',
+        answer: 'Không nên mặc định như vậy. Sau khi 婚姻届 được nhận tại Nhật, cần làm thủ tục đăng ký hoặc ghi chú hôn nhân với cơ quan Việt Nam theo hướng dẫn của Đại sứ quán hoặc Tổng lãnh sự quán Việt Nam.',
+      },
+      {
+        question: 'Có cần hai nhân chứng trên 婚姻届 không?',
+        answer: 'Có. 婚姻届 cần chữ ký của hai nhân chứng trưởng thành. Nhân chứng có thể là bạn bè hoặc đồng nghiệp, không nhất thiết là người Nhật.',
+      },
+      {
+        question: 'Kết hôn xong visa có tự đổi sang vợ/chồng không?',
+        answer: 'Không. Kết hôn và đổi tư cách lưu trú là hai thủ tục khác nhau. Nếu cần đổi sang 日本人の配偶者等 hoặc diện vợ/chồng khác, phải nộp hồ sơ 在留資格変更 tại ISA.',
+      },
     ],
     officialLinks: [
       { label: '婚姻届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-2' },
@@ -5710,6 +5855,48 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Người đi làm: công ty thường tổ chức 1 lần/năm — thường vào mùa xuân (tháng 4–6) hoặc thu (tháng 9–11). Tham gia khi công ty thông báo.',
       '特定健診 (40–74 tuổi, 国民健康保険): municipal office gửi phiếu 受診券 vào khoảng tháng 5–6 hàng năm — dùng phiếu đến cơ sở y tế đăng ký trước cuối năm tài khóa (tháng 3 năm sau).',
       'Nếu không nhận được thông báo từ công ty sau 1 năm làm việc: chủ động hỏi phòng nhân sự.',
+    ],
+    whereToDo: [
+      'Công ty hoặc phòng nhân sự: xác nhận lịch 定期健康診断 hằng năm.',
+      'Cơ sở y tế được công ty hoặc municipal office chỉ định: đặt lịch khám theo phiếu hoặc hướng dẫn.',
+      'Municipal office: hỏi 特定健診, がん検診 và phiếu 受診券 nếu tham gia 国民健康保険.',
+      'Phòng khám hoặc bệnh viện chuyên khoa: tái khám nếu kết quả ghi 要再検査 hoặc 要精密検査.',
+    ],
+    documentsChecklist: [
+      { label: 'Thông báo hoặc lịch khám từ công ty', required: false },
+      {
+        label: '受診券 từ municipal office',
+        required: false,
+        note: 'Cần cho 特定健診 hoặc がん検診 nếu được cấp.',
+      },
+      { label: 'Thẻ bảo hiểm y tế hoặc マイナ保険証', required: true },
+      {
+        label: 'Phiếu kết quả 健診 các năm trước',
+        required: false,
+        note: 'Giúp bác sĩ so sánh xu hướng chỉ số.',
+      },
+      { label: 'Giấy giới thiệu hoặc giấy hẹn tái khám nếu kết quả bất thường', required: false },
+    ],
+    commonMistakes: [
+      'Bỏ qua khám định kỳ vì thấy khỏe.',
+      'Không hỏi HR khi công ty chưa thông báo khám sau một năm làm việc.',
+      'Nhận kết quả 要再検査 nhưng không đi tái khám.',
+      'Không giữ phiếu kết quả các năm trước để so sánh xu hướng sức khỏe.',
+      'Nhầm 定期健康診断 của công ty với khám điều trị; tái khám bất thường thường dùng bảo hiểm y tế riêng.',
+    ],
+    faq: [
+      {
+        question: 'Công ty có bắt buộc tổ chức khám sức khỏe không?',
+        answer: 'Với người lao động thuộc diện áp dụng, công ty phải tổ chức 定期健康診断 theo quy định an toàn vệ sinh lao động. Nếu không nhận thông báo sau một năm làm việc, hãy hỏi HR.',
+      },
+      {
+        question: 'Có phải trả tiền cho khám sức khỏe định kỳ của công ty không?',
+        answer: 'Khám định kỳ do công ty tổ chức cho người lao động thuộc diện áp dụng thường do công ty chi trả. Nếu cần tái khám hoặc khám chuyên sâu sau kết quả bất thường, phần đó thường xử lý qua bảo hiểm y tế hoặc theo hướng dẫn của cơ sở y tế.',
+      },
+      {
+        question: 'Kết quả ghi 要再検査 thì có nghiêm trọng không?',
+        answer: 'Đó là yêu cầu kiểm tra lại hoặc khám sâu hơn, không nên bỏ qua dù bạn thấy khỏe. Mang kết quả 健診 và thẻ bảo hiểm đến phòng khám hoặc bệnh viện phù hợp để được giải thích.',
+      },
     ],
     officialLinks: [
       { label: '健康診断を実施しましょう — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_05927.html' },

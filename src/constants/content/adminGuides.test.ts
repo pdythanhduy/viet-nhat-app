@@ -23,6 +23,14 @@ const CORE_SETUP_GUIDE_IDS = [
   'remittance',
 ];
 
+const NORMAL_STRUCTURED_GUIDE_IDS = [
+  'school-enrollment-children',
+  'juminzei-local-tax',
+  'garbage-sorting-rules',
+  'marriage-procedures-japan',
+  'annual-health-checkup-kensin',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -148,6 +156,23 @@ describe('ADMIN_GUIDES content quality', () => {
 
   it('keeps core setup guides structured', () => {
     for (const guideId of CORE_SETUP_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
+    }
+  });
+
+  it('keeps selected normal guides structured', () => {
+    for (const guideId of NORMAL_STRUCTURED_GUIDE_IDS) {
       const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
 
       expect(guide).toBeDefined();
