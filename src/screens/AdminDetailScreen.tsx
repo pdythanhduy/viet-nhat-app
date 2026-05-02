@@ -26,11 +26,7 @@ import {
   loadGuideChecklistProgress,
   toggleGuideChecklistItem,
 } from '../utils/guideChecklistProgress';
-import {
-  clearGuideStepProgress,
-  loadGuideStepProgress,
-  toggleGuideStep,
-} from '../utils/guideStepProgress';
+import { useGuideProgress } from '../hooks/useGuideProgress';
 import RichText from '../components/RichText';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -52,11 +48,12 @@ export default function AdminDetailScreen() {
   const insets = useSafeAreaInsets();
   const { width: windowWidth } = useWindowDimensions();
   const guideId = route.params.guideId;
+  const guide = ADMIN_GUIDES.find((g) => g.id === guideId);
+
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
-  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
   // Hooks must be called unconditionally — before any early return.
   useEffect(() => {
@@ -71,12 +68,11 @@ export default function AdminDetailScreen() {
     });
   }, [guideId]);
 
-  useEffect(() => {
-    if (!guideId) return;
-    loadGuideStepProgress(guideId).then(setCompletedSteps);
-  }, [guideId]);
-
-  const guide = ADMIN_GUIDES.find((g) => g.id === guideId);
+  const {
+    completedSteps,
+    toggleStep: handleToggleStep,
+    resetProgress: handleClearStepProgress,
+  } = useGuideProgress(guideId, guide?.steps.length ?? 0);
 
   if (!guide) return null;
 
@@ -196,16 +192,6 @@ export default function AdminDetailScreen() {
   const handleClearChecklist = async () => {
     await clearGuideChecklistProgress(guide.id);
     setCheckedChecklistItems(new Set());
-  };
-
-  const handleToggleStep = async (stepIndex: number) => {
-    const next = await toggleGuideStep(guide.id, stepIndex);
-    setCompletedSteps(new Set(next));
-  };
-
-  const handleClearStepProgress = async () => {
-    await clearGuideStepProgress(guide.id);
-    setCompletedSteps(new Set());
   };
 
   const checklistTotal = guide.documentsChecklist?.length ?? 0;
