@@ -1,7 +1,7 @@
 ﻿import type { AdminGuide, ContentMetadata } from '../../types/content';
 
 export const ADMIN_CONTENT_META: ContentMetadata = {
-  lastUpdated: '2026-04-26',
+  lastUpdated: '2026-05-02',
   sources: [
     { label: '出入国在留管理庁', url: 'https://www.moj.go.jp/isa/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
@@ -5865,8 +5865,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Đại sứ quán Việt Nam tại Tokyo: +81-3-3466-3313.',
     ],
     estimatedTime: 'Đọc guide này: 5 phút.',
-    fees: [],
-    documentsChecklist: [],
     commonMistakes: [
       'Tin vào người gọi chỉ vì họ nói được tiếng Việt — kẻ lừa đảo cố tình thuê người nói tiếng Việt để tạo tin tưởng.',
       'Chuyển tiền vì sợ bị trục xuất hoặc bị bắt — không có cơ quan nhà nước nào ở Nhật yêu cầu nộp tiền qua điện thoại.',
@@ -6207,6 +6205,277 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
   },
+  {
+    id: 'payslip-reading',
+    category: 'money',
+    lastVerified: '2026-05-02',
+    priority: 'high',
+    title: 'Cách đọc bảng lương Nhật',
+    titleJp: '給与明細の見方',
+    icon: 'document-text',
+    color: '#1A6B9A',
+    description: 'Giải thích từng dòng trên 給与明細 (bảng lương): khoản nào được trả, khoản nào bị khấu trừ và tại sao số tiền vào tài khoản khác với lương hợp đồng.',
+    whoIsThisFor: [
+      'Người mới đi làm tại Nhật lần đầu nhận bảng lương và không hiểu các dòng số liệu.',
+      'Người muốn kiểm tra lại xem thuế và bảo hiểm có bị tính đúng không.',
+      'Người chuẩn bị đàm phán lương hoặc so sánh offer từ nhiều công ty.',
+    ],
+    whenToDo: [
+      'Khi nhận bảng lương hàng tháng — nên đọc kỹ ít nhất vài tháng đầu.',
+      'Tháng 12 hoặc tháng 1: kiểm tra xem công ty đã làm 年末調整 chưa và số thuế điều chỉnh có hợp lý không.',
+      'Tháng 5-6: 住民税 mới thường áp dụng từ tháng 6, kiểm tra thay đổi trên bảng lương.',
+    ],
+    fees: [
+      'Không có phí — đây là quyền được nhận bảng lương chi tiết theo luật 労働基準法.',
+    ],
+    commonMistakes: [
+      'Nhầm 支給合計 (tổng trước khấu trừ) với 差引支給額 (tiền thực nhận) — hai con số này chênh nhau đáng kể.',
+      'Không kiểm tra 残業手当 — nhiều người bị trả thiếu lương làm thêm giờ mà không phát hiện.',
+      'Nghĩ thuế bị trừ hàng tháng là số thuế cuối cùng — đây chỉ là tạm khấu trừ, số thực tế được quyết toán qua 年末調整 hoặc 確定申告.',
+      'Bỏ qua cột 有給残高 (số ngày phép còn lại) — nên theo dõi để dùng hết trước khi nghỉ việc.',
+    ],
+    faq: [
+      {
+        question: 'Tại sao lương vào tài khoản ít hơn nhiều so với 基本給 trên hợp đồng?',
+        answer: '基本給 là lương cơ bản trước khấu trừ. Số tiền thực nhận (差引支給額) = 支給合計 (lương + phụ cấp) − 控除合計 (bảo hiểm + thuế). Với lương 25万/tháng, tổng khấu trừ thường vào khoảng 3.5–5万 yên tùy tình huống.',
+      },
+      {
+        question: '住民税 bắt đầu bị trừ từ tháng nào và tại sao năm đầu không bị trừ?',
+        answer: '住民税 tính trên thu nhập năm trước, thu từ tháng 6 đến tháng 5 năm sau. Người mới sang Nhật năm đầu chưa có thu nhập năm trước nên chưa bị trừ. Từ năm thứ 2 trở đi, tháng 6 sẽ thấy thêm khoản này trên bảng lương — đừng bị bất ngờ.',
+      },
+      {
+        question: 'Làm thêm giờ nhưng không thấy 残業手当 trên bảng lương, phải làm gì?',
+        answer: 'Trước tiên: kiểm tra hợp đồng xem có mục "固定残業代" (lương bao gồm sẵn giờ làm thêm nhất định) không. Nếu không có và bạn thực sự làm thêm, hãy đối chiếu với 出勤簿/タイムカード. Nếu sai, trình bày với bộ phận nhân sự. Nếu không giải quyết được, liên hệ 労働基準監督署.',
+      },
+      {
+        question: 'Tháng 12 nhận được tiền điều chỉnh thuế — đó là gì?',
+        answer: 'Đó là 年末調整 — quyết toán thuế thu nhập cuối năm. Nếu công ty đã khấu trừ tạm nhiều hơn số thuế thực tế phải nộp, phần chênh lệch được hoàn lại trong bảng lương tháng 12 hoặc tháng 1. Đây là khoản hoàn thuế bình thường, không phải lương thưởng.',
+      },
+    ],
+    officialLinks: [
+      { label: '賃金の支払いに関するルール — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/index.html' },
+      { label: '時間外労働の割増賃金率 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/menu.html' },
+      { label: '協会けんぽ 保険料率 — 全国健康保険協会', url: 'https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Đọc phần 支給 — khoản được trả',
+        description: 'Phần trên bảng lương liệt kê tất cả thu nhập trong tháng:\n\n| Mục | Ý nghĩa |\n|---|---|\n| 基本給 | Lương cơ bản theo hợp đồng |\n| 時間外手当 / 残業手当 | Lương làm thêm giờ (bình thường ≥1.25×/giờ; tháng >60h ≥1.50×) |\n| 深夜手当 | Phụ cấp làm đêm 22:00–5:00 (+0.25× so với ca thường) |\n| 休日手当 | Lương làm ngày nghỉ pháp định (≥1.35×) |\n| 通勤手当 | Phụ cấp đi lại (thường bằng tiền xe tháng) |\n| 住宅手当 | Phụ cấp nhà ở (nếu công ty có chính sách) |\n| 家族手当 | Phụ cấp gia đình (nếu khai báo扶養) |\n| **支給合計** | **Tổng thu nhập trước khấu trừ** |\n\n⚠️ 通勤手当 thường không bị tính vào thu nhập chịu thuế nếu trong mức quy định (tối đa 150,000 yên/tháng), nhưng vẫn tính vào cơ sở tính bảo hiểm xã hội.',
+        documents: [],
+        tip: 'Nếu thấy mục "固定残業代" hoặc "みなし残業" trong hợp đồng, nghĩa là một số giờ làm thêm đã được gộp sẵn vào 基本給 — hỏi HR để biết số giờ cụ thể.',
+      },
+      {
+        step: 2,
+        title: 'Đọc phần 控除 — các khoản bị khấu trừ',
+        description: 'Phần dưới hoặc bên phải liệt kê các khoản bị trừ khỏi lương:\n\n| Mục | Tỷ lệ tham khảo (令和7年度 / 2025) | Ghi chú |\n|---|---|---|\n| 健康保険料 | ~5.00% lương | Phụ thuộc tỉnh/組合; Tokyo: 4.955% |\n| 介護保険料 | ~0.795% lương | **Chỉ người 40–64 tuổi** |\n| 厚生年金保険料 | 9.15% lương | Cố định toàn quốc |\n| 雇用保険料 | 0.55% lương | Phòng trừ khi thất nghiệp |\n| 所得税 | Tùy thu nhập | Khấu trừ tạm, quyết toán cuối năm |\n| 住民税 | Tùy thu nhập năm trước | **Không trừ năm đầu mới sang Nhật** |\n| **控除合計** | **Tổng khấu trừ** | |\n\nVí dụ: Lương 250,000 yên/tháng, khấu trừ xã hội khoảng 37,250 yên (chưa tính thuế thu nhập và住民税).',
+        documents: [],
+        tip: '所得税 hàng tháng chỉ là tạm trừ theo bảng 源泉徴収税額表. Cuối năm qua 年末調整 (do công ty làm) số này sẽ được điều chỉnh và hoàn lại nếu trừ nhiều hơn thực tế.',
+      },
+      {
+        step: 3,
+        title: 'Kiểm tra 差引支給額 — tiền thực nhận',
+        description: '**差引支給額** = 支給合計 − 控除合計\n\nĐây là số tiền chuyển vào tài khoản ngân hàng của bạn (còn gọi là 振込額 hoặc 手取り).\n\nMột số bảng lương còn có thêm:\n| Mục | Ý nghĩa |\n|---|---|\n| 有給残高 | Số ngày phép có lương còn lại |\n| 累計支給 | Tổng lương cộng dồn từ đầu năm (dùng để tính thuế cuối năm) |\n| 標準報酬月額 | Mức lương cơ sở tính bảo hiểm (không thay đổi thường xuyên) |\n\nNếu không khớp tài khoản: kiểm tra xem có khoản nào bị trừ thêm như tiền nhà tập thể, ăn trưa, hay khoản vay công ty không.',
+        documents: [],
+        tip: 'Lưu tất cả 給与明細 trong năm — bạn cần chúng khi làm 確定申告, xin visa gia đình, vay ngân hàng hoặc tranh chấp lao động.',
+      },
+      {
+        step: 4,
+        title: 'Kiểm tra 残業手当 có đúng không',
+        description: 'Công thức cơ bản tính lương làm thêm giờ:\n\n**Lương giờ cơ bản** = 基本給 ÷ 所定労働時間/tháng (thường 160–173h)\n\n**Lương làm thêm giờ** = Lương giờ cơ bản × số giờ làm thêm × hệ số\n\n| Loại giờ | Hệ số tối thiểu |\n|---|---|\n| Thường ngày (>所定労働時間) | 1.25× |\n| Tháng vượt 60 giờ (月60時間超) | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n| Ngày nghỉ theo hợp đồng (所定休日) | 1.25× |\n\n⚠️ Các khoản 通勤手当, 家族手当, 住宅手当 cần được tính vào lương giờ cơ bản theo quy định, không chỉ dùng 基本給 đơn thuần.',
+        documents: ['Bảng chấm công / タイムカード hoặc PC login records', '労働契約書 / 雇用通知書 để đối chiếu số giờ làm quy định'],
+        tip: 'Nhiều công ty dùng "固定残業制" gộp sẵn một số giờ thêm vào lương. Nếu thực tế làm nhiều hơn số giờ đó, phần dôi ra vẫn phải được trả thêm.',
+      },
+    ],
+  },
+  {
+    id: 'kokuho-reduction',
+    category: 'health',
+    lastVerified: '2026-05-02',
+    priority: 'high',
+    title: 'Giảm phí bảo hiểm y tế quốc dân',
+    titleJp: '国民健康保険料（税）の軽減・減額申請',
+    icon: 'medkit',
+    color: '#27AE60',
+    description: 'Khi thu nhập thấp hoặc mất việc, phí 国民健康保険 có thể được giảm tự động hoặc theo đơn xin — nhiều người không biết và bỏ lỡ quyền lợi này.',
+    whoIsThisFor: [
+      'Người thuộc 国民健康保険 (tự đóng, không qua công ty) với thu nhập thấp hoặc không có thu nhập.',
+      'Người vừa nghỉ việc, bị sa thải hoặc công ty phá sản và chuyển sang 国保.',
+      'Du học sinh hoặc người mới sang Nhật với thu nhập thấp trong năm đầu.',
+    ],
+    whenToDo: [
+      'Ngay khi nhận thông báo phí 国保 có vẻ cao so với thu nhập thực tế.',
+      'Ngay khi nghỉ việc không tự nguyện (bị sa thải, hợp đồng không gia hạn, công ty phá sản) — giảm phí đặc biệt áp dụng từ ngày hôm sau ngày nghỉ.',
+      'Nếu thu nhập năm trước thấp, kiểm tra xem có thuộc diện giảm tự động không — không cần nộp đơn nhưng cần khai báo thu nhập đúng.',
+    ],
+    whereToDo: [
+      '市区町村役場 — quầy 国民健康保険 hoặc 保険年金課.',
+      'Không thể làm online hoặc qua bưu điện — bắt buộc đến quầy.',
+    ],
+    estimatedTime: 'Nộp tại quầy: 20–40 phút. Giảm phí thường áp dụng ngay trong tháng nộp hoặc hồi tố từ đầu năm tài khóa.',
+    fees: ['Không mất phí — đây là chương trình hỗ trợ của nhà nước.'],
+    documentsChecklist: [
+      { label: 'Thẻ 国民健康保険', required: true },
+      { label: 'Thẻ cư trú (在留カード)', required: true },
+      { label: '雇用保険受給資格者証 hoặc 雇用保険受給資格通知', required: false, note: 'Chỉ cần khi xin giảm phí đặc biệt do nghỉ việc không tự nguyện.' },
+      { label: 'Giấy tờ thu nhập năm trước (源泉徴収票, 確定申告の控え)', required: false, note: 'Để xác nhận thu nhập nếu chưa khai báo với municipal office.' },
+      { label: 'My Number Card hoặc giấy tờ xác nhận danh tính', required: true },
+    ],
+    commonMistakes: [
+      'Nghĩ phí 国保 cố định và không thể thay đổi — thực ra có thể giảm đáng kể nếu đủ điều kiện.',
+      'Không khai báo thu nhập với municipal office — nếu không khai, hệ thống không biết thu nhập thấp và không tự động giảm.',
+      'Xin giảm phí đặc biệt quá 1 năm sau ngày nghỉ việc — hết hạn và mất quyền hồi tố.',
+      'Đóng phí đầy đủ rồi mới xin giảm — giảm phí áp dụng cho phần chưa đóng, phần đã đóng không được hoàn lại theo quy định thông thường.',
+    ],
+    faq: [
+      {
+        question: 'Giảm phí tự động có cần nộp đơn không?',
+        answer: 'Giảm tự động theo thu nhập (均等割軽減) không cần nộp đơn riêng, nhưng cần đảm bảo municipal office đã có dữ liệu thu nhập của bạn — thông qua khai báo 住民税 hàng năm (5/31). Nếu chưa khai, hãy đến khai để hệ thống tự tính giảm.',
+      },
+      {
+        question: 'Giảm đặc biệt do thất nghiệp áp dụng bao lâu?',
+        answer: 'Áp dụng từ ngày hôm sau ngày nghỉ việc đến hết năm tài khóa tiếp theo (最長で離職日の翌日から翌翌年度末). Ví dụ nghỉ tháng 8/2025 → giảm áp dụng đến 3/2027. Nhưng phải nộp trong vòng 1 năm kể từ ngày nghỉ.',
+      },
+      {
+        question: 'Du học sinh có được giảm phí không?',
+        answer: 'Có thể được giảm tự động nếu thu nhập thấp. Du học sinh thường thuộc diện 7割 hoặc 5割 nếu không có thu nhập đáng kể. Cần đảm bảo đã khai báo thu nhập 0 hoặc thực tế qua 住民税申告.',
+      },
+      {
+        question: 'Phí 国保 tính như thế nào để biết mình có bị giảm không?',
+        answer: '国保 gồm 2 phần: 所得割 (tỷ lệ theo thu nhập) và 均等割 (cố định theo đầu người). Giảm phí tự động tác động vào phần 均等割. Mỗi municipality có mức phí khác nhau — tra cứu trang web thành phố/quận hoặc hỏi trực tiếp tại quầy.',
+      },
+    ],
+    officialLinks: [
+      { label: '国民健康保険の保険料・保険税について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_21517.html' },
+      { label: '非自発的失業者の国保軽減 — 渋谷区（例）', url: 'https://www.city.shibuya.tokyo.jp/kurashi/kokuho/kenkohokenryo/hokenryo_hijihatsu.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra bạn có thuộc diện giảm tự động không',
+        description: 'Nhà nước tự động giảm phần **均等割** (cố định theo đầu người) nếu thu nhập cả hộ gia đình thấp. Ngưỡng **令和8年度** (từ 4/2026):\n\n| Mức giảm | Điều kiện thu nhập hộ gia đình |\n|---|---|\n| **7割減** (giảm 70%) | ≤ 43万円 (*) |\n| **5割減** (giảm 50%) | ≤ 43万円 + **31万円 × số người tham gia 国保** (*) |\n| **2割減** (giảm 20%) | ≤ 43万円 + **57万円 × số người tham gia 国保** (*) |\n\n(*) Cộng thêm 10万円 nếu trong hộ có ≥2 người đi làm có lương (給与所得者等).\n\n⚠️ Đây là thu nhập theo nghĩa "所得" sau các khoản khấu trừ, không phải tổng tiền nhận — người không có thu nhập tính là 0, không phải "thiếu dữ liệu". Phải khai báo thu nhập 0 mới được tính.',
+        documents: ['Thông báo 国保 có ghi mức phí hiện tại', 'Giấy khai báo thu nhập hoặc xác nhận thu nhập 0'],
+        tip: 'Nếu bạn là người duy nhất trong hộ, tham gia 国保 một mình không có thu nhập → Thu nhập hộ = 0 ≤ 43万円 → thuộc diện 7割減. Nhưng cần đã khai báo thu nhập 0 với municipal office.',
+      },
+      {
+        step: 2,
+        title: 'Nếu vừa mất việc không tự nguyện — xin giảm phí đặc biệt',
+        description: 'Chương trình **非自発的失業者の国保軽減** (giảm phí đặc biệt khi thất nghiệp không tự nguyện):\n\n**Điều kiện:**\n- Thuộc 国民健康保険\n- Dưới 65 tuổi\n- Có 雇用保険受給資格者証 với mã 離職理由 thuộc nhóm: 11, 12, 21, 22, 23, 31, 32, 33, 34 (bị sa thải, hợp đồng không gia hạn, công ty phá sản...)\n\n**Cách giảm:** Municipal office tính lại phí bằng cách coi **thu nhập làm lương năm trước chỉ tính 30%** (phần còn lại 70% bị bỏ qua). Giảm đáng kể phần 所得割.\n\n**Thời hạn:** Áp dụng từ ngày sau ngày nghỉ việc đến hết năm tài khóa tiếp theo. Phải nộp trong vòng 1 năm từ ngày nghỉ.\n\n**Hồ sơ:**\n| Giấy tờ | Ghi chú |\n|---|---|\n| 雇用保険受給資格者証 | Bản gốc + bản sao, xác nhận mã 離職理由 |\n| 在留カード | Bản gốc |\n| 国民健康保険証 | Thẻ bảo hiểm hiện tại |\n| My Number Card hoặc giấy tờ tùy thân | |\n\nForm **nhận tại quầy** municipal office — không có form quốc gia để tải trước.',
+        documents: ['雇用保険受給資格者証 (bản gốc)', '在留カード', '国民健康保険証'],
+        tip: 'Mã 離職理由 in trên 雇用保険受給資格者証. Các mã 11 (会社都合解雇), 23 (雇い止め), 33 (上司のパワハラ) v.v. đều thuộc diện. Nếu không rõ mã của mình, hỏi nhân viên quầy.',
+      },
+      {
+        step: 3,
+        title: 'Nếu gặp khó khăn tài chính đặc biệt — xin giảm/miễn theo hoàn cảnh',
+        description: 'Ngoài 2 chương trình trên, nhiều municipal office có chương trình **減免** (giảm/miễn) riêng theo hoàn cảnh khó khăn cụ thể:\n\n- Thiên tai, hỏa hoạn ảnh hưởng tài sản\n- Thu nhập giảm đột ngột do tai nạn, bệnh tật\n- Khó khăn kinh tế khác theo quyết định của municipality\n\nCác chương trình này **không chuẩn hóa toàn quốc** — tên, điều kiện và mức giảm khác nhau mỗi nơi. Hỏi trực tiếp quầy 保険年金課 để biết municipality của bạn có chương trình nào phù hợp.',
+        documents: [],
+        tip: 'Nếu đang khó khăn nhưng không chắc có đủ điều kiện không, cứ đến quầy hỏi — nhân viên sẽ tự kiểm tra và tư vấn phương án phù hợp nhất cho hoàn cảnh của bạn.',
+      },
+      {
+        step: 4,
+        title: 'Khai báo thu nhập đúng hạn — bước nền tảng',
+        description: 'Cả giảm tự động và nhiều chương trình giảm khác đều dựa trên **dữ liệu thu nhập** mà municipal office có. Nếu bạn không khai báo, hệ thống không biết và không giảm.\n\n**Cách khai:**\n- Nếu đi làm: công ty khấu trừ thuế và báo cáo cho cơ quan thuế — dữ liệu tự động có.\n- Nếu không đi làm / thu nhập 0: phải tự đến khai báo 住民税の申告 trước 31/5 hàng năm tại municipal office.\n- Nếu đã nộp 確定申告: dữ liệu tự động có.\n\n⚠️ Không khai báo = hệ thống coi bạn có thu nhập không xác định → không được giảm tự động.',
+        documents: ['源泉徴収票 (nếu có)', 'Hoặc tự khai báo thu nhập 0 tại municipal office'],
+        tip: 'Ngay cả khi không có thu nhập, đến khai báo 住民税 (0円申告) trước 31/5 là bước quan trọng để được hưởng giảm 国保 và 住民税 đúng mức.',
+      },
+    ],
+  },
+  {
+    id: 'labor-rights-dispute',
+    category: 'daily-law',
+    lastVerified: '2026-05-02',
+    priority: 'high',
+    title: 'Quyền lao động và tranh chấp với công ty',
+    titleJp: '労働相談・労働審判・未払い賃金請求',
+    icon: 'shield-checkmark',
+    color: '#C0392B',
+    description: 'Hướng dẫn quyền lao động cơ bản tại Nhật, cách khiếu nại khi bị trả thiếu lương, bị sa thải bất hợp pháp hoặc bị ép nghỉ việc — áp dụng cho cả người nước ngoài.',
+    whoIsThisFor: [
+      'Người bị trả thiếu lương, thiếu tiền làm thêm giờ hoặc không được trả lương cuối cùng.',
+      'Người bị sa thải đột ngột, ép ký đơn nghỉ tự nguyện hoặc bị đối xử không công bằng tại nơi làm việc.',
+      'Người muốn hiểu rõ quyền lao động trước khi ký hợp đồng hoặc khi có mâu thuẫn với công ty.',
+    ],
+    whenToDo: [
+      'Ngay khi phát hiện lương thiếu hoặc thấy bảng lương có điểm bất thường.',
+      'Khi bị thông báo nghỉ việc và muốn xác nhận quyết định đó có hợp pháp không.',
+      'Trước khi ký bất kỳ giấy tờ nào công ty đưa khi nghỉ việc (đặc biệt 合意退職書).',
+    ],
+    whereToDo: [
+      '労働基準監督署: xử lý vi phạm pháp luật lao động (lương, giờ làm, an toàn).',
+      '総合労働相談コーナー: tư vấn tổng hợp về quan hệ lao động, miễn phí, tại từng ハローワーク.',
+      '個人加盟ユニオン: hỗ trợ đàm phán tập thể cho cá nhân, không cần đủ số người thành lập công đoàn.',
+      '地方裁判所: nộp đơn 労働審判 khi muốn giải quyết pháp lý nhanh.',
+    ],
+    estimatedTime: '労働基準監督署: tiếp nhận trong ngày, điều tra có thể mất 1–3 tháng. 労働審判: 3 phiên xét xử trong 3–6 tháng.',
+    commonMistakes: [
+      'Ký 合意退職書 hoặc "退職届" ngay khi được đưa — mất quyền tranh chấp sau đó.',
+      'Không giữ bằng chứng giờ làm (タイムカード, email, LINE với sếp về giờ giấc).',
+      'Nghĩ vì là người nước ngoài nên không có quyền khiếu nại — Luật lao động Nhật bảo vệ tất cả người làm việc tại Nhật bất kể quốc tịch.',
+      'Để quá 3 năm kể từ khi xảy ra vi phạm lương — 賃金請求権 hết thời hiệu.',
+      'Không hỏi tư vấn trước khi nghỉ việc — nhiều trường hợp có thể đàm phán được lương thôi việc hoặc bồi thường.',
+    ],
+    faq: [
+      {
+        question: 'Công ty nói "có chứng cứ sa thải" nhưng không nói rõ là gì — có hợp pháp không?',
+        answer: '解雇 ở Nhật phải có lý do "客観的に合理的な理由" (khách quan, hợp lý) và "社会通念上相当" (xã hội chấp nhận được). Công ty không giải thích lý do cụ thể là dấu hiệu đáng ngờ. Bạn có quyền yêu cầu giải thích bằng văn bản (解雇理由証明書) — từ chối cung cấp là vi phạm 労働基準法第22条.',
+      },
+      {
+        question: 'Bị ép ký "自己都合退職" nhưng thực ra là bị ép nghỉ — có cách nào không?',
+        answer: '有. Nếu thực chất công ty gây sức ép buộc bạn nghỉ, đây có thể được coi là 解雇 hoặc 不当な自己都合退職 — bạn có thể khiếu nại để được công nhận là 会社都合, từ đó hưởng 雇用保険 tốt hơn và có căn cứ đòi bồi thường. Không ký trước, hỏi 労働相談コーナー ngay.',
+      },
+      {
+        question: 'Công ty phá sản, lương chưa được trả — còn có thể đòi không?',
+        answer: 'Có. Hệ thống **未払い賃金立替払制度** do 独立行政法人労働者健康安全機構 (JOHAS) quản lý, qua 労働基準監督署, cho phép nhà nước tạm ứng tối đa 80% lương chưa trả (trong phạm vi quy định) khi công ty phá sản hoặc được xác nhận mất khả năng thanh toán. Liên hệ 労働基準監督署 ngay khi biết công ty gặp khó khăn.',
+      },
+      {
+        question: 'Không biết tiếng Nhật, có thể khiếu nại không?',
+        answer: 'Được. 労働局 ở nhiều tỉnh lớn có 外国人労働者向け相談コーナー hỗ trợ tiếng Anh, Trung, Hàn và một số tiếng khác. Ngoài ra có thể gọi 外国人総合相談支援センター. Ở Tokyo, 東京外国人雇用サービスセンター hỗ trợ tư vấn đa ngôn ngữ.',
+      },
+    ],
+    officialLinks: [
+      { label: '労働基準監督署 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/kantoku/index.html' },
+      { label: '総合労働相談コーナー — 厚生労働省', url: 'https://www.mhlw.go.jp/general/seido/chihou/kaiketu/soudan.html' },
+      { label: '労働条件相談ほっとライン (0120-811-610)', url: 'https://www.check-roudou.mhlw.go.jp/soudan/' },
+      { label: '未払い賃金立替払制度 — 労働者健康安全機構', url: 'https://www.johas.go.jp/sangyouhoken/tabid/1150/Default.aspx' },
+      { label: '労働審判手続 — 裁判所', url: 'https://www.courts.go.jp/saiban/syurui/syurui_minzi/minzi_02_02_12/index.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Nắm quyền lao động cơ bản',
+        description: '**Lương tối thiểu (令和7年度 / Oct 2025):**\n- Toàn quốc: ¥1,121/giờ (mức trung bình)\n- Tokyo: ¥1,226/giờ | Osaka: ¥1,163/giờ | Aichi: ¥1,077/giờ\n- Tra mức của tỉnh bạn: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/\n\n**Làm thêm giờ — hệ số tối thiểu:**\n| Loại | Hệ số |\n|---|---|\n| Ngày thường vượt giờ quy định | 1.25× |\n| Tháng vượt 60 giờ làm thêm | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm vào hệ số trên) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n\n**Nghỉ phép có lương (有給休暇):**\n- Sau 6 tháng liên tục: 10 ngày/năm\n- Tăng dần đến tối đa 20 ngày\n- Công ty phải đảm bảo bạn dùng ít nhất **5 ngày/năm**\n\n**Sa thải hợp pháp:** phải có lý do khách quan, thông báo trước **30 ngày** hoặc trả **1 tháng lương** thay thế (解雇予告手当).',
+        documents: ['Hợp đồng lao động (労働契約書 / 雇用通知書)', 'Bảng chấm công / タイムカード', 'Bảng lương 給与明細'],
+        tip: '労働基準法 bảo vệ mọi người làm việc tại Nhật bất kể quốc tịch hay loại visa. Việc công ty nói "người nước ngoài không được khiếu nại" là sai pháp luật.',
+      },
+      {
+        step: 2,
+        title: 'Thu thập bằng chứng trước khi hành động',
+        description: 'Trước khi liên hệ bất kỳ cơ quan nào, gom đủ bằng chứng:\n\n| Loại bằng chứng | Cách lấy |\n|---|---|\n| Giờ làm thực tế | Chụp ảnh タイムカード, xuất PC login log, lưu email/LINE có timestamp |\n| Bảng lương | Lưu tất cả 給与明細 từ ngày đầu |\n| Hợp đồng | 雇用通知書 hoặc 労働契約書 — nếu không có, yêu cầu bằng văn bản |\n| Thông báo nghỉ việc | Chụp ảnh bất kỳ giấy tờ nào liên quan sa thải |\n| Liên lạc nội bộ | LINE, email, chat công ty về giờ làm, lương, lý do nghỉ |\n\n⚠️ Nếu bị sa thải, **không ký bất kỳ giấy tờ nào** trước khi tư vấn — đặc biệt 退職届 (đơn nghỉ tự nguyện) và 合意退職書 (thoả thuận kết thúc hợp đồng).',
+        documents: [],
+        tip: 'Ghi chép mọi cuộc nói chuyện quan trọng với sếp hoặc HR (ngày, giờ, nội dung, nhân chứng nếu có). Ở Nhật, ghi âm trong phòng bạn cũng có mặt là hợp pháp cho mục đích tự bảo vệ.',
+      },
+      {
+        step: 3,
+        title: 'Liên hệ đúng nơi theo loại vấn đề',
+        description: '**Tùy vấn đề, chọn đúng kênh:**\n\n| Vấn đề | Nơi phù hợp nhất |\n|---|---|\n| Lương làm thêm chưa được trả, thiếu tiền lương | **労働基準監督署** |\n| Bị sa thải, muốn đàm phán hoặc hiểu rõ quyền | **総合労働相談コーナー** |\n| Muốn công ty ngồi vào bàn đàm phán chính thức | **個人加盟ユニオン** |\n| Muốn giải quyết pháp lý nhanh (3–6 tháng) | **労働審判** tại 地方裁判所 |\n| Công ty phá sản, lương chưa trả | **労働基準監督署** → 未払い賃金立替払 |\n\n**Đường dây hỗ trợ miễn phí:**\n- **労働条件相談ほっとライン**: 0120-811-610 (月〜金 17:00–22:00, 土日祝 9:00–21:00)\n- **総合労働相談コーナー**: tại mỗi 労働局 và ハローワーク, giờ hành chính\n- **よりそいホットライン**: 0120-279-338 (24h, hỗ trợ đa ngôn ngữ)',
+        documents: [],
+        tip: '総合労働相談コーナー miễn phí và không cần hẹn trước — đây là điểm đầu tiên nên đến nếu không biết bắt đầu từ đâu. Họ sẽ hướng dẫn bạn đến đúng cơ quan.',
+      },
+      {
+        step: 4,
+        title: 'Khiếu nại lương thiếu tại 労働基準監督署',
+        description: '**Tính lương làm thêm bị thiếu:**\n\nLương giờ cơ bản = 基本給 ÷ 所定労働時間/tháng\nLương thiếu = Lương giờ × Số giờ làm thêm không trả × 1.25\n\n**Thủ tục nộp đơn:**\n1. Đến 労働基準監督署 gần nhà, trình bày vấn đề.\n2. Thanh tra lao động (労働基準監督官) tiếp nhận và có thể yêu cầu công ty cung cấp tài liệu.\n3. Nếu xác nhận vi phạm, thanh tra ra **是正勧告** (yêu cầu khắc phục) — phần lớn công ty tuân theo.\n4. Nếu công ty không tuân, có thể bị điều tra hình sự.\n\n**Thời hiệu: 3 năm** từ ngày phát sinh quyền đòi lương (改正労働基準法 2020). Nộp đơn càng sớm càng tốt.\n\nNgoài ra có thể tự đàm phán với công ty, hoặc nhờ 弁護士 (luật sư lao động) gửi **内容証明郵便** (thư bảo đảm) yêu cầu thanh toán.',
+        documents: ['Bảng lương 給与明細 (tất cả các tháng liên quan)', 'Bằng chứng giờ làm (タイムカード, email timestamps)', '労働契約書 hoặc 雇用通知書', 'Thẻ cư trú + hộ chiếu'],
+        tip: 'Nếu công ty chưa trả mà bạn nghỉ việc, lương vẫn phải được thanh toán trong 7 ngày kể từ ngày yêu cầu (退職時の賃金 — 労働基準法第23条). Gửi yêu cầu bằng văn bản có xác nhận ngày gửi.',
+      },
+      {
+        step: 5,
+        title: 'Tranh chấp sa thải — 労働審判 và đàm phán',
+        description: '**Sa thải bất hợp pháp (不当解雇):**\nNếu sa thải không có lý do hợp pháp → bạn có thể yêu cầu:\n- Phục hồi vị trí làm việc, hoặc\n- Bồi thường (解決金) — thường tính theo số tháng lương\n\n**労働審判 — giải quyết pháp lý nhanh:**\n1. Nộp đơn **申立書** tại 地方裁判所 nơi công ty đặt trụ sở.\n2. Phiên xét xử tối đa 3 lần, thường giải quyết trong 3–6 tháng.\n3. Hội đồng gồm: 1 thẩm phán (労働審判官) + 2 người am hiểu lao động (労働審判員).\n4. Nếu không đồng ý kết quả → tự động chuyển sang tố tụng dân sự.\n\n**Không cần luật sư nhưng nên có** — nhiều luật sư lao động nhận theo hình thức **成功報酬型** (chỉ trả khi thắng, thường 10–20% số tiền thu được).\n\n**個人加盟ユニオン** (công đoàn cá nhân): bất kỳ người đi làm nào đều có thể gia nhập một mình và yêu cầu **団体交渉** (đàm phán tập thể) với công ty — công ty bắt buộc phải ngồi vào bàn đàm phán theo luật.',
+        documents: ['申立書 (tải từ trang tòa án hoặc chuẩn bị với luật sư)', 'Toàn bộ bằng chứng đã thu thập', 'Thẻ cư trú + hộ chiếu'],
+        tip: 'Nếu bị sa thải và đang xem xét kiện: tuyệt đối không ký 退職届 hay 合意退職書 trước. Một khi đã ký đồng thuận nghỉ việc, rất khó đảo ngược về mặt pháp lý.',
+      },
+    ],
+  },
 ];
-
 
