@@ -25,6 +25,7 @@ import type { AdminGuideCategory } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type CategoryFilter = 'all' | AdminGuideCategory;
+type StatusFilter = 'all' | 'in-progress' | 'completed';
 
 const CATEGORY_FILTERS: { id: CategoryFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
   { id: 'all', label: 'Tất cả', icon: 'apps' },
@@ -35,6 +36,12 @@ const CATEGORY_FILTERS: { id: CategoryFilter; label: string; icon: keyof typeof 
   { id: 'health', label: 'Y tế', icon: 'heart' },
   { id: 'money', label: 'Tiền', icon: 'cash' },
   { id: 'license', label: 'Bằng lái', icon: 'car' },
+];
+
+const STATUS_FILTERS: { id: StatusFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
+  { id: 'all', label: 'Tất cả', icon: 'layers-outline' },
+  { id: 'in-progress', label: 'Đang làm', icon: 'time-outline' },
+  { id: 'completed', label: 'Đã xong', icon: 'checkmark-done-outline' },
 ];
 
 const VISA_QUICK_ACTIONS = [
@@ -90,6 +97,7 @@ export default function AdminScreen() {
   const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
+  const [activeStatus, setActiveStatus] = useState<StatusFilter>('all');
   const [inProgressGuideIds, setInProgressGuideIds] = useState<string[]>([]);
   const [readyGuideIds, setReadyGuideIds] = useState<string[]>([]);
   const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
@@ -137,13 +145,19 @@ export default function AdminScreen() {
 
     return ADMIN_GUIDES.filter((guide) => {
       const matchesCategory = activeCategory === 'all' || guide.category === activeCategory;
+      const completedStepCount = stepProgressMap[guide.id] ?? 0;
+      const totalSteps = guide.steps.length;
+      const matchesStatus =
+        activeStatus === 'all' ||
+        (activeStatus === 'in-progress' && completedStepCount > 0 && completedStepCount < totalSteps) ||
+        (activeStatus === 'completed' && totalSteps > 0 && completedStepCount >= totalSteps);
       const matchesSearch =
         !search.trim() ||
         guide.title.toLowerCase().includes(q) ||
         guide.titleJp.toLowerCase().includes(q) ||
         guide.description.toLowerCase().includes(q);
 
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesStatus && matchesSearch;
     }).sort((a, b) => {
       const featuredA = FEATURED_GUIDE_INDEX.get(a.id);
       const featuredB = FEATURED_GUIDE_INDEX.get(b.id);
@@ -156,9 +170,10 @@ export default function AdminScreen() {
 
       return Number(b.priority === 'high') - Number(a.priority === 'high');
     });
-  }, [activeCategory, search]);
+  }, [activeCategory, activeStatus, search, stepProgressMap]);
 
-  const showVisaQuickSelector = !search.trim() && (activeCategory === 'all' || activeCategory === 'visa');
+  const showVisaQuickSelector =
+    !search.trim() && activeStatus === 'all' && (activeCategory === 'all' || activeCategory === 'visa');
   const inProgressGuides = ADMIN_GUIDES.filter((guide) => inProgressGuideIds.includes(guide.id));
   const readyGuides = ADMIN_GUIDES.filter((guide) => readyGuideIds.includes(guide.id));
   const pinnedGuides = ADMIN_GUIDES.filter((guide) => pinnedGuideIds.includes(guide.id));
@@ -222,6 +237,33 @@ export default function AdminScreen() {
           })}
         </ScrollView>
 
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.statusFiltersScroll}
+          contentContainerStyle={styles.filtersContent}
+        >
+          {STATUS_FILTERS.map((filter) => {
+            const active = activeStatus === filter.id;
+            return (
+              <TouchableOpacity
+                key={filter.id}
+                style={[styles.filterPill, active && styles.statusFilterPillActive]}
+                onPress={() => setActiveStatus(filter.id)}
+              >
+                <Ionicons
+                  name={filter.icon}
+                  size={14}
+                  color={active ? Colors.white : Colors.textSecondary}
+                />
+                <Text style={[styles.filterText, active && styles.filterTextActive]}>
+                  {filter.label}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+
         {showVisaQuickSelector && (
           <View style={styles.quickSection}>
             <Text style={styles.quickSectionTitle}>Chọn nhanh theo mục đích</Text>
@@ -247,7 +289,7 @@ export default function AdminScreen() {
           </View>
         )}
 
-        {!search.trim() && (
+        {!search.trim() && activeStatus === 'all' && (
           <>
             {inProgressStepGuides.length > 0 && (
               <View style={styles.statusSection}>
@@ -495,7 +537,10 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   filtersScroll: {
-    marginBottom: 10,
+    marginBottom: 8,
+  },
+  statusFiltersScroll: {
+    marginBottom: 12,
   },
   filtersContent: {
     paddingHorizontal: 16,
@@ -515,6 +560,10 @@ const styles = StyleSheet.create({
   filterPillActive: {
     backgroundColor: Colors.primary,
     borderColor: Colors.primary,
+  },
+  statusFilterPillActive: {
+    backgroundColor: Colors.success,
+    borderColor: Colors.success,
   },
   filterText: {
     fontSize: 12,

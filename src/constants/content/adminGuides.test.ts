@@ -52,6 +52,10 @@ const TRAFFIC_STRUCTURED_GUIDE_IDS = [
   'bicycle-insurance',
 ];
 
+const LICENSE_STRUCTURED_GUIDE_IDS = [
+  'drivers-license-renewal',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -289,6 +293,24 @@ describe('ADMIN_GUIDES content quality', () => {
     expect(guide?.officialLinks.some((link) => link.url.includes('mlit.go.jp'))).toBe(true);
     expect(guide?.officialLinks.some((link) => link.url.includes('jidoushatouroku-portal.mlit.go.jp'))).toBe(true);
     expect(guide?.officialLinks.some((link) => link.url.includes('keikenkyo.or.jp'))).toBe(false);
+  });
+
+  it('keeps selected license guides structured', () => {
+    for (const guideId of LICENSE_STRUCTURED_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.category).toBe('license');
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
+    }
   });
 
   it('has ordered, complete steps', () => {
