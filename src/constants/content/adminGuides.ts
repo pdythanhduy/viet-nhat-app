@@ -152,8 +152,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'id-card',
     color: '#2980B9',
     description: 'Thủ tục gia hạn hạn sử dụng của thẻ cư trú vật lý. Chủ yếu dành cho người vĩnh trú, Highly Skilled Professional 2 hoặc trẻ em đến mốc 16 tuổi; khác với gia hạn thời hạn lưu trú.',
-    heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
-    heroImageCaption: '在留カード - kiểm tra hạn hiệu lực vật lý của thẻ, khác với hạn lưu trú',
     whoIsThisFor: [
       'Người có tư cách vĩnh trú hoặc Highly Skilled Professional 2 cần gia hạn hạn hiệu lực vật lý của thẻ cư trú.',
       'Trẻ em người nước ngoài đến mốc 16 tuổi và cần cập nhật thẻ theo hướng dẫn của ISA.',
@@ -343,8 +341,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'create',
     color: '#8E44AD',
     description: 'Khai báo khi thay đổi họ tên, ngày sinh, giới tính, quốc tịch/khu vực trên thẻ cư trú.',
-    heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
-    heroImageCaption: '在留カード - khai báo thay đổi họ tên, ngày sinh, giới tính hoặc quốc tịch/khu vực',
     whoIsThisFor: [
       'Người có thẻ cư trú và đã đổi họ tên, ngày sinh, giới tính hoặc quốc tịch/khu vực.',
       'Người đổi hộ chiếu hoặc giấy tờ quốc tịch khiến thông tin trên thẻ cư trú không còn khớp.',
@@ -3597,8 +3593,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'home',
     color: '#2980B9',
     description: 'Guide thực tế về thuê nhà ở Nhật: tiền vào nhà, người bảo lãnh, hợp đồng, hủy hợp đồng,退去費, 原状回復, và phần mua nhà cho người nước ngoài với lưu ý cư trú.',
-    heroImage: require('../../../assets/content/daily-life/dl_apartment_s3.jpg'),
-    heroImageCaption: 'Thuê nhà ở Nhật — cần hiểu rõ tiền cọc, hợp đồng và trách nhiệm khi trả nhà',
     whoIsThisFor: [
       'Người đang tìm nhà thuê đầu tiên ở Nhật hoặc chuẩn bị chuyển nhà.',
       'Người bị báo退去費 cao, bị giữ tiền cọc hoặc bị ép trả phí sửa chữa khó hiểu.',
@@ -4064,8 +4058,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'card-outline',
     color: '#1F618D',
     description: 'Guide thực tế về mở tài khoản ngân hàng, chuyển tiền quốc tế, lý do bị yêu cầu xác minh thêm, rủi ro tài khoản bị hạn chế/khóa và những hành vi tuyệt đối không nên làm ở Nhật.',
-    heroImage: require('../../../assets/content/daily-life/dl_banking_s1.jpg'),
-    heroImageCaption: 'Tài khoản ngân hàng tại Nhật — cần địa chỉ và giấy tờ hợp lệ, dùng đúng mục đích đã đăng ký',
     whoIsThisFor: [
       'Người mới sang Nhật muốn mở tài khoản và dùng hợp pháp, ổn định lâu dài.',
       'Người thường xuyên chuyển tiền về Việt Nam hoặc nhận tiền từ nhiều nơi.',
@@ -4317,8 +4309,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#27AE60',
     description:
       'Thủ tục đăng ký địa chỉ tại municipal office sau khi bạn chuyển đến nơi ở mới. Đây là một trong những việc nền tảng nhất để mở tài khoản, bảo hiểm, My Number và nhiều thủ tục khác.',
-    heroImage: require('../../../assets/content/daily-life/dl_apartment_s1.jpg'),
-    heroImageCaption: 'Chuyển vào nhà mới — một trong những việc đầu tiên cần đăng ký địa chỉ tại municipal office',
     whoIsThisFor: [
       'Người mới sang Nhật có nơi ở cố định và cần đăng ký địa chỉ.',
       'Người chuyển địa chỉ sang thành phố hoặc quận khác trong Nhật.',
@@ -4605,8 +4595,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'create',
     color: '#C0392B',
     description: 'Con dấu cá nhân (はんこ / 印鑑) là thứ bạn cần ngay khi mới sang Nhật — để mở tài khoản ngân hàng, ký hợp đồng thuê nhà, hợp đồng lao động và nhiều thủ tục hành chính khác.',
-    heroImage: require('../../../assets/content/daily-life/ag_hanko-inkan_hero.jpg'),
-    heroImageCaption: '印鑑 (Inkan) — con dấu cá nhân làm từ nhựa cứng hoặc gỗ, khắc tên bằng chữ Hán hoặc Katakana',
     officialLinks: [
       { label: '印鑑登録について — e-Gov', url: 'https://www.e-gov.go.jp/' },
       { label: '印鑑証明書の取得方法 — マイナポータル', url: 'https://myna.go.jp/' },
@@ -4813,8 +4801,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'airplane',
     color: '#27AE60',
     description: 'Tất cả thủ tục cần làm trước và sau khi rời Nhật: chuyển đi khỏi thành phố, hủy bảo hiểm, đóng ngân hàng, hủy điện thoại, hoàn thuế pension và quyết toán thuế.',
-    heroImage: require('../../../assets/content/daily-life/dl_moving-out_s2.jpg'),
-    heroImageCaption: 'Dọn nhà và chuẩn bị về nước — đừng quên 転出届, hủy SIM và xin pension refund',
     whoIsThisFor: [
       'Người kết thúc hợp đồng lao động, chương trình thực tập hoặc khóa học và chuẩn bị về Việt Nam.',
       'Người muốn rời Nhật vĩnh viễn hoặc tạm thời dài ngày.',
@@ -5158,8 +5144,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'business-outline',
     color: '#7D3C98',
     description: 'Thuế địa phương tính dựa trên thu nhập năm trước — hoàn toàn tách biệt với thuế thu nhập (所得税). Nhiều người bất ngờ nhận hóa đơn lớn vào tháng 6 năm thứ hai do không biết cơ chế này.',
-    heroImage: require('../../../assets/content/daily-life/dl_tax_s1.jpg'),
-    heroImageCaption: '住民税決定通知書 — thông báo thuế cư dân gửi đến mỗi năm vào tháng 6',
     whoIsThisFor: [
       'Người đi làm hoặc có thu nhập tại Nhật từ năm thứ hai trở đi — năm đầu tiên chưa phát sinh 住民税.',
       'Người vừa chuyển việc, nghỉ việc hoặc về nước — những thời điểm 住民税 dễ bị bỏ quên nhất.',
@@ -5351,8 +5335,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'medkit-outline',
     color: '#C0392B',
     description: 'Khi bị thương hoặc mắc bệnh do công việc, người lao động nước ngoài có quyền hưởng 労災保険 (bảo hiểm tai nạn lao động) — hoàn toàn độc lập với bảo hiểm y tế thông thường. Công ty không thể từ chối hay che giấu.',
-    heroImage: require('../../../assets/content/daily-life/dl_hospital_s4.jpg'),
-    heroImageCaption: '労災 — tai nạn lao động được bảo hiểm toàn bộ; người nước ngoài có đầy đủ quyền lợi như người Nhật',
     whoIsThisFor: [
       'Người bị thương tại nơi làm việc hoặc trên đường đi làm/về (通勤災害).',
       'Người mắc bệnh nghề nghiệp do công việc gây ra (職業病): đau lưng mạn tính, điếc tai, ngộ độc hóa chất v.v.',
@@ -5452,8 +5434,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart-circle-outline',
     color: '#C0392B',
     description: 'Hướng dẫn đăng ký kết hôn tại Nhật cho cặp Việt-Việt và Việt-Nhật. Cần làm thủ tục ở cả Nhật (municipal office) lẫn phía Việt Nam (Đại sứ quán hoặc địa phương) để hôn nhân được công nhận ở cả hai nước.',
-    heroImage: require('../../../assets/content/daily-life/ag_marriage_hero.jpg'),
-    heroImageCaption: '婚姻届 — giấy đăng ký kết hôn nộp tại văn phòng thị trấn/phường Nhật Bản',
     whoIsThisFor: [
       'Hai người Việt Nam đang sống tại Nhật và muốn đăng ký kết hôn.',
       'Cặp đôi một người Việt, một người Nhật đang sống tại Nhật.',
@@ -5844,8 +5824,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'fitness-outline',
     color: '#117A65',
     description: 'Người lao động tại Nhật được khám sức khỏe miễn phí hàng năm — theo luật, công ty BẮT BUỘC phải tổ chức cho nhân viên. Người đóng 国民健康保険 cũng có chương trình 特定健診 miễn phí từ 40 tuổi. Đây là quyền lợi nhiều người không biết và bỏ qua.',
-    heroImage: require('../../../assets/content/daily-life/dl_hospital_s1.jpg'),
-    heroImageCaption: '定期健康診断 — khám sức khỏe định kỳ miễn phí, quyền lợi bắt buộc của người lao động tại Nhật',
     whoIsThisFor: [
       'Người đi làm tại Nhật theo hợp đồng lao động — bất kể toàn thời gian hay bán thời gian đủ điều kiện.',
       'Người đóng 国民健康保険 (bảo hiểm quốc dân) từ 40 đến 74 tuổi — có quyền làm 特定健診 miễn phí.',
