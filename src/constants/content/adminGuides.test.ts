@@ -29,6 +29,35 @@ function expectNonEmptyTextArray(items: string[] | undefined) {
   }
 }
 
+function expectRequiredTextArray(items: string[] | undefined) {
+  expect(items).toBeDefined();
+  expectNonEmptyTextArray(items);
+}
+
+function expectRequiredChecklist(items: { label: string; required: boolean; note?: string }[] | undefined) {
+  expect(items).toBeDefined();
+  expect(items?.length).toBeGreaterThan(0);
+
+  for (const item of items ?? []) {
+    expectNonEmptyText(item.label);
+    expect(typeof item.required).toBe('boolean');
+
+    if (item.note) {
+      expectNonEmptyText(item.note);
+    }
+  }
+}
+
+function expectRequiredFaq(items: { question: string; answer: string }[] | undefined) {
+  expect(items).toBeDefined();
+  expect(items?.length).toBeGreaterThan(0);
+
+  for (const item of items ?? []) {
+    expectNonEmptyText(item.question);
+    expectNonEmptyText(item.answer);
+  }
+}
+
 function collectRequiredAssetPaths() {
   const sourcePath = path.join(__dirname, 'adminGuides.ts');
   const source = fs.readFileSync(sourcePath, 'utf8');
@@ -89,6 +118,23 @@ describe('ADMIN_GUIDES content quality', () => {
       if (guide.heroImage) {
         expectNonEmptyText(guide.heroImageCaption ?? '');
       }
+    }
+  });
+
+  it('keeps high-priority guides fully structured', () => {
+    const highPriorityGuides = ADMIN_GUIDES.filter((guide) => guide.priority === 'high');
+
+    expect(highPriorityGuides.length).toBeGreaterThan(0);
+
+    for (const guide of highPriorityGuides) {
+      expect(guide.heroImage).toBeDefined();
+      expectNonEmptyText(guide.heroImageCaption ?? '');
+      expectRequiredTextArray(guide.whoIsThisFor);
+      expectRequiredTextArray(guide.whenToDo);
+      expectRequiredTextArray(guide.whereToDo);
+      expectRequiredChecklist(guide.documentsChecklist);
+      expectRequiredTextArray(guide.commonMistakes);
+      expectRequiredFaq(guide.faq);
     }
   });
 

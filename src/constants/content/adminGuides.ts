@@ -4292,6 +4292,48 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     description: 'Các quy định cơ bản người Việt ở Nhật nên biết để tránh rắc rối trong đời sống hằng ngày.',
     heroImage: require('../../../assets/content/daily-life/ag_daily-law_hero.jpg'),
     heroImageCaption: 'Quy tắc sinh hoạt tại Nhật - nắm các điểm pháp lý cơ bản trước khi gặp rắc rối',
+    whoIsThisFor: [
+      'Người mới sang Nhật cần nắm các nguyên tắc sinh hoạt và giấy tờ cơ bản.',
+      'Người đang thuê nhà, dùng tài khoản ngân hàng/SIM hoặc chuẩn bị ký giấy tờ bằng tiếng Nhật.',
+      'Người muốn tránh các rủi ro thường gặp như cho mượn tài khoản, bỏ rác sai quy định hoặc ký hợp đồng không hiểu nội dung.',
+    ],
+    whenToDo: [
+      'Đọc trong tuần đầu mới sang Nhật, trước khi mở tài khoản, ký hợp đồng điện thoại hoặc thuê nhà.',
+      'Xem lại khi chuyển nhà, đổi việc, đổi thông tin cư trú hoặc được nhờ đứng tên hộ giấy tờ/tài khoản.',
+      'Trước khi ký bất kỳ giấy tờ nào có nghĩa vụ tiền bạc, bảo lãnh, vay nợ hoặc hợp đồng dài hạn.',
+    ],
+    whereToDo: [
+      'Municipal office: cập nhật địa chỉ, hỏi lịch rác và các quy định sinh hoạt địa phương.',
+      'FRESC hoặc quầy tư vấn người nước ngoài địa phương: hỏi khi không hiểu giấy tờ, hợp đồng hoặc quyền lợi.',
+      'Cảnh sát hoặc trung tâm tiêu dùng: liên hệ khi nghi ngờ lừa đảo, bị ép ký hoặc bị yêu cầu chuyển tiền bất thường.',
+    ],
+    documentsChecklist: [
+      { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Luôn kiểm tra hạn lưu trú, địa chỉ và thông tin cá nhân trên thẻ.' },
+      { label: 'Hợp đồng thuê nhà hoặc nội quy ký túc xá/tòa nhà', required: false, note: 'Dùng để kiểm tra quy định về tiếng ồn, rác, thú cưng, người ở cùng và trả nhà.' },
+      { label: 'Lịch rác địa phương (ゴミカレンダー)', required: false, note: 'Nhận từ municipal office, quản lý tòa nhà hoặc website địa phương.' },
+      { label: 'Bản sao hợp đồng/hóa đơn trước khi ký hoặc thanh toán', required: false, note: 'Giữ lại để hỏi tư vấn nếu không hiểu nội dung.' },
+    ],
+    commonMistakes: [
+      'Cho mượn tài khoản ngân hàng, SIM hoặc cash card vì nể người quen.',
+      'Chuyển nhà nhưng quên cập nhật địa chỉ trong 14 ngày.',
+      'Bỏ rác theo thói quen ở Việt Nam, không theo lịch và quy định của khu vực đang sống.',
+      'Ký giấy tờ tiếng Nhật mà không xin bản copy hoặc không hiểu nghĩa vụ tiền bạc đi kèm.',
+      'Trả nhà mà không chụp ảnh hiện trạng, dẫn đến tranh chấp chi phí sửa chữa.',
+    ],
+    faq: [
+      {
+        question: 'Có được cho bạn bè mượn tài khoản ngân hàng hoặc SIM không?',
+        answer: 'Không. Cho mượn, bán hoặc đứng tên hộ tài khoản/SIM có thể liên quan lừa đảo, rửa tiền hoặc vi phạm hợp đồng. Nếu bị nhờ mở tài khoản, nhận tiền hoặc chuyển tiền hộ để lấy phí, hãy từ chối.',
+      },
+      {
+        question: 'Chuyển nhà rồi quên cập nhật địa chỉ thì có sao không?',
+        answer: 'Có rủi ro. Người cư trú trung/dài hạn cần khai báo địa chỉ mới tại municipal office trong vòng 14 ngày. Địa chỉ cũng nên được cập nhật với ngân hàng, điện thoại, bảo hiểm và nơi làm việc/trường học.',
+      },
+      {
+        question: 'Không hiểu hợp đồng tiếng Nhật thì nên làm gì?',
+        answer: 'Không ký ngay. Xin bản copy, chụp lại nội dung cần hỏi và mang đến FRESC, quầy tư vấn người nước ngoài địa phương, người phiên dịch đáng tin cậy hoặc chuyên gia phù hợp.',
+      },
+    ],
     officialLinks: [
       { label: '生活・就労ガイドブック — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/guidebook_all.html' },
       { label: 'FRESC Help Desk', url: 'https://www.moj.go.jp/isa/support/fresc/fresc01.html' },
@@ -5004,6 +5046,40 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Ngay khi xảy ra tai nạn: đi khám và thông báo cho công ty ngay lập tức — đừng chờ xem tình trạng thế nào.',
       'Nộp đơn 労災 càng sớm càng tốt — không có thời hạn cứng cho đơn điều trị (療養補償給付), nhưng trợ cấp nghỉ việc (休業補償給付) có giới hạn tính từ ngày nghỉ.',
       'Ngay cả khi tai nạn xảy ra đã lâu mà chưa làm thủ tục, vẫn có thể nộp — hỏi ハローワーク hoặc 労働基準監督署 để biết tình trạng cụ thể.',
+    ],
+    whereToDo: [
+      'Bệnh viện/phòng khám có xử lý 労災: khai rõ đây là tai nạn lao động trước khi khám.',
+      'Công ty hoặc bộ phận HR: báo tai nạn và yêu cầu hỗ trợ mẫu đơn 労災.',
+      '労働基準監督署 phụ trách nơi làm việc: tự nộp hoặc hỏi tư vấn nếu công ty từ chối, trì hoãn hoặc che giấu tai nạn.',
+      'FRESC hoặc quầy tư vấn lao động cho người nước ngoài: dùng khi cần hỗ trợ ngôn ngữ.',
+    ],
+    documentsChecklist: [
+      { label: 'Thông tin tai nạn: ngày, giờ, địa điểm và công việc đang làm', required: true },
+      { label: 'Tên, địa chỉ công ty và thông tin người phụ trách', required: true },
+      { label: 'Giấy chẩn đoán hoặc giấy tờ bệnh viện', required: true },
+      { label: 'Mẫu đơn 労災 phù hợp', required: true, note: 'Ví dụ: mẫu cho điều trị, trợ cấp nghỉ việc hoặc tai nạn trên đường đi làm.' },
+      { label: 'Bằng chứng hiện trường, tin nhắn, email hoặc nhân chứng', required: false, note: 'Rất quan trọng nếu công ty phủ nhận đây là tai nạn lao động.' },
+    ],
+    commonMistakes: [
+      'Dùng 健康保険 thông thường cho tai nạn lao động mà không nói với bệnh viện là 労災.',
+      'Không báo công ty ngay trong ngày xảy ra tai nạn, khiến việc xác minh khó hơn.',
+      'Nghĩ công ty có quyền từ chối 労災 — người lao động có thể tự nộp tại 労働基準監督署.',
+      'Không lưu bằng chứng hiện trường, lịch làm việc, chấm công hoặc lời khai nhân chứng.',
+      'Tiếp tục đi làm khi bác sĩ yêu cầu nghỉ, làm yếu hồ sơ 休業補償給付.',
+    ],
+    faq: [
+      {
+        question: 'Công ty không ký giấy 労災 thì tôi có nộp được không?',
+        answer: 'Có. Nếu công ty từ chối hoặc trì hoãn, bạn có thể tự nộp trực tiếp tại 労働基準監督署 và giải thích tình hình. Chữ ký công ty giúp hồ sơ thuận lợi hơn nhưng không phải điều kiện tuyệt đối để hỏi tư vấn hoặc nộp.',
+      },
+      {
+        question: 'Tai nạn trên đường đi làm có được tính là 労災 không?',
+        answer: 'Có thể. Tai nạn trên tuyến đường đi làm/về nhà hợp lý được gọi là 通勤災害. Nếu ghé chỗ khác vì lý do cá nhân, cần hỏi 労働基準監督署 để đánh giá cụ thể.',
+      },
+      {
+        question: 'Dùng 労災 có ảnh hưởng visa hoặc quan hệ với công ty không?',
+        answer: '労災 là quyền lợi hợp pháp của người lao động tại Nhật, không phải khiếu nại sai trái và không tự động ảnh hưởng tư cách lưu trú. Nếu bị gây khó dễ, hãy lưu bằng chứng và hỏi 労働基準監督署 hoặc tư vấn lao động.',
+      },
     ],
     officialLinks: [
       { label: '労災補償 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/pamphletfaq.html' },
@@ -5943,6 +6019,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Đại sứ quán Việt Nam tại Tokyo: +81-3-3466-3313.',
     ],
     estimatedTime: 'Đọc guide này: 5 phút.',
+    documentsChecklist: [
+      { label: 'Ảnh chụp màn hình tin nhắn, email, số điện thoại hoặc tài khoản liên lạc', required: false, note: 'Giữ lại trước khi xóa để báo cảnh sát hoặc ngân hàng.' },
+      { label: 'Biên lai chuyển tiền hoặc lịch sử giao dịch ngân hàng', required: false, note: 'Cần nếu đã chuyển tiền hoặc bị rút tiền.' },
+      { label: 'Tên/số điện thoại/tài khoản người nghi ngờ lừa đảo', required: false },
+      { label: 'Thẻ cư trú hoặc giấy tờ tùy thân', required: false, note: 'Mang theo khi trực tiếp đến cảnh sát hoặc ngân hàng.' },
+    ],
     commonMistakes: [
       'Tin vào người gọi chỉ vì họ nói được tiếng Việt — kẻ lừa đảo cố tình thuê người nói tiếng Việt để tạo tin tưởng.',
       'Chuyển tiền vì sợ bị trục xuất hoặc bị bắt — không có cơ quan nhà nước nào ở Nhật yêu cầu nộp tiền qua điện thoại.',
@@ -6128,6 +6210,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Ngay khi mua xe — lý tưởng là ký 任意保険 cùng lúc với 自賠責保険.',
       'Khi gia hạn 自賠責保険 hằng năm — dịp tốt để kiểm tra lại phạm vi bảo hiểm tổng thể.',
     ],
+    whereToDo: [
+      'Cửa hàng bán xe hoặc đại lý bảo hiểm: đăng ký 任意保険 cùng lúc mua xe.',
+      'Website/app của công ty bảo hiểm: đăng ký hoặc gia hạn online nếu đã có thông tin xe.',
+      'Công ty bảo hiểm ô tô hiện có của gia đình: hỏi thêm ファミリーバイク特約 nếu cùng hộ gia đình.',
+    ],
     estimatedTime: '申し込み online: 15–30 phút. Qua đại lý bảo hiểm: 30–60 phút.',
     fees: [
       'ファミリーバイク特約: thêm ~3,000–7,000 yên/năm vào phí bảo hiểm ô tô hiện có (rẻ nhất).',
@@ -6311,8 +6398,19 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Tháng 12 hoặc tháng 1: kiểm tra xem công ty đã làm 年末調整 chưa và số thuế điều chỉnh có hợp lý không.',
       'Tháng 5-6: 住民税 mới thường áp dụng từ tháng 6, kiểm tra thay đổi trên bảng lương.',
     ],
+    whereToDo: [
+      'Bộ phận HR/nhân sự hoặc kế toán tiền lương: hỏi khi có khoản trừ hoặc khoản cộng không hiểu.',
+      '労働基準監督署: liên hệ nếu nghi ngờ bị trả thiếu lương, thiếu 残業手当 hoặc công ty không giải thích rõ.',
+      '税務署 hoặc e-Tax: dùng khi cần tự 確定申告 hoặc kiểm tra số thuế đã khấu trừ.',
+    ],
     fees: [
       'Không có phí — đây là quyền được nhận bảng lương chi tiết theo luật 労働基準法.',
+    ],
+    documentsChecklist: [
+      { label: '給与明細 các tháng cần kiểm tra', required: true },
+      { label: '労働契約書 hoặc 雇用通知書', required: true, note: 'Đối chiếu lương cơ bản, giờ làm quy định và phụ cấp.' },
+      { label: 'Bảng chấm công / タイムカード / PC login records', required: false, note: 'Cần khi kiểm tra 残業手当 hoặc tranh chấp giờ làm.' },
+      { label: '源泉徴収票 cuối năm', required: false, note: 'Dùng để kiểm tra 年末調整 và làm 確定申告 nếu cần.' },
     ],
     commonMistakes: [
       'Nhầm 支給合計 (tổng trước khấu trừ) với 差引支給額 (tiền thực nhận) — hai con số này chênh nhau đáng kể.',
@@ -6505,6 +6603,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       '地方裁判所: nộp đơn 労働審判 khi muốn giải quyết pháp lý nhanh.',
     ],
     estimatedTime: '労働基準監督署: tiếp nhận trong ngày, điều tra có thể mất 1–3 tháng. 労働審判: 3 phiên xét xử trong 3–6 tháng.',
+    documentsChecklist: [
+      { label: '労働契約書 hoặc 雇用通知書', required: true, note: 'Dùng để xác định lương, giờ làm, vị trí và điều kiện nghỉ việc.' },
+      { label: '給与明細 các tháng liên quan', required: true },
+      { label: 'Bảng chấm công / タイムカード / PC login records', required: true, note: 'Cần cho tranh chấp lương làm thêm hoặc giờ làm.' },
+      { label: 'Tin nhắn, email, thông báo sa thải hoặc yêu cầu nghỉ việc', required: false },
+      { label: '解雇理由証明書 nếu công ty đã sa thải', required: false, note: 'Có thể yêu cầu công ty cấp bằng văn bản.' },
+    ],
     commonMistakes: [
       'Ký 合意退職書 hoặc "退職届" ngay khi được đưa — mất quyền tranh chấp sau đó.',
       'Không giữ bằng chứng giờ làm (タイムカード, email, LINE với sếp về giờ giấc).',
