@@ -33,6 +33,13 @@ const NORMAL_STRUCTURED_GUIDE_IDS = [
   'annual-health-checkup-kensin',
 ];
 
+const VISA_IMMIGRATION_STRUCTURED_GUIDE_IDS = [
+  'permanent-residency-eijuu',
+  'highly-skilled-professional',
+  'ginou-jisshu-to-tokutei-ginou',
+  'tokutei-katsudo-46-job-hunt',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -188,6 +195,34 @@ describe('ADMIN_GUIDES content quality', () => {
       expectRequiredTextArray(guide?.commonMistakes);
       expectRequiredFaq(guide?.faq);
     }
+  });
+
+  it('keeps selected visa and immigration guides structured', () => {
+    for (const guideId of VISA_IMMIGRATION_STRUCTURED_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
+    }
+  });
+
+  it('keeps post-graduation job-hunt guidance distinct from designated activities 46', () => {
+    const guide = ADMIN_GUIDES.find((item) => item.id === 'tokutei-katsudo-46-job-hunt');
+
+    expect(guide).toBeDefined();
+    expect(guide?.title).not.toContain('46');
+    expect(guide?.titleJp).toContain('継続就職活動');
+    expect(guide?.description).toContain('khác với 特定活動46号');
+    expect(guide?.officialLinks.some((link) => link.url.includes('designatedactivities14'))).toBe(true);
+    expect(guide?.officialLinks.some((link) => link.url.includes('designatedactivities11'))).toBe(true);
   });
 
   it('has ordered, complete steps', () => {

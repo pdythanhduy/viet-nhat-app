@@ -5630,7 +5630,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
@@ -5649,8 +5649,46 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Điều kiện rút ngắn: vợ/chồng người Nhật/永住者 (3 năm), Highly Skilled Professional từ 70 điểm (3 năm), 80 điểm (1 năm).',
       '⚠️ Thay đổi từ 24/02/2026: tư cách lưu trú hiện tại phải là loại 5 năm (在留期間5年) — người đang giữ thẻ 3 năm không đủ điều kiện nộp. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027.',
     ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
+      'Municipal office nơi cư trú: xin giấy chứng nhận thu nhập, thuế cư trú và các giấy liên quan đến hộ gia đình.',
+      '税務署: xin chứng nhận thuế quốc gia theo checklist ISA nếu thuộc diện phải nộp.',
+      '年金事務所, Nenkin Net, municipal office hoặc công ty: chuẩn bị bằng chứng nộp lương hưu và bảo hiểm y tế.',
+    ],
+    documentsChecklist: [
+      { label: '永住許可申請書', required: true },
+      { label: 'Ảnh thẻ 4cm x 3cm', required: true, note: 'Theo chuẩn ảnh của ISA; người dưới 16 tuổi có thể khác.' },
+      { label: '理由書', required: true, note: 'Nếu viết ngoài tiếng Nhật, cần bản dịch tiếng Nhật.' },
+      { label: '住民票 toàn hộ', required: true, note: 'Không ghi My Number; giấy Nhật thường phải còn trong 3 tháng.' },
+      { label: 'Hộ chiếu và 在留カード', required: true },
+      { label: 'Giấy chứng minh nghề nghiệp, thu nhập, thuế, lương hưu và bảo hiểm', required: true, note: 'Số năm và loại giấy phụ thuộc tư cách lưu trú; dùng checklist ISA theo diện của bạn.' },
+      { label: '身元保証書 và giấy tờ người bảo lãnh', required: true, note: 'Thường là người Nhật, 永住者 hoặc 特別永住者 cư trú tại Nhật.' },
+      { label: '永住許可申請セルフチェックシート', required: false, note: 'ISA khuyến nghị dùng và nộp kèm để tự kiểm tra trước khi nộp.' },
+    ],
+    commonMistakes: [
+      'Nộp 永住 nhưng quên gia hạn tư cách lưu trú hiện tại khi sắp hết hạn.',
+      'Chuẩn bị giấy tờ theo kinh nghiệm người khác mà không dùng checklist đúng diện của mình.',
+      'Có kỳ thuế, 年金 hoặc bảo hiểm nộp trễ nhưng không kiểm tra trước khi nộp.',
+      'Nộp giấy chứng nhận Nhật đã quá 3 tháng hoặc giấy nước ngoài không kèm bản dịch tiếng Nhật.',
+      'Tưởng đủ số năm cư trú là chắc chắn được cấp; 永住 vẫn là hồ sơ xét tổng thể.',
+    ],
+    faq: [
+      {
+        question: 'Đang chờ 永住 mà visa hiện tại sắp hết hạn thì sao?',
+        answer: 'Phải nộp 在留期間更新許可申請 trước ngày hết hạn. ISA nêu rõ 永住 đang xét không tự kéo dài tư cách lưu trú hiện tại.',
+      },
+      {
+        question: 'Thời gian xét 永住 là bao lâu?',
+        answer: 'ISA công bố thời gian xử lý chuẩn là 4-6 tháng. Nếu thiếu giấy tờ hoặc bị yêu cầu bổ sung, thời gian thực tế có thể dài hơn.',
+      },
+      {
+        question: 'Có nên nộp khi hồ sơ thuế hoặc bảo hiểm chưa sạch không?',
+        answer: 'Không nên. Với 永住, lịch sử nộp thuế, lương hưu và bảo hiểm là phần bị kiểm tra rất kỹ. Nên rà trước tại municipal office, 税務署 và 年金事務所.',
+      },
+    ],
     officialLinks: [
       { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
+      { label: '永住許可に関するガイドライン — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html' },
     ],
     steps: [
       {
@@ -5690,7 +5728,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Nộp hồ sơ và chờ kết quả',
-        description: 'Nộp trực tiếp tại văn phòng ISA có thẩm quyền theo địa chỉ cư trú — không thể nộp online cho thủ tục này. Thời gian xử lý thường từ 4 đến 12 tháng, đôi khi lâu hơn. Trong thời gian chờ, tư cách lưu trú hiện tại vẫn hiệu lực — nhớ gia hạn đúng hạn nếu hết hạn trong khi đang chờ.\n\nNếu bị từ chối: ISA không giải thích lý do cụ thể. Thường cần chờ cải thiện hồ sơ (thu nhập, tuân thủ thuế, thời gian cư trú thêm) rồi nộp lại.',
+        description: 'Nộp tại ISA có thẩm quyền theo địa chỉ cư trú hoặc theo kênh nộp được ISA chấp nhận nếu bạn thuộc đối tượng dùng được. Thời gian xử lý chuẩn ISA công bố là 4-6 tháng; hồ sơ thiếu hoặc cần bổ sung có thể lâu hơn. Trong thời gian chờ, tư cách lưu trú hiện tại vẫn hiệu lực — nhớ gia hạn đúng hạn nếu hết hạn trong khi đang chờ.\n\nNếu bị từ chối: thường cần chờ cải thiện hồ sơ (thu nhập, tuân thủ thuế, thời gian cư trú thêm) rồi nộp lại sau khi đã xác định điểm yếu.',
         documents: [
           'Toàn bộ hồ sơ từ bước 2 và 3',
           'Phong bì dán tem có ghi địa chỉ của bạn (để ISA gửi kết quả về nhà)',
@@ -5702,7 +5740,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'highly-skilled-professional',
     category: 'visa',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Visa 高度専門職 — Highly Skilled Professional',
     titleJp: '高度専門職ビザ・ポイント制度',
@@ -5721,9 +5759,45 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nên kiểm tra điểm số trước khi gia hạn visa thường: nếu đủ 70 điểm, đổi sang 高度専門職 có lợi hơn nhiều.',
       'Nếu đang xin visa từ nước ngoài: xin 高度専門職 thẳng thay vì xin visa lao động thông thường nếu đủ điều kiện.',
     ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú hoặc nơi làm việc.',
+      'Bộ phận HR/công ty tiếp nhận: xin hợp đồng, giấy xác nhận chức vụ, lương và mô tả công việc.',
+      'Trường đại học, tổ chức cấp bằng, JLPT/BJT hoặc cơ quan chuyên môn: lấy giấy chứng minh cho các mục cộng điểm.',
+      'Hệ thống online của ISA nếu bạn và tổ chức liên quan thuộc đối tượng được phép nộp online.',
+    ],
+    documentsChecklist: [
+      { label: '在留資格変更許可申請書 hoặc 在留資格認定証明書交付申請書', required: true, note: 'Chọn đúng mẫu theo xin từ trong Nhật hay từ nước ngoài.' },
+      { label: 'ポイント計算表', required: true, note: 'Chọn đúng nhóm 高度専門職1号イ/ロ/ハ.' },
+      { label: 'Tài liệu chứng minh từng mục điểm muốn dùng', required: true, note: 'Chỉ tính điểm khi có giấy tờ chứng minh.' },
+      { label: 'Giấy tờ chứng minh hoạt động nền: hợp đồng, chức vụ, lương, tài liệu công ty', required: true },
+      { label: 'Bằng cấp, chứng chỉ tiếng Nhật, chứng nhận kinh nghiệm hoặc thành tích', required: false, note: 'Nộp những mục dùng để cộng điểm.' },
+      { label: 'Hộ chiếu, 在留カード và ảnh thẻ', required: true },
+    ],
+    commonMistakes: [
+      'Tự cộng đủ 70 điểm nhưng không có giấy tờ chứng minh từng mục.',
+      'Chọn sai nhóm 高度専門職1号イ/ロ/ハ so với hoạt động thực tế.',
+      'Tưởng 高度専門職 chỉ cần điểm số; thực tế hoạt động vẫn phải phù hợp tư cách lưu trú nền.',
+      'Đổi công ty hoặc đổi nội dung hoạt động khi đang ở 高度専門職1号 nhưng không kiểm tra thủ tục đổi tư cách cần làm.',
+      'Tưởng 高度専門職2号 tự động có sau 3 năm; vẫn phải nộp hồ sơ và được ISA xét.',
+    ],
+    faq: [
+      {
+        question: 'Đủ 70 điểm có chắc được 高度専門職 không?',
+        answer: 'Không chắc tuyệt đối. 70 điểm là điều kiện quan trọng, nhưng hoạt động dự kiến, công ty tiếp nhận và hồ sơ chứng minh vẫn phải phù hợp quy định ISA.',
+      },
+      {
+        question: '高度専門職1号 có lợi gì rõ nhất?',
+        answer: 'ISA nêu các ưu đãi như thời hạn lưu trú 5 năm, cho phép một số hoạt động kết hợp, rút ngắn điều kiện cư trú khi xin 永住, ưu đãi cho vợ/chồng làm việc và một số trường hợp cho cha mẹ/người giúp việc đi cùng.',
+      },
+      {
+        question: 'Đổi công ty khi đang 高度専門職1号 có chỉ cần báo cáo không?',
+        answer: 'Không nên xử lý như visa lao động thường. ISA nêu việc thay đổi nội dung hoạt động hoặc cơ quan thuộc 高度専門職1号 có thể cần 在留資格変更許可申請, nên kiểm tra trước khi chuyển.',
+      },
+    ],
     officialLinks: [
-      { label: '高度人材ポイント制 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/publications/materials/newimmiact_3_index.html' },
+      { label: '在留資格「高度専門職」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities02_00004.html' },
       { label: '高度専門職ポイント計算表 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/newimmiact_3_system_index.html' },
+      { label: '高度人材の優遇措置 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/newimmiact_3_preferential_index.html' },
     ],
     steps: [
       {
@@ -5738,7 +5812,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Hiểu các ưu đãi của 高度専門職',
         description: 'So với visa lao động thông thường (技術・人文知識・国際業務), 高度専門職 có:\n\n• Thời hạn lưu trú: 5 năm thay vì 1–3 năm.\n• Hoạt động kép: được làm công việc liên quan đến tư cách khác trong giới hạn nhất định (ví dụ: kỹ sư vừa làm kỹ thuật vừa dạy thêm).\n• Ưu tiên xử lý hồ sơ: ISA xử lý ưu tiên — thường nhanh hơn.\n• Đưa cha mẹ sang ở cùng: đặc quyền hẹp — cả hai vợ chồng đi làm hoặc có con nhỏ, thu nhập hộ gia đình trên ngưỡng quy định.\n• 永住 rút ngắn: 70 điểm → xin 永住 sau 3 năm; 80 điểm → sau 1 năm (thay vì 10 năm thông thường).',
         documents: [],
-        tip: '高度専門職2号 là bước tiếp theo sau khi đủ 1 năm ở 高度専門職1号 — không giới hạn hoạt động, gần như tương đương 永住 nhưng vẫn cần gia hạn định kỳ.',
+        tip: '高度専門職2号 là bước tiếp theo sau khi đủ điều kiện từ 高度専門職1号. ISA nêu 高度専門職2号 có thời hạn lưu trú vô thời hạn, nhưng vẫn là tư cách lưu trú riêng và cần hồ sơ xét duyệt.',
       },
       {
         step: 3,
@@ -5766,7 +5840,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'ginou-jisshu-to-tokutei-ginou',
     category: 'visa',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Chuyển từ 技能実習 sang 特定技能',
     titleJp: '技能実習から特定技能への移行手続き',
@@ -5785,9 +5859,46 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nên chuẩn bị hồ sơ ít nhất 3–4 tháng trước ngày 技能実習 hết hạn để có đủ thời gian thi và xử lý hồ sơ ISA.',
       'Nếu đã hoàn thành 技能実習2号 cùng ngành, có thể nộp ngay — không cần đợi hết thêm thời gian.',
     ],
+    whereToDo: [
+      'Công ty tiếp nhận 特定技能 hoặc 登録支援機関: xác nhận hợp đồng, kế hoạch hỗ trợ và hồ sơ phía công ty.',
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú: nộp 在留資格変更許可申請.',
+      'Tổ chức thi của từng ngành 特定技能: đăng ký thi kỹ năng nếu không được miễn.',
+      'Đơn vị quản lý/監理団体 hoặc công ty thực tập cũ: xin giấy chứng minh đã hoàn thành 技能実習 nếu cần.',
+    ],
+    documentsChecklist: [
+      { label: '在留資格変更許可申請書', required: true },
+      { label: 'Hộ chiếu, 在留カード và ảnh thẻ', required: true },
+      { label: 'Hợp đồng lao động với công ty tiếp nhận 特定技能', required: true },
+      { label: '支援計画書', required: true, note: 'Thường do công ty tiếp nhận hoặc 登録支援機関 chuẩn bị.' },
+      { label: '修了証明書 hoặc giấy tờ chứng minh hoàn thành 技能実習', required: false, note: 'Cần nếu dùng điều kiện miễn thi.' },
+      { label: 'Kết quả thi kỹ năng và tiếng Nhật', required: false, note: 'Cần nếu không thuộc diện miễn theo ngành/công việc tương ứng.' },
+      { label: 'Tài liệu phía công ty theo checklist ISA/特定技能', required: true, note: 'Khác nhau theo ngành và loại hồ sơ.' },
+    ],
+    commonMistakes: [
+      'Tưởng hoàn thành 技能実習 là tự động được chuyển, dù ngành/công việc 特定技能 không khớp.',
+      'Để 技能実習 hết hạn rồi mới chuẩn bị hồ sơ chuyển tư cách.',
+      'Ký hợp đồng với công ty chưa chuẩn bị được 支援計画 hoặc hồ sơ tiếp nhận.',
+      'Đổi công ty tiếp nhận trong thời gian chuẩn bị nhưng không kiểm tra lại hồ sơ ISA.',
+      'Tưởng 特定活動 6 tháng để chuẩn bị chuyển 特定技能 là quyền tự động; đây cũng là hồ sơ phải được ISA cho phép và có điều kiện.',
+    ],
+    faq: [
+      {
+        question: 'Hoàn thành 技能実習2号 thì có được miễn thi không?',
+        answer: 'Có thể được miễn nếu công việc/ngành chuyển sang 特定技能1号 tương ứng với nội dung 技能実習 đã hoàn thành. Nếu không khớp, thường phải thi kỹ năng và chứng minh tiếng Nhật theo yêu cầu ngành.',
+      },
+      {
+        question: 'Có được tiếp tục làm việc khi hồ sơ chuyển đang xét không?',
+        answer: 'Chỉ được làm trong phạm vi tư cách lưu trú hoặc 指定書 hiện có cho phép. Nếu cần dùng 特定活動 6 tháng để chuẩn bị chuyển 特定技能1号, phải nộp và được ISA cho phép theo điều kiện riêng.',
+      },
+      {
+        question: '特定技能1号 có ở Nhật vô thời hạn được không?',
+        answer: 'Không. 特定技能1号 có giới hạn tổng thời gian lưu trú theo quy định của chế độ này. Muốn tiếp tục lâu dài cần kiểm tra đường sang 特定技能2号 hoặc tư cách lưu trú khác phù hợp.',
+      },
+    ],
     officialLinks: [
       { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
       { label: '技能実習から特定技能への移行 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/10_00025.html' },
+      { label: '在留資格「特定技能」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/specifiedskilledworker.html' },
     ],
     steps: [
       {
@@ -5831,66 +5942,105 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'tokutei-katsudo-46-job-hunt',
     category: 'visa',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-02',
     priority: 'normal',
-    title: 'Visa tìm việc sau tốt nghiệp ĐH Nhật (特定活動46号)',
-    titleJp: '特定活動46号・日本語を使った職種への就職活動',
+    title: 'Visa tìm việc sau tốt nghiệp tại Nhật (特定活動)',
+    titleJp: '卒業後の継続就職活動のための特定活動',
     icon: 'briefcase-outline',
     color: '#2E86C1',
-    description: 'Sinh viên tốt nghiệp đại học Nhật có thể xin ở lại tối đa 2 năm để tìm việc — nhưng chỉ dành cho người có tiếng Nhật cao và muốn làm việc trong vai trò dùng tiếng Nhật là chính. Phải xin trước khi visa du học hết hạn.',
+    description: 'Du học sinh tốt nghiệp tại Nhật có thể xin đổi sang 特定活動 để tiếp tục tìm việc sau khi 留学 sắp hết hạn. Diện này khác với 特定活動46号: 46号 là hướng làm việc sau khi đã có công việc phù hợp, còn guide này tập trung vào giai đoạn tiếp tục tìm việc.',
     heroImage: require('../../../assets/content/daily-life/ag_jobhunt-visa_hero.jpg'),
-    heroImageCaption: '特定活動46号 - visa tìm việc dành cho sinh viên tốt nghiệp đại học Nhật',
+    heroImageCaption: '卒業後の継続就職活動 - chuẩn bị hồ sơ 特定活動 trước khi 留学 hết hạn',
     whoIsThisFor: [
-      'Du học sinh vừa tốt nghiệp đại học 4 năm hoặc sau đại học tại Nhật và chưa tìm được việc trước khi visa hết hạn.',
-      'Người có tiếng Nhật N1 (JLPT) hoặc tốt nghiệp chuyên ngành tiếng Nhật/văn hóa/xã hội Nhật tại Nhật.',
-      'Không dành cho người chỉ học trường tiếng Nhật (日本語学校) mà chưa vào đại học/cao học.',
+      'Du học sinh tốt nghiệp đại học, cao đẳng/kỹ thuật hoặc chuyên môn tại Nhật và muốn tiếp tục tìm việc sau tốt nghiệp.',
+      'Người đã tìm việc từ trước khi tốt nghiệp nhưng chưa có offer chính thức trước khi 留学 hết hạn.',
+      'Người có trường đồng ý cấp thư giới thiệu tiếp tục tìm việc và vẫn còn khả năng chi trả sinh hoạt.',
     ],
     whenToDo: [
-      'Nộp đơn TRƯỚC KHI visa du học hết hạn — thường trong 2–3 tháng cuối trước khi tốt nghiệp hoặc ngay sau lễ tốt nghiệp.',
-      'Nếu visa đã hết hạn: không thể xin từ trong nước — phải xuất cảnh và xin lại từ đầu (rất phức tạp). Đừng để hết hạn.',
+      'Nộp trước khi 在留資格「留学」 hết hạn, tốt nhất chuẩn bị trong giai đoạn cuối trước hoặc ngay sau khi tốt nghiệp.',
+      'Năm đầu sau tốt nghiệp: thường là 特定活動 6 tháng và có thể gia hạn thêm 1 lần nếu tiếp tục đủ điều kiện.',
+      'Năm thứ hai sau tốt nghiệp chỉ áp dụng trong một số chương trình hỗ trợ việc làm của địa phương đáp ứng điều kiện ISA.',
+    ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú: nộp 在留資格変更許可申請.',
+      'Trường đã tốt nghiệp: xin 卒業証明書, 成績証明書 và 推薦状 cho việc tiếp tục tìm việc.',
+      'Career center/就職課 của trường hoặc chương trình hỗ trợ địa phương: lưu bằng chứng hoạt động tìm việc.',
+      'ISA hoặc trang hướng dẫn 資格外活動許可: hỏi trước nếu muốn làm baito hoặc internship trong thời gian tìm việc.',
+    ],
+    documentsChecklist: [
+      { label: '在留資格変更許可申請書', required: true },
+      { label: 'Hộ chiếu, 在留カード và ảnh thẻ', required: true },
+      { label: '卒業証明書 hoặc giấy xác nhận tốt nghiệp', required: true },
+      { label: '推薦状 từ trường', required: true, note: 'ISA nêu việc tiếp tục tìm việc cần có推薦 từ cơ sở đã tốt nghiệp.' },
+      { label: 'Bằng chứng đã và đang tìm việc', required: true, note: 'Ví dụ lịch sử ứng tuyển, email công ty, tham gia hội chợ việc làm, tư vấn với career center.' },
+      { label: 'Chứng minh khả năng chi trả sinh hoạt', required: true },
+      { label: '資格外活動許可申請', required: false, note: 'Cần nếu muốn làm thêm trong phạm vi được cho phép.' },
+    ],
+    commonMistakes: [
+      'Nhầm guide này với 特定活動46号 và nghĩ bắt buộc phải có JLPT N1 để tiếp tục tìm việc.',
+      'Chờ 留学 gần hết hoặc đã hết hạn mới xin 推薦状 và chuẩn bị hồ sơ.',
+      'Không giữ bằng chứng hoạt động tìm việc nên khi gia hạn khó chứng minh đang tìm việc thật.',
+      'Làm thêm mà chưa xin 資格外活動許可 hoặc làm quá phạm vi được cho phép.',
+      'Tưởng được ở tối đa 2 năm trong mọi trường hợp; năm thứ hai chỉ áp dụng khi thuộc chương trình hỗ trợ địa phương đủ điều kiện.',
+    ],
+    faq: [
+      {
+        question: 'Diện này có phải 特定活動46号 không?',
+        answer: 'Không. Đây là 特定活動 để tiếp tục tìm việc sau tốt nghiệp. 特定活動46号 là diện làm việc cho người tốt nghiệp đại học Nhật trong công việc dùng tiếng Nhật sau khi đã có nội dung hoạt động/công việc phù hợp.',
+      },
+      {
+        question: 'Có cần JLPT N1 để xin 特定活動 tìm việc không?',
+        answer: 'Không phải điều kiện chung của diện tiếp tục tìm việc sau tốt nghiệp. Điều quan trọng là tốt nghiệp đúng đối tượng, tình trạng lưu trú không có vấn đề, có推薦 từ trường và chứng minh đang tiếp tục tìm việc.',
+      },
+      {
+        question: 'Có được làm thêm trong thời gian tìm việc không?',
+        answer: 'Có thể nếu được 資格外活動許可. ISA nêu mức thông thường là trong phạm vi 28 giờ/tuần; internship hoặc hoạt động vượt phạm vi có thể cần xin phép riêng.',
+      },
     ],
     officialLinks: [
-      { label: '在留資格「特定活動」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities.html' },
+      { label: '本邦の大学等を卒業した留学生が就職活動を行う場合 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities14.html' },
+      { label: '大学等を卒業後就職活動のための滞在をご希望のみなさまへ — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan84.html' },
+      { label: '在留資格「特定活動」46号 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities11.html' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
     ],
     steps: [
       {
         step: 1,
         title: 'Kiểm tra bạn có đủ điều kiện không',
-        description: 'ISA quy định 特定活動46号 áp dụng cho người đáp ứng ĐỦ các điều kiện sau:\n\n1. Tốt nghiệp đại học 4 năm (学士) hoặc sau đại học (修士・博士) tại Nhật.\n\n2. Tiếng Nhật cao: có JLPT N1, hoặc chuyên ngành học là tiếng Nhật / văn hóa Nhật / nghiên cứu Nhật Bản (日本語・日本文化・日本社会関係).\n\n3. Mục tiêu: tìm việc trong các vị trí mà khả năng tiếng Nhật là yếu tố cốt lõi của công việc (日本語を用いた業務に従事することを希望) — không phải bất kỳ công việc nào.\n\nNếu có N1 nhưng tốt nghiệp ngành kỹ thuật → vẫn đủ điều kiện vì N1 đã thỏa yêu cầu tiếng Nhật.',
+        description: 'Diện 継続就職活動のための特定活動 áp dụng khi bạn tốt nghiệp tại Nhật và muốn tiếp tục tìm việc sau khi 留学 sắp hết hạn.\n\nĐiểm cần kiểm tra:\n1. Bạn thuộc nhóm trường/khóa được ISA công nhận cho diện này, như đại học, một số trường chuyên môn hoặc trường tiếng Nhật theo điều kiện đặc biệt.\n2. Tình trạng lưu trú trong thời gian học không có vấn đề lớn.\n3. Bạn đã tìm việc từ trước khi tốt nghiệp và tiếp tục tìm việc sau tốt nghiệp.\n4. Trường cấp 推薦状 cho việc tiếp tục tìm việc.\n5. Bạn có đủ khả năng chi trả sinh hoạt trong thời gian tìm việc.\n\nNếu đã có offer và chỉ chờ ngày vào công ty, đó có thể là 特定活動 nội định/chờ tuyển dụng; nếu đã có công việc dùng tiếng Nhật theo diện tốt nghiệp đại học Nhật, hãy kiểm tra guide/nguồn về 特定活動46号.',
         documents: [],
-        tip: 'N2 không đủ cho 特定活動46号. Nếu chỉ có N2, visa tiêu chuẩn sau tốt nghiệp vẫn là 就職活動のための特定活動 thông thường (ngắn hơn, điều kiện khác) hoặc chuyển sang 技術・人文知識・国際業務 khi đã có offer.',
+        tip: 'Đừng tự gắn nhãn 46号 cho hồ sơ tìm việc. Khi hỏi trường hoặc ISA, dùng đúng cụm 継続就職活動のための特定活動 để tránh được hướng dẫn sai diện.',
       },
       {
         step: 2,
-        title: 'Quyền được làm việc trong thời gian tìm việc',
-        description: '特定活動46号 cho phép làm việc bán thời gian tối đa 28 giờ/tuần trong thời gian chờ tìm được việc — nhưng chỉ ở các vị trí đòi hỏi sử dụng tiếng Nhật (không phải mọi loại công việc). Ví dụ hợp lệ: phiên dịch, hỗ trợ khách hàng tiếng Nhật, nhân viên cửa hàng, dạy tiếng Việt kết hợp tiếng Nhật.\n\nCác công việc chân tay thuần túy (kho vận, xây dựng, nông nghiệp) không thuộc phạm vi của 46号 trong giai đoạn này.',
+        title: 'Xin phép làm thêm nếu cần',
+        description: 'Trong thời gian 特定活動 để tìm việc, bạn không được mặc định làm thêm chỉ vì trước đây từng có 資格外活動許可 khi còn là du học sinh.\n\nNếu muốn làm baito: xin 資格外活動許可. ISA nêu trường hợp thông thường là trong phạm vi 28 giờ/tuần. Nếu internship là một phần của hoạt động tìm việc và vượt 28 giờ/tuần, có thể cần xin phép riêng theo hướng dẫn ISA.\n\nKhông dùng diện tìm việc để làm full-time. Khi có offer và muốn bắt đầu làm toàn thời gian, cần đổi sang tư cách lưu trú phù hợp trước ngày bắt đầu làm.',
         documents: [],
-        tip: 'Nếu muốn làm full-time: phải có offer chính thức và chuyển sang tư cách 技術・人文知識・国際業務 hoặc phù hợp trước khi bắt đầu. Không được làm full-time dưới 特定活動46号 khi chưa có tư cách lao động.',
+        tip: 'Giữ bản sao giấy phép 資格外活動 và kiểm tra mặt sau 在留カード/指定書 trước khi nhận ca làm. Nếu điều kiện không rõ, hỏi ISA trước.',
       },
       {
         step: 3,
         title: 'Chuẩn bị hồ sơ và nộp tại ISA',
-        description: 'Hồ sơ cần có:\n• Đơn 在留資格変更許可申請 (đổi từ 留学 sang 特定活動)\n• 指定書申請書 ghi rõ mục đích: tìm việc theo 特定活動46号\n• Bằng tốt nghiệp hoặc giấy xác nhận tốt nghiệp (卒業証明書) từ trường Nhật\n• Thành tích học tập (成績証明書)\n• Kết quả JLPT N1 (giấy chứng nhận — không phải thẻ) hoặc bảng điểm chứng minh chuyên ngành tiếng Nhật/văn hóa Nhật\n• Hộ chiếu và 在留カード\n• Bằng chứng tài chính đủ để sống trong thời gian tìm việc (sao kê ngân hàng)',
+        description: 'Hồ sơ cơ bản thường gồm:\n• Đơn 在留資格変更許可申請 (đổi từ 留学 sang 特定活動)\n• 卒業証明書 hoặc giấy xác nhận tốt nghiệp\n• 推薦状 từ trường cho việc tiếp tục tìm việc\n• Bằng chứng hoạt động tìm việc: lịch sử ứng tuyển, email công ty, tham gia hội chợ việc làm, tư vấn career center\n• Giấy tờ chứng minh khả năng chi trả sinh hoạt\n• Hộ chiếu, 在留カード và ảnh thẻ\n\nTùy trường hợp, ISA có thể yêu cầu thêm tài liệu. Hãy dùng checklist chính thức của ISA và hỏi trường trước khi nộp.',
         documents: [
           'Đơn 在留資格変更許可申請',
-          '卒業証明書 từ đại học Nhật',
-          '成績証明書',
-          'Giấy chứng nhận JLPT N1 (hoặc bằng chứng chuyên ngành tiếng Nhật)',
+          '卒業証明書 hoặc giấy xác nhận tốt nghiệp',
+          '推薦状 từ trường',
+          'Bằng chứng hoạt động tìm việc',
           'Hộ chiếu và 在留カード',
           'Sao kê tài khoản ngân hàng (chứng minh tài chính)',
         ],
-        tip: 'Trường đại học thường cấp 卒業証明書 miễn phí ngay khi ra trường — xin ngay lúc nhận bằng, không chờ đến khi cần. Một số trường cần 1–2 tuần để cấp nếu không xin trước.',
+        tip: 'Xin 推薦状 sớm. Trường thường chỉ cấp nếu họ xác nhận bạn thực sự đang tiếp tục tìm việc và có lịch sử trao đổi với career center/giáo viên phụ trách.',
       },
       {
         step: 4,
         title: 'Thời hạn và gia hạn',
-        description: '特定活動46号 cấp lần đầu: 1 năm. Có thể gia hạn thêm 1 lần → tổng tối đa 2 năm.\n\nNếu tìm được việc trong thời gian này: nộp đơn đổi sang tư cách lưu trú phù hợp (thường là 技術・人文知識・国際業務) trước khi bắt đầu làm full-time.\n\nNếu sau 2 năm vẫn chưa tìm được việc: không thể gia hạn thêm — phải xuất cảnh hoặc đổi sang tư cách khác nếu có lý do hợp lệ.',
+        description: 'Năm đầu sau tốt nghiệp: ISA nêu diện tìm việc thường được cấp 特定活動 6 tháng và có thể gia hạn thêm 1 lần, tức tối đa 1 năm nếu tiếp tục đủ điều kiện.\n\nNăm thứ hai sau tốt nghiệp: chỉ áp dụng nếu bạn tham gia chương trình hỗ trợ việc làm của địa phương đáp ứng điều kiện ISA và được cấp giấy chứng nhận phù hợp.\n\nNếu tìm được việc: nộp đơn đổi sang tư cách lưu trú phù hợp trước khi bắt đầu làm full-time. Tùy công việc, có thể là 技術・人文知識・国際業務, 特定活動46号 hoặc tư cách khác đúng với nội dung công việc.',
         documents: [
           'Báo cáo hoạt động tìm việc (求職活動状況報告書 — một số ISA yêu cầu khi gia hạn)',
           'Hộ chiếu và 在留カード',
         ],
-        tip: 'Khi gia hạn, ISA có thể hỏi về hoạt động tìm việc thực tế. Giữ hồ sơ: email liên lạc với công ty, lịch sử ứng tuyển, tham gia hội chợ việc làm (就職フェア) — đây là bằng chứng bạn đang thực sự tìm việc.',
+        tip: 'Mục tiêu của diện này là tìm việc thật, không phải kéo dài lưu trú. Mỗi lần gia hạn nên có bằng chứng mới về ứng tuyển, phỏng vấn, tư vấn nghề nghiệp hoặc tham gia sự kiện tuyển dụng.',
       },
     ],
   },
