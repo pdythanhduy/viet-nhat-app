@@ -18,6 +18,7 @@ import { Disclaimers } from '../constants/disclaimers';
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
+import { adminGuideMatchesSearch } from '../utils/adminGuideSearch';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
 import {
@@ -145,18 +146,12 @@ export default function AdminScreen() {
   );
 
   const filteredGuides = useMemo(() => {
-    const q = search.toLowerCase();
-
     return ADMIN_GUIDES.filter((guide) => {
       const matchesCategory = activeCategory === 'all' || guide.category === activeCategory;
       const completedStepCount = stepProgressMap[guide.id] ?? 0;
       const totalSteps = guide.steps.length;
       const matchesStatus = matchesGuideStatusFilter(totalSteps, completedStepCount, activeStatus);
-      const matchesSearch =
-        !search.trim() ||
-        guide.title.toLowerCase().includes(q) ||
-        guide.titleJp.toLowerCase().includes(q) ||
-        guide.description.toLowerCase().includes(q);
+      const matchesSearch = adminGuideMatchesSearch(guide, search);
 
       return matchesCategory && matchesStatus && matchesSearch;
     }).sort((a, b) => {

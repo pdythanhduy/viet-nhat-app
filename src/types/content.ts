@@ -65,6 +65,7 @@ export interface AdminGuide {
   icon: IoniconName;
   color: string;
   description: string;
+  searchKeywords?: string[];
   heroImage?: ImageSourcePropType;
   heroImageCaption?: string;
   whoIsThisFor?: string[];

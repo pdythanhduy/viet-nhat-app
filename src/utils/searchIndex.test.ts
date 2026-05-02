@@ -10,4 +10,9 @@ describe('searchAppContent', () => {
     const results = searchAppContent('thẻ cư trú');
     expect(results[0]?.title).toContain('Thẻ cư trú');
   });
+
+  it('includes admin guide search keyword metadata', () => {
+    const results = searchAppContent('gaimen');
+    expect(results.map((item) => item.id)).toContain('drivers-license');
+  });
 });

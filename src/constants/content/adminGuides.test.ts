@@ -85,6 +85,13 @@ const REQUIRED_TRAFFIC_ACCIDENT_SOURCE_HOSTS = [
   'www.jsdc.or.jp',
 ];
 
+const REQUIRED_ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
+  'traffic-accident-response': ['110', '119', 'jiko', '交通事故証明書'],
+  'drivers-license': ['gaimen', '外免切替'],
+  'drivers-license-renewal': ['koshin', '免許更新'],
+  'car-shaken-insurance': ['shaken', '車検'],
+};
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -187,6 +194,34 @@ describe('ADMIN_GUIDES content quality', () => {
 
       if (guide.heroImage) {
         expectNonEmptyText(guide.heroImageCaption ?? '');
+      }
+    }
+  });
+
+  it('keeps search keyword metadata clean when present', () => {
+    for (const guide of ADMIN_GUIDES) {
+      if (!guide.searchKeywords) continue;
+
+      expect(guide.searchKeywords.length).toBeGreaterThan(0);
+      expect(new Set(guide.searchKeywords.map((keyword) => keyword.toLowerCase())).size).toBe(
+        guide.searchKeywords.length,
+      );
+
+      for (const keyword of guide.searchKeywords) {
+        expectNonEmptyText(keyword);
+      }
+    }
+  });
+
+  it('keeps critical admin guide search keywords discoverable', () => {
+    for (const [guideId, keywords] of Object.entries(REQUIRED_ADMIN_GUIDE_SEARCH_KEYWORDS)) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+      const searchKeywords = new Set((guide?.searchKeywords ?? []).map((keyword) => keyword.toLowerCase()));
+
+      expect(guide).toBeDefined();
+
+      for (const keyword of keywords) {
+        expect(searchKeywords).toContain(keyword.toLowerCase());
       }
     }
   });

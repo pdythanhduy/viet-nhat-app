@@ -29,6 +29,7 @@ function normalizeText(value: string) {
   return value
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[đĐ]/g, 'd')
     .toLowerCase()
     .trim();
 }
@@ -44,6 +45,7 @@ const SEARCH_INDEX: SearchResultItem[] = [
       guide.title,
       guide.titleJp,
       guide.description,
+      ...(guide.searchKeywords ?? []),
       ...(guide.whoIsThisFor ?? []),
       ...(guide.whenToDo ?? []),
       ...(guide.whereToDo ?? []),
