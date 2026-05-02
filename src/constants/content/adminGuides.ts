@@ -4321,8 +4321,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Bằng cấp, chứng chỉ, hợp đồng hoặc thư tuyển dụng nếu cần',
         ],
         tip: 'Đừng chỉ nộp giấy tờ “na ná”. Hồ sơ đổi tư cách thường bị soi kỹ ở phần tính phù hợp của công việc với bằng cấp.',
-        image: require('../../../assets/content/daily-life/ag_status-change_s2.jpg'),
-        imageCaption: 'Dien 在留資格変更許可申請書 va chuan bi ho so theo dien moi',
       },
       {
         step: 3,
@@ -4332,7 +4330,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         documents: ['Biên nhận hồ sơ', 'Thông tin liên lạc để nhận yêu cầu bổ sung'],
         tip: 'Không nên đi công tác dài ngày hoặc đổi địa chỉ mà quên cập nhật cách nhận thư.',
         image: require('../../../assets/content/daily-life/ag_status-change_s3.jpg'),
-        imageCaption: 'Nop ho so doi tu cach tai ISA - nhan phieu hen va theo doi yeu cau bo sung',
+        imageCaption: 'Nộp hồ sơ đổi tư cách tại ISA — nhận phiếu hẹn và theo dõi yêu cầu bổ sung',
       },
       {
         step: 4,
@@ -4421,7 +4419,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         documents: ['Mẫu đơn tại quầy', 'Thẻ cư trú (在留カード)', 'Hộ chiếu nếu được yêu cầu'],
         tip: 'Sai địa chỉ hoặc sai cách viết tên sẽ kéo theo lỗi ở ngân hàng, điện thoại và hồ sơ khác.',
         image: require('../../../assets/content/daily-life/ag_movingin_s2.jpg'),
-        imageCaption: 'Dien 転入届 tai quay 役所 - nhan vien cap nhat dia chi moi len 在留カード',
+        imageCaption: 'Điền 転入届 tại quầy 役所 — nhân viên cập nhật địa chỉ mới lên 在留カード',
       },
       {
         step: 3,
@@ -4523,7 +4521,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         documents: ['申請書ID (23 chữ số từ 個人番号通知書)', 'Ảnh chân dung', 'Địa chỉ email'],
         tip: 'Thông tin điền phải khớp chính xác với 在留カード. Tên, địa chỉ sai một ký tự sẽ bị từ chối và phải nộp lại từ đầu.',
         image: require('../../../assets/content/daily-life/ag_mynumber-card_s2.jpg'),
-        imageCaption: 'Nop don xin My Number Card qua app マイナポータル tren smartphone trong 10 phut',
+        imageCaption: 'Nộp đơn xin My Number Card qua app マイナポータル trên smartphone trong 10 phút',
       },
       {
         step: 3,
@@ -4615,8 +4613,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Cập nhật địa chỉ với municipal office, ngân hàng, điện thoại, bảo hiểm',
         ],
         tip: 'Mất thẻ cư trú cần làm thủ tục cấp lại sớm tại ISA.',
-        image: require('../../../assets/content/daily-life/ag_daily-law_s1.jpg'),
-        imageCaption: 'The 在留カード va dang ky cu tru - hai thu phai luon cap nhat dung thuc te',
       },
       {
         step: 2,
@@ -4636,7 +4632,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         ],
         tip: 'Chụp ảnh phòng khi dọn vào và khi trả nhà để tránh tranh chấp chi phí sửa chữa.',
         image: require('../../../assets/content/daily-life/ag_daily-law_s3.jpg'),
-        imageCaption: 'Phan loai rac theo ngay quy dinh - vi pham co the bi phat hoac canh cao tu 役所',
+        imageCaption: 'Phân loại rác theo ngày quy định — vi phạm có thể bị phạt hoặc cảnh cáo từ 役所',
       },
       {
         step: 4,
@@ -5462,8 +5458,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Đến bệnh viện hoặc phòng khám có nhận 労災 (không phải tất cả đều nhận — hỏi trước hoặc tra cứu trên trang 厚生労働省). Nói với bác sĩ và bệnh viện rằng đây là tai nạn lao động (労災です / 仕事中のケガです) — chi phí điều trị sẽ được 労災保険 chi trả, không dùng 健康保険 thông thường.\n\nNếu cấp cứu trước: vào bệnh viện gần nhất, sau đó báo cho công ty và chuyển hóa đơn sang thanh toán 労災 — bệnh viện sẽ hướng dẫn.',
         documents: [],
         tip: 'Không nên dùng 健康保険 (bảo hiểm y tế thông thường) để điều trị tai nạn lao động — nếu lỡ dùng, cần làm thủ tục hoàn trả sau. Nói rõ ngay từ đầu là 労災 để tránh phức tạp.',
-        image: require('../../../assets/content/daily-life/ag_rousai_s1.jpg'),
-        imageCaption: 'Den benh vien ngay va khai bao tai nan lao dong de duoc dieu tri theo 労災保険',
       },
       {
         step: 2,
@@ -5476,7 +5470,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         ],
         tip: 'Ghi chép hoặc chụp ảnh hiện trường ngay sau tai nạn nếu có thể — bằng chứng sẽ rất quan trọng nếu sau này có tranh chấp về nguyên nhân.',
         image: require('../../../assets/content/daily-life/ag_rousai_s2.jpg'),
-        imageCaption: 'Dien mau 労災 va yeu cau cong ty xac nhan - bat buoc de nhan quyen loi boi thuong',
+        imageCaption: 'Điền mẫu 労災 và yêu cầu công ty xác nhận — bắt buộc để nhận quyền lợi bồi thường',
       },
       {
         step: 3,
@@ -6693,8 +6687,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Nộp 育児休業申出書 cho HR/nhân sự. Luật yêu cầu báo trước ít nhất 1 tháng cho 育児休業 thông thường, và 2 tuần cho 産後パパ育休. Thực tế nên báo sớm hơn để bàn giao công việc.',
         documents: ['育児休業申出書', 'Giấy khai sinh hoặc giấy xác nhận mang thai'],
         tip: 'Nếu công ty chưa có quy trình rõ, yêu cầu HR cung cấp mẫu đơn và xác nhận ngày bắt đầu/kết thúc nghỉ bằng văn bản.',
-        image: require('../../../assets/content/daily-life/ag_childcare-leave_s1.jpg'),
-        imageCaption: 'Van ban thong bao nghi 育児休業 - nop cho cong ty it nhat 1 thang truoc ngay nghi',
       },
       {
         step: 2,
@@ -6703,7 +6695,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         documents: [],
         tip: 'Theo dõi với HR để đảm bảo hồ sơ được nộp đúng hạn — trễ hồ sơ sẽ làm trễ tiền về.',
         image: require('../../../assets/content/daily-life/ag_childcare-leave_s2.jpg'),
-        imageCaption: 'Ho so 育児休業給付金 do cong ty nop len ハローワーク de nhan tro cap nghi nuoi con',
+        imageCaption: 'Hồ sơ 育児休業給付金 do công ty nộp lên ハローワーク để nhận trợ cấp nghỉ nuôi con',
       },
       {
         step: 3,
