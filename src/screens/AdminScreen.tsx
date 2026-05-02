@@ -20,12 +20,16 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
+import {
+  getGuideStepProgressState,
+  matchesGuideStatusFilter,
+  type GuideStatusFilter,
+} from '../utils/guideStatus';
 import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
 import type { AdminGuideCategory } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type CategoryFilter = 'all' | AdminGuideCategory;
-type StatusFilter = 'all' | 'in-progress' | 'completed';
 
 const CATEGORY_FILTERS: { id: CategoryFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
   { id: 'all', label: 'Tất cả', icon: 'apps' },
@@ -38,7 +42,7 @@ const CATEGORY_FILTERS: { id: CategoryFilter; label: string; icon: keyof typeof 
   { id: 'license', label: 'Bằng lái', icon: 'car' },
 ];
 
-const STATUS_FILTERS: { id: StatusFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
+const STATUS_FILTERS: { id: GuideStatusFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
   { id: 'all', label: 'Tất cả', icon: 'layers-outline' },
   { id: 'in-progress', label: 'Đang làm', icon: 'time-outline' },
   { id: 'completed', label: 'Đã xong', icon: 'checkmark-done-outline' },
@@ -97,7 +101,7 @@ export default function AdminScreen() {
   const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
-  const [activeStatus, setActiveStatus] = useState<StatusFilter>('all');
+  const [activeStatus, setActiveStatus] = useState<GuideStatusFilter>('all');
   const [inProgressGuideIds, setInProgressGuideIds] = useState<string[]>([]);
   const [readyGuideIds, setReadyGuideIds] = useState<string[]>([]);
   const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
@@ -147,10 +151,7 @@ export default function AdminScreen() {
       const matchesCategory = activeCategory === 'all' || guide.category === activeCategory;
       const completedStepCount = stepProgressMap[guide.id] ?? 0;
       const totalSteps = guide.steps.length;
-      const matchesStatus =
-        activeStatus === 'all' ||
-        (activeStatus === 'in-progress' && completedStepCount > 0 && completedStepCount < totalSteps) ||
-        (activeStatus === 'completed' && totalSteps > 0 && completedStepCount >= totalSteps);
+      const matchesStatus = matchesGuideStatusFilter(totalSteps, completedStepCount, activeStatus);
       const matchesSearch =
         !search.trim() ||
         guide.title.toLowerCase().includes(q) ||
@@ -178,12 +179,10 @@ export default function AdminScreen() {
   const readyGuides = ADMIN_GUIDES.filter((guide) => readyGuideIds.includes(guide.id));
   const pinnedGuides = ADMIN_GUIDES.filter((guide) => pinnedGuideIds.includes(guide.id));
   const inProgressStepGuides = ADMIN_GUIDES.filter((guide) => {
-    const done = stepProgressMap[guide.id] ?? 0;
-    return done > 0 && done < guide.steps.length;
+    return getGuideStepProgressState(guide.steps.length, stepProgressMap[guide.id]).isInProgress;
   });
   const completedStepGuides = ADMIN_GUIDES.filter((guide) => {
-    const done = stepProgressMap[guide.id] ?? 0;
-    return done > 0 && done >= guide.steps.length;
+    return getGuideStepProgressState(guide.steps.length, stepProgressMap[guide.id]).isCompleted;
   });
 
   return (
