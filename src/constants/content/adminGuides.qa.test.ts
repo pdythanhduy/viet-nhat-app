@@ -6,7 +6,7 @@ const hasSuspiciousSpacing = (text: string): boolean => /[^\S\r\n]{2,}/.test(tex
 const hasReplacementChar = (text: string): boolean => /\uFFFD/.test(text);
 
 describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
-  const targetGuides = ADMIN_GUIDES.filter((guide) => TARGET_CATEGORIES.has(guide.category ?? ''));
+  const targetGuides = ADMIN_GUIDES.filter((guide) => TARGET_CATEGORIES.has(guide.category));
 
   it('keeps lastVerified in ISO date format', () => {
     targetGuides.forEach((guide) => {
@@ -23,12 +23,16 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
       'otit.go.jp',
       'nenkin.go.jp',
       'soumu.go.jp',
+      'e-gov.go.jp',
+      'vnembassy-jp.org',
+      'vnconsulate-osaka.org',
+      'emb-japan.go.jp',
     ];
 
     targetGuides.forEach((guide) => {
-      expect(guide.officialLinks?.length ?? 0).toBeGreaterThan(0);
+      expect(guide.officialLinks.length).toBeGreaterThan(0);
 
-      (guide.officialLinks ?? []).forEach((link) => {
+      guide.officialLinks.forEach((link) => {
         expect(link.url.startsWith('https://')).toBe(true);
         const host = new URL(link.url).hostname;
         expect(allowedHosts.some((allowed) => host === allowed || host.endsWith(`.${allowed}`))).toBe(true);
@@ -44,7 +48,7 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
       blocks.push(...(guide.whereToDo ?? []));
       blocks.push(...(guide.commonMistakes ?? []));
       blocks.push(...(guide.fees ?? []));
-      blocks.push(...(guide.steps ?? []).flatMap((step) => [step.title, step.description, ...(step.documents ?? []), step.tip ?? '']));
+      blocks.push(...guide.steps.flatMap((step) => [step.title, step.description, ...step.documents, step.tip ?? '']));
       blocks.push(...(guide.faq ?? []).flatMap((item) => [item.question, item.answer]));
       return blocks.filter(Boolean);
     };

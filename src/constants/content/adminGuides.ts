@@ -208,6 +208,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'home',
     color: '#16A085',
     description: 'Khi chuyển đến địa chỉ mới ở Nhật, người trung/dài hạn cần làm thủ tục địa chỉ tại municipal office trong thời hạn quy định.',
+    heroImage: require('../../../assets/content/daily-life/ag_address-change_hero.jpg'),
+    heroImageCaption: 'Thủ tục đổi địa chỉ tại 役所 khi chuyển nhà',
     whoIsThisFor: [
       'Người có thẻ cư trú trung/dài hạn vừa chuyển đến địa chỉ mới ở Nhật.',
       'Người chuyển nhà giữa các thành phố/quận/phường khác nhau.',
@@ -342,6 +344,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'briefcase',
     color: '#D35400',
     description: 'Một số tư cách lưu trú lao động cần khai báo với ISA trong vòng 14 ngày khi kết thúc hợp đồng, ký hợp đồng mới hoặc chuyển công ty.',
+    heroImage: require('../../../assets/content/daily-life/ag_job-change_hero.jpg'),
+    heroImageCaption: 'Khai báo thay đổi công việc với ISA trong 14 ngày',
     whoIsThisFor: [
       'Người có visa lao động gắn với tổ chức ký hợp đồng, ví dụ 技術・人文知識・国際業務, 介護, 技能, 特定技能.',
       'Người nghỉ việc, đổi công ty, ký hợp đồng mới hoặc công ty tiếp nhận thay đổi thông tin quan trọng.',
@@ -434,6 +438,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'time',
     color: '#27AE60',
     description: 'Du học sinh, visa gia đình và một số tư cách khác cần xin phép trước khi làm việc nhận lương ngoài phạm vi tư cách lưu trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_part-time_hero.jpg'),
+    heroImageCaption: 'Xin phép làm việc ngoài phạm vi tư cách lưu trú',
     whoIsThisFor: [
       'Du học sinh muốn làm thêm có lương.',
       'Người có visa gia đình muốn đi làm thêm.',
@@ -529,6 +535,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'airplane',
     color: '#2C7BE5',
     description: 'Hướng dẫn ra khỏi Nhật tạm thời và quay lại mà không làm mất tư cách lưu trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_re-entry_hero.jpg'),
+    heroImageCaption: 'Kiểm tra thẻ cư trú và hộ chiếu trước khi rời Nhật',
     officialLinks: [
       { label: 'みなし再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/minashisainyukoku_00001.html' },
       { label: '再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/sainyukoku_00002.html' },
@@ -576,6 +584,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'people',
     color: '#C0392B',
     description: 'Người có tư cách lưu trú dựa trên quan hệ vợ/chồng cần khai báo với ISA khi ly hôn hoặc vợ/chồng qua đời.',
+    heroImage: require('../../../assets/content/daily-life/ag_spouse-notif_hero.jpg'),
+    heroImageCaption: 'Khai báo thay đổi quan hệ vợ/chồng với ISA',
     officialLinks: [
       { label: '配偶者に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00016.html' },
     ],
@@ -1298,6 +1308,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'albums',
     color: '#185FA5',
     description: 'Tổng quan các tư cách lưu trú phổ biến với người Việt ở Nhật. Nội dung này chỉ giúp định hướng, không thay thế tư vấn hồ sơ cá nhân.',
+    heroImage: require('../../../assets/content/daily-life/ag_visa-overview_hero.jpg'),
+    heroImageCaption: 'Các diện tư cách lưu trú phổ biến cho người Việt tại Nhật',
     whoIsThisFor: [
       'Người mới sang Nhật muốn hiểu mục 在留資格 trên thẻ cư trú.',
       'Du học sinh, người đi làm, gia đình lưu trú hoặc người chuẩn bị đổi việc/đổi trường/đổi hoạt động.',
@@ -1407,6 +1419,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'construct',
     color: '#9B59B6',
     description: 'Tổng quan về 特定技能 và hệ thống 育成就労 sẽ thay thế dần 技能実習. Năm 2026 là giai đoạn chuẩn bị thông tin, phần lớn hệ thống mới dự kiến vận hành từ 01/04/2027.',
+    heroImage: require('../../../assets/content/daily-life/ag_ssw2027_hero.jpg'),
+    heroImageCaption: 'Tổng quan hệ thống 特定技能 và 育成就労 mới từ 2027',
     whoIsThisFor: [
       'Người đang hoặc chuẩn bị đi theo 技能実習, 特定技能 hoặc chương trình lao động kỹ năng tại Nhật.',
       'Người muốn chuyển từ thực tập sinh/kỹ năng sang 特定技能.',
@@ -1779,6 +1793,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'map',
     color: '#6C5CE7',
     description: 'Guide tổng hợp cho 3 tháng đầu ở Nhật: từ giai đoạn sinh tồn, vào nếp, đến lúc tự rà rủi ro về giấy tờ, tiền bạc, công việc, học tập và sức khỏe.',
+    heroImage: require('../../../assets/content/daily-life/ag_90days_hero.jpg'),
+    heroImageCaption: 'Những việc cần làm trong 90 ngày đầu ở Nhật',
     whoIsThisFor: [
       'Người mới sang Nhật trong 1-3 tháng đầu và muốn có một khung tổng để không bỏ sót việc quan trọng.',
       'Người đã qua 7 ngày và 30 ngày đầu nhưng vẫn chưa chắc mọi thứ đã vận hành ổn.',
@@ -1882,6 +1898,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'people',
     color: '#2E86C1',
     description: 'Hướng dẫn theo diện 家族滞在 cho vợ/chồng hoặc con của người đang có tư cách lưu trú phù hợp tại Nhật. Đây là thủ tục dài hạn, khác với visa du lịch thăm thân.',
+    heroImage: require('../../../assets/content/daily-life/ag_family-stay_hero.jpg'),
+    heroImageCaption: 'Thủ tục bảo lãnh gia đình diện 家族滞在',
     whoIsThisFor: [
       'Người đang ở Nhật với visa đi làm, du học hoặc một số tư cách lưu trú cho phép đưa gia đình sang.',
       'Người muốn đưa vợ/chồng hoặc con sang sống cùng tại Nhật theo diện 家族滞在.',
@@ -2007,6 +2025,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'airplane',
     color: '#E67E22',
     description: 'Dành cho người thân sang Nhật thăm ngắn hạn hoặc đi du lịch. Đây không phải visa ở dài hạn và không dùng để làm việc tại Nhật.',
+    heroImage: require('../../../assets/content/daily-life/ag_short-stay_hero.jpg'),
+    heroImageCaption: 'Thủ tục xin visa thăm thân ngắn hạn vào Nhật',
     whoIsThisFor: [
       'Người ở Nhật muốn mời người thân hoặc bạn bè sang thăm trong thời gian ngắn.',
       'Người đang phân vân giữa visa thăm thân ngắn hạn và diện bảo lãnh sống cùng lâu dài.',
@@ -2134,6 +2154,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'newspaper',
     color: '#2E86C1',
     description: 'Tổng hợp mốc chính thức mới nhất (đến 19/04/2026) theo ISA: phân biệt rõ nội dung đã áp dụng trong 2026 và nội dung có hiệu lực từ 01/04/2027.',
+    heroImage: require('../../../assets/content/daily-life/ag_policy2026_hero.jpg'),
+    heroImageCaption: 'Các thay đổi chính sách cho người nước ngoài năm 2026',
     whoIsThisFor: [
       'Người nước ngoài đang ở Nhật và theo dõi thay đổi luật cư trú/lao động.',
       'Người chuẩn bị đi Nhật theo diện 技能実習 hoặc 特定技能.',
@@ -2225,6 +2247,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'list',
     color: '#2874A6',
     description: 'Bản tóm tắt thực hành theo 2 nhóm: (1) người đang sống tại Nhật, (2) người chuẩn bị vào Nhật. Nội dung bám theo cập nhật chính thức của ISA/MOFA.',
+    heroImage: require('../../../assets/content/daily-life/ag_policy-action_hero.jpg'),
+    heroImageCaption: 'Việc cần làm theo nhóm đối tượng trong năm 2026',
     whoIsThisFor: [
       'Người cần danh sách việc cần làm ngay, không chỉ đọc tin chính sách.',
       'Người đang ở Nhật muốn tránh nộp sai mẫu, sai mốc thời gian.',
@@ -2317,6 +2341,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'sparkles',
     color: '#8E44AD',
     description: 'Tổng hợp các diện visa và tư cách lưu trú được quan tâm nhiều trong năm 2026: J-Skip, J-Find, Digital Nomad, Start-up, eVISA du lịch và các điểm dễ nhầm.',
+    heroImage: require('../../../assets/content/daily-life/ag_visa2026_hero.jpg'),
+    heroImageCaption: 'Các diện visa nổi bật và thay đổi quan trọng năm 2026',
     whoIsThisFor: [
       'Người đang tìm hiểu diện visa “mới” hoặc đặc thù trong năm 2026.',
       'Người nghe về J-Skip, J-Find, Digital Nomad hoặc Start-up nhưng chưa rõ diện nào phù hợp.',
@@ -2467,6 +2493,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'people-circle',
     color: '#5C6B8A',
     description: 'Giải thích đúng phạm vi pháp lý khi muốn đưa cha mẹ hoặc người thân lớn tuổi sang Nhật. Trường hợp thông thường không đi theo 家族滞在; chỉ có một số ngoại lệ rất hẹp, chủ yếu gắn với 高度専門職.',
+    heroImage: require('../../../assets/content/daily-life/ag_elderly-parents_hero.jpg'),
+    heroImageCaption: 'Quy định pháp lý khi muốn đưa cha mẹ sang Nhật',
     whoIsThisFor: [
       'Người đang ở Nhật và muốn đưa cha mẹ sang ở cùng lâu dài.',
       'Người nghe môi giới hoặc mạng xã hội nói có thể “bảo lãnh bố mẹ sang Nhật” và muốn kiểm tra tính đúng sai.',
@@ -2610,6 +2638,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart-circle',
     color: '#D35454',
     description: 'Hướng dẫn thực tế cho người Việt mang thai, sinh con và làm thủ tục sau sinh tại Nhật: mẹ bầu, trợ cấp sinh, giấy khai sinh, cư trú của em bé, 児童手当 và việc mời người thân sang hỗ trợ.',
+    heroImage: require('../../../assets/content/daily-life/ag_pregnancy_hero.jpg'),
+    heroImageCaption: 'Hành trình mang thai và sinh con tại Nhật',
     whoIsThisFor: [
       'Người đang mang thai hoặc chuẩn bị sinh con tại Nhật.',
       'Gia đình cần biết sau khi sinh phải đi city hall, bảo hiểm và ISA theo thứ tự nào.',
@@ -2760,6 +2790,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'happy',
     color: '#F39C12',
     description: 'Guide riêng cho em bé sinh ở Nhật khi cha mẹ là người nước ngoài: quốc tịch, hộ chiếu, 在留資格取得, My Number, bảo hiểm và các mốc khám cơ bản.',
+    heroImage: require('../../../assets/content/daily-life/ag_baby_hero.jpg'),
+    heroImageCaption: 'Thủ tục giấy tờ cho em bé sinh tại Nhật',
     whoIsThisFor: [
       'Cha mẹ đều là người nước ngoài và vừa sinh con tại Nhật.',
       'Gia đình muốn biết em bé có quốc tịch gì, khi nào phải làm hộ chiếu và khi nào phải làm hồ sơ với ISA.',
@@ -2908,6 +2940,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'time',
     color: '#C0397A',
     description: 'Checklist thực tế cho 30 ngày đầu sau sinh tại Nhật: việc nào làm ngay ở bệnh viện, việc nào phải làm trong 14 ngày, việc nào không nên để qua 30 ngày.',
+    heroImage: require('../../../assets/content/daily-life/ag_postpartum_hero.jpg'),
+    heroImageCaption: 'Checklist 30 ngày sau sinh — việc nào cần làm ngay',
     whoIsThisFor: [
       'Gia đình vừa sinh con và cần một danh sách việc theo thứ tự thời gian.',
       'Người đang quá tải sau sinh và không muốn đọc quá nhiều lý thuyết.',
@@ -3044,6 +3078,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'school',
     color: '#16A085',
     description: 'Guide thực tế về hoikuen, youchien, kodomoen, taikuen, giấy tờ đi làm của phụ huynh, miễn giảm học phí và thay đổi đáng chú ý từ năm tài khóa 2026.',
+    heroImage: require('../../../assets/content/daily-life/ag_nursery_hero.jpg'),
+    heroImageCaption: 'Tìm hiểu hoikuen, youchien và hệ thống giữ trẻ tại Nhật',
     whoIsThisFor: [
       'Gia đình có con nhỏ đang cần gửi trẻ để đi làm hoặc chuẩn bị cho con vào mẫu giáo.',
       'Người chưa phân biệt được hoikuen, youchien, nintei kodomoen và cơ sở ngoài hệ thống công nhận.',
@@ -3955,6 +3991,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#8E44AD',
     description:
       'Thủ tục đổi từ tư cách lưu trú hiện tại sang tư cách khác, ví dụ từ du học sang đi làm hoặc từ visa gia đình sang diện lao động phù hợp.',
+    heroImage: require('../../../assets/content/daily-life/ag_status-change_hero.jpg'),
+    heroImageCaption: 'Thủ tục đổi tư cách lưu trú tại ISA',
     whoIsThisFor: [
       'Người sắp tốt nghiệp và chuẩn bị đi làm theo diện work visa.',
       'Người đổi mục đích ở Nhật hoặc chuyển sang một tư cách lưu trú khác hẳn hiện tại.',
@@ -6215,6 +6253,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'document-text',
     color: '#1A6B9A',
     description: 'Giải thích từng dòng trên 給与明細 (bảng lương): khoản nào được trả, khoản nào bị khấu trừ và tại sao số tiền vào tài khoản khác với lương hợp đồng.',
+    heroImage: require('../../../assets/content/daily-life/ag_payslip_hero.jpg'),
+    heroImageCaption: 'Giải thích chi tiết các dòng trong bảng lương 給与明細',
     whoIsThisFor: [
       'Người mới đi làm tại Nhật lần đầu nhận bảng lương và không hiểu các dòng số liệu.',
       'Người muốn kiểm tra lại xem thuế và bảo hiểm có bị tính đúng không.',
@@ -6298,6 +6338,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'medkit',
     color: '#27AE60',
     description: 'Khi thu nhập thấp hoặc mất việc, phí 国民健康保険 có thể được giảm tự động hoặc theo đơn xin — nhiều người không biết và bỏ lỡ quyền lợi này.',
+    heroImage: require('../../../assets/content/daily-life/ag_kokuho-reduction_hero.jpg'),
+    heroImageCaption: 'Xin giảm phí 国民健康保険 khi thu nhập thấp',
     whoIsThisFor: [
       'Người thuộc 国民健康保険 (tự đóng, không qua công ty) với thu nhập thấp hoặc không có thu nhập.',
       'Người vừa nghỉ việc, bị sa thải hoặc công ty phá sản và chuyển sang 国保.',
@@ -6390,6 +6432,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'shield-checkmark',
     color: '#C0392B',
     description: 'Hướng dẫn quyền lao động cơ bản tại Nhật, cách khiếu nại khi bị trả thiếu lương, bị sa thải bất hợp pháp hoặc bị ép nghỉ việc — áp dụng cho cả người nước ngoài.',
+    heroImage: require('../../../assets/content/daily-life/ag_labor-rights_hero.jpg'),
+    heroImageCaption: 'Bảo vệ quyền lao động và khiếu nại tại Nhật',
     whoIsThisFor: [
       'Người bị trả thiếu lương, thiếu tiền làm thêm giờ hoặc không được trả lương cuối cùng.',
       'Người bị sa thải đột ngột, ép ký đơn nghỉ tự nguyện hoặc bị đối xử không công bằng tại nơi làm việc.',
@@ -6487,6 +6531,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'flag',
     color: '#2C3E50',
     description: 'Hướng dẫn xin nhập quốc tịch Nhật Bản: điều kiện, giấy tờ, quy trình và những điểm quan trọng cần cân nhắc — bao gồm thay đổi tiêu chuẩn xét duyệt áp dụng từ 01/04/2026.',
+    heroImage: require('../../../assets/content/daily-life/ag_naturalization_hero.jpg'),
+    heroImageCaption: 'Hành trình xin nhập quốc tịch Nhật Bản (帰化)',
     whoIsThisFor: [
       'Người đã sống và làm việc hợp pháp tại Nhật đủ năm và muốn trở thành công dân Nhật.',
       'Người có vợ/chồng là người Nhật và muốn xét điều kiện đặc biệt rút ngắn thời gian.',
@@ -6598,6 +6644,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'trending-up',
     color: '#16A085',
     description: 'Hướng dẫn mở tài khoản NISA và bắt đầu đầu tư miễn thuế tại Nhật dành cho người nước ngoài: điều kiện, hạn mức, sản phẩm phù hợp và những điểm đặc thù cần biết khi rời Nhật.',
+    heroImage: require('../../../assets/content/daily-life/ag_nisa_hero.jpg'),
+    heroImageCaption: 'Mở tài khoản NISA và đầu tư miễn thuế tại Nhật',
     whoIsThisFor: [
       'Người đang sống và làm việc tại Nhật muốn đầu tư dài hạn trong khi ở đây.',
       'Người muốn tận dụng ưu đãi miễn thuế trên lợi nhuận đầu tư thay vì để tiền trong tài khoản tiết kiệm lãi suất thấp.',
@@ -6692,6 +6740,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart',
     color: '#E74C3C',
     description: 'Hướng dẫn lấy giấy tờ kết hôn tại Đại sứ quán Việt Nam ở Nhật và đăng ký hôn nhân tại Việt Nam — dành cho người Việt đang sống tại Nhật muốn đăng ký kết hôn theo thủ tục Việt Nam.',
+    heroImage: require('../../../assets/content/daily-life/ag_marriage-vn_hero.jpg'),
+    heroImageCaption: 'Thủ tục đăng ký kết hôn Việt-Nhật qua Đại sứ quán',
     whoIsThisFor: [
       'Người Việt đang sống tại Nhật muốn đăng ký kết hôn với người Nhật hoặc người Việt khác tại Việt Nam.',
       'Người muốn làm thủ tục kết hôn ở Việt Nam trước (thay vì làm 婚姻届 tại Nhật).',
