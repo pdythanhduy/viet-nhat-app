@@ -47,6 +47,11 @@ const MONEY_STRUCTURED_GUIDE_IDS = [
   'nisa-investment',
 ];
 
+const TRAFFIC_STRUCTURED_GUIDE_IDS = [
+  'moped-motorcycle-registration',
+  'bicycle-insurance',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -257,6 +262,33 @@ describe('ADMIN_GUIDES content quality', () => {
     expect(guide?.officialLinks.every((link) => link.url.includes('fsa.go.jp') || link.url.includes('nta.go.jp'))).toBe(
       true,
     );
+  });
+
+  it('keeps selected traffic guides structured', () => {
+    for (const guideId of TRAFFIC_STRUCTURED_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.category).toBe('traffic');
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
+    }
+  });
+
+  it('keeps motorcycle registration sources pointed at MLIT guidance', () => {
+    const guide = ADMIN_GUIDES.find((item) => item.id === 'moped-motorcycle-registration');
+
+    expect(guide).toBeDefined();
+    expect(guide?.officialLinks.some((link) => link.url.includes('mlit.go.jp'))).toBe(true);
+    expect(guide?.officialLinks.some((link) => link.url.includes('jidoushatouroku-portal.mlit.go.jp'))).toBe(true);
+    expect(guide?.officialLinks.some((link) => link.url.includes('keikenkyo.or.jp'))).toBe(false);
   });
 
   it('has ordered, complete steps', () => {

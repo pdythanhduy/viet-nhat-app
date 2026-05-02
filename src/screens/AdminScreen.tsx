@@ -19,6 +19,7 @@ import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
+import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
 import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
 import type { AdminGuideCategory } from '../types/content';
 
@@ -92,6 +93,7 @@ export default function AdminScreen() {
   const [inProgressGuideIds, setInProgressGuideIds] = useState<string[]>([]);
   const [readyGuideIds, setReadyGuideIds] = useState<string[]>([]);
   const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
+  const [stepProgressMap, setStepProgressMap] = useState<Record<string, number>>({});
 
   useFocusEffect(
     useCallback(() => {
@@ -110,6 +112,14 @@ export default function AdminScreen() {
 
         setInProgressGuideIds(inProgress);
         setReadyGuideIds(ready);
+      });
+
+      loadAllGuideStepProgress().then((raw) => {
+        const counts: Record<string, number> = {};
+        for (const [id, indices] of Object.entries(raw)) {
+          counts[id] = indices.length;
+        }
+        setStepProgressMap(counts);
       });
 
       loadBookmarks().then((items: Bookmark[]) => {
@@ -353,6 +363,14 @@ export default function AdminScreen() {
                   <View style={styles.priorityBadge}>
                     <Ionicons name="alert-circle" size={11} color={Colors.danger} />
                     <Text style={styles.priorityText}>Quan trọng</Text>
+                  </View>
+                )}
+                {(stepProgressMap[guide.id] ?? 0) > 0 && (
+                  <View style={styles.stepProgressPill}>
+                    <Ionicons name="checkmark-circle" size={11} color={Colors.success} />
+                    <Text style={styles.stepProgressPillText}>
+                      {stepProgressMap[guide.id]}/{guide.steps.length} bước
+                    </Text>
                   </View>
                 )}
                 <Ionicons name="list" size={13} color={Colors.textMuted} />
@@ -651,5 +669,20 @@ const styles = StyleSheet.create({
   stepsText: {
     fontSize: 11,
     color: Colors.textMuted,
+  },
+  stepProgressPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
+    backgroundColor: Colors.successLight,
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginRight: 4,
+  },
+  stepProgressPillText: {
+    fontSize: 10,
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.success,
   },
 });

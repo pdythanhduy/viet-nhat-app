@@ -6146,13 +6146,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'moped-motorcycle-registration',
     category: 'traffic',
-    lastVerified: '2026-04-26',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Đăng ký xe máy / xe tay ga tại Nhật',
-    titleJp: '原付・小型二輪・軽自動車の登録手続き',
+    titleJp: '原付・原付二種・軽二輪の登録手続き',
     icon: 'speedometer-outline',
     color: '#784212',
-    description: 'Hướng dẫn đăng ký và sử dụng xe hai bánh tại Nhật: 原付 (xe ≤50cc), 小型二輪 (51–125cc) và 軽二輪 (126–250cc). Bao gồm loại bằng lái cần có, bảo hiểm bắt buộc và thủ tục đăng ký tại municipal office hoặc 軽自動車検査協会.',
+    description: 'Hướng dẫn đăng ký và sử dụng xe hai bánh tại Nhật: 原付一種 (≤50cc), 原付二種 (51–125cc) và 軽二輪 (126–250cc). Bao gồm loại bằng lái cần có, bảo hiểm bắt buộc và nơi làm thủ tục theo dung tích xe.',
     heroImage: require('../../../assets/content/daily-life/ag_moped_hero.jpg'),
     heroImageCaption: '原付 và xe tay ga - đăng ký xe, biển số và bảo hiểm bắt buộc trước khi chạy',
     whoIsThisFor: [
@@ -6162,17 +6162,53 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     whenToDo: [
       'Ngay khi mua xe mới hoặc nhận xe cũ — không được đi trước khi có số đăng ký (ナンバープレート) và bảo hiểm bắt buộc (自賠責保険).',
-      'Khi chuyển địa chỉ sang tỉnh/thành phố khác: cần đổi ナンバープレート trong vòng 15 ngày (với 軽二輪 và 小型二輪 đăng ký tại 軽自動車検査協会).',
+      'Khi chuyển địa chỉ hoặc mua xe cũ: kiểm tra ngay nơi làm thủ tục. Xe ≤125cc hỏi municipal office; xe từ 126cc trở lên hỏi 運輸支局 hoặc 自動車検査登録事務所.',
+    ],
+    whereToDo: [
+      '市区町村役場 nơi cư trú: đăng ký 原付一種/原付二種 từ 125cc trở xuống và nhận ナンバープレート địa phương.',
+      '運輸支局 hoặc 自動車検査登録事務所: làm thủ tục 軽二輪 từ 126cc đến 250cc và 小型二輪 từ 251cc trở lên.',
+      'Đại lý xe máy: nhờ làm hộ đăng ký, chuyển tên và 自賠責 khi mua xe mới hoặc xe cũ qua cửa hàng.',
+      'Công ty bảo hiểm, đại lý hoặc một số convenience store/online: mua 自賠責保険 cho 原付/軽二輪.',
+    ],
+    documentsChecklist: [
+      { label: '在留カード hoặc giấy tờ xác minh địa chỉ', required: true },
+      { label: '販売証明書 hoặc 譲渡証明書', required: true, note: 'Cần để chứng minh nguồn gốc/mua bán xe.' },
+      { label: '廃車証明書', required: false, note: 'Cần khi mua xe cũ đã hủy đăng ký từ chủ cũ, đặc biệt với xe ≤125cc.' },
+      { label: '自賠責保険証明書', required: true, note: 'Xe không được chạy nếu chưa có bảo hiểm bắt buộc còn hiệu lực.' },
+      { label: '軽自動車届出済証 hoặc giấy tờ xe tương ứng', required: false, note: 'Cần với 軽二輪/小型二輪 khi chuyển tên, đổi địa chỉ hoặc xin cấp lại.' },
+      { label: 'ナンバープレート cũ', required: false, note: 'Có thể cần khi đổi địa phương, hủy đăng ký hoặc đổi biển.' },
+    ],
+    commonMistakes: [
+      'Nhầm nơi làm thủ tục: xe ≤125cc hỏi municipal office, còn 126cc trở lên hỏi 運輸支局/自動車検査登録事務所.',
+      'Mua xe cũ từ cá nhân nhưng không nhận đủ 譲渡証明書, 廃車証明書 hoặc giấy tờ xe.',
+      'Đi xe trước khi có ナンバープレート và 自賠責保険.',
+      'Không kiểm tra hạn 自賠責保険; hết hạn mà vẫn chạy có thể bị xử phạt nặng và đình chỉ bằng.',
+      'Mua moped/xe điện có bàn đạp nhưng tưởng là xe đạp thường, không đăng ký và không mua 自賠責.',
+    ],
+    faq: [
+      {
+        question: 'Xe dưới 125cc đăng ký ở đâu?',
+        answer: 'Thông thường đăng ký tại municipal office nơi bạn cư trú. Hỏi quầy 税務課 hoặc bộ phận phụ trách 軽自動車税/原付 để nhận mẫu và biển số.',
+      },
+      {
+        question: '軽二輪 126-250cc có làm ở 軽自動車検査協会 không?',
+        answer: 'Không nên mặc định như vậy. Theo hướng dẫn của MLIT và các 運輸局, thủ tục 軽二輪 hiện làm tại 運輸支局 hoặc 自動車検査登録事務所 có thẩm quyền theo địa chỉ sử dụng xe.',
+      },
+      {
+        question: '自賠責保険 khác gì 任意保険?',
+        answer: '自賠責保険 là bảo hiểm bắt buộc, chủ yếu bồi thường thiệt hại thân thể cho nạn nhân với mức trần. 任意保険 là bảo hiểm tự nguyện để mở rộng bảo vệ như thiệt hại tài sản, phần vượt trần và bảo vệ người lái.',
+      },
     ],
     officialLinks: [
       { label: '自賠責保険ポータルサイト — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/' },
-      { label: '軽自動車検査協会', url: 'https://www.keikenkyo.or.jp/' },
+      { label: '自賠責保険・共済に加入するには — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/about/policyholder/index.html' },
+      { label: '自動車の種類 — 自動車検査登録総合ポータルサイト', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/procedure/index.html' },
     ],
     steps: [
       {
         step: 1,
         title: 'Xác định loại xe và loại bằng lái cần có',
-        description: 'Nhật phân loại xe hai bánh theo dung tích động cơ — mỗi loại có thủ tục đăng ký và yêu cầu bằng lái khác nhau:\n\n• 原付一種 (≤50cc): đăng ký tại municipal office (市区町村役場), nhận ナンバー ngay trong ngày. Cần bằng 原付免許 (thi riêng) hoặc bất kỳ bằng lái ô tô nào (普通免許 trở lên). Tốc độ tối đa 30 km/h, cấm đi 2 hàng trên đường chính.\n\n• 原付二種 / 小型二輪 (51–125cc): đăng ký tại municipal office (thủ tục tương tự nhưng phân loại khác). Cần bằng 普通二輪免許 (小型限定 trở lên). Không bị giới hạn 30 km/h như 原付一種.\n\n• 軽二輪 (126–250cc): đăng ký tại 軽自動車検査協会. Cần bằng 普通二輪免許. Không cần 車検 (kiểm định định kỳ).\n\n• 小型自動二輪 / 二輪自動車 (>250cc): đăng ký tại 運輸支局, cần 車検 định kỳ 2 năm. Cần bằng 普通二輪 hoặc 大型二輪.',
+        description: 'Nhật phân loại xe hai bánh theo dung tích động cơ — mỗi loại có thủ tục đăng ký và yêu cầu bằng lái khác nhau:\n\n• 原付一種 (≤50cc): đăng ký tại municipal office (市区町村役場), nhận ナンバー ngay trong ngày. Cần bằng 原付免許 (thi riêng) hoặc bất kỳ bằng lái ô tô nào (普通免許 trở lên). Tốc độ tối đa 30 km/h, cấm đi 2 hàng trên đường chính.\n\n• 原付二種 (51–125cc): đăng ký tại municipal office (thủ tục tương tự nhưng phân loại khác). Cần bằng 普通二輪免許 (小型限定 trở lên). Không bị giới hạn 30 km/h như 原付一種.\n\n• 軽二輪 (126–250cc): làm thủ tục tại 運輸支局 hoặc 自動車検査登録事務所. Cần bằng 普通二輪免許. Không cần 車検 (kiểm định định kỳ).\n\n• 小型二輪自動車 (>250cc): làm thủ tục tại 運輸支局, cần 車検 định kỳ. Cần bằng 普通二輪 hoặc 大型二輪.',
         documents: [],
         tip: 'Bằng lái xe máy Việt Nam KHÔNG được dùng trực tiếp tại Nhật — phải đổi sang bằng Nhật. Quy trình đổi bằng xe máy tương tự đổi bằng ô tô (xem guide "Đổi bằng lái xe" riêng). Bằng quốc tế (IDP) theo Công ước Geneva 1949 được chấp nhận tạm thời 1 năm kể từ khi nhập cảnh.',
       },
@@ -6199,7 +6235,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Chuyển tên khi mua xe cũ từ cá nhân',
-        description: 'Khi mua 原付 cũ từ người khác:\n\n1. Người bán làm thủ tục 廃車 (hủy đăng ký) tại municipal office và nhận 廃車証明書.\n2. Bạn mang 廃車証明書 + 譲渡証明書 (giấy chuyển nhượng, người bán ký) đến municipal office nơi bạn ở để đăng ký tên mới.\n3. Nhận ナンバー mới của địa phương bạn.\n\nVới 軽二輪 (126–250cc) và xe >250cc: thủ tục phức tạp hơn, qua 軽自動車検査協会 hoặc 運輸支局. Cân nhắc nhờ đại lý xe hoặc 行政書士 làm hộ nếu lần đầu.',
+        description: 'Khi mua 原付 cũ từ người khác:\n\n1. Người bán làm thủ tục 廃車 (hủy đăng ký) tại municipal office và nhận 廃車証明書.\n2. Bạn mang 廃車証明書 + 譲渡証明書 (giấy chuyển nhượng, người bán ký) đến municipal office nơi bạn ở để đăng ký tên mới.\n3. Nhận ナンバー mới của địa phương bạn.\n\nVới 軽二輪 (126–250cc) và xe >250cc: thủ tục qua 運輸支局 hoặc 自動車検査登録事務所, cần giấy tờ xe tương ứng và có thể phải đổi biển nếu khác khu vực. Cân nhắc nhờ đại lý xe hoặc 行政書士 làm hộ nếu lần đầu.',
         documents: [
           '廃車証明書 (do người bán cấp từ municipal office)',
           '譲渡証明書 (người bán ký)',
@@ -7022,13 +7058,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'bicycle-insurance',
     category: 'traffic',
-    lastVerified: '2026-04-29',
+    lastVerified: '2026-05-02',
     priority: 'normal',
-    title: 'Bảo hiểm xe đạp (bắt buộc 2026)',
+    title: 'Bảo hiểm xe đạp tại Nhật',
     titleJp: '自転車保険・個人賠償責任保険（義務化対応）',
     icon: 'bicycle',
     color: '#1E8449',
-    description: 'Từ năm 2022–2026, hầu hết các tỉnh thành lớn tại Nhật đã quy định bắt buộc 自転車保険. Nhiều người đã được bảo vệ mà không biết — kiểm tra trước khi mua thêm để tránh mua trùng.',
+    description: 'Nhiều địa phương tại Nhật đã quy định bắt buộc hoặc khuyến khích mạnh việc tham gia 自転車損害賠償責任保険等. Nhiều người đã được bảo vệ qua 個人賠償責任保険 mà không biết — kiểm tra trước khi mua thêm để tránh mua trùng.',
     heroImage: require('../../../assets/content/daily-life/ag_bike-insurance_hero.jpg'),
     heroImageCaption: '自転車保険 - kiểm tra bảo hiểm trách nhiệm cá nhân trước khi đi xe đạp',
     whoIsThisFor: [
@@ -7040,6 +7076,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Ngay khi mua xe đạp mới hoặc sắp đi học/đi làm bằng xe đạp.',
       'Khi chuyển tỉnh — quy định và mức độ bắt buộc khác nhau theo tỉnh.',
       'Khi gia hạn bảo hiểm hằng năm — kiểm tra lại phạm vi bảo vệ.',
+    ],
+    whereToDo: [
+      'Website của tỉnh/thành phố nơi bạn sống hoặc nơi đi học/đi làm: kiểm tra quy định 自転車保険 義務化/努力義務.',
+      'Công ty bảo hiểm nhà, tai nạn, ô tô hoặc thẻ tín dụng đang dùng: hỏi có 個人賠償責任保険/特約 bao gồm tai nạn xe đạp không.',
+      'Cửa hàng xe đạp có 自転車安全整備士: kiểm tra xe và dán TSマーク nếu muốn bảo hiểm đi kèm kiểm tra kỹ thuật.',
+      'Trường học, công ty hoặc ký túc xá: hỏi yêu cầu nộp giấy xác nhận bảo hiểm xe đạp nếu dùng xe đi học/đi làm.',
+      'Website/app của công ty bảo hiểm hoặc convenience store/post office: mua 専用自転車保険 nếu chưa có bảo hiểm trách nhiệm cá nhân.',
     ],
     estimatedTime: 'Kiểm tra bảo hiểm hiện có: 10–20 phút. Mua mới online: 15–30 phút. TSマーク kiểm tra xe đạp tại cửa hàng: 30–60 phút.',
     fees: [
@@ -7072,8 +7115,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
     officialLinks: [
-      { label: '自転車の保険について — 国土交通省', url: 'https://www.mlit.go.jp/road/bicycleuse/insurance/' },
-      { label: 'TSマーク制度について — 公益財団法人日本交通管理技術協会', url: 'https://www.tmt.or.jp/safety/index2.html' },
+      { label: '自転車損害賠償責任保険等への加入促進 — 国土交通省', url: 'https://www.mlit.go.jp/road/bicycleuse/promotion/' },
+      { label: 'TSマーク制度について — 公益財団法人日本交通管理技術協会', url: 'https://www.tmt.or.jp/s/safety/index2.html' },
     ],
     steps: [
       {
