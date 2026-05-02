@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StatusBar,
   TextInput,
+  Image,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -334,9 +335,13 @@ export default function AdminScreen() {
             style={styles.guideCard}
             onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
           >
-            <View style={[styles.guideIconBg, { backgroundColor: guide.color + '18' }]}>
-              <Ionicons name={guide.icon} size={26} color={guide.color} />
-            </View>
+            {guide.heroImage ? (
+              <Image source={guide.heroImage} style={styles.guideCardThumb} resizeMode="cover" />
+            ) : (
+              <View style={[styles.guideIconBg, { backgroundColor: guide.color + '18' }]}>
+                <Ionicons name={guide.icon} size={26} color={guide.color} />
+              </View>
+            )}
             <View style={styles.guideInfo}>
               <Text style={styles.guideTitleJp}>{guide.titleJp}</Text>
               <Text style={styles.guideTitle}>{guide.title}</Text>
@@ -588,6 +593,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.07,
     shadowRadius: 8,
     elevation: 3,
+  },
+  guideCardThumb: {
+    width: 72,
+    height: 56,
+    borderRadius: 14,
+    backgroundColor: Colors.border,
   },
   guideIconBg: {
     width: 56,

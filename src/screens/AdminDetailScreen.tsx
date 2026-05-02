@@ -36,6 +36,16 @@ import RichText from '../components/RichText';
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
 
+const CATEGORY_LABELS: Record<string, string> = {
+  immigration: 'Lưu trú',
+  visa: 'Visa',
+  'daily-law': 'Luật sống',
+  traffic: 'Giao thông',
+  health: 'Y tế',
+  money: 'Tiền',
+  license: 'Bằng lái',
+};
+
 export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
@@ -223,6 +233,11 @@ export default function AdminDetailScreen() {
     });
   }, [guide, bookmarked]);
 
+  const relatedGuides = ADMIN_GUIDES
+    .filter((g) => g.category === guide.category && g.id !== guide.id)
+    .sort((a, b) => Number(b.priority === 'high') - Number(a.priority === 'high'))
+    .slice(0, 3);
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Guide Header */}
@@ -230,6 +245,16 @@ export default function AdminDetailScreen() {
         <Text style={styles.guideJp}>{guide.titleJp}</Text>
         <Text style={styles.guideTitle}>{guide.title}</Text>
         <Text style={styles.guideDesc}>{guide.description}</Text>
+        <View style={styles.headerStatsRow}>
+          <View style={styles.headerStatPill}>
+            <Ionicons name="list-outline" size={12} color="rgba(255,255,255,0.9)" />
+            <Text style={styles.headerStatText}>{guide.steps.length} bước</Text>
+          </View>
+          <View style={styles.headerStatPill}>
+            <Ionicons name="pricetag-outline" size={12} color="rgba(255,255,255,0.9)" />
+            <Text style={styles.headerStatText}>{CATEGORY_LABELS[guide.category] ?? guide.category}</Text>
+          </View>
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -543,7 +568,14 @@ export default function AdminDetailScreen() {
                       color={Colors.textMuted}
                     />
                   </View>
-                  {open && <Text style={styles.faqAnswer}>{item.answer}</Text>}
+                  {open && (
+                    <RichText
+                      text={item.answer}
+                      textStyle={styles.faqAnswer}
+                      containerStyle={styles.faqAnswerContainer}
+                      accentColor={guide.color}
+                    />
+                  )}
                 </TouchableOpacity>
               );
             })}
@@ -577,6 +609,31 @@ export default function AdminDetailScreen() {
                 </View>
                 <Text style={styles.linkLabel} numberOfLines={2}>{link.label}</Text>
                 <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+
+        {relatedGuides.length > 0 && (
+          <View style={styles.relatedSection}>
+            <Text style={styles.detailSectionTitle}>Xem thêm trong danh mục</Text>
+            {relatedGuides.map((related) => (
+              <TouchableOpacity
+                key={related.id}
+                style={styles.relatedCard}
+                onPress={() => navigation.navigate('AdminDetail', { guideId: related.id })}
+              >
+                <View style={[styles.relatedIconBg, { backgroundColor: related.color + '18' }]}>
+                  <Ionicons name={related.icon} size={20} color={related.color} />
+                </View>
+                <View style={styles.relatedInfo}>
+                  <Text style={styles.relatedCardTitle} numberOfLines={1}>{related.title}</Text>
+                  <Text style={styles.relatedCardMeta}>{related.steps.length} bước</Text>
+                </View>
+                {related.priority === 'high' && (
+                  <View style={[styles.relatedPriorityDot, { backgroundColor: Colors.danger }]} />
+                )}
+                <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
               </TouchableOpacity>
             ))}
           </View>
@@ -1184,5 +1241,77 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textSecondary,
+  },
+  headerStatsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 12,
+    flexWrap: 'wrap',
+  },
+  headerStatPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.22)',
+  },
+  headerStatText: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.92)',
+    fontWeight: '600',
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  faqAnswerContainer: {
+    marginTop: 6,
+    marginBottom: 6,
+  },
+  relatedSection: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 12,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  relatedCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+  },
+  relatedIconBg: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  relatedInfo: {
+    flex: 1,
+  },
+  relatedCardTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+  },
+  relatedCardMeta: {
+    fontSize: 11,
+    color: Colors.textMuted,
+  },
+  relatedPriorityDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   },
 });
