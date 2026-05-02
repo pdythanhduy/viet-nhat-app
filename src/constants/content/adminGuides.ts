@@ -6215,6 +6215,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'document-text',
     color: '#1A6B9A',
     description: 'Giải thích từng dòng trên 給与明細 (bảng lương): khoản nào được trả, khoản nào bị khấu trừ và tại sao số tiền vào tài khoản khác với lương hợp đồng.',
+    heroImage: require('../../../assets/content/daily-life/dl_banking_s2.jpg'),
+    heroImageCaption: '給与明細 — bảng lương tháng; kiểm tra kỹ mỗi tháng để phát hiện sai sót trong lương hoặc khấu trừ',
     whoIsThisFor: [
       'Người mới đi làm tại Nhật lần đầu nhận bảng lương và không hiểu các dòng số liệu.',
       'Người muốn kiểm tra lại xem thuế và bảo hiểm có bị tính đúng không.',
@@ -6275,14 +6277,14 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 3,
         title: 'Kiểm tra 差引支給額 — tiền thực nhận',
-        description: '**差引支給額** = 支給合計 − 控除合計\n\nĐây là số tiền chuyển vào tài khoản ngân hàng của bạn (còn gọi là 振込額 hoặc 手取り).\n\nMột số bảng lương còn có thêm:\n| Mục | Ý nghĩa |\n|---|---|\n| 有給残高 | Số ngày phép có lương còn lại |\n| 累計支給 | Tổng lương cộng dồn từ đầu năm (dùng để tính thuế cuối năm) |\n| 標準報酬月額 | Mức lương cơ sở tính bảo hiểm (không thay đổi thường xuyên) |\n\nNếu không khớp tài khoản: kiểm tra xem có khoản nào bị trừ thêm như tiền nhà tập thể, ăn trưa, hay khoản vay công ty không.',
+        description: '**差引支給額** = 支給合計 − 控除合計\n\nĐây là số tiền chuyển vào tài khoản ngân hàng của bạn (còn gọi là 振込額 hoặc 手取り).\n\nMột số bảng lương còn có thêm:\n| Mục | Ý nghĩa |\n|---|---|\n| 有給残高 | Số ngày phép có lương còn lại |\n| 累計支給 | Tổng lương cộng dồn từ đầu năm (dùng để tính thuế cuối năm) |\n| 標準報酬月額 | Mức lương cơ sở tính bảo hiểm (không thay đổi thường xuyên) |\n\n**Nếu tiền vào tài khoản ít hơn差引支給額 — kiểm tra các khoản trừ thêm ngoài thuế và bảo hiểm:**\n| Khoản | Tên tiếng Nhật | Ghi chú |\n|---|---|---|\n| Tiền nhà tập thể công ty | 社宅費 / 家賃控除 | Thường thấp hơn giá thị trường, nhưng phải có trong hợp đồng |\n| Tiền suất ăn trưa | 食事代 / 給食費 | Chỉ áp dụng nếu công ty có bếp ăn hoặc đặt cơm tập thể |\n| Tiết kiệm qua công ty | 財形貯蓄 | Bạn tự đăng ký, tiền tự động trừ để tiết kiệm |\n| Phí công đoàn | 組合費 | Nếu bạn là thành viên công đoàn nội bộ |\n| Trả khoản vay công ty | 従業員貸付金返済 | Nếu đã vay công ty (tiền tạm ứng mua nhà, thiên tai...) |\n\n⚠️ Các khoản này **hợp pháp nhưng bắt buộc phải có trong hợp đồng hoặc quy định nội bộ** — nếu thấy khoản lạ không ai giải thích, hỏi ngay bộ phận nhân sự bằng văn bản.',
         documents: [],
         tip: 'Lưu tất cả 給与明細 trong năm — bạn cần chúng khi làm 確定申告, xin visa gia đình, vay ngân hàng hoặc tranh chấp lao động.',
       },
       {
         step: 4,
         title: 'Kiểm tra 残業手当 có đúng không',
-        description: 'Công thức cơ bản tính lương làm thêm giờ:\n\n**Lương giờ cơ bản** = 基本給 ÷ 所定労働時間/tháng (thường 160–173h)\n\n**Lương làm thêm giờ** = Lương giờ cơ bản × số giờ làm thêm × hệ số\n\n| Loại giờ | Hệ số tối thiểu |\n|---|---|\n| Thường ngày (>所定労働時間) | 1.25× |\n| Tháng vượt 60 giờ (月60時間超) | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n| Ngày nghỉ theo hợp đồng (所定休日) | 1.25× |\n\n⚠️ Các khoản 通勤手当, 家族手当, 住宅手当 cần được tính vào lương giờ cơ bản theo quy định, không chỉ dùng 基本給 đơn thuần.',
+        description: 'Công thức cơ bản tính lương làm thêm giờ:\n\n**Lương giờ cơ bản** = 基本給 ÷ 所定労働時間/tháng (thường 160–173h)\n\n**Lương làm thêm giờ** = Lương giờ cơ bản × số giờ làm thêm × hệ số\n\n| Loại giờ | Hệ số tối thiểu |\n|---|---|\n| Thường ngày (>所定労働時間) | 1.25× |\n| Tháng vượt 60 giờ (月60時間超) | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n| Ngày nghỉ theo hợp đồng (所定休日) | 1.25× |\n\n⚠️ Các khoản 通勤手当, 家族手当, 住宅手当 cần được tính vào lương giờ cơ bản theo quy định, không chỉ dùng 基本給 đơn thuần.\n\n**Ví dụ tính kiểm tra 残業手当:**\nGiả sử hợp đồng: 基本給 200,000 yên + 通勤手当 10,000 yên, 所定労働時間 160 giờ/tháng. Tháng này làm thêm 20 giờ.\n- Lương giờ cơ bản = (200,000 + 10,000) ÷ 160 = **1,313 yên/giờ**\n- 残業手当 phải nhận = 1,313 × 20 × 1.25 = **32,825 yên**\n- Nếu bảng lương ghi 残業手当 thấp hơn đáng kể → đối chiếu với タイムカード và hỏi HR bằng văn bản.',
         documents: ['Bảng chấm công / タイムカード hoặc PC login records', '労働契約書 / 雇用通知書 để đối chiếu số giờ làm quy định'],
         tip: 'Nhiều công ty dùng "固定残業制" gộp sẵn một số giờ thêm vào lương. Nếu thực tế làm nhiều hơn số giờ đó, phần dôi ra vẫn phải được trả thêm.',
       },
@@ -6298,6 +6300,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'medkit',
     color: '#27AE60',
     description: 'Khi thu nhập thấp hoặc mất việc, phí 国民健康保険 có thể được giảm tự động hoặc theo đơn xin — nhiều người không biết và bỏ lỡ quyền lợi này.',
+    heroImage: require('../../../assets/content/daily-life/ag_health-insurance_hero.jpg'),
+    heroImageCaption: '国民健康保険証 — thu nhập thấp hoặc mất việc đột ngột có thể được giảm phí bảo hiểm lên đến 70%',
     whoIsThisFor: [
       'Người thuộc 国民健康保険 (tự đóng, không qua công ty) với thu nhập thấp hoặc không có thu nhập.',
       'Người vừa nghỉ việc, bị sa thải hoặc công ty phá sản và chuyển sang 国保.',
@@ -6356,6 +6360,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Nhà nước tự động giảm phần **均等割** (cố định theo đầu người) nếu thu nhập cả hộ gia đình thấp. Ngưỡng **令和8年度** (từ 4/2026):\n\n| Mức giảm | Điều kiện thu nhập hộ gia đình |\n|---|---|\n| **7割減** (giảm 70%) | ≤ 43万円 (*) |\n| **5割減** (giảm 50%) | ≤ 43万円 + **31万円 × số người tham gia 国保** (*) |\n| **2割減** (giảm 20%) | ≤ 43万円 + **57万円 × số người tham gia 国保** (*) |\n\n(*) Cộng thêm 10万円 nếu trong hộ có ≥2 người đi làm có lương (給与所得者等).\n\n⚠️ Đây là thu nhập theo nghĩa "所得" sau các khoản khấu trừ, không phải tổng tiền nhận — người không có thu nhập tính là 0, không phải "thiếu dữ liệu". Phải khai báo thu nhập 0 mới được tính.',
         documents: ['Thông báo 国保 có ghi mức phí hiện tại', 'Giấy khai báo thu nhập hoặc xác nhận thu nhập 0'],
         tip: 'Nếu bạn là người duy nhất trong hộ, tham gia 国保 một mình không có thu nhập → Thu nhập hộ = 0 ≤ 43万円 → thuộc diện 7割減. Nhưng cần đã khai báo thu nhập 0 với municipal office.',
+        image: require('../../../assets/content/daily-life/dl_health-insurance_s1.jpg'),
+        imageCaption: 'Quầy 保険年金課 tại municipal office — nơi kiểm tra và nộp đơn giảm phí 国保',
       },
       {
         step: 2,
@@ -6363,6 +6369,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: 'Chương trình **非自発的失業者の国保軽減** (giảm phí đặc biệt khi thất nghiệp không tự nguyện):\n\n**Điều kiện:**\n- Thuộc 国民健康保険\n- Dưới 65 tuổi\n- Có 雇用保険受給資格者証 với mã 離職理由 thuộc nhóm: 11, 12, 21, 22, 23, 31, 32, 33, 34 (bị sa thải, hợp đồng không gia hạn, công ty phá sản...)\n\n**Cách giảm:** Municipal office tính lại phí bằng cách coi **thu nhập làm lương năm trước chỉ tính 30%** (phần còn lại 70% bị bỏ qua). Giảm đáng kể phần 所得割.\n\n**Thời hạn:** Áp dụng từ ngày sau ngày nghỉ việc đến hết năm tài khóa tiếp theo. Phải nộp trong vòng 1 năm từ ngày nghỉ.\n\n**Hồ sơ:**\n| Giấy tờ | Ghi chú |\n|---|---|\n| 雇用保険受給資格者証 | Bản gốc + bản sao, xác nhận mã 離職理由 |\n| 在留カード | Bản gốc |\n| 国民健康保険証 | Thẻ bảo hiểm hiện tại |\n| My Number Card hoặc giấy tờ tùy thân | |\n\nForm **nhận tại quầy** municipal office — không có form quốc gia để tải trước.',
         documents: ['雇用保険受給資格者証 (bản gốc)', '在留カード', '国民健康保険証'],
         tip: 'Mã 離職理由 in trên 雇用保険受給資格者証. Các mã 11 (会社都合解雇), 23 (雇い止め), 33 (上司のパワハラ) v.v. đều thuộc diện. Nếu không rõ mã của mình, hỏi nhân viên quầy.',
+        image: require('../../../assets/content/daily-life/ag_health-insurance_s2.jpg'),
+        imageCaption: '雇用保険受給資格者証 — cần mang bản gốc khi xin giảm phí đặc biệt do thất nghiệp không tự nguyện',
       },
       {
         step: 3,
@@ -6390,6 +6398,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'shield-checkmark',
     color: '#C0392B',
     description: 'Hướng dẫn quyền lao động cơ bản tại Nhật, cách khiếu nại khi bị trả thiếu lương, bị sa thải bất hợp pháp hoặc bị ép nghỉ việc — áp dụng cho cả người nước ngoài.',
+    heroImage: require('../../../assets/content/daily-life/dl_manners_s1.jpg'),
+    heroImageCaption: 'Nơi làm việc tại Nhật — người lao động nước ngoài có đầy đủ quyền khiếu nại như người Nhật theo 労働基準法',
     whoIsThisFor: [
       'Người bị trả thiếu lương, thiếu tiền làm thêm giờ hoặc không được trả lương cuối cùng.',
       'Người bị sa thải đột ngột, ép ký đơn nghỉ tự nguyện hoặc bị đối xử không công bằng tại nơi làm việc.',
@@ -6464,7 +6474,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Khiếu nại lương thiếu tại 労働基準監督署',
-        description: '**Tính lương làm thêm bị thiếu:**\n\nLương giờ cơ bản = 基本給 ÷ 所定労働時間/tháng\nLương thiếu = Lương giờ × Số giờ làm thêm không trả × 1.25\n\n**Thủ tục nộp đơn:**\n1. Đến 労働基準監督署 gần nhà, trình bày vấn đề.\n2. Thanh tra lao động (労働基準監督官) tiếp nhận và có thể yêu cầu công ty cung cấp tài liệu.\n3. Nếu xác nhận vi phạm, thanh tra ra **是正勧告** (yêu cầu khắc phục) — phần lớn công ty tuân theo.\n4. Nếu công ty không tuân, có thể bị điều tra hình sự.\n\n**Thời hiệu: 3 năm** từ ngày phát sinh quyền đòi lương (改正労働基準法 2020). Nộp đơn càng sớm càng tốt.\n\nNgoài ra có thể tự đàm phán với công ty, hoặc nhờ 弁護士 (luật sư lao động) gửi **内容証明郵便** (thư bảo đảm) yêu cầu thanh toán.',
+        description: '**Tính lương làm thêm bị thiếu:**\n\nLương giờ cơ bản = 基本給 ÷ 所定労働時間/tháng\nLương thiếu = Lương giờ × Số giờ làm thêm không trả × 1.25\n\n**Ví dụ cụ thể:**\nBạn có 基本給 200,000 yên/tháng, 所定労働時間 160 giờ/tháng. Tháng 10 làm thêm 30 giờ nhưng bảng lương không có 残業手当:\n- Lương giờ = 200,000 ÷ 160 = 1,250 yên/giờ\n- Lương thiếu tháng đó = 1,250 × 30 × 1.25 = **46,875 yên**\n- Nếu tình trạng này kéo dài 12 tháng → tổng đòi được = ~**562,500 yên**\n- Thời hiệu 3 năm → tối đa ~**1,687,500 yên** (36 tháng)\n\n**Thủ tục nộp đơn:**\n1. Đến 労働基準監督署 gần nhà, trình bày vấn đề.\n2. Thanh tra lao động (労働基準監督官) tiếp nhận và có thể yêu cầu công ty cung cấp tài liệu.\n3. Nếu xác nhận vi phạm, thanh tra ra **是正勧告** (yêu cầu khắc phục) — phần lớn công ty tuân theo.\n4. Nếu công ty không tuân, có thể bị điều tra hình sự.\n\n**Thời hiệu: 3 năm** từ ngày phát sinh quyền đòi lương (改正労働基準法 2020). Nộp đơn càng sớm càng tốt.\n\nNgoài ra có thể tự đàm phán với công ty, hoặc nhờ 弁護士 (luật sư lao động) gửi **内容証明郵便** (thư bảo đảm) yêu cầu thanh toán.',
         documents: ['Bảng lương 給与明細 (tất cả các tháng liên quan)', 'Bằng chứng giờ làm (タイムカード, email timestamps)', '労働契約書 hoặc 雇用通知書', 'Thẻ cư trú + hộ chiếu'],
         tip: 'Nếu công ty chưa trả mà bạn nghỉ việc, lương vẫn phải được thanh toán trong 7 ngày kể từ ngày yêu cầu (退職時の賃金 — 労働基準法第23条). Gửi yêu cầu bằng văn bản có xác nhận ngày gửi.',
       },
@@ -6487,6 +6497,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'flag',
     color: '#2C3E50',
     description: 'Hướng dẫn xin nhập quốc tịch Nhật Bản: điều kiện, giấy tờ, quy trình và những điểm quan trọng cần cân nhắc — bao gồm thay đổi tiêu chuẩn xét duyệt áp dụng từ 01/04/2026.',
+    heroImage: require('../../../assets/content/daily-life/ag_my-number_hero.jpg'),
+    heroImageCaption: 'マイナンバーカード — một trong nhiều giấy tờ cần chuẩn bị; sau 帰化 bạn tiếp tục dùng với tư cách công dân Nhật',
     whoIsThisFor: [
       'Người đã sống và làm việc hợp pháp tại Nhật đủ năm và muốn trở thành công dân Nhật.',
       'Người có vợ/chồng là người Nhật và muốn xét điều kiện đặc biệt rút ngắn thời gian.',
@@ -6568,7 +6580,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 3,
         title: 'Chuẩn bị giấy tờ từ Nhật và từ Việt Nam',
-        description: '**Giấy tờ từ Nhật (lấy tại Nhật):**\n- 住民票 (全部事項) — nơi đăng ký cư trú\n- 住民税の課税証明書 và 納税証明書 — 5 năm gần nhất\n- 年金の加入記録 — xác nhận từ 年金機構\n- 健康保険の被保険者証 hoặc 加入確認書\n- 運転記録証明書 nếu có bằng lái (lấy tại 警察署)\n- Hợp đồng lao động / giấy xác nhận đang làm việc\n\n**Giấy tờ từ Việt Nam (cần thời gian):**\n- Giấy khai sinh (bản dịch tiếng Nhật, công chứng)\n- Hộ chiếu Việt Nam cũ (nếu có)\n- Giấy tờ hộ gia đình / hộ khẩu (bản dịch)\n- Xác nhận chưa kết hôn hoặc giấy ly hôn (nếu liên quan)\n- Lý lịch tư pháp (有罪判決のない証明書)\n\n**Tự viết tay (自書書類):**\n- 帰化の動機書: lý do muốn nhập quốc tịch, bằng tiếng Nhật, tự viết tay\n- 履歴書: lý lịch cá nhân\n- 生計の概況: tình hình tài chính\n\n⚠️ Giấy tờ Việt Nam cần dịch sang tiếng Nhật và công chứng bởi dịch thuật viên được thừa nhận — nên nhờ đơn vị uy tín và chừa ít nhất 2–3 tháng.',
+        description: '**Giấy tờ từ Nhật (lấy tại Nhật):**\n- 住民票 (全部事項) — nơi đăng ký cư trú\n- 住民税の課税証明書 và 納税証明書 — 5 năm gần nhất\n- 年金の加入記録 — xác nhận từ 年金機構\n- 健康保険の被保険者証 hoặc 加入確認書\n- 運転記録証明書 nếu có bằng lái (lấy tại 警察署)\n- Hợp đồng lao động / giấy xác nhận đang làm việc\n\n**Giấy tờ từ Việt Nam (cần thời gian):**\n- Giấy khai sinh (bản dịch tiếng Nhật, công chứng)\n- Hộ chiếu Việt Nam cũ (nếu có)\n- Giấy tờ hộ gia đình / hộ khẩu (bản dịch)\n- Xác nhận chưa kết hôn hoặc giấy ly hôn (nếu liên quan)\n- Lý lịch tư pháp (有罪判決のない証明書)\n\n**Tự viết tay (自書書類) — bắt buộc viết tay tiếng Nhật, không dùng máy tính in:**\n\n**① 帰化の動機書** (1–2 trang A4 viết tay): giải thích lý do muốn nhập quốc tịch. Cần thể hiện:\n- Thời gian và lý do đến Nhật; những năm sống tại Nhật đã trải qua gì\n- Mối gắn bó với Nhật Bản: công việc, gia đình, cộng đồng, văn hóa\n- Kế hoạch tương lai tại Nhật (định cư lâu dài, gia đình, nghề nghiệp)\n- Lý do chọn 帰化 thay vì 永住 (có thể đề cập muốn hòa nhập hoàn toàn, con cái lớn lên ở Nhật...)\n- Tránh viết chỉ vì "tiện lợi hộ chiếu" — 法務局 đánh giá sự gắn bó thực sự và lâu dài\n\n**② 履歴書**: lý lịch cá nhân — lịch sử học vấn (từ bậc phổ thông), nơi làm việc, các địa chỉ đã cư trú từ khi sang Nhật đến nay\n\n**③ 生計の概況**: mô tả tình hình tài chính — thu nhập hàng tháng, chi phí sinh hoạt, tiết kiệm, không có nợ lớn\n\n⚠️ Chữ viết không cần đẹp nhưng phải rõ ràng và đọc được. Giấy tờ Việt Nam cần dịch sang tiếng Nhật bởi dịch thuật viên được thừa nhận — chừa ít nhất 2–3 tháng.',
         documents: [],
         tip: 'Liên hệ Đại sứ quán Việt Nam tại Nhật để xác nhận cách lấy giấy tờ hộ tịch từ Việt Nam khi đang ở Nhật (nhiều loại có thể ủy quyền người thân lấy hộ).',
       },
@@ -6598,6 +6610,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'trending-up',
     color: '#16A085',
     description: 'Hướng dẫn mở tài khoản NISA và bắt đầu đầu tư miễn thuế tại Nhật dành cho người nước ngoài: điều kiện, hạn mức, sản phẩm phù hợp và những điểm đặc thù cần biết khi rời Nhật.',
+    heroImage: require('../../../assets/content/daily-life/dl_banking_s1.jpg'),
+    heroImageCaption: '新NISA — tài khoản đầu tư miễn thuế; người nước ngoài cư trú hợp pháp ≥6 tháng hoàn toàn có thể mở',
     whoIsThisFor: [
       'Người đang sống và làm việc tại Nhật muốn đầu tư dài hạn trong khi ở đây.',
       'Người muốn tận dụng ưu đãi miễn thuế trên lợi nhuận đầu tư thay vì để tiền trong tài khoản tiết kiệm lãi suất thấp.',
@@ -6658,6 +6672,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description: '**Điều kiện mở tài khoản NISA với tư cách người nước ngoài:**\n- Đang cư trú tại Nhật, có đăng ký 住民票\n- Đã nhập cảnh ≥6 tháng (hoặc có giấy xác nhận làm việc tại Nhật)\n- 在留カード còn hiệu lực ≥3 tháng tính từ ngày mở tài khoản\n- Từ 18 tuổi trở lên tính đến ngày 01/01 của năm mở tài khoản\n\n**Công ty chứng khoán online phổ biến cho người nước ngoài:**\n\n| Công ty | Đặc điểm |\n|---|---|\n| **SBI証券** | Nền tảng lớn nhất, hỗ trợ mở tài khoản online đơn giản |\n| **楽天証券** | Tích hợp với Rakuten ecosystem, giao diện thân thiện |\n| **マネックス証券** | Hỗ trợ tốt cho tài khoản người nước ngoài |\n\n⚠️ Một số công ty chứng khoán truyền thống (như 野村證券) có thể khó khăn hơn với người nước ngoài. Nên ưu tiên các công ty online.',
         documents: ['Thẻ cư trú (在留カード)', 'Tài khoản ngân hàng Nhật để liên kết', 'My Number (số cá nhân)'],
         tip: 'Quá trình mở tài khoản online thường mất 1–2 tuần (xác minh danh tính qua bưu điện hoặc eKYC). Chuẩn bị My Number Card vật lý để đẩy nhanh xác minh.',
+        image: require('../../../assets/content/daily-life/dl_banking_s2.jpg'),
+        imageCaption: 'Mở tài khoản chứng khoán online — cần liên kết với tài khoản ngân hàng Nhật để nạp tiền đầu tư',
       },
       {
         step: 3,
@@ -6692,6 +6708,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart',
     color: '#E74C3C',
     description: 'Hướng dẫn lấy giấy tờ kết hôn tại Đại sứ quán Việt Nam ở Nhật và đăng ký hôn nhân tại Việt Nam — dành cho người Việt đang sống tại Nhật muốn đăng ký kết hôn theo thủ tục Việt Nam.',
+    heroImage: require('../../../assets/content/daily-life/ag_marriage_hero.jpg'),
+    heroImageCaption: '婚姻届 — đăng ký kết hôn ở Việt Nam khi đang sống tại Nhật cần qua Đại sứ quán trước rồi mới về Sở Tư pháp',
     whoIsThisFor: [
       'Người Việt đang sống tại Nhật muốn đăng ký kết hôn với người Nhật hoặc người Việt khác tại Việt Nam.',
       'Người muốn làm thủ tục kết hôn ở Việt Nam trước (thay vì làm 婚姻届 tại Nhật).',
@@ -6775,7 +6793,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Cập nhật tình trạng hôn nhân tại Nhật sau khi về',
-        description: 'Sau khi có **Giấy chứng nhận kết hôn** từ Việt Nam:\n\n1. Dịch sang tiếng Nhật (bởi dịch thuật viên) và công chứng.\n2. Nộp **婚姻届** tại municipal office Nhật — kèm bản gốc + bản dịch tiếng Nhật.\n3. Municipal office cập nhật 住民票 và thông báo cho ISA.\n\n**Nếu muốn đổi visa sang 配偶者等 (visa vợ/chồng người Nhật):**\n- Cần làm thêm 在留資格変更許可申請 tại ISA.\n- Xem guide "Đổi tư cách lưu trú" để biết chi tiết hồ sơ.\n\n**Nếu kết hôn với người Nhật và muốn đưa họ vào Nhật hoặc đưa con sang:**\n- Xem guide "Bảo lãnh vợ/chồng/con sang Nhật".',
+        description: 'Sau khi có **Giấy chứng nhận kết hôn** từ Việt Nam:\n\n1. Dịch sang tiếng Nhật (bởi dịch thuật viên) và công chứng.\n2. Nộp **婚姻届** tại municipal office Nhật — kèm bản gốc + bản dịch tiếng Nhật.\n3. Municipal office cập nhật 住民票 và thông báo cho ISA.\n\n**Nếu muốn đổi visa sang 配偶者等 (visa vợ/chồng người Nhật):**\n- Cần làm thêm 在留資格変更許可申請 tại ISA — xem mục "Đổi tư cách lưu trú (在留資格変更)" trong app để biết chi tiết hồ sơ.\n- Thường cần: 婚姻届受理証明書 (từ municipal office Nhật), giấy chứng nhận kết hôn Việt Nam + bản dịch, hộ chiếu phía người Nhật, giấy xác nhận thu nhập của người bảo lãnh.\n\n**Nếu muốn bảo lãnh con hoặc thân nhân sang Nhật theo diện 家族滞在:**\n- Xem mục "Bảo lãnh thân nhân sang Nhật (家族滞在)" trong app — cần làm thêm 在留資格認定証明書交付申請 cho từng người muốn sang.',
         documents: ['Giấy chứng nhận kết hôn từ Việt Nam (bản gốc)', 'Bản dịch tiếng Nhật có công chứng', 'Hộ chiếu + thẻ cư trú'],
         tip: 'Nộp 婚姻届 tại Nhật trong vòng 3 tháng kể từ ngày đăng ký ở Việt Nam là thông lệ tốt để tránh chênh lệch thời gian dài giữa hai hệ thống hộ tịch.',
       },
