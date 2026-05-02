@@ -50,6 +50,7 @@ const MONEY_STRUCTURED_GUIDE_IDS = [
 const TRAFFIC_STRUCTURED_GUIDE_IDS = [
   'moped-motorcycle-registration',
   'bicycle-insurance',
+  'traffic-accident-response',
 ];
 
 const LICENSE_STRUCTURED_GUIDE_IDS = [
@@ -75,6 +76,14 @@ const REQUIRED_LICENSE_SOURCE_HOSTS: Record<string, string[]> = {
   'drivers-license-renewal': ['www.npa.go.jp', 'www.keishicho.metro.tokyo.lg.jp'],
   'car-shaken-insurance': ['www.jidoushatouroku-portal.mlit.go.jp', 'soudanguide.sonpo.or.jp'],
 };
+
+const REQUIRED_TRAFFIC_ACCIDENT_SOURCE_HOSTS = [
+  'www.mlit.go.jp',
+  'www.police.pref.kanagawa.jp',
+  'www.fdma.go.jp',
+  'soudanguide.sonpo.or.jp',
+  'www.jsdc.or.jp',
+];
 
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
@@ -313,6 +322,18 @@ describe('ADMIN_GUIDES content quality', () => {
     expect(guide?.officialLinks.some((link) => link.url.includes('mlit.go.jp'))).toBe(true);
     expect(guide?.officialLinks.some((link) => link.url.includes('jidoushatouroku-portal.mlit.go.jp'))).toBe(true);
     expect(guide?.officialLinks.some((link) => link.url.includes('keikenkyo.or.jp'))).toBe(false);
+  });
+
+  it('keeps traffic accident guidance tied to police, fire, MLIT, insurance, and certificate sources', () => {
+    const guide = ADMIN_GUIDES.find((item) => item.id === 'traffic-accident-response');
+    const hosts = new Set((guide?.officialLinks ?? []).map((link) => new URL(link.url).hostname));
+
+    expect(guide).toBeDefined();
+    expect(guide?.category).toBe('traffic');
+
+    for (const requiredHost of REQUIRED_TRAFFIC_ACCIDENT_SOURCE_HOSTS) {
+      expect(hosts).toContain(requiredHost);
+    }
   });
 
   it('keeps selected license guides structured', () => {
