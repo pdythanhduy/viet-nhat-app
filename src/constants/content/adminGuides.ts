@@ -3227,6 +3227,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'document-attach',
     color: '#7F8C8D',
     description: 'Guide thực tế cho người nước ngoài ở Nhật khi hôn nhân đổ vỡ: nộp 離婚届, con ở với ai, đổi họ của con, đổi tên trên giấy tờ và ảnh hưởng đến visa/cư trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_divorce_hero.jpg'),
+    heroImageCaption: 'Ly hôn tại Nhật - kiểm tra 離婚届, quyền nuôi con và thay đổi giấy tờ cư trú',
     whoIsThisFor: [
       'Người nước ngoài ở Nhật đang chuẩn bị ly hôn hoặc vừa ly hôn.',
       'Gia đình có con chung và cần hiểu sau ly hôn phải quyết định gì cho con.',
@@ -3530,6 +3532,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'receipt',
     color: '#8E44AD',
     description: 'Guide thực tế cho người đi làm ở Nhật: khi nào công ty làm 年末調整, khi nào phải tự làm 確定申告, cách hiểu 扶養 và hồ sơ扶養 thân nhân ở Việt Nam, cùng các thay đổi lớn áp dụng trong mùa khai 2026.',
+    heroImage: require('../../../assets/content/daily-life/ag_tax-filing_hero.jpg'),
+    heroImageCaption: 'Thuế cuối năm - phân biệt 年末調整, 確定申告 và hồ sơ 扶養',
     whoIsThisFor: [
       'Người đi làm ở Nhật có lương, có thể có 1 hoặc nhiều nguồn thu.',
       'Người muốn khai 扶養 cho vợ/chồng, con hoặc cha mẹ ở Việt Nam.',
@@ -3682,6 +3686,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'card',
     color: '#2C3E50',
     description: 'Guide thực tế về 国民年金, 厚生年金, miễn giảm, 学生納付特例, chuyển việc và 脱退一時金 khi rời Nhật. Nội dung viết cho người nước ngoài đang sống hoặc sắp rời Nhật.',
+    heroImage: require('../../../assets/content/daily-life/ag_pension_hero.jpg'),
+    heroImageCaption: '年金 - kiểm tra lịch sử đóng, miễn giảm và 脱退一時金 khi rời Nhật',
     whoIsThisFor: [
       'Người Việt đang đi làm, đi học hoặc làm part-time tại Nhật và chưa hiểu mình đang đóng loại年金 nào.',
       'Người đang khó khăn tài chính và muốn xin miễn/猶予 thay vì để nợ年金.',
@@ -4187,6 +4193,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#185FA5',
     description:
       'My Number Card không bắt buộc để ở Nhật, nhưng cần thiết để dùng bảo hiểm điện tử (マイナ保険証), in giấy tờ tại combini, nộp 確定申告 online và đăng nhập Mynaportal. Thẻ mất khoảng 1–2 tháng từ lúc nộp đến lúc nhận.',
+    heroImage: require('../../../assets/content/daily-life/ag_mynumber-card_hero.jpg'),
+    heroImageCaption: 'マイナンバーカード - thẻ định danh dùng cho bảo hiểm số, combini và thủ tục online',
     whoIsThisFor: [
       'Người đã có đăng ký cư trú (住民登録) tại Nhật và chưa có My Number Card.',
       'Người muốn dùng マイナ保険証 thay thẻ bảo hiểm giấy (廃止 từ tháng 12/2024).',
@@ -4282,6 +4290,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'shield-checkmark',
     color: '#27AE60',
     description: 'Các quy định cơ bản người Việt ở Nhật nên biết để tránh rắc rối trong đời sống hằng ngày.',
+    heroImage: require('../../../assets/content/daily-life/ag_daily-law_hero.jpg'),
+    heroImageCaption: 'Quy tắc sinh hoạt tại Nhật - nắm các điểm pháp lý cơ bản trước khi gặp rắc rối',
     officialLinks: [
       { label: '生活・就労ガイドブック — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/guidebook_all.html' },
       { label: 'FRESC Help Desk', url: 'https://www.moj.go.jp/isa/support/fresc/fresc01.html' },
@@ -4445,6 +4455,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'cash-outline',
     color: '#E67E22',
     description: 'Khi mất việc, bạn có thể nhận trợ cấp thất nghiệp từ quỹ 雇用保険 nếu đã đóng bảo hiểm đủ điều kiện. Người nước ngoài cư trú hợp pháp cũng được nhận.',
+    heroImage: require('../../../assets/content/daily-life/ag_unemployment_hero.jpg'),
+    heroImageCaption: 'ハローワーク - nơi làm thủ tục trợ cấp thất nghiệp và tư vấn tìm việc',
     officialLinks: [
       { label: '雇用保険の基本手当 — ハローワーク', url: 'https://www.hellowork.mhlw.go.jp/insurance/insurance_basicbenefit.html' },
       { label: '雇用保険について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000136389.html' },
@@ -4480,6 +4492,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Nhận 離職票 từ công ty',
         description: 'Công ty có nghĩa vụ cấp 離職票 trong vòng 10 ngày sau khi nghỉ. Nếu họ chậm, liên hệ phòng nhân sự. Trường hợp công ty không cấp, ハローワーク có thể hỗ trợ liên hệ thay bạn.',
         documents: ['離職票-Ⅰ và 離職票-Ⅱ'],
+        image: require('../../../assets/content/daily-life/ag_unemployment_s1.jpg'),
+        imageCaption: '離職票 - giấy công ty cấp sau khi nghỉ việc, cần để đăng ký trợ cấp thất nghiệp',
         tip: 'Kiểm tra kỹ lý do nghỉ việc ghi trên 離職票 — 会社都合 (công ty cho nghỉ) hưởng lợi hơn 自己都合 (tự xin nghỉ) cả về thời gian chờ lẫn số tháng nhận trợ cấp.',
       },
       {
@@ -4672,6 +4686,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'phone-portrait',
     color: '#2980B9',
     description: 'Dùng My Number Card như thẻ bảo hiểm y tế số (マイナ保険証), tra cứu lịch sử pension/thuế/y tế và làm thủ tục hành chính online — đặc biệt quan trọng từ 2024 khi thẻ bảo hiểm truyền thống ngừng cấp mới.',
+    heroImage: require('../../../assets/content/daily-life/ag_mynaportal_hero.jpg'),
+    heroImageCaption: 'マイナポータル - dùng My Number Card để tra cứu bảo hiểm, pension và giấy tờ online',
     whoIsThisFor: [
       'Người đã có My Number Card vật lý (thẻ nhựa) và muốn dùng được nhiều tính năng hơn.',
       'Người cần dùng thẻ bảo hiểm y tế khi đi khám — từ tháng 12/2024, thẻ bảo hiểm truyền thống không còn được cấp mới.',
@@ -4780,6 +4796,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'school',
     color: '#8E44AD',
     description: 'Hướng dẫn đăng ký học cho con (6–15 tuổi) tại trường công lập Nhật. Trẻ em nước ngoài có quyền học miễn phí tại trường công — không phân biệt tư cách lưu trú.',
+    heroImage: require('../../../assets/content/daily-life/ag_school_hero.jpg'),
+    heroImageCaption: '入学手続き - đăng ký trường công cho con tại municipal office và 教育委員会',
     whoIsThisFor: [
       'Phụ huynh có con trong độ tuổi 6–15 đang sống tại Nhật và muốn cho con học trường công lập.',
       'Gia đình mới sang Nhật hoặc vừa chuyển địa chỉ sang quận/huyện mới.',
@@ -5121,6 +5139,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'home',
     color: '#1A5276',
     description: 'Tư cách 永住者 (vĩnh trú) cho phép ở lại Nhật vô thời hạn và làm bất kỳ công việc nào — đây là tư cách lưu trú ổn định nhất dành cho người nước ngoài không có quốc tịch Nhật. Hồ sơ phức tạp và thời gian xét duyệt dài, nhưng điều kiện có thể đáp ứng sớm hơn nhiều người nghĩ.',
+    heroImage: require('../../../assets/content/daily-life/ag_permanent-residency_hero.jpg'),
+    heroImageCaption: '永住許可申請 - chuẩn bị hồ sơ cư trú, thuế và bảo hiểm trước khi nộp',
     whoIsThisFor: [
       'Người đã sống ở Nhật liên tục đủ năm theo điều kiện và muốn ổn định lâu dài.',
       'Người có điểm số Highly Skilled Professional (高度専門職) từ 70+ điểm — đủ điều kiện xin sau 3 năm.',
@@ -5191,6 +5211,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'star',
     color: '#D4AC0D',
     description: 'Tư cách lưu trú 高度専門職 dùng hệ thống tính điểm — người đủ 70 điểm được ưu đãi vượt trội so với visa lao động thông thường. Nhiều người Việt làm IT, nghiên cứu hoặc quản lý đủ điều kiện mà không biết.',
+    heroImage: require('../../../assets/content/daily-life/ag_hsp_hero.jpg'),
+    heroImageCaption: '高度専門職 - hệ thống điểm giúp rút ngắn đường đến vĩnh trú',
     whoIsThisFor: [
       'Người đang làm việc tại Nhật theo tư cách 技術・人文知識・国際業務 hoặc tương đương, muốn nâng cấp quyền lợi.',
       'Người có bằng thạc sĩ/tiến sĩ, thu nhập khá, kinh nghiệm công việc tại Nhật và muốn rút ngắn đường đến 永住者.',
@@ -5253,6 +5275,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'swap-horizontal',
     color: '#1E8449',
     description: 'Hướng dẫn thực tế các bước chuyển đổi tư cách lưu trú từ 技能実習 sang 特定技能1号 — bao gồm điều kiện miễn thi, quy trình hồ sơ và thời điểm nộp. Khác với guide tổng quan về luật 育成就労 (xem guide riêng).',
+    heroImage: require('../../../assets/content/daily-life/ag_titp-ssw_hero.jpg'),
+    heroImageCaption: '技能実習から特定技能へ - kiểm tra điều kiện chuyển tư cách trước khi hết hạn',
     whoIsThisFor: [
       'Thực tập sinh 技能実習 đang chuẩn bị hết hợp đồng và muốn tiếp tục ở lại Nhật làm việc.',
       'Người đã hoàn thành 技能実習2号 hoặc 3号 và đủ điều kiện chuyển sang 特定技能1号 mà không cần thi.',
@@ -5316,6 +5340,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'briefcase-outline',
     color: '#2E86C1',
     description: 'Sinh viên tốt nghiệp đại học Nhật có thể xin ở lại tối đa 2 năm để tìm việc — nhưng chỉ dành cho người có tiếng Nhật cao và muốn làm việc trong vai trò dùng tiếng Nhật là chính. Phải xin trước khi visa du học hết hạn.',
+    heroImage: require('../../../assets/content/daily-life/ag_jobhunt-visa_hero.jpg'),
+    heroImageCaption: '特定活動46号 - visa tìm việc dành cho sinh viên tốt nghiệp đại học Nhật',
     whoIsThisFor: [
       'Du học sinh vừa tốt nghiệp đại học 4 năm hoặc sau đại học tại Nhật và chưa tìm được việc trước khi visa hết hạn.',
       'Người có tiếng Nhật N1 (JLPT) hoặc tốt nghiệp chuyên ngành tiếng Nhật/văn hóa/xã hội Nhật tại Nhật.',
@@ -5443,6 +5469,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'speedometer-outline',
     color: '#784212',
     description: 'Hướng dẫn đăng ký và sử dụng xe hai bánh tại Nhật: 原付 (xe ≤50cc), 小型二輪 (51–125cc) và 軽二輪 (126–250cc). Bao gồm loại bằng lái cần có, bảo hiểm bắt buộc và thủ tục đăng ký tại municipal office hoặc 軽自動車検査協会.',
+    heroImage: require('../../../assets/content/daily-life/ag_moped_hero.jpg'),
+    heroImageCaption: '原付 và xe tay ga - đăng ký xe, biển số và bảo hiểm bắt buộc trước khi chạy',
     whoIsThisFor: [
       'Người muốn mua hoặc đang sở hữu xe máy/xe tay ga tại Nhật và cần biết thủ tục đăng ký đúng luật.',
       'Người từ Việt Nam sang có bằng lái xe máy và muốn hiểu bằng nào dùng được cho loại xe nào ở Nhật.',
@@ -5507,6 +5535,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'home-outline',
     color: '#1F618D',
     description: 'Người nước ngoài được phép mua nhà tại Nhật và vay 住宅ローン nếu đủ điều kiện. Guide này tập trung vào điều kiện vay, ngân hàng nào nhận người nước ngoài, quy trình mua và lợi ích 住宅ローン控除 — khác với guide thuê nhà hiện có.',
+    heroImage: require('../../../assets/content/daily-life/ag_home-purchase_hero.jpg'),
+    heroImageCaption: 'Mua nhà tại Nhật - kiểm tra điều kiện vay 住宅ローン và chi phí ban đầu',
     whoIsThisFor: [
       'Người có 永住者 hoặc 定住者 hoặc tư cách lưu trú dài hạn và đang cân nhắc mua nhà tại Nhật.',
       'Người muốn hiểu điều kiện vay thực tế, không chỉ nghe "người nước ngoài khó vay".',
@@ -5573,6 +5603,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'storefront-outline',
     color: '#784212',
     description: 'Khi tự kinh doanh, làm freelance hoặc có thu nhập ngoài lương tại Nhật, bạn có thể — và thường nên — đăng ký là 個人事業主. Thủ tục đơn giản, miễn phí, và mở ra nhiều lợi ích thuế đáng kể qua 青色申告.',
+    heroImage: require('../../../assets/content/daily-life/ag_sole-prop_hero.jpg'),
+    heroImageCaption: '個人事業主 - nộp 開業届 và quản lý thuế khi làm freelance tại Nhật',
     whoIsThisFor: [
       'Người làm freelance, nhận dự án cá nhân, bán hàng online hoặc có thu nhập sự nghiệp (事業所得) ngoài lương công ty.',
       'Người muốn khai báo thu nhập hợp pháp và tận dụng 青色申告特別控除 (giảm thuế tối đa 65 vạn yên/năm).',
@@ -5635,6 +5667,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'card',
     color: '#6C3483',
     description: 'Người nước ngoài mới sang Nhật thường bị từ chối thẻ tín dụng vì chưa có lịch sử tín dụng (信用情報) tại Nhật. Guide này giải thích cách bắt đầu đúng, thẻ nào dễ được duyệt nhất và cách xây dựng tín dụng để mở rộng quyền lợi về sau.',
+    heroImage: require('../../../assets/content/daily-life/ag_credit-card_hero.jpg'),
+    heroImageCaption: 'クレジットカード - xây dựng 信用情報 từng bước khi mới sang Nhật',
     whoIsThisFor: [
       'Người mới sang Nhật và muốn làm thẻ tín dụng nhưng chưa biết bắt đầu từ đâu.',
       'Người đã bị từ chối thẻ tín dụng và muốn hiểu lý do, cách cải thiện.',
@@ -5695,6 +5729,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'car-outline',
     color: '#1A5276',
     description: 'Mọi ô tô lưu hành tại Nhật phải qua 車検 (đăng kiểm) định kỳ và duy trì 自賠責保険 (bảo hiểm bắt buộc). Guide này giải thích chu kỳ, chi phí thực tế, thủ tục và vai trò của 任意保険 (bảo hiểm tự nguyện) mà chủ xe nên biết.',
+    heroImage: require('../../../assets/content/daily-life/ag_shaken_hero.jpg'),
+    heroImageCaption: '車検 - đăng kiểm định kỳ và bảo hiểm bắt buộc khi sở hữu ô tô',
     whoIsThisFor: [
       'Người đang sở hữu hoặc chuẩn bị mua ô tô tại Nhật.',
       'Người nhận bàn giao xe từ người khác và chưa rõ tình trạng 車検 và bảo hiểm hiện tại.',
@@ -5793,6 +5829,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'happy-outline',
     color: '#1E8449',
     description: 'Người lao động tại Nhật có quyền nghỉ để chăm con nhỏ và nhận 育児休業給付金 từ ハローワーク. Luật sửa đổi 2022–2025 mở rộng quyền cho cả cha và mẹ, kể cả người nước ngoài cư trú hợp pháp.',
+    heroImage: require('../../../assets/content/daily-life/ag_parental-leave_hero.jpg'),
+    heroImageCaption: '育児休業 - quyền nghỉ nuôi con và nhận trợ cấp qua ハローワーク',
     whoIsThisFor: [
       'Người đang đi làm tại Nhật và chuẩn bị sinh con hoặc vừa có con nhỏ.',
       'Người muốn biết cha có được nghỉ nuôi con không và sẽ nhận tiền gì trong thời gian nghỉ.',
@@ -5889,6 +5927,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'warning-outline',
     color: '#C0392B',
     description: 'Người nước ngoài ở Nhật thường bị nhắm bởi các hình thức lừa đảo khai thác rào cản ngôn ngữ và sự thiếu quen thuộc với pháp luật Nhật Bản. Guide này tập trung vào 特殊詐欺 qua điện thoại, tin nhắn và tiếp cận trực tiếp — khác với hướng dẫn bảo vệ tài khoản ngân hàng đã có riêng.',
+    heroImage: require('../../../assets/content/daily-life/ag_fraud_hero.jpg'),
+    heroImageCaption: '特殊詐欺 - nhận diện lừa đảo qua điện thoại, tin nhắn và giả danh cơ quan',
     whoIsThisFor: [
       'Bất kỳ người Việt nào đang sinh sống tại Nhật.',
       'Người mới sang Nhật chưa quen nhận biết các hình thức lừa đảo phổ biến tại đây.',
@@ -5966,6 +6006,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'receipt',
     color: '#6C3483',
     description: 'Không phải ai cũng cần tự khai thuế — nhưng nếu có nhiều nguồn thu nhập, làm freelance, vừa nghỉ việc giữa năm, hoặc muốn hoàn thuế cho chi phí y tế hay vay mua nhà, bạn phải tự nộp 確定申告 trước ngày 15/3 hằng năm.',
+    heroImage: require('../../../assets/content/daily-life/ag_kakutei_hero.jpg'),
+    heroImageCaption: '確定申告 - tự khai thuế đúng hạn khi có thu nhập phụ, freelance hoặc cần hoàn thuế',
     whoIsThisFor: [
       'Người có hai công việc trở lên và thu nhập phụ (副業) vượt 200,000 yên/năm.',
       'Người tự kinh doanh, freelancer hoặc không có công ty làm 年末調整 hộ.',
@@ -6075,6 +6117,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'shield-checkmark-outline',
     color: '#1A5276',
     description: '自賠責保険 (bảo hiểm bắt buộc) chỉ chi trả tối thiểu cho người bị hại — không bảo vệ xe, không bảo vệ chính bạn khi bị thương. 任意保険 (bảo hiểm tự nguyện) lấp đầy khoảng trống đó và là điều nên có trước khi đi xe.',
+    heroImage: require('../../../assets/content/daily-life/ag_moto-insurance_hero.jpg'),
+    heroImageCaption: '任意保険 - bổ sung bảo hiểm tự nguyện để giảm rủi ro khi đi xe máy',
     whoIsThisFor: [
       'Người đang sở hữu 原付, xe tay ga, hoặc xe máy từ 51cc trở lên và chỉ có 自賠責保険.',
       'Người đang xét mua xe và muốn hiểu tổng chi phí bảo hiểm thực tế là bao nhiêu.',
@@ -6168,6 +6212,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'bicycle',
     color: '#1E8449',
     description: 'Từ năm 2022–2026, hầu hết các tỉnh thành lớn tại Nhật đã quy định bắt buộc 自転車保険. Nhiều người đã được bảo vệ mà không biết — kiểm tra trước khi mua thêm để tránh mua trùng.',
+    heroImage: require('../../../assets/content/daily-life/ag_bike-insurance_hero.jpg'),
+    heroImageCaption: '自転車保険 - kiểm tra bảo hiểm trách nhiệm cá nhân trước khi đi xe đạp',
     whoIsThisFor: [
       'Người đi xe đạp hằng ngày tại Nhật, kể cả đi làm, đi học, đi chợ.',
       'Người mới đến Nhật và chưa rõ mình đã có bảo hiểm xe đạp qua công ty hoặc thẻ tín dụng hay chưa.',
@@ -6317,6 +6363,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Kiểm tra 差引支給額 — tiền thực nhận',
         description: '**差引支給額** = 支給合計 − 控除合計\n\nĐây là số tiền chuyển vào tài khoản ngân hàng của bạn (còn gọi là 振込額 hoặc 手取り).\n\nMột số bảng lương còn có thêm:\n| Mục | Ý nghĩa |\n|---|---|\n| 有給残高 | Số ngày phép có lương còn lại |\n| 累計支給 | Tổng lương cộng dồn từ đầu năm (dùng để tính thuế cuối năm) |\n| 標準報酬月額 | Mức lương cơ sở tính bảo hiểm (không thay đổi thường xuyên) |\n\n**Nếu tiền vào tài khoản ít hơn差引支給額 — kiểm tra các khoản trừ thêm ngoài thuế và bảo hiểm:**\n| Khoản | Tên tiếng Nhật | Ghi chú |\n|---|---|---|\n| Tiền nhà tập thể công ty | 社宅費 / 家賃控除 | Thường thấp hơn giá thị trường, nhưng phải có trong hợp đồng |\n| Tiền suất ăn trưa | 食事代 / 給食費 | Chỉ áp dụng nếu công ty có bếp ăn hoặc đặt cơm tập thể |\n| Tiết kiệm qua công ty | 財形貯蓄 | Bạn tự đăng ký, tiền tự động trừ để tiết kiệm |\n| Phí công đoàn | 組合費 | Nếu bạn là thành viên công đoàn nội bộ |\n| Trả khoản vay công ty | 従業員貸付金返済 | Nếu đã vay công ty (tiền tạm ứng mua nhà, thiên tai...) |\n\n⚠️ Các khoản này **hợp pháp nhưng bắt buộc phải có trong hợp đồng hoặc quy định nội bộ** — nếu thấy khoản lạ không ai giải thích, hỏi ngay bộ phận nhân sự bằng văn bản.',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_payslip_s3.jpg'),
+        imageCaption: '差引支給額 - số tiền thực nhận sau khi trừ thuế, bảo hiểm và khoản khấu trừ',
         tip: 'Lưu tất cả 給与明細 trong năm — bạn cần chúng khi làm 確定申告, xin visa gia đình, vay ngân hàng hoặc tranh chấp lao động.',
       },
       {
@@ -6324,6 +6372,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Kiểm tra 残業手当 có đúng không',
         description: 'Công thức cơ bản tính lương làm thêm giờ:\n\n**Lương giờ cơ bản** = 基本給 ÷ 所定労働時間/tháng (thường 160–173h)\n\n**Lương làm thêm giờ** = Lương giờ cơ bản × số giờ làm thêm × hệ số\n\n| Loại giờ | Hệ số tối thiểu |\n|---|---|\n| Thường ngày (>所定労働時間) | 1.25× |\n| Tháng vượt 60 giờ (月60時間超) | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n| Ngày nghỉ theo hợp đồng (所定休日) | 1.25× |\n\n⚠️ Các khoản 通勤手当, 家族手当, 住宅手当 cần được tính vào lương giờ cơ bản theo quy định, không chỉ dùng 基本給 đơn thuần.\n\n**Ví dụ tính kiểm tra 残業手当:**\nGiả sử hợp đồng: 基本給 200,000 yên + 通勤手当 10,000 yên, 所定労働時間 160 giờ/tháng. Tháng này làm thêm 20 giờ.\n- Lương giờ cơ bản = (200,000 + 10,000) ÷ 160 = **1,313 yên/giờ**\n- 残業手当 phải nhận = 1,313 × 20 × 1.25 = **32,825 yên**\n- Nếu bảng lương ghi 残業手当 thấp hơn đáng kể → đối chiếu với タイムカード và hỏi HR bằng văn bản.',
         documents: ['Bảng chấm công / タイムカード hoặc PC login records', '労働契約書 / 雇用通知書 để đối chiếu số giờ làm quy định'],
+        image: require('../../../assets/content/daily-life/ag_payslip_s4.jpg'),
+        imageCaption: '残業手当 - đối chiếu giờ làm thêm với bảng chấm công và hợp đồng',
         tip: 'Nhiều công ty dùng "固定残業制" gộp sẵn một số giờ thêm vào lương. Nếu thực tế làm nhiều hơn số giờ đó, phần dôi ra vẫn phải được trả thêm.',
       },
     ],
@@ -6397,6 +6447,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Kiểm tra bạn có thuộc diện giảm tự động không',
         description: 'Nhà nước tự động giảm phần **均等割** (cố định theo đầu người) nếu thu nhập cả hộ gia đình thấp. Ngưỡng **令和8年度** (từ 4/2026):\n\n| Mức giảm | Điều kiện thu nhập hộ gia đình |\n|---|---|\n| **7割減** (giảm 70%) | ≤ 43万円 (*) |\n| **5割減** (giảm 50%) | ≤ 43万円 + **31万円 × số người tham gia 国保** (*) |\n| **2割減** (giảm 20%) | ≤ 43万円 + **57万円 × số người tham gia 国保** (*) |\n\n(*) Cộng thêm 10万円 nếu trong hộ có ≥2 người đi làm có lương (給与所得者等).\n\n⚠️ Đây là thu nhập theo nghĩa "所得" sau các khoản khấu trừ, không phải tổng tiền nhận — người không có thu nhập tính là 0, không phải "thiếu dữ liệu". Phải khai báo thu nhập 0 mới được tính.',
         documents: ['Thông báo 国保 có ghi mức phí hiện tại', 'Giấy khai báo thu nhập hoặc xác nhận thu nhập 0'],
+        image: require('../../../assets/content/daily-life/ag_kokuho-reduction_s1.jpg'),
+        imageCaption: '国民健康保険料通知書 - kiểm tra mức phí và phần giảm tự động nếu thu nhập thấp',
         tip: 'Nếu bạn là người duy nhất trong hộ, tham gia 国保 một mình không có thu nhập → Thu nhập hộ = 0 ≤ 43万円 → thuộc diện 7割減. Nhưng cần đã khai báo thu nhập 0 với municipal office.',
       },
       {
@@ -6404,6 +6456,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Nếu vừa mất việc không tự nguyện — xin giảm phí đặc biệt',
         description: 'Chương trình **非自発的失業者の国保軽減** (giảm phí đặc biệt khi thất nghiệp không tự nguyện):\n\n**Điều kiện:**\n- Thuộc 国民健康保険\n- Dưới 65 tuổi\n- Có 雇用保険受給資格者証 với mã 離職理由 thuộc nhóm: 11, 12, 21, 22, 23, 31, 32, 33, 34 (bị sa thải, hợp đồng không gia hạn, công ty phá sản...)\n\n**Cách giảm:** Municipal office tính lại phí bằng cách coi **thu nhập làm lương năm trước chỉ tính 30%** (phần còn lại 70% bị bỏ qua). Giảm đáng kể phần 所得割.\n\n**Thời hạn:** Áp dụng từ ngày sau ngày nghỉ việc đến hết năm tài khóa tiếp theo. Phải nộp trong vòng 1 năm từ ngày nghỉ.\n\n**Hồ sơ:**\n| Giấy tờ | Ghi chú |\n|---|---|\n| 雇用保険受給資格者証 | Bản gốc + bản sao, xác nhận mã 離職理由 |\n| 在留カード | Bản gốc |\n| 国民健康保険証 | Thẻ bảo hiểm hiện tại |\n| My Number Card hoặc giấy tờ tùy thân | |\n\nForm **nhận tại quầy** municipal office — không có form quốc gia để tải trước.',
         documents: ['雇用保険受給資格者証 (bản gốc)', '在留カード', '国民健康保険証'],
+        image: require('../../../assets/content/daily-life/ag_kokuho-reduction_s2.jpg'),
+        imageCaption: '雇用保険受給資格者証 - mã 離職理由 dùng để xin giảm phí 国保 khi mất việc không tự nguyện',
         tip: 'Mã 離職理由 in trên 雇用保険受給資格者証. Các mã 11 (会社都合解雇), 23 (雇い止め), 33 (上司のパワハラ) v.v. đều thuộc diện. Nếu không rõ mã của mình, hỏi nhân viên quầy.',
       },
       {
@@ -6503,6 +6557,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Liên hệ đúng nơi theo loại vấn đề',
         description: '**Tùy vấn đề, chọn đúng kênh:**\n\n| Vấn đề | Nơi phù hợp nhất |\n|---|---|\n| Lương làm thêm chưa được trả, thiếu tiền lương | **労働基準監督署** |\n| Bị sa thải, muốn đàm phán hoặc hiểu rõ quyền | **総合労働相談コーナー** |\n| Muốn công ty ngồi vào bàn đàm phán chính thức | **個人加盟ユニオン** |\n| Muốn giải quyết pháp lý nhanh (3–6 tháng) | **労働審判** tại 地方裁判所 |\n| Công ty phá sản, lương chưa trả | **労働基準監督署** → 未払い賃金立替払 |\n\n**Đường dây hỗ trợ miễn phí:**\n- **労働条件相談ほっとライン**: 0120-811-610 (月〜金 17:00–22:00, 土日祝 9:00–21:00)\n- **総合労働相談コーナー**: tại mỗi 労働局 và ハローワーク, giờ hành chính\n- **よりそいホットライン**: 0120-279-338 (24h, hỗ trợ đa ngôn ngữ)',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_labor-rights_s3.jpg'),
+        imageCaption: '労働相談 - chọn đúng nơi tư vấn theo vấn đề lương, sa thải hoặc tranh chấp lao động',
         tip: '総合労働相談コーナー miễn phí và không cần hẹn trước — đây là điểm đầu tiên nên đến nếu không biết bắt đầu từ đâu. Họ sẽ hướng dẫn bạn đến đúng cơ quan.',
       },
       {
@@ -6510,6 +6566,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Khiếu nại lương thiếu tại 労働基準監督署',
         description: '**Tính lương làm thêm bị thiếu:**\n\nLương giờ cơ bản = 基本給 ÷ 所定労働時間/tháng\nLương thiếu = Lương giờ × Số giờ làm thêm không trả × 1.25\n\n**Ví dụ cụ thể:**\nBạn có 基本給 200,000 yên/tháng, 所定労働時間 160 giờ/tháng. Tháng 10 làm thêm 30 giờ nhưng bảng lương không có 残業手当:\n- Lương giờ = 200,000 ÷ 160 = 1,250 yên/giờ\n- Lương thiếu tháng đó = 1,250 × 30 × 1.25 = **46,875 yên**\n- Nếu tình trạng này kéo dài 12 tháng → tổng đòi được = ~**562,500 yên**\n- Thời hiệu 3 năm → tối đa ~**1,687,500 yên** (36 tháng)\n\n**Thủ tục nộp đơn:**\n1. Đến 労働基準監督署 gần nhà, trình bày vấn đề.\n2. Thanh tra lao động (労働基準監督官) tiếp nhận và có thể yêu cầu công ty cung cấp tài liệu.\n3. Nếu xác nhận vi phạm, thanh tra ra **是正勧告** (yêu cầu khắc phục) — phần lớn công ty tuân theo.\n4. Nếu công ty không tuân, có thể bị điều tra hình sự.\n\n**Thời hiệu: 3 năm** từ ngày phát sinh quyền đòi lương (改正労働基準法 2020). Nộp đơn càng sớm càng tốt.\n\nNgoài ra có thể tự đàm phán với công ty, hoặc nhờ 弁護士 (luật sư lao động) gửi **内容証明郵便** (thư bảo đảm) yêu cầu thanh toán.',
         documents: ['Bảng lương 給与明細 (tất cả các tháng liên quan)', 'Bằng chứng giờ làm (タイムカード, email timestamps)', '労働契約書 hoặc 雇用通知書', 'Thẻ cư trú + hộ chiếu'],
+        image: require('../../../assets/content/daily-life/ag_labor-rights_s4.jpg'),
+        imageCaption: '労働基準監督署 - nơi khiếu nại lương thiếu và vi phạm Luật tiêu chuẩn lao động',
         tip: 'Nếu công ty chưa trả mà bạn nghỉ việc, lương vẫn phải được thanh toán trong 7 ngày kể từ ngày yêu cầu (退職時の賃金 — 労働基準法第23条). Gửi yêu cầu bằng văn bản có xác nhận ngày gửi.',
       },
       {
@@ -6609,6 +6667,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Đặt lịch tư vấn tại 法務局',
         description: '**Bước bắt buộc trước khi nộp hồ sơ.**\n\nĐến 法務局 (hoặc 地方法務局) phụ trách khu vực nơi bạn đăng ký cư trú, đặt lịch hẹn tư vấn (相談予約). Nhân viên sẽ:\n1. Đánh giá sơ bộ xem bạn có đủ điều kiện không.\n2. Cung cấp danh sách giấy tờ cụ thể cho hoàn cảnh của bạn.\n3. Giải thích mẫu đơn và cách điền.\n\n**Tìm 法務局 gần nhất:** https://houmukyoku.moj.go.jp/homu/static/kakuchocho_index.html\n\n⚠️ Danh sách giấy tờ **thay đổi theo từng người** (tình trạng hôn nhân, con cái, lịch sử việc làm...). Không thể dùng chung danh sách của người khác.',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_naturalization_s2.jpg'),
+        imageCaption: '法務局 - đặt lịch tư vấn trước khi chuẩn bị hồ sơ 帰化',
         tip: 'Mang theo thẻ cư trú và hộ chiếu khi đến tư vấn — nhân viên sẽ nhìn vào 在留資格, thời gian cư trú và lịch sử trên hộ chiếu để đánh giá ban đầu.',
       },
       {
@@ -6616,6 +6676,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Chuẩn bị giấy tờ từ Nhật và từ Việt Nam',
         description: '**Giấy tờ từ Nhật (lấy tại Nhật):**\n- 住民票 (全部事項) — nơi đăng ký cư trú\n- 住民税の課税証明書 và 納税証明書 — 5 năm gần nhất\n- 年金の加入記録 — xác nhận từ 年金機構\n- 健康保険の被保険者証 hoặc 加入確認書\n- 運転記録証明書 nếu có bằng lái (lấy tại 警察署)\n- Hợp đồng lao động / giấy xác nhận đang làm việc\n\n**Giấy tờ từ Việt Nam (cần thời gian):**\n- Giấy khai sinh (bản dịch tiếng Nhật, công chứng)\n- Hộ chiếu Việt Nam cũ (nếu có)\n- Giấy tờ hộ gia đình / hộ khẩu (bản dịch)\n- Xác nhận chưa kết hôn hoặc giấy ly hôn (nếu liên quan)\n- Lý lịch tư pháp (有罪判決のない証明書)\n\n**Tự viết tay (自書書類) — bắt buộc viết tay tiếng Nhật, không dùng máy tính in:**\n\n**① 帰化の動機書** (1–2 trang A4 viết tay): giải thích lý do muốn nhập quốc tịch. Cần thể hiện:\n- Thời gian và lý do đến Nhật; những năm sống tại Nhật đã trải qua gì\n- Mối gắn bó với Nhật Bản: công việc, gia đình, cộng đồng, văn hóa\n- Kế hoạch tương lai tại Nhật (định cư lâu dài, gia đình, nghề nghiệp)\n- Lý do chọn 帰化 thay vì 永住 (có thể đề cập muốn hòa nhập hoàn toàn, con cái lớn lên ở Nhật...)\n- Tránh viết chỉ vì "tiện lợi hộ chiếu" — 法務局 đánh giá sự gắn bó thực sự và lâu dài\n\n**② 履歴書**: lý lịch cá nhân — lịch sử học vấn (từ bậc phổ thông), nơi làm việc, các địa chỉ đã cư trú từ khi sang Nhật đến nay\n\n**③ 生計の概況**: mô tả tình hình tài chính — thu nhập hàng tháng, chi phí sinh hoạt, tiết kiệm, không có nợ lớn\n\n⚠️ Chữ viết không cần đẹp nhưng phải rõ ràng và đọc được. Giấy tờ Việt Nam cần dịch sang tiếng Nhật bởi dịch thuật viên được thừa nhận — chừa ít nhất 2–3 tháng.',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_naturalization_s3.jpg'),
+        imageCaption: '帰化 hồ sơ - chuẩn bị giấy tờ Nhật, giấy tờ Việt Nam và bản dịch trước khi nộp',
         tip: 'Liên hệ Đại sứ quán Việt Nam tại Nhật để xác nhận cách lấy giấy tờ hộ tịch từ Việt Nam khi đang ở Nhật (nhiều loại có thể ủy quyền người thân lấy hộ).',
       },
       {
@@ -6698,6 +6760,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Hiểu hạn mức và cấu trúc tài khoản NISA',
         description: '**Hệ thống 新NISA (từ 2024, áp dụng không giới hạn thời gian):**\n\n| Loại đầu tư | Hạn mức năm | Sản phẩm được phép |\n|---|---|---|\n| **つみたて投資枠** | **120万円/năm** | Quỹ index phê duyệt bởi 金融庁 |\n| **成長投資枠** | **240万円/năm** | Cổ phiếu, ETF, phần lớn 投資信託 |\n| **Tổng cộng** | **360万円/năm** | |\n\n**Hạn mức sinh涯 (trọn đời):** 1,800万円 (trong đó 成長投資枠 tối đa 1,200万円)\n\n**Miễn thuế vô thời hạn** — không còn giới hạn 20 năm như NISA cũ.\n\n**Phục hồi hạn mức:** khi bán tài sản, hạn mức tương đương (tính theo giá mua gốc) được cộng lại vào **đầu năm tiếp theo**.\n\nChỉ được mở **1 tài khoản NISA** tại 1 công ty trong cùng 1 năm.',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_nisa_s1.jpg'),
+        imageCaption: '新NISA - hiểu hạn mức つみたて投資枠, 成長投資枠 và giới hạn trọn đời',
         tip: 'Không cần dùng hết 360万円/năm. Bắt đầu nhỏ (ví dụ 30,000–50,000 yên/tháng) và tăng dần theo thu nhập là chiến lược phù hợp hơn với người mới.',
       },
       {
@@ -6712,6 +6776,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Chọn sản phẩm đầu tư phù hợp',
         description: '**Với người mới bắt đầu — ưu tiên quỹ index phí thấp:**\n\n| Sản phẩm | Đặc điểm | Phí/năm |\n|---|---|---|\n| eMAXIS Slim 全世界株式（オールカントリー） | Đầu tư toàn thế giới (~50% Mỹ, còn lại các nước khác) | ~0.058% |\n| eMAXIS Slim 米国株式（S&P500） | Chỉ cổ phiếu Mỹ — 500 công ty lớn nhất | ~0.088% |\n| SBI・V・S&P500インデックス・ファンド | Tương tự S&P500, phí cực thấp | ~0.094% |\n\n**つみたて投資枠**: tất cả sản phẩm trên đều được phép, mua tự động hàng tháng.\n**成長投資枠**: thêm ETF (VT, VOO...) và cổ phiếu đơn lẻ (cần thêm kiến thức).\n\n⚠️ NISA **không bảo đảm lợi nhuận** — giá trị có thể giảm. Chỉ đầu tư số tiền có thể giữ dài hạn (≥5–10 năm).',
         documents: [],
+        image: require('../../../assets/content/daily-life/ag_nisa_s3.jpg'),
+        imageCaption: '投資信託 - chọn sản phẩm phí thấp và phù hợp với kế hoạch dài hạn',
         tip: '"オルカン" (eMAXIS Slim 全世界株式) là lựa chọn phổ biến nhất cho người mới và được nhiều chuyên gia tài chính Nhật khuyến nghị cho người đầu tư thụ động dài hạn.',
       },
       {
@@ -6806,6 +6872,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Chuẩn bị giấy tờ từ Việt Nam',
         description: 'Trước khi đến Đại sứ quán, cần có sẵn một số giấy tờ từ Việt Nam. Vì đang ở Nhật, cần nhờ người thân hoặc ủy quyền để lấy:\n\n| Giấy tờ | Nơi lấy | Thời hạn |\n|---|---|---|\n| Giấy xác nhận tình trạng hôn nhân (độc thân) | UBND xã/phường nơi đăng ký hộ khẩu | Thường 6 tháng |\n| Giấy khai sinh | UBND xã/phường nơi đã đăng ký khai sinh | Không giới hạn |\n| Hộ khẩu gia đình (bản sao công chứng) | UBND hoặc photo công chứng | |\n\n⚠️ Giấy xác nhận độc thân cần dịch sang tiếng Nhật (nếu Đại sứ quán yêu cầu) hoặc dịch sang tiếng Việt có công chứng tùy quy trình.',
         documents: ['Nhờ người thân hoặc ủy quyền có công chứng để lấy giấy tờ tại Việt Nam'],
+        image: require('../../../assets/content/daily-life/ag_marriage-vn_s1.jpg'),
+        imageCaption: 'Giấy tờ hộ tịch Việt Nam - chuẩn bị trước khi xin giấy xác nhận kết hôn tại Nhật',
         tip: 'Liên hệ Đại sứ quán Việt Nam tại Nhật (theo tỉnh đang sống) để xác nhận danh sách giấy tờ cụ thể — yêu cầu có thể thay đổi theo từng thời điểm.',
       },
       {
@@ -6813,6 +6881,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Nộp hồ sơ tại Đại sứ quán Việt Nam ở Nhật',
         description: '**Chọn đúng cơ quan theo nơi cư trú:**\n- **Đại sứ quán VN tại Tokyo**: https://vnembassy-jp.org — các tỉnh Kanto, Hokkaido, Tohoku, Chubu\n- **Tổng Lãnh sự quán tại Osaka**: https://vnconsulate-osaka.org — các tỉnh Kinki, Chugoku, Shikoku\n- **Tổng Lãnh sự quán tại Fukuoka**: các tỉnh Kyushu, Okinawa\n\n**Hồ sơ cần mang:**\n- Tờ khai đăng ký kết hôn (tải từ website Đại sứ quán hoặc nhận tại quầy)\n- Hộ chiếu gốc + thẻ cư trú (在留カード)\n- Giấy khai sinh, xác nhận độc thân từ Việt Nam\n- Ảnh 3cm × 4cm (2 tấm, nền trắng)\n- Nếu người kia là người Nhật: các giấy tờ của phía người Nhật theo hướng dẫn của Đại sứ quán\n\n⚠️ **Người có visa 短期滞在 (short-term stay) KHÔNG được cấp giấy này.** Cần có tư cách lưu trú trung/dài hạn.\n\nXử lý: thường **1–5 ngày làm việc** (có thể nhanh hơn tùy trường hợp).',
         documents: ['Hộ chiếu gốc', 'Thẻ cư trú (在留カード) dài hạn', 'Giấy khai sinh', 'Xác nhận độc thân từ Việt Nam', 'Ảnh 3cm × 4cm (2 tấm)'],
+        image: require('../../../assets/content/daily-life/ag_marriage-vn_s2.jpg'),
+        imageCaption: 'Đại sứ quán Việt Nam tại Nhật - nộp hồ sơ xác nhận tình trạng hôn nhân và giấy tờ kết hôn',
         tip: 'Đặt hẹn trước qua website hoặc điện thoại nếu Đại sứ quán yêu cầu. Mang theo bản sao của tất cả giấy tờ gốc — Đại sứ quán thường giữ bản sao.',
       },
       {
@@ -6832,4 +6902,3 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
   },
 ];
-
