@@ -40,6 +40,13 @@ const VISA_IMMIGRATION_STRUCTURED_GUIDE_IDS = [
   'tokutei-katsudo-46-job-hunt',
 ];
 
+const MONEY_STRUCTURED_GUIDE_IDS = [
+  'home-purchase-mortgage',
+  'sole-proprietor-kojin-jigyo',
+  'credit-card-for-foreigners',
+  'nisa-investment',
+];
+
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
 }
@@ -223,6 +230,33 @@ describe('ADMIN_GUIDES content quality', () => {
     expect(guide?.description).toContain('khác với 特定活動46号');
     expect(guide?.officialLinks.some((link) => link.url.includes('designatedactivities14'))).toBe(true);
     expect(guide?.officialLinks.some((link) => link.url.includes('designatedactivities11'))).toBe(true);
+  });
+
+  it('keeps selected money guides structured', () => {
+    for (const guideId of MONEY_STRUCTURED_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(guide?.category).toBe('money');
+      expect(guide?.priority).toBe('normal');
+      expect(guide?.heroImage).toBeDefined();
+      expectNonEmptyText(guide?.heroImageCaption ?? '');
+      expectRequiredTextArray(guide?.whoIsThisFor);
+      expectRequiredTextArray(guide?.whenToDo);
+      expectRequiredTextArray(guide?.whereToDo);
+      expectRequiredChecklist(guide?.documentsChecklist);
+      expectRequiredTextArray(guide?.commonMistakes);
+      expectRequiredFaq(guide?.faq);
+    }
+  });
+
+  it('uses public source links for NISA guidance', () => {
+    const guide = ADMIN_GUIDES.find((item) => item.id === 'nisa-investment');
+
+    expect(guide).toBeDefined();
+    expect(guide?.officialLinks.every((link) => link.url.includes('fsa.go.jp') || link.url.includes('nta.go.jp'))).toBe(
+      true,
+    );
   });
 
   it('has ordered, complete steps', () => {

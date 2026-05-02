@@ -6218,7 +6218,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'home-purchase-mortgage',
     category: 'money',
-    lastVerified: '2026-04-26',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Mua nhà và vay 住宅ローン tại Nhật',
     titleJp: '外国人の住宅購入・住宅ローン・ローン控除',
@@ -6236,9 +6236,47 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Kiểm tra điều kiện vay trước khi ký hợp đồng đặt cọc (売買契約) — một khi đã ký, hủy hợp đồng rất tốn kém.',
       'Nộp đơn xin 住宅ローン控除 trong năm đầu tiên sau khi mua: phải tự làm 確定申告 năm đầu; từ năm thứ 2 công ty có thể làm qua 年末調整.',
     ],
+    whereToDo: [
+      'Ngân hàng hoặc 住宅ローン center: xin 事前審査 trước khi ký 売買契約.',
+      '不動産会社: nhận 重要事項説明書, bảng ước tính 諸費用 và điều khoản hủy hợp đồng.',
+      '法務局/司法書士: xử lý đăng ký quyền sở hữu và thế chấp sau khi bàn giao.',
+      '税務署/e-Tax: khai 住宅ローン控除 năm đầu nếu đủ điều kiện.',
+      'Municipal office: lấy 住民票, 印鑑証明書 và hỏi 不動産取得税 nếu cần.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu và 在留カード', required: true },
+      { label: '住民票 và 印鑑証明書', required: true, note: 'Ngân hàng/司法書士 thường yêu cầu bản mới.' },
+      { label: '源泉徴収票 hoặc 確定申告書控え', required: true, note: 'Ngân hàng dùng để xét thu nhập và khả năng trả nợ.' },
+      { label: 'Sao kê tài khoản, giấy tờ tiền tự có và lịch sử tín dụng', required: true },
+      { label: '重要事項説明書 và 売買契約書', required: true, note: 'Đọc kỹ điều khoản hủy nếu khoản vay không được duyệt.' },
+      { label: '住宅ローン年末残高証明書', required: false, note: 'Cần cho 住宅ローン控除 sau khi đã vay.' },
+      { label: '登記事項証明書', required: false, note: 'Cần cho đăng ký quyền sở hữu và khai 住宅ローン控除.' },
+    ],
+    commonMistakes: [
+      'Ký 売買契約 trước khi có điều kiện vay rõ ràng hoặc không hiểu điều khoản ローン特約.',
+      'Chỉ tính giá nhà mà quên 諸費用 như phí môi giới, đăng ký, thuế, 司法書士 và phí ngân hàng.',
+      'Dùng toàn bộ tiền tiết kiệm làm tiền đầu vào, không giữ quỹ khẩn cấp sau khi mua nhà.',
+      'Tưởng 住宅ローン控除 tự động áp dụng; năm đầu thường phải tự 確定申告.',
+      'Không kiểm tra quyền sử dụng đất, phí quản lý/sửa chữa chung cư hoặc lịch sử sửa chữa tòa nhà.',
+    ],
+    faq: [
+      {
+        question: 'Người nước ngoài có được mua nhà tại Nhật không?',
+        answer: 'Có. Việc mua bất động sản không bị cấm chỉ vì quốc tịch nước ngoài. Vấn đề khó hơn thường nằm ở xét duyệt 住宅ローン, tư cách lưu trú, thu nhập và lịch sử tín dụng.',
+      },
+      {
+        question: 'Nếu ngân hàng từ chối khoản vay sau khi ký hợp đồng thì mất tiền cọc không?',
+        answer: 'Phụ thuộc điều khoản ローン特約 trong 売買契約. Trước khi ký, phải xác nhận điều kiện nào cho phép hủy hợp đồng và lấy lại 手付金 nếu khoản vay không được duyệt.',
+      },
+      {
+        question: '住宅ローン控除 có chắc được áp dụng không?',
+        answer: 'Không chắc chỉ vì bạn có vay mua nhà. NTA quy định nhiều điều kiện về mục đích cư trú, khoản vay, thời hạn trả, nhà ở và thu nhập. Năm đầu nên kiểm tra với 税務署 hoặc e-Tax trước khi khai.',
+      },
+    ],
     officialLinks: [
       { label: 'フラット35 — 住宅金融支援機構', url: 'https://www.flat35.com/' },
-      { label: '住宅借入金等特別控除 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1213.htm' },
+      { label: '住宅借入金等特別控除の対象となる住宅ローン等 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1225.htm' },
+      { label: 'マイホームを持ったとき — 国税庁', url: 'https://www.nta.go.jp/publication/pamph/koho/kurashi/html/05_1.htm' },
     ],
     steps: [
       {
@@ -6286,7 +6324,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'sole-proprietor-kojin-jigyo',
     category: 'money',
-    lastVerified: '2026-04-26',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Đăng ký kinh doanh cá nhân (個人事業主)',
     titleJp: '個人事業の開業・廃業等届出書・青色申告',
@@ -6301,11 +6339,47 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Người nước ngoài đang ở Nhật theo tư cách lưu trú cho phép hoạt động kinh doanh — lưu ý: một số tư cách có hạn chế, kiểm tra trước.',
     ],
     whenToDo: [
-      'Nộp 開業届 trong vòng 1 tháng kể từ ngày bắt đầu hoạt động kinh doanh (税務署 khuyến nghị) — tuy nhiên luật không phạt nếu nộp muộn hơn.',
-      'Nộp 青色申告承認申請書 trong vòng 2 tháng kể từ ngày bắt đầu kinh doanh để được áp dụng 青色申告 ngay năm đó.',
+      'Nộp 開業届 trong vòng 1 tháng kể từ ngày bắt đầu hoạt động kinh doanh theo hướng dẫn 国税庁.',
+      'Nộp 青色申告承認申請書 đúng hạn: nếu mở từ 01/01 đến 15/01 thì hạn là 15/03; nếu mở từ 16/01 trở đi thì trong vòng 2 tháng từ ngày mở.',
       'Nếu đã kinh doanh từ trước mà chưa đăng ký: nộp ngay — không hồi tố nhưng bắt đầu từ đây là đúng hướng.',
     ],
+    whereToDo: [
+      '税務署 quản lý 納税地 của bạn: nộp 開業届, 青色申告承認申請書 và hỏi thủ tục thuế.',
+      'e-Tax: nộp online nếu có マイナンバーカード hoặc phương thức đăng nhập phù hợp.',
+      'Municipal office: xử lý 国民健康保険, 国民年金 và thuế cư trú nếu chuyển từ nhân viên công ty sang tự doanh.',
+      'ISA hoặc 行政書士: kiểm tra tư cách lưu trú trước khi bắt đầu kinh doanh nếu visa hiện tại có giới hạn hoạt động.',
+    ],
+    documentsChecklist: [
+      { label: '個人事業の開業・廃業等届出書', required: true },
+      { label: '所得税の青色申告承認申請書', required: false, note: 'Rất nên nộp nếu muốn dùng 青色申告 từ năm đó.' },
+      { label: 'My Number và giấy tờ xác minh danh tính', required: true },
+      { label: '在留カード', required: true, note: 'Dùng để tự kiểm tra tư cách lưu trú và xuất trình khi cần.' },
+      { label: 'Bản mô tả ngành nghề, ngày bắt đầu, 屋号 nếu có', required: true },
+      { label: 'Tài khoản ngân hàng riêng cho kinh doanh', required: false, note: 'Không bắt buộc khi nộp 開業届 nhưng nên chuẩn bị để quản lý sổ sách.' },
+    ],
+    commonMistakes: [
+      'Mở 個人事業 nhưng quên kiểm tra visa có cho phép hoạt động kinh doanh đó không.',
+      'Nộp 開業届 nhưng quên 青色申告承認申請書 nên mất quyền dùng 青色申告 cho năm đầu.',
+      'Trộn chi tiêu cá nhân và kinh doanh trong cùng tài khoản, sau đó khó làm 確定申告.',
+      'Không lưu hóa đơn/領収書 và hợp đồng ngay từ ngày bắt đầu kinh doanh.',
+      'Nghĩ doanh thu nhỏ thì không cần khai; nghĩa vụ khai phụ thuộc loại thu nhập và tình huống thuế, không chỉ cảm giác "nhỏ".',
+    ],
+    faq: [
+      {
+        question: 'Nộp 開業届 có tự động cho phép tôi kinh doanh theo visa không?',
+        answer: 'Không. 開業届 là thủ tục thuế, không phải giấy phép cư trú. Nếu tư cách lưu trú hiện tại hạn chế hoạt động, cần kiểm tra với ISA hoặc 行政書士 trước.',
+      },
+      {
+        question: '青色申告 có bắt buộc không?',
+        answer: 'Không bắt buộc, nhưng rất đáng làm nếu bạn có hoạt động kinh doanh thật. Nộp đúng hạn giúp mở quyền lợi như 青色申告特別控除 và xử lý lỗ theo quy định.',
+      },
+      {
+        question: 'Nộp 開業届 muộn thì có bị phạt không?',
+        answer: '国税庁 nêu hạn nộp là trong 1 tháng từ ngày mở. Nếu đã trễ, nên nộp càng sớm càng tốt và từ đó quản lý sổ sách, hóa đơn và 確定申告 đúng.',
+      },
+    ],
     officialLinks: [
+      { label: '個人で事業を始めたとき — 国税庁', url: 'https://www.nta.go.jp/publication/pamph/koho/kurashi/html/07_3.htm' },
       { label: '個人事業の開業届出・廃業届出等手続 — 国税庁', url: 'https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/04.htm' },
       { label: '所得税の青色申告承認申請手続 — 国税庁', url: 'https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/09.htm' },
     ],
@@ -6331,7 +6405,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 3,
         title: 'Nộp 青色申告承認申請書 — mở quyền lợi thuế lớn',
-        description: '青色申告 là chế độ kế toán nâng cao cho 個人事業主, mang lại lợi ích thuế đáng kể:\n\n• 青色申告特別控除: nếu dùng kế toán kép (複式簿記) và nộp qua e-Tax → được trừ thẳng 65 vạn yên khỏi thu nhập chịu thuế mỗi năm. Nếu nộp giấy: 55 vạn yên. Kế toán đơn giản hơn (簡易帳簿): 10 vạn yên.\n• Chuyển lỗ: nếu năm nay lỗ, có thể chuyển sang bù trừ với lợi nhuận 3 năm tiếp theo.\n• Khấu hao nhanh: một số tài sản kinh doanh được khấu hao toàn bộ trong năm mua (30 vạn yên/món với điều kiện nhất định).\n\nNộp cùng lúc hoặc trong vòng 2 tháng sau khi nộp 開業届.',
+        description: '青色申告 là chế độ kế toán nâng cao cho 個人事業主, mang lại lợi ích thuế đáng kể:\n\n• 青色申告特別控除: nếu dùng kế toán kép (複式簿記) và nộp qua e-Tax → được trừ thẳng 65 vạn yên khỏi thu nhập chịu thuế mỗi năm. Nếu nộp giấy: 55 vạn yên. Kế toán đơn giản hơn (簡易帳簿): 10 vạn yên.\n• Chuyển lỗ: nếu năm nay lỗ, có thể chuyển sang bù trừ với lợi nhuận 3 năm tiếp theo.\n• Khấu hao nhanh: một số tài sản kinh doanh được khấu hao toàn bộ trong năm mua (30 vạn yên/món với điều kiện nhất định).\n\nHạn nộp theo 国税庁: nếu ngày mở từ 01/01 đến 15/01 thì hạn là 15/03; nếu mở từ 16/01 trở đi thì trong vòng 2 tháng từ ngày mở.',
         documents: [
           '青色申告承認申請書 (mẫu tải tại 国税庁)',
           'Số My Number',
@@ -6350,7 +6424,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'credit-card-for-foreigners',
     category: 'money',
-    lastVerified: '2026-04-26',
+    lastVerified: '2026-05-02',
     priority: 'normal',
     title: 'Làm thẻ tín dụng tại Nhật',
     titleJp: 'クレジットカード申請・信用情報の作り方',
@@ -6368,8 +6442,44 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Sau khi có tài khoản ngân hàng Nhật và đã cư trú ít nhất 3–6 tháng — nhiều công ty thẻ yêu cầu tài khoản ngân hàng Nhật để trích nợ tự động (口座振替).',
       'Không nên nộp đơn xin nhiều thẻ cùng lúc — mỗi lần xin bị ghi vào 信用情報 và nhiều lần từ chối liên tiếp làm xấu hồ sơ.',
     ],
+    whereToDo: [
+      'Website/app của công ty thẻ hoặc ngân hàng: nộp đơn xin thẻ và đăng ký 口座振替.',
+      'Ngân hàng nơi bạn nhận lương: hỏi thẻ credit/debit phù hợp với hồ sơ hiện tại.',
+      'CIC/JICC/KSC: kiểm tra 信用情報 của chính mình nếu bị từ chối nhiều lần hoặc nghi có lỗi dữ liệu.',
+      'Municipal office/bưu điện: xác nhận địa chỉ và tên hiển thị trên giấy tờ nếu hồ sơ bị lệch thông tin.',
+    ],
+    documentsChecklist: [
+      { label: '在留カード còn hiệu lực', required: true },
+      { label: 'Tài khoản ngân hàng Nhật để trích nợ tự động', required: true },
+      { label: 'Số điện thoại Nhật', required: true },
+      { label: 'Địa chỉ hiện tại khớp 住民票/在留カード', required: true },
+      { label: 'Thông tin việc làm và thu nhập năm', required: true },
+      { label: 'My Number hoặc giấy tờ bổ sung', required: false, note: 'Một số tổ chức tài chính yêu cầu trong quy trình xác minh.' },
+    ],
+    commonMistakes: [
+      'Nộp nhiều thẻ liên tiếp trong thời gian ngắn sau khi bị từ chối.',
+      'Điền tên/địa chỉ không khớp giấy tờ Nhật, làm hệ thống xác minh tự động thất bại.',
+      'Dùng リボ払い vì thấy số tiền trả hàng tháng thấp, nhưng không hiểu lãi cao và dư nợ kéo dài.',
+      'Trả chậm tiền điện thoại trả góp hoặc thẻ tín dụng, khiến 信用情報 bị ảnh hưởng.',
+      'Không kiểm tra lại 信用情報 khi nghi có sai sót hoặc bị từ chối bất thường.',
+    ],
+    faq: [
+      {
+        question: 'Bị từ chối thẻ có nghĩa là hồ sơ xấu không?',
+        answer: 'Không nhất thiết. Với người mới ở Nhật, lý do thường là hồ sơ tín dụng còn mỏng, thời hạn lưu trú ngắn, thông tin xác minh chưa ổn hoặc tiêu chuẩn riêng của công ty thẻ. Nên chờ một thời gian, ổn định thu nhập và không nộp dồn dập.',
+      },
+      {
+        question: 'Debit card có giúp xây 信用情報 không?',
+        answer: 'Thường không. Debit card trừ tiền trực tiếp từ tài khoản nên không tạo lịch sử vay/trả như credit card. Nó hữu ích để thanh toán, nhưng không thay thế credit history.',
+      },
+      {
+        question: 'Có thể tự xem 信用情報 của mình không?',
+        answer: 'Có. CIC, JICC và 全国銀行個人信用情報センター đều có thủ tục khai示 cho chính người đó. Hãy kiểm tra cách nộp, giấy tờ và phí hiện hành trên trang chính thức từng tổ chức.',
+      },
+    ],
     officialLinks: [
       { label: '信用情報とは — CIC', url: 'https://www.cic.co.jp/confidence/index.html' },
+      { label: '情報開示とは — CIC', url: 'https://www.cic.co.jp/mydata/index.html' },
       { label: '信用情報について — JICC', url: 'https://www.jicc.co.jp/aboutus/credit-info' },
       { label: '全国銀行個人信用情報センター — 全国銀行協会', url: 'https://www.zenginkyo.or.jp/pcic/' },
     ],
@@ -6384,9 +6494,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Bắt đầu với thẻ dễ được duyệt nhất',
-        description: 'Theo thứ tự ưu tiên cho người mới:\n\n1. **Thẻ debit có chức năng Visa/Mastercard**: không cần xét duyệt tín dụng — mở cùng tài khoản ngân hàng (Rakuten Bank, SBI Shinsei, PayPay Bank đều cấp). Dùng để thanh toán trực tuyến và tích điểm, nhưng không xây dựng 信用情報.\n\n2. **Thẻ tín dụng từ ngân hàng bạn đang có tài khoản**: dễ được xét duyệt hơn vì ngân hàng đã biết lịch sử giao dịch của bạn. Ưu tiên: Rakuten Card (dễ nhất, phổ biến nhất với người nước ngoài), PayPay Card, au PAY Card.\n\n3. **Thẻ từ cửa hàng hoặc dịch vụ**: Amazon Mastercard, AEON Card, Dcard — thường xét duyệt dễ hơn thẻ ngân hàng truyền thống.\n\n4. **Thẻ từ ngân hàng lớn (SMBC, MUFG, みずほ)**: khó hơn, thường cần 1–2 năm lịch sử tín dụng tại Nhật.',
+        description: 'Theo thứ tự ưu tiên cho người mới:\n\n1. **Thẻ debit có chức năng Visa/Mastercard**: không cần xét duyệt tín dụng — mở cùng tài khoản ngân hàng. Dùng để thanh toán trực tuyến và tích điểm, nhưng thường không xây dựng 信用情報.\n\n2. **Thẻ tín dụng từ ngân hàng bạn đang có tài khoản**: dễ kiểm tra thông tin hơn vì ngân hàng đã có lịch sử giao dịch của bạn.\n\n3. **Thẻ từ cửa hàng hoặc dịch vụ bạn dùng thường xuyên**: đôi khi phù hợp hơn thẻ ngân hàng truyền thống, nhưng vẫn tùy tiêu chuẩn xét duyệt từng công ty.\n\n4. **Thẻ từ ngân hàng lớn hoặc thẻ premium**: thường phù hợp hơn sau khi đã có 6-12 tháng lịch sử tín dụng tại Nhật.',
         documents: [],
-        tip: 'Rakuten Card là điểm khởi đầu được nhiều người nước ngoài khuyên dùng nhất: không phí thường niên, tích điểm Rakuten, xét duyệt tương đối dễ nếu có thu nhập ổn định và 在留カード còn hơn 1 năm.',
+        tip: 'Không có thẻ nào "chắc chắn đậu". Chọn một thẻ phù hợp hồ sơ hiện tại, điền thông tin thật chính xác, rồi chờ kết quả thay vì nộp hàng loạt.',
       },
       {
         step: 3,
@@ -6405,7 +6515,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Xây dựng 信用情報 để nâng hạn mức và mở rộng quyền lợi',
         description: 'Sau khi có thẻ đầu tiên, dùng đúng cách để xây dựng hồ sơ tín dụng:\n\n• Dùng đều hàng tháng: thanh toán điện, gas, điện thoại, Netflix qua thẻ — tạo lịch sử giao dịch đều đặn.\n• Thanh toán đầy đủ (全額払い) đúng hạn hàng tháng — không trả trễ dù chỉ 1 lần, vì ghi vào 信用情報 ngay.\n• Không dùng quá 30% hạn mức: nếu hạn mức 30 vạn yên, giữ số dư dưới 9 vạn yên tại bất kỳ thời điểm nào.\n• Sau 6–12 tháng: có thể xin nâng hạn mức hoặc xin thêm thẻ từ công ty khác.\n\nTránh: trả trả góp (リボ払い) — lãi suất 15–18%/năm, rất cao; và dịch vụ キャッシング (rút tiền mặt từ thẻ tín dụng) trừ trường hợp khẩn cấp.',
         documents: [],
-        tip: 'Sau 1–2 năm có lịch sử tín dụng tốt, bạn có thể tra 信用情報 của mình miễn phí tại CIC (cic.co.jp) qua app hoặc bưu điện — hữu ích để biết hồ sơ mình ra sao trước khi xin vay lớn như 住宅ローン.',
+        tip: 'Sau 1–2 năm có lịch sử tín dụng tốt, bạn có thể yêu cầu khai示 信用情報 tại CIC/JICC/KSC để biết hồ sơ mình ra sao trước khi xin vay lớn như 住宅ローン. Kiểm tra phí và cách nộp hiện hành trên trang chính thức.',
       },
     ],
   },
@@ -7451,6 +7561,20 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Càng sớm càng tốt — ưu đãi NISA có hạn mức năm, không sử dụng năm nay sẽ mất.',
       'Trước khi về nước lâu dài: đóng hoặc sắp xếp tài khoản NISA đúng quy định để tránh vi phạm.',
     ],
+    whereToDo: [
+      'Công ty chứng khoán hoặc ngân hàng được phép mở NISA: nộp hồ sơ mở tài khoản và xác minh danh tính.',
+      'Trang NISA của 金融庁: kiểm tra khung制度, hạn mức và danh sách sản phẩm つみたて投資枠.',
+      'Công ty chứng khoán đang dùng: hỏi thủ tục đổi金融機関, 出国届出書 hoặc 継続適用届出書 khi rời Nhật.',
+      '国税庁: tra thủ tục NISA liên quan đến mở/đổi tài khoản, thay đổi thông tin và xuất cảnh.',
+    ],
+    documentsChecklist: [
+      { label: '在留カード hoặc giấy tờ xác minh cư trú tại Nhật', required: true },
+      { label: 'My Number', required: true, note: 'Cần khi mở tài khoản chứng khoán/NISA.' },
+      { label: 'Tài khoản ngân hàng Nhật để nạp/rút tiền', required: true },
+      { label: 'Giấy tờ xác minh danh tính theo yêu cầu công ty chứng khoán', required: true },
+      { label: '勘定廃止通知書 hoặc giấy tờ đổi金融機関', required: false, note: 'Chỉ cần khi đổi nơi mở NISA.' },
+      { label: '出国届出書 hoặc 継続適用届出書', required: false, note: 'Cần kiểm tra trước khi rời Nhật hoặc đi công tác dài hạn.' },
+    ],
     fees: [
       'Phí mở tài khoản NISA: miễn phí tại hầu hết công ty chứng khoán online.',
       'Phí quản lý quỹ (信託報酬): tùy sản phẩm, quỹ index phổ biến như eMAXIS Slim 全世界株式 là ~0.058%/năm.',
@@ -7482,10 +7606,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
     ],
     officialLinks: [
-      { label: 'NISAを知る — 金融庁', url: 'https://www.fsa.go.jp/policy/nisa2/know/index.html' },
-      { label: '新NISA制度概要 — 金融庁 (PDF)', url: 'https://www.fsa.go.jp/policy/nisa2/about/nisa2024/slide_202406.pdf' },
-      { label: 'SBI証券 — NISA口座開設', url: 'https://www.sbisec.co.jp/ETGate/?_ControlID=WPLETmgR001Control&_PageID=WPLETmgR001Idtl20&_DataStoreID=DSWPLETmgR001Control&_ActionID=DefaultAID&burl=iris_nisa&cat1=nisa&cat2=none&dir=nisa&file=iris_nisa.html' },
-      { label: '楽天証券 — NISA口座開設', url: 'https://www.rakuten-sec.co.jp/web/nisa/' },
+      { label: 'NISAを知る — 金融庁', url: 'https://www.fsa.go.jp/policy/nisa2/about/nisa2024/' },
+      { label: 'つみたて投資枠対象商品 — 金融庁', url: 'https://www.fsa.go.jp/policy/nisa2/products/' },
+      { label: 'NISAよくある質問 — 金融庁', url: 'https://www.fsa.go.jp/policy/nisa2/question/index.html' },
+      { label: 'NISA口座の手続 — 国税庁', url: 'https://www.nta.go.jp/users/gensen/nisa/tetsuzuki.htm' },
     ],
     steps: [
       {
