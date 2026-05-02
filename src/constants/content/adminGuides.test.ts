@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from './adminGuides';
@@ -27,6 +29,14 @@ function expectNonEmptyTextArray(items: string[] | undefined) {
   }
 }
 
+function collectRequiredAssetPaths() {
+  const sourcePath = path.join(__dirname, 'adminGuides.ts');
+  const source = fs.readFileSync(sourcePath, 'utf8');
+  const matches = source.matchAll(/require\('([^']+)'\)/g);
+
+  return [...matches].map((match) => match[1]).filter((assetPath): assetPath is string => Boolean(assetPath));
+}
+
 describe('ADMIN_GUIDES content quality', () => {
   it('has valid content metadata', () => {
     expect(ADMIN_CONTENT_META.lastUpdated).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -41,6 +51,17 @@ describe('ADMIN_GUIDES content quality', () => {
   it('uses unique guide ids', () => {
     const ids = ADMIN_GUIDES.map((guide) => guide.id);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('references only committed assets that exist on disk', () => {
+    const assetPaths = collectRequiredAssetPaths();
+
+    expect(assetPaths.length).toBeGreaterThan(0);
+
+    for (const assetPath of assetPaths) {
+      const absoluteAssetPath = path.resolve(__dirname, assetPath);
+      expect(fs.existsSync(absoluteAssetPath)).toBe(true);
+    }
   });
 
   it('has required category and official source links for every guide', () => {
