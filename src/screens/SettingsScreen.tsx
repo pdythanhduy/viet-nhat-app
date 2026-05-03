@@ -347,7 +347,7 @@ export default function SettingsScreen() {
         <Text style={styles.sectionTitle}>Thông tin ứng dụng</Text>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Phiên bản</Text>
-          <Text style={styles.infoValue}>1.1.0</Text>
+          <Text style={styles.infoValue}>1.2.0</Text>
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Nền tảng</Text>

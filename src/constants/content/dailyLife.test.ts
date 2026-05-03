@@ -29,9 +29,7 @@ describe('DAILY_LIFE_TOPICS content quality', () => {
       expect(topic.color).toMatch(/^#[0-9A-Fa-f]{6}$/);
       expect(Ionicons.glyphMap[topic.icon]).toBeDefined();
 
-      if (Object.prototype.hasOwnProperty.call(topic, 'prefilledQuestion')) {
-        expect(topic.prefilledQuestion?.trim().length).toBeGreaterThan(0);
-      }
+
     }
   });
 

@@ -117,7 +117,6 @@ export interface DailyLifeTopic {
   icon: IoniconName;
   color: string;
   description: string;
-  prefilledQuestion?: string;
   sections?: DailyLifeSection[];
 }
 

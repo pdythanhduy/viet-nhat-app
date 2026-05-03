@@ -13,7 +13,7 @@ export function useGuideProgress(guideId: string, totalSteps: number): GuideProg
 
   useEffect(() => {
     if (!guideId) return;
-    loadGuideStepProgress(guideId).then(setCompletedSteps);
+    loadGuideStepProgress(guideId).then(setCompletedSteps).catch(() => {});
   }, [guideId]);
 
   const toggleStep = useCallback(
