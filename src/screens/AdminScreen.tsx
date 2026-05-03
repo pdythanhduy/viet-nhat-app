@@ -18,7 +18,7 @@ import { Disclaimers } from '../constants/disclaimers';
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
-import { adminGuideMatchesSearch } from '../utils/adminGuideSearch';
+import { adminGuideMatchesSearch, getAdminGuideSearchMatches } from '../utils/adminGuideSearch';
 import { ADMIN_QUICK_SEARCH_CHIPS, type AdminQuickSearchChip } from '../utils/adminQuickSearch';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
@@ -472,26 +472,37 @@ export default function AdminScreen() {
           </View>
         )}
 
-        {filteredGuides.map((guide) => (
-          <TouchableOpacity
-            key={guide.id}
-            style={styles.guideCard}
-            onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
-          >
-            {guide.heroImage ? (
-              <Image source={guide.heroImage} style={styles.guideCardThumb} resizeMode="cover" />
-            ) : (
-              <View style={[styles.guideIconBg, { backgroundColor: guide.color + '18' }]}>
-                <Ionicons name={guide.icon} size={26} color={guide.color} />
-              </View>
-            )}
-            <View style={styles.guideInfo}>
-              <Text style={styles.guideTitleJp}>{guide.titleJp}</Text>
-              <Text style={styles.guideTitle}>{guide.title}</Text>
-              <Text style={styles.guideDesc} numberOfLines={2}>
-                {guide.description}
-              </Text>
-              <View style={styles.stepsInfo}>
+        {filteredGuides.map((guide) => {
+          const searchMatches = getAdminGuideSearchMatches(guide, search);
+
+          return (
+            <TouchableOpacity
+              key={guide.id}
+              style={styles.guideCard}
+              onPress={() => navigation.navigate('AdminDetail', { guideId: guide.id })}
+            >
+              {guide.heroImage ? (
+                <Image source={guide.heroImage} style={styles.guideCardThumb} resizeMode="cover" />
+              ) : (
+                <View style={[styles.guideIconBg, { backgroundColor: guide.color + '18' }]}>
+                  <Ionicons name={guide.icon} size={26} color={guide.color} />
+                </View>
+              )}
+              <View style={styles.guideInfo}>
+                <Text style={styles.guideTitleJp}>{guide.titleJp}</Text>
+                <Text style={styles.guideTitle}>{guide.title}</Text>
+                <Text style={styles.guideDesc} numberOfLines={2}>
+                  {guide.description}
+                </Text>
+                {searchMatches.length > 0 && (
+                  <View style={styles.searchMatchRow}>
+                    <Ionicons name="pricetag-outline" size={12} color={Colors.primary} />
+                    <Text style={styles.searchMatchText} numberOfLines={1}>
+                      Khớp: {searchMatches.join(' / ')}
+                    </Text>
+                  </View>
+                )}
+                <View style={styles.stepsInfo}>
                 {guide.priority === 'high' && (
                   <View style={styles.priorityBadge}>
                     <Ionicons name="alert-circle" size={11} color={Colors.danger} />
@@ -512,7 +523,8 @@ export default function AdminScreen() {
             </View>
             <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
           </TouchableOpacity>
-        ))}
+          );
+        })}
 
         <View style={{ height: 24 + Math.max(insets.bottom, 12) }} />
       </ScrollView>
@@ -822,6 +834,25 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     lineHeight: 17,
     marginBottom: 6,
+  },
+  searchMatchRow: {
+    alignSelf: 'flex-start',
+    maxWidth: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: Colors.accent,
+    borderRadius: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    marginBottom: 7,
+  },
+  searchMatchText: {
+    flexShrink: 1,
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
   },
   stepsInfo: {
     flexDirection: 'row',

@@ -1,8 +1,18 @@
 import { ADMIN_GUIDES } from '../constants/content/adminGuides';
-import { adminGuideMatchesSearch, normalizeAdminGuideSearchText } from './adminGuideSearch';
+import {
+  adminGuideMatchesSearch,
+  getAdminGuideSearchMatches,
+  normalizeAdminGuideSearchText,
+} from './adminGuideSearch';
 
 function matchingGuideIds(query: string) {
   return ADMIN_GUIDES.filter((guide) => adminGuideMatchesSearch(guide, query)).map((guide) => guide.id);
+}
+
+function guideById(id: string) {
+  const guide = ADMIN_GUIDES.find((item) => item.id === id);
+  if (!guide) throw new Error(`Missing guide: ${id}`);
+  return guide;
 }
 
 describe('adminGuideSearch', () => {
@@ -71,5 +81,22 @@ describe('adminGuideSearch', () => {
 
   it('still matches existing title and description fields', () => {
     expect(matchingGuideIds('tai nan')).toContain('traffic-accident-response');
+  });
+
+  it('returns concise search match labels from the same search candidates', () => {
+    expect(getAdminGuideSearchMatches(guideById('juminzei-local-tax'), 'thue')).toContain('thue cu tru');
+    expect(getAdminGuideSearchMatches(guideById('kakutei-shinkoku'), 'thue')).toContain('khai thue');
+    expect(getAdminGuideSearchMatches(guideById('permanent-residency-eijuu'), 'vinh tru')).toContain('vinh tru');
+  });
+
+  it('deduplicates and limits visible search match labels', () => {
+    const matches = getAdminGuideSearchMatches(guideById('traffic-accident-response'), 'tai nan', 2);
+
+    expect(matches.length).toBeLessThanOrEqual(2);
+    expect(new Set(matches).size).toBe(matches.length);
+  });
+
+  it('returns no visible search matches for blank queries', () => {
+    expect(getAdminGuideSearchMatches(guideById('residence-card'), '   ')).toEqual([]);
   });
 });
