@@ -21,7 +21,10 @@ import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import {
+  filterOfficialFormLinksByJurisdiction,
   getAdminGuideOfficialFormLinks,
+  getOfficialFormJurisdictionLabel,
+  getOfficialFormJurisdictionOptions,
   getOfficialFormLinkTypeLabel,
   MUNICIPAL_FORM_NOTICE,
 } from '../constants/content/adminGuideForms';
@@ -59,18 +62,6 @@ function getOfficialFormIcon(link: OfficialFormLink): keyof typeof Ionicons.glyp
   return 'globe-outline';
 }
 
-function getOfficialFormJurisdictionLabel(link: OfficialFormLink): string {
-  switch (link.jurisdiction) {
-    case 'national':
-      return 'Toàn quốc';
-    case 'prefecture':
-      return 'Tỉnh/thành';
-    case 'municipality':
-    default:
-      return 'Municipality';
-  }
-}
-
 function openOfficialFormLink(link: OfficialFormLink) {
   Linking.openURL(link.url).catch(() =>
     Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng hoặc mở lại sau.')
@@ -90,6 +81,7 @@ export default function AdminDetailScreen() {
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
   const [exportingGuide, setExportingGuide] = useState(false);
+  const [selectedFormJurisdiction, setSelectedFormJurisdiction] = useState('all');
 
   // Hooks must be called unconditionally — before any early return.
   useEffect(() => {
@@ -253,6 +245,16 @@ export default function AdminDetailScreen() {
     checkedChecklistItems.has(item.label)
   ).length ?? 0;
   const officialFormLinks = getAdminGuideOfficialFormLinks(guide.id);
+  const formJurisdictionOptions = getOfficialFormJurisdictionOptions(officialFormLinks);
+  const effectiveFormJurisdiction =
+    selectedFormJurisdiction === 'all' ||
+    formJurisdictionOptions.some((option) => option.id === selectedFormJurisdiction)
+      ? selectedFormJurisdiction
+      : 'all';
+  const visibleOfficialFormLinks = filterOfficialFormLinksByJurisdiction(
+    officialFormLinks,
+    effectiveFormJurisdiction
+  );
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -639,7 +641,54 @@ export default function AdminDetailScreen() {
                 <Text style={styles.linksHint}>{MUNICIPAL_FORM_NOTICE}</Text>
               </View>
             </View>
-            {officialFormLinks.map((link) => (
+            {formJurisdictionOptions.length > 1 && (
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                style={styles.formFilterScroll}
+                contentContainerStyle={styles.formFilterContent}
+              >
+                <TouchableOpacity
+                  style={[
+                    styles.formFilterPill,
+                    effectiveFormJurisdiction === 'all' && {
+                      backgroundColor: guide.color,
+                      borderColor: guide.color,
+                    },
+                  ]}
+                  onPress={() => setSelectedFormJurisdiction('all')}
+                  activeOpacity={0.82}
+                >
+                  <Text
+                    style={[
+                      styles.formFilterText,
+                      effectiveFormJurisdiction === 'all' && styles.formFilterTextActive,
+                    ]}
+                  >
+                    Tất cả
+                  </Text>
+                </TouchableOpacity>
+                {formJurisdictionOptions.map((option) => {
+                  const active = effectiveFormJurisdiction === option.id;
+                  return (
+                    <TouchableOpacity
+                      key={option.id}
+                      style={[
+                        styles.formFilterPill,
+                        active && { backgroundColor: guide.color, borderColor: guide.color },
+                      ]}
+                      onPress={() => setSelectedFormJurisdiction(option.id)}
+                      activeOpacity={0.82}
+                    >
+                      <Text style={[styles.formFilterText, active && styles.formFilterTextActive]}>
+                        {option.label}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </ScrollView>
+            )}
+            {visibleOfficialFormLinks.map((link) => (
               <TouchableOpacity
                 key={`${link.type}-${link.url}`}
                 style={styles.formLinkItem}
@@ -1242,6 +1291,34 @@ const styles = StyleSheet.create({
     elevation: 2,
     borderWidth: 1,
     borderColor: Colors.primary + '20',
+  },
+  formFilterScroll: {
+    marginBottom: 8,
+    marginHorizontal: -2,
+  },
+  formFilterContent: {
+    gap: 8,
+    paddingHorizontal: 2,
+    paddingBottom: 2,
+  },
+  formFilterPill: {
+    minHeight: 32,
+    justifyContent: 'center',
+    borderRadius: 16,
+    paddingHorizontal: 11,
+    paddingVertical: 6,
+    backgroundColor: Colors.background,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  formFilterText: {
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textSecondary,
+  },
+  formFilterTextActive: {
+    color: Colors.white,
   },
   linksSectionHeader: {
     flexDirection: 'row',

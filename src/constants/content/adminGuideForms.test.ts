@@ -1,6 +1,9 @@
 import { ADMIN_GUIDES } from './adminGuides';
 import {
   ADMIN_GUIDE_FORM_LINKS,
+  filterOfficialFormLinksByJurisdiction,
+  getOfficialFormJurisdictionKey,
+  getOfficialFormJurisdictionOptions,
   getOfficialFormLinkTypeLabel,
   MUNICIPAL_FORM_NOTICE,
 } from './adminGuideForms';
@@ -34,7 +37,7 @@ describe('ADMIN_GUIDE_FORM_LINKS', () => {
         if (link.jurisdiction === 'municipality') {
           expect(link.jurisdictionLabel?.trim().length).toBeGreaterThan(0);
           expect(link.note?.toLowerCase()).toMatch(
-            /shibuya|municipality|thành phố|quận|địa phương|city|ward/
+            /shibuya|shinjuku|municipality|thành phố|quận|địa phương|city|ward|ku/
           );
         }
       }
@@ -47,5 +50,26 @@ describe('ADMIN_GUIDE_FORM_LINKS', () => {
     expect(getOfficialFormLinkTypeLabel('example-pdf')).toBe('Ví dụ PDF');
     expect(getOfficialFormLinkTypeLabel('official-page')).toBe('Trang chính thức');
     expect(MUNICIPAL_FORM_NOTICE).toContain('市役所');
+  });
+
+  it('builds municipality filter options without mixing local forms', () => {
+    const links = ADMIN_GUIDE_FORM_LINKS['address-change'] ?? [];
+    const options = getOfficialFormJurisdictionOptions(links);
+
+    expect(options.map((option) => option.label)).toEqual(
+      expect.arrayContaining(['東京都渋谷区', '東京都新宿区'])
+    );
+
+    const shinjuku = links.find((link) => link.jurisdictionLabel === '東京都新宿区');
+    expect(shinjuku).toBeDefined();
+
+    const shinjukuLinks = filterOfficialFormLinksByJurisdiction(
+      links,
+      getOfficialFormJurisdictionKey(shinjuku!)
+    );
+
+    expect(shinjukuLinks.length).toBeGreaterThan(0);
+    expect(shinjukuLinks.every((link) => link.jurisdictionLabel === '東京都新宿区')).toBe(true);
+    expect(shinjukuLinks.some((link) => link.url.includes('city.shinjuku.lg.jp'))).toBe(true);
   });
 });
