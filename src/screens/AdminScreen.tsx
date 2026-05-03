@@ -19,6 +19,7 @@ import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { adminGuideMatchesSearch } from '../utils/adminGuideSearch';
+import { ADMIN_QUICK_SEARCH_CHIPS, type AdminQuickSearchChip } from '../utils/adminQuickSearch';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
 import {
@@ -108,6 +109,12 @@ export default function AdminScreen() {
   const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
   const [stepProgressMap, setStepProgressMap] = useState<Record<string, number>>({});
 
+  const handleQuickSearchPress = useCallback((chip: AdminQuickSearchChip) => {
+    setSearch(chip.query);
+    setActiveCategory(chip.category);
+    setActiveStatus('all');
+  }, []);
+
   useFocusEffect(
     useCallback(() => {
       loadAllGuideChecklistProgress().then((progressMap) => {
@@ -170,6 +177,7 @@ export default function AdminScreen() {
 
   const showVisaQuickSelector =
     !search.trim() && activeStatus === 'all' && (activeCategory === 'all' || activeCategory === 'visa');
+  const showQuickSearchChips = !search.trim() && activeStatus === 'all';
   const inProgressGuides = ADMIN_GUIDES.filter((guide) => inProgressGuideIds.includes(guide.id));
   const readyGuides = ADMIN_GUIDES.filter((guide) => readyGuideIds.includes(guide.id));
   const pinnedGuides = ADMIN_GUIDES.filter((guide) => pinnedGuideIds.includes(guide.id));
@@ -257,6 +265,33 @@ export default function AdminScreen() {
             );
           })}
         </ScrollView>
+
+        {showQuickSearchChips && (
+          <View style={styles.quickSearchSection}>
+            <Text style={styles.quickSearchTitle}>Tìm nhanh</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.quickSearchContent}
+            >
+              {ADMIN_QUICK_SEARCH_CHIPS.map((chip) => (
+                <TouchableOpacity
+                  key={chip.id}
+                  style={styles.quickSearchChip}
+                  onPress={() => handleQuickSearchPress(chip)}
+                  activeOpacity={0.82}
+                >
+                  <View style={[styles.quickSearchIconBg, { backgroundColor: `${chip.color}18` }]}>
+                    <Ionicons name={chip.icon} size={14} color={chip.color} />
+                  </View>
+                  <Text style={styles.quickSearchText} numberOfLines={1}>
+                    {chip.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        )}
 
         {showVisaQuickSelector && (
           <View style={styles.quickSection}>
@@ -570,6 +605,44 @@ const styles = StyleSheet.create({
   quickSection: {
     marginHorizontal: 16,
     marginBottom: 12,
+  },
+  quickSearchSection: {
+    marginBottom: 12,
+  },
+  quickSearchTitle: {
+    fontSize: 13,
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    paddingHorizontal: 16,
+    marginBottom: 8,
+  },
+  quickSearchContent: {
+    paddingHorizontal: 16,
+    gap: 8,
+  },
+  quickSearchChip: {
+    minHeight: 38,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    borderRadius: 20,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  quickSearchIconBg: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  quickSearchText: {
+    fontSize: 12,
+    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
   },
   quickSectionTitle: {
     fontSize: 17,
