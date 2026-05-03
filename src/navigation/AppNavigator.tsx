@@ -184,10 +184,7 @@ export default function AppNavigator() {
         <Stack.Screen
           name="DailyLife"
           component={DailyLifeScreen}
-          options={{
-            ...primaryHeaderOptions,
-            headerTitle: 'Cuộc sống hằng ngày',
-          }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="DailyLifeDetail"

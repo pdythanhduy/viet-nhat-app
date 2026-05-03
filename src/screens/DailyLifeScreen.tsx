@@ -86,6 +86,15 @@ export default function DailyLifeScreen() {
   const [savedTopicIds, setSavedTopicIds] = useState<string[]>([]);
   const [pinnedTopicIds, setPinnedTopicIds] = useState<string[]>([]);
 
+  const handleBackPress = useCallback(() => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+      return;
+    }
+
+    navigation.navigate('MainTabs', { screen: 'Home' });
+  }, [navigation]);
+
   useFocusEffect(
     useCallback(() => {
       loadRecentDailyLifeTopics().then((items) => {
@@ -165,6 +174,11 @@ export default function DailyLifeScreen() {
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
 
       <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={handleBackPress} activeOpacity={0.82}>
+          <Ionicons name="arrow-back" size={18} color={Colors.white} />
+          <Text style={styles.backText}>Trang chính</Text>
+        </TouchableOpacity>
+
         <Text style={styles.headerTitle}>Cuộc sống hằng ngày</Text>
         <Text style={styles.headerSubtitle}>
           Nội dung thực tế để xử lý chuyện thuê nhà, đi lại, khám bệnh, nhận hàng và sinh hoạt ở Nhật.
@@ -386,6 +400,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 24,
+  },
+  backButton: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(255,255,255,0.14)',
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    marginBottom: 12,
+  },
+  backText: {
+    fontSize: 12,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.white,
   },
   headerTitle: { fontSize: 24, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
   headerSubtitle: {
