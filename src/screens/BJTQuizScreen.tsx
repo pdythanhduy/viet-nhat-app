@@ -136,7 +136,7 @@ export default function BJTQuizScreen() {
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.center}>
           <Text style={styles.emptyText}>Chưa có câu hỏi cho level này.</Text>
         </View>
@@ -147,7 +147,7 @@ export default function BJTQuizScreen() {
   if (done) {
     const percent = Math.round((score / questions.length) * 100);
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
           <Text style={styles.summaryTitle}>Hoàn thành BJT Practice</Text>
@@ -170,7 +170,7 @@ export default function BJTQuizScreen() {
   const currentQuestionLevel = getBjtQuestionLevel(currentQuestion);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />

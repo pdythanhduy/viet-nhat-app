@@ -93,7 +93,7 @@ export default function BJTDocumentMockScreen() {
 
   if (items.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.center}>
           <Text style={styles.emptyText}>Không có câu hỏi tài liệu cho level này.</Text>
         </View>
@@ -107,7 +107,7 @@ export default function BJTDocumentMockScreen() {
     );
 
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
           <View style={styles.hero}>
@@ -174,7 +174,7 @@ export default function BJTDocumentMockScreen() {
     const submitted = Boolean(currentAnswer);
 
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
           <View style={styles.questionTop}>
@@ -281,7 +281,7 @@ export default function BJTDocumentMockScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <View style={styles.hero}>

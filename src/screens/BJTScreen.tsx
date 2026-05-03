@@ -120,7 +120,7 @@ export default function BJTScreen() {
   }, [navigation]);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primaryDark} />
       <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
 

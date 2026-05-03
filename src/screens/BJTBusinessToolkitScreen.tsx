@@ -11,7 +11,7 @@ export default function BJTBusinessToolkitScreen() {
   const [tab, setTab] = useState<TabId>('email');
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <View style={styles.hero}>

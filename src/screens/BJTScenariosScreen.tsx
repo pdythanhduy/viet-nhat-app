@@ -12,7 +12,7 @@ export default function BJTScenariosScreen() {
   const [expandedId, setExpandedId] = useState<string | null>(BJT_SCENARIO_LIBRARY[0]?.id ?? null);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <ScrollView style={styles.container} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
         <View style={styles.hero}>

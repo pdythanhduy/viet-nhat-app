@@ -195,7 +195,7 @@ export default function BJTMockExamsV2Screen() {
 
   if (!selectedExam) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.center}>
           <Text style={styles.emptyText}>Không tìm thấy đề mock phù hợp.</Text>
         </View>
@@ -216,7 +216,7 @@ export default function BJTMockExamsV2Screen() {
     });
 
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
           <View style={styles.hero}>
@@ -289,7 +289,7 @@ export default function BJTMockExamsV2Screen() {
     const submitted = Boolean(currentAnswer);
 
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.progressTrack}>
           <View
@@ -414,7 +414,7 @@ export default function BJTMockExamsV2Screen() {
       : BJT_MOCK_V2_EXAMS.flatMap((exam) => exam.questions).filter((question) => question.level === level).length;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.container}>
       <ScrollView

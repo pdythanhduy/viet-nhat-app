@@ -56,7 +56,7 @@ export default function JapaneseQuizScreen() {
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.center}>
           <Text>Chưa có câu hỏi để làm quiz.</Text>
         </View>
@@ -88,7 +88,7 @@ export default function JapaneseQuizScreen() {
     const total = questions.length;
     const percent = Math.round((score / total) * 100);
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView contentContainerStyle={styles.summary} showsVerticalScrollIndicator={false}>
           <Text style={styles.title}>Hoàn thành quiz</Text>
@@ -132,7 +132,7 @@ export default function JapaneseQuizScreen() {
   const progressPercent = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.progressTrack}>
         <View

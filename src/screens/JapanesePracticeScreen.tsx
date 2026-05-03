@@ -97,8 +97,8 @@ export default function JapanesePracticeScreen() {
     }
   };
 
-  if (loading) return <SafeAreaView style={styles.container}><View style={styles.center}><Text>Đang tải...</Text></View></SafeAreaView>;
-  if (cards.length === 0) return <SafeAreaView style={styles.container}><View style={styles.center}><Text>Chưa có dữ liệu luyện tập.</Text></View></SafeAreaView>;
+  if (loading) return <SafeAreaView style={styles.container} edges={['bottom']}><View style={styles.center}><Text>Đang tải...</Text></View></SafeAreaView>;
+  if (cards.length === 0) return <SafeAreaView style={styles.container} edges={['bottom']}><View style={styles.center}><Text>Chưa có dữ liệu luyện tập.</Text></View></SafeAreaView>;
 
   if (done) {
     const mastered = results.filter((item) => item === 'mastered').length;
@@ -106,7 +106,7 @@ export default function JapanesePracticeScreen() {
     const forgot = results.filter((item) => item === 'forgot').length;
     const percent = Math.round(((mastered + remembered) / results.length) * 100);
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
           <Text style={styles.title}>Hoàn thành luyện tập</Text>
@@ -133,7 +133,7 @@ export default function JapanesePracticeScreen() {
   const progressPercent = ((currentIndex + 1) / cards.length) * 100;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${progressPercent}%`, backgroundColor: accentColor }]} /></View>
       <View style={styles.topRow}>

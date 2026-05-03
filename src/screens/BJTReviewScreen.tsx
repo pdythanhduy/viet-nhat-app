@@ -152,7 +152,7 @@ export default function BJTReviewScreen() {
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView contentContainerStyle={styles.emptyWrap}>
           <Text style={styles.title}>Ôn lỗi</Text>
@@ -206,7 +206,7 @@ export default function BJTReviewScreen() {
 
   if (done) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
           <Text style={styles.summaryTitle}>Hoàn thành ôn lỗi</Text>
@@ -230,7 +230,7 @@ export default function BJTReviewScreen() {
 
   if (!currentQuestion) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <View style={styles.summary}>
           <Text style={styles.summaryTitle}>Không tìm thấy câu hỏi để ôn</Text>
@@ -246,7 +246,7 @@ export default function BJTReviewScreen() {
   const progressPercent = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />

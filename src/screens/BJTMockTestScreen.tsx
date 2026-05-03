@@ -204,7 +204,7 @@ export default function BJTMockTestScreen() {
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.center}>
           <Text style={styles.emptyText}>Chưa có đủ câu hỏi để tạo mock cho level này.</Text>
         </View>
@@ -215,7 +215,7 @@ export default function BJTMockTestScreen() {
   if (done) {
     const percent = Math.round((score / questions.length) * 100);
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         <ScrollView style={styles.container} contentContainerStyle={[styles.summaryContent, isTablet && styles.contentTablet]}>
           <Text style={styles.summaryTitle}>Kết quả Mock Test</Text>
@@ -267,7 +267,7 @@ export default function BJTMockTestScreen() {
   const currentQuestionLevel = getBjtQuestionLevel(currentQuestion);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
