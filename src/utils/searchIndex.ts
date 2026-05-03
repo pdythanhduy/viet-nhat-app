@@ -6,6 +6,7 @@ import {
   JAPANESE_WORDS,
   WORKER_RIGHTS,
 } from '../constants/content';
+import { getAdminGuideSearchKeywords } from '../constants/content/adminGuideSearchKeywords';
 
 export type SearchResultType =
   | 'guide'
@@ -45,7 +46,7 @@ const SEARCH_INDEX: SearchResultItem[] = [
       guide.title,
       guide.titleJp,
       guide.description,
-      ...(guide.searchKeywords ?? []),
+      ...getAdminGuideSearchKeywords(guide),
       ...(guide.whoIsThisFor ?? []),
       ...(guide.whenToDo ?? []),
       ...(guide.whereToDo ?? []),

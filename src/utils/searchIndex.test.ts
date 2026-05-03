@@ -11,8 +11,12 @@ describe('searchAppContent', () => {
     expect(results[0]?.title).toContain('Thẻ cư trú');
   });
 
-  it('includes admin guide search keyword metadata', () => {
-    const results = searchAppContent('gaimen');
-    expect(results.map((item) => item.id)).toContain('drivers-license');
+  it.each([
+    ['gaimen', 'drivers-license'],
+    ['eijuu', 'permanent-residency-eijuu'],
+    ['hanko', 'hanko-inkan'],
+  ])('includes admin guide search keyword metadata for %s', (query, guideId) => {
+    const results = searchAppContent(query);
+    expect(results.map((item) => item.id)).toContain(guideId);
   });
 });

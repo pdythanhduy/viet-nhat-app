@@ -1,4 +1,5 @@
 import type { AdminGuide } from '../types/content';
+import { getAdminGuideSearchKeywords } from '../constants/content/adminGuideSearchKeywords';
 
 export function normalizeAdminGuideSearchText(value: string) {
   return value
@@ -18,6 +19,6 @@ export function adminGuideMatchesSearch(guide: AdminGuide, query: string) {
     guide.title,
     guide.titleJp,
     guide.description,
-    ...(guide.searchKeywords ?? []),
+    ...getAdminGuideSearchKeywords(guide),
   ].some((value) => normalizeAdminGuideSearchText(value).includes(normalizedQuery));
 }

@@ -5,6 +5,7 @@ import * as path from 'path';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from './adminGuides';
+import { ADMIN_GUIDE_SEARCH_KEYWORDS, getAdminGuideSearchKeywords } from './adminGuideSearchKeywords';
 import type { AdminGuideCategory } from '../../types/content';
 
 const VALID_CATEGORIES: AdminGuideCategory[] = [
@@ -90,7 +91,66 @@ const REQUIRED_ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
   'drivers-license': ['gaimen', '外免切替'],
   'drivers-license-renewal': ['koshin', '免許更新'],
   'car-shaken-insurance': ['shaken', '車検'],
+  'residence-card': ['gia han visa', 'zairyu kikan koshin'],
+  'permission-activity-outside-status': ['shikakugai', '28 gio'],
+  'visa-status-overview': ['zairyu shikaku', 'visa types'],
+  'permanent-residency-eijuu': ['eijuu', 'vinh tru'],
+  'remittance': ['gui tien', 'wise'],
+  'juminzei-local-tax': ['juminzei', 'resident tax'],
+  'school-enrollment-children': ['nhap hoc cho con', 'school enrollment'],
+  'childcare-parental-leave': ['ikukyu', 'parental leave'],
 };
+
+const REQUIRED_SEARCH_KEYWORD_COVERAGE_GUIDE_IDS = Array.from(
+  new Set([
+    ...CORE_SETUP_GUIDE_IDS,
+    ...VISA_IMMIGRATION_STRUCTURED_GUIDE_IDS,
+    ...MONEY_STRUCTURED_GUIDE_IDS,
+    'residence-card',
+    'address-change',
+    'job-change-notification',
+    'permission-activity-outside-status',
+    'bank-account',
+    'visa-status-overview',
+    'ssw-training-worker-2027',
+    'first-7-days-in-japan',
+    'first-30-days-work-study-japan',
+    'first-90-days-in-japan',
+    'family-stay-invitation',
+    'short-stay-relative-visit',
+    'japan-policy-update-2026-foreign-residents',
+    'japan-policy-2026-action-by-user-type',
+    'visa-highlights-2026',
+    'parents-elderly-relatives',
+    'baby-born-in-japan',
+    'nursery-kindergarten-guide',
+    'divorce-custody-name-residence',
+    'renting-and-buying-home',
+    'tax-year-end-adjustment-filing',
+    'pension-exemption-refund',
+    'banking-remittance-anti-fraud',
+    'status-of-residence-change',
+    'moving-in-notification',
+    'my-number-card',
+    'daily-law-basics',
+    'hanko-inkan',
+    'unemployment-benefits',
+    'return-to-vietnam-checklist',
+    'myna-portal-digital',
+    'school-enrollment-children',
+    'juminzei-local-tax',
+    'garbage-sorting-rules',
+    'workplace-accident-rousai',
+    'marriage-procedures-japan',
+    'childcare-parental-leave',
+    'special-fraud-tokushu-sagi',
+    'kakutei-shinkoku',
+    'payslip-reading',
+    'labor-rights-dispute',
+    'naturalization-kika',
+    'marriage-certificate-vn-japan',
+  ])
+);
 
 function expectNonEmptyText(value: string) {
   expect(value.trim().length).toBeGreaterThan(0);
@@ -213,12 +273,35 @@ describe('ADMIN_GUIDES content quality', () => {
     }
   });
 
+  it('keeps centralized search keyword metadata clean', () => {
+    for (const [guideId, keywords] of Object.entries(ADMIN_GUIDE_SEARCH_KEYWORDS)) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(keywords.length).toBeGreaterThan(0);
+      expect(new Set(keywords.map((keyword) => keyword.toLowerCase())).size).toBe(keywords.length);
+
+      for (const keyword of keywords) {
+        expectNonEmptyText(keyword);
+      }
+    }
+  });
+
+  it('covers key admin guide groups with search keywords', () => {
+    for (const guideId of REQUIRED_SEARCH_KEYWORD_COVERAGE_GUIDE_IDS) {
+      const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
+
+      expect(guide).toBeDefined();
+      expect(getAdminGuideSearchKeywords(guide!).length).toBeGreaterThan(0);
+    }
+  });
+
   it('keeps critical admin guide search keywords discoverable', () => {
     for (const [guideId, keywords] of Object.entries(REQUIRED_ADMIN_GUIDE_SEARCH_KEYWORDS)) {
       const guide = ADMIN_GUIDES.find((item) => item.id === guideId);
-      const searchKeywords = new Set((guide?.searchKeywords ?? []).map((keyword) => keyword.toLowerCase()));
 
       expect(guide).toBeDefined();
+      const searchKeywords = new Set(getAdminGuideSearchKeywords(guide!).map((keyword) => keyword.toLowerCase()));
 
       for (const keyword of keywords) {
         expect(searchKeywords).toContain(keyword.toLowerCase());
