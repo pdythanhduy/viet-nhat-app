@@ -8,6 +8,7 @@ import {
   StatusBar,
   TextInput,
   Image,
+  Alert,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -32,7 +33,12 @@ import {
   type GuideStatusFilter,
 } from '../utils/guideStatus';
 import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
-import type { AdminGuideCategory } from '../types/content';
+import {
+  buildAdminGuideExportHtml,
+  getAdminGuideExportFileName,
+} from '../utils/adminGuideExport';
+import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
+import type { AdminGuide, AdminGuideCategory } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type CategoryFilter = 'all' | AdminGuideCategory;
@@ -112,6 +118,7 @@ export default function AdminScreen() {
   const [readyGuideIds, setReadyGuideIds] = useState<string[]>([]);
   const [pinnedGuideIds, setPinnedGuideIds] = useState<string[]>([]);
   const [stepProgressMap, setStepProgressMap] = useState<Record<string, number>>({});
+  const [exportingGuides, setExportingGuides] = useState(false);
 
   const handleQuickSearchPress = useCallback((chip: AdminQuickSearchChip) => {
     setSearch(chip.query);
@@ -178,6 +185,36 @@ export default function AdminScreen() {
       return Number(b.priority === 'high') - Number(a.priority === 'high');
     });
   }, [activeCategory, activeStatus, search, stepProgressMap]);
+
+  const exportGuides = useCallback(
+    async (guides: readonly AdminGuide[], scope: 'all' | 'filtered') => {
+      if (exportingGuides) return;
+
+      if (guides.length === 0) {
+        Alert.alert('Không có nội dung', 'Danh sách hiện tại không có thủ tục nào để tải.');
+        return;
+      }
+
+      setExportingGuides(true);
+      try {
+        const html = buildAdminGuideExportHtml({
+          guides,
+          title:
+            scope === 'all'
+              ? 'Viet-Nhat App - Tất cả thủ tục hành chính'
+              : 'Viet-Nhat App - Danh sách thủ tục đã lọc',
+          scopeLabel: scope === 'all' ? 'Tất cả thủ tục hành chính' : 'Danh sách đang hiển thị',
+        });
+        const fileName = getAdminGuideExportFileName({ scope });
+        await saveAndShareAdminGuideHtml(fileName, html);
+      } catch {
+        Alert.alert('Không thể tạo file', 'Vui lòng thử lại sau hoặc kiểm tra quyền lưu/chia sẻ file.');
+      } finally {
+        setExportingGuides(false);
+      }
+    },
+    [exportingGuides]
+  );
 
   const showVisaQuickSelector =
     !search.trim() && activeStatus === 'all' && (activeCategory === 'all' || activeCategory === 'visa');
@@ -269,6 +306,35 @@ export default function AdminScreen() {
             );
           })}
         </ScrollView>
+
+        <View style={styles.exportPanel}>
+          <View style={styles.exportPanelText}>
+            <Text style={styles.exportPanelTitle}>Tải file thủ tục</Text>
+            <Text style={styles.exportPanelDesc}>
+              File HTML để xem offline, không nhúng form cũ; dùng link chính thức để tải mẫu hiện hành.
+            </Text>
+          </View>
+          <View style={styles.exportActions}>
+            <TouchableOpacity
+              style={[styles.exportButton, exportingGuides && styles.exportButtonDisabled]}
+              onPress={() => exportGuides(ADMIN_GUIDES, 'all')}
+              disabled={exportingGuides}
+              activeOpacity={0.82}
+            >
+              <Ionicons name="download-outline" size={15} color={Colors.white} />
+              <Text style={styles.exportButtonText}>{exportingGuides ? 'Đang tạo' : 'Tất cả'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.exportButtonSecondary, exportingGuides && styles.exportButtonDisabled]}
+              onPress={() => exportGuides(filteredGuides, 'filtered')}
+              disabled={exportingGuides}
+              activeOpacity={0.82}
+            >
+              <Ionicons name="list-outline" size={15} color={Colors.primary} />
+              <Text style={styles.exportButtonSecondaryText}>Danh sách này</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
         {showQuickSearchChips && (
           <View style={styles.quickSearchSection}>
@@ -603,6 +669,72 @@ const styles = StyleSheet.create({
   },
   statusFiltersScroll: {
     marginBottom: 12,
+  },
+  exportPanel: {
+    marginHorizontal: 16,
+    marginBottom: 14,
+    padding: 12,
+    borderRadius: 14,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  exportPanelText: {
+    marginBottom: 10,
+  },
+  exportPanelTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  exportPanelDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+  },
+  exportActions: {
+    flexDirection: 'row',
+    gap: 8,
+    flexWrap: 'wrap',
+  },
+  exportButton: {
+    minHeight: 36,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    backgroundColor: Colors.primary,
+  },
+  exportButtonSecondary: {
+    minHeight: 36,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    backgroundColor: Colors.accent,
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+  },
+  exportButtonDisabled: {
+    opacity: 0.58,
+  },
+  exportButtonText: {
+    fontSize: 12,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.white,
+  },
+  exportButtonSecondaryText: {
+    fontSize: 12,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
   },
   filtersContent: {
     paddingHorizontal: 16,

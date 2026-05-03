@@ -28,6 +28,11 @@ import {
 } from '../utils/guideChecklistProgress';
 import { useGuideProgress } from '../hooks/useGuideProgress';
 import RichText from '../components/RichText';
+import {
+  buildAdminGuideExportHtml,
+  getAdminGuideExportFileName,
+} from '../utils/adminGuideExport';
+import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
@@ -54,6 +59,7 @@ export default function AdminDetailScreen() {
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
+  const [exportingGuide, setExportingGuide] = useState(false);
 
   // Hooks must be called unconditionally — before any early return.
   useEffect(() => {
@@ -184,6 +190,24 @@ export default function AdminDetailScreen() {
     Alert.alert('Đã copy', `Đã copy bước ${step.step}.`);
   };
 
+  const handleExportGuide = async () => {
+    if (exportingGuide) return;
+
+    setExportingGuide(true);
+    try {
+      const html = buildAdminGuideExportHtml({
+        guides: [guide],
+        title: `Viet-Nhat App - ${guide.title}`,
+        scopeLabel: 'Một thủ tục',
+      });
+      await saveAndShareAdminGuideHtml(getAdminGuideExportFileName({ guide }), html);
+    } catch {
+      Alert.alert('Không thể tạo file', 'Vui lòng thử lại sau hoặc kiểm tra quyền lưu/chia sẻ file.');
+    } finally {
+      setExportingGuide(false);
+    }
+  };
+
   const handleToggleChecklistItem = async (label: string) => {
     const next = await toggleGuideChecklistItem(guide.id, label);
     setCheckedChecklistItems(new Set(next));
@@ -204,6 +228,13 @@ export default function AdminDetailScreen() {
       headerTitle: guide.title,
       headerRight: () => (
         <View style={styles.headerActions}>
+          <TouchableOpacity
+            onPress={handleExportGuide}
+            style={[styles.headerIconBtn, exportingGuide && styles.headerIconBtnDisabled]}
+            disabled={exportingGuide}
+          >
+            <Ionicons name="download-outline" size={20} color={Colors.white} />
+          </TouchableOpacity>
           <TouchableOpacity onPress={copyWholeGuide} style={styles.headerIconBtn}>
             <Ionicons name="copy-outline" size={20} color={Colors.white} />
           </TouchableOpacity>
@@ -217,7 +248,7 @@ export default function AdminDetailScreen() {
         </View>
       ),
     });
-  }, [guide, bookmarked]);
+  }, [guide, bookmarked, exportingGuide]);
 
   const relatedGuides = ADMIN_GUIDES
     .filter((g) => g.category === guide.category && g.id !== guide.id)
@@ -707,6 +738,9 @@ const styles = StyleSheet.create({
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  headerIconBtnDisabled: {
+    opacity: 0.55,
   },
   progressContainer: {
     flexDirection: 'row',
