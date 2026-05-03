@@ -19,7 +19,11 @@ import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { adminGuideMatchesSearch, getAdminGuideSearchMatches } from '../utils/adminGuideSearch';
-import { ADMIN_QUICK_SEARCH_CHIPS, type AdminQuickSearchChip } from '../utils/adminQuickSearch';
+import {
+  ADMIN_EMPTY_SEARCH_SUGGESTION_CHIPS,
+  ADMIN_QUICK_SEARCH_CHIPS,
+  type AdminQuickSearchChip,
+} from '../utils/adminQuickSearch';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
 import {
@@ -468,7 +472,24 @@ export default function AdminScreen() {
           <View style={styles.emptyBox}>
             <Ionicons name="search-outline" size={36} color={Colors.textMuted} />
             <Text style={styles.emptyText}>Không tìm thấy thủ tục nào</Text>
-            <Text style={styles.emptySubText}>Thử từ khóa khác hoặc chọn danh mục phía trên</Text>
+            <Text style={styles.emptySubText}>Thử từ khóa khác hoặc chọn gợi ý bên dưới</Text>
+            <View style={styles.emptySuggestionList}>
+              {ADMIN_EMPTY_SEARCH_SUGGESTION_CHIPS.map((chip) => (
+                <TouchableOpacity
+                  key={chip.id}
+                  style={styles.emptySuggestionChip}
+                  onPress={() => handleQuickSearchPress(chip)}
+                  activeOpacity={0.82}
+                >
+                  <View style={[styles.quickSearchIconBg, { backgroundColor: `${chip.color}18` }]}>
+                    <Ionicons name={chip.icon} size={14} color={chip.color} />
+                  </View>
+                  <Text style={styles.emptySuggestionText} numberOfLines={1}>
+                    {chip.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
           </View>
         )}
 
@@ -786,6 +807,37 @@ const styles = StyleSheet.create({
   emptySubText: {
     fontSize: 13,
     color: Colors.textMuted,
+    textAlign: 'center',
+    paddingHorizontal: 24,
+  },
+  emptySuggestionList: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 8,
+    paddingHorizontal: 16,
+    marginTop: 8,
+  },
+  emptySuggestionChip: {
+    minHeight: 38,
+    maxWidth: '46%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    borderRadius: 20,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  emptySuggestionText: {
+    flexShrink: 1,
+    fontSize: 12,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
   },
   guideCard: {
     backgroundColor: Colors.white,

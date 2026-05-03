@@ -48,6 +48,24 @@ export const ADMIN_QUICK_SEARCH_CHIPS = [
     targetGuideIds: ['juminzei-local-tax', 'kakutei-shinkoku'],
   },
   {
+    id: 'health-insurance',
+    label: 'Bảo hiểm y tế',
+    query: 'bao hiem y te',
+    category: 'health',
+    icon: 'medkit',
+    color: '#16A085',
+    targetGuideIds: ['health-insurance'],
+  },
+  {
+    id: 'traffic-accident',
+    label: 'Tai nạn',
+    query: 'tai nan',
+    category: 'traffic',
+    icon: 'warning',
+    color: '#C0392B',
+    targetGuideIds: ['traffic-accident-response'],
+  },
+  {
     id: 'children',
     label: 'Con đi học',
     query: 'nhap hoc cho con',
@@ -84,3 +102,16 @@ export const ADMIN_QUICK_SEARCH_CHIPS = [
     targetGuideIds: ['drivers-license'],
   },
 ] as const satisfies readonly AdminQuickSearchChip[];
+
+const ADMIN_EMPTY_SEARCH_SUGGESTION_IDS = [
+  'tax',
+  'health-insurance',
+  'traffic-accident',
+  'visa',
+] as const;
+
+export const ADMIN_EMPTY_SEARCH_SUGGESTION_CHIPS = ADMIN_EMPTY_SEARCH_SUGGESTION_IDS.map((id) => {
+  const chip = ADMIN_QUICK_SEARCH_CHIPS.find((item) => item.id === id);
+  if (!chip) throw new Error(`Missing admin quick search chip: ${id}`);
+  return chip;
+});
