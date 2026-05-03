@@ -4,6 +4,7 @@ const path = require('path');
 const TARGET_FILES = [
   'src/constants/content/japanese.ts',
   'src/constants/content/adminGuides.ts',
+  'src/constants/content/adminGuideForms.ts',
   'src/constants/content/dailyLife.ts',
   'src/constants/content/emergency.ts',
   'src/constants/content/jobs.ts',

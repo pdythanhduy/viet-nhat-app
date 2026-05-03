@@ -1,4 +1,8 @@
 import { ADMIN_GUIDES } from '../constants/content/adminGuides';
+import {
+  getAdminGuideOfficialFormLinks,
+  MUNICIPAL_FORM_NOTICE,
+} from '../constants/content/adminGuideForms';
 import type { AdminGuide } from '../types/content';
 import {
   ADMIN_GUIDE_EXPORT_FORM_NOTICE,
@@ -8,9 +12,14 @@ import {
 } from './adminGuideExport';
 
 const guide = ADMIN_GUIDES[0];
+const guideWithForms = ADMIN_GUIDES.find((item) => item.id === 'address-change');
 
 if (!guide) {
   throw new Error('Missing admin guide test fixture');
+}
+
+if (!guideWithForms) {
+  throw new Error('Missing address-change guide test fixture');
 }
 
 describe('adminGuideExport', () => {
@@ -26,6 +35,18 @@ describe('adminGuideExport', () => {
     expect(html).toContain('Link nguồn chính thức / tải form hiện hành');
     expect(html).toContain(ADMIN_GUIDE_EXPORT_FORM_NOTICE);
     expect(html).not.toContain('<script>');
+  });
+
+  it('includes official municipal form links without embedding PDF content', () => {
+    const formLinks = getAdminGuideOfficialFormLinks(guideWithForms.id);
+    const html = buildAdminGuideExportHtml({ guides: [guideWithForms] });
+
+    expect(formLinks.length).toBeGreaterThan(0);
+    expect(html).toContain('Form chính thức / PDF tải về');
+    expect(html).toContain(MUNICIPAL_FORM_NOTICE);
+    expect(html).toContain(formLinks[0]?.url);
+    expect(html).toContain('東京都渋谷区');
+    expect(html).not.toContain('%PDF-');
   });
 
   it('escapes unsafe text and link fields before writing HTML', () => {

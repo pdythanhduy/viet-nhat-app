@@ -1,6 +1,11 @@
 import { ADMIN_CONTENT_META } from '../constants/content/adminGuides';
+import {
+  getAdminGuideOfficialFormLinks,
+  getOfficialFormLinkTypeLabel,
+  MUNICIPAL_FORM_NOTICE,
+} from '../constants/content/adminGuideForms';
 import { Disclaimers } from '../constants/disclaimers';
-import type { AdminGuide, AdminGuideCategory, OfficialLink } from '../types/content';
+import type { AdminGuide, AdminGuideCategory, OfficialFormLink, OfficialLink } from '../types/content';
 import { formatLastUpdated, getSourceLabels } from './contentMetadata';
 
 export const ADMIN_GUIDE_EXPORT_FORM_NOTICE =
@@ -233,6 +238,7 @@ function renderGuide(guide: AdminGuide): string {
       ${renderSteps(guide)}
       ${renderListSection('Lỗi thường gặp', guide.commonMistakes)}
       ${renderFaq(guide)}
+      ${renderGuideOfficialForms(guide)}
       ${renderGuideOfficialLinks(guide)}
     </article>`;
 }
@@ -324,6 +330,40 @@ function renderGuideOfficialLinks(guide: AdminGuide): string {
         ${guide.officialLinks.map(renderOfficialLink).join('\n')}
       </ul>
     </section>`;
+}
+
+function renderGuideOfficialForms(guide: AdminGuide): string {
+  const formLinks = getAdminGuideOfficialFormLinks(guide.id);
+  if (!formLinks.length) return '';
+
+  return `<section>
+      <h3>Form chính thức / PDF tải về</h3>
+      <p class="muted">${escapeAdminGuideExportHtml(MUNICIPAL_FORM_NOTICE)}</p>
+      <ul class="link-list">
+        ${formLinks.map(renderOfficialFormLink).join('\n')}
+      </ul>
+    </section>`;
+}
+
+function renderOfficialFormLink(link: OfficialFormLink): string {
+  const source =
+    link.sourceUrl && link.sourceUrl !== link.url
+      ? `<br /><span class="muted">Trang nguồn: ${escapeAdminGuideExportHtml(link.sourceUrl)}</span>`
+      : '';
+  const note = link.note ? `<br /><span class="muted">${escapeAdminGuideExportHtml(link.note)}</span>` : '';
+  const jurisdiction = link.jurisdictionLabel
+    ? ` - ${link.jurisdictionLabel}`
+    : ` - ${link.jurisdiction}`;
+
+  return `<li><strong>${escapeAdminGuideExportHtml(
+    getOfficialFormLinkTypeLabel(link.type)
+  )}</strong>${escapeAdminGuideExportHtml(jurisdiction)}<br /><a href="${escapeAdminGuideExportHtml(
+    link.url
+  )}" rel="noopener noreferrer">${escapeAdminGuideExportHtml(
+    link.label
+  )}</a><br /><span class="muted">Xác minh: ${escapeAdminGuideExportHtml(
+    formatLastUpdated(link.verifiedAt)
+  )}</span>${source}${note}</li>`;
 }
 
 function renderOfficialLink(link: OfficialLink): string {

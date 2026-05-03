@@ -20,6 +20,11 @@ import { Disclaimers } from '../constants/disclaimers';
 import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
+import {
+  getAdminGuideOfficialFormLinks,
+  getOfficialFormLinkTypeLabel,
+  MUNICIPAL_FORM_NOTICE,
+} from '../constants/content/adminGuideForms';
 import { toggleBookmark, isBookmarked } from '../utils/bookmarks';
 import {
   clearGuideChecklistProgress,
@@ -33,6 +38,7 @@ import {
   getAdminGuideExportFileName,
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
+import type { OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
@@ -46,6 +52,30 @@ const CATEGORY_LABELS: Record<string, string> = {
   money: 'Tiền',
   license: 'Bằng lái',
 };
+
+function getOfficialFormIcon(link: OfficialFormLink): keyof typeof Ionicons.glyphMap {
+  if (link.type === 'pdf' || link.type === 'fillable-pdf') return 'document-text-outline';
+  if (link.type === 'example-pdf') return 'create-outline';
+  return 'globe-outline';
+}
+
+function getOfficialFormJurisdictionLabel(link: OfficialFormLink): string {
+  switch (link.jurisdiction) {
+    case 'national':
+      return 'Toàn quốc';
+    case 'prefecture':
+      return 'Tỉnh/thành';
+    case 'municipality':
+    default:
+      return 'Municipality';
+  }
+}
+
+function openOfficialFormLink(link: OfficialFormLink) {
+  Linking.openURL(link.url).catch(() =>
+    Alert.alert('Không thể mở link', 'Vui lòng kiểm tra kết nối mạng hoặc mở lại sau.')
+  );
+}
 
 export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -222,6 +252,7 @@ export default function AdminDetailScreen() {
   const checklistDone = guide.documentsChecklist?.filter((item) =>
     checkedChecklistItems.has(item.label)
   ).length ?? 0;
+  const officialFormLinks = getAdminGuideOfficialFormLinks(guide.id);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -596,6 +627,48 @@ export default function AdminDetailScreen() {
                 </TouchableOpacity>
               );
             })}
+          </View>
+        )}
+
+        {officialFormLinks.length > 0 && (
+          <View style={styles.formsSection}>
+            <View style={styles.linksSectionHeader}>
+              <Ionicons name="document-attach-outline" size={17} color={guide.color} />
+              <View style={styles.linksHeaderTextBlock}>
+                <Text style={styles.linksSectionTitle}>Form chính thức</Text>
+                <Text style={styles.linksHint}>{MUNICIPAL_FORM_NOTICE}</Text>
+              </View>
+            </View>
+            {officialFormLinks.map((link) => (
+              <TouchableOpacity
+                key={`${link.type}-${link.url}`}
+                style={styles.formLinkItem}
+                onPress={() => openOfficialFormLink(link)}
+                activeOpacity={0.82}
+              >
+                <View style={[styles.linkIconBg, { backgroundColor: guide.color + '15' }]}>
+                  <Ionicons name={getOfficialFormIcon(link)} size={16} color={guide.color} />
+                </View>
+                <View style={styles.formLinkTextBlock}>
+                  <View style={styles.formLinkTitleRow}>
+                    <Text style={styles.linkLabel} numberOfLines={2}>
+                      {link.label}
+                    </Text>
+                    <View style={styles.formTypeBadge}>
+                      <Text style={styles.formTypeBadgeText}>
+                        {getOfficialFormLinkTypeLabel(link.type)}
+                      </Text>
+                    </View>
+                  </View>
+                  <Text style={styles.formMeta}>
+                    {link.jurisdictionLabel ?? getOfficialFormJurisdictionLabel(link)} · xác minh{' '}
+                    {formatLastUpdated(link.verifiedAt)}
+                  </Text>
+                  {link.note ? <Text style={styles.formNote}>{link.note}</Text> : null}
+                </View>
+                <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
+              </TouchableOpacity>
+            ))}
           </View>
         )}
 
@@ -1157,6 +1230,19 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 2,
   },
+  formsSection: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 12,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+    borderWidth: 1,
+    borderColor: Colors.primary + '20',
+  },
   linksSectionHeader: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -1186,6 +1272,48 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
+  },
+  formLinkItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    paddingVertical: 11,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+  },
+  formLinkTextBlock: {
+    flex: 1,
+    gap: 4,
+  },
+  formLinkTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+  },
+  formTypeBadge: {
+    flexShrink: 0,
+    borderRadius: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    backgroundColor: Colors.accent,
+    borderWidth: 1,
+    borderColor: Colors.primary + '25',
+  },
+  formTypeBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
+  },
+  formMeta: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    lineHeight: 16,
+  },
+  formNote: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
   },
   linkIconBg: {
     width: 32,

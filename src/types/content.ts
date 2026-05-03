@@ -29,6 +29,18 @@ export interface OfficialLink {
   url: string;
 }
 
+export type OfficialFormLinkType = 'official-page' | 'pdf' | 'fillable-pdf' | 'example-pdf';
+export type OfficialFormJurisdiction = 'national' | 'prefecture' | 'municipality';
+
+export interface OfficialFormLink extends OfficialLink {
+  type: OfficialFormLinkType;
+  jurisdiction: OfficialFormJurisdiction;
+  jurisdictionLabel?: string;
+  verifiedAt: string;
+  note?: string;
+  sourceUrl?: string;
+}
+
 export interface ContentMetadata {
   lastUpdated: string;
   sources: OfficialLink[];
