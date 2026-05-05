@@ -207,8 +207,8 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
 
         {/* Story Content */}
         <View style={styles.contentSection}>
-          {story.paragraphs.map((paragraph) => (
-            <View key={paragraph.id} style={styles.paragraph}>
+          {story.paragraphs.map((paragraph, idx) => (
+            <View key={paragraph.id} style={[styles.paragraph, idx === story.paragraphs.length - 1 && styles.paragraphLast]}>
               {/* Paragraph header with audio */}
               <View style={styles.paragraphHeader}>
                 <AudioButton
@@ -421,10 +421,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   contentSection: {
-    marginBottom: 20,
+    marginBottom: 16,
   },
   paragraph: {
-    marginBottom: 24,
+    marginBottom: 18,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  paragraphLast: {
+    borderBottomWidth: 0,
+    marginBottom: 12,
   },
   paragraphHeader: {
     flexDirection: 'row',
@@ -432,26 +439,28 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   paragraphTextContainer: {
-    marginBottom: 8,
+    marginBottom: 4,
   },
   sentenceContainer: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   sentenceTokens: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    marginBottom: 2,
+    marginBottom: 1,
+    lineHeight: 24,
   },
   tokenWrapper: {
-    marginRight: 4,
-    marginBottom: 4,
+    marginRight: 3,
+    marginBottom: 2,
   },
   furigana: {
-    fontSize: 10,
+    fontSize: 9,
     color: Colors.textMuted,
     textAlign: 'center',
-    minWidth: 20,
+    minWidth: 16,
+    lineHeight: 10,
   },
   paragraphText: {
     fontSize: 16,
@@ -461,10 +470,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   tokenText: {
-    fontSize: 16,
-    color: Colors.textPrimary,
+    fontSize: 15,
+    color: Colors.primary,
     fontWeight: '500',
     textAlign: 'center',
+    lineHeight: 18,
   },
   sentenceTranslation: {
     fontSize: 12,
@@ -473,10 +483,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   translationText: {
-    fontSize: 13,
-    lineHeight: 20,
-    color: Colors.textMuted,
+    fontSize: 12,
+    lineHeight: 16,
+    color: Colors.textSecondary,
     fontStyle: 'italic',
+    marginTop: 2,
   },
   replayButton: {
     backgroundColor: Colors.primary,
