@@ -214,7 +214,10 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
 
         {/* Action Buttons */}
         <View style={styles.actionsContainer}>
-          <TouchableOpacity style={[styles.actionButton, styles.actionButtonSecondary]}>
+          <TouchableOpacity
+            style={[styles.actionButton, styles.actionButtonSecondary]}
+            onPress={() => navigation.navigate('StoryVocabDashboard')}
+          >
             <Ionicons name="bookmark-outline" size={18} color={Colors.primary} />
             <Text style={styles.actionButtonTextSecondary}>Các bookmark</Text>
           </TouchableOpacity>

@@ -18,6 +18,7 @@ import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { JLPTLevel } from '../types/jlpt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { getCompletionStats } from '../utils/storyProgress';
+import { loadStoryStreak, StoryStreakData } from '../utils/storyStreak';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -30,17 +31,20 @@ export default function StoryHubScreen({ navigation }: Props) {
   const isTablet = width >= 768;
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('N5');
   const [stats, setStats] = useState({ totalStories: 0, completedStories: 0, percentageComplete: 0, totalWordsLearned: 0 });
+  const [streak, setStreak] = useState<StoryStreakData | null>(null);
 
   const levels: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2'];
 
-  // Reload stats when screen is focused
+  // Reload stats and streak when screen is focused
   useFocusEffect(
     useCallback(() => {
-      const loadStats = async () => {
+      const loadData = async () => {
         const newStats = await getCompletionStats();
         setStats(newStats);
+        const streakData = await loadStoryStreak();
+        setStreak(streakData);
       };
-      loadStats();
+      loadData();
     }, [])
   );
 
@@ -56,6 +60,12 @@ export default function StoryHubScreen({ navigation }: Props) {
           <Text style={styles.title}>Đọc Truyện Tiếng Nhật</Text>
           <Text style={styles.subtitle}>Learn Japanese through stories</Text>
         </View>
+        {streak && streak.currentStreak > 0 ? (
+          <View style={styles.streakBadge}>
+            <Text style={styles.streakNum}>{streak.currentStreak}</Text>
+            <Text style={styles.streakLabel}>ngày</Text>
+          </View>
+        ) : null}
       </View>
 
       <ScrollView style={styles.scrollView} contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}>
@@ -355,5 +365,23 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.textMuted,
     marginTop: 12,
+  },
+  streakBadge: {
+    backgroundColor: Colors.accent,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  streakNum: {
+    fontSize: 16,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
+  },
+  streakLabel: {
+    fontSize: 10,
+    color: Colors.textMuted,
+    marginTop: 2,
   },
 });

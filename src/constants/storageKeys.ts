@@ -17,4 +17,5 @@ export const StorageKeys = {
   storyBookmarks: 'story_bookmarks_v1',
   sentenceBookmarks: 'sentence_bookmarks_v1',
   wordBookmarks: 'word_bookmarks_v1',
+  storyStreak: 'story_streak_v1',
 } as const;

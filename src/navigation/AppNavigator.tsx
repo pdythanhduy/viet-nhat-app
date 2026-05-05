@@ -43,6 +43,7 @@ import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
 import StoryHubScreen from '../screens/StoryHubScreen';
 import StoryReadingScreen from '../screens/StoryReadingScreen';
+import StoryVocabDashboard from '../screens/StoryVocabDashboard';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
@@ -89,6 +90,7 @@ export type RootStackParamList = {
   ImportantDates: undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
+  StoryVocabDashboard: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -386,6 +388,7 @@ export default function AppNavigator() {
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryReading" component={StoryReadingScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="StoryVocabDashboard" component={StoryVocabDashboard} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
