@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
+import { NavigationContainer, NavigatorScreenParams, NavigationContainerRef } from '@react-navigation/native';
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -41,8 +41,16 @@ import LaborHelpScreen from '../screens/LaborHelpScreen';
 import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
+import JLPTScreen from '../screens/JLPTScreen';
+import JLPTVocabularyScreen from '../screens/JLPTVocabularyScreen';
+import JLPTFlashcardScreen from '../screens/JLPTFlashcardScreen';
+import JLPTQuizScreen from '../screens/JLPTQuizScreen';
+import StoryHubScreen from '../screens/StoryHubScreen';
+import StoryReadingScreen from '../screens/StoryReadingScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
+import { JLPTLevel } from '../types/jlpt';
+import { logScreenView } from '../utils/analytics';
 
 export type TabParamList = {
   Home: undefined;
@@ -84,6 +92,12 @@ export type RootStackParamList = {
   Search: undefined;
   Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
   ImportantDates: undefined;
+  JLPT: undefined;
+  JLPTVocabulary: { level?: JLPTLevel } | undefined;
+  JLPTFlashcard: { level: JLPTLevel };
+  JLPTQuiz: { level?: JLPTLevel } | undefined;
+  StoryHub: undefined;
+  StoryReading: { storyId: string };
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -172,8 +186,23 @@ function TabNavigator() {
 }
 
 export default function AppNavigator() {
+  const navigationRef = React.useRef<NavigationContainerRef<RootStackParamList>>(null);
+  const routeNameRef = React.useRef<string | undefined>(undefined);
+
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name;
+      }}
+      onStateChange={() => {
+        const currentRoute = navigationRef.current?.getCurrentRoute();
+        if (currentRoute && currentRoute.name !== routeNameRef.current) {
+          routeNameRef.current = currentRoute.name;
+          logScreenView(currentRoute.name).catch(() => {});
+        }
+      }}
+    >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MainTabs" component={TabNavigator} />
         <Stack.Screen
@@ -336,6 +365,36 @@ export default function AppNavigator() {
           }}
         />
         <Stack.Screen
+          name="JLPT"
+          component={JLPTScreen}
+          options={{
+            ...primaryHeaderOptions,
+            headerTitle: 'JLPT Vocabulary',
+          }}
+        />
+        <Stack.Screen
+          name="JLPTVocabulary"
+          component={JLPTVocabularyScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="JLPTFlashcard"
+          component={JLPTFlashcardScreen}
+          options={{
+            ...plainHeaderOptions,
+            headerTitle: 'JLPT Flashcard',
+          }}
+        />
+        <Stack.Screen
+          name="JLPTQuiz"
+          component={JLPTQuizScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="Feedback"
           component={FeedbackScreen}
           options={{
@@ -364,6 +423,8 @@ export default function AppNavigator() {
         <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Saved" component={SavedScreen} options={{ headerShown: false }} />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="StoryReading" component={StoryReadingScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

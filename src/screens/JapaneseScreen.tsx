@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { Alert, Clipboard, ScrollView, Share, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, Share, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
@@ -146,7 +147,7 @@ export default function JapaneseScreen() {
   }, [categories, search]);
 
   const copyPhrase = (jp: string, romaji: string, vn: string) => {
-    Clipboard.setString(`${jp}\n${romaji}\n${vn}`);
+    Clipboard.setStringAsync(`${jp}\n${romaji}\n${vn}`).catch(() => {});
     Alert.alert('Đã sao chép', 'Đã copy câu vào clipboard.');
   };
 
@@ -158,7 +159,7 @@ export default function JapaneseScreen() {
       ...category.phrases.flatMap((phrase) => [phrase.jp, phrase.romaji, phrase.vn, '']),
       ...(category.dialogue ? ['Hội thoại', category.dialogue.situation, '', ...category.dialogue.lines.flatMap((line) => [`${line.speakerLabel}: ${line.jp}`, line.romaji, line.vn, ''])] : []),
     ].join('\n');
-    Clipboard.setString(content);
+    Clipboard.setStringAsync(content).catch(() => {});
     Alert.alert('Đã sao chép', 'Đã copy toàn bộ nhóm câu vào clipboard.');
   };
 
@@ -253,6 +254,10 @@ export default function JapaneseScreen() {
           <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JapaneseQuiz', {})}>
             <Ionicons name="help-circle-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Trắc nghiệm</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JLPT')}>
+            <Ionicons name="book-outline" size={16} color={Colors.white} />
+            <Text style={styles.quickBtnText}>JLPT N5-N2</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('BJT')}>
             <Ionicons name="briefcase-outline" size={16} color={Colors.white} />
@@ -402,6 +407,22 @@ export default function JapaneseScreen() {
                   ))}
                 </View>
               ) : null}
+            </View>
+
+            {/* Đọc truyện tiếng Nhật */}
+            <View style={styles.card}>
+              <TouchableOpacity style={styles.accordionRow} onPress={() => navigation.navigate('StoryHub')}>
+                <View style={styles.flex}>
+                  <Text style={styles.cardTitle}>Đọc Truyện Tiếng Nhật</Text>
+                  <Text style={styles.cardSubtitle}>Học tiếng Nhật qua các truyện ngắn</Text>
+                </View>
+                <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+              </TouchableOpacity>
+              <View style={styles.subCard}>
+                <Text style={styles.vnText}>
+                  📚 Đọc những truyện ngắn được viết riêng cho người học tiếng Nhật. Từng từ được chú dạo, có dịch Việt, và bạn có thể nghe phát âm.
+                </Text>
+              </View>
             </View>
 
             {/* Luyện gần đây */}
@@ -555,9 +576,9 @@ const styles = StyleSheet.create({
   streakLabel: { fontSize: 10, color: 'rgba(255,255,255,0.8)', fontWeight: '600', fontFamily: 'BeVietnamPro_600SemiBold' },
   searchBox: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12 },
   searchInput: { flex: 1, color: Colors.white, fontSize: 14, paddingVertical: 0 },
-  quickRow: { flexDirection: 'row', gap: 8 },
-  quickBtn: { flex: 1, flexDirection: 'row', gap: 6, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 9 },
-  quickBtnText: { color: Colors.white, fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
+  quickRow: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
+  quickBtn: { flex: 1, minWidth: '45%', flexDirection: 'row', gap: 4, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 8, paddingHorizontal: 6 },
+  quickBtnText: { color: Colors.white, fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
 
   // Content
   content: { flex: 1, paddingHorizontal: 14, paddingTop: 14 },
