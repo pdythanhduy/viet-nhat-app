@@ -17,7 +17,7 @@ import { Colors } from '../constants/colors';
 import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { JLPTLevel } from '../types/jlpt';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { getCompletionStats } from '../utils/storyProgress';
+import { getCompletionStats, loadStoryProgress } from '../utils/storyProgress';
 import { loadStoryStreak, StoryStreakData } from '../utils/storyStreak';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -32,6 +32,7 @@ export default function StoryHubScreen({ navigation }: Props) {
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('N5');
   const [stats, setStats] = useState({ totalStories: 0, completedStories: 0, percentageComplete: 0, totalWordsLearned: 0 });
   const [streak, setStreak] = useState<StoryStreakData | null>(null);
+  const [storyProgress, setStoryProgress] = useState<any>(null);
 
   const levels: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2'];
 
@@ -43,6 +44,8 @@ export default function StoryHubScreen({ navigation }: Props) {
         setStats(newStats);
         const streakData = await loadStoryStreak();
         setStreak(streakData);
+        const progress = await loadStoryProgress();
+        setStoryProgress(progress);
       };
       loadData();
     }, [])
@@ -124,17 +127,26 @@ export default function StoryHubScreen({ navigation }: Props) {
             </View>
           ) : (
             <View style={styles.storiesList}>
-              {filteredStories.map((story) => (
+              {filteredStories.map((story) => {
+                const isCompleted = storyProgress?.[story.id]?.isCompleted;
+                return (
                 <TouchableOpacity
                   key={story.id}
-                  style={styles.storyCard}
+                  style={[styles.storyCard, isCompleted && styles.storyCardCompleted]}
                   onPress={() => navigation.navigate('StoryReading', { storyId: story.id })}
                 >
                   <View style={styles.storyContent}>
                     <View style={styles.storyHeader}>
                       <Text style={styles.storyTitle}>{story.title}</Text>
-                      <View style={styles.levelBadge}>
-                        <Text style={styles.levelBadgeText}>{story.level}</Text>
+                      <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
+                        {isCompleted && (
+                          <View style={styles.completedBadge}>
+                            <Ionicons name="checkmark-circle" size={16} color={Colors.primary} />
+                          </View>
+                        )}
+                        <View style={styles.levelBadge}>
+                          <Text style={styles.levelBadgeText}>{story.level}</Text>
+                        </View>
                       </View>
                     </View>
                     <Text style={styles.storyCategory}>{story.category}</Text>
@@ -152,7 +164,8 @@ export default function StoryHubScreen({ navigation }: Props) {
                   </View>
                   <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
                 </TouchableOpacity>
-              ))}
+              );
+              })}
             </View>
           )}
         </View>
@@ -383,5 +396,15 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: Colors.textMuted,
     marginTop: 2,
+  },
+  completedBadge: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  storyCardCompleted: {
+    opacity: 0.7,
   },
 });
