@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -15,6 +15,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { SearchResultItem, searchAppContent } from '../utils/searchIndex';
+import { logSearchPerformed } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -41,6 +42,12 @@ export default function SearchScreen() {
   const [query, setQuery] = useState('');
 
   const results = useMemo(() => searchAppContent(query), [query]);
+
+  useEffect(() => {
+    if (query.trim().length > 2) {
+      logSearchPerformed(query.trim(), results.length).catch(() => {});
+    }
+  }, [query, results.length]);
 
   const handleOpenResult = (item: SearchResultItem) => {
     if (item.type === 'guide') {

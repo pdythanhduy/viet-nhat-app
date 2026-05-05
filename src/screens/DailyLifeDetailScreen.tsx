@@ -6,10 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
-  Clipboard,
   Image,
   useWindowDimensions,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -21,6 +21,7 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { recordRecentDailyLifeTopic } from '../utils/dailyLifeRecentTopics';
 import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
+import { logBookmarkToggled } from '../utils/analytics';
 import type { DailyLifeSection } from '../types/content';
 import RichText, { RichInline } from '../components/RichText';
 
@@ -80,12 +81,12 @@ export default function DailyLifeDetailScreen() {
       parts.push(...topic.sections.map((section) => `\n${formatSectionForCopy(section)}`));
     }
 
-    Clipboard.setString(parts.join('\n'));
+    Clipboard.setStringAsync(parts.join('\n')).catch(() => {});
     Alert.alert('Đã copy', 'Đã copy toàn bộ nội dung tóm tắt của mục này.');
   };
 
   const copySection = (section: DailyLifeSection) => {
-    Clipboard.setString(`${topic.title}\n${formatSectionForCopy(section)}`);
+    Clipboard.setStringAsync(`${topic.title}\n${formatSectionForCopy(section)}`).catch(() => {});
     Alert.alert('Đã copy', `Đã copy mục "${section.title}".`);
   };
 
@@ -101,6 +102,7 @@ export default function DailyLifeDetailScreen() {
         savedAt: '',
       });
       setBookmarked(next);
+      logBookmarkToggled('daily-life', topic.id, next).catch(() => {});
       Alert.alert(next ? 'Đã lưu' : 'Đã bỏ lưu', next ? 'Đã thêm mục này vào danh sách lưu.' : 'Đã xóa mục này khỏi danh sách lưu.');
     } catch {
       Alert.alert('Lỗi', 'Không thể cập nhật danh sách lưu lúc này.');

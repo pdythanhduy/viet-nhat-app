@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   Linking,
   Alert,
-  Clipboard,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -53,7 +53,7 @@ function copyScenarioBlock(
     ...contact.map((item) => `- ${item}`),
   ].join('\n');
 
-  Clipboard.setString(content);
+  Clipboard.setStringAsync(content).catch(() => {});
   Alert.alert('Đã sao chép', `Đã copy hướng dẫn "${title}".`);
 }
 

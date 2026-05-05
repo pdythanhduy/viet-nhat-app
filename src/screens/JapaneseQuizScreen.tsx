@@ -12,6 +12,7 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { buildQuizQuestions, QuizDirection, QuizPhrase } from '../utils/japaneseQuiz';
 import { markStudiedToday } from '../utils/japaneseStreak';
+import { logQuizStarted, logQuizCompleted } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'JapaneseQuiz'>;
@@ -54,6 +55,10 @@ export default function JapaneseQuizScreen() {
     });
   }, [categoryName, navigation]);
 
+  useEffect(() => {
+    logQuizStarted('japanese_phrase').catch(() => {});
+  }, []);
+
   if (questions.length === 0) {
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
@@ -77,6 +82,7 @@ export default function JapaneseQuizScreen() {
   const handleNext = async () => {
     if (currentIndex + 1 >= questions.length) {
       await markStudiedToday();
+      logQuizCompleted('japanese_phrase', score, questions.length).catch(() => {});
       setDone(true);
       return;
     }

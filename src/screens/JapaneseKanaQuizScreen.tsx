@@ -10,6 +10,7 @@ import { Colors } from '../constants/colors';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { buildKanaQuizQuestions, KanaQuizMode } from '../utils/kanaQuiz';
+import { logQuizStarted, logQuizCompleted } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'JapaneseKanaQuiz'>;
@@ -58,6 +59,10 @@ export default function JapaneseKanaQuizScreen() {
     setFinished(false);
   }, [mode]);
 
+  useEffect(() => {
+    logQuizStarted('japanese_kana').catch(() => {});
+  }, []);
+
   const handleAnswer = (index: number) => {
     if (!question || selectedIndex !== null) return;
 
@@ -69,6 +74,7 @@ export default function JapaneseKanaQuizScreen() {
 
     setTimeout(() => {
       if (currentIndex + 1 >= questions.length) {
+        logQuizCompleted('japanese_kana', score + (isCorrect ? 1 : 0), questions.length).catch(() => {});
         setFinished(true);
       } else {
         setCurrentIndex((prev) => prev + 1);

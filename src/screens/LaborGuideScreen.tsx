@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   Linking,
   Alert,
-  Clipboard,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -33,12 +33,12 @@ function openUrl(url: string) {
 }
 
 function copyPhrase(jp: string, romaji: string, vn: string) {
-  Clipboard.setString(`${jp}\n${romaji}\n${vn}`);
+  Clipboard.setStringAsync(`${jp}\n${romaji}\n${vn}`).catch(() => {});
   Alert.alert('Đã sao chép', 'Đã copy mẫu câu vào clipboard.');
 }
 
 function copyText(title: string, lines: string[]) {
-  Clipboard.setString([title, ...lines].join('\n'));
+  Clipboard.setStringAsync([title, ...lines].join('\n')).catch(() => {});
   Alert.alert('Đã sao chép', `Đã copy "${title}".`);
 }
 

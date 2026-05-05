@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   Linking,
   Alert,
-  Clipboard,
   Image,
   useWindowDimensions,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -41,6 +41,7 @@ import {
   getAdminGuideExportFileName,
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
+import { logGuideOpened, logBookmarkToggled, logHtmlExported } from '../utils/analytics';
 import type { OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -96,6 +97,12 @@ export default function AdminDetailScreen() {
     });
   }, [guideId]);
 
+  useEffect(() => {
+    if (guide) {
+      logGuideOpened(guide.id, guide.title, guide.category).catch(() => {});
+    }
+  }, [guide?.id]);
+
   const {
     completedSteps,
     toggleStep: handleToggleStep,
@@ -115,6 +122,7 @@ export default function AdminDetailScreen() {
       savedAt: '',
     });
     setBookmarked(added);
+    logBookmarkToggled('guide', guide.id, added).catch(() => {});
   };
 
   const formatStepForCopy = (step: (typeof guide.steps)[number]) => {
@@ -186,7 +194,7 @@ export default function AdminDetailScreen() {
       parts.push(...guide.commonMistakes.map((item) => `- ${item}`));
     }
 
-    Clipboard.setString(parts.join('\n'));
+    Clipboard.setStringAsync(parts.join('\n')).catch(() => {});
     Alert.alert('Đã copy', 'Đã copy toàn bộ nội dung tóm tắt của thủ tục này.');
   };
 
@@ -203,12 +211,12 @@ export default function AdminDetailScreen() {
       ),
     ].join('\n');
 
-    Clipboard.setString(content);
+    Clipboard.setStringAsync(content).catch(() => {});
     Alert.alert('Đã copy', 'Đã copy checklist giấy tờ.');
   };
 
   const copyStep = (step: (typeof guide.steps)[number]) => {
-    Clipboard.setString(`${guide.title}\n${formatStepForCopy(step)}`);
+    Clipboard.setStringAsync(`${guide.title}\n${formatStepForCopy(step)}`).catch(() => {});
     Alert.alert('Đã copy', `Đã copy bước ${step.step}.`);
   };
 
@@ -223,6 +231,7 @@ export default function AdminDetailScreen() {
         scopeLabel: 'Một thủ tục',
       });
       await saveAndShareAdminGuideHtml(getAdminGuideExportFileName({ guide }), html);
+      logHtmlExported('guide').catch(() => {});
     } catch {
       Alert.alert('Không thể tạo file', 'Vui lòng thử lại sau hoặc kiểm tra quyền lưu/chia sẻ file.');
     } finally {

@@ -14,6 +14,7 @@ import {
   getAvailableBjtLevels,
   getBjtQuestionLevel,
 } from '../utils/bjtQuestionLevels';
+import { logQuizStarted, logQuizCompleted } from '../utils/analytics';
 
 const FILTERS = [
   { id: 'all', label: 'Tất cả' },
@@ -92,6 +93,10 @@ export default function BJTQuizScreen() {
     loadBjtProgress().then((progress) => {
       setAdaptiveSkill(progress.weakestSkill ?? null);
     });
+  }, []);
+
+  useEffect(() => {
+    logQuizStarted('bjt_scenario').catch(() => {});
   }, []);
 
   const availableLevels = useMemo(() => getAvailableBjtLevels(BJT_PRACTICE_QUESTIONS), []);
@@ -325,6 +330,7 @@ export default function BJTQuizScreen() {
                     return { questionId, skill: question.skill };
                   }),
                 });
+                logQuizCompleted('bjt_scenario', score + (latestWasCorrect ? 1 : 0), questions.length).catch(() => {});
                 setDone(true);
                 return;
               }

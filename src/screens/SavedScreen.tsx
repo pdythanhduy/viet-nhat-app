@@ -6,10 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
-  Clipboard,
   Share,
   TextInput,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -78,7 +78,7 @@ export default function SavedScreen() {
   };
 
   const copyText = (title: string, lines: string[]) => {
-    Clipboard.setString([title, ...lines].join('\n'));
+    Clipboard.setStringAsync([title, ...lines].join('\n')).catch(() => {});
     Alert.alert('Đã sao chép', `Đã copy "${title}".`);
   };
 
