@@ -65,8 +65,11 @@ export default function StoryHubScreen({ navigation }: Props) {
         </View>
         {streak && streak.currentStreak > 0 ? (
           <View style={styles.streakBadge}>
-            <Text style={styles.streakNum}>{streak.currentStreak}</Text>
-            <Text style={styles.streakLabel}>ngày</Text>
+            <Text style={styles.streakIcon}>🔥</Text>
+            <View style={styles.streakInfo}>
+              <Text style={styles.streakNum}>{streak.currentStreak}</Text>
+              <Text style={styles.streakLabel}>ngày</Text>
+            </View>
           </View>
         ) : null}
       </View>
@@ -384,6 +387,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  streakIcon: {
+    fontSize: 20,
+  },
+  streakInfo: {
     alignItems: 'center',
   },
   streakNum: {

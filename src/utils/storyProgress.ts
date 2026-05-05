@@ -226,6 +226,19 @@ export async function addWordBookmark(word: string, reading: string, meaning: st
 }
 
 /**
+ * Remove word from bookmarks
+ */
+export async function removeWordBookmark(wordId: string): Promise<void> {
+  try {
+    const bookmarks = await loadWordBookmarks();
+    const filtered = bookmarks.filter((b) => b.id !== wordId);
+    await AsyncStorage.setItem(StorageKeys.wordBookmarks, JSON.stringify(filtered));
+  } catch (error) {
+    console.error('Error removing word bookmark:', error);
+  }
+}
+
+/**
  * Get completion stats
  */
 export async function getCompletionStats(): Promise<{

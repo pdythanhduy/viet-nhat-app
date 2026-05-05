@@ -16,7 +16,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Colors } from '../constants/colors';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { WordBookmark } from '../types/story';
-import { loadWordBookmarks } from '../utils/storyProgress';
+import { loadWordBookmarks, removeWordBookmark } from '../utils/storyProgress';
 import AudioButton from '../components/AudioButton';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -46,7 +46,8 @@ export default function StoryVocabDashboard({ navigation }: Props) {
       {
         text: 'Xóa',
         style: 'destructive',
-        onPress: () => {
+        onPress: async () => {
+          await removeWordBookmark(id);
           const updated = words.filter((w) => w.id !== id);
           setWords(updated);
         },
