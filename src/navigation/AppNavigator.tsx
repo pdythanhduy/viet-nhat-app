@@ -41,15 +41,10 @@ import LaborHelpScreen from '../screens/LaborHelpScreen';
 import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
-import JLPTScreen from '../screens/JLPTScreen';
-import JLPTVocabularyScreen from '../screens/JLPTVocabularyScreen';
-import JLPTFlashcardScreen from '../screens/JLPTFlashcardScreen';
-import JLPTQuizScreen from '../screens/JLPTQuizScreen';
 import StoryHubScreen from '../screens/StoryHubScreen';
 import StoryReadingScreen from '../screens/StoryReadingScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
-import { JLPTLevel } from '../types/jlpt';
 import { logScreenView } from '../utils/analytics';
 
 export type TabParamList = {
@@ -92,10 +87,6 @@ export type RootStackParamList = {
   Search: undefined;
   Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
   ImportantDates: undefined;
-  JLPT: undefined;
-  JLPTVocabulary: { level?: JLPTLevel } | undefined;
-  JLPTFlashcard: { level: JLPTLevel };
-  JLPTQuiz: { level?: JLPTLevel } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
 };
@@ -360,36 +351,6 @@ export default function AppNavigator() {
         <Stack.Screen
           name="JapaneseKanaQuiz"
           component={JapaneseKanaQuizScreen}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="JLPT"
-          component={JLPTScreen}
-          options={{
-            ...primaryHeaderOptions,
-            headerTitle: 'JLPT Vocabulary',
-          }}
-        />
-        <Stack.Screen
-          name="JLPTVocabulary"
-          component={JLPTVocabularyScreen}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="JLPTFlashcard"
-          component={JLPTFlashcardScreen}
-          options={{
-            ...plainHeaderOptions,
-            headerTitle: 'JLPT Flashcard',
-          }}
-        />
-        <Stack.Screen
-          name="JLPTQuiz"
-          component={JLPTQuizScreen}
           options={{
             headerShown: false,
           }}

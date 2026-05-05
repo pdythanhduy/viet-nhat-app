@@ -8,6 +8,7 @@ import {
   useWindowDimensions,
   Modal,
   Pressable,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,7 +19,9 @@ import { Colors } from '../constants/colors';
 import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, Token, Paragraph } from '../types/story';
-import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition } from '../utils/storyProgress';
+import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark } from '../utils/storyProgress';
+import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
+import AudioButton from '../components/AudioButton';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -54,6 +57,10 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
         }
       };
       loadData();
+
+      return () => {
+        void stopJapaneseAudio();
+      };
     }, [story])
   );
 
@@ -62,10 +69,32 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
     setModalVisible(true);
   };
 
-  const handleAudioPress = async (word: string, reading: string) => {
-    // TTS implementation to be added in future phase
-    // For now, just provide visual feedback
-    console.log('Audio for:', reading || word);
+  const handlePlayParagraphAudio = async (paragraphId: string) => {
+    if (!story) return;
+    const paragraph = story.paragraphs.find((p) => p.id === paragraphId);
+    if (!paragraph) return;
+
+    try {
+      const sentences = paragraph.sentences || [];
+      const lines = sentences.map((sent, idx) => ({ id: `${paragraphId}:${idx}`, text: sent.text }));
+      const result = await playJapaneseSequence(lines, `story:${story.id}:${paragraphId}`);
+      if (result?.ok === false && result.reason === 'missing-ja-voice') {
+        Alert.alert('Thiết bị chưa có giọng Nhật', 'Máy này hiện chưa có voice tiếng Nhật. Hãy cài Japanese TTS voice trong cài đặt ngôn ngữ.');
+      }
+    } catch (error) {
+      console.error('Error playing paragraph audio:', error);
+    }
+  };
+
+  const handleSaveWord = async () => {
+    if (!selectedWord) return;
+    try {
+      await addWordBookmark(selectedWord.word, selectedWord.reading, selectedWord.meaning);
+      Alert.alert('Đã lưu', `Từ "${selectedWord.word}" đã được lưu.`);
+      setModalVisible(false);
+    } catch (error) {
+      console.error('Error saving word:', error);
+    }
   };
 
   const handleBookmarkToggle = async () => {
@@ -144,7 +173,40 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
         <View style={styles.contentSection}>
           {story.paragraphs.map((paragraph) => (
             <View key={paragraph.id} style={styles.paragraph}>
-              <Text style={styles.paragraphText}>{paragraph.text}</Text>
+              {/* Paragraph header with audio */}
+              <View style={styles.paragraphHeader}>
+                <AudioButton
+                  audioId={`story:${story.id}:para:${paragraph.id}`}
+                  text={paragraph.text}
+                  size={18}
+                />
+              </View>
+
+              {/* Paragraph tokens */}
+              <View style={styles.paragraphTextContainer}>
+                {paragraph.sentences?.map((sentence, sentIdx) => (
+                  <View key={sentence.id} style={styles.sentenceContainer}>
+                    {/* Sentence tokens */}
+                    <View style={styles.sentenceTokens}>
+                      {sentence.tokens?.map((token) => (
+                        <TouchableOpacity
+                          key={token.id}
+                          onPress={() => handleWordPress(token)}
+                          style={styles.tokenWrapper}
+                        >
+                          {token.reading && <Text style={styles.furigana}>{token.reading}</Text>}
+                          <Text style={styles.tokenText}>{token.word}</Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+
+                    {/* Sentence translation */}
+                    <Text style={styles.sentenceTranslation}>{sentence.translation}</Text>
+                  </View>
+                ))}
+              </View>
+
+              {/* Paragraph translation */}
               <Text style={styles.translationText}>{paragraph.translation}</Text>
             </View>
           ))}
@@ -186,13 +248,16 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
                   <Text style={styles.wordReading}>{selectedWord.reading}</Text>
                 </View>
 
-                <TouchableOpacity
-                  style={styles.audioButton}
-                  onPress={() => handleAudioPress(selectedWord.word, selectedWord.reading)}
-                >
-                  <Ionicons name="volume-high" size={20} color={Colors.white} />
+                <View style={styles.audioButtonContainer}>
+                  <AudioButton
+                    audioId={`story:word:${selectedWord.id}`}
+                    text={selectedWord.reading || selectedWord.word}
+                    size={20}
+                    backgroundColor={Colors.primary}
+                    color={Colors.white}
+                  />
                   <Text style={styles.audioButtonText}>Nghe phát âm</Text>
-                </TouchableOpacity>
+                </View>
 
                 <View style={styles.meaningSection}>
                   <Text style={styles.meaningLabel}>Nghĩa</Text>
@@ -217,7 +282,7 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
                   </View>
                 )}
 
-                <TouchableOpacity style={styles.saveWordButton}>
+                <TouchableOpacity style={styles.saveWordButton} onPress={handleSaveWord}>
                   <Ionicons name="star-outline" size={18} color={Colors.primary} />
                   <Text style={styles.saveWordButtonText}>Lưu từ này</Text>
                 </TouchableOpacity>
@@ -302,12 +367,51 @@ const styles = StyleSheet.create({
   paragraph: {
     marginBottom: 24,
   },
+  paragraphHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  paragraphTextContainer: {
+    marginBottom: 8,
+  },
+  sentenceContainer: {
+    marginBottom: 12,
+  },
+  sentenceTokens: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    marginBottom: 6,
+  },
+  tokenWrapper: {
+    marginRight: 4,
+    marginBottom: 4,
+  },
+  furigana: {
+    fontSize: 10,
+    color: Colors.textMuted,
+    textAlign: 'center',
+    minWidth: 20,
+  },
   paragraphText: {
     fontSize: 16,
     lineHeight: 28,
     color: Colors.textPrimary,
     fontWeight: '500',
     marginBottom: 8,
+  },
+  tokenText: {
+    fontSize: 16,
+    color: Colors.textPrimary,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  sentenceTranslation: {
+    fontSize: 12,
+    color: Colors.textMuted,
+    fontStyle: 'italic',
+    marginBottom: 4,
   },
   translationText: {
     fontSize: 13,
@@ -394,6 +498,12 @@ const styles = StyleSheet.create({
     color: Colors.textMuted,
     fontStyle: 'italic',
   },
+  audioButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 16,
+  },
   audioButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -402,11 +512,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     borderRadius: 8,
-    marginBottom: 16,
+    marginBottom: 0,
     gap: 8,
   },
   audioButtonText: {
-    color: Colors.white,
+    color: Colors.textPrimary,
     fontWeight: '600',
     fontSize: 14,
     fontFamily: 'BeVietnamPro_600SemiBold',

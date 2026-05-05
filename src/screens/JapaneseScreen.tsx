@@ -255,9 +255,9 @@ export default function JapaneseScreen() {
             <Ionicons name="help-circle-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Trắc nghiệm</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JLPT')}>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('StoryHub')}>
             <Ionicons name="book-outline" size={16} color={Colors.white} />
-            <Text style={styles.quickBtnText}>JLPT N5-N2</Text>
+            <Text style={styles.quickBtnText}>Đọc Truyện</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('BJT')}>
             <Ionicons name="briefcase-outline" size={16} color={Colors.white} />
