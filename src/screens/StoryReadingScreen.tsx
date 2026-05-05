@@ -245,6 +245,26 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
           ))}
         </View>
 
+        {/* Replay full story */}
+        <TouchableOpacity
+          style={styles.replayButton}
+          onPress={async () => {
+            if (!story) return;
+            try {
+              const lines = story.paragraphs.map((p, idx) => ({
+                id: `${story.id}:para:${idx}`,
+                text: p.text,
+              }));
+              await playJapaneseSequence(lines, `story:${story.id}:full`);
+            } catch (error) {
+              console.error('Error replaying story:', error);
+            }
+          }}
+        >
+          <Ionicons name="play-circle-outline" size={20} color={Colors.white} />
+          <Text style={styles.replayButtonText}>Nghe lại cả truyện</Text>
+        </TouchableOpacity>
+
         {/* Action Buttons */}
         <View style={styles.actionsContainer}>
           <TouchableOpacity
@@ -415,13 +435,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   sentenceContainer: {
-    marginBottom: 12,
+    marginBottom: 8,
   },
   sentenceTokens: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    marginBottom: 6,
+    marginBottom: 2,
   },
   tokenWrapper: {
     marginRight: 4,
@@ -457,6 +477,22 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: Colors.textMuted,
     fontStyle: 'italic',
+  },
+  replayButton: {
+    backgroundColor: Colors.primary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    borderRadius: 8,
+    gap: 8,
+    marginBottom: 12,
+  },
+  replayButtonText: {
+    color: Colors.white,
+    fontWeight: '600',
+    fontSize: 14,
+    fontFamily: 'BeVietnamPro_600SemiBold',
   },
   actionsContainer: {
     flexDirection: 'row',
