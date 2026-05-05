@@ -21,6 +21,7 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, Token, Paragraph } from '../types/story';
 import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark } from '../utils/storyProgress';
 import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
+import { markStoryReadToday } from '../utils/storyStreak';
 import AudioButton from '../components/AudioButton';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -40,10 +41,12 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [selectedWord, setSelectedWord] = useState<Token | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [hasMarkedStoryReadToday, setHasMarkedStoryReadToday] = useState(false);
 
   useEffect(() => {
     const foundStory = SAMPLE_STORIES.find((s) => s.id === storyId);
     setStory(foundStory || null);
+    setHasMarkedStoryReadToday(false);
   }, [storyId]);
 
   useFocusEffect(
@@ -121,6 +124,14 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
     updateReadingPosition(story.id, 0, Math.min(percentRead, 100)).catch((error) => {
       console.error('Error updating reading position:', error);
     });
+
+    // Mark story as read today when user reaches 20%
+    if (percentRead >= 20 && !hasMarkedStoryReadToday) {
+      setHasMarkedStoryReadToday(true);
+      markStoryReadToday().catch((error) => {
+        console.error('Error marking story read today:', error);
+      });
+    }
   };
 
   if (!story) {
