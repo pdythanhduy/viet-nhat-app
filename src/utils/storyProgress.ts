@@ -37,11 +37,21 @@ export async function saveStoryProgress(storyId: string, progress: StoryProgress
 export async function markStoryCompleted(storyId: string): Promise<void> {
   try {
     const allProgress = await loadStoryProgress();
-    if (allProgress[storyId]) {
+    if (!allProgress[storyId]) {
+      allProgress[storyId] = {
+        storyId,
+        userId: 'default',
+        currentParagraphIndex: 0,
+        percentRead: 100,
+        isCompleted: true,
+        lastReadAt: new Date().toISOString(),
+      };
+    } else {
       allProgress[storyId].isCompleted = true;
       allProgress[storyId].percentRead = 100;
-      await AsyncStorage.setItem(StorageKeys.storyProgress, JSON.stringify(allProgress));
+      allProgress[storyId].lastReadAt = new Date().toISOString();
     }
+    await AsyncStorage.setItem(StorageKeys.storyProgress, JSON.stringify(allProgress));
   } catch (error) {
     console.error('Error marking story completed:', error);
   }
@@ -65,13 +75,22 @@ export async function getStoryProgress(storyId: string): Promise<StoryProgress |
  */
 export async function updateReadingPosition(storyId: string, paragraphIndex: number, percentRead: number): Promise<void> {
   try {
-    const progress = await getStoryProgress(storyId);
-    if (progress) {
+    let progress = await getStoryProgress(storyId);
+    if (!progress) {
+      progress = {
+        storyId,
+        userId: 'default',
+        currentParagraphIndex: paragraphIndex,
+        percentRead: Math.min(percentRead, 100),
+        isCompleted: false,
+        lastReadAt: new Date().toISOString(),
+      };
+    } else {
       progress.currentParagraphIndex = paragraphIndex;
       progress.percentRead = Math.min(percentRead, 100);
       progress.lastReadAt = new Date().toISOString();
-      await saveStoryProgress(storyId, progress);
     }
+    await saveStoryProgress(storyId, progress);
   } catch (error) {
     console.error('Error updating reading position:', error);
   }

@@ -53,7 +53,21 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
     useCallback(() => {
       const loadData = async () => {
         if (story) {
-          const progressData = await getStoryProgress(story.id);
+          let progressData = await getStoryProgress(story.id);
+
+          // Initialize progress if doesn't exist
+          if (!progressData) {
+            progressData = {
+              storyId: story.id,
+              userId: 'default',
+              currentParagraphIndex: 0,
+              percentRead: 0,
+              isCompleted: false,
+              lastReadAt: new Date().toISOString(),
+            };
+            await saveStoryProgress(story.id, progressData);
+          }
+
           setProgress(progressData);
           const bookmarked = await isStoryBookmarked(story.id);
           setIsBookmarked(bookmarked);
@@ -221,9 +235,6 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
                         </TouchableOpacity>
                       ))}
                     </View>
-
-                    {/* Sentence translation */}
-                    <Text style={styles.sentenceTranslation}>{sentence.translation}</Text>
                   </View>
                 ))}
               </View>
