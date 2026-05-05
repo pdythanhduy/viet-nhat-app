@@ -19,7 +19,7 @@ import { Colors } from '../constants/colors';
 import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, Token, Paragraph } from '../types/story';
-import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark } from '../utils/storyProgress';
+import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted } from '../utils/storyProgress';
 import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
 import { markStoryReadToday } from '../utils/storyStreak';
 import AudioButton from '../components/AudioButton';
@@ -111,6 +111,17 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
       setIsBookmarked(!isBookmarked);
     } catch (error) {
       console.error('Error toggling bookmark:', error);
+    }
+  };
+
+  const handleCompleteStory = async () => {
+    if (!story) return;
+    try {
+      await markStoryCompleted(story.id);
+      Alert.alert('Xong!', `Bạn đã hoàn thành "${story.title}". Chúc mừng! 🎉`);
+      navigation.goBack();
+    } catch (error) {
+      console.error('Error completing story:', error);
     }
   };
 
@@ -232,7 +243,10 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
             <Ionicons name="bookmark-outline" size={18} color={Colors.primary} />
             <Text style={styles.actionButtonTextSecondary}>Các bookmark</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.actionButton, styles.actionButtonPrimary]}>
+          <TouchableOpacity
+            style={[styles.actionButton, styles.actionButtonPrimary]}
+            onPress={handleCompleteStory}
+          >
             <Ionicons name="checkmark-circle-outline" size={18} color={Colors.white} />
             <Text style={styles.actionButtonTextPrimary}>Đã xong</Text>
           </TouchableOpacity>
