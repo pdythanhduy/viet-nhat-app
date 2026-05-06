@@ -1,5 +1,6 @@
 ﻿export * from './emergency';
 export * from './adminGuides';
+export * from './adminGuideDatabase';
 export * from './adminGuideForms';
 export * from './dailyLife';
 export * from './jobs';

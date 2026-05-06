@@ -1,11 +1,14 @@
 ﻿import type { AdminGuide, ContentMetadata } from '../../types/content';
 
 export const ADMIN_CONTENT_META: ContentMetadata = {
-  lastUpdated: '2026-05-03',
+  lastUpdated: '2026-05-06',
   sources: [
     { label: '出入国在留管理庁', url: 'https://www.moj.go.jp/isa/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
     { label: 'マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/' },
+    { label: '警察庁', url: 'https://www.npa.go.jp/' },
+    { label: 'デジタル庁', url: 'https://www.digital.go.jp/' },
+    { label: '国税庁', url: 'https://www.nta.go.jp/' },
   ],
 };
 
@@ -13,13 +16,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'residence-card',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Gia hạn thời hạn lưu trú / visa',
     titleJp: '在留期間更新許可申請',
     icon: 'card',
     color: '#185FA5',
     description: 'Thủ tục xin tiếp tục ở Nhật với cùng tư cách lưu trú hiện tại. Đây là thủ tục thường gọi là gia hạn visa, khác với gia hạn hiệu lực vật lý của thẻ cư trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Thủ tục 在留期間更新許可申請 do ISA xử lý toàn quốc; giấy tờ phụ thuộc tư cách lưu trú, nơi cư trú/làm việc/học tập và tình trạng hồ sơ.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn sắp hết hạn lưu trú nhưng đã đổi việc, nghỉ học, nợ thuế/bảo hiểm hoặc hoạt động thực tế khác với tư cách đang có.',
+        'Bạn không chắc nên gia hạn thời hạn lưu trú hay đổi tư cách lưu trú.',
+        'Bạn đã nộp sát hạn, bị yêu cầu bổ sung hoặc có nguy cơ quá hạn.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nếu thời hạn lưu trú hiện tại từ 6 tháng trở lên, thường có thể nộp từ khoảng 3 tháng trước ngày hết hạn; không đợi sát hạn.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu thuộc đối tượng được dùng.',
+      doNow: [
+        'Kiểm tra ngày hết hạn lưu trú trên thẻ cư trú.',
+        'Tải mẫu đúng tư cách lưu trú từ trang ISA tại ngày chuẩn bị nộp.',
+        'Chuẩn bị giấy tờ thuế, bảo hiểm, thu nhập, trường/công ty nếu hồ sơ có yếu tố thay đổi.',
+      ],
+      bring: ['Thẻ cư trú', 'Hộ chiếu', 'Ảnh thẻ 4cm x 3cm', 'Đơn xin gia hạn', 'Giấy tờ chứng minh hoạt động hiện tại'],
+      ifLate: 'Nộp/hỏi ISA càng sớm càng tốt và giải thích trung thực; quá hạn lưu trú là rủi ro nghiêm trọng.',
+      officialSourceLabels: ['在留期間更新許可申請 — 出入国在留管理庁', 'Thông báo sửa phí thủ tục từ 01/04/2025'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
     heroImageCaption: 'Thẻ cư trú (在留カード) — mang theo khi ra ngoài, cập nhật thông tin khi có thay đổi',
     whoIsThisFor: [
@@ -145,22 +172,49 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'residence-card-validity',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Gia hạn hiệu lực thẻ cư trú',
     titleJp: '在留カードの有効期間の更新申請',
     icon: 'id-card',
     color: '#2980B9',
-    description: 'Thủ tục gia hạn hạn sử dụng của thẻ cư trú vật lý. Chủ yếu dành cho người vĩnh trú, Highly Skilled Professional 2 hoặc trẻ em đến mốc 16 tuổi; khác với gia hạn thời hạn lưu trú.',
+    description: 'Thủ tục gia hạn hạn sử dụng của thẻ cư trú vật lý. Chủ yếu dành cho người vĩnh trú, Highly Skilled Professional 2 hoặc trẻ em đến mốc đổi thẻ; khác với gia hạn thời hạn lưu trú. Từ 14/06/2026, ISA bắt đầu mẫu thẻ mới và thủ tục 特定在留カード nếu người dùng muốn gộp chức năng My Number Card.',
+    legalScope: {
+      appliesFrom: '2026-06-14',
+      jurisdiction: 'national',
+      jurisdictionNote: 'Áp dụng theo hệ thống của ISA trên toàn Nhật; nơi nộp phụ thuộc địa chỉ cư trú và loại thủ tục.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-06-14',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Thẻ cư trú sắp hết hạn nhưng bạn không chắc là gia hạn thẻ vật lý hay gia hạn thời hạn lưu trú.',
+        'Bạn muốn xin 特定在留カード cùng lúc đổi tư cách, gia hạn, cấp lại hoặc đổi thông tin.',
+        'Thông tin trên thẻ/My Number không khớp hoặc bạn đang có hồ sơ cư trú bất thường.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Không cần đổi ngay nếu thẻ hiện tại còn hiệu lực; kiểm tra trước khi làm thủ tục từ 14/06/2026.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền; một số khai báo liên quan địa chỉ làm tại municipal office.',
+      doNow: [
+        'Xác định mục tiêu: gia hạn hiệu lực thẻ vật lý, gia hạn thời hạn lưu trú, hay xin 特定在留カード.',
+        'Mở trang ISA đúng thủ tục và kiểm tra mẫu/điều kiện tại ngày nộp.',
+        'Chuẩn bị My Number Card nếu muốn xin 特定在留カード theo hướng dẫn ISA.',
+      ],
+      bring: ['Thẻ cư trú hiện tại', 'Hộ chiếu', 'Ảnh thẻ nếu thủ tục yêu cầu', 'My Number Card nếu xin 特定在留カード'],
+      ifLate: 'Đi ISA càng sớm càng tốt và giải thích trung thực; nếu là hết thời hạn lưu trú thì đây là rủi ro nghiêm trọng hơn hết hạn thẻ vật lý.',
+      officialSourceLabels: ['在留カードとは？— 出入国在留管理庁', '特定在留カード等交付申請 — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_card-validity_hero.jpg'),
     heroImageCaption: 'Gia hạn hạn hiệu lực vật lý thẻ 在留カード tại ISA',
     whoIsThisFor: [
       'Người có tư cách vĩnh trú hoặc Highly Skilled Professional 2 cần gia hạn hạn hiệu lực vật lý của thẻ cư trú.',
+      'Người làm gia hạn/đổi tư cách/đổi thông tin sau 14/06/2026 và muốn hiểu lựa chọn 特定在留カード.',
       'Trẻ em người nước ngoài đến mốc 16 tuổi và cần cập nhật thẻ theo hướng dẫn của ISA.',
       'Người không đổi tư cách lưu trú nhưng thẻ cư trú vật lý sắp hết hạn.',
     ],
     whenToDo: [
       'Trước khi thẻ cư trú vật lý hết hạn hiệu lực.',
+      'Từ 14/06/2026, kiểm tra thêm hướng dẫn thẻ mới/特定在留カード trước khi nhận thẻ mới hoặc làm thủ tục tại ISA/municipal office.',
       'Khi trẻ em đến độ tuổi cần đổi thẻ theo mốc 16 tuổi.',
       'Không dùng thủ tục này nếu mục tiêu là tiếp tục ở Nhật sau khi visa/tư cách lưu trú hết hạn; khi đó thường là 在留期間更新許可申請.',
     ],
@@ -180,6 +234,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Để thẻ vật lý hết hạn rồi mới chuẩn bị hồ sơ.',
       'Không kiểm tra lại thông tin in trên thẻ mới khi nhận.',
       'Dùng ảnh cũ quá 3 tháng hoặc ảnh không đúng kích thước.',
+      'Tưởng 特定在留カード là bắt buộc đổi ngay từ 14/06/2026. ISA nêu thẻ hiện hành vẫn tiếp tục có hiệu lực đến hạn của thẻ.',
     ],
     faq: [
       {
@@ -194,9 +249,15 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         question: 'Sau khi nhận thẻ mới cần kiểm tra gì?',
         answer: 'Kiểm tra họ tên, ngày sinh, quốc tịch/khu vực, tư cách lưu trú, hạn lưu trú và hạn hiệu lực thẻ. Nếu sai, yêu cầu chỉnh ngay tại quầy.',
       },
+      {
+        question: '特定在留カード từ 14/06/2026 có bắt buộc không?',
+        answer: 'Không phải đổi ngay chỉ vì luật mới bắt đầu. Theo ISA, thẻ cư trú hiện hành vẫn có hiệu lực sau khi mẫu mới bắt đầu; 特定在留カード là thủ tục có thể xin cùng một số thủ tục như gia hạn, đổi tư cách, cấp lại hoặc khai báo địa chỉ nếu thuộc điều kiện.',
+      },
     ],
     officialLinks: [
       { label: '在留カードの有効期間の更新申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00011.html' },
+      { label: '在留カードとは？— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },
+      { label: '特定在留カード等交付申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/tokutei.html' },
       { label: 'Tra cứu cục xuất nhập cảnh', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
     ],
     steps: [
@@ -233,25 +294,50 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Nhận thẻ cư trú mới',
-        description: 'Sau khi được xử lý, bạn nhận thẻ cư trú mới có hạn hiệu lực mới.',
+        description: 'Sau khi được xử lý, bạn nhận thẻ cư trú mới có hạn hiệu lực mới. Từ 14/06/2026, nếu thuộc thủ tục áp dụng và muốn gộp chức năng My Number Card, hãy hỏi rõ lựa chọn 特定在留カード; nếu không xin 特定在留カード, vẫn có mẫu thẻ cư trú mới không gộp My Number.',
         documents: [
           'Thẻ cư trú cũ',
           'Hộ chiếu',
+          'My Number Card nếu xin 特定在留カード theo hướng dẫn của ISA',
         ],
-        tip: 'Sau khi nhận thẻ mới, kiểm tra kỹ họ tên, ngày sinh, quốc tịch/khu vực, tư cách lưu trú và hạn hiệu lực.',
+        tip: 'Sau khi nhận thẻ mới, kiểm tra kỹ họ tên, ngày sinh, quốc tịch/khu vực, tư cách lưu trú, hạn lưu trú, hạn hiệu lực và thông tin My Number nếu là 特定在留カード.',
       },
     ],
   },
   {
     id: 'address-change',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đổi địa chỉ / chuyển nhà',
     titleJp: '住居地の届出',
     icon: 'home',
     color: '#16A085',
     description: 'Khi chuyển đến địa chỉ mới ở Nhật, người trung/dài hạn cần làm thủ tục địa chỉ tại municipal office trong thời hạn quy định.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote: 'Nghĩa vụ khai báo địa chỉ nằm trong hệ thống cư trú toàn quốc, nhưng nơi tiếp nhận là municipal office nơi cư trú mới.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đã quá hạn 14 ngày hoặc không có giấy tờ chứng minh ngày chuyển đến.',
+        'Địa chỉ thực tế, hợp đồng thuê và địa chỉ trên thẻ cư trú không khớp.',
+        'Bạn vừa mới nhập cảnh, chuyển tỉnh hoặc chuyển cùng gia đình và không rõ cần 転出届 hay 転入届.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Làm trong vòng 14 ngày kể từ ngày chuyển đến/định nơi cư trú mới.',
+      office: 'Municipal office nơi có địa chỉ mới; nơi cũ nếu cần làm 転出届 trước khi chuyển.',
+      doNow: [
+        'Mang thẻ cư trú ra municipal office nơi ở mới.',
+        'Cập nhật My Number Card nếu đã có.',
+        'Sau khi đổi địa chỉ, cập nhật ngân hàng, điện thoại, bảo hiểm, công ty/trường và bưu điện.',
+      ],
+      bring: ['Thẻ cư trú', 'My Number Card nếu có', '転出証明書 nếu chuyển từ địa phương khác', 'Hộ chiếu nếu mới nhập cảnh hoặc được yêu cầu'],
+      ifLate: 'Đi làm càng sớm càng tốt và giải thích trung thực tại quầy; giữ lại bằng chứng đã hoàn tất thủ tục.',
+      officialSourceLabels: ['住居地の届出 — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_address-change_hero.jpg'),
     heroImageCaption: 'Thủ tục đổi địa chỉ tại 役所 khi chuyển nhà',
     whoIsThisFor: [
@@ -338,13 +424,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'residence-card-info-change',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Đổi thông tin trên thẻ cư trú',
     titleJp: '住居地以外の記載事項変更届出',
     icon: 'create',
     color: '#8E44AD',
     description: 'Khai báo khi thay đổi họ tên, ngày sinh, giới tính, quốc tịch/khu vực trên thẻ cư trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Đổi thông tin ngoài địa chỉ trên thẻ cư trú là thủ tục ISA; đổi địa chỉ cư trú vẫn làm tại municipal office.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Giấy tờ Việt Nam/nhật có cách viết tên khác nhau hoặc ngày thay đổi pháp lý không rõ.',
+        'Bạn đổi quốc tịch, đổi tên sau kết hôn/ly hôn hoặc giấy tờ nước ngoài cần dịch/chứng nhận.',
+        'Đã quá hạn 14 ngày hoặc thông tin trên thẻ, hộ chiếu, ngân hàng không còn khớp.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trong vòng 14 ngày kể từ ngày thay đổi họ tên, ngày sinh, giới tính hoặc quốc tịch/khu vực.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền theo nơi cư trú.',
+      doNow: [
+        'Xác định thay đổi thuộc thông tin ngoài địa chỉ, không phải đổi địa chỉ.',
+        'Chuẩn bị giấy tờ chứng minh thay đổi và bản dịch tiếng Nhật nếu cần.',
+        'Kiểm tra lại thông tin in trên thẻ sau khi được cập nhật.',
+      ],
+      bring: ['Thẻ cư trú hiện tại', 'Hộ chiếu', 'Giấy tờ chứng minh thay đổi', 'Bản dịch tiếng Nhật nếu giấy tờ không phải tiếng Nhật', 'Ảnh thẻ nếu được yêu cầu cấp thẻ mới'],
+      ifLate: 'Nộp càng sớm càng tốt; nếu quá hạn, ISA có thể yêu cầu văn bản giải thích lý do.',
+      officialSourceLabels: ['住居地以外の記載事項変更届出 — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_card-infochange_hero.jpg'),
     heroImageCaption: 'Khai báo thay đổi thông tin cá nhân trên thẻ cư trú',
     whoIsThisFor: [
@@ -427,13 +537,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'job-change-notification',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Thông báo đổi việc / nghỉ việc',
     titleJp: '契約機関に関する届出',
     icon: 'briefcase',
     color: '#D35400',
     description: 'Một số tư cách lưu trú lao động cần khai báo với ISA trong vòng 14 ngày khi kết thúc hợp đồng, ký hợp đồng mới hoặc chuyển công ty.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Khai báo thay đổi tổ chức hợp đồng là nghĩa vụ với ISA; thủ tục này không tự xác nhận công việc mới phù hợp tư cách lưu trú.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Công việc mới khác ngành, khác chức danh hoặc không khớp bằng cấp/kinh nghiệm đã dùng khi xin visa.',
+        'Bạn nghỉ việc lâu, chưa có việc mới hoặc công ty mới muốn bạn làm trước khi rõ tư cách.',
+        'Bạn đã quá hạn 14 ngày hoặc từng đổi việc nhiều lần trong kỳ lưu trú hiện tại.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Khai báo trong vòng 14 ngày từ ngày kết thúc hợp đồng, ký hợp đồng mới hoặc chuyển tổ chức nếu thuộc diện phải khai báo.',
+      office: 'Hệ thống 電子届出 của ISA, bưu điện theo hướng dẫn ISA hoặc cục xuất nhập cảnh.',
+      doNow: [
+        'Ghi rõ ngày nghỉ việc, ngày ký hợp đồng mới và tên pháp nhân liên quan.',
+        'Chọn đúng mẫu theo sự kiện: nghỉ, chuyển, hoặc cả hai.',
+        'Giữ bằng chứng nộp online/bưu điện để dùng khi gia hạn hoặc đổi tư cách.',
+      ],
+      bring: ['Thẻ cư trú', 'Thông tin công ty cũ/mới', 'Ngày kết thúc hoặc bắt đầu hợp đồng', 'Mẫu 届出書 đúng loại'],
+      ifLate: 'Khai báo ngay, lưu bằng chứng và chuẩn bị giải thích trung thực trong hồ sơ lưu trú sau này.',
+      officialSourceLabels: ['契約機関に関する届出 — 出入国在留管理庁', '電子届出システム — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_job-change_hero.jpg'),
     heroImageCaption: 'Khai báo thay đổi công việc với ISA trong 14 ngày',
     whoIsThisFor: [
@@ -523,13 +657,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'permission-activity-outside-status',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Xin phép làm thêm ngoài tư cách lưu trú',
     titleJp: '資格外活動許可申請',
     icon: 'time',
     color: '#27AE60',
     description: 'Du học sinh, visa gia đình và một số tư cách khác cần xin phép trước khi làm việc nhận lương ngoài phạm vi tư cách lưu trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '資格外活動許可 là quyền do ISA cấp; trường/công ty có thể hỗ trợ nhưng không thay ISA quyết định phạm vi làm thêm.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đã đi làm trước khi có permission hoặc từng vượt giới hạn giờ.',
+        'Công việc dự kiến liên quan ngành bị hạn chế, công việc đêm/khu giải trí hoặc nhiều nơi làm cùng lúc.',
+        'Bạn nghỉ học, chuyển trường, đổi tư cách hoặc đang gia hạn/đổi visa.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Xin và được phép trước khi bắt đầu hoạt động có thu nhập ngoài phạm vi tư cách lưu trú.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền; online chỉ dùng trong một số trường hợp khi nộp cùng thủ tục lưu trú khác.',
+      doNow: [
+        'Không nhận ca làm trước khi permission hợp lệ.',
+        'Tính tổng giờ của tất cả nơi làm, không tính riêng từng nơi.',
+        'Kiểm tra công việc có thuộc nhóm bị cấm như 風俗営業 hoặc hoạt động liên quan không.',
+      ],
+      bring: ['Đơn 資格外活動許可申請', 'Thẻ cư trú', 'Hộ chiếu', 'Thông tin công việc dự kiến nếu được yêu cầu'],
+      ifLate: 'Dừng vi phạm, gom lịch làm/lương và hỏi ISA, trường hoặc chuyên gia trước khi tiếp tục làm.',
+      officialSourceLabels: ['資格外活動許可申請 — 出入国在留管理庁', 'Du học sinh và 28 giờ/tuần', 'Gia đình lưu trú và 28 giờ/tuần'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_part-time_hero.jpg'),
     heroImageCaption: 'Xin phép làm việc ngoài phạm vi tư cách lưu trú',
     whoIsThisFor: [
@@ -623,13 +781,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 're-entry',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Tạm rời Nhật / tái nhập cảnh',
     titleJp: 'みなし再入国許可・再入国許可',
     icon: 'airplane',
     color: '#2C7BE5',
     description: 'Hướng dẫn ra khỏi Nhật tạm thời và quay lại mà không làm mất tư cách lưu trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Quy định tái nhập cảnh do ISA quản lý toàn quốc; thủ tục thực tế diễn ra tại cửa khẩu hoặc cục xuất nhập cảnh trước khi rời Nhật nếu cần 再入国許可.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn dự định rời Nhật hơn 1 năm hoặc gần ngày hết hạn lưu trú.',
+        'Bạn đang có hồ sơ gia hạn/đổi tư cách, bị thu hồi tư cách hoặc tình trạng cư trú bất thường.',
+        'Bạn đã mất hộ chiếu/thẻ cư trú khi đang ở ngoài Nhật.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra trước khi xuất cảnh; nếu cần 再入国許可 chính thức thì phải xin trước khi rời Nhật.',
+      office: 'Cửa khẩu xuất cảnh khi dùng みなし再入国; cục xuất nhập cảnh nếu xin 再入国許可 chính thức.',
+      doNow: [
+        'Kiểm tra hạn lưu trú, hạn thẻ cư trú và hạn hộ chiếu trước khi mua vé dài ngày.',
+        'Nếu dùng みなし再入国, phải quay lại trong 1 năm hoặc trước ngày hết hạn lưu trú nếu hạn đó đến sớm hơn.',
+        'Xin 再入国許可 chính thức nếu kế hoạch ở ngoài Nhật vượt khung みなし再入国.',
+      ],
+      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin permit chính thức'],
+      ifLate: 'Nếu đã rời Nhật và lỡ hạn tái nhập cảnh, liên hệ cơ quan Nhật ở nước ngoài/ISA ngay; không tự mua vé quay lại khi quyền tái nhập cảnh không còn rõ.',
+      officialSourceLabels: ['みなし再入国許可 — 出入国在留管理庁', '再入国許可 — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_re-entry_hero.jpg'),
     heroImageCaption: 'Kiểm tra thẻ cư trú và hộ chiếu trước khi rời Nhật',
     whoIsThisFor: [
@@ -714,13 +896,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'spouse-notification',
     category: 'immigration',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Thông báo ly hôn / vợ chồng mất',
     titleJp: '配偶者に関する届出',
     icon: 'people',
     color: '#C0392B',
     description: 'Người có tư cách lưu trú dựa trên quan hệ vợ/chồng cần khai báo với ISA khi ly hôn hoặc vợ/chồng qua đời.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '配偶者に関する届出 là khai báo với ISA; thủ tục hộ tịch tại municipal office và thủ tục đổi tư cách lưu trú là các lớp việc riêng.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Tư cách lưu trú hiện tại phụ thuộc quan hệ hôn nhân và bạn muốn tiếp tục ở Nhật sau ly hôn.',
+        'Có con chung, tranh chấp nuôi con, bạo lực gia đình hoặc giấy tờ ly hôn/tử vong chưa rõ ngày hiệu lực.',
+        'Bạn đã quá hạn 14 ngày hoặc không chắc mình thuộc diện phải khai báo.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trong vòng 14 ngày từ ngày ly hôn hoặc ngày vợ/chồng qua đời nếu thuộc tư cách phải khai báo.',
+      office: 'Hệ thống khai báo điện tử ISA, bưu điện hoặc cục xuất nhập cảnh theo hướng dẫn ISA.',
+      doNow: [
+        'Xác định tư cách lưu trú hiện tại có thuộc diện phải nộp 配偶者に関する届出 không.',
+        'Nộp khai báo sự kiện trước, sau đó xử lý riêng việc đổi/gia hạn tư cách nếu cần.',
+        'Giữ bằng chứng đã khai báo và giấy tờ xác nhận ngày ly hôn/tử vong.',
+      ],
+      bring: ['Thẻ cư trú', 'Mẫu 配偶者に関する届出書', 'Giấy xác nhận ly hôn hoặc tử vong nếu được yêu cầu'],
+      ifLate: 'Nộp ngay và giải thích trung thực; khai báo muộn có thể bất lợi khi xét hồ sơ cư trú tiếp theo.',
+      officialSourceLabels: ['配偶者に関する届出 — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_spouse-notif_hero.jpg'),
     heroImageCaption: 'Khai báo thay đổi quan hệ vợ/chồng với ISA',
     whoIsThisFor: [
@@ -791,15 +997,40 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'health-insurance',
     category: 'health',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đăng ký bảo hiểm y tế',
     titleJp: '国民健康保険加入',
     icon: 'heart',
     color: '#27AE60',
     description: 'Đăng ký bảo hiểm y tế quốc gia (Kokumin Kenkou Hoken) tại văn phòng phường/quận',
+    legalScope: {
+      appliesFrom: '2025-12-02',
+      jurisdiction: 'national',
+      jurisdictionNote: 'Chế độ bảo hiểm y tế là toàn quốc, nhưng thủ tục 国民健康保険 và cấp 資格確認書 do municipal office/bên bảo hiểm nơi bạn tham gia xử lý.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn đổi việc, nghỉ việc hoặc chuyển từ 社会保険 sang 国民健康保険 và không rõ ngày bắt đầu bảo hiểm.',
+        'Bạn chưa có マイナ保険証 và cũng chưa nhận 資格確認書.',
+        'Bạn bị truy thu/khó trả phí bảo hiểm hoặc cần xin giảm/chia kỳ.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Làm ngay sau khi đăng ký cư trú, nghỉ việc, mất bảo hiểm công ty hoặc chuyển sang địa phương mới.',
+      office: 'Quầy 国民健康保険 tại 市役所/区役所/町村役場; nếu đang làm công ty thì hỏi công ty/bên 社会保険 trước.',
+      doNow: [
+        'Xác định bạn thuộc 社会保険 của công ty hay 国民健康保険 của địa phương.',
+        'Nếu không dùng マイナ保険証, hỏi nơi cấp bảo hiểm về 資格確認書.',
+        'Không bỏ qua hóa đơn bảo hiểm; nếu khó trả, hỏi municipal office về chia kỳ hoặc giảm theo hoàn cảnh.',
+      ],
+      bring: ['Thẻ cư trú', 'My Number Card hoặc giấy tờ có My Number nếu có', 'Giấy mất bảo hiểm công ty nếu vừa nghỉ việc', 'Thông tin tài khoản ngân hàng nếu muốn auto-debit'],
+      ifLate: 'Đi làm thủ tục càng sớm càng tốt; có thể bị truy thu phí bảo hiểm từ ngày thuộc diện tham gia.',
+      officialSourceLabels: ['Bảo hiểm y tế quốc gia — 厚生労働省', 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', '資格確認書 — 厚生労働省'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_health-insurance_hero.jpg'),
-    heroImageCaption: '国民健康保険証 — thẻ bảo hiểm y tế quốc dân, xuất trình khi đi khám bệnh',
+    heroImageCaption: 'マイナ保険証 / 資格確認書 — giấy tờ xác nhận bảo hiểm khi đi khám từ 02/12/2025',
     whoIsThisFor: [
       'Người đang sống ở Nhật và không tham gia bảo hiểm y tế qua công ty.',
       'Người mới chuyển đến địa phương mới và cần đăng ký/cập nhật 国民健康保険.',
@@ -851,6 +1082,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: 'Bảo hiểm y tế quốc gia — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html' },
       { label: 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/web_magazine/closeup/31.html' },
       { label: '資格確認書 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_45470.html' },
+      { label: 'Use of health insurance card in My Number Card — デジタル庁', url: 'https://www.digital.go.jp/en/policies/mynumber/insurance-card' },
       { label: 'Hỗ trợ người nước ngoài — FRESC', url: 'https://fresc.moj.go.jp' },
     ],
     steps: [
@@ -865,7 +1097,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Tài khoản ngân hàng (để đăng ký thanh toán tự động)',
         ],
         image: require('../../../assets/content/daily-life/dl_health-insurance_s1.jpg'),
-        imageCaption: '健康保険証 / 国民健康保険証 — thẻ bảo hiểm y tế, cần mang khi đi khám',
+        imageCaption: 'マイナ保険証 / 資格確認書 — từ 02/12/2025 không dùng thẻ bảo hiểm cũ đã hết hạn',
         tip: 'Phí bảo hiểm phụ thuộc địa phương, thu nhập năm trước và số người trong hộ. Hãy xác nhận mức cụ thể tại municipal office nơi bạn sống.',
       },
       {
@@ -896,13 +1128,41 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'my-number',
     category: 'health',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đăng ký thẻ My Number',
     titleJp: 'マイナンバーカード申請',
     icon: 'id-card',
     color: '#9B59B6',
     description: 'Đăng ký thẻ My Number để làm thủ tục hành chính, khai thuế, xác nhận danh tính online và có thể dùng làm マイナ保険証 nếu đăng ký liên kết bảo hiểm.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote: 'My Number là hệ thống toàn quốc, nhưng cấp/nhận/cập nhật thẻ được xử lý tại municipal office nơi đăng ký cư trú; người nước ngoài cần quản lý hạn thẻ theo hạn lưu trú.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn vừa gia hạn visa nhưng My Number Card sắp hết hạn hoặc đã hết hạn.',
+        'Bạn bị mất thẻ, quên PIN, thẻ bị khóa hoặc nghi lộ số My Number.',
+        'Bạn chuyển nhà sau khi nộp đơn nhưng chưa nhận 交付通知書.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp đơn sau khi có đăng ký cư trú; nếu có thẻ rồi và vừa gia hạn lưu trú, hãy cập nhật trước ngày hết hạn của My Number Card.',
+      office: 'Municipal office nơi đăng ký cư trú; nộp đơn online bằng QR/申請書ID qua website chính thức nếu có mẫu đơn.',
+      doNow: [
+        'Kiểm tra có 申請書ID/QR trên giấy thông báo hoặc đơn đăng ký không.',
+        'Nếu vừa được cấp thẻ cư trú mới sau gia hạn, mang My Number Card đến municipal office trước khi thẻ hết hạn.',
+        'Không gửi ảnh thẻ, số My Number hoặc PIN cho dịch vụ không rõ nguồn gốc.',
+      ],
+      bring: ['Thẻ cư trú', '交付通知書 khi đến nhận', '申請書ID/QR nếu nộp online', 'Giấy tờ định danh bổ sung theo yêu cầu địa phương'],
+      ifLate: 'Nếu My Number Card đã hết hạn sau khi gia hạn lưu trú, hỏi municipal office ngay; có thể cần cấp/cập nhật lại thay vì chỉ gia hạn online.',
+      officialSourceLabels: [
+        'Trang chính thức My Number Card',
+        'Hạn hiệu lực My Number Card',
+        'Hướng dẫn cho người nước ngoài — 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_my-number_hero.jpg'),
     heroImageCaption: 'マイナンバーカード — thẻ số cá nhân Nhật Bản, dùng cho hành chính và xác minh danh tính',
     whoIsThisFor: [
@@ -972,26 +1232,26 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Nộp đơn đăng ký thẻ',
-        description: 'Có 3 cách đăng ký: (1) Qua smartphone — vào app マイナポータル, quét QR trên thư thông báo, chụp ảnh selfie; (2) Gửi bưu điện — điền phiếu in sẵn, dán ảnh, gửi phong bì trả lời; (3) Đến trực tiếp UBND (役所) — quầy "マイナンバー担当窓口".',
+        description: 'Có nhiều cách đăng ký: (1) Qua smartphone — quét QR trên đơn đăng ký và nộp trên website chính thức; (2) Qua máy tính — nhập 申請書ID 23 số; (3) Gửi bưu điện — điền phiếu, dán ảnh, gửi phong bì trả lời; (4) Chụp/nộp tại máy ảnh thẻ hỗ trợ My Number; hoặc (5) hỏi trực tiếp municipal office nếu mất giấy đăng ký.',
         documents: [
           'Thư thông báo My Number (ghi mã số đơn — 申請書ID)',
           'Ảnh thẻ 4.5×3.5cm — chụp trong 6 tháng, nền trắng, không đeo kính',
         ],
-        tip: 'Cách nhanh nhất: đăng ký qua smartphone. Tải app "マイナポータル" hoặc vào website kojinbango-card.go.jp',
+        tip: 'Cách nhanh nhất thường là dùng QR/申請書ID trên giấy đăng ký và nộp qua website chính thức. Nếu mất giấy, đến municipal office xin cấp lại mẫu có ID.',
         image: require('../../../assets/content/daily-life/ag_my-number_s2.jpg'),
         imageCaption: 'マイナポータル — đăng ký thẻ My Number qua app smartphone, quét QR trên thư thông báo',
       },
       {
         step: 3,
         title: 'Chờ thông báo nhận thẻ',
-        description: 'Sau khi nộp đơn, chờ khoảng 2–4 tuần để nhận thư thông báo đến nhận thẻ (交付通知書) gửi về địa chỉ đăng ký.',
+        description: 'Sau khi nộp đơn, thời gian đến khi municipal office gửi 交付通知書 thường khoảng 1 tháng, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đang đông hồ sơ.',
         documents: [],
-        tip: 'Hiện tại thời gian xử lý đã nhanh hơn trước, trung bình 2–4 tuần',
+        tip: 'Nếu chuyển nhà trong thời gian chờ, cập nhật địa chỉ tại municipal office và hỏi bộ phận My Number Card để thư không bị trả về.',
       },
       {
         step: 4,
         title: 'Đến UBND nhận thẻ (bắt buộc đến đích thân)',
-        description: 'Đặt lịch hẹn qua điện thoại hoặc online, sau đó đến UBND nơi đăng ký để nhận thẻ. Không thể ủy quyền cho người khác nhận thay. Bạn sẽ đặt 2 mã PIN ngay tại quầy.',
+        description: 'Đặt lịch hẹn qua điện thoại hoặc online nếu địa phương yêu cầu, sau đó đến municipal office nơi đăng ký để nhận thẻ. Về nguyên tắc chính chủ đi nhận; nếu thật sự không thể đi, hỏi municipal office trước về điều kiện ủy quyền. Bạn sẽ đặt PIN/chứng thư điện tử tại quầy.',
         documents: [
           'Thư thông báo nhận thẻ (交付通知書)',
           'Thẻ cư trú (在留カード)',
@@ -1206,7 +1466,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'drivers-license',
     category: 'license',
-    lastVerified: '2026-05-03',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Đổi bằng lái xe',
     titleJp: '外国免許切替（外免切替）',
@@ -1225,7 +1485,32 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       '外国免許切替',
       '運転免許センター',
     ],
-    description: 'Đổi bằng lái xe Việt Nam sang bằng lái Nhật tại Trung tâm cấp phép lái xe. Quy định và lịch hẹn khác nhau theo tỉnh/thành.',
+    description: 'Đổi bằng lái xe Việt Nam sang bằng lái Nhật tại Trung tâm cấp phép lái xe. Từ 01/10/2025, giấy tờ địa chỉ và phần kiểm tra kiến thức/kỹ năng đã bị siết chặt; quy định và lịch hẹn vẫn khác nhau theo tỉnh/thành.',
+    legalScope: {
+      appliesFrom: '2025-10-01',
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Sửa đổi thủ tục là toàn quốc, nhưng lịch hẹn, cách nộp và hướng dẫn chi tiết do từng trung tâm cấp phép lái xe/tỉnh thành công bố.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn không có đủ hộ chiếu cũ/dấu xuất nhập cảnh để chứng minh 3 tháng sau ngày cấp bằng.',
+        'Bạn không thuộc 住民基本台帳 hoặc giấy tờ địa chỉ không giống hướng dẫn của trung tâm.',
+        'Bạn từng bị từ chối hồ sơ hoặc có bằng lái đã hết hạn/đổi nhiều lần.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Không có hạn chung, nhưng nên làm trước khi bằng Việt Nam hết hạn và trước khi cần lái xe tại Nhật.',
+      office: '運転免許センター hoặc trung tâm cấp phép lái xe nơi bạn cư trú theo 住民票.',
+      doNow: [
+        'Kiểm tra trang police/driver license center của tỉnh đang sống, không dùng mỗi kinh nghiệm Tokyo.',
+        'Xin bản dịch bằng lái qua JAF hoặc cơ quan được chấp nhận.',
+        'Rà hộ chiếu cũ/mới để chứng minh đã ở Việt Nam đủ 3 tháng sau ngày cấp bằng.',
+      ],
+      bring: ['Bằng lái Việt Nam bản gốc', 'Bản dịch tiếng Nhật', 'Hộ chiếu cũ/mới', '住民票 theo yêu cầu mới', 'Thẻ cư trú', 'Ảnh thẻ'],
+      ifLate: 'Nếu bằng Việt Nam hết hạn hoặc không chứng minh được điều kiện, hỏi trung tâm trước khi đặt lịch vì có thể không đủ điều kiện 外免切替.',
+      officialSourceLabels: ['Trung tâm cấp phép Tokyo — 警視庁', '改正道路交通法施行規則 2025-10-01 — 警視庁', 'Dịch bằng lái — JAF'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_drivers-license_hero.jpg'),
     heroImageCaption: '運転免許証 — bằng lái xe Nhật Bản, đổi từ bằng nước ngoài qua thủ tục 外免切替',
     whoIsThisFor: [
@@ -1260,6 +1545,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Dùng bản dịch không được trung tâm chấp nhận.',
       'Thiếu hộ chiếu cũ có dấu xuất nhập cảnh.',
       'Áp dụng thông tin của Tokyo cho tỉnh/thành khác.',
+      'Dùng kinh nghiệm cũ trước 01/10/2025: Tokyo đã đổi yêu cầu 住民票/giấy tờ địa chỉ và bài kiến thức từ 10 câu sang 50 câu.',
       'Tập lái theo thói quen Việt Nam mà không luyện sa hình/quy tắc Nhật trước khi thi kỹ năng.',
     ],
     faq: [
@@ -1278,6 +1564,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     officialLinks: [
       { label: 'Trung tâm cấp phép Tokyo — 警視庁', url: 'https://www.keishicho.metro.tokyo.lg.jp/menkyo/menkyo/kokugai/kokugai05.html' },
+      { label: '改正道路交通法施行規則 2025-10-01 — 警視庁', url: 'https://www.keishicho.metro.tokyo.lg.jp/menkyo/oshirase/low.html' },
       { label: 'Dịch bằng lái — JAF', url: 'https://english.jaf.or.jp/driving-in-japan/drive-in-japan/switch-to-japanese-license' },
       { label: 'Cách xin bản dịch — JAF', url: 'https://english.jaf.or.jp/driving-in-japan/drive-in-japan/about-dltas' },
     ],
@@ -1285,9 +1572,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 1,
         title: 'Kiểm tra điều kiện & chuẩn bị',
-        description: 'Điều kiện cơ bản: bằng lái nước ngoài còn hiệu lực, chứng minh đã ở quốc gia cấp bằng tổng cộng ít nhất 3 tháng sau khi được cấp bằng, và có địa chỉ cư trú tại Nhật. Người có bằng Việt Nam thường cần kiểm tra kiến thức và kỹ năng lái.',
+        description: 'Điều kiện cơ bản: bằng lái nước ngoài còn hiệu lực, chứng minh đã ở quốc gia cấp bằng tổng cộng ít nhất 3 tháng sau khi được cấp bằng, và có địa chỉ cư trú/địa chỉ tạm trú được trung tâm chấp nhận. Người có bằng Việt Nam thường cần kiểm tra kiến thức và kỹ năng lái.',
         documents: [],
-        tip: 'Điều kiện chi tiết và cách đặt lịch khác nhau theo tỉnh/thành. Hãy kiểm tra trang police/driver license center nơi bạn cư trú.',
+        tip: 'Từ 01/10/2025, Tokyo yêu cầu giấy tờ địa chỉ chặt hơn: người thuộc 住民基本台帳 cần 住民票 có các mục đặc định; người không thuộc diện này cần giấy tờ thân phận/địa chỉ theo hướng dẫn.',
       },
       {
         step: 2,
@@ -1315,7 +1602,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Nộp hồ sơ, thi kiến thức & thi lái xe',
-        description: 'Đến trung tâm theo lịch hẹn để kiểm tra hồ sơ, xác nhận quá trình lấy bằng, kiểm tra thị lực/thính lực, làm bài kiểm tra kiến thức và kiểm tra kỹ năng lái nếu thuộc diện phải kiểm tra.',
+        description: 'Đến trung tâm theo lịch hẹn để kiểm tra hồ sơ, xác nhận quá trình lấy bằng, kiểm tra thị lực/thính lực, làm bài kiểm tra kiến thức và kiểm tra kỹ năng lái nếu thuộc diện phải kiểm tra. Theo trang Tokyo về sửa đổi 01/10/2025, phần kiến thức chuyển từ 10 câu sang 50 câu và cần đạt 45/50; phần kỹ năng cũng bổ sung/siết tiêu chí như xử lý qua vạch người đi bộ.',
         documents: [],
         tip: 'Phí, số câu hỏi, ngôn ngữ hỗ trợ và nội dung kiểm tra có thể thay đổi theo thời điểm và tỉnh/thành. Xác nhận trực tiếp với trung tâm trước ngày thi.',
         image: require('../../../assets/content/daily-life/ag_drivers-license_s4.jpg'),
@@ -1560,6 +1847,31 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'bicycle',
     color: '#E67E22',
     description: 'Từ 01/04/2026, Nhật áp dụng hệ thống blue ticket cho một số vi phạm xe đạp của người từ 16 tuổi trở lên. Đây là thay đổi quan trọng với người đi học, đi làm bằng xe đạp.',
+    legalScope: {
+      appliesFrom: '2026-04-01',
+      jurisdiction: 'national',
+      jurisdictionNote: 'Hệ thống 交通反則通告制度 cho xe đạp áp dụng toàn quốc; bãi đỗ, bảo hiểm xe đạp và quy tắc địa phương có thể khác theo tỉnh/thành.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn nhận giấy thông báo/blue ticket nhưng không hiểu hạn xử lý hoặc loại vi phạm.',
+        'Có tai nạn, thương tích, uống rượu, bỏ chạy hoặc nguy cơ bị xử lý hình sự/red ticket.',
+        'Bạn đi giao hàng/đi làm bằng xe đạp và công ty có quy định riêng về bảo hiểm hoặc an toàn.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Áp dụng từ 01/04/2026 cho người từ 16 tuổi trở lên; nếu nhận giấy thông báo, xử lý theo hạn ghi trên giấy.',
+      office: 'Không phải thủ tục đăng ký; khi vi phạm xử lý theo hướng dẫn của cảnh sát/NPA và giấy thông báo.',
+      doNow: [
+        'Bỏ thói quen dùng điện thoại, vượt đèn đỏ, không dừng ở 止まれ hoặc đi ngược chiều.',
+        'Kiểm tra phanh, đèn, chuông và bảo hiểm xe đạp theo địa phương.',
+        'Nếu đi giao hàng/đi làm bằng xe đạp, lưu sẵn số liên hệ công ty/bảo hiểm.',
+      ],
+      bring: ['Giấy tờ cá nhân khi cần xác minh', 'Thông tin đăng ký chống trộm xe nếu có', 'Thông tin bảo hiểm xe đạp nếu địa phương/công ty yêu cầu'],
+      ifLate: 'Nếu bỏ qua giấy thông báo hoặc không xử lý đúng hạn, rủi ro có thể chuyển sang xử lý nghiêm hơn; đọc kỹ giấy và hỏi nơi ghi trên thông báo.',
+      officialSourceLabels: ['自転車交通反則通告制度 — 警察庁', '自転車ルール・制度 — 警察庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_bicycle-rules_hero.jpg'),
     heroImageCaption: '自転車の青切符 — phiếu phạt xanh áp dụng từ 01/04/2026 cho vi phạm giao thông xe đạp',
     whoIsThisFor: [
@@ -1799,13 +2111,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'visa-status-overview',
     category: 'visa',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Các loại visa / tư cách lưu trú',
     titleJp: '在留資格の種類',
     icon: 'albums',
     color: '#185FA5',
     description: 'Tổng quan các tư cách lưu trú phổ biến với người Việt ở Nhật. Nội dung này chỉ giúp định hướng, không thay thế tư vấn hồ sơ cá nhân.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Tư cách lưu trú do ISA quản lý toàn quốc; guide này chỉ định hướng phạm vi hoạt động, không thay cho quyết định hồ sơ cá nhân.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn chuẩn bị đổi việc, đổi ngành, mở công ty, nghỉ học hoặc chuyển sang hoạt động khác với hiện tại.',
+        'Thẻ cư trú còn hạn nhưng mục đích lưu trú thực tế đã thay đổi.',
+        'Bạn không rõ tư cách hiện tại có cho phép làm công việc dự kiến không.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra trước khi ký hợp đồng, đổi trường, đổi công ty, kết hôn/ly hôn, mở kinh doanh hoặc nộp hồ sơ lưu trú.',
+      office: 'Trang ISA, cục xuất nhập cảnh, hoặc chuyên gia 行政書士/luật sư nếu hồ sơ phức tạp.',
+      doNow: [
+        'Đọc mục 在留資格, 在留期間 và 就労制限の有無 trên thẻ cư trú.',
+        'So hoạt động thực tế với bảng tư cách lưu trú chính thức của ISA.',
+        'Nếu hoạt động mới khác phạm vi hiện tại, xem guide đổi tư cách lưu trú trước khi bắt đầu.',
+      ],
+      bring: ['Thẻ cư trú', 'Hộ chiếu', 'Hợp đồng lao động/giấy nhập học/giấy tờ gia đình nếu có', 'Mô tả hoạt động dự kiến'],
+      ifLate: 'Nếu đã bắt đầu hoạt động có thể nằm ngoài tư cách, dừng tự suy đoán và hỏi ISA/chuyên gia trước khi tiếp tục hoặc nộp hồ sơ.',
+      officialSourceLabels: ['Tư cách lưu trú — 出入国在留管理庁', 'Bảng tư cách lưu trú — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_visa-overview_hero.jpg'),
     heroImageCaption: 'Các diện tư cách lưu trú phổ biến cho người Việt tại Nhật',
     whoIsThisFor: [
@@ -1910,13 +2246,38 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'ssw-training-worker-2027',
     category: 'visa',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: '特定技能 và luật 育成就労 mới',
     titleJp: '特定技能・育成就労制度',
     icon: 'construct',
     color: '#9B59B6',
     description: 'Tổng quan về 特定技能 và hệ thống 育成就労 sẽ thay thế dần 技能実習. Năm 2026 là giai đoạn chuẩn bị thông tin, phần lớn hệ thống mới dự kiến vận hành từ 01/04/2027.',
+    legalScope: {
+      appliesFrom: '2027-04-01',
+      jurisdiction: 'national',
+      jurisdictionNote: '制度 do ISA quản lý toàn quốc; điều kiện thực tế còn phụ thuộc lĩnh vực 特定技能, công ty tiếp nhận, cơ quan hỗ trợ và quy định chuyển tiếp.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đang là 技能実習/特定技能 và bị yêu cầu ký giấy chuyển việc/chuyển chương trình.',
+        'Công ty/nghiệp đoàn giữ hộ chiếu, thẻ cư trú, giữ lương hoặc thu phí bất thường.',
+        'Bạn muốn đổi ngành, đổi công ty hoặc chuyển từ 1号 lên 2号.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Mốc vận hành chính là 01/04/2027; năm 2026 có mốc tiền thủ tục, không phải hệ thống mới đã chạy toàn bộ.',
+      office: 'ISA, công ty tiếp nhận, cơ quan hỗ trợ đăng ký, OTIT/FRESC hoặc 労働基準監督署 khi có tranh chấp.',
+      doNow: [
+        'Xác định status hiện tại: 技能実習, 特定技能1号, 特定技能2号 hay chuẩn bị đi mới.',
+        'Kiểm tra ngành/lĩnh vực thuộc 16 lĩnh vực 特定技能, không dùng danh sách 14 ngành cũ.',
+        'Giữ bản sao hợp đồng, bảng lương, lịch làm, khoản khấu trừ và tin nhắn trao đổi.',
+      ],
+      bring: ['Thẻ cư trú và hộ chiếu', 'Hợp đồng/điều kiện tiếp nhận', 'Thông tin công ty/cơ quan hỗ trợ', 'Bằng chứng lương, giờ làm, khấu trừ nếu có tranh chấp'],
+      ifLate: 'Nếu đã ký giấy hoặc chuyển việc sai quy trình, liên hệ ISA/OTIT/FRESC sớm; đừng trả thêm phí môi giới để “sửa nhanh” khi chưa rõ căn cứ.',
+      officialSourceLabels: ['育成就労制度 — 出入国在留管理庁', '特定技能制度 — 出入国在留管理庁', 'Specified Skilled Worker Program — ISA'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_ssw2027_hero.jpg'),
     heroImageCaption: 'Tổng quan hệ thống 特定技能 và 育成就労 mới từ 2027',
     whoIsThisFor: [
@@ -1950,6 +2311,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nghe nói “luật mới” rồi tưởng 技能実習 đã kết thúc ngay trong năm 2026.',
       'Ký giấy chuyển việc/chuyển chương trình khi chưa hiểu lương, phí, nhà ở và nghĩa vụ.',
       'Nghĩ 特定技能 cho phép làm mọi ngành hoặc đổi ngành tự do.',
+      'Dùng danh sách 14 ngành cũ, bỏ sót 4 ngành được thêm theo quyết định 29/03/2024: 自動車運送業, 鉄道, 林業, 木材産業.',
       'Không giữ bản sao hợp đồng, bảng lương, lịch làm và tin nhắn trao đổi.',
       'Trả tiền cho môi giới không rõ pháp lý để được “bao đậu” visa hoặc “bao chuyển việc”.',
     ],
@@ -1972,13 +2334,15 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: '特定技能 có những ngành nào?',
-        answer: 'Tính đến 2024, 特定技能 áp dụng cho **16 ngành**: 介護, ビルクリーニング, 素形材・産業機械・電気電子情報関連製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 農業, 漁業, 飲食料品製造業, 外食業, 自動車運送業 (mới thêm), 鉄道 (mới thêm). Trước năm 2024 chỉ có 14 ngành; hai ngành tự động vận tải và đường sắt được bổ sung để giải quyết tình trạng thiếu lao động.',
+        answer: 'Theo ISA, sau quyết định 29/03/2024, 特定技能 mở rộng lên **16 lĩnh vực**: 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 農業, 漁業, 飲食料品製造業, 外食業, 自動車運送業, 鉄道, 林業, 木材産業. Bốn lĩnh vực được thêm là 自動車運送業, 鉄道, 林業, 木材産業.',
       },
     ],
     officialLinks: [
       { label: '育成就労制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/index_00005.html' },
       { label: '育成就労制度 Q&A — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/faq/ikusei_qa_00002.html' },
       { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
+      { label: '特定技能の対象分野等の追加 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/2024.03.29.kakugikettei.html?hl=vi' },
+      { label: 'Specified Skilled Worker Program — ISA', url: 'https://www.ssw.go.jp/en/' },
     ],
     steps: [
       {
@@ -2389,13 +2753,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'family-stay-invitation',
     category: 'visa',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Bảo lãnh vợ/chồng/con sang Nhật',
     titleJp: '家族滞在・在留資格認定証明書',
     icon: 'people',
     color: '#2E86C1',
     description: 'Hướng dẫn theo diện 家族滞在 cho vợ/chồng hoặc con của người đang có tư cách lưu trú phù hợp tại Nhật. Đây là thủ tục dài hạn, khác với visa du lịch thăm thân.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Family stay dài hạn thường đi theo 2 lớp: COE do ISA xử lý tại Nhật và visa do cơ quan lãnh sự Nhật ở nước ngoài xử lý.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Người được bảo lãnh không phải vợ/chồng hoặc con, hoặc có con riêng/ly hôn/quyền nuôi dưỡng phức tạp.',
+        'Thu nhập, chỗ ở hoặc giấy tờ quan hệ gia đình của người bảo lãnh chưa đủ rõ.',
+        'Bạn đang nhầm mục tiêu ở dài hạn với chuyến thăm ngắn hạn.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Bắt đầu sớm; COE thường là bước trước visa và thời gian chuẩn của ISA có thể tính theo tháng.',
+      office: 'ISA tại Nhật để xin COE; Đại sứ quán/Lãnh sự quán Nhật hoặc nơi tiếp nhận được chỉ định ở nước ngoài để xin visa.',
+      doNow: [
+        'Xác định người được mời có phải vợ/chồng hoặc con theo diện 家族滞在 không.',
+        'Gom giấy tờ quan hệ gia đình, thu nhập, thuế và chỗ ở của người bảo lãnh.',
+        'Sau khi có COE, kiểm tra nơi nộp visa theo nơi cư trú của người thân ở nước ngoài.',
+      ],
+      bring: ['Hộ chiếu người được bảo lãnh', 'Giấy tờ chứng minh quan hệ gia đình', 'Thẻ cư trú người bảo lãnh', 'Giấy tờ thu nhập/thuế', 'Giấy tờ chỗ ở'],
+      ifLate: 'Không dùng short stay để thay thế kế hoạch ở dài hạn; nếu cần vào Nhật gấp, tách rõ mục đích và hỏi cơ quan lãnh sự/ISA trước.',
+      officialSourceLabels: ['在留資格認定証明書交付申請 — 出入国在留管理庁', 'General visa: Dependent (family stays) — MOFA'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_family-stay_hero.jpg'),
     heroImageCaption: 'Thủ tục bảo lãnh gia đình diện 家族滞在',
     whoIsThisFor: [
@@ -2520,13 +2908,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'short-stay-relative-visit',
     category: 'visa',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Visa du lịch / thăm thân ngắn hạn',
     titleJp: '短期滞在（親族・知人訪問 / 観光）',
     icon: 'airplane',
     color: '#E67E22',
     description: 'Dành cho người thân sang Nhật thăm ngắn hạn hoặc đi du lịch. Đây không phải visa ở dài hạn và không dùng để làm việc tại Nhật.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Visa ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xử lý theo nơi cư trú của người xin; người mời tại Nhật chỉ chuẩn bị giấy mời/bảo lãnh nếu cần.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Mục đích chuyến đi không thuần du lịch/thăm thân hoặc có ý định ở lại dài hạn.',
+        'Người xin visa từng bị từ chối visa, ở quá hạn, bị trục xuất hoặc hồ sơ tài chính/quan hệ không rõ.',
+        'Bạn định dùng eVISA nhưng mục đích là thăm thân, thăm bạn, công việc, học hoặc transit.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Chuẩn bị trước ngày đi dự kiến; visa ngắn hạn thường xử lý khoảng 1 tuần nếu đủ hồ sơ nhưng có thể lâu hơn theo nơi nộp.',
+      office: 'Đại sứ quán/Lãnh sự quán Nhật hoặc đơn vị tiếp nhận được chỉ định theo nơi cư trú của người xin visa.',
+      doNow: [
+        'Xác định mục đích đúng: du lịch, thăm thân, thăm bạn hay mục đích ngắn hạn khác.',
+        'Kiểm tra nơi nộp hồ sơ và có phải qua agency/đặt lịch không.',
+        'Nếu là thăm thân, chuẩn bị giấy mời, lịch trình, giấy tờ quan hệ và tài chính thống nhất với nhau.',
+      ],
+      bring: ['Hộ chiếu người xin visa', 'Đơn xin visa và ảnh', 'Lịch trình ở Nhật', 'Giấy mời/bảo lãnh nếu cần', 'Giấy tờ tài chính và quan hệ nếu cần'],
+      ifLate: 'Không nhập cảnh với mục đích khác hồ sơ đã khai; nếu kế hoạch đổi thành ở dài hạn, phải chuyển sang thủ tục COE/visa dài hạn phù hợp.',
+      officialSourceLabels: ['VISA — MOFA', 'Procedures Chart for Short-Term Stay — MOFA', 'JAPAN eVISA — MOFA', 'FAQ about JAPAN eVISA — MOFA'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_short-stay_hero.jpg'),
     heroImageCaption: 'Thủ tục xin visa thăm thân ngắn hạn vào Nhật',
     whoIsThisFor: [
@@ -2651,13 +3063,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-04-19',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
     icon: 'newspaper',
     color: '#2E86C1',
-    description: 'Tổng hợp mốc chính thức mới nhất (đến 19/04/2026) theo ISA: phân biệt rõ nội dung đã áp dụng trong 2026 và nội dung có hiệu lực từ 01/04/2027.',
+    description: 'Tổng hợp mốc chính thức mới nhất (đến 06/05/2026) theo ISA: phân biệt rõ nội dung đã áp dụng trong 2026, nội dung bắt đầu từ 14/06/2026 và nội dung có hiệu lực từ 01/04/2027.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Đây là guide tổng hợp chính sách cấp quốc gia; từng thủ tục cụ thể vẫn phải đối chiếu trang ISA/MOFA/MHLW/NPA tương ứng.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-06-14',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn chuẩn bị nộp hồ sơ cư trú đúng giai đoạn chuyển tiếp 2026-2027.',
+        'Bạn nghe thông tin mạng xã hội mâu thuẫn về 特定在留カード, 育成就労 hoặc 特定技能.',
+        'Bạn có hồ sơ bị thiếu, bị yêu cầu bổ sung hoặc đổi hoạt động cư trú.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra lại trước các mốc 14/06/2026 và 01/04/2027; với hồ sơ online, dùng hệ thống mới từ 05/01/2026.',
+      office: 'ISA hoặc hệ thống 在留申請オンライン nếu thủ tục/hồ sơ của bạn thuộc đối tượng được nộp online.',
+      doNow: [
+        'Tách rõ mốc đã áp dụng, mốc tiền thủ tục và mốc chưa vận hành.',
+        'Tải biểu mẫu mới nhất từ nguồn chính thức ngay trong ngày chuẩn bị nộp.',
+        'Không dùng nội dung truyền tay nếu không có ngày cập nhật và link nguồn.',
+      ],
+      bring: ['Thẻ cư trú và hộ chiếu', 'Thông tin tư cách lưu trú hiện tại', 'Mẫu đơn đúng phiên bản', 'Link nguồn chính thức đã đối chiếu'],
+      ifLate: 'Nếu đã nộp bằng mẫu cũ hoặc sai hệ thống, hỏi ISA/cơ quan nhận hồ sơ càng sớm càng tốt để biết có cần bổ sung hay nộp lại.',
+      officialSourceLabels: ['育成就労制度 — ISA', '特定在留カード等交付申請 — ISA', '新しい在留申請オンラインシステム — ISA'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_policy2026_hero.jpg'),
     heroImageCaption: 'Các thay đổi chính sách cho người nước ngoài năm 2026',
     whoIsThisFor: [
@@ -2687,6 +3123,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Hiểu nhầm rằng hệ thống 育成就労 đã vận hành toàn bộ trong năm 2026.',
       'Không phân biệt “nộp trước hiệu lực” với “đã có hiệu lực”.',
       'Dùng mẫu biểu cũ cho hồ sơ 特定技能.',
+      'Tưởng 特定在留カード là bắt buộc đổi ngay hoặc mọi thông tin lưu trú đều biến mất khỏi mặt thẻ.',
     ],
     faq: [
       {
@@ -2701,12 +3138,23 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         question: '特定技能 có cập nhật trong 2026 không?',
         answer: 'Có. Trang 特定技能 của ISA có nhiều cập nhật vận hành trong 2026 (hướng dẫn, biểu mẫu, quy định theo ngành).',
       },
+      {
+        question: '特定在留カード từ 14/06/2026 là gì?',
+        answer: 'Đây là thẻ cư trú có thêm chức năng My Number Card nếu người thuộc điều kiện xin cấp. ISA nêu thẻ hiện hành vẫn tiếp tục có hiệu lực; người dùng chỉ nên làm theo thủ tục khi gia hạn, đổi tư cách, cấp lại hoặc khai báo thuộc nhóm được hướng dẫn.',
+      },
+      {
+        question: 'Hệ thống online ISA có gì mới trong 2026?',
+        answer: 'ISA cho biết hệ thống online mới dùng từ 05/01/2026, có các cải tiến như tăng dung lượng/tệp đính kèm, lưu tạm khi nhập và kéo dài hạn ID của tổ chức từ 1 năm lên 3 năm.',
+      },
     ],
     officialLinks: [
       { label: '育成就労制度 — ISA', url: 'https://www.moj.go.jp/isa/applications/index_00005.html' },
       { label: '育成就労制度 Q&A — ISA', url: 'https://www.moj.go.jp/isa/applications/faq/ikusei_qa_00002.html' },
       { label: '育成就労制度に係る施行日前申請 — ISA', url: 'https://www.moj.go.jp/isa/03_00174.html' },
       { label: '特定技能制度 — ISA', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
+      { label: '在留カードとは？— ISA', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },
+      { label: '特定在留カード等交付申請 — ISA', url: 'https://www.moj.go.jp/isa/tokutei.html' },
+      { label: '新しい在留申請オンラインシステム — ISA', url: 'https://www.moj.go.jp/isa/11_00064.html' },
     ],
     steps: [
       {
@@ -2734,10 +3182,20 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 4,
-        title: '⚠️ Sắp có: 在留カード tích hợp My Number (dự kiến 14/06/2026)',
-        description: 'ISA đang chuẩn bị hệ thống **在留カード mới tích hợp với My Number Card**. Theo thông tin đang được công bố:\n\n• Thẻ mới lưu thông tin (thời hạn, tư cách) vào **chip** thay vì in trực tiếp lên mặt thẻ.\n• Yêu cầu **lấy dấu vân tay và chữ ký điện tử** khi nhận thẻ — không được nhờ người khác nhận thay.\n• Phải đến **trực tiếp tại cục xuất nhập cảnh** để nhận.\n\n⚠️ Thông tin đang trong giai đoạn chuyển tiếp — xác nhận lại tại trang chính thức ISA trước khi làm thủ tục.',
+        title: 'Từ 14/06/2026: thẻ cư trú mẫu mới và 特定在留カード',
+        description: 'ISA nêu từ 14/06/2026 sẽ bắt đầu mẫu 在留カード mới và thẻ 特定在留カード có chức năng My Number Card. Đây không phải là việc đổi thẻ bắt buộc ngay cho mọi người: thẻ hiện hành vẫn tiếp tục có hiệu lực đến hạn của thẻ. Người muốn xin 特定在留カード cần làm trong các thủ tục được ISA nêu như gia hạn, đổi tư cách, vĩnh trú, cấp lại, đổi thông tin hoặc một số khai báo tại municipal office.',
         documents: [],
-        tip: 'Theo dõi trang chính thức ISA để nắm mốc áp dụng chính xác. Chưa cần hành động ngay nếu thẻ của bạn còn hiệu lực.',
+        tip: 'Không tự kết luận rằng phải lấy dấu vân tay/chữ ký điện tử hoặc không được ủy quyền nếu chưa đối chiếu đúng mục thủ tục. Hướng dẫn hiện tại của ISA nhấn mạnh điều kiện xin và nhóm thủ tục áp dụng.',
+      },
+      {
+        step: 5,
+        title: 'Từ 05/01/2026: hệ thống online ISA mới',
+        description: 'ISA đã chuyển sang hệ thống 在留申請オンライン mới từ 05/01/2026. Các điểm thực tế cần nhớ: có lưu tạm khi nhập, tăng khả năng đính kèm tài liệu, có thể đính kèm nhiều file và ID của tổ chức liên quan được kéo dài từ 1 năm lên 3 năm.',
+        documents: [
+          'Tài khoản hệ thống online ISA nếu thuộc đối tượng được dùng',
+          'Bản lưu thông tin hồ sơ cũ nếu cần tra cứu hồ sơ đã nộp trước 2026',
+        ],
+        tip: 'Nếu nộp online, dùng manual mới của ISA. Không dựa vào ảnh chụp màn hình/hướng dẫn cũ trước ngày 05/01/2026.',
       },
     ],
   },
@@ -2839,7 +3297,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'visa-highlights-2026',
     category: 'visa',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-06',
     title: 'Các diện visa đáng chú ý 2026',
     titleJp: '2026年の注目ビザ・在留資格',
     icon: 'sparkles',
@@ -2988,6 +3446,164 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
   },
   {
+    id: 'business-manager-visa-2025',
+    category: 'visa',
+    lastVerified: '2026-05-06',
+    priority: 'normal',
+    title: 'Visa kinh doanh/quản lý: tiêu chuẩn mới',
+    titleJp: '経営・管理の許可基準改正',
+    icon: 'business',
+    color: '#784212',
+    searchKeywords: [
+      'business manager visa',
+      'keiei kanri',
+      'kinh doanh quan ly',
+      'visa kinh doanh',
+      '経営管理',
+      '経営・管理',
+      '3000万円',
+      '常勤職員',
+    ],
+    description: 'Từ 16/10/2025, ISA sửa tiêu chuẩn của tư cách 経営・管理. Kinh nghiệm cũ “mở công ty 5 triệu yên là đủ” không còn an toàn; hồ sơ cần chứng minh quy mô, nhân sự, tiếng Nhật, kinh nghiệm/học vấn và kế hoạch kinh doanh chặt hơn.',
+    legalScope: {
+      appliesFrom: '2025-10-16',
+      jurisdiction: 'national',
+      jurisdictionNote: 'Tiêu chuẩn do ISA áp dụng toàn quốc; hồ sơ thực tế còn phụ thuộc loại nộp COE/đổi tư cách/gia hạn và category doanh nghiệp.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-16',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn định góp vốn, thuê văn phòng hoặc ký hợp đồng trước khi biết có đáp ứng tiêu chuẩn mới không.',
+        'Bạn dùng vốn dưới 30 triệu yên, chưa có nhân viên toàn thời gian được tính hoặc chưa có chứng minh tiếng Nhật B2.',
+        'Bạn đang gia hạn 経営・管理 đã có trước 16/10/2025 và chưa rõ quy định chuyển tiếp.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Áp dụng với hồ sơ từ 16/10/2025; từ 15/04/2026 kiểm tra thêm giấy tờ mới nếu doanh nghiệp thuộc category 3 hoặc 4.',
+      office: 'ISA/cục xuất nhập cảnh có thẩm quyền; nên làm việc với 行政書士 và chuyên gia đánh giá business plan đúng nhóm ISA nêu.',
+      doNow: [
+        'Kiểm tra vốn/quy mô từ 30 triệu yên trở lên trước khi trả phí dịch vụ.',
+        'Xác định nhân viên toàn thời gian có được tính theo tiêu chuẩn ISA hay không.',
+        'Chuẩn bị chứng minh tiếng Nhật B2 và kinh nghiệm/học vấn trước khi lập hồ sơ.',
+      ],
+      bring: ['Hồ sơ pháp nhân/văn phòng', 'Chứng minh vốn 30 triệu yên', 'Hợp đồng và status của nhân viên toàn thời gian', 'Chứng minh tiếng Nhật B2', 'Business plan được chuyên gia phù hợp xác nhận'],
+      ifLate: 'Nếu đã lập công ty theo tiêu chuẩn cũ, cần rà lại khả năng đáp ứng tiêu chuẩn mới trước khi nộp/gia hạn; không nên nộp hồ sơ thiếu điều kiện nền.',
+      officialSourceLabels: ['経営・管理 許可基準改正 — 出入国在留管理庁', '在留資格「経営・管理」— 出入国在留管理庁'],
+    },
+    heroImage: require('../../../assets/content/daily-life/ag_visa2026_hero.jpg'),
+    heroImageCaption: '経営・管理 — tiêu chuẩn visa kinh doanh/quản lý đã bị siết từ 16/10/2025',
+    whoIsThisFor: [
+      'Người muốn mở công ty, mua công ty hoặc quản lý doanh nghiệp tại Nhật theo tư cách 経営・管理.',
+      'Người đang giữ 経営・管理 và chuẩn bị gia hạn sau khi tiêu chuẩn mới có hiệu lực.',
+      'Người được mời làm quản lý doanh nghiệp tại Nhật và cần biết yêu cầu không chỉ nằm ở chức danh.',
+    ],
+    whenToDo: [
+      'Trước khi góp vốn, thuê văn phòng, ký hợp đồng lao động hoặc trả phí dịch vụ visa.',
+      'Trước hồ sơ COE, đổi tư cách hoặc gia hạn 経営・管理 sau 16/10/2025.',
+      'Từ 15/04/2026, nếu công ty thuộc category 3 hoặc 4, kiểm tra thêm bộ giấy tờ ISA mới yêu cầu cho hồ sơ liên quan.',
+    ],
+    whereToDo: [
+      'Trang ISA về sửa đổi tiêu chuẩn 経営・管理 và trang status 経営・管理.',
+      'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu hồ sơ thuộc đối tượng được nộp online.',
+      'Chuyên gia có thẩm quyền như 行政書士 để chuẩn bị hồ sơ; riêng đánh giá kế hoạch kinh doanh phải theo nhóm chuyên gia ISA nêu.',
+    ],
+    estimatedTime: 'Đây là hồ sơ rủi ro cao và cần chuẩn bị trước nhiều tháng. Thời gian xét phụ thuộc hồ sơ, khu vực, category công ty và yêu cầu bổ sung của ISA.',
+    fees: [
+      'Lệ phí lưu trú nộp theo bảng phí ISA áp dụng tại thời điểm nhận kết quả.',
+      'Chi phí lớn nhất thường không phải lệ phí ISA mà là vốn, văn phòng, nhân sự, kế toán/thuế, bảo hiểm xã hội và dịch vụ chuyên môn.',
+    ],
+    documentsChecklist: [
+      { label: 'Hồ sơ pháp nhân, đăng ký kinh doanh và văn phòng tại Nhật', required: true },
+      { label: 'Chứng minh vốn/quy mô kinh doanh từ 30 triệu yên trở lên', required: true, note: 'ISA nêu yêu cầu 資本金等 3,000万円以上 từ 16/10/2025.' },
+      { label: 'Tài liệu tuyển dụng ít nhất 1 nhân viên toàn thời gian thuộc nhóm được tính', required: true, note: 'Không phải mọi người nước ngoài làm full-time đều được tính vào 常勤職員 theo tiêu chuẩn này.' },
+      { label: 'Chứng minh năng lực tiếng Nhật tương đương CEFR B2 của người kinh doanh/quản lý hoặc nhân viên toàn thời gian', required: true },
+      { label: 'Bằng thạc sĩ/tiến sĩ/chuyên môn liên quan hoặc chứng minh 3 năm kinh nghiệm kinh doanh/quản lý', required: true },
+      { label: 'Kế hoạch kinh doanh cụ thể, hợp lý, khả thi và được chuyên gia được ISA nêu xác nhận', required: true },
+      { label: 'Tài liệu thuế, bảo hiểm xã hội, lương, hợp đồng, giấy phép ngành nghề nếu đã hoạt động', required: false },
+    ],
+    commonMistakes: [
+      'Dựa vào mốc vốn 5 triệu yên cũ sau ngày 16/10/2025.',
+      'Thuê người có visa kỹ sư/du học/特定技能 rồi tưởng được tính là 常勤職員 cho tiêu chuẩn này.',
+      'Không chuẩn bị chứng minh tiếng Nhật B2 của người phù hợp.',
+      'Lập business plan chung chung, không được 中小企業診断士, 公認会計士 hoặc 税理士 xác nhận theo hướng dẫn ISA.',
+      'Không tách hồ sơ mới/đổi tư cách với hồ sơ gia hạn của người đã có 経営・管理 trước sửa đổi.',
+    ],
+    faq: [
+      {
+        question: 'Có còn dùng mốc 5 triệu yên như trước không?',
+        answer: 'Không nên. ISA nêu từ 16/10/2025 yêu cầu quy mô vốn/tài sản kinh doanh từ 30 triệu yên trở lên đối với tiêu chuẩn mới của 経営・管理.',
+      },
+      {
+        question: 'Nhân viên toàn thời gian phải là ai?',
+        answer: 'Theo ISA, 常勤職員 được tính là người Nhật, special permanent resident hoặc người nước ngoài thuộc nhóm status như 永住者, 日本人の配偶者等, 永住者の配偶者等, 定住者. Người ở status hoạt động thuộc bảng khác như kỹ sư hoặc du học không được tính cho yêu cầu này.',
+      },
+      {
+        question: 'Ai phải có tiếng Nhật B2?',
+        answer: 'ISA nêu người xin hoặc một nhân viên toàn thời gian được tính phải có năng lực tiếng Nhật tương đương CEFR B2. Vì vậy cần xác định ngay từ đầu ai là người dùng để chứng minh điều kiện này.',
+      },
+      {
+        question: 'Kế hoạch kinh doanh cần ai xác nhận?',
+        answer: 'ISA nêu chuyên gia có kiến thức chuyên môn về quản trị, tại thời điểm thi hành gồm 中小企業診断士, 公認会計士 và 税理士. Đây là điểm rất dễ bị làm sai nếu chỉ thuê người viết kế hoạch mà không đúng vai trò được yêu cầu.',
+      },
+      {
+        question: 'Đang có 経営・管理 trước 16/10/2025 thì sao?',
+        answer: 'Không nên tự kết luận hồ sơ gia hạn chắc chắn bị rớt hoặc chắc chắn được gia hạn. ISA có thông báo riêng cho người gia hạn; cần đối chiếu tình trạng kinh doanh, khả năng đáp ứng tiêu chuẩn mới và giấy tờ theo thời điểm nộp.',
+      },
+    ],
+    officialLinks: [
+      { label: '経営・管理 許可基準改正 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/10_00237.html?hl=ja' },
+      { label: '在留資格「経営・管理」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/businessmanager.html' },
+      { label: '経営・管理 お知らせ PDF — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/content/001448361.pdf' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra mốc hồ sơ',
+        description: 'Nếu hồ sơ nộp từ 16/10/2025, phải đối chiếu theo tiêu chuẩn sửa đổi của ISA. Với hồ sơ gia hạn của người đã có 経営・管理, đọc thêm thông báo riêng của ISA thay vì áp một công thức chung.',
+        documents: [
+          'Ngày dự kiến nộp hồ sơ',
+          'Loại hồ sơ: COE, đổi tư cách hay gia hạn',
+          'Category công ty nếu đã hoạt động',
+        ],
+        tip: 'Từ 15/04/2026, ISA còn nêu thêm giấy tờ cho category 3 hoặc 4; tải checklist tại ngày nộp.',
+      },
+      {
+        step: 2,
+        title: 'Chốt quy mô vốn và nhân sự trước',
+        description: 'Tiêu chuẩn mới yêu cầu quy mô vốn/tài sản từ 30 triệu yên trở lên và ít nhất 1 nhân viên toàn thời gian thuộc nhóm được tính. Đây là điều kiện nền, không nên để đến cuối hồ sơ mới xử lý.',
+        documents: [
+          '登記事項証明書 hoặc tài liệu góp vốn/đầu tư',
+          'Hợp đồng lao động và giấy tờ cư trú của nhân viên toàn thời gian',
+          'Tài liệu lương, bảo hiểm xã hội, văn phòng',
+        ],
+        tip: 'Nếu nhân viên là người nước ngoài, phải kiểm tra đúng status cư trú của họ; không chỉ nhìn vào việc họ làm full-time.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị chứng minh tiếng Nhật và kinh nghiệm/học vấn',
+        description: 'ISA nêu yêu cầu tiếng Nhật tương đương CEFR B2 cho người xin hoặc nhân viên toàn thời gian được tính. Người xin còn cần bằng thạc sĩ/tiến sĩ/chuyên môn liên quan hoặc 3 năm kinh nghiệm kinh doanh/quản lý.',
+        documents: [
+          'JLPT/chứng chỉ hoặc bằng cấp đáp ứng hướng dẫn',
+          'Bằng thạc sĩ/tiến sĩ/chuyên môn nếu dùng điều kiện học vấn',
+          'Giấy xác nhận kinh nghiệm quản lý/kinh doanh nếu dùng điều kiện kinh nghiệm',
+        ],
+        tip: 'Đừng chỉ ghi “có kinh nghiệm” trong CV; ISA thường cần giấy tờ chứng minh từ tổ chức/công ty liên quan.',
+      },
+      {
+        step: 4,
+        title: 'Đánh giá kế hoạch kinh doanh đúng người',
+        description: 'Kế hoạch kinh doanh phải cụ thể, hợp lý, khả thi và được người có kiến thức chuyên môn mà ISA nêu xác nhận. Tại thời điểm thi hành, ISA nêu 中小企業診断士, 公認会計士 và 税理士.',
+        documents: [
+          'Business plan',
+          'Dự báo doanh thu/chi phí/dòng tiền',
+          'Tài liệu thị trường, hợp đồng, giấy phép, khách hàng nếu có',
+          'Xác nhận/đánh giá của chuyên gia phù hợp',
+        ],
+        tip: 'Người viết hồ sơ visa và người đánh giá kế hoạch kinh doanh không nhất thiết là cùng một vai trò. Kiểm tra tư cách của từng người.',
+      },
+    ],
+  },
+  {
     id: 'parents-elderly-relatives',
     category: 'visa',
     lastVerified: '2026-04-11',
@@ -2997,6 +3613,34 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'people-circle',
     color: '#5C6B8A',
     description: 'Giải thích đúng phạm vi pháp lý khi muốn đưa cha mẹ hoặc người thân lớn tuổi sang Nhật. Trường hợp thông thường không đi theo 家族滞在; chỉ có một số ngoại lệ rất hẹp, chủ yếu gắn với 高度専門職.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Ở dài hạn theo ngoại lệ cha mẹ của 高度専門職 do ISA xét; thăm thân ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xét theo hồ sơ visa ngắn hạn.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Gia đình muốn cha mẹ ở Nhật lâu dài nhưng bạn không thuộc 高度専門職 hoặc special highly skilled professional.',
+        'Mục đích mời cha mẹ là chăm sóc y tế, dưỡng già, nhân đạo hoặc hoàn cảnh đặc biệt không nằm rõ trong điều kiện ISA.',
+        'Bạn sắp trả phí dịch vụ cho bên hứa “bảo lãnh cha mẹ sang ở lâu dài” mà không chỉ ra đúng tư cách lưu trú.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra đúng diện trước khi nộp hồ sơ hoặc trả phí dịch vụ; nếu chỉ thăm thân, chuẩn bị theo lịch xin visa ngắn hạn ở ngoài Nhật.',
+      office: 'ISA nếu thuộc ngoại lệ 特定活動 cho cha mẹ của 高度専門職; cơ quan lãnh sự Nhật ở ngoài Nhật nếu là visa thăm thân ngắn hạn.',
+      doNow: [
+        'Xác định mục đích thật: thăm thân ngắn hạn hay ở cùng dài hạn.',
+        'Kiểm tra tư cách lưu trú của người đang ở Nhật có phải 高度専門職/J-Skip không.',
+        'Nếu không thuộc ngoại lệ, chuyển hướng sang hồ sơ 短期滞在 thay vì cố chuẩn bị hồ sơ ở dài hạn.',
+      ],
+      bring: ['Thẻ cư trú của người mời', 'Giấy tờ chứng minh quan hệ cha mẹ - con', 'Chứng minh thu nhập hộ gia đình nếu thuộc 高度専門職', 'Giấy tờ mục đích chăm con dưới 7 tuổi hoặc hỗ trợ thai sản nếu xin ngoại lệ'],
+      ifLate: 'Không có hạn nộp chung, nhưng nếu visa hiện tại hoặc kế hoạch nhập cảnh sắp đến hạn thì nên hỏi ISA/cơ quan lãnh sự trước khi đặt vé.',
+      officialSourceLabels: [
+        'General visa: Dependent (family stays) — MOFA',
+        '在留資格「特定活動」（高度専門職外国人又はその配偶者の親）— 出入国在留管理庁',
+        'Procedures Chart for Short-Term Stay — MOFA',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_elderly-parents_hero.jpg'),
     heroImageCaption: 'Quy định pháp lý khi muốn đưa cha mẹ sang Nhật',
     whoIsThisFor: [
@@ -3291,13 +3935,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'baby-born-in-japan',
     category: 'immigration',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Con sinh ở Nhật: quốc tịch, hộ chiếu, cư trú',
     titleJp: '日本で生まれた子どもの国籍・旅券・在留',
     icon: 'happy',
     color: '#F39C12',
     description: 'Guide riêng cho em bé sinh ở Nhật khi cha mẹ là người nước ngoài: quốc tịch, hộ chiếu, 在留資格取得, My Number, bảo hiểm và các mốc khám cơ bản.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Sau sinh có nhiều cơ quan: municipal office cho 出生届/cư trú, ISA cho 在留資格取得, cơ quan lãnh sự theo quốc tịch cha/mẹ cho khai sinh/hộ chiếu.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Cha mẹ khác quốc tịch, chưa đăng ký kết hôn, giấy tờ quốc tịch/hộ chiếu của con bị chậm hoặc có tranh chấp gia đình.',
+        'Em bé sẽ ở Nhật quá 60 ngày nhưng gia đình chưa chuẩn bị hồ sơ ISA trước mốc 30 ngày.',
+        'Một trong hai cha mẹ có tình trạng cư trú bất ổn, sắp hết hạn hoặc không rõ tư cách con nên xin.',
+      ],
+    },
+    quickAction: {
+      deadline: '出生届 trong 14 ngày; nếu em bé là người nước ngoài sẽ ở Nhật quá 60 ngày thì nộp 在留資格取得許可申請 trong 30 ngày từ ngày sinh.',
+      office: 'Municipal office, ISA và Đại sứ quán/Lãnh sự quán theo quốc tịch của cha hoặc mẹ.',
+      doNow: [
+        'Tách riêng 3 việc: khai sinh tại Nhật, quốc tịch/hộ chiếu theo nước của cha/mẹ, và tư cách lưu trú tại ISA.',
+        'Không chờ hộ chiếu quá lâu rồi mới hỏi ISA nếu em bé sẽ ở quá 60 ngày.',
+        'Thêm em bé vào bảo hiểm và kiểm tra My Number/hỗ trợ y tế trẻ em tại địa phương.',
+      ],
+      bring: ['Giấy chứng sinh/出生届', 'Hộ chiếu hoặc giấy tờ quốc tịch của cha mẹ', 'Thẻ cư trú của cha mẹ', 'Hồ sơ lãnh sự của em bé', 'Hồ sơ 在留資格取得 nếu ở quá 60 ngày'],
+      ifLate: 'Nếu sắp qua mốc 30 ngày hoặc đã qua hạn, hỏi ISA ngay và giải thích trung thực; không đợi đến ngày thứ 59 mới xử lý.',
+      officialSourceLabels: ['在留資格取得許可申請 — 出入国在留管理庁', '在留資格の取得（入管法第22条の2）— 出入国在留管理庁', '出生届 — 法務省'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_baby_hero.jpg'),
     heroImageCaption: 'Thủ tục giấy tờ cho em bé sinh tại Nhật',
     whoIsThisFor: [
@@ -4515,7 +5183,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-04-12',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -4523,6 +5191,30 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#8E44AD',
     description:
       'Thủ tục đổi từ tư cách lưu trú hiện tại sang tư cách khác, ví dụ từ du học sang đi làm hoặc từ visa gia đình sang diện lao động phù hợp.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn muốn bắt đầu công việc/hoạt động mới trước khi có kết quả đổi tư cách.',
+        'Hồ sơ có yếu tố tốt nghiệp, nghỉ học, đổi ngành, ly hôn, thu nhập thấp hoặc công ty mới chưa rõ điều kiện.',
+        'Bạn sắp hết hạn lưu trú hiện tại trong lúc chờ đổi tư cách.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp từ khi phát sinh lý do đổi tư cách và trước ngày hết hạn lưu trú hiện tại; không để hoạt động mới đi trước tình trạng pháp lý.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu thuộc đối tượng được dùng.',
+      doNow: [
+        'Xác định tư cách mới và hoạt động dự kiến có khớp bảng ISA không.',
+        'Gom giấy tờ công ty/trường/gia đình chứng minh lý do đổi.',
+        'Theo dõi hạn lưu trú hiện tại; nếu hết hạn trong lúc chờ, cần xử lý gia hạn phù hợp.',
+      ],
+      bring: ['Đơn 在留資格変更許可申請', 'Hộ chiếu', 'Thẻ cư trú', 'Ảnh thẻ 4cm x 3cm', 'Giấy tờ của bên tiếp nhận mới', 'Tài liệu chứng minh năng lực/lý do đổi'],
+      ifLate: 'Liên hệ ISA ngay trước khi hết hạn hoặc trước khi bắt đầu hoạt động mới; quá hạn lưu trú là rủi ro nghiêm trọng.',
+      officialSourceLabels: ['在留資格変更許可申請 — 出入国在留管理庁', 'Online Residence Application System — ISA'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_status-change_hero.jpg'),
     heroImageCaption: 'Thủ tục đổi tư cách lưu trú tại ISA',
     whoIsThisFor: [
@@ -4622,7 +5314,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'moving-in-notification',
     category: 'daily-law',
-    lastVerified: '2026-04-12',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đăng ký cư trú khi mới chuyển đến',
     titleJp: '転入届・住民登録',
@@ -4630,6 +5322,35 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     color: '#27AE60',
     description:
       'Thủ tục đăng ký địa chỉ tại municipal office sau khi bạn chuyển đến nơi ở mới. Đây là một trong những việc nền tảng nhất để mở tài khoản, bảo hiểm, My Number và nhiều thủ tục khác.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote: '転入届/転居届 do municipal office xử lý theo hệ thống 住民基本台帳; với người trung/dài hạn, mang thẻ cư trú đến municipal office cũng được coi là đã làm 届出 địa chỉ theo ISA.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đã quá 14 ngày từ ngày chuyển đến hoặc chưa có địa chỉ cố định.',
+        'Bạn mới nhập cảnh nhưng thẻ cư trú chưa ghi địa chỉ, hoặc hộ chiếu có ghi 在留カード後日交付.',
+        'Bạn chuyển cùng gia đình, có người chưa đủ 16 tuổi, người không thể tự đi làm thủ tục hoặc cần ủy quyền.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Làm trong vòng 14 ngày từ ngày xác định/chuyển đến nơi cư trú mới.',
+      office: 'Municipal office nơi có địa chỉ mới; nếu chuyển từ địa phương khác trong Nhật, hỏi nơi cũ về 転出届/転出証明書 trước.',
+      doNow: [
+        'Mang thẻ cư trú ra municipal office nơi ở mới.',
+        'Nếu chuyển từ địa phương khác, chuẩn bị 転出証明書 hoặc thủ tục chuyển đi online nếu đủ điều kiện.',
+        'Hỏi luôn về bảo hiểm y tế, My Number Card, 住民票 và thủ tục trường học nếu có con.',
+      ],
+      bring: ['Thẻ cư trú', 'Hộ chiếu nếu mới nhập cảnh hoặc được yêu cầu', '転出証明書 nếu chuyển từ địa phương khác', 'My Number Card nếu đã có', 'Thông tin địa chỉ mới'],
+      ifLate: 'Đi làm càng sớm càng tốt và giải thích trung thực tại municipal office; giữ bằng chứng đã cập nhật địa chỉ để dùng cho hồ sơ cư trú sau này.',
+      officialSourceLabels: [
+        'Resident registration system — Ministry of Internal Affairs and Communications',
+        'Moving procedures on Myna Portal',
+        '新規上陸後の住居地の届出（中長期在留者）— 出入国在留管理庁',
+        '住居地の変更届出（中長期在留者）— 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_moving-in_hero.jpg'),
     heroImageCaption: 'Nộp 転入届 tại 役所 sau khi chuyển đến nơi ở mới',
     whoIsThisFor: [
@@ -4672,6 +5393,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     officialLinks: [
       { label: 'Resident registration system — Ministry of Internal Affairs and Communications', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/' },
       { label: 'Moving procedures on Myna Portal', url: 'https://myna.go.jp/html/moving_oss.html' },
+      { label: '新規上陸後の住居地の届出（中長期在留者）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00021.html' },
+      { label: '住居地の変更届出（中長期在留者）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
     ],
     steps: [
       {
@@ -4719,35 +5442,64 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'my-number-card',
     category: 'daily-law',
-    lastVerified: '2026-04-29',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Đăng ký và nhận My Number Card',
     titleJp: 'マイナンバーカード申請・受取',
     icon: 'card',
     color: '#185FA5',
     description:
-      'My Number Card không bắt buộc để ở Nhật, nhưng cần thiết để dùng bảo hiểm điện tử (マイナ保険証), in giấy tờ tại combini, nộp 確定申告 online và đăng nhập Mynaportal. Thẻ mất khoảng 1–2 tháng từ lúc nộp đến lúc nhận.',
+      'My Number Card không bắt buộc để ở Nhật, nhưng cần thiết để dùng bảo hiểm điện tử (マイナ保険証), in giấy tờ tại combini, nộp 確定申告 online và đăng nhập Mynaportal. Thời gian cấp thường khoảng 1 tháng nhưng tùy municipal office và tình trạng hồ sơ.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do municipal office nơi đăng ký cư trú xử lý.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn là người nước ngoài có hạn lưu trú ngắn, vừa gia hạn visa hoặc My Number Card sắp hết hạn.',
+        'Bạn mất 交付通知書, chuyển nhà trong thời gian chờ, hoặc thư bị trả về vì 転送不要.',
+        'Bạn quên PIN, bị khóa chứng thư điện tử hoặc cần người khác nhận thẻ thay.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Làm sớm sau khi địa chỉ ổn định; nếu đang cập nhật hạn thẻ sau gia hạn lưu trú, làm trước ngày My Number Card hết hạn.',
+      office: 'Nộp đơn qua apply.jpki.go.jp/QR, bưu điện hoặc máy ảnh thẻ; nhận/cập nhật tại municipal office.',
+      doNow: [
+        'Chuẩn bị ảnh đúng chuẩn và 申請書ID 23 số.',
+        'Không chuyển nhà giữa chừng mà không báo bộ phận My Number Card.',
+        'Sau khi gia hạn visa, kiểm tra ngay hạn My Number Card và chứng thư điện tử.',
+      ],
+      bring: ['申請書ID hoặc QR', 'Ảnh chân dung đúng chuẩn', '交付通知書', '在留カード', 'Hộ chiếu hoặc giấy tờ định danh bổ sung'],
+      ifLate: 'Nếu thư nhận thẻ quá hạn hoặc thẻ bị hủy, hỏi municipal office để nộp lại/cấp lại; nếu thẻ đã hết hạn do gia hạn lưu trú chậm, xử lý trực tiếp tại quầy.',
+      officialSourceLabels: [
+        'Nộp đơn online (スマートフォン・PC)',
+        'Hướng dẫn chính thức マイナンバーカード申請',
+        '更新手続きについて — マイナンバーカード総合サイト',
+        'マイナンバーカードを作って、便利に生活しましょう！— 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_mynumber-card_hero.jpg'),
     heroImageCaption: 'マイナンバーカード - thẻ định danh dùng cho bảo hiểm số, combini và thủ tục online',
     whoIsThisFor: [
       'Người đã có đăng ký cư trú (住民登録) tại Nhật và chưa có My Number Card.',
-      'Người muốn dùng マイナ保険証 thay thẻ bảo hiểm giấy (廃止 từ tháng 12/2024).',
+      'Người muốn dùng マイナ保険証 thay thẻ bảo hiểm giấy cũ đã hết hiệu lực chuyển tiếp từ 02/12/2025.',
       'Người cần in giấy tờ hành chính tại combini (コンビニ交付) không cần xếp hàng ở 役所.',
     ],
     whenToDo: [
       'Ngay khi có địa chỉ ổn định — thư thông báo nhận thẻ ghi 転送不要, không chuyển tiếp nếu đổi địa chỉ.',
-      'Làm sớm vì mất 1–2 tháng chờ — đừng để đến khi cần gấp.',
+      'Làm sớm vì thường cần khoảng 1 tháng hoặc lâu hơn nếu hồ sơ/ảnh bị lỗi — đừng để đến khi cần gấp.',
     ],
     whereToDo: [
       'Nộp đơn: online qua điện thoại tại apply.jpki.go.jp (nhanh nhất, 10 phút) hoặc tại quầy 役所.',
       'Nhận thẻ: tại 役所 (市区町村) theo ngày ghi trong 交付通知書 gửi về nhà.',
     ],
-    estimatedTime: 'Nộp đơn: 10–15 phút qua điện thoại. Chờ thư 交付通知書: 1–2 tháng. Đến 役所 nhận thẻ: 20–40 phút.',
-    fees: ['Miễn phí lần đầu. Cấp lại khi mất hoặc hư: 1,000 yên (thẻ) + 200 yên (chứng thư điện tử).'],
+    estimatedTime: 'Nộp đơn: 10–15 phút qua điện thoại. Chờ thư 交付通知書: thường khoảng 1 tháng, có thể lâu hơn tùy địa phương/hồ sơ. Đến 役所 nhận thẻ: 20–40 phút.',
+    fees: ['Miễn phí lần đầu. Cấp lại do mất/hư hoặc các trường hợp tương tự có thể phát sinh phí theo quy định địa phương/từng thủ tục.'],
     documentsChecklist: [
       { label: '申請書ID — dãy 23 số trên tờ giấy 個人番号通知書 gửi về nhà khi đăng ký 住民票', required: true },
       { label: 'Ảnh chân dung đúng quy cách (45mm × 35mm, nền trắng/xám, chụp trong 6 tháng gần)', required: true },
-      { label: '交付通知書 (giấy báo đến lấy thẻ — gửi về nhà sau 1–2 tháng)', required: true, note: 'Chỉ cần khi đến 役所 nhận' },
+      { label: '交付通知書 (giấy báo đến lấy thẻ)', required: true, note: 'Chỉ cần khi đến 役所 nhận; thường được gửi khi thẻ đã sẵn sàng.' },
       { label: '在留カード', required: true, note: 'Cần khi đến 役所 nhận thẻ' },
       { label: 'Hộ chiếu hoặc thẻ bảo hiểm y tế (1 trong 2)', required: true, note: 'Cần khi đến nhận thẻ' },
     ],
@@ -4766,7 +5518,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         question: 'Nhờ người khác đến lấy thẻ hộ được không?',
         answer:
-          '委任状 (giấy ủy quyền viết tay) + giấy tờ của cả người ủy quyền và người được ủy quyền. Một số 役所 yêu cầu đặt hẹn trước — gọi điện hỏi trước.',
+          'Về nguyên tắc chính chủ đi nhận. Trường hợp thật sự không thể đến quầy có thể cần giấy tờ ủy quyền và lý do phù hợp, nhưng điều kiện khác nhau theo municipal office nên phải gọi hỏi trước.',
       },
       {
         question: 'PIN 署名用 (6–16 ký tự) dùng để làm gì?',
@@ -4777,6 +5529,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     officialLinks: [
       { label: 'Nộp đơn online (スマートフォン・PC)', url: 'https://apply.jpki.go.jp/' },
       { label: 'Hướng dẫn chính thức マイナンバーカード申請', url: 'https://www.kojinbango-card.go.jp/en-kofushinse/' },
+      { label: '更新手続きについて — マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/card/renewal/' },
+      { label: 'マイナンバーカードを作って、便利に生活しましょう！— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/mynumbercard.html' },
       { label: 'Mynaportal', url: 'https://myna.go.jp/' },
     ],
     steps: [
@@ -4802,7 +5556,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         step: 3,
         title: 'Chờ thư 交付通知書 gửi về nhà',
         description:
-          '役所 in thẻ và gửi 交付通知書 (giấy báo đến lấy) sau 1–2 tháng.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — thường là 3 tháng kể từ ngày gửi. Quá hạn thẻ bị hủy, phải nộp đơn lại.\n\nTra trạng thái đơn: vào apply.jpki.go.jp → dùng email đã đăng ký.',
+          'Municipal office gửi 交付通知書 (giấy báo đến lấy) khi thẻ đã sẵn sàng. Trang chính thức nêu thời gian thường khoảng 1 tháng từ lúc nộp đến khi municipal office gửi thông báo, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đông hồ sơ.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — quá hạn có thể phải hỏi municipal office để xử lý lại.\n\nTra trạng thái đơn: vào apply.jpki.go.jp → dùng email đã đăng ký.',
         documents: [],
         tip: 'Nếu sau 2 tháng chưa nhận thư, tra trạng thái online trước khi đến 役所 hỏi — thường có cập nhật trên hệ thống.',
       },
@@ -5131,13 +5885,43 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'return-to-vietnam-checklist',
     category: 'immigration',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Checklist về nước / kết thúc hợp đồng',
     titleJp: '帰国・在留終了時の手続き',
     icon: 'airplane',
     color: '#27AE60',
     description: 'Tất cả thủ tục cần làm trước và sau khi rời Nhật: chuyển đi khỏi thành phố, hủy bảo hiểm, đóng ngân hàng, hủy điện thoại, hoàn thuế pension và quyết toán thuế.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Về nước/kết thúc cư trú liên quan nhiều cơ quan: municipal office cho 転出/住民登録 và bảo hiểm, ISA cho返納 thẻ cư trú khi xuất cảnh, Japan Pension Service cho 脱退一時金, ngân hàng/nhà mạng/cơ quan thuế cho hợp đồng và thuế.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn có kế hoạch quay lại Nhật và đang cân nhắc có nên nhận 脱退一時金 hay giữ lịch sử pension.',
+        'Bạn còn 住民税, nợ bảo hiểm/điện thoại/ngân hàng hoặc chưa quyết toán thuế.',
+        'Bạn rời Nhật bằng 再入国/みなし再入国 thay vì rời vĩnh viễn và không chắc có nên nộp thẻ cư trú/転出 hay không.',
+      ],
+    },
+    quickAction: {
+      deadline: '転出届 làm quanh thời điểm rời địa chỉ theo hướng dẫn municipal office; trả thẻ cư trú ngay tại cảng xuất cảnh nếu rời Nhật không dùng tái nhập; 脱退一時金 nộp sau khi rời Nhật và trong vòng 2 năm.',
+      office: 'Municipal office, cửa xuất nhập cảnh sân bay/cảng, Japan Pension Service, 税務署, ngân hàng và nhà mạng/hợp đồng dịch vụ.',
+      doNow: [
+        'Quyết định rời vĩnh viễn hay rời bằng 再入国/みなし再入国.',
+        'Làm 転出届, hủy/đóng bảo hiểm và xử lý thuế trước khi rời.',
+        'Chụp/lưu thông tin thẻ cư trú và pension trước khi nộp thẻ tại sân bay.',
+        'Không đóng tài khoản nhận tiền cho đến khi đã rõ cách nhận pension refund/hoàn thuế.',
+      ],
+      bring: ['Thẻ cư trú', 'Hộ chiếu', 'My Number Card nếu có', 'Sổ/Thông tin pension', '源泉徴収票', 'Thông tin tài khoản ngân hàng', 'Hợp đồng SIM/internet/nhà'],
+      ifLate: 'Nếu đã về Việt Nam mà còn sót thủ tục, xử lý ngay qua bưu điện/online/đại diện; 脱退一時金 quá 2 năm sẽ mất quyền yêu cầu.',
+      officialSourceLabels: [
+        '脱退一時金 — Japan Pension Service',
+        '転出届の手続き — 総務省',
+        '在留カード等の返納 — 出入国在留管理庁',
+        '海外勤務と所得税額の精算 — 国税庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_return-vn_hero.jpg'),
     heroImageCaption: 'Checklist về nước — 転出届, hủy bảo hiểm, đóng tài khoản và hoàn pension',
     whoIsThisFor: [
@@ -5147,7 +5931,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     whenToDo: [
       'Bắt đầu lên danh sách ít nhất 2–3 tháng trước ngày về — một số thủ tục cần hẹn trước hoặc chờ giấy tờ.',
-      'Nộp 転出届 (chuyển đi) tại municipal office trong vòng 14 ngày trước hoặc sau ngày rời.',
+      'Nộp 転出届 (chuyển đi) quanh thời điểm rời địa chỉ theo hướng dẫn municipal office; nếu về nước, ghi rõ 海外転出.',
       'Pension refund (脱退一時金) phải nộp SAU khi đã rời Nhật và trong vòng 2 năm kể từ ngày về.',
     ],
     whereToDo: [
@@ -5160,7 +5944,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     estimatedTime: 'Toàn bộ quá trình mất 1–3 tháng nếu tính cả việc chờ pension refund sau khi về. Thủ tục tại Nhật trước ngày về có thể xử lý trong 1–2 tuần nếu chuẩn bị sớm.',
     fees: [
       'Hầu hết thủ tục chuyển đi, hủy bảo hiểm miễn phí.',
-      'Pension refund: bạn NHẬN LẠI tiền đã đóng — không phải nộp thêm. Mức hoàn phụ thuộc số tháng đóng và lương.',
+      'Pension refund: bạn NHẬN LẠI một phần tiền đã đóng — không phải nộp thêm. Mức hoàn phụ thuộc số tháng đóng và lương; với kỳ đóng từ 2021/04 trở đi, trần tháng dùng để tính có thể là 60 tháng.',
       'Sau khi nhận pension refund, Japan Pension Service khấu lưu 20.42% thuế. Người Việt Nam có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế VN–Nhật.',
     ],
     documentsChecklist: [
@@ -5193,13 +5977,14 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: 'Nếu muốn quay lại Nhật sau này thì nên làm gì khác không?',
-        answer: 'Nếu có kế hoạch quay lại, hãy cân nhắc giữ tài khoản ngân hàng (nhiều ngân hàng cho phép duy trì từ nước ngoài), lưu lại số My Number và hỏi nhà mạng về gói tạm ngưng thay vì hủy hẳn. Pension refund sẽ xóa lịch sử đóng — nếu ở lại lâu dài sau này, không nhận refund có thể có lợi hơn.',
+        answer: 'Nếu có kế hoạch quay lại, hãy kiểm tra kỹ ngân hàng, bảo hiểm, My Number Card và tư cách lưu trú trước khi rời. Đặc biệt, nhận 脱退一時金 có nghĩa là các tháng đã dùng để tính khoản này không còn dùng cho quyền lợi pension tương lai, nên nếu định quay lại lâu dài thì cần cân nhắc trước.',
       },
     ],
     officialLinks: [
       { label: '脱退一時金 — Japan Pension Service', url: 'https://www.nenkin.go.jp/service/jukyu/sonota-kyufu/dattai-ichiji/20150406.html' },
       { label: '転出届の手続き — 総務省', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/daityo/tetsuduki.html' },
-      { label: '外国人の帰国手続き — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/guide/returnhome.html' },
+      { label: '在留カード等の返納 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00020.html' },
+      { label: '海外勤務と所得税額の精算 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1920.htm' },
     ],
     steps: [
       {
@@ -5237,7 +6022,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Trả thẻ cư trú tại sân bay khi xuất cảnh',
-        description: 'Khi qua cửa kiểm tra xuất nhập cảnh ở sân bay để về nước, nhân viên ISA sẽ nhận lại thẻ cư trú. Đây là bước bắt buộc khi rời Nhật vĩnh viễn hoặc ngừng cư trú dài hạn.',
+        description: 'Khi qua cửa kiểm tra xuất nhập cảnh để rời Nhật không dùng 再入国/みなし再入国, thẻ cư trú mất hiệu lực và được trả lại ngay tại cảng xuất cảnh. Nếu rời bằng tái nhập hợp lệ để quay lại, không xử lý như về nước vĩnh viễn.',
         documents: [
           'Thẻ cư trú (在留カード)',
           'Hộ chiếu',
@@ -5247,7 +6032,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 5,
         title: 'Nộp đơn pension refund (脱退一時金) sau khi về nước',
-        description: 'Nộp đơn xin hoàn lại tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật. Deadline là 2 năm kể từ ngày rời. Sau khi nhận, Japan Pension Service khấu lưu 20.42% thuế — người Việt có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế Việt Nam–Nhật.\n\nTải mẫu đơn: https://www.nenkin.go.jp/shinsei/jukyu/sonota-kyufu/20150406.html — chọn mẫu **様式第I号** (dành cho người nhận tài khoản nước ngoài hoặc người không có 納税管理人).',
+        description: 'Nộp đơn xin hoàn lại một phần tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật và không còn địa chỉ tại Nhật. Deadline là 2 năm kể từ ngày không còn địa chỉ tại Nhật/không còn tư cách tham gia pension theo điều kiện Japan Pension Service.\n\nĐiểm mới cần nhớ: nếu kỳ đóng pension thuộc giai đoạn áp dụng từ 2021/04 trở đi, số tháng tối đa dùng để tính 脱退一時金 là 60 tháng, không còn chỉ 36 tháng như quy định cũ. Sau khi nhận, phần 厚生年金 có thể bị khấu lưu thuế; nếu cần hoàn thuế Nhật, chuẩn bị 納税管理人 hoặc thủ tục thuế phù hợp trước/sau khi rời Nhật.',
         image: require('../../../assets/content/daily-life/dl_post-office_s1.jpg'),
         imageCaption: 'Gửi đơn 脱退一時金 qua bưu điện từ Việt Nam đến Japan Pension Service — dùng dịch vụ có số theo dõi',
         documents: [
@@ -5256,31 +6041,56 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Bản sao thẻ cư trú cũ (đã nộp tại sân bay — dùng ảnh đã chụp trước khi nộp)',
           'Thông tin tài khoản ngân hàng để nhận tiền',
         ],
-        tip: 'Số tháng đóng pension càng nhiều thì số tiền hoàn càng lớn. Nếu đóng 3 năm (36 tháng), số tiền hoàn có thể đáng kể. Kiểm tra bảng tính tại trang Japan Pension Service.',
+        tip: 'Số tháng đóng pension càng nhiều thì số tiền hoàn càng lớn nhưng có trần tính. Kiểm tra bảng tính Japan Pension Service theo tháng cuối cùng đóng bảo hiểm trước khi nộp.',
       },
     ],
   },
   {
     id: 'myna-portal-digital',
     category: 'daily-law',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'My Number Card số hóa — マイナポータル',
     titleJp: 'マイナンバーカード・マイナ保険証・マイナポータル',
     icon: 'phone-portrait',
     color: '#2980B9',
     description: 'Dùng My Number Card như thẻ bảo hiểm y tế số (マイナ保険証), tra cứu lịch sử pension/thuế/y tế và làm thủ tục hành chính online — đặc biệt quan trọng từ 2024 khi thẻ bảo hiểm truyền thống ngừng cấp mới.',
+    legalScope: {
+      appliesFrom: '2025-12-02',
+      jurisdiction: 'national',
+      jurisdictionNote: 'マイナ保険証 là hệ thống toàn quốc, nhưng cấp 資格確認書 và cập nhật bảo hiểm vẫn phụ thuộc bên bảo hiểm/municipal office/công ty.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn đổi việc, đổi bảo hiểm hoặc chuyển địa phương nhưng マイナ保険証 chưa phản ánh bảo hiểm mới.',
+        'Bạn quên PIN My Number Card hoặc thẻ bị khóa.',
+        'Bạn chưa có My Number Card và cần đi khám nhưng chưa nhận 資格確認書.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Từ 02/12/2025, khi đi khám nên dùng マイナ保険証 hoặc 資格確認書; không dựa vào thẻ bảo hiểm cũ.',
+      office: 'マイナポータル, kiosk tại cơ sở y tế, municipal office để reset PIN/cập nhật thẻ, hoặc nơi cấp bảo hiểm để hỏi 資格確認書.',
+      doNow: [
+        'Kiểm tra My Number Card có dùng được và còn nhớ PIN 4 số.',
+        'Liên kết bảo hiểm y tế qua マイナポータル hoặc kiosk ở bệnh viện/phòng khám.',
+        'Nếu chưa dùng được マイナ保険証, hỏi nơi cấp bảo hiểm về 資格確認書.',
+      ],
+      bring: ['My Number Card', 'PIN 4 số', 'Thông tin bảo hiểm hiện tại', '資格確認書 nếu chưa dùng マイナ保険証'],
+      ifLate: 'Nếu đi khám mà không có マイナ保険証/資格確認書, liên hệ nơi cấp bảo hiểm để xin giấy xác nhận; có thể phải thanh toán theo hướng dẫn của cơ sở y tế rồi điều chỉnh sau.',
+      officialSourceLabels: ['マイナ保険証の利用申込 — 厚生労働省', '資格確認方法について — 厚生労働省', 'Use of health insurance card in My Number Card — デジタル庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_mynaportal_hero.jpg'),
     heroImageCaption: 'マイナポータル - dùng My Number Card để tra cứu bảo hiểm, pension và giấy tờ online',
     whoIsThisFor: [
       'Người đã có My Number Card vật lý (thẻ nhựa) và muốn dùng được nhiều tính năng hơn.',
-      'Người cần dùng thẻ bảo hiểm y tế khi đi khám — từ tháng 12/2024, thẻ bảo hiểm truyền thống không còn được cấp mới.',
+      'Người cần dùng thẻ bảo hiểm y tế khi đi khám — từ 02/12/2025, thẻ bảo hiểm cũ đã hết hiệu lực chuyển tiếp.',
       'Người muốn tra cứu lịch sử pension, chi phí y tế hoặc nộp thuế online không cần đến cơ quan.',
     ],
     whenToDo: [
       'Ngay khi nhận My Number Card — đăng ký マイナポータル và liên kết bảo hiểm y tế.',
       'Khi thay đổi bảo hiểm y tế (đổi việc, mất việc): cần liên kết lại bảo hiểm mới.',
-      'Trước khi thẻ bảo hiểm cũ hết hạn: kiểm tra マイナ保険証 đã hoạt động chưa để không bị gián đoạn khi đi khám.',
+      'Nếu chưa có マイナ保険証: kiểm tra đã nhận 資格確認書 từ nơi cấp bảo hiểm chưa để không bị gián đoạn khi đi khám.',
     ],
     whereToDo: [
       'App マイナポータル (iOS / Android): đăng ký và tra cứu thông tin.',
@@ -5302,13 +6112,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nhầm My Number Card (thẻ nhựa xanh) với 通知カード (tờ giấy màu nâu/vàng gửi khi cấp số) — tờ giấy đó không dùng để đăng ký được.',
       'Quên PIN và không biết phải làm gì — cần đến municipal office để reset, không thể reset online.',
       'Liên kết bảo hiểm một lần xong tưởng dùng mãi — khi đổi việc hoặc đổi bảo hiểm phải liên kết lại bảo hiểm mới.',
-      'Dùng マイナ保険証 tại bệnh viện chưa hỗ trợ — kiểm tra biển hiệu "マイナンバーカード対応" ở phòng khám trước khi đến.',
-      'Nghĩ rằng thẻ bảo hiểm cũ đã bị hủy — thẻ cũ vẫn dùng được đến ngày hết hạn in trên thẻ.',
+      'Không phân biệt 資格確認書 với 資格情報のお知らせ — chỉ 資格確認書 mới dùng để đi khám khi không có マイナ保険証.',
+      'Mang thẻ bảo hiểm cũ sau 02/12/2025 rồi nghĩ vẫn dùng được như trước.',
     ],
     faq: [
       {
         question: 'Thẻ bảo hiểm y tế cũ của tôi có còn dùng được không?',
-        answer: 'Có, vẫn dùng được cho đến ngày hết hạn in trên thẻ (thường 1 năm kể từ ngày cấp). Từ tháng 12/2024, thẻ mới không còn được cấp nên sau khi thẻ hết hạn bạn cần dùng マイナ保険証 hoặc xin "資格確認書" (giấy xác nhận tư cách bảo hiểm tạm thời) từ cơ quan bảo hiểm.',
+        answer: 'Tính đến 2026, không nên dựa vào thẻ bảo hiểm cũ nữa. MHLW/Digital Agency nêu thẻ cũ hết hiệu lực chuyển tiếp muộn nhất vào 01/12/2025; từ 02/12/2025 khi đi khám dùng マイナ保険証 hoặc 資格確認書.',
       },
       {
         question: 'Tôi đổi việc thì マイナ保険証 có tự cập nhật không?',
@@ -5326,6 +6136,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     officialLinks: [
       { label: 'マイナポータル — デジタル庁', url: 'https://myna.go.jp/' },
       { label: 'マイナ保険証の利用申込 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/index_16743.html' },
+      { label: '資格確認方法について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_50657.html' },
+      { label: 'Use of health insurance card in My Number Card — デジタル庁', url: 'https://www.digital.go.jp/en/policies/mynumber/insurance-card' },
       { label: 'マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/' },
     ],
     steps: [
@@ -5781,6 +6593,34 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart-circle-outline',
     color: '#C0392B',
     description: 'Hướng dẫn đăng ký kết hôn tại Nhật cho cặp Việt-Việt và Việt-Nhật. Cần làm thủ tục ở cả Nhật (municipal office) lẫn phía Việt Nam (Đại sứ quán hoặc địa phương) để hôn nhân được công nhận ở cả hai nước.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: '婚姻届 tại Nhật do municipal office xử lý theo 民法/戸籍法; ghi nhận phía Việt Nam do cơ quan lãnh sự Việt Nam hoặc cơ quan hộ tịch Việt Nam; đổi tư cách lưu trú sau kết hôn là thủ tục ISA riêng.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Một bên từng ly hôn, mất giấy tờ hộ tịch, tên trên giấy tờ Việt-Nhật không khớp hoặc cần hợp pháp hóa lãnh sự.',
+        'Bạn cần đổi sang 日本人の配偶者等, 永住者の配偶者等 hoặc hồ sơ vợ/chồng có yếu tố thu nhập/địa chỉ phức tạp.',
+        'Bạn muốn hôn nhân được công nhận ở cả Nhật và Việt Nam nhưng không rõ nên đăng ký bên nào trước.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Không có hạn nộp chung cho 婚姻届, nhưng nếu cần đổi tư cách lưu trú hoặc sinh con sắp tới thì nên hoàn tất đăng ký trước các thủ tục đó.',
+      office: 'Municipal office tại Nhật cho 婚姻届; Đại sứ quán/Tổng lãnh sự quán Việt Nam cho ghi chú hoặc đăng ký phía Việt Nam; ISA nếu đổi tư cách lưu trú.',
+      doNow: [
+        'Hỏi municipal office nơi nộp về giấy tờ nước ngoài, bản dịch và chứng nhận cần thiết.',
+        'Sau khi được nhận 婚姻届, xin 婚姻受理証明書 để dùng cho hồ sơ Việt Nam và visa.',
+        'Kiểm tra riêng thủ tục ghi chú/đăng ký với cơ quan Việt Nam để tránh chỉ hợp lệ một phía.',
+      ],
+      bring: ['婚姻届 có 2 nhân chứng', 'Hộ chiếu và thẻ cư trú', 'Giấy xác nhận tình trạng hôn nhân/độc thân và bản dịch', '戸籍謄本 nếu có bên Nhật và nộp ngoài 本籍地'],
+      ifLate: 'Nếu đã kết hôn một phía nhưng chưa ghi nhận phía còn lại, làm bổ sung càng sớm càng tốt trước khi nộp visa hoặc khai sinh con.',
+      officialSourceLabels: [
+        '婚姻届 — 法務省',
+        '在留資格変更許可申請 — 出入国在留管理庁',
+        'Lãnh sự — Đại sứ quán Việt Nam tại Nhật',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_marriage-jp_hero.jpg'),
     heroImageCaption: 'Đăng ký kết hôn tại Nhật — thủ tục 婚姻届 và công nhận hai chiều',
     whoIsThisFor: [
@@ -5842,6 +6682,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     officialLinks: [
       { label: '婚姻届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-2' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
+      { label: 'Lãnh sự — Đại sứ quán Việt Nam tại Nhật', url: 'https://vnembassy-jp.org/ja/%E7%B5%90%E5%A9%9A%E5%B1%8A' },
+      { label: 'Tổng Lãnh sự quán VN tại Osaka', url: 'https://vnconsulate-osaka.org/en/marriage-procedures' },
     ],
     steps: [
       {
@@ -5899,13 +6741,37 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
     icon: 'home',
     color: '#1A5276',
     description: 'Tư cách 永住者 (vĩnh trú) cho phép ở lại Nhật vô thời hạn và làm bất kỳ công việc nào — đây là tư cách lưu trú ổn định nhất dành cho người nước ngoài không có quốc tịch Nhật. Hồ sơ phức tạp và thời gian xét duyệt dài, nhưng điều kiện có thể đáp ứng sớm hơn nhiều người nghĩ.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '永住許可申請 do ISA xét toàn quốc; đây là hồ sơ xét tổng thể về cư trú, thuế, bảo hiểm, thu nhập, tuân thủ pháp luật và tình trạng hiện tại.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn có kỳ thuế, 年金, bảo hiểm, giao thông hoặc xuất nhập cảnh từng bị trễ/vi phạm.',
+        'Bạn đang giữ thời hạn lưu trú ngắn, sắp hết hạn hoặc hồ sơ đang chờ nhưng visa hiện tại sắp hết hạn.',
+        'Bạn dùng diện rút ngắn như spouse, 高度専門職 70/80 điểm hoặc hồ sơ gia đình/phụ thuộc phức tạp.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trước ngày hết hạn lưu trú hiện tại; nếu đang chờ 永住 mà visa hiện tại sắp hết hạn, vẫn phải nộp gia hạn riêng trước hạn.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền theo nơi cư trú.',
+      doNow: [
+        'Rà lịch sử thuế, 年金, bảo hiểm và xuất nhập cảnh trước khi đặt mục tiêu nộp.',
+        'Dùng checklist ISA đúng diện của bạn, không dùng checklist truyền miệng.',
+        'Đặt nhắc hạn gia hạn visa hiện tại trong suốt thời gian chờ 永住.',
+      ],
+      bring: ['永住許可申請書', 'Ảnh thẻ 4cm x 3cm', 'Hộ chiếu', 'Thẻ cư trú', '理由書', '住民票', 'Giấy tờ thuế/thu nhập/年金/bảo hiểm', '身元保証書'],
+      ifLate: 'Nếu visa hiện tại sắp hết hạn, ưu tiên hỏi/nộp gia hạn thời hạn lưu trú; 永住 đang xét không tự kéo dài thời hạn lưu trú.',
+      officialSourceLabels: ['永住許可申請 — 出入国在留管理庁', '永住許可に関するガイドライン — 出入国在留管理庁'],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_permanent-residency_hero.jpg'),
     heroImageCaption: '永住許可申請 - chuẩn bị hồ sơ cư trú, thuế và bảo hiểm trước khi nộp',
     whoIsThisFor: [
@@ -6009,13 +6875,41 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'highly-skilled-professional',
     category: 'visa',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Visa 高度専門職 — Highly Skilled Professional',
     titleJp: '高度専門職ビザ・ポイント制度',
     icon: 'star',
     color: '#D4AC0D',
     description: 'Tư cách lưu trú 高度専門職 dùng hệ thống tính điểm — người đủ 70 điểm được ưu đãi vượt trội so với visa lao động thông thường. Nhiều người Việt làm IT, nghiên cứu hoặc quản lý đủ điều kiện mà không biết.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '高度専門職 là tư cách lưu trú do ISA xét toàn quốc theo hệ thống điểm; công ty/trường chỉ cung cấp tài liệu chứng minh, không quyết định kết quả.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đổi công ty, đổi nội dung hoạt động hoặc chuyển giữa 高度専門職1号イ/ロ/ハ.',
+        'Điểm số sát 70/80, có bằng cấp hoặc kinh nghiệm nước ngoài khó chứng minh.',
+        'Bạn muốn dùng 高度専門職 để rút ngắn 永住 hoặc mời cha mẹ/người giúp việc đi cùng.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trước khi bắt đầu hoạt động mới nếu đang đổi nội dung công việc/cơ quan; không chờ đến kỳ gia hạn nếu hoạt động đã thay đổi.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền theo nơi cư trú hoặc nơi làm việc.',
+      doNow: [
+        'Tính điểm bằng bảng ISA đúng nhóm 1号イ/ロ/ハ.',
+        'Chỉ cộng các mục có tài liệu chứng minh rõ ràng.',
+        'Nếu đang 高度専門職1号 và đổi công ty, hỏi ISA trước vì có thể cần 在留資格変更許可申請.',
+      ],
+      bring: ['ポイント計算表', 'Tài liệu chứng minh từng mục điểm', 'Hợp đồng/chức vụ/lương', 'Bằng cấp và chứng chỉ', 'Hộ chiếu và thẻ cư trú'],
+      ifLate: 'Nếu đã bắt đầu công việc khác hoặc đổi cơ quan mà chưa hỏi ISA, cần xác nhận ngay để tránh làm sai phạm vi hoạt động.',
+      officialSourceLabels: [
+        '在留資格「高度専門職」— 出入国在留管理庁',
+        '高度専門職ポイント計算表 — 出入国在留管理庁',
+        '高度人材の優遇措置 — 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_hsp_hero.jpg'),
     heroImageCaption: '高度専門職 - hệ thống điểm giúp rút ngắn đường đến vĩnh trú',
     whoIsThisFor: [
@@ -6109,13 +7003,41 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'ginou-jisshu-to-tokutei-ginou',
     category: 'visa',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Chuyển từ 技能実習 sang 特定技能',
     titleJp: '技能実習から特定技能への移行手続き',
     icon: 'swap-horizontal',
     color: '#1E8449',
     description: 'Hướng dẫn thực tế các bước chuyển đổi tư cách lưu trú từ 技能実習 sang 特定技能1号 — bao gồm điều kiện miễn thi, quy trình hồ sơ và thời điểm nộp. Khác với guide tổng quan về luật 育成就労 (xem guide riêng).',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Chuyển sang 特定技能 là thủ tục ISA; điều kiện ngành, kỳ thi và hỗ trợ phụ thuộc chế độ 特定技能 và cơ quan/tổ chức của từng lĩnh vực.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Ngành/công việc 技能実習 đã hoàn thành không khớp với công việc 特定技能 dự kiến.',
+        'Visa 技能実習 sắp hết hạn nhưng công ty tiếp nhận chưa có 支援計画 hoặc hồ sơ phía công ty.',
+        'Bạn muốn dùng 特定活動 tạm thời trong thời gian chuẩn bị chuyển 特定技能.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Chuẩn bị trước khi 技能実習 hết hạn, thực tế nên bắt đầu ít nhất 3-4 tháng trước ngày hết hạn.',
+      office: 'Công ty tiếp nhận/登録支援機関 chuẩn bị hồ sơ hỗ trợ; ISA xét 在留資格変更; tổ chức thi từng ngành xử lý kỳ thi.',
+      doNow: [
+        'Đối chiếu ngành 技能実習 đã hoàn thành với lĩnh vực 特定技能 muốn chuyển.',
+        'Xác nhận có được miễn thi kỹ năng/tiếng Nhật hay phải thi.',
+        'Yêu cầu công ty tiếp nhận chuẩn bị hợp đồng, 支援計画 và tài liệu phía công ty trước khi nộp ISA.',
+      ],
+      bring: ['Hộ chiếu và thẻ cư trú', 'Hợp đồng 特定技能', '支援計画書', '修了証明書 nếu dùng miễn thi', 'Kết quả thi kỹ năng/tiếng Nhật nếu cần'],
+      ifLate: 'Nếu còn ít ngày đến hạn visa, ưu tiên hỏi ISA ngay về phương án nộp/chờ kết quả; không tự ý làm việc ngoài phạm vi tư cách hiện tại.',
+      officialSourceLabels: [
+        '特定技能制度 — 出入国在留管理庁',
+        '技能実習から特定技能への移行 — 出入国在留管理庁',
+        '在留資格「特定技能」— 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_titp-ssw_hero.jpg'),
     heroImageCaption: '技能実習から特定技能へ - kiểm tra điều kiện chuyển tư cách trước khi hết hạn',
     whoIsThisFor: [
@@ -6175,7 +7097,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         title: 'Kiểm tra bạn có được miễn thi không',
         description: 'ISA và 厚生労働省 quy định hai trường hợp miễn thi kỹ năng và tiếng Nhật khi chuyển sang 特定技能1号:\n\nTrường hợp 1 — Miễn cả hai bài thi: Đã hoàn thành 技能実習2号 CÙNG ngành/công việc sẽ làm ở 特定技能1号. "Cùng ngành" được xác định theo danh sách đối chiếu chính thức của từng ngành (分野別協議会).\n\nTrường hợp 2 — Miễn thi tiếng Nhật: Có chứng chỉ JLPT N4 trở lên hoặc JFT-Basic đạt A2. Vẫn phải thi kỹ năng nghề nếu không thuộc trường hợp 1.\n\nNếu không thuộc cả hai: phải thi đủ cả kỹ năng nghề (技能評価試験) lẫn tiếng Nhật.',
         documents: [],
-        tip: 'Kiểm tra danh sách ngành 特定技能1号 hiện có 16 ngành: xây dựng, đóng tàu, ô tô, hàng không, lưu trú, dịch vụ ăn uống, nông nghiệp, ngư nghiệp, thực phẩm đồ uống, chế tạo công nghiệp, điện-điện tử, xây dựng, điều dưỡng (介護), vệ sinh tòa nhà, đúc-rèn-gia công bề mặt kim loại, lắp đặt-sửa chữa điện tử.',
+        tip: 'Kiểm tra danh sách lĩnh vực 特定技能1号 chính thức trước khi thi hoặc ký hợp đồng. Từ 2026, hệ thống 特定技能1号 có 16 lĩnh vực, gồm 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 自動車運送業, 鉄道, 農業, 漁業, 飲食料品製造業, 外食業, 林業 và 木材産業.',
       },
       {
         step: 2,
@@ -6211,13 +7133,41 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'tokutei-katsudo-46-job-hunt',
     category: 'visa',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Visa tìm việc sau tốt nghiệp tại Nhật (特定活動)',
     titleJp: '卒業後の継続就職活動のための特定活動',
     icon: 'briefcase-outline',
     color: '#2E86C1',
     description: 'Du học sinh tốt nghiệp tại Nhật có thể xin đổi sang 特定活動 để tiếp tục tìm việc sau khi 留学 sắp hết hạn. Diện này khác với 特定活動46号: 46号 là hướng làm việc sau khi đã có công việc phù hợp, còn guide này tập trung vào giai đoạn tiếp tục tìm việc.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '継続就職活動のための特定活動 do ISA xét; trường đã tốt nghiệp chỉ cấp 推薦状 và hỗ trợ chứng minh quá trình tìm việc.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn đã hết hạn 留学 hoặc sắp hết hạn nhưng chưa có 推薦状 từ trường.',
+        'Bạn muốn làm thêm, internship vượt 28 giờ/tuần hoặc đã có offer full-time.',
+        'Bạn nhầm giữa 特定活動 tìm việc, 特定活動46号 và visa lao động thông thường.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trước khi 在留資格「留学」 hết hạn; xin 推薦状 và bằng chứng tìm việc càng sớm càng tốt sau tốt nghiệp.',
+      office: 'ISA theo nơi cư trú; trường/career center cấp 卒業証明書, 推薦状 và bằng chứng hỗ trợ tìm việc.',
+      doNow: [
+        'Hỏi trường có cấp 推薦状 cho 継続就職活動 không.',
+        'Tập hợp bằng chứng ứng tuyển, phỏng vấn, hội chợ việc làm và tư vấn career center.',
+        'Nếu muốn làm baito, kiểm tra lại 資格外活動許可 cho tư cách mới.',
+      ],
+      bring: ['在留資格変更許可申請書', '卒業証明書', '推薦状', 'Bằng chứng hoạt động tìm việc', 'Chứng minh tài chính', 'Hộ chiếu và thẻ cư trú'],
+      ifLate: 'Nếu 留学 đã hết hạn hoặc chỉ còn rất ít ngày, không tự tiếp tục ở/làm việc; liên hệ ISA và trường ngay để xác nhận phương án hợp lệ.',
+      officialSourceLabels: [
+        '本邦の大学等を卒業した留学生が就職活動を行う場合 — 出入国在留管理庁',
+        '大学等を卒業後就職活動のための滞在をご希望のみなさまへ — 出入国在留管理庁',
+        '在留資格変更許可申請 — 出入国在留管理庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_jobhunt-visa_hero.jpg'),
     heroImageCaption: '卒業後の継続就職活動 - chuẩn bị hồ sơ 特定活動 trước khi 留学 hết hạn',
     whoIsThisFor: [
@@ -6421,7 +7371,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'moped-motorcycle-registration',
     category: 'traffic',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Đăng ký xe máy / xe tay ga tại Nhật',
     titleJp: '原付・原付二種・軽二輪の登録手続き',
@@ -6523,7 +7473,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'home-purchase-mortgage',
     category: 'money',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Mua nhà và vay 住宅ローン tại Nhật',
     titleJp: '外国人の住宅購入・住宅ローン・ローン控除',
@@ -7756,13 +8706,41 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'naturalization-kika',
     category: 'immigration',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-06',
     priority: 'normal',
     title: 'Nhập quốc tịch Nhật (帰化申請)',
     titleJp: '帰化許可申請',
     icon: 'flag',
     color: '#2C3E50',
-    description: 'Hướng dẫn xin nhập quốc tịch Nhật Bản: điều kiện, giấy tờ, quy trình và những điểm quan trọng cần cân nhắc — bao gồm thay đổi tiêu chuẩn xét duyệt áp dụng từ 01/04/2026.',
+    description: 'Hướng dẫn xin nhập quốc tịch Nhật Bản: điều kiện theo 国籍法, yêu cầu thực tế tại 法務局, giấy tờ, quy trình và những điểm quan trọng cần cân nhắc.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '帰化 là thủ tục quốc tịch theo 国籍法 và thẩm quyền 法務大臣; hồ sơ thực tế, đặt lịch tư vấn và danh sách giấy tờ do 法務局/地方法務局 nơi cư trú hướng dẫn theo từng người.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn có nợ/trễ thuế, 年金, bảo hiểm, vi phạm giao thông hoặc lịch sử cư trú/xuất nhập cảnh phức tạp.',
+        'Bạn từng ly hôn, tái hôn, có con, đổi tên, thiếu giấy tờ hộ tịch Việt Nam hoặc tên trên giấy tờ không khớp.',
+        'Bạn cần quyết định giữa 永住 và 帰化 vì quyền quốc tịch, hộ chiếu, tài sản/thừa kế hoặc quan hệ pháp lý với Việt Nam.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Không có thời hạn nộp cố định; nên đặt lịch tư vấn 法務局 trước 6-12 tháng và chỉ nộp khi 法務局 xác nhận hồ sơ đủ điều kiện tiếp nhận.',
+      office: '法務局 hoặc 地方法務局 có thẩm quyền theo nơi cư trú.',
+      doNow: [
+        'Đặt lịch tư vấn quốc tịch tại 法務局 trước khi tự gom checklist từ mạng.',
+        'Rà 5 năm gần nhất về cư trú, thuế, bảo hiểm, 年金 và vi phạm giao thông.',
+        'Chuẩn bị giấy tờ Việt Nam sớm vì dịch thuật/hộ tịch thường mất nhiều thời gian.',
+      ],
+      bring: ['Hộ chiếu và thẻ cư trú', '住民票/lịch sử cư trú', 'Giấy tờ thuế, 年金, bảo hiểm', 'Giấy tờ hộ tịch Việt Nam và bản dịch', 'Bằng lái/運転記録証明書 nếu có'],
+      ifLate: 'Không nên nộp vội khi hồ sơ chưa sạch; hỏi 法務局 cách cải thiện hồ sơ rồi nộp lại khi đủ căn cứ.',
+      officialSourceLabels: [
+        '帰化許可申請 — 法務省',
+        '帰化の条件について — 東京法務局',
+        '国籍法 — e-Gov',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_naturalization_hero.jpg'),
     heroImageCaption: 'Hành trình xin nhập quốc tịch Nhật Bản (帰化)',
     whoIsThisFor: [
@@ -7773,7 +8751,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     whenToDo: [
       'Sau khi đã đáp ứng đủ điều kiện cư trú — không nên nộp sớm hơn vì sẽ bị từ chối.',
       'Nên tham khảo ý kiến 法務局 ít nhất 6–12 tháng trước khi nộp để biết giấy tờ cần chuẩn bị.',
-      'Đảm bảo không có vấn đề về thuế, bảo hiểm hoặc vi phạm lưu thông trong vòng ít nhất 5 năm gần nhất.',
+      'Đảm bảo không có vấn đề về thuế, bảo hiểm, 年金 hoặc vi phạm giao thông trong giai đoạn hồ sơ mà 法務局 yêu cầu kiểm tra.',
     ],
     whereToDo: [
       '法務局 hoặc 地方法務局 — nộp tại cơ quan quản lý khu vực nơi bạn cư trú.',
@@ -7789,8 +8767,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: 'Ảnh 5cm × 5cm (ảnh màu nền trắng, chụp trong 6 tháng)', required: true },
       { label: 'Hộ chiếu và thẻ cư trú', required: true },
       { label: 'Giấy tờ lịch sử cư trú (住民票の写し)', required: true },
-      { label: 'Chứng nhận thu nhập và khai thuế (源泉徴収票, 確定申告の控え)', required: true, note: 'Từ 01/04/2026: cần 5 năm hồ sơ thuế.' },
-      { label: 'Hồ sơ bảo hiểm xã hội', required: true, note: 'Từ 01/04/2026: cần 2 năm xác nhận đóng bảo hiểm.' },
+      { label: 'Chứng nhận thu nhập và khai thuế (源泉徴収票, 確定申告の控え)', required: true, note: 'Số năm giấy tờ do 法務局 hướng dẫn theo hồ sơ. Một số 法務局 công bố yêu cầu thuế cư trú nhiều năm gần nhất.' },
+      { label: 'Hồ sơ bảo hiểm xã hội', required: true, note: 'Chuẩn bị theo danh sách 法務局 cấp sau buổi tư vấn; một số nơi yêu cầu chứng minh thời điểm nộp phí bảo hiểm/年金.' },
       { label: 'Giấy tờ hộ tịch từ Việt Nam (khai sinh, hộ khẩu, xác nhận độc thân/gia đình)', required: true, note: 'Cần dịch thuật tiếng Nhật có công chứng.' },
       { label: 'Hồ sơ giải trình nghề nghiệp và hoạt động hàng ngày', required: true, note: 'Viết tay bằng tiếng Nhật theo yêu cầu của 法務局.' },
     ],
@@ -7803,12 +8781,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     faq: [
       {
-        question: 'Từ 01/04/2026 điều kiện cư trú thay đổi như thế nào?',
-        answer: 'Từ 01/04/2026, 法務省 thay đổi tiêu chuẩn xét duyệt thực tế (không phải sửa luật): thời gian cư trú tính theo thực tế xét duyệt tăng từ 5 năm lên 10 năm; hồ sơ thuế cần cung cấp tăng từ 1 năm lên 5 năm; hồ sơ bảo hiểm xã hội từ 1 năm lên 2 năm. Điều kiện đặc biệt cho vợ/chồng người Nhật về cơ bản không thay đổi.',
+        question: 'Điều kiện cư trú cơ bản theo luật là gì?',
+        answer: 'Theo 国籍法 第5条, điều kiện chung tối thiểu là có địa chỉ tại Nhật liên tục từ 5 năm trở lên và cư trú hợp pháp. Tuy nhiên, các 法務局 cũng đánh giá tổng thể việc hòa nhập xã hội Nhật, tiếng Nhật, thuế, bảo hiểm và hành vi; Tokyo 法務局 bản cập nhật 2026/04/01 còn nêu yếu tố 10 năm trở lên ở Nhật như một điểm hòa nhập cần chú ý. Đây không phải cách nói “luật đã đổi từ 5 năm thành 10 năm” cho mọi hồ sơ.',
       },
       {
         question: 'Vợ/chồng là người Nhật có được rút ngắn điều kiện không?',
-        answer: 'Có. Nếu kết hôn với người Nhật và đang sống ở Nhật: kết hôn ≥3 năm + cư trú ≥1 năm, hoặc kết hôn <3 năm nhưng đã cư trú ≥3 năm tại Nhật. Tiêu chuẩn xét duyệt thực tế từ tháng 4/2026 không thay đổi đáng kể với diện đặc biệt này.',
+        answer: 'Có thể được nới điều kiện theo 国籍法 第7条. Các trường hợp vợ/chồng người Nhật cần kiểm tra chính xác thời gian hôn nhân, thời gian có địa chỉ tại Nhật và tình trạng cư trú thực tế với 法務局 trước khi nộp.',
       },
       {
         question: 'Sau khi nhập quốc tịch Nhật thì hộ chiếu Việt Nam sẽ thế nào?',
@@ -7820,21 +8798,22 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: 'Tiếng Nhật cần đạt trình độ nào?',
-        answer: '法務省 không quy định cấp độ cụ thể, nhưng thực tế đánh giá qua phỏng vấn trực tiếp. Thông thường cần đủ để giao tiếp hàng ngày và hiểu câu hỏi phỏng vấn — tương đương N3 trở lên là an toàn. Một số nguồn ghi cần đọc viết ở trình độ tiểu học Nhật.',
+        answer: 'Không có mốc JLPT cố định trong thủ tục. 東京法務局 nêu cần năng lực tiếng Nhật không gây trở ngại trong đời sống hằng ngày, gồm hội thoại và đọc viết. Thực tế hãy chuẩn bị để tự trả lời phỏng vấn và đọc/viết các nội dung cơ bản bằng tiếng Nhật.',
       },
     ],
     officialLinks: [
       { label: '帰化許可申請 — 法務省', url: 'https://www.moj.go.jp/ONLINE/NATIONALITY/6-2.html' },
       { label: '帰化の条件について — 東京法務局', url: 'https://houmukyoku.moj.go.jp/tokyo/page000001_00885.html' },
       { label: '国籍法 — e-Gov', url: 'https://laws.e-gov.go.jp/law/325AC0000000147' },
+      { label: '帰化許可申請書に添付する書類（その他の国籍・地域の方）— 福岡法務局', url: 'https://houmukyoku.moj.go.jp/fukuoka/page000001_00593.html' },
     ],
     steps: [
       {
         step: 1,
-        title: 'Kiểm tra điều kiện cơ bản (tiêu chuẩn từ 01/04/2026)',
-        description: '**Điều kiện chung (国籍法 第5条):**\n\n| Điều kiện | Tiêu chuẩn xét duyệt thực tế (từ 4/2026) |\n|---|---|\n| Thời gian cư trú liên tục | **10 năm** (trong đó ≥5 năm làm việc hoặc học) |\n| Hồ sơ thuế | **5 năm** khai báo và nộp thuế đầy đủ |\n| Bảo hiểm xã hội | **2 năm** đóng bảo hiểm y tế + 年金 không gián đoạn |\n| Tài chính | Tự nuôi sống bản thân hoặc được gia đình bảo lãnh |\n|素行善良 | Không vi phạm hình sự, không nợ thuế, lịch sử lái xe sạch |\n| Tiếng Nhật | Đủ giao tiếp hàng ngày (đánh giá qua phỏng vấn) |\n| Quốc tịch | Sẵn sàng từ bỏ quốc tịch nước ngoài sau khi được cấp phép |\n\n**Điều kiện đặc biệt — vợ/chồng người Nhật:**\nKết hôn ≥3 năm + cư trú tại Nhật ≥1 năm, hoặc cư trú ≥3 năm kể cả chưa đủ 3 năm hôn nhân.\n\n⚠️ "Thay đổi từ 4/2026" là thay đổi tiêu chuẩn xét duyệt thực tế của 法務省, không phải sửa đổi 国籍法 — luật vẫn ghi 5 năm nhưng thực tế xét duyệt theo 10 năm.',
-        documents: ['Thẻ cư trú — kiểm tra 在留資格 và thời hạn', '源泉徴収票 5 năm gần nhất (nếu đi làm)', 'Hồ sơ đóng 健康保険 + 年金 2 năm'],
-        tip: 'Nếu còn dưới 10 năm cư trú, hãy dùng thời gian này để chuẩn bị hồ sơ thuế và bảo hiểm hoàn chỉnh — thiếu 1 tháng đóng bảo hiểm cũng có thể ảnh hưởng kết quả xét duyệt.',
+        title: 'Kiểm tra điều kiện cơ bản theo 国籍法 và hướng dẫn 法務局',
+        description: '**Điều kiện chung (国籍法 第5条):**\n\n| Điều kiện | Nội dung cần kiểm tra |\n|---|---|\n| 住所条件 | Có địa chỉ tại Nhật liên tục từ 5 năm trở lên và cư trú hợp pháp |\n| 能力条件 | Từ 18 tuổi trở lên và đã thành niên theo luật quốc tịch hiện tại |\n| 素行条件 | Hành vi tốt: không vi phạm nghiêm trọng, thuế/bảo hiểm/年金 và giao thông được đánh giá tổng thể |\n| 生計条件 | Có khả năng tự duy trì sinh hoạt hoặc cùng gia đình duy trì sinh hoạt ổn định |\n| 重国籍防止 | Về nguyên tắc phải mất hoặc từ bỏ quốc tịch nước ngoài khi nhập quốc tịch Nhật |\n| 憲法遵守 | Không tham gia/chủ trương phá hoại Hiến pháp hoặc chính phủ Nhật bằng bạo lực |\n| 日本語・社会融和 | 法務局 đánh giá khả năng tiếng Nhật và mức độ hòa nhập; 東京法務局 bản 2026/04/01 nêu thêm yếu tố 10 năm trở lên ở Nhật như điểm cần chú ý |\n\n**Điểm quan trọng:** 国籍法 vẫn ghi điều kiện địa chỉ chung là 5 năm trở lên. Không ghi trong app thành “luật đã đổi thành 10 năm”. Với từng hồ sơ, hãy dùng danh sách và nhận định của 法務局 nơi cư trú.',
+        documents: ['Thẻ cư trú — kiểm tra 在留資格 và thời hạn', 'Hộ chiếu và lịch sử xuất nhập cảnh', 'Giấy tờ thuế, bảo hiểm, 年金 theo danh sách 法務局'],
+        tip: 'Nếu chưa chắc đủ điều kiện, đặt lịch tư vấn 法務局 trước. Danh sách giấy tờ trên mạng chỉ là tham khảo; hồ sơ 帰化 thay đổi theo quốc tịch, gia đình, nghề nghiệp và nơi cư trú.',
       },
       {
         step: 2,
@@ -7994,6 +8973,34 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     icon: 'heart',
     color: '#E74C3C',
     description: 'Hướng dẫn lấy giấy tờ kết hôn tại Đại sứ quán Việt Nam ở Nhật và đăng ký hôn nhân tại Việt Nam — dành cho người Việt đang sống tại Nhật muốn đăng ký kết hôn theo thủ tục Việt Nam.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Giấy tờ phía Việt Nam do cơ quan lãnh sự Việt Nam tại Nhật hoặc cơ quan hộ tịch Việt Nam xử lý; giấy tờ phía Nhật do municipal office/法務局 hoặc cơ quan lãnh sự Nhật ở Việt Nam cấp tùy hướng đăng ký.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Một bên từng ly hôn, góa, đổi tên hoặc giấy độc thân/hộ tịch đã quá hạn.',
+        'Bạn cần dùng giấy tờ Nhật tại Việt Nam và không rõ hợp pháp hóa lãnh sự/dịch thuật theo bên nào.',
+        'Bạn muốn kết hôn ở Việt Nam trước rồi cập nhật ở Nhật, nhưng sau đó cần đổi visa vợ/chồng.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Chuẩn bị trước khi về Việt Nam đăng ký kết hôn; giấy xác nhận tình trạng hôn nhân thường có thời hạn sử dụng nên không lấy quá sớm.',
+      office: 'Đại sứ quán/Tổng lãnh sự quán Việt Nam tại Nhật; Sở Tư pháp hoặc UBND có thẩm quyền tại Việt Nam; municipal office Nhật nếu cập nhật sau khi kết hôn.',
+      doNow: [
+        'Chọn hướng đăng ký: làm tại Nhật trước hay Việt Nam trước.',
+        'Kiểm tra cơ quan lãnh sự Việt Nam phụ trách tỉnh nơi đang cư trú ở Nhật.',
+        'Hỏi nơi đăng ký ở Việt Nam về giấy khám sức khỏe, hợp pháp hóa lãnh sự và bản dịch trước khi đặt vé.',
+      ],
+      bring: ['Hộ chiếu Việt Nam', 'Thẻ cư trú', 'Giấy khai sinh', 'Giấy xác nhận tình trạng hôn nhân', 'Ảnh và mẫu đơn theo cơ quan lãnh sự', 'Giấy tờ phía người Nhật/người nước ngoài nếu có'],
+      ifLate: 'Nếu đã kết hôn ở Việt Nam nhưng chưa cập nhật ở Nhật, chuẩn bị bản dịch tiếng Nhật và hỏi municipal office trước khi nộp thủ tục visa.',
+      officialSourceLabels: [
+        'Lãnh sự — Đại sứ quán Việt Nam tại Nhật',
+        'Tổng Lãnh sự quán VN tại Osaka',
+        'ベトナム人との婚姻手続き — 在ベトナム日本国大使館',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_marriage-vn_hero.jpg'),
     heroImageCaption: 'Thủ tục đăng ký kết hôn Việt-Nhật qua Đại sứ quán',
     whoIsThisFor: [

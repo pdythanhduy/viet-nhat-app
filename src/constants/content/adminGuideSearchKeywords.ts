@@ -16,6 +16,10 @@ export const ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
     'card validity',
     'permanent resident card',
     'hsp2 card',
+    'tokutei zairyu card',
+    'specific residence card',
+    'my number residence card',
+    '特定在留カード',
   ],
   'address-change': [
     'doi dia chi',
@@ -138,6 +142,9 @@ export const ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
     'immigration policy',
     'visa policy',
     '2026 update',
+    'tokutei zairyu card',
+    'specific residence card',
+    'online isa 2026',
   ],
   'japan-policy-2026-action-by-user-type': [
     'policy action',

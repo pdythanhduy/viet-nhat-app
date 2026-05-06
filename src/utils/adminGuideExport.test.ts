@@ -1,4 +1,4 @@
-import { ADMIN_GUIDES } from '../constants/content/adminGuides';
+import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content/adminGuides';
 import {
   getAdminGuideOfficialFormLinks,
   MUNICIPAL_FORM_NOTICE,
@@ -77,9 +77,11 @@ describe('adminGuideExport', () => {
   });
 
   it('creates stable html file names for all guides and single-guide exports', () => {
-    expect(getAdminGuideExportFileName()).toBe('viet-nhat-thu-tuc-tat-ca-2026-05-03.html');
+    expect(getAdminGuideExportFileName()).toBe(
+      `viet-nhat-thu-tuc-tat-ca-${ADMIN_CONTENT_META.lastUpdated}.html`
+    );
     expect(getAdminGuideExportFileName({ scope: 'filtered' })).toBe(
-      'viet-nhat-thu-tuc-danh-sach-2026-05-03.html'
+      `viet-nhat-thu-tuc-danh-sach-${ADMIN_CONTENT_META.lastUpdated}.html`
     );
     expect(getAdminGuideExportFileName({ guide })).toBe(
       `viet-nhat-thu-tuc-${guide.id}-${guide.lastVerified}.html`

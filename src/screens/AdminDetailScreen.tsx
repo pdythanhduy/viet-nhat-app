@@ -41,7 +41,7 @@ import {
   getAdminGuideExportFileName,
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
-import type { OfficialFormLink } from '../types/content';
+import type { AdminGuideJurisdiction, AdminGuideRiskLevel, OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<RootStackParamList, 'AdminDetail'>;
@@ -54,6 +54,25 @@ const CATEGORY_LABELS: Record<string, string> = {
   health: 'Y tế',
   money: 'Tiền',
   license: 'Bằng lái',
+};
+
+const JURISDICTION_LABELS: Record<AdminGuideJurisdiction, string> = {
+  national: 'Toàn Nhật',
+  prefecture: 'Theo tỉnh/thành',
+  municipality: 'Theo 市区町村',
+  mixed: 'Toàn quốc + địa phương',
+};
+
+const RISK_LEVEL_LABELS: Record<AdminGuideRiskLevel, string> = {
+  low: 'Rủi ro thấp',
+  medium: 'Rủi ro vừa',
+  high: 'Rủi ro cao',
+};
+
+const RISK_LEVEL_COLORS: Record<AdminGuideRiskLevel, string> = {
+  low: Colors.success,
+  medium: Colors.warning,
+  high: Colors.danger,
 };
 
 function getOfficialFormIcon(link: OfficialFormLink): keyof typeof Ionicons.glyphMap {
@@ -154,6 +173,32 @@ export default function AdminDetailScreen() {
     if (guide.whereToDo?.length) {
       parts.push('\nLàm ở đâu:');
       parts.push(...guide.whereToDo.map((item) => `- ${item}`));
+    }
+
+    if (guide.quickAction) {
+      parts.push('\nViệc cần làm ngay:');
+      parts.push(`- Hạn/mốc: ${guide.quickAction.deadline}`);
+      parts.push(`- Nơi xử lý: ${guide.quickAction.office}`);
+      parts.push('- Làm ngay:');
+      parts.push(...guide.quickAction.doNow.map((item) => `  - ${item}`));
+      parts.push('- Mang theo:');
+      parts.push(...guide.quickAction.bring.map((item) => `  - ${item}`));
+      parts.push(`- Nếu trễ/sai: ${guide.quickAction.ifLate}`);
+    }
+
+    if (guide.legalScope) {
+      parts.push('\nPhạm vi pháp lý:');
+      if (guide.legalScope.appliesFrom) {
+        parts.push(`- Áp dụng từ: ${guide.legalScope.appliesFrom}`);
+      }
+      if (guide.legalScope.appliesUntil) {
+        parts.push(`- Áp dụng đến: ${guide.legalScope.appliesUntil}`);
+      }
+      parts.push(`- Phạm vi: ${JURISDICTION_LABELS[guide.legalScope.jurisdiction]}`);
+      parts.push(`- Ghi chú phạm vi: ${guide.legalScope.jurisdictionNote}`);
+      parts.push(`- Rủi ro: ${RISK_LEVEL_LABELS[guide.legalScope.riskLevel]}`);
+      parts.push(`- Xác minh nguồn: ${guide.legalScope.sourceVerifiedAt}`);
+      parts.push(`- Cần rà lại: ${guide.legalScope.nextReviewAt}`);
     }
 
     if (guide.estimatedTime) {
@@ -334,6 +379,95 @@ export default function AdminDetailScreen() {
                 Nội dung này có thể ảnh hưởng đến visa, tiền, bảo hiểm hoặc xử phạt. Hãy mở nguồn chính thức trước khi nộp hồ sơ hoặc ký giấy tờ.
               </Text>
             </View>
+          </View>
+        )}
+
+        {guide.quickAction && (
+          <View style={styles.quickActionSection}>
+            <View style={styles.quickActionHeader}>
+              <View style={[styles.quickActionIconBg, { backgroundColor: guide.color + '18' }]}>
+                <Ionicons name="flash-outline" size={18} color={guide.color} />
+              </View>
+              <View style={styles.quickActionTitleBlock}>
+                <Text style={styles.detailSectionTitle}>Việc cần làm ngay</Text>
+                <Text style={styles.quickActionSubtitle}>{guide.quickAction.deadline}</Text>
+              </View>
+            </View>
+
+            <View style={styles.quickActionOfficeBox}>
+              <Ionicons name="business-outline" size={15} color={guide.color} />
+              <Text style={styles.quickActionOfficeText}>{guide.quickAction.office}</Text>
+            </View>
+
+            <InfoList title="Làm ngay" items={guide.quickAction.doNow} color={guide.color} />
+            <InfoList title="Mang theo" items={guide.quickAction.bring} color={guide.color} />
+
+            <View style={styles.ifLateBox}>
+              <Ionicons name="alert-circle-outline" size={15} color={Colors.warning} />
+              <Text style={styles.ifLateText}>{guide.quickAction.ifLate}</Text>
+            </View>
+
+            <View style={styles.quickSourcesRow}>
+              {guide.quickAction.officialSourceLabels.map((label) => (
+                <View key={label} style={styles.quickSourcePill}>
+                  <Ionicons name="shield-checkmark-outline" size={12} color={guide.color} />
+                  <Text style={[styles.quickSourceText, { color: guide.color }]} numberOfLines={1}>
+                    {label}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {guide.legalScope && (
+          <View style={styles.legalScopeSection}>
+            <View style={styles.legalScopeHeader}>
+              <Text style={styles.detailSectionTitle}>Phạm vi pháp lý</Text>
+              <View
+                style={[
+                  styles.riskBadge,
+                  { backgroundColor: RISK_LEVEL_COLORS[guide.legalScope.riskLevel] + '14' },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.riskBadgeText,
+                    { color: RISK_LEVEL_COLORS[guide.legalScope.riskLevel] },
+                  ]}
+                >
+                  {RISK_LEVEL_LABELS[guide.legalScope.riskLevel]}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.legalMetaRows}>
+              {guide.legalScope.appliesFrom && (
+                <LegalMetaRow label="Áp dụng từ" value={formatLastUpdated(guide.legalScope.appliesFrom)} />
+              )}
+              {guide.legalScope.appliesUntil && (
+                <LegalMetaRow label="Áp dụng đến" value={formatLastUpdated(guide.legalScope.appliesUntil)} />
+              )}
+              <LegalMetaRow
+                label="Phạm vi"
+                value={JURISDICTION_LABELS[guide.legalScope.jurisdiction]}
+              />
+              <LegalMetaRow
+                label="Xác minh nguồn"
+                value={formatLastUpdated(guide.legalScope.sourceVerifiedAt)}
+              />
+              <LegalMetaRow
+                label="Cần rà lại"
+                value={formatLastUpdated(guide.legalScope.nextReviewAt)}
+              />
+            </View>
+            <Text style={styles.legalScopeNote}>{guide.legalScope.jurisdictionNote}</Text>
+            {guide.legalScope.whenToAskExpert?.length ? (
+              <InfoList
+                title="Khi nên hỏi chuyên gia/cơ quan"
+                items={guide.legalScope.whenToAskExpert}
+                color={guide.color}
+              />
+            ) : null}
           </View>
         )}
 
@@ -807,6 +941,15 @@ function InfoText({ title, text, color }: { title: string; text: string; color: 
   );
 }
 
+function LegalMetaRow({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.legalMetaRow}>
+      <Text style={styles.legalMetaLabel}>{label}</Text>
+      <Text style={styles.legalMetaValue}>{value}</Text>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -909,6 +1052,163 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.textSecondary,
     lineHeight: 18,
+  },
+  quickActionSection: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: Colors.primary + '20',
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  quickActionHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginBottom: 12,
+  },
+  quickActionIconBg: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  quickActionTitleBlock: {
+    flex: 1,
+  },
+  quickActionSubtitle: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+    marginTop: -6,
+  },
+  quickActionOfficeBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: Colors.background,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 12,
+  },
+  quickActionOfficeText: {
+    flex: 1,
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+    fontWeight: '600',
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  ifLateBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: Colors.warningLight,
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 2,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: Colors.warning + '25',
+  },
+  ifLateText: {
+    flex: 1,
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+  },
+  quickSourcesRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+  },
+  quickSourcePill: {
+    maxWidth: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    borderRadius: 999,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+    backgroundColor: Colors.background,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  quickSourceText: {
+    maxWidth: 260,
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+  },
+  legalScopeSection: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 14,
+    shadowColor: Colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  legalScopeHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+    marginBottom: 10,
+  },
+  riskBadge: {
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  riskBadgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+  },
+  legalMetaRows: {
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+    marginBottom: 10,
+  },
+  legalMetaRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 12,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  legalMetaLabel: {
+    flex: 1,
+    fontSize: 12,
+    color: Colors.textMuted,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  legalMetaValue: {
+    flex: 1.2,
+    fontSize: 12,
+    color: Colors.textPrimary,
+    lineHeight: 18,
+    textAlign: 'right',
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  legalScopeNote: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+    marginBottom: 12,
   },
   detailSection: {
     backgroundColor: Colors.white,

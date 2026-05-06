@@ -5,7 +5,14 @@ import {
   MUNICIPAL_FORM_NOTICE,
 } from '../constants/content/adminGuideForms';
 import { Disclaimers } from '../constants/disclaimers';
-import type { AdminGuide, AdminGuideCategory, OfficialFormLink, OfficialLink } from '../types/content';
+import type {
+  AdminGuide,
+  AdminGuideCategory,
+  AdminGuideJurisdiction,
+  AdminGuideRiskLevel,
+  OfficialFormLink,
+  OfficialLink,
+} from '../types/content';
 import { formatLastUpdated, getSourceLabels } from './contentMetadata';
 
 export const ADMIN_GUIDE_EXPORT_FORM_NOTICE =
@@ -21,6 +28,19 @@ const CATEGORY_LABELS: Record<AdminGuideCategory, string> = {
   health: 'Y tế',
   money: 'Tiền bạc',
   license: 'Bằng lái',
+};
+
+const JURISDICTION_LABELS: Record<AdminGuideJurisdiction, string> = {
+  national: 'Toàn Nhật',
+  prefecture: 'Theo tỉnh/thành',
+  municipality: 'Theo 市区町村',
+  mixed: 'Toàn quốc + địa phương',
+};
+
+const RISK_LEVEL_LABELS: Record<AdminGuideRiskLevel, string> = {
+  low: 'Rủi ro thấp',
+  medium: 'Rủi ro vừa',
+  high: 'Rủi ro cao',
 };
 
 type ExportScope = 'all' | 'filtered';
@@ -229,6 +249,8 @@ function renderGuide(guide: AdminGuide): string {
         ${guide.priority === 'high' ? '<span class="badge">Quan trọng</span>' : ''}
       </div>
       ${renderTextBlock(guide.description)}
+      ${renderQuickAction(guide)}
+      ${renderLegalScope(guide)}
       ${renderListSection('Ai cần làm', guide.whoIsThisFor)}
       ${renderListSection('Khi nào làm', guide.whenToDo)}
       ${renderListSection('Làm ở đâu', guide.whereToDo)}
@@ -253,6 +275,52 @@ function renderTextSection(title: string, value?: string): string {
   return `<section>
       <h3>${escapeAdminGuideExportHtml(title)}</h3>
       ${renderTextBlock(value)}
+    </section>`;
+}
+
+function renderQuickAction(guide: AdminGuide): string {
+  if (!guide.quickAction) return '';
+
+  return `<section>
+      <h3>Việc cần làm ngay</h3>
+      <p><strong>Hạn/mốc:</strong> ${escapeAdminGuideExportHtml(guide.quickAction.deadline)}</p>
+      <p><strong>Nơi xử lý:</strong> ${escapeAdminGuideExportHtml(guide.quickAction.office)}</p>
+      ${renderListSection('Làm ngay', guide.quickAction.doNow)}
+      ${renderListSection('Mang theo', guide.quickAction.bring)}
+      <p><strong>Nếu trễ/sai:</strong> ${escapeAdminGuideExportHtml(guide.quickAction.ifLate)}</p>
+      ${renderListSection('Nguồn cần mở', guide.quickAction.officialSourceLabels)}
+    </section>`;
+}
+
+function renderLegalScope(guide: AdminGuide): string {
+  if (!guide.legalScope) return '';
+
+  const rows = [
+    guide.legalScope.appliesFrom
+      ? `<li><strong>Áp dụng từ:</strong> ${escapeAdminGuideExportHtml(formatLastUpdated(guide.legalScope.appliesFrom))}</li>`
+      : '',
+    guide.legalScope.appliesUntil
+      ? `<li><strong>Áp dụng đến:</strong> ${escapeAdminGuideExportHtml(formatLastUpdated(guide.legalScope.appliesUntil))}</li>`
+      : '',
+    `<li><strong>Phạm vi:</strong> ${escapeAdminGuideExportHtml(
+      JURISDICTION_LABELS[guide.legalScope.jurisdiction]
+    )}</li>`,
+    `<li><strong>Rủi ro:</strong> ${escapeAdminGuideExportHtml(
+      RISK_LEVEL_LABELS[guide.legalScope.riskLevel]
+    )}</li>`,
+    `<li><strong>Xác minh nguồn:</strong> ${escapeAdminGuideExportHtml(
+      formatLastUpdated(guide.legalScope.sourceVerifiedAt)
+    )}</li>`,
+    `<li><strong>Cần rà lại:</strong> ${escapeAdminGuideExportHtml(
+      formatLastUpdated(guide.legalScope.nextReviewAt)
+    )}</li>`,
+  ].filter(Boolean);
+
+  return `<section>
+      <h3>Phạm vi pháp lý</h3>
+      <ul>${rows.join('\n')}</ul>
+      <p>${escapeAdminGuideExportHtml(guide.legalScope.jurisdictionNote)}</p>
+      ${renderListSection('Khi nên hỏi chuyên gia/cơ quan', guide.legalScope.whenToAskExpert)}
     </section>`;
 }
 
