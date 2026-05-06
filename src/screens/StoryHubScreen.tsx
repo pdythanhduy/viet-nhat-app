@@ -34,7 +34,7 @@ export default function StoryHubScreen({ navigation }: Props) {
   const [streak, setStreak] = useState<StoryStreakData | null>(null);
   const [storyProgress, setStoryProgress] = useState<any>(null);
 
-  const levels: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2'];
+  const levels: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
   // Reload stats and streak when screen is focused
   useFocusEffect(
