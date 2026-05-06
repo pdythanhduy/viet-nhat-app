@@ -1266,12 +1266,50 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'bank-account',
     category: 'money',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     title: 'Mở tài khoản ngân hàng',
     titleJp: '銀行口座開設',
     icon: 'business',
     color: '#16A085',
     description: 'Hướng dẫn chuẩn bị giấy tờ khi mở tài khoản ngân hàng tại Nhật. Yêu cầu khác nhau theo ngân hàng, cách đăng ký và thời hạn lưu trú còn lại.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote:
+        'Mở tài khoản là xét duyệt của từng ngân hàng theo quy định xác minh danh tính, cư trú và phòng chống rửa tiền. Giấy tờ cư trú do municipal office/ISA cấp, còn việc có nhận hồ sơ, yêu cầu dấu/chữ ký hay bổ sung giấy tờ là chính sách của ngân hàng.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn bị nhờ mở hộ, bán, cho mượn tài khoản, cash card, app ngân hàng, OTP hoặc SIM.',
+        'Thẻ cư trú còn hạn ngắn, địa chỉ chưa cập nhật, tên trên giấy tờ không khớp hoặc hồ sơ bị ngân hàng từ chối nhiều lần.',
+        'Bạn chuẩn bị rời Nhật, nhận/chuyển khoản lớn hoặc cần giữ tài khoản cho mục đích đặc biệt.',
+      ],
+    },
+    quickAction: {
+      deadline:
+        'Làm sau khi đăng ký địa chỉ; cập nhật ngân hàng ngay khi đổi địa chỉ, đổi tên, gia hạn thẻ cư trú hoặc rời Nhật.',
+      office:
+        'Ngân hàng/ứng dụng ngân hàng bạn chọn; municipal office và ISA chỉ là nơi cấp/cập nhật giấy tờ cư trú.',
+      doNow: [
+        'Mở trang chính thức của ngân hàng để kiểm tra điều kiện người nước ngoài, giấy tờ, thời hạn lưu trú còn lại và cách nộp hồ sơ.',
+        'Chuẩn bị thẻ cư trú có địa chỉ hiện tại, giấy tờ đang làm việc/đang học nếu mới nhập cảnh, và phương thức liên hệ tại Nhật.',
+        'Từ chối mọi đề nghị mở hộ, cho mượn, bán tài khoản/cash card/app/OTP vì đây là vùng rủi ro pháp lý cao.',
+      ],
+      bring: [
+        'Thẻ cư trú hoặc Special Permanent Resident Certificate còn hiệu lực',
+        'Giấy tờ có địa chỉ hiện tại khớp với đơn đăng ký',
+        'Số điện thoại/email Nhật đang dùng',
+        'Giấy xác nhận đang làm việc/đang học nếu ngân hàng yêu cầu',
+        'Con dấu hoặc chữ ký mẫu nếu ngân hàng/quầy xử lý yêu cầu',
+      ],
+      ifLate:
+        'Nếu không cập nhật thông tin khi ngân hàng yêu cầu, tài khoản có thể bị hạn chế. Nếu cho mượn/bán tài khoản, rủi ro không chỉ là khóa tài khoản mà còn có thể liên quan điều tra lừa đảo hoặc rửa tiền.',
+      officialSourceLabels: [
+        'Japan Post Bank — Người nước ngoài',
+        'SBI Shinsei Bank — Người nước ngoài',
+        '金融庁からのお願い・注意喚起 — 金融庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_bank-account_hero.jpg'),
     heroImageCaption: '通帳 — sổ ngân hàng Nhật, cấp kèm khi mở tài khoản tại các ngân hàng truyền thống',
     whoIsThisFor: [
@@ -1300,10 +1338,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: 'Số điện thoại Nhật', required: false, note: 'Nhiều ngân hàng cần để xác thực SMS hoặc liên hệ.' },
       { label: 'My Number Card hoặc giấy tờ bổ sung', required: false, note: 'Có thể cần khi mở online hoặc khi ngân hàng yêu cầu xác minh thêm.' },
       { label: 'Giấy xác nhận đang làm việc/đang học', required: false, note: 'Hữu ích nếu mới nhập cảnh hoặc chưa đủ thời gian cư trú.' },
+      { label: 'Con dấu hoặc chữ ký mẫu', required: false, note: 'Không mặc định bắt buộc ở mọi ngân hàng; kiểm tra yêu cầu của ngân hàng/quầy xử lý trước khi đi.' },
     ],
     commonMistakes: [
       'Địa chỉ trên giấy tờ không khớp địa chỉ đang khai trong đơn.',
       'Thời hạn lưu trú còn quá ngắn nên hồ sơ bị từ chối hoặc yêu cầu bổ sung.',
+      'Không kiểm tra trước ngân hàng yêu cầu chữ ký hay 印鑑, dẫn đến phải bổ sung hồ sơ.',
       'Mở hộ, cho mượn, bán tài khoản hoặc cash card cho người khác.',
       'Không cập nhật thông tin sau khi đổi visa/đổi địa chỉ.',
       'Không đọc phí chuyển khoản/rút ATM dẫn đến mất phí không cần thiết.',
@@ -1315,7 +1355,11 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: 'Có được cho bạn mượn tài khoản nhận tiền không?',
-        answer: 'Không nên và có thể rất rủi ro pháp lý. Tài khoản/cash card đứng tên bạn phải do bạn quản lý, không bán hoặc cho mượn.',
+        answer: 'Không. Tài khoản/cash card/app ngân hàng đứng tên bạn phải do bạn quản lý. Bán, chuyển nhượng hoặc cho người khác dùng có thể liên quan lừa đảo/rửa tiền và bị ngân hàng/cơ quan chức năng xử lý.',
+      },
+      {
+        question: 'Mở tài khoản có bắt buộc phải có con dấu không?',
+        answer: 'Không thể nói chung cho mọi ngân hàng. Một số ngân hàng/quầy vẫn yêu cầu 印鑑 hoặc chữ ký mẫu, nhưng nhiều quy trình online/eKYC xử lý bằng giấy tờ và chữ ký điện tử. Kiểm tra trang chính thức hoặc gọi chi nhánh trước khi đi.',
       },
       {
         question: 'Đổi địa chỉ có cần báo ngân hàng không?',
@@ -1326,6 +1370,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: 'Japan Post Bank — Người nước ngoài', url: 'https://www.jp-bank.japanpost.jp/kaisetu/kat_gaikokujin.html' },
       { label: 'SMBC — Hỏi đáp mở tài khoản', url: 'https://qa.smbc.co.jp/faq/show/2835' },
       { label: 'SBI Shinsei Bank — Người nước ngoài', url: 'https://www.sbishinseibank.co.jp/account/note/note_foreign.html' },
+      { label: '金融庁からのお願い・注意喚起 — 金融庁', url: 'https://www.fsa.go.jp/ordinary/chuui/chuui.html' },
     ],
     steps: [
       {
@@ -1352,8 +1397,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Thẻ cư trú (在留カード) hoặc Special Permanent Resident Certificate',
           'Giấy tờ có địa chỉ hiện tại khớp với đơn đăng ký',
           'My Number Card, bằng lái Nhật, giấy xác nhận tư cách bảo hiểm hoặc giấy xác nhận đang làm việc nếu ngân hàng yêu cầu',
+          'Con dấu hoặc chữ ký mẫu nếu ngân hàng yêu cầu',
         ],
-        tip: 'Tên và địa chỉ trên tất cả giấy tờ phải khớp nhau',
+        tip: 'Tên và địa chỉ trên tất cả giấy tờ phải khớp nhau. Nếu dùng 印鑑, dùng đúng dấu ngân hàng yêu cầu, không dùng dấu đăng ký của người khác.',
       },
       {
         step: 4,
@@ -2425,7 +2471,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: 'Ảnh chụp toàn bộ giấy tờ quan trọng', required: false, note: 'Lưu trên điện thoại và cloud để tránh lúc cần lại không có.' },
     ],
     commonMistakes: [
-      'Đến ngân hàng mở tài khoản mà không có con dấu (印鑑) — bị từ chối phải về mua rồi quay lại.',
+      'Đến ngân hàng mở tài khoản mà chưa kiểm tra họ yêu cầu chữ ký, 印鑑 hay giấy tờ bổ sung.',
       'Quá tập trung mua đồ sinh hoạt mà quên việc pháp lý như địa chỉ, bảo hiểm, giấy tờ của công ty/trường.',
       'Không chụp hiện trạng nhà ngay ngày đầu nên sau này tranh chấp lúc trả nhà rất yếu.',
       'Mua sim, mở tài khoản hoặc ký dịch vụ khi chưa hiểu phí, thời hạn hủy và nghĩa vụ thanh toán.',
@@ -2495,17 +2541,17 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Ngày 3-5: sắp xếp liên lạc và tiền bạc cơ bản',
-        description: 'Sim điện thoại, tài khoản ngân hàng và cách nhận lương/nhận thư là nền vận hành hàng ngày. Không cần ép phải xong trong 24 giờ, nhưng nên bắt đầu trong tuần đầu.\n\nTrước khi đến ngân hàng: mua con dấu cá nhân (印鑑 / はんこ) tại cửa hàng 100 yên như Daiso — hầu hết ngân hàng vẫn yêu cầu dấu khi mở tài khoản. Mua katakana gần tên mình hoặc đặt khắc tên riêng tại cửa hàng 印鑑 gần nhà nếu muốn chuyên nghiệp hơn.',
+        description: 'Sim điện thoại, tài khoản ngân hàng và cách nhận lương/nhận thư là nền vận hành hàng ngày. Không cần ép phải xong trong 24 giờ, nhưng nên bắt đầu trong tuần đầu.\n\nTrước khi đến ngân hàng: kiểm tra trang chính thức hoặc gọi chi nhánh để biết họ yêu cầu chữ ký, 印鑑 hay giấy tờ bổ sung. Nếu ngân hàng/chủ nhà yêu cầu dấu, hãy chuẩn bị con dấu phù hợp; nếu cần 印鑑登録 thì phải làm tại municipal office.',
         documents: [
           'Thẻ cư trú',
           'Địa chỉ tại Nhật',
           'Thông tin công ty/trường',
           'Số điện thoại hoặc email liên hệ',
-          'Con dấu cá nhân (印鑑) — mua ở Daiso hoặc cửa hàng 100 yên trước khi đến ngân hàng',
+          'Con dấu cá nhân (印鑑) hoặc chữ ký mẫu nếu ngân hàng yêu cầu',
         ],
-        tip: 'Thứ tự đúng: mua hanko trước → làm địa chỉ ở phường → mở sim → mở ngân hàng. Đến ngân hàng mà không có dấu thường bị yêu cầu quay lại.',
+        tip: 'Thứ tự nên làm: chốt giấy tờ và địa chỉ trước, sau đó mở sim/ngân hàng theo yêu cầu của từng nơi. Không mua dấu đắt tiền trước khi biết bên xử lý cần loại nào.',
         image: require('../../../assets/content/daily-life/ag_hanko-inkan_hero.jpg'),
-        imageCaption: '印鑑 — mua ở Daiso 100 yên là đủ để mở tài khoản ngân hàng',
+        imageCaption: '印鑑 — chỉ chuẩn bị khi ngân hàng, chủ nhà hoặc thủ tục cụ thể yêu cầu dấu',
       },
       {
         step: 5,
@@ -2601,12 +2647,12 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 2,
         title: 'Tuần 1-2: kiểm tra cách trả lương, học phí và chi phí định kỳ',
-        description: 'Đây là bước nhiều người bỏ qua nhất. Bạn phải sớm biết tiền vào khi nào, tiền ra lúc nào và khoản nào đang chờ trừ.\n\nNếu chưa có tài khoản ngân hàng: cần mua con dấu cá nhân (印鑑) trước khi đến ngân hàng — đây là yêu cầu của hầu hết ngân hàng Nhật. Mua ở Daiso hoặc cửa hàng 100 yên là đủ cho tài khoản thông thường.',
+        description: 'Đây là bước nhiều người bỏ qua nhất. Bạn phải sớm biết tiền vào khi nào, tiền ra lúc nào và khoản nào đang chờ trừ.\n\nNếu chưa có tài khoản ngân hàng: kiểm tra ngân hàng bạn định dùng yêu cầu giấy tờ gì, có nhận hồ sơ người mới nhập cảnh không, và họ cần chữ ký hay 印鑑. Không có một quy tắc chung áp dụng cho mọi ngân hàng.',
         documents: [
           'Thông tin ngày trả lương hoặc lịch nộp học phí',
           'Thông tin tài khoản ngân hàng',
           'Hợp đồng sim/internet/nhà ở',
-          'Con dấu cá nhân (印鑑) nếu chưa mở tài khoản',
+          'Con dấu cá nhân (印鑑) hoặc chữ ký mẫu nếu ngân hàng yêu cầu',
         ],
         tip: 'Không nên đợi đến cuối tháng mới nhìn tài chính. Khi đó nếu lệch nhịp, bạn rất khó cứu kịp.',
       },
@@ -5575,13 +5621,51 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'daily-law-basics',
     category: 'daily-law',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Luật sinh hoạt cần biết',
     titleJp: '日本生活の基本ルール',
     icon: 'shield-checkmark',
     color: '#27AE60',
     description: 'Các quy định cơ bản người Việt ở Nhật nên biết để tránh rắc rối trong đời sống hằng ngày.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote:
+        'Guide này gom nhiều nhóm quy định: cư trú/địa chỉ thuộc ISA và municipal office, rác/nhà ở phụ thuộc địa phương và hợp đồng, tiêu dùng do cơ quan tư vấn/consumer center hỗ trợ, còn tài khoản ngân hàng/SIM liên quan hợp đồng và phòng chống lừa đảo.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn bị ép ký hợp đồng, vay tiền, bảo lãnh, chuyển tiền hoặc đứng tên hộ giấy tờ/tài khoản.',
+        'Bạn đã quá hạn đổi địa chỉ, mất thẻ cư trú, hoặc giấy tờ cư trú có thông tin sai.',
+        'Bạn bị đòi tiền, bị đe dọa, nghi lừa đảo hoặc không hiểu nghĩa vụ trong hợp đồng tiếng Nhật.',
+      ],
+    },
+    quickAction: {
+      deadline:
+        'Đọc trong tuần đầu và rà lại ngay khi chuyển nhà, ký hợp đồng, mở tài khoản/SIM hoặc được nhờ đứng tên hộ.',
+      office:
+        'Municipal office, FRESC/quầy tư vấn người nước ngoài, National Consumer Affairs Center, cảnh sát hoặc ngân hàng/nhà mạng tùy vấn đề.',
+      doNow: [
+        'Giữ thẻ cư trú và địa chỉ luôn đúng; chuyển nhà thì làm thủ tục trong 14 ngày.',
+        'Không cho mượn/bán tài khoản ngân hàng, cash card, SIM, app hoặc OTP dưới bất kỳ lý do nào.',
+        'Trước khi ký giấy tờ có tiền, bảo lãnh, vay nợ hoặc thời hạn dài, xin bản copy và hỏi nơi tư vấn nếu không hiểu.',
+      ],
+      bring: [
+        'Thẻ cư trú',
+        'Hợp đồng, hóa đơn, tin nhắn hoặc giấy tờ liên quan',
+        'Địa chỉ hiện tại và thông tin bên yêu cầu bạn ký/chuyển tiền',
+        'Ảnh/chụp màn hình làm bằng chứng nếu nghi lừa đảo hoặc tranh chấp',
+      ],
+      ifLate:
+        'Để sai địa chỉ, ký hợp đồng không hiểu hoặc cho mượn tài khoản/SIM có thể làm mất quyền lợi, bị hạn chế dịch vụ hoặc kéo bạn vào vụ việc pháp lý phức tạp.',
+      officialSourceLabels: [
+        '生活・就労ガイドブック — 出入国在留管理庁',
+        'FRESC Help Desk',
+        'Consumer affairs — 国民生活センター',
+        '金融庁からのお願い・注意喚起 — 金融庁',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_daily-law_hero.jpg'),
     heroImageCaption: 'Quy tắc sinh hoạt tại Nhật - nắm các điểm pháp lý cơ bản trước khi gặp rắc rối',
     whoIsThisFor: [
@@ -5615,7 +5699,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     faq: [
       {
         question: 'Có được cho bạn bè mượn tài khoản ngân hàng hoặc SIM không?',
-        answer: 'Không. Cho mượn, bán hoặc đứng tên hộ tài khoản/SIM có thể liên quan lừa đảo, rửa tiền hoặc vi phạm hợp đồng. Nếu bị nhờ mở tài khoản, nhận tiền hoặc chuyển tiền hộ để lấy phí, hãy từ chối.',
+        answer: 'Không. Cho mượn, bán hoặc đứng tên hộ tài khoản/SIM có thể liên quan lừa đảo, rửa tiền hoặc vi phạm hợp đồng. Nếu bị nhờ mở tài khoản, nhận tiền, chuyển tiền hộ, nhận OTP hoặc giữ cash card để lấy phí, hãy từ chối.',
       },
       {
         question: 'Chuyển nhà rồi quên cập nhật địa chỉ thì có sao không?',
@@ -5630,6 +5714,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       { label: '生活・就労ガイドブック — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/guidebook_all.html' },
       { label: 'FRESC Help Desk', url: 'https://www.moj.go.jp/isa/support/fresc/fresc01.html' },
       { label: 'Consumer affairs — 国民生活センター', url: 'https://www.kokusen.go.jp/' },
+      { label: '金融庁からのお願い・注意喚起 — 金融庁', url: 'https://www.fsa.go.jp/ordinary/chuui/chuui.html' },
     ],
     steps: [
       {
@@ -5677,28 +5762,66 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'hanko-inkan',
     category: 'daily-law',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-06',
     priority: 'high',
     title: 'Con dấu cá nhân (Hanko / Inkan)',
     titleJp: '印鑑・はんこの作り方と使い方',
     icon: 'create',
     color: '#C0392B',
-    description: 'Con dấu cá nhân (はんこ / 印鑑) là thứ bạn cần ngay khi mới sang Nhật — để mở tài khoản ngân hàng, ký hợp đồng thuê nhà, hợp đồng lao động và nhiều thủ tục hành chính khác.',
+    description:
+      'Con dấu cá nhân (はんこ / 印鑑) vẫn hữu ích ở Nhật, nhưng không phải mọi thủ tục đều bắt buộc. Dấu đăng ký chính thức (実印/印鑑登録) do municipal office xử lý và chỉ cần khi bên nhận hồ sơ yêu cầu 印鑑証明書.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote:
+        '印鑑登録 là thủ tục theo municipal office nơi bạn có住民登録; điều kiện về tên, kích thước, chất liệu và dấu được/không được đăng ký khác nhau theo địa phương. Việc ngân hàng, chủ nhà hoặc công ty yêu cầu dấu hay chữ ký là quy trình của từng bên nhận hồ sơ.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Bạn chuẩn bị ký mua xe, vay tiền, bảo lãnh, mua nhà hoặc hợp đồng yêu cầu 印鑑証明書.',
+        'Tên trên thẻ cư trú/住民票 có chữ Latin, katakana, kanji hoặc thông称 không khớp với dấu muốn đăng ký.',
+        'Bạn bị mất 実印, 銀行印, 印鑑登録証 hoặc nghi người khác đã dùng dấu của bạn.',
+      ],
+    },
+    quickAction: {
+      deadline:
+        'Mua dấu thường khi có nơi xử lý yêu cầu; đăng ký 印鑑登録 trước thủ tục cần 実印/印鑑証明書.',
+      office: 'Municipal office nơi bạn có địa chỉ cư trú; ngân hàng/chủ nhà/công ty chỉ xác định họ cần dấu hay chữ ký.',
+      doNow: [
+        'Hỏi bên nhận hồ sơ xem họ chấp nhận chữ ký hay cần 印鑑/印鑑証明書.',
+        'Nếu cần đăng ký 実印, kiểm tra quy định municipal office về tên trên dấu, kích thước và chất liệu trước khi khắc.',
+        'Tách dấu thường ngày, dấu ngân hàng và 実印 nếu bạn dùng lâu dài để giảm rủi ro lạm dụng.',
+      ],
+      bring: [
+        'Con dấu muốn đăng ký nếu làm 印鑑登録',
+        'Thẻ cư trú hoặc giấy tờ tùy thân còn hiệu lực',
+        'My Number Card/hộ chiếu nếu địa phương yêu cầu bổ sung',
+        'Giấy/hợp đồng ghi rõ bên nhận yêu cầu 印鑑証明書 nếu có',
+      ],
+      ifLate:
+        'Nếu đến ngân hàng/chủ nhà mà thiếu loại dấu họ yêu cầu, hồ sơ có thể bị trả lại. Nếu mất 実印/銀行印 mà không hủy hoặc báo ngân hàng, rủi ro bị lạm dụng giấy tờ/tài khoản tăng cao.',
+      officialSourceLabels: [
+        '印鑑登録について — 横浜市',
+        '印鑑登録・印鑑登録証明書 — 新宿区外国人向け生活情報',
+        'コンビニ交付 — J-LIS',
+      ],
+    },
     heroImage: require('../../../assets/content/daily-life/ag_hanko_hero.jpg'),
-    heroImageCaption: 'Con dấu cá nhân 印鑑 — cần thiết cho ngân hàng, hợp đồng và thủ tục hành chính',
+    heroImageCaption: 'Con dấu cá nhân 印鑑 — hữu ích cho một số hợp đồng, ngân hàng và thủ tục cần 印鑑証明書',
     officialLinks: [
-      { label: '印鑑登録について — e-Gov', url: 'https://www.e-gov.go.jp/' },
-      { label: '印鑑証明書の取得方法 — マイナポータル', url: 'https://myna.go.jp/' },
+      { label: '印鑑登録について — 横浜市', url: 'https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/todokede/koseki-juminhyo/todokede-touroku/inkan/inkan.html' },
+      { label: '印鑑登録・印鑑登録証明書 — 新宿区外国人向け生活情報', url: 'https://www.foreign.city.shinjuku.lg.jp/jp/kurashi/inkantoroku/' },
+      { label: 'コンビニ交付 — J-LIS', url: 'https://www.j-lis.go.jp/rdd/card/bcl/' },
     ],
     whoIsThisFor: [
       'Người mới sang Nhật lần đầu và chưa có con dấu cá nhân.',
-      'Người cần mở tài khoản ngân hàng, ký hợp đồng thuê nhà hoặc hợp đồng lao động.',
+      'Người được ngân hàng, chủ nhà, công ty hoặc bên nhận hồ sơ yêu cầu 印鑑 hoặc chữ ký mẫu.',
       'Người cần đăng ký con dấu chính thức (印鑑登録) tại phường/thành phố.',
     ],
     whenToDo: [
-      'Mua con dấu ngay trong tuần đầu tiên đến Nhật — bạn sẽ cần đến nó sớm hơn bạn nghĩ.',
-      'Đăng ký 印鑑登録 trước khi ký hợp đồng thuê nhà hoặc mua xe (nếu cần con dấu chính thức).',
-      'Đối với mở tài khoản ngân hàng thông thường, con dấu thường mua ở 100 yên là đủ.',
+      'Không cần mặc định mua ngay ngày đầu; hãy kiểm tra ngân hàng/chủ nhà/công ty có yêu cầu dấu hay chấp nhận chữ ký.',
+      'Đăng ký 印鑑登録 trước khi ký hợp đồng cần 実印 hoặc 印鑑証明書, ví dụ một số giao dịch xe, vay tiền, mua nhà hoặc bảo lãnh.',
+      'Đối với mở tài khoản ngân hàng thông thường, yêu cầu dấu/chữ ký khác nhau theo ngân hàng và cách đăng ký.',
     ],
     whereToDo: [
       'Mua con dấu: cửa hàng 100 yên (Daiso, Seria), cửa hàng 印鑑 chuyên dụng, hoặc online.',
@@ -5712,7 +5835,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Giấy chứng nhận 印鑑証明書: khoảng 300 yên/bản.',
     ],
     documentsChecklist: [
-      { label: 'Con dấu cá nhân (印鑑)', required: true, note: 'Con dấu bạn muốn đăng ký — không được là dấu cao su mềm, phải là chất liệu cứng.' },
+      { label: 'Con dấu cá nhân (印鑑)', required: true, note: 'Nếu đăng ký 印鑑登録, dấu thường không được là dấu cao su mềm và phải đáp ứng quy định địa phương.' },
       { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Để xác nhận danh tính và địa chỉ cư trú.' },
       { label: 'Hộ chiếu', required: false, note: 'Một số văn phòng phường yêu cầu thêm hộ chiếu để xác minh.' },
       { label: 'My Number Card hoặc giấy thông báo số My Number', required: false, note: 'Không bắt buộc nhưng nên mang theo để tiết kiệm thời gian.' },
@@ -5721,29 +5844,29 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 1,
         title: 'Hiểu 3 loại con dấu',
-        description: 'Nhật Bản có 3 loại con dấu với mức độ quan trọng khác nhau:\n\n• 認印 (みとめいん / Mitomein): Con dấu thường ngày — dùng ký nhận bưu phẩm, một số hợp đồng nhỏ. Mua ở 100 yên là đủ.\n\n• 銀行印 (ぎんこういん / Ginko-in): Con dấu dùng cho tài khoản ngân hàng — nên khắc riêng, không dùng chung với 認印 để tránh rủi ro.\n\n• 実印 (じついん / Jitsuin): Con dấu đã đăng ký chính thức tại phường — cần cho hợp đồng lớn như thuê nhà, mua xe, vay tiền. Phải đăng ký 印鑑登録 mới có giá trị pháp lý.',
+        description: 'Nhật Bản thường phân biệt 3 cách dùng con dấu:\n\n• 認印 (みとめいん / Mitomein): Con dấu thường ngày — dùng khi bên nhận hồ sơ chấp nhận dấu thường, ví dụ một số giấy tờ nội bộ hoặc nhận hàng.\n\n• 銀行印 (ぎんこういん / Ginko-in): Dấu/chữ ký mẫu dùng với ngân hàng nếu ngân hàng yêu cầu. Nhiều quy trình mới có thể dùng chữ ký/eKYC, nên phải kiểm tra từng ngân hàng.\n\n• 実印 (じついん / Jitsuin): Con dấu đã đăng ký chính thức tại municipal office — dùng khi thủ tục yêu cầu 印鑑証明書. Phải đăng ký 印鑑登録 mới có giá trị như 実印.',
         documents: [],
-        tip: 'Với người mới sang Nhật, trước tiên chỉ cần mua 1 con dấu 認印 tại Daiso là dùng được cho hầu hết việc thường ngày.',
+        tip: 'Với người mới sang Nhật, có thể chuẩn bị 1 dấu 認印 rẻ để dùng khi được yêu cầu, nhưng đừng mặc định rằng mọi ngân hàng hoặc hợp đồng đều cần dấu.',
       },
       {
         step: 2,
         title: 'Mua con dấu',
-        description: 'Cửa hàng 100 yên (Daiso, Seria, CanDo) thường có sẵn dấu khắc sẵn các chữ Kanji phổ biến. Tuy nhiên tên người Việt không có chữ Kanji, nên bạn có 2 lựa chọn:\n\n• Mua dấu khắc sẵn bằng katakana (ví dụ: グエン, ファン, チャン) — nhanh và rẻ.\n\n• Đặt khắc tên riêng tại cửa hàng 印鑑 chuyên dụng — mất 1–3 ngày, giá 1.000–3.000 yên, nhưng chuyên nghiệp hơn.',
+        description: 'Cửa hàng 100 yên (Daiso, Seria, CanDo) thường có sẵn dấu khắc các chữ Kanji phổ biến; tên người Việt có thể khó tìm đúng. Bạn có 2 lựa chọn:\n\n• Tìm dấu katakana gần tên mình nếu chỉ dùng như 認印 và bên nhận chấp nhận.\n\n• Đặt khắc tên riêng tại cửa hàng 印鑑 chuyên dụng — mất 1–3 ngày, giá thường cao hơn, nhưng dễ kiểm soát tên, kích thước và chất liệu hơn.',
         documents: [],
-        tip: 'Tìm "はんこ屋" hoặc "印鑑 近く" trên Google Maps để tìm cửa hàng gần nhất. Có thể đặt khắc tên Việt phiên âm katakana.',
+        tip: 'Nếu định đăng ký 印鑑登録, hỏi municipal office trước về tên được khắc: tên trên住民票, thông称 hoặc katakana ghi chú có thể là điều kiện bắt buộc tùy địa phương.',
         image: require('../../../assets/content/daily-life/ag_hanko-inkan_s2.jpg'),
-        imageCaption: 'ダイソー はんこ — con dấu 認印 tại cửa hàng 100 yên, đủ dùng cho tài khoản ngân hàng',
+        imageCaption: 'ダイソー はんこ — con dấu 認印 tại cửa hàng 100 yên, chỉ dùng khi bên nhận hồ sơ chấp nhận',
       },
       {
         step: 3,
         title: 'Đăng ký 印鑑登録 (nếu cần dấu chính thức)',
-        description: 'Mang con dấu và thẻ cư trú đến văn phòng phường/quận nơi bạn đã đăng ký địa chỉ. Điền mẫu đăng ký, nộp cho nhân viên và nhận 印鑑登録証 (thẻ chứng nhận đăng ký dấu).\n\nSau khi đăng ký, khi cần chứng minh dấu, bạn xin cấp 印鑑証明書 — một bản giấy xác nhận dấu đã đăng ký của bạn — thường phải nộp kèm khi ký hợp đồng lớn.',
+        description: 'Mang con dấu và giấy tờ tùy thân đến municipal office nơi bạn đã đăng ký địa chỉ. Nhân viên sẽ kiểm tra bạn có đủ điều kiện đăng ký không và dấu có đúng quy định địa phương không. Nếu được chấp nhận, bạn nhận 印鑑登録証 hoặc thông tin đăng ký theo cách địa phương quản lý.\n\nSau khi đăng ký, khi cần chứng minh dấu, bạn xin cấp 印鑑証明書 — bản xác nhận dấu đã đăng ký. Một số nơi có thể cấp tại quầy hoặc qua combini nếu địa phương hỗ trợ và bạn có My Number Card hợp lệ.',
         documents: [
           'Con dấu cần đăng ký',
           'Thẻ cư trú',
           'Hộ chiếu (tùy yêu cầu địa phương)',
         ],
-        tip: 'Giữ thẻ 印鑑登録証 cẩn thận — mất thẻ này cần đến phường hủy và đăng ký lại từ đầu.',
+        tip: 'Tên trên dấu phải theo quy định địa phương. Với người nước ngoài, dấu bằng kanji, thông称 hoặc katakana thường chỉ được xét nếu thông tin đó có trên住民票 theo cách địa phương chấp nhận.',
       },
       {
         step: 4,
@@ -5757,25 +5880,25 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Dùng dấu cao su mềm (loại tự mực) để đăng ký 印鑑登録 — loại này bị từ chối.',
       'Dùng chung 1 con dấu cho cả tài khoản ngân hàng và các việc thường ngày — rủi ro nếu bị lạm dụng.',
       'Mất thẻ 印鑑登録証 mà không báo phường để hủy — người khác có thể lạm dụng.',
-      'Không mang dấu khi đến ngân hàng, phòng hành chính — bị từ chối vì thiếu giấy tờ.',
+      'Tưởng mọi ngân hàng đều bắt buộc dấu, hoặc ngược lại tưởng chữ ký luôn được chấp nhận, nên không kiểm tra trước.',
       'Đặt dấu nghiêng hoặc ấn không đều khiến mực bị nhòe, giấy tờ phải ký lại.',
     ],
     faq: [
       {
         question: 'Người nước ngoài có cần con dấu không hay chỉ ký tên là đủ?',
-        answer: 'Nhiều thủ tục đã chấp nhận chữ ký thay con dấu, đặc biệt với người nước ngoài. Tuy nhiên mở tài khoản ngân hàng, ký hợp đồng thuê nhà hoặc lao động thường vẫn yêu cầu dấu. Nên có sẵn ít nhất 1 con dấu 認印.',
+        answer: 'Tùy nơi xử lý. Nhiều thủ tục và ngân hàng đã chấp nhận chữ ký hoặc eKYC, nhưng một số hợp đồng/quầy vẫn yêu cầu 印鑑, đặc biệt khi cần 印鑑証明書. Cách an toàn là hỏi bên nhận hồ sơ trước.',
       },
       {
         question: 'Mua dấu ở Daiso có dùng được không?',
-        answer: 'Được, cho các việc thường ngày như 認印. Tuy nhiên dấu Daiso thường chỉ có Kanji, nên với tên Việt bạn có thể tìm dấu katakana hoặc đặt khắc tại cửa hàng chuyên dụng.',
+        answer: 'Có thể dùng cho việc thường ngày nếu bên nhận chấp nhận 認印. Nhưng dấu mua sẵn thường không phù hợp để đăng ký 実印 cho người Việt nếu tên không khớp quy định municipal office.',
       },
       {
         question: 'Con dấu ngân hàng và con dấu thường có khác nhau không?',
-        answer: 'Về mặt vật lý giống nhau, nhưng sau khi đăng ký với ngân hàng thì dấu đó được ghi nhận là dấu tài khoản của bạn. Nên dùng 2 dấu riêng — 1 cho ngân hàng, 1 cho việc thường ngày — để giảm rủi ro.',
+        answer: 'Về vật lý có thể giống nhau, nhưng nếu ngân hàng ghi nhận dấu đó làm dấu tài khoản thì nó nhạy cảm hơn dấu thường. Nên dùng riêng nếu bạn phải đăng ký dấu với ngân hàng.',
       },
       {
         question: 'Tôi có thể đặt khắc tên tiếng Việt không?',
-        answer: 'Được. Cửa hàng 印鑑 chuyên dụng có thể khắc tên bằng katakana (phiên âm tiếng Nhật) hoặc bằng chữ Latin. Hỏi trực tiếp cửa hàng về khả năng và giá.',
+        answer: 'Cửa hàng có thể khắc Latin hoặc katakana, nhưng đăng ký 印鑑登録 được hay không do municipal office quyết định. Trước khi đặt dấu đắt tiền, kiểm tra tên trên住民票 và quy định địa phương.',
       },
       {
         question: 'Nếu mất con dấu thì phải làm gì?',
