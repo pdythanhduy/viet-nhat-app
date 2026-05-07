@@ -1,5 +1,6 @@
-import { readCache } from './cache';
+import { readCache, writeCache } from './cache';
 import { BUNDLED } from './fallback';
+import { fetchRemote } from './remote';
 import type { LoadOptions } from './types';
 
 const DEFAULT_TTL_MS = 7 * 24 * 60 * 60 * 1000;
@@ -16,9 +17,12 @@ export async function loadContent<T>(key: string, opts: LoadOptions = {}): Promi
     }
   }
 
-  // Phase 2 hook: insert Supabase fetch here, gated by feature flag.
-  // On success: writeCache(key, data, schemaVersion); return data.
-  // On failure: fall through to bundled fallback.
+  // Phase 2: Supabase fetch (no-op when feature flag is off or env vars missing).
+  const remote = await fetchRemote<T>(key);
+  if (remote) {
+    void writeCache(key, remote.data, remote.schemaVersion);
+    return remote.data;
+  }
 
   const fn = BUNDLED[key];
   if (!fn) {
