@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -18,7 +18,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Colors } from '../constants/colors';
 import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { Story, Token, Paragraph } from '../types/story';
+import { Story, StoryProgress, Token, Paragraph } from '../types/story';
 import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted } from '../utils/storyProgress';
 import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
 import { markStoryReadToday } from '../utils/storyStreak';
@@ -37,16 +37,19 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
   const isTablet = width >= 768;
 
   const [story, setStory] = useState<Story | null>(null);
-  const [progress, setProgress] = useState<any>(null);
+  const [progress, setProgress] = useState<StoryProgress | null>(null);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [selectedWord, setSelectedWord] = useState<Token | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [hasMarkedStoryReadToday, setHasMarkedStoryReadToday] = useState(false);
+  // Track last 5%-bucket written to AsyncStorage to avoid hammering on every scroll event
+  const lastWrittenBucketRef = useRef<number>(-1);
 
   useEffect(() => {
     const foundStory = SAMPLE_STORIES.find((s) => s.id === storyId);
     setStory(foundStory || null);
     setHasMarkedStoryReadToday(false);
+    lastWrittenBucketRef.current = -1;
   }, [storyId]);
 
   useFocusEffect(
@@ -144,11 +147,18 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
     const contentHeight = event.nativeEvent.contentSize.height;
     const scrollViewHeight = event.nativeEvent.layoutMeasurement.height;
     const scrollPosition = event.nativeEvent.contentOffset.y;
-    const percentRead = Math.round((scrollPosition / (contentHeight - scrollViewHeight)) * 100);
+    const denom = contentHeight - scrollViewHeight;
+    if (denom <= 0) return;
+    const percentRead = Math.min(100, Math.max(0, Math.round((scrollPosition / denom) * 100)));
 
-    updateReadingPosition(story.id, 0, Math.min(percentRead, 100)).catch((error) => {
-      console.error('Error updating reading position:', error);
-    });
+    // Write at most once per 5% bucket so AsyncStorage isn't hit on every scroll frame
+    const bucket = Math.floor(percentRead / 5);
+    if (bucket !== lastWrittenBucketRef.current) {
+      lastWrittenBucketRef.current = bucket;
+      updateReadingPosition(story.id, 0, percentRead).catch((error) => {
+        console.error('Error updating reading position:', error);
+      });
+    }
 
     // Mark story as read today when user reaches 20%
     if (percentRead >= 20 && !hasMarkedStoryReadToday) {
