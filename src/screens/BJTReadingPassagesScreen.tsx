@@ -12,7 +12,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_READING_PASSAGES } from '../constants/content';
+import { BJT_READING_PASSAGES } from '../constants/content/bjt';
 
 type PassageLevel = 'all' | (typeof BJT_READING_PASSAGES)[number]['lv'];
 

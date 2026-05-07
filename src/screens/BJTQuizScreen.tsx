@@ -5,7 +5,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import { BJT_PRACTICE_QUESTIONS } from '../constants/content/bjt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { BjtSkill, loadBjtProgress, recordBjtScenarioPractice } from '../utils/bjtProgress';
 import {

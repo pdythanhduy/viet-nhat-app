@@ -1,4 +1,4 @@
-import { BJT_PIPELINE_BATCHES } from '../constants/content';
+import { BJT_PIPELINE_BATCHES } from '../constants/content/bjtPipeline';
 import { getBjtPipelineStage, getBjtPipelineSummary } from './bjtPipeline';
 
 describe('bjtPipeline', () => {

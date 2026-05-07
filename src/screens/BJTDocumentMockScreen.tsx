@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_DOCUMENT_MOCK_QUESTIONS } from '../constants/content';
+import { BJT_DOCUMENT_MOCK_QUESTIONS } from '../constants/content/bjt';
 
 type AnswerRecord = {
   questionId: string;

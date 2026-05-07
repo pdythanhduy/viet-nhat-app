@@ -7,7 +7,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { ESSENTIAL_PHRASES } from '../constants/content';
+import { ESSENTIAL_PHRASES } from '../constants/content/japanese';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { buildQuizQuestions, QuizDirection, QuizPhrase } from '../utils/japaneseQuiz';

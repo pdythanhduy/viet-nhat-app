@@ -7,7 +7,7 @@ import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { ESSENTIAL_PHRASES, GRAMMAR_PATTERNS, JAPANESE_WORDS } from '../constants/content';
+import { ESSENTIAL_PHRASES, GRAMMAR_PATTERNS, JAPANESE_WORDS } from '../constants/content/japanese';
 import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { loadJapaneseAudioPreferences } from '../utils/audioPreferences';

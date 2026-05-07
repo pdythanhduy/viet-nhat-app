@@ -1,4 +1,4 @@
-import { BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import { BJT_PRACTICE_QUESTIONS } from '../constants/content/bjt';
 import type { BjtPracticeQuestion } from '../types/content';
 
 import {

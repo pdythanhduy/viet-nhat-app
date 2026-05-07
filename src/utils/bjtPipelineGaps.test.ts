@@ -1,4 +1,5 @@
-import { BJT_PIPELINE_BATCHES, BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import { BJT_PRACTICE_QUESTIONS } from '../constants/content/bjt';
+import { BJT_PIPELINE_BATCHES } from '../constants/content/bjtPipeline';
 import { getBjtCoverageSummary } from './bjtQuestionCoverage';
 import { buildClaudePromptForGapAction, getBjtPipelineGapActions } from './bjtPipelineGaps';
 

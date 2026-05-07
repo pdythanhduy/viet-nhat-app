@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_SCENARIO_LIBRARY } from '../constants/content';
+import { BJT_SCENARIO_LIBRARY } from '../constants/content/bjt';
 
 export default function BJTScenariosScreen() {
   const { width } = useWindowDimensions();

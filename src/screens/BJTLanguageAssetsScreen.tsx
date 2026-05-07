@@ -10,7 +10,7 @@ import {
   BJT_GRAMMAR_ITEMS,
   BJT_KANJI_DESCRIPTION,
   BJT_KANJI_ITEMS,
-} from '../constants/content';
+} from '../constants/content/bjt';
 
 type TabId = 'kanji' | 'grammar' | 'abbreviations';
 

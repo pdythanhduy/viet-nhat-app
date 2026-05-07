@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
-import { DAILY_LIFE_TOPICS } from '../constants/content';
+import { DAILY_LIFE_TOPICS } from '../constants/content/dailyLife';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { loadBookmarks, type Bookmark } from '../utils/bookmarks';
 import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';

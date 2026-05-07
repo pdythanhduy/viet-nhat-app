@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { BJT_DOCUMENT_VOCABULARY } from '../constants/content';
+import { BJT_DOCUMENT_VOCABULARY } from '../constants/content/bjt';
 import { recordBjtVocabularyReview } from '../utils/bjtProgress';
 
 export default function BJTVocabularyScreen() {

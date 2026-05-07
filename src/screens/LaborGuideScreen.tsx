@@ -19,7 +19,7 @@ import {
   JOBS_CONTENT_META,
   LABOR_RISK_SIGNS,
   LABOR_SUPPORT_PHRASES,
-} from '../constants/content';
+} from '../constants/content/jobs';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated } from '../utils/contentMetadata';
 import { markLaborResourceViewed } from '../utils/laborResources';

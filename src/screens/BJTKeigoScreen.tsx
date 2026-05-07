@@ -3,7 +3,7 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors } from '../constants/colors';
-import { BJT_KEIGO_COMMON_MISTAKES, BJT_KEIGO_ENTRIES, BJT_KEIGO_INTRO } from '../constants/content';
+import { BJT_KEIGO_COMMON_MISTAKES, BJT_KEIGO_ENTRIES, BJT_KEIGO_INTRO } from '../constants/content/bjt';
 
 const FILTERS = [
   { id: 'all', label: 'Tất cả' },

@@ -10,7 +10,7 @@ import {
   BJT_OVERVIEW,
   BJT_PRACTICE_QUESTIONS,
   BJT_STUDY_PLAN,
-} from '../constants/content';
+} from '../constants/content/bjt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { BjtTargetLevel, filterBjtQuestionsByLevel, getAvailableBjtLevels } from '../utils/bjtQuestionLevels';
 import { BjtSkill, getBjtLevelSnapshot, loadBjtProgress } from '../utils/bjtProgress';

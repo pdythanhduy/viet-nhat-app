@@ -3,7 +3,7 @@ import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors } from '../constants/colors';
-import { BJT_BUSINESS_MANNERS, BJT_EMAIL_TEMPLATES } from '../constants/content';
+import { BJT_BUSINESS_MANNERS, BJT_EMAIL_TEMPLATES } from '../constants/content/bjt';
 
 type TabId = 'email' | 'manners';
 
