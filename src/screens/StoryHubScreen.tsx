@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { SAMPLE_STORIES } from '../constants/content/sampleStories';
+import { SAMPLE_STORIES } from '../constants/content/stories';
 import { JLPTLevel } from '../types/jlpt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, StoryProgress, STORY_CATEGORY_LABELS } from '../types/story';

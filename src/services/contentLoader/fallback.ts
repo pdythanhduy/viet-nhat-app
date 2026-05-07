@@ -28,4 +28,6 @@ export const BUNDLED: Record<string, BundledLoader> = {
   'japanese.phrases.construction': () => require('../../constants/content/japanese/phrases/construction').default,
   'japanese.phrases.agriculture': () => require('../../constants/content/japanese/phrases/agriculture').default,
   'japanese.phrases.restaurant': () => require('../../constants/content/japanese/phrases/restaurant').default,
+
+  'stories.all': () => require('../../constants/content/stories').SAMPLE_STORIES,
 };

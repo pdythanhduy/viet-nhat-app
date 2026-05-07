@@ -17,7 +17,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { SAMPLE_STORIES } from '../constants/content/sampleStories';
+import { SAMPLE_STORIES } from '../constants/content/stories';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, StoryProgress, Token, Paragraph } from '../types/story';
 import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted, LOCAL_USER_ID } from '../utils/storyProgress';
