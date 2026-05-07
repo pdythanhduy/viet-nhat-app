@@ -19,7 +19,7 @@ import { Colors } from '../constants/colors';
 import { SAMPLE_STORIES } from '../constants/content/sampleStories';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, StoryProgress, Token, Paragraph } from '../types/story';
-import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted } from '../utils/storyProgress';
+import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted, LOCAL_USER_ID } from '../utils/storyProgress';
 import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
 import { markStoryReadToday } from '../utils/storyStreak';
 import AudioButton from '../components/AudioButton';
@@ -62,7 +62,7 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
           if (!progressData) {
             progressData = {
               storyId: story.id,
-              userId: 'default',
+              userId: LOCAL_USER_ID,
               currentParagraphIndex: 0,
               percentRead: 0,
               isCompleted: false,

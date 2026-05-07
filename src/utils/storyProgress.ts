@@ -5,6 +5,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StorageKeys } from '../constants/storageKeys';
 import { StoryProgress, StoryBookmark, SentenceBookmark, WordBookmark } from '../types/story';
 
+// Single placeholder owner for all locally-persisted story records.
+// Replace with a real userId once auth is wired in.
+export const LOCAL_USER_ID = 'local';
+
 /**
  * Load reading progress for all stories
  */
@@ -40,7 +44,7 @@ export async function markStoryCompleted(storyId: string): Promise<void> {
     if (!allProgress[storyId]) {
       allProgress[storyId] = {
         storyId,
-        userId: 'default',
+        userId: LOCAL_USER_ID,
         currentParagraphIndex: 0,
         percentRead: 100,
         isCompleted: true,
@@ -79,7 +83,7 @@ export async function updateReadingPosition(storyId: string, paragraphIndex: num
     if (!progress) {
       progress = {
         storyId,
-        userId: 'default',
+        userId: LOCAL_USER_ID,
         currentParagraphIndex: paragraphIndex,
         percentRead: Math.min(percentRead, 100),
         isCompleted: false,
@@ -119,7 +123,7 @@ export async function addStoryBookmark(storyId: string): Promise<void> {
       bookmarks.push({
         id: `bookmark-${Date.now()}`,
         storyId,
-        userId: 'current-user', // Will be dynamic later
+        userId: LOCAL_USER_ID,
         createdAt: new Date().toISOString(),
       });
       await AsyncStorage.setItem(StorageKeys.storyBookmarks, JSON.stringify(bookmarks));
@@ -179,7 +183,7 @@ export async function addSentenceBookmark(sentenceId: string, storyId: string, n
         id: `sent-bookmark-${Date.now()}`,
         sentenceId,
         storyId,
-        userId: 'current-user',
+        userId: LOCAL_USER_ID,
         note,
         createdAt: new Date().toISOString(),
       });
@@ -215,7 +219,7 @@ export async function addWordBookmark(word: string, reading: string, meaning: st
         word,
         reading,
         meaning,
-        userId: 'current-user',
+        userId: LOCAL_USER_ID,
         createdAt: new Date().toISOString(),
       });
       await AsyncStorage.setItem(StorageKeys.wordBookmarks, JSON.stringify(bookmarks));
