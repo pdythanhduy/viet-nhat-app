@@ -30,4 +30,7 @@ export const BUNDLED: Record<string, BundledLoader> = {
   'japanese.phrases.restaurant': () => require('../../constants/content/japanese/phrases/restaurant').default,
 
   'stories.all': () => require('../../constants/content/stories').SAMPLE_STORIES,
+
+  'dailyLife.topics': () => require('../../constants/content/dailyLife').DAILY_LIFE_TOPICS,
+  'dailyLife.meta': () => require('../../constants/content/dailyLife').DAILY_LIFE_CONTENT_META,
 };

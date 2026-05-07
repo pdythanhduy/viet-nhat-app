@@ -4,9 +4,9 @@ const path = require('path');
 const TARGET_ENTRIES = [
   { type: 'tree', path: 'src/constants/content/japanese' },
   { type: 'tree', path: 'src/constants/content/stories' },
+  { type: 'tree', path: 'src/constants/content/dailyLife' },
   { type: 'file', path: 'src/constants/content/adminGuides.ts' },
   { type: 'file', path: 'src/constants/content/adminGuideForms.ts' },
-  { type: 'file', path: 'src/constants/content/dailyLife.ts' },
   { type: 'file', path: 'src/constants/content/emergency.ts' },
   { type: 'file', path: 'src/constants/content/jobs.ts' },
   { type: 'file', path: 'src/constants/content/bjt.ts' },
