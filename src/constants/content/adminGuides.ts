@@ -1,7 +1,7 @@
 ﻿import type { AdminGuide, ContentMetadata } from '../../types/content';
 
 export const ADMIN_CONTENT_META: ContentMetadata = {
-  lastUpdated: '2026-05-06',
+  lastUpdated: '2026-05-07',
   sources: [
     { label: '出入国在留管理庁', url: 'https://www.moj.go.jp/isa/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
@@ -16,7 +16,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'residence-card',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-07',
     priority: 'high',
     title: 'Gia hạn thời hạn lưu trú / visa',
     titleJp: '在留期間更新許可申請',
@@ -26,7 +26,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Thủ tục 在留期間更新許可申請 do ISA xử lý toàn quốc; giấy tờ phụ thuộc tư cách lưu trú, nơi cư trú/làm việc/học tập và tình trạng hồ sơ.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-05-07',
       nextReviewAt: '2026-09-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -36,16 +36,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       ],
     },
     quickAction: {
-      deadline: 'Nếu thời hạn lưu trú hiện tại từ 6 tháng trở lên, thường có thể nộp từ khoảng 3 tháng trước ngày hết hạn; không đợi sát hạn.',
+      deadline: 'Nếu thời hạn lưu trú hiện tại từ 6 tháng trở lên, thường có thể nộp từ khoảng 3 tháng trước ngày hết hạn; không đợi sát hạn. Hệ thống online không nhận hồ sơ vào đúng ngày hết hạn lưu trú.',
       office: 'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu thuộc đối tượng được dùng.',
       doNow: [
         'Kiểm tra ngày hết hạn lưu trú trên thẻ cư trú.',
         'Tải mẫu đúng tư cách lưu trú từ trang ISA tại ngày chuẩn bị nộp.',
+        'Nếu định nộp online, nộp trước ngày cuối; nếu đã đến đúng ngày hết hạn, hỏi/nộp tại cục xuất nhập cảnh có thẩm quyền.',
         'Chuẩn bị giấy tờ thuế, bảo hiểm, thu nhập, trường/công ty nếu hồ sơ có yếu tố thay đổi.',
       ],
       bring: ['Thẻ cư trú', 'Hộ chiếu', 'Ảnh thẻ 4cm x 3cm', 'Đơn xin gia hạn', 'Giấy tờ chứng minh hoạt động hiện tại'],
       ifLate: 'Nộp/hỏi ISA càng sớm càng tốt và giải thích trung thực; quá hạn lưu trú là rủi ro nghiêm trọng.',
-      officialSourceLabels: ['在留期間更新許可申請 — 出入国在留管理庁', 'Thông báo sửa phí thủ tục từ 01/04/2025'],
+      officialSourceLabels: [
+        '在留期間更新許可申請 — 出入国在留管理庁',
+        'Online Residence Application System — ISA',
+        'Thông báo sửa phí thủ tục từ 01/04/2025',
+      ],
     },
     heroImage: require('../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
     heroImageCaption: 'Thẻ cư trú (在留カード) — mang theo khi ra ngoài, cập nhật thông tin khi có thay đổi',
@@ -68,8 +73,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     estimatedTime: 'Thời gian xét duyệt thay đổi theo hồ sơ và khu vực. Nhiều hồ sơ mất vài tuần đến vài tháng; nếu bị yêu cầu bổ sung giấy tờ sẽ lâu hơn.',
     fees: [
-      'Phí thủ tục lưu trú đã được sửa từ 01/04/2025.',
-      'Không nên dựa vào mức phí cũ hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả.',
+      'Nếu được cấp phép: 6.000 yên khi làm thủ tục thường, hoặc 5.500 yên nếu là online application theo mức ISA áp dụng từ 01/04/2025.',
+      'Không nên dựa vào mức phí cũ 4.000 yên hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả.',
       'Thông thường phí được nộp khi nhận kết quả được cấp phép, không phải lúc nộp hồ sơ.',
     ],
     documentsChecklist: [
@@ -110,11 +115,16 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: 'Phí bao nhiêu?',
-        answer: 'Phí thủ tục lưu trú đã được sửa từ 01/04/2025. Hãy kiểm tra bảng phí chính thức của ISA tại thời điểm nhận kết quả.',
+        answer: 'Theo ISA, hồ sơ được cấp phép hiện là 6.000 yên nếu làm thủ tục thường và 5.500 yên nếu nộp online. Vẫn nên kiểm tra bảng phí chính thức tại thời điểm nhận kết quả.',
+      },
+      {
+        question: 'Có thể nộp online vào đúng ngày hết hạn không?',
+        answer: 'Không nên để đến ngày cuối. ISA nêu hệ thống online không thể dùng để nộp vào đúng ngày hết hạn lưu trú; khi đó cần xử lý tại cục xuất nhập cảnh có thẩm quyền.',
       },
     ],
     officialLinks: [
       { label: '在留期間更新許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-3.html' },
+      { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/onlineshinsei.html' },
       { label: 'Thông báo sửa phí thủ tục từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
       { label: 'Tra cứu cục xuất nhập cảnh gần nhất', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
     ],
@@ -163,9 +173,9 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Thông báo từ ISA',
           'Hộ chiếu',
           'Thẻ cư trú cũ',
-          'Lệ phí theo bảng phí chính thức áp dụng từ 01/04/2025',
+          'Lệ phí: 6.000 yên thủ tục thường hoặc 5.500 yên online theo bảng phí hiện hành nếu được cấp phép',
         ],
-        tip: 'Không ghi nhớ phí theo kinh nghiệm cũ. Phí thủ tục lưu trú đã được sửa từ 01/04/2025, hãy kiểm tra bảng phí chính thức trước khi đi.',
+        tip: 'Không ghi nhớ phí theo kinh nghiệm cũ. Với hồ sơ online, cũng phải theo đúng cách nộp phí ISA hướng dẫn khi nhận kết quả.',
       },
     ],
   },
@@ -781,7 +791,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 're-entry',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-07',
     priority: 'normal',
     title: 'Tạm rời Nhật / tái nhập cảnh',
     titleJp: 'みなし再入国許可・再入国許可',
@@ -791,7 +801,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Quy định tái nhập cảnh do ISA quản lý toàn quốc; thủ tục thực tế diễn ra tại cửa khẩu hoặc cục xuất nhập cảnh trước khi rời Nhật nếu cần 再入国許可.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-05-07',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -805,12 +815,13 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       office: 'Cửa khẩu xuất cảnh khi dùng みなし再入国; cục xuất nhập cảnh nếu xin 再入国許可 chính thức.',
       doNow: [
         'Kiểm tra hạn lưu trú, hạn thẻ cư trú và hạn hộ chiếu trước khi mua vé dài ngày.',
+        'Khi xuất cảnh bằng みなし再入国, đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） và xuất trình cùng hộ chiếu/thẻ cư trú.',
         'Nếu dùng みなし再入国, phải quay lại trong 1 năm hoặc trước ngày hết hạn lưu trú nếu hạn đó đến sớm hơn.',
         'Xin 再入国許可 chính thức nếu kế hoạch ở ngoài Nhật vượt khung みなし再入国.',
       ],
-      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin permit chính thức'],
+      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', '再入国出国記録（再入国EDカード） khi xuất cảnh', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin permit chính thức'],
       ifLate: 'Nếu đã rời Nhật và lỡ hạn tái nhập cảnh, liên hệ cơ quan Nhật ở nước ngoài/ISA ngay; không tự mua vé quay lại khi quyền tái nhập cảnh không còn rõ.',
-      officialSourceLabels: ['みなし再入国許可 — 出入国在留管理庁', '再入国許可 — 出入国在留管理庁'],
+      officialSourceLabels: ['みなし再入国許可 — 出入国在留管理庁', '再入国許可 — 出入国在留管理庁', '再入国許可申請 — 出入国在留管理庁'],
     },
     heroImage: require('../../../assets/content/daily-life/ag_re-entry_hero.jpg'),
     heroImageCaption: 'Kiểm tra thẻ cư trú và hộ chiếu trước khi rời Nhật',
@@ -829,13 +840,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Cục xuất nhập cảnh (ISA): xin 再入国許可 chính thức trước khi rời Nhật nếu cần.',
       'Đại sứ quán/lãnh sự quán Nhật ở nước ngoài không phải nơi gia hạn みなし再入国 thông thường; cần lên kế hoạch trước khi đi.',
     ],
+    estimatedTime: 'みなし再入国 không cần xin permit trước nếu đủ điều kiện, nhưng phải làm đúng bước tại cửa xuất cảnh. 再入国許可 chính thức theo ISA thường xử lý trong ngày nếu hồ sơ đủ.',
+    fees: [
+      'みなし再入国 không phải xin 再入国許可 trước khi đi nếu đủ điều kiện.',
+      '再入国許可 chính thức: 4.000 yên cho 1 lần, 7.000 yên cho nhiều lần; nếu online trong trường hợp ISA cho phép thì lần lượt 3.500 yên và 6.500 yên.',
+      'ISA nêu online re-entry application chỉ dùng khi làm đồng thời với đổi tư cách, gia hạn thời hạn lưu trú hoặc 在留資格取得許可.',
+    ],
     documentsChecklist: [
       { label: 'Hộ chiếu còn hiệu lực', required: true },
       { label: 'Thẻ cư trú còn hiệu lực', required: true },
+      { label: '再入国出国記録（再入国EDカード）', required: true, note: 'Khi dùng みなし再入国, đánh dấu ô tạm rời Nhật và sẽ quay lại rồi xuất trình tại cửa xuất cảnh.' },
       { label: 'Kế hoạch hoặc vé quay lại Nhật', required: false, note: 'Dùng để tự kiểm tra có quay lại kịp hạn hay không.' },
       { label: 'Đơn 再入国許可申請書', required: false, note: 'Chỉ cần nếu xin 再入国許可 chính thức tại ISA.' },
     ],
     commonMistakes: [
+      'Không đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） khi xuất cảnh bằng みなし再入国.',
       'Nghĩ みなし再入国 luôn dùng được dù rời Nhật quá lâu.',
       'Quên kiểm tra ngày hết hạn lưu trú trên thẻ cư trú trước khi đi.',
       'Rời Nhật khi hộ chiếu sắp hết hạn nhưng chưa kiểm tra điều kiện nhập cảnh/quay lại.',
@@ -844,7 +863,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     faq: [
       {
         question: 'みなし再入国 có cần nộp đơn trước tại ISA không?',
-        answer: 'Thông thường không cần nộp đơn trước nếu bạn thuộc đối tượng được dùng và quay lại trong thời hạn cho phép. Khi xuất cảnh, xuất trình hộ chiếu và thẻ cư trú tại cửa kiểm tra.',
+        answer: 'Thông thường không cần nộp đơn trước nếu bạn thuộc đối tượng được dùng và quay lại trong thời hạn cho phép. Nhưng khi xuất cảnh, bạn phải xuất trình hộ chiếu/thẻ cư trú và đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード）.',
       },
       {
         question: 'Nếu dự định rời Nhật hơn 1 năm thì sao?',
@@ -854,16 +873,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         question: 'Có thể quay lại sau ngày hết hạn lưu trú không?',
         answer: 'Không nên. みなし再入国 không giúp bạn vượt quá thời hạn lưu trú hiện tại. Cần quay lại trước khi hết hạn hoặc xử lý thủ tục lưu trú phù hợp trước khi đi.',
       },
+      {
+        question: 'Nếu mất hộ chiếu hoặc thẻ cư trú khi đang ở ngoài Nhật thì sao?',
+        answer: 'ISA có thủ tục xin chứng minh thời hạn 再入国許可 thông qua người đại diện ở Nhật trong một số trường hợp. Liên hệ cơ quan Nhật ở nước ngoài và ISA, không tự suy đoán rằng chỉ cần hộ chiếu mới là quay lại được.',
+      },
     ],
     officialLinks: [
       { label: 'みなし再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/minashisainyukoku_00001.html' },
       { label: '再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/sainyukoku_00002.html' },
+      { label: '再入国許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/16-5.html' },
     ],
     steps: [
       {
         step: 1,
         title: 'Kiểm tra bạn có dùng được みなし再入国 không',
-        description: 'Người có hộ chiếu và thẻ cư trú hợp lệ, dự định quay lại Nhật trong thời hạn được phép, thường có thể dùng みなし再入国許可. Visa ngắn hạn và một số trường hợp không áp dụng.',
+        description: 'Người có hộ chiếu và thẻ cư trú hợp lệ, dự định quay lại Nhật trong thời hạn được phép, thường có thể dùng みなし再入国許可. Visa ngắn hạn, thời hạn lưu trú 3 tháng trở xuống và một số trường hợp ISA nêu sẽ không áp dụng.',
         documents: [
           'Hộ chiếu còn hiệu lực',
           'Thẻ cư trú còn hiệu lực',
@@ -873,13 +897,14 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         step: 2,
-        title: 'Qua cửa kiểm tra xuất cảnh — không cần điền ED card',
-        description: 'Từ tháng 4/2016, Nhật bỏ tờ khai ED card giấy cho người có thẻ cư trú. Khi dùng **みなし再入国許可**, quy trình hiện tại:\n\n1. Xếp hàng cửa kiểm tra xuất nhập cảnh tại sân bay.\n2. Xuất trình **hộ chiếu** và **在留カード**.\n3. Nhân viên ISA quét thẻ cư trú và đóng dấu/xử lý điện tử — không cần điền tờ khai giấy.\n4. Nếu dùng **自動化ゲート** (cổng tự động): quét hộ chiếu và làm theo hướng dẫn màn hình.\n\n⚠️ Không được quay lại sau khi hạn lưu trú hết — みなし再入国 vẫn bị hủy nếu bạn trở về sau ngày hết hạn 在留期間.',
+        title: 'Qua cửa xuất cảnh — đánh dấu 再入国EDカード',
+        description: 'Khi dùng **みなし再入国許可**, bạn không xin permit trước tại ISA nếu đủ điều kiện, nhưng vẫn phải thể hiện ý định quay lại khi xuất cảnh.\n\nQuy trình cần nhớ:\n\n1. Chuẩn bị **hộ chiếu** và **在留カード** còn hiệu lực.\n2. Trên **再入国出国記録（再入国EDカード）**, đánh dấu ô thể hiện đây là tạm rời Nhật và bạn dự định tái nhập cảnh.\n3. Xuất trình ED card, hộ chiếu và 在留カード cho nhập cảnh viên; nếu được hỏi, nói rõ bạn muốn xuất cảnh bằng みなし再入国許可.\n\n⚠️ Không được quay lại sau khi hạn lưu trú hết — みなし再入国 chỉ có hiệu lực trong 1 năm hoặc đến ngày hết hạn lưu trú nếu ngày đó đến sớm hơn.',
         documents: [
           'Hộ chiếu còn hiệu lực',
           '在留カード còn hiệu lực',
+          '再入国出国記録（再入国EDカード） đã đánh dấu ý định quay lại',
         ],
-        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh. Tải mẫu đơn 再入国許可申請書 (PDF): https://www.moj.go.jp/isa/content/930004122.pdf',
+        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh. Phí hiện hành là 4.000 yên cho 1 lần hoặc 7.000 yên cho nhiều lần nếu được cấp phép.',
       },
       {
         step: 3,
@@ -1886,18 +1911,18 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'bicycle-rules-2026',
     category: 'traffic',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-07',
     priority: 'high',
     title: 'Luật xe đạp 2026 / blue ticket',
     titleJp: '自転車の青切符・交通反則通告制度',
     icon: 'bicycle',
     color: '#E67E22',
-    description: 'Từ 01/04/2026, Nhật áp dụng hệ thống blue ticket cho một số vi phạm xe đạp của người từ 16 tuổi trở lên. Đây là thay đổi quan trọng với người đi học, đi làm bằng xe đạp.',
+    description: 'Đang áp dụng từ 01/04/2026: Nhật đưa người đi xe đạp từ 16 tuổi trở lên vào hệ thống blue ticket cho một số vi phạm giao thông. Đây là thay đổi quan trọng với người đi học, đi làm hoặc giao hàng bằng xe đạp.',
     legalScope: {
       appliesFrom: '2026-04-01',
       jurisdiction: 'national',
       jurisdictionNote: 'Hệ thống 交通反則通告制度 cho xe đạp áp dụng toàn quốc; bãi đỗ, bảo hiểm xe đạp và quy tắc địa phương có thể khác theo tỉnh/thành.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-05-07',
       nextReviewAt: '2026-10-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -1907,16 +1932,23 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       ],
     },
     quickAction: {
-      deadline: 'Áp dụng từ 01/04/2026 cho người từ 16 tuổi trở lên; nếu nhận giấy thông báo, xử lý theo hạn ghi trên giấy.',
+      deadline: 'Đang áp dụng từ 01/04/2026 cho người từ 16 tuổi trở lên; nếu nhận giấy thông báo, xử lý theo hạn ghi trên giấy.',
       office: 'Không phải thủ tục đăng ký; khi vi phạm xử lý theo hướng dẫn của cảnh sát/NPA và giấy thông báo.',
       doNow: [
         'Bỏ thói quen dùng điện thoại, vượt đèn đỏ, không dừng ở 止まれ hoặc đi ngược chiều.',
         'Kiểm tra phanh, đèn, chuông và bảo hiểm xe đạp theo địa phương.',
+        'Mở bảng NPA về 反則行為/反則金 nếu cần biết chính xác lỗi và số tiền tại thời điểm bị xử lý.',
         'Nếu đi giao hàng/đi làm bằng xe đạp, lưu sẵn số liên hệ công ty/bảo hiểm.',
       ],
       bring: ['Giấy tờ cá nhân khi cần xác minh', 'Thông tin đăng ký chống trộm xe nếu có', 'Thông tin bảo hiểm xe đạp nếu địa phương/công ty yêu cầu'],
-      ifLate: 'Nếu bỏ qua giấy thông báo hoặc không xử lý đúng hạn, rủi ro có thể chuyển sang xử lý nghiêm hơn; đọc kỹ giấy và hỏi nơi ghi trên thông báo.',
-      officialSourceLabels: ['自転車交通反則通告制度 — 警察庁', '自転車ルール・制度 — 警察庁'],
+      ifLate: 'Nếu bỏ qua giấy thông báo hoặc không xử lý đúng hạn, rủi ro có thể chuyển sang xử lý nghiêm hơn. Chính phủ Nhật giải thích quy trình blue ticket có mốc tạm nộp trong vòng 7 ngày từ ngày sau khi bị xử lý, và nếu không tạm nộp thì phải theo giấy hẹn/thông báo tiếp theo.',
+      officialSourceLabels: [
+        '自転車交通反則通告制度 — 警察庁',
+        '自転車ルール・制度 — 警察庁',
+        '自転車の反則行為と反則金の額 — 警察庁',
+        'Giải thích của Chính phủ Nhật',
+        '罰則強化！自転車のながらスマホと酒気帯び運転 — 政府広報オンライン',
+      ],
     },
     heroImage: require('../../../assets/content/daily-life/ag_bicycle-rules_hero.jpg'),
     heroImageCaption: '自転車の青切符 — phiếu phạt xanh áp dụng từ 01/04/2026 cho vi phạm giao thông xe đạp',
@@ -1926,7 +1958,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Phụ huynh/người giám hộ muốn nhắc con em về quy tắc xe đạp, dù trẻ dưới 16 tuổi vẫn phải tuân thủ luật giao thông.',
     ],
     whenToDo: [
-      'Áp dụng từ 01/04/2026 với hệ thống 交通反則通告制度 cho xe đạp.',
+      'Đang áp dụng từ 01/04/2026 với hệ thống 交通反則通告制度 cho xe đạp.',
       'Kiểm tra thói quen đi xe ngay trước khi đi học/đi làm vì các lỗi như điện thoại, đèn đỏ, stop sign rất dễ xảy ra.',
       'Khi chuyển địa phương, kiểm tra thêm quy định bãi đỗ xe đạp và bảo hiểm xe đạp tại địa phương đó.',
     ],
@@ -1936,7 +1968,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     estimatedTime: 'Không phải thủ tục đăng ký; đây là nội dung cần đọc trước khi đi xe. Nếu bị lập giấy, hãy xử lý đúng hạn ghi trên thông báo.',
     fees: [
-      'Mức tiền xử lý phụ thuộc loại vi phạm và hướng dẫn chính thức tại thời điểm bị xử lý.',
+      'NPA đã công bố bảng 反則行為 và 反則金 cho xe đạp/軽車両; số tiền phụ thuộc đúng loại vi phạm.',
+      'Ví dụ thường gặp như 携帯電話使用等（保持）, 信号無視, 通行区分違反 có mức khác nhau; mở bảng NPA thay vì nghe truyền miệng.',
       'Một số hành vi nghiêm trọng có thể không chỉ là blue ticket mà bị xử lý theo thủ tục nghiêm hơn.',
     ],
     documentsChecklist: [
@@ -1969,19 +2002,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       },
       {
         question: 'Có nên ghi số tiền phạt cụ thể trong app không?',
-        answer: 'Không nên dựa vào con số truyền miệng. App nên dẫn người dùng đến nguồn NPA/chính quyền vì mức xử lý có thể phụ thuộc lỗi và thời điểm.',
+        answer: 'Có thể xem bảng chính thức của NPA, nhưng không nên dựa vào con số truyền miệng. Số tiền phụ thuộc đúng lỗi ghi trên giấy và bảng đang áp dụng tại thời điểm bị xử lý.',
       },
     ],
     officialLinks: [
       { label: '自転車交通反則通告制度 — 警察庁', url: 'https://www.npa.go.jp/bureau/traffic/bicycle/info.html' },
       { label: '自転車ルール・制度 — 警察庁', url: 'https://www.npa.go.jp/bureau/traffic/bicycle/portal/system.html' },
+      { label: '自転車の反則行為と反則金の額 — 警察庁', url: 'https://www.npa.go.jp/bureau/traffic/bicycle/pdf/jitensyahansokukoui.pdf' },
       { label: 'Giải thích của Chính phủ Nhật', url: 'https://www.gov-online.go.jp/article/202410/entry-6604.html' },
+      { label: '罰則強化！自転車のながらスマホと酒気帯び運転 — 政府広報オンライン', url: 'https://www.gov-online.go.jp/useful/202410/video-288714.html' },
     ],
     steps: [
       {
         step: 1,
         title: 'Hiểu điểm mới từ 01/04/2026',
-        description: 'Từ 01/04/2026, người từ 16 tuổi trở lên đi xe đạp vi phạm một số lỗi giao thông có thể bị áp dụng 交通反則通告制度, thường gọi là blue ticket (青切符).',
+        description: 'Từ 01/04/2026, người từ 16 tuổi trở lên đi xe đạp vi phạm một số lỗi giao thông có thể bị áp dụng 交通反則通告制度, thường gọi là blue ticket (青切符). Nếu nộp 反則金 theo thông báo, vụ việc được xử lý theo thủ tục hành chính thay vì bị đưa thẳng sang xét xử hình sự.',
         documents: [],
         tip: 'NPA giải thích rằng cảnh sát vẫn tập trung vào vi phạm ác ý/nguy hiểm hoặc có nguy cơ gây tai nạn, nhưng người đi xe đạp không nên xem đây là lỗi nhỏ.',
       },
@@ -1995,7 +2030,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
           'Đi bên trái lòng đường là nguyên tắc',
           'Bật đèn ban đêm',
         ],
-        tip: 'Một số lỗi nghiêm trọng như uống rượu lái xe đạp hoặc hành vi nguy hiểm vẫn có thể bị xử lý hình sự/red ticket.',
+        tip: 'Từ 01/11/2024, ながらスマホ và 酒気帯び運転 bằng xe đạp đã bị siết xử phạt. Nếu gây nguy hiểm, có tai nạn, uống rượu hoặc bỏ chạy, rủi ro có thể vượt khỏi blue ticket.',
         image: require('../../../assets/content/daily-life/ag_bicycle-rules_s2.jpg'),
         imageCaption: '止まれ — biển dừng bắt buộc, vi phạm từ 01/04/2026 có thể bị áp dụng blue ticket',
       },
@@ -2014,7 +2049,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       {
         step: 4,
         title: 'Nếu bị dừng xe',
-        description: 'Giữ bình tĩnh, xuất trình giấy tờ nếu được yêu cầu và nghe giải thích của cảnh sát. Nếu nhận giấy thông báo, hãy đọc kỹ hạn nộp và cách xử lý.',
+        description: 'Giữ bình tĩnh, xuất trình giấy tờ nếu được yêu cầu và nghe giải thích của cảnh sát. Nếu nhận blue ticket/giấy thông báo, hãy đọc kỹ lỗi ghi trên giấy, hạn tạm nộp, nơi xử lý và cách nộp 反則金. Nếu không hiểu tiếng Nhật, chụp/lưu giấy và hỏi người hỗ trợ ngay trong ngày.',
         documents: [],
         tip: 'Không tranh cãi tại hiện trường nếu không hiểu tiếng Nhật. Ghi lại thông tin và hỏi người hỗ trợ/đơn vị tư vấn sau đó.',
       },
@@ -5229,7 +5264,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-07',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -5240,7 +5275,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-05-07',
       nextReviewAt: '2026-09-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -5250,16 +5285,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       ],
     },
     quickAction: {
-      deadline: 'Nộp từ khi phát sinh lý do đổi tư cách và trước ngày hết hạn lưu trú hiện tại; không để hoạt động mới đi trước tình trạng pháp lý.',
+      deadline: 'Nộp từ khi phát sinh lý do đổi tư cách và trước ngày hết hạn lưu trú hiện tại; không để hoạt động mới đi trước tình trạng pháp lý. Hệ thống online không nhận hồ sơ vào đúng ngày hết hạn lưu trú.',
       office: 'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu thuộc đối tượng được dùng.',
       doNow: [
         'Xác định tư cách mới và hoạt động dự kiến có khớp bảng ISA không.',
         'Gom giấy tờ công ty/trường/gia đình chứng minh lý do đổi.',
+        'Nếu định nộp online, nộp trước ngày cuối; nếu đã đến ngày hết hạn, hỏi/nộp tại cục xuất nhập cảnh có thẩm quyền.',
         'Theo dõi hạn lưu trú hiện tại; nếu hết hạn trong lúc chờ, cần xử lý gia hạn phù hợp.',
       ],
       bring: ['Đơn 在留資格変更許可申請', 'Hộ chiếu', 'Thẻ cư trú', 'Ảnh thẻ 4cm x 3cm', 'Giấy tờ của bên tiếp nhận mới', 'Tài liệu chứng minh năng lực/lý do đổi'],
       ifLate: 'Liên hệ ISA ngay trước khi hết hạn hoặc trước khi bắt đầu hoạt động mới; quá hạn lưu trú là rủi ro nghiêm trọng.',
-      officialSourceLabels: ['在留資格変更許可申請 — 出入国在留管理庁', 'Online Residence Application System — ISA'],
+      officialSourceLabels: [
+        '在留資格変更許可申請 — 出入国在留管理庁',
+        'Online Residence Application System — ISA',
+        'Thông báo sửa phí thủ tục từ 01/04/2025',
+      ],
     },
     heroImage: require('../../../assets/content/daily-life/ag_status-change_hero.jpg'),
     heroImageCaption: 'Thủ tục đổi tư cách lưu trú tại ISA',
@@ -5279,7 +5319,10 @@ export const ADMIN_GUIDES: AdminGuide[] = [
     ],
     estimatedTime:
       'Thời gian xét duyệt thay đổi theo hồ sơ, khu vực và loại tư cách mới. Nên chừa thời gian để bổ sung giấy tờ nếu bị yêu cầu.',
-    fees: ['Có lệ phí khi được cấp phép. Kiểm tra biểu phí mới nhất của ISA trước khi nộp.'],
+    fees: [
+      'Nếu được cấp phép: 6.000 yên khi làm thủ tục thường, hoặc 5.500 yên nếu là online application theo mức ISA áp dụng từ 01/04/2025.',
+      'Phí nộp khi nhận kết quả/cấp phép, không phải lúc mới nộp hồ sơ.',
+    ],
     documentsChecklist: [
       { label: 'Đơn xin đổi tư cách lưu trú đúng mẫu', required: true },
       { label: 'Ảnh thẻ縦4cm × 横3cm', required: true, note: 'Nền trắng hoặc sáng màu đơn sắc, chụp trong 3 tháng gần nhất — bắt buộc kèm theo đơn.' },
@@ -5292,6 +5335,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
       'Nhầm giữa đổi tư cách lưu trú và gia hạn thời hạn lưu trú.',
       'Nhận việc hoặc bắt đầu công việc mới khi hồ sơ chưa rõ tình trạng pháp lý.',
       'Nộp hồ sơ thiếu giấy tờ từ công ty mới, đặc biệt phần mô tả công việc và điều kiện tuyển dụng.',
+      'Để đến đúng ngày hết hạn mới định nộp online, trong khi ISA nêu online system không nhận hồ sơ vào ngày cuối.',
     ],
     faq: [
       {
@@ -5304,10 +5348,21 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         answer:
           'Không phải lúc nào cũng cần. Nếu bản chất công việc vẫn nằm trong phạm vi tư cách hiện tại, có thể chỉ cần thông báo thay đổi theo quy định.',
       },
+      {
+        question: 'Phí đổi tư cách lưu trú hiện là bao nhiêu?',
+        answer:
+          'Theo ISA, khi được cấp phép hiện là 6.000 yên nếu làm thủ tục thường và 5.500 yên nếu nộp online. Kiểm tra lại bảng phí chính thức trước khi nhận kết quả.',
+      },
+      {
+        question: 'Có thể nộp online vào đúng ngày hết hạn không?',
+        answer:
+          'Không. ISA nêu hệ thống online không thể dùng để nộp vào đúng ngày hết hạn lưu trú; nếu sát hạn như vậy, cần xử lý tại cục xuất nhập cảnh có thẩm quyền.',
+      },
     ],
     officialLinks: [
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
-      { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/online_index.html' },
+      { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/onlineshinsei.html' },
+      { label: 'Thông báo sửa phí thủ tục từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
     ],
     steps: [
       {
@@ -5351,7 +5406,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
         description:
           'Ngay cả khi đã được nhận vào công ty, bạn vẫn cần hiểu rõ thời điểm nào được phép làm việc theo diện mới.',
         documents: ['Thông báo kết quả từ ISA', 'Thẻ cư trú cập nhật nếu được cấp phép'],
-        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng.',
+        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng. Khi được cấp phép, phí hiện hành là 6.000 yên thủ tục thường hoặc 5.500 yên online.',
         image: require('../../../assets/content/daily-life/ag_status-change_s2.jpg'),
         imageCaption: 'Điền 在留資格変更許可申請書 và chuẩn bị hồ sơ theo diện mới',
       },
