@@ -13,4 +13,9 @@ export const StorageKeys = {
   userProfile: 'user_profile_v1',
   userProfilePromptDismissed: 'user_profile_prompt_dismissed_v1',
   guideStepProgress: 'guide_step_progress_v1',
+  storyProgress: 'story_progress_v1',
+  storyBookmarks: 'story_bookmarks_v1',
+  sentenceBookmarks: 'sentence_bookmarks_v1',
+  wordBookmarks: 'word_bookmarks_v1',
+  storyStreak: 'story_streak_v1',
 } as const;

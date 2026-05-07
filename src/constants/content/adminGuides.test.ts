@@ -542,4 +542,39 @@ describe('ADMIN_GUIDES content quality', () => {
       expectNonEmptyTextArray(guide.commonMistakes);
     }
   });
+
+  it('keeps legal scope and quick action metadata complete when present', () => {
+    for (const guide of ADMIN_GUIDES) {
+      if (guide.legalScope) {
+        expect(['national', 'prefecture', 'municipality', 'mixed']).toContain(guide.legalScope.jurisdiction);
+        expect(['low', 'medium', 'high']).toContain(guide.legalScope.riskLevel);
+        expectNonEmptyText(guide.legalScope.jurisdictionNote);
+        expect(guide.legalScope.sourceVerifiedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        expect(guide.legalScope.nextReviewAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+
+        if (guide.legalScope.appliesFrom) {
+          expect(guide.legalScope.appliesFrom).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        }
+
+        if (guide.legalScope.appliesUntil) {
+          expect(guide.legalScope.appliesUntil).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        }
+
+        expectNonEmptyTextArray(guide.legalScope.whenToAskExpert);
+      }
+
+      if (guide.quickAction) {
+        expectNonEmptyText(guide.quickAction.deadline);
+        expectNonEmptyText(guide.quickAction.office);
+        expectRequiredTextArray(guide.quickAction.doNow);
+        expectRequiredTextArray(guide.quickAction.bring);
+        expectNonEmptyText(guide.quickAction.ifLate);
+        expectRequiredTextArray(guide.quickAction.officialSourceLabels);
+
+        for (const sourceLabel of guide.quickAction.officialSourceLabels) {
+          expect(guide.officialLinks.some((link) => link.label === sourceLabel)).toBe(true);
+        }
+      }
+    }
+  });
 });

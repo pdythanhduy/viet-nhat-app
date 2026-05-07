@@ -67,6 +67,29 @@ export interface FAQItem {
   answer: string;
 }
 
+export type AdminGuideJurisdiction = 'national' | 'prefecture' | 'municipality' | 'mixed';
+export type AdminGuideRiskLevel = 'low' | 'medium' | 'high';
+
+export interface AdminGuideLegalScope {
+  appliesFrom?: string;
+  appliesUntil?: string;
+  jurisdiction: AdminGuideJurisdiction;
+  jurisdictionNote: string;
+  sourceVerifiedAt: string;
+  nextReviewAt: string;
+  riskLevel: AdminGuideRiskLevel;
+  whenToAskExpert?: string[];
+}
+
+export interface AdminGuideQuickAction {
+  deadline: string;
+  office: string;
+  doNow: string[];
+  bring: string[];
+  ifLate: string;
+  officialSourceLabels: string[];
+}
+
 export interface AdminGuide {
   id: string;
   category: AdminGuideCategory;
@@ -78,6 +101,8 @@ export interface AdminGuide {
   color: string;
   description: string;
   searchKeywords?: string[];
+  legalScope?: AdminGuideLegalScope;
+  quickAction?: AdminGuideQuickAction;
   heroImage?: ImageSourcePropType;
   heroImageCaption?: string;
   whoIsThisFor?: string[];

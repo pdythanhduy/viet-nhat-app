@@ -18,11 +18,13 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
     const allowedHosts = [
       'moj.go.jp',
       'mofa.go.jp',
+      'ssw.go.jp',
       'mhlw.go.jp',
       'kojinbango-card.go.jp',
       'otit.go.jp',
       'nenkin.go.jp',
       'soumu.go.jp',
+      'nta.go.jp',
       'e-gov.go.jp',
       'vnembassy-jp.org',
       'vnconsulate-osaka.org',
@@ -48,6 +50,16 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
       blocks.push(...(guide.whereToDo ?? []));
       blocks.push(...(guide.commonMistakes ?? []));
       blocks.push(...(guide.fees ?? []));
+      if (guide.legalScope) {
+        blocks.push(guide.legalScope.jurisdictionNote);
+        blocks.push(...(guide.legalScope.whenToAskExpert ?? []));
+      }
+      if (guide.quickAction) {
+        blocks.push(guide.quickAction.deadline, guide.quickAction.office, guide.quickAction.ifLate);
+        blocks.push(...guide.quickAction.doNow);
+        blocks.push(...guide.quickAction.bring);
+        blocks.push(...guide.quickAction.officialSourceLabels);
+      }
       blocks.push(...guide.steps.flatMap((step) => [step.title, step.description, ...step.documents, step.tip ?? '']));
       blocks.push(...(guide.faq ?? []).flatMap((item) => [item.question, item.answer]));
       return blocks.filter(Boolean);

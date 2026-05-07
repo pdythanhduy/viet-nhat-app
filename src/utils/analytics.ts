@@ -2,7 +2,7 @@
 // All functions are no-ops to prevent Firebase errors in development
 
 export async function logScreenView(screenName: string): Promise<void> {
-  // Firebase analytics disabled in Expo Go
+  // Firebase analytics disabled
 }
 
 export async function logGuideOpened(guideId: string, guideTitle: string, category: string): Promise<void> {
