@@ -4,6 +4,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StorageKeys } from '../constants/storageKeys';
 import { StoryProgress, StoryBookmark, SentenceBookmark, WordBookmark } from '../types/story';
+import { JLPTLevel } from '../types/jlpt';
+
+export interface WordBookmarkMetadata {
+  jlptLevel?: JLPTLevel;
+  pos?: string;
+  sourceStoryId?: string;
+  sourceStoryTitle?: string;
+}
 
 // Single placeholder owner for all locally-persisted story records.
 // Replace with a real userId once auth is wired in.
@@ -208,9 +216,16 @@ export async function loadWordBookmarks(): Promise<WordBookmark[]> {
 }
 
 /**
- * Add word to bookmarks
+ * Add word to bookmarks. Metadata is optional and only attached on new entries
+ * — duplicate adds are no-ops and preserve whatever metadata the original save
+ * captured.
  */
-export async function addWordBookmark(word: string, reading: string, meaning: string): Promise<void> {
+export async function addWordBookmark(
+  word: string,
+  reading: string,
+  meaning: string,
+  metadata: WordBookmarkMetadata = {}
+): Promise<void> {
   try {
     const bookmarks = await loadWordBookmarks();
     if (!bookmarks.find((b) => b.word === word && b.reading === reading)) {
@@ -221,6 +236,10 @@ export async function addWordBookmark(word: string, reading: string, meaning: st
         meaning,
         userId: LOCAL_USER_ID,
         createdAt: new Date().toISOString(),
+        ...(metadata.jlptLevel ? { jlptLevel: metadata.jlptLevel } : {}),
+        ...(metadata.pos ? { pos: metadata.pos } : {}),
+        ...(metadata.sourceStoryId ? { sourceStoryId: metadata.sourceStoryId } : {}),
+        ...(metadata.sourceStoryTitle ? { sourceStoryTitle: metadata.sourceStoryTitle } : {}),
       });
       await AsyncStorage.setItem(StorageKeys.wordBookmarks, JSON.stringify(bookmarks));
     }

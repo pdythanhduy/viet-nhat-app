@@ -94,4 +94,10 @@ export interface WordBookmark {
   meaning: string;
   userId: string;
   createdAt: string;
+  // Optional metadata captured at save-time. Older bookmarks (saved before
+  // these fields existed) won't have them — UI must treat each as optional.
+  jlptLevel?: JLPTLevel;
+  pos?: string;
+  sourceStoryId?: string;
+  sourceStoryTitle?: string;
 }

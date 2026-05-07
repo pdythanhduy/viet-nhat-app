@@ -165,7 +165,12 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
   const handleSaveWord = async () => {
     if (!selectedWord) return;
     try {
-      await addWordBookmark(selectedWord.word, selectedWord.reading, selectedWord.meaning);
+      await addWordBookmark(selectedWord.word, selectedWord.reading, selectedWord.meaning, {
+        jlptLevel: selectedWord.jlptLevel,
+        pos: selectedWord.pos,
+        sourceStoryId: story?.id,
+        sourceStoryTitle: story?.title,
+      });
       // Keep the modal open so the reader can keep referencing the entry; show
       // a transient inline confirmation instead of a blocking Alert.
       setJustSaved(true);
