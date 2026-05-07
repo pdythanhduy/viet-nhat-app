@@ -1,6 +1,45 @@
 import { Story } from '../../types/story';
+import { JLPTLevel } from '../../types/jlpt';
 
 type StoryTokenSeed = [word: string, reading: string, pos: string, meaning: string, jlptLevel?: Story['level']];
+
+// Tokens-per-minute calibrated for JLPT learners reading with this app's
+// affordances (tap-for-definition, audio replay, furigana). Higher levels
+// read faster because vocabulary is more familiar.
+const TOKENS_PER_MINUTE: Record<JLPTLevel, number> = {
+  N5: 5,
+  N4: 8,
+  N3: 15,
+  N2: 25,
+  N1: 40,
+};
+
+function countStoryTokens(paragraphs: Story['paragraphs']): number {
+  return paragraphs.reduce(
+    (acc, p) => acc + (p.sentences ?? []).reduce((a, s) => a + (s.tokens?.length ?? 0), 0),
+    0
+  );
+}
+
+function computeStoryMetadata(
+  paragraphs: Story['paragraphs'],
+  level: JLPTLevel
+): { wordCount: number; estimatedReadTime: number } {
+  const wordCount = countStoryTokens(paragraphs);
+  const wpm = TOKENS_PER_MINUTE[level];
+  const estimatedReadTime = Math.max(1, Math.round(wordCount / wpm));
+  return { wordCount, estimatedReadTime };
+}
+
+// Apply computed wordCount + estimatedReadTime to every story so the values
+// reflect the actual tokenized content. The seed/literal values were
+// placeholders that overstated length by 5–60×.
+function withComputedMetadata(stories: Story[]): Story[] {
+  return stories.map((story) => ({
+    ...story,
+    ...computeStoryMetadata(story.paragraphs, story.level),
+  }));
+}
 
 interface StorySentenceSeed {
   text: string;
@@ -3933,7 +3972,7 @@ const N1_STORIES: Story[] = N1_STORY_SEEDS.map((seed) => createSeedStory(seed, '
 // Fixed: Each paragraph now has exactly 1 sentence with full tokenization
 // This ensures audio text = visual text (no mismatch)
 
-export const SAMPLE_STORIES: Story[] = [
+const RAW_SAMPLE_STORIES: Story[] = [
   {
     id: 'story-001-morning',
     title: '朝の準備',
@@ -10471,3 +10510,9 @@ export const SAMPLE_STORIES: Story[] = [
   ...N2_STORIES,
   ...N1_STORIES,
 ];
+
+// Single source of truth for wordCount + estimatedReadTime: derived from the
+// actual tokenized content of each story. The raw seed/literal values were
+// placeholders that overstated length dramatically (N1 said "920 từ" while the
+// story really had ~15 tokens). Recomputed values stay honest as content grows.
+export const SAMPLE_STORIES: Story[] = withComputedMetadata(RAW_SAMPLE_STORIES);
