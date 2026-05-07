@@ -145,7 +145,11 @@ export default function StoryHubScreen({ navigation }: Props) {
         {/* Level Selector */}
         <View style={styles.levelSection}>
           <Text style={styles.levelTitle}>Chọn mức độ</Text>
-          <View style={styles.levelChips}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.levelChipsRow}
+          >
             {levels.map((level) => {
               const count = SAMPLE_STORIES.filter((s) => s.level === level).length;
               const isActive = level === selectedLevel;
@@ -161,7 +165,7 @@ export default function StoryHubScreen({ navigation }: Props) {
                 </TouchableOpacity>
               );
             })}
-          </View>
+          </ScrollView>
         </View>
 
         {/* Stories List */}
@@ -320,9 +324,10 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     marginBottom: 10,
   },
-  levelChips: {
+  levelChipsRow: {
     flexDirection: 'row',
     gap: 8,
+    paddingRight: 8,
   },
   levelChip: {
     paddingHorizontal: 12,
