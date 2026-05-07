@@ -1,0 +1,134 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const reEntry: AdminGuide = {
+    id: 're-entry',
+    category: 'immigration',
+    lastVerified: '2026-05-07',
+    priority: 'normal',
+    title: 'Tạm rời Nhật / tái nhập cảnh',
+    titleJp: 'みなし再入国許可・再入国許可',
+    icon: 'airplane',
+    color: '#2C7BE5',
+    description: 'Hướng dẫn ra khỏi Nhật tạm thời và quay lại mà không làm mất tư cách lưu trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Quy định tái nhập cảnh do ISA quản lý toàn quốc; thủ tục thực tế diễn ra tại cửa khẩu hoặc cục xuất nhập cảnh trước khi rời Nhật nếu cần 再入国許可.',
+      sourceVerifiedAt: '2026-05-07',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn dự định rời Nhật hơn 1 năm hoặc gần ngày hết hạn lưu trú.',
+        'Bạn đang có hồ sơ gia hạn/đổi tư cách, bị thu hồi tư cách hoặc tình trạng cư trú bất thường.',
+        'Bạn đã mất hộ chiếu/thẻ cư trú khi đang ở ngoài Nhật.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra trước khi xuất cảnh; nếu cần 再入国許可 chính thức thì phải xin trước khi rời Nhật.',
+      office: 'Cửa khẩu xuất cảnh khi dùng みなし再入国; cục xuất nhập cảnh nếu xin 再入国許可 chính thức.',
+      doNow: [
+        'Kiểm tra hạn lưu trú, hạn thẻ cư trú và hạn hộ chiếu trước khi mua vé dài ngày.',
+        'Khi xuất cảnh bằng みなし再入国, đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） và xuất trình cùng hộ chiếu/thẻ cư trú.',
+        'Nếu dùng みなし再入国, phải quay lại trong 1 năm hoặc trước ngày hết hạn lưu trú nếu hạn đó đến sớm hơn.',
+        'Xin 再入国許可 chính thức nếu kế hoạch ở ngoài Nhật vượt khung みなし再入国.',
+      ],
+      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', '再入国出国記録（再入国EDカード） khi xuất cảnh', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin permit chính thức'],
+      ifLate: 'Nếu đã rời Nhật và lỡ hạn tái nhập cảnh, liên hệ cơ quan Nhật ở nước ngoài/ISA ngay; không tự mua vé quay lại khi quyền tái nhập cảnh không còn rõ.',
+      officialSourceLabels: ['みなし再入国許可 — 出入国在留管理庁', '再入国許可 — 出入国在留管理庁', '再入国許可申請 — 出入国在留管理庁'],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_re-entry_hero.jpg'),
+    heroImageCaption: 'Kiểm tra thẻ cư trú và hộ chiếu trước khi rời Nhật',
+    whoIsThisFor: [
+      'Người đang có thẻ cư trú và muốn rời Nhật tạm thời để du lịch, công tác hoặc về Việt Nam.',
+      'Người dự định quay lại Nhật trong thời hạn được phép và trong hạn lưu trú hiện tại.',
+      'Người chưa chắc nên dùng みなし再入国許可 hay cần xin 再入国許可 chính thức.',
+    ],
+    whenToDo: [
+      'Kiểm tra trước khi mua vé hoặc trước ngày xuất cảnh.',
+      'Xin 再入国許可 chính thức trước khi đi nếu dự định rời Nhật lâu hơn thời hạn của みなし再入国.',
+      'Không rời Nhật nếu hộ chiếu, thẻ cư trú hoặc thời hạn lưu trú sắp hết mà chưa xác nhận phương án quay lại.',
+    ],
+    whereToDo: [
+      'Sân bay/cửa khẩu xuất cảnh: xuất trình hộ chiếu và thẻ cư trú khi dùng みなし再入国.',
+      'Cục xuất nhập cảnh (ISA): xin 再入国許可 chính thức trước khi rời Nhật nếu cần.',
+      'Đại sứ quán/lãnh sự quán Nhật ở nước ngoài không phải nơi gia hạn みなし再入国 thông thường; cần lên kế hoạch trước khi đi.',
+    ],
+    estimatedTime: 'みなし再入国 không cần xin permit trước nếu đủ điều kiện, nhưng phải làm đúng bước tại cửa xuất cảnh. 再入国許可 chính thức theo ISA thường xử lý trong ngày nếu hồ sơ đủ.',
+    fees: [
+      'みなし再入国 không phải xin 再入国許可 trước khi đi nếu đủ điều kiện.',
+      '再入国許可 chính thức: 4.000 yên cho 1 lần, 7.000 yên cho nhiều lần; nếu online trong trường hợp ISA cho phép thì lần lượt 3.500 yên và 6.500 yên.',
+      'ISA nêu online re-entry application chỉ dùng khi làm đồng thời với đổi tư cách, gia hạn thời hạn lưu trú hoặc 在留資格取得許可.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu còn hiệu lực', required: true },
+      { label: 'Thẻ cư trú còn hiệu lực', required: true },
+      { label: '再入国出国記録（再入国EDカード）', required: true, note: 'Khi dùng みなし再入国, đánh dấu ô tạm rời Nhật và sẽ quay lại rồi xuất trình tại cửa xuất cảnh.' },
+      { label: 'Kế hoạch hoặc vé quay lại Nhật', required: false, note: 'Dùng để tự kiểm tra có quay lại kịp hạn hay không.' },
+      { label: 'Đơn 再入国許可申請書', required: false, note: 'Chỉ cần nếu xin 再入国許可 chính thức tại ISA.' },
+    ],
+    commonMistakes: [
+      'Không đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） khi xuất cảnh bằng みなし再入国.',
+      'Nghĩ みなし再入国 luôn dùng được dù rời Nhật quá lâu.',
+      'Quên kiểm tra ngày hết hạn lưu trú trên thẻ cư trú trước khi đi.',
+      'Rời Nhật khi hộ chiếu sắp hết hạn nhưng chưa kiểm tra điều kiện nhập cảnh/quay lại.',
+      'Không giữ thẻ cư trú khi xuất cảnh, gây khó khăn khi quay lại Nhật.',
+    ],
+    faq: [
+      {
+        question: 'みなし再入国 có cần nộp đơn trước tại ISA không?',
+        answer: 'Thông thường không cần nộp đơn trước nếu bạn thuộc đối tượng được dùng và quay lại trong thời hạn cho phép. Nhưng khi xuất cảnh, bạn phải xuất trình hộ chiếu/thẻ cư trú và đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード）.',
+      },
+      {
+        question: 'Nếu dự định rời Nhật hơn 1 năm thì sao?',
+        answer: 'Không nên chỉ dựa vào みなし再入国. Hãy kiểm tra và xin 再入国許可 chính thức tại ISA trước khi rời Nhật nếu kế hoạch ở ngoài Nhật dài hơn thời hạn của みなし再入国.',
+      },
+      {
+        question: 'Có thể quay lại sau ngày hết hạn lưu trú không?',
+        answer: 'Không nên. みなし再入国 không giúp bạn vượt quá thời hạn lưu trú hiện tại. Cần quay lại trước khi hết hạn hoặc xử lý thủ tục lưu trú phù hợp trước khi đi.',
+      },
+      {
+        question: 'Nếu mất hộ chiếu hoặc thẻ cư trú khi đang ở ngoài Nhật thì sao?',
+        answer: 'ISA có thủ tục xin chứng minh thời hạn 再入国許可 thông qua người đại diện ở Nhật trong một số trường hợp. Liên hệ cơ quan Nhật ở nước ngoài và ISA, không tự suy đoán rằng chỉ cần hộ chiếu mới là quay lại được.',
+      },
+    ],
+    officialLinks: [
+      { label: 'みなし再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/minashisainyukoku_00001.html' },
+      { label: '再入国許可 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/sainyukoku_00002.html' },
+      { label: '再入国許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/immigration/procedures/16-5.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra bạn có dùng được みなし再入国 không',
+        description: 'Người có hộ chiếu và thẻ cư trú hợp lệ, dự định quay lại Nhật trong thời hạn được phép, thường có thể dùng みなし再入国許可. Visa ngắn hạn, thời hạn lưu trú 3 tháng trở xuống và một số trường hợp ISA nêu sẽ không áp dụng.',
+        documents: [
+          'Hộ chiếu còn hiệu lực',
+          'Thẻ cư trú còn hiệu lực',
+          'Vé/ kế hoạch quay lại Nhật',
+        ],
+        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm hoặc vượt quá hạn lưu trú, hãy kiểm tra thủ tục 再入国許可 riêng trước khi đi.',
+      },
+      {
+        step: 2,
+        title: 'Qua cửa xuất cảnh — đánh dấu 再入国EDカード',
+        description: 'Khi dùng **みなし再入国許可**, bạn không xin permit trước tại ISA nếu đủ điều kiện, nhưng vẫn phải thể hiện ý định quay lại khi xuất cảnh.\n\nQuy trình cần nhớ:\n\n1. Chuẩn bị **hộ chiếu** và **在留カード** còn hiệu lực.\n2. Trên **再入国出国記録（再入国EDカード）**, đánh dấu ô thể hiện đây là tạm rời Nhật và bạn dự định tái nhập cảnh.\n3. Xuất trình ED card, hộ chiếu và 在留カード cho nhập cảnh viên; nếu được hỏi, nói rõ bạn muốn xuất cảnh bằng みなし再入国許可.\n\n⚠️ Không được quay lại sau khi hạn lưu trú hết — みなし再入国 chỉ có hiệu lực trong 1 năm hoặc đến ngày hết hạn lưu trú nếu ngày đó đến sớm hơn.',
+        documents: [
+          'Hộ chiếu còn hiệu lực',
+          '在留カード còn hiệu lực',
+          '再入国出国記録（再入国EDカード） đã đánh dấu ý định quay lại',
+        ],
+        tip: 'Nếu dự định rời Nhật lâu hơn 1 năm, みなし再入国 không đủ — cần xin 再入国許可 chính thức tại ISA trước khi xuất cảnh. Phí hiện hành là 4.000 yên cho 1 lần hoặc 7.000 yên cho nhiều lần nếu được cấp phép.',
+      },
+      {
+        step: 3,
+        title: 'Quay lại trong thời hạn',
+        description: 'Quay lại Nhật trong thời hạn của みなし再入国 hoặc 再入国許可 và trong hạn lưu trú của bạn.',
+        documents: [
+          'Hộ chiếu',
+          'Thẻ cư trú',
+        ],
+        tip: 'Thời hạn みなし再入国 thường không thể gia hạn ở nước ngoài. Hãy lên kế hoạch cẩn thận.',
+      },
+    ],
+  };
+
+export default reEntry;

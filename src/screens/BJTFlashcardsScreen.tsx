@@ -13,7 +13,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { BJT_FLASHCARD_SETS } from '../constants/content';
+import { BJT_FLASHCARD_SETS } from '../constants/content/bjt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;

@@ -14,7 +14,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
-import { JOBS_CONTENT_META, LABOR_HELP_SCENARIOS } from '../constants/content';
+import { JOBS_CONTENT_META, LABOR_HELP_SCENARIOS } from '../constants/content/jobs';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated } from '../utils/contentMetadata';
 import {

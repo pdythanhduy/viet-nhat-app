@@ -5,7 +5,7 @@ import { useFocusEffect, useNavigation, useRoute, RouteProp } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { ESSENTIAL_PHRASES } from '../constants/content';
+import { ESSENTIAL_PHRASES } from '../constants/content/japanese';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { playJapaneseAudio, stopJapaneseAudio } from '../utils/audio';
 import { loadJapaneseAudioPreferences } from '../utils/audioPreferences';

@@ -1,0 +1,159 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const shortStayRelativeVisit: AdminGuide = {
+    id: 'short-stay-relative-visit',
+    category: 'visa',
+    lastVerified: '2026-05-06',
+    priority: 'high',
+    title: 'Visa du lịch / thăm thân ngắn hạn',
+    titleJp: '短期滞在（親族・知人訪問 / 観光）',
+    icon: 'airplane',
+    color: '#E67E22',
+    description: 'Dành cho người thân sang Nhật thăm ngắn hạn hoặc đi du lịch. Đây không phải visa ở dài hạn và không dùng để làm việc tại Nhật.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Visa ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xử lý theo nơi cư trú của người xin; người mời tại Nhật chỉ chuẩn bị giấy mời/bảo lãnh nếu cần.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Mục đích chuyến đi không thuần du lịch/thăm thân hoặc có ý định ở lại dài hạn.',
+        'Người xin visa từng bị từ chối visa, ở quá hạn, bị trục xuất hoặc hồ sơ tài chính/quan hệ không rõ.',
+        'Bạn định dùng eVISA nhưng mục đích là thăm thân, thăm bạn, công việc, học hoặc transit.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Chuẩn bị trước ngày đi dự kiến; visa ngắn hạn thường xử lý khoảng 1 tuần nếu đủ hồ sơ nhưng có thể lâu hơn theo nơi nộp.',
+      office: 'Đại sứ quán/Lãnh sự quán Nhật hoặc đơn vị tiếp nhận được chỉ định theo nơi cư trú của người xin visa.',
+      doNow: [
+        'Xác định mục đích đúng: du lịch, thăm thân, thăm bạn hay mục đích ngắn hạn khác.',
+        'Kiểm tra nơi nộp hồ sơ và có phải qua agency/đặt lịch không.',
+        'Nếu là thăm thân, chuẩn bị giấy mời, lịch trình, giấy tờ quan hệ và tài chính thống nhất với nhau.',
+      ],
+      bring: ['Hộ chiếu người xin visa', 'Đơn xin visa và ảnh', 'Lịch trình ở Nhật', 'Giấy mời/bảo lãnh nếu cần', 'Giấy tờ tài chính và quan hệ nếu cần'],
+      ifLate: 'Không nhập cảnh với mục đích khác hồ sơ đã khai; nếu kế hoạch đổi thành ở dài hạn, phải chuyển sang thủ tục COE/visa dài hạn phù hợp.',
+      officialSourceLabels: ['VISA — MOFA', 'Procedures Chart for Short-Term Stay — MOFA', 'JAPAN eVISA — MOFA', 'FAQ about JAPAN eVISA — MOFA'],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_short-stay_hero.jpg'),
+    heroImageCaption: 'Thủ tục xin visa thăm thân ngắn hạn vào Nhật',
+    whoIsThisFor: [
+      'Người ở Nhật muốn mời người thân hoặc bạn bè sang thăm trong thời gian ngắn.',
+      'Người đang phân vân giữa visa thăm thân ngắn hạn và diện bảo lãnh sống cùng lâu dài.',
+      'Người muốn hiểu rõ eVISA hiện áp dụng cho mục đích nào trong năm 2026.',
+    ],
+    whenToDo: [
+      'Khi mục đích chỉ là thăm thân, thăm bạn, du lịch hoặc công việc ngắn hạn, không phải sang ở lâu dài.',
+      'Nên bắt đầu sớm vì phải chuẩn bị giấy mời, lịch trình, chứng minh tài chính và nộp đúng nơi có thẩm quyền theo nơi cư trú của người xin visa.',
+      'Theo MOFA, xử lý visa thường khoảng 1 tuần nếu đủ hồ sơ nhưng có thể lâu hơn tùy trường hợp và nước nộp hồ sơ.',
+    ],
+    whereToDo: [
+      'Người xin visa nộp hồ sơ tại Đại sứ quán/Lãnh sự quán Nhật hoặc trung tâm/đại lý được chỉ định theo nơi cư trú.',
+      'Người mời ở Nhật chuẩn bị thư mời, thư bảo lãnh, lịch trình, giấy tờ tài chính nếu cần và gửi cho người nộp hồ sơ.',
+    ],
+    estimatedTime: 'MOFA ghi thời gian xử lý visa thường khoảng 1 tuần nếu đủ hồ sơ. Tuy nhiên việc chuẩn bị giấy tờ từ hai phía và cách nộp hồ sơ tùy quốc gia có thể khiến tổng thời gian dài hơn đáng kể.',
+    fees: [
+      'Visa ngắn hạn có thể có lệ phí theo bảng phí visa hiện hành của MOFA tại thời điểm nộp.',
+      'Nếu dùng agency hoặc trung tâm tiếp nhận, có thể phát sinh thêm phí dịch vụ.',
+      'eVISA không áp dụng cho mọi mục đích và mọi quốc gia cư trú.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu của người xin visa', required: true },
+      { label: 'Đơn xin visa và ảnh', required: true },
+      { label: 'Lịch trình ở Nhật', required: true, note: 'Itinerary nên khớp với mục đích chuyến đi và thời gian lưu trú.' },
+      { label: 'Thư mời / thư bảo lãnh từ Nhật nếu hồ sơ diện thăm thân', required: false, note: 'Tùy diện hồ sơ và yêu cầu nơi nộp.' },
+      { label: 'Giấy tờ chứng minh quan hệ thân nhân', required: false, note: 'Quan trọng với diện 親族訪問.' },
+      { label: 'Giấy tờ tài chính của người đi hoặc người bảo lãnh', required: false, note: 'Tùy hồ sơ và hướng dẫn của nơi nộp.' },
+    ],
+    commonMistakes: [
+      'Nghĩ eVISA dùng được cho thăm thân; MOFA nêu rõ hiện eVISA chỉ cho du lịch ngắn hạn trong phạm vi áp dụng.',
+      'Dùng visa ngắn hạn với ý định ở lâu dài hoặc làm việc tại Nhật.',
+      'Lịch trình, thư mời và giấy tờ tài chính không khớp nhau.',
+      'Nhầm “người mời ở Nhật” với “người nộp hồ sơ”; visa phải nộp ở cơ quan lãnh sự ngoài Nhật, không nộp bên trong Nhật.',
+    ],
+    faq: [
+      {
+        question: 'Visa thăm thân có phải eVISA không?',
+        answer: 'Không phải mặc định. MOFA nêu rõ tính đến ngày 15/12/2025 và trong năm 2026, JAPAN eVISA chỉ áp dụng cho single-entry short-term stay vì mục đích tourism trong phạm vi quốc gia/khu vực được phép.',
+      },
+      {
+        question: 'Người sang theo visa ngắn hạn có được đi làm không?',
+        answer: 'Không. 短期滞在 không phải tư cách đi làm và không dùng để lao động có lương tại Nhật.',
+      },
+      {
+        question: 'Có thể nộp hồ sơ visa ngắn hạn bên trong Nhật không?',
+        answer: 'Không. MOFA giải thích visa do cơ quan lãnh sự Nhật ở nước ngoài cấp; người ở Nhật chỉ có thể chuẩn bị hồ sơ mời hoặc bảo lãnh gửi cho người nộp hồ sơ ở nước ngoài.',
+      },
+      {
+        question: 'Checklist thăm cha mẹ, anh chị em và vợ/chồng có giống nhau không?',
+        answer: 'Không nên hiểu là giống hoàn toàn. Hồ sơ nền vẫn là hộ chiếu, đơn, ảnh, itinerary và tài chính; nhưng diện 親族訪問 cần giấy tờ chứng minh quan hệ đúng với người được mời. Quan hệ càng xa hoặc giấy tờ càng phức tạp thì càng nên chuẩn bị bản dịch và giải trình rõ.',
+      },
+    ],
+    officialLinks: [
+      { label: 'VISA — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/index.html' },
+      { label: 'Procedures Chart for Short-Term Stay — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/process/short.html' },
+      { label: 'JAPAN eVISA — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/visaonline.html' },
+      { label: 'FAQ about JAPAN eVISA — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/page22e_000999.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Chọn đúng mục đích: du lịch hay thăm thân',
+        description: 'Xác định rõ chuyến đi là du lịch, thăm người thân, thăm bạn hay mục đích ngắn hạn khác. Điều này quyết định bộ giấy tờ cần chuẩn bị và cách giải trình.',
+        documents: [
+          'Kế hoạch chuyến đi',
+          'Thông tin người mời tại Nhật nếu có',
+        ],
+        tip: 'Nếu muốn sang ở lâu dài với gia đình, visa ngắn hạn không phải đường đi đúng.',
+      },
+      {
+        step: 2,
+        title: 'Kiểm tra nơi nộp và cách nộp',
+        description: 'MOFA yêu cầu nộp visa tại cơ quan lãnh sự hoặc nơi tiếp nhận được chỉ định theo nơi cư trú của người xin visa. Một số nước dùng agency; một số diện du lịch đủ điều kiện dùng eVISA.',
+        documents: [
+          'Hộ chiếu',
+          'Đơn xin visa',
+          'Ảnh hồ sơ',
+        ],
+        tip: 'Đừng giả định mọi hồ sơ đều nộp online. eVISA hiện chỉ dành cho du lịch trong phạm vi áp dụng của hệ thống.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị bộ hồ sơ mời hoặc bảo lãnh nếu là thăm thân',
+        description: 'Người ở Nhật có thể phải chuẩn bị thư mời, thư bảo lãnh, lịch trình và giấy tờ tài chính tùy diện hồ sơ. Người nộp hồ sơ ở nước ngoài mang bộ giấy tờ này đi nộp.',
+        documents: [
+          'Invitation Letter',
+          'Letter of Guarantee nếu cần',
+          'Itinerary in Japan',
+          'Giấy tờ thân nhân/tài chính theo hướng dẫn',
+        ],
+        tip: 'MOFA ghi lưu ý rằng dấu công ty hoặc dấu cá nhân trên thư mời/thư bảo lãnh không còn bắt buộc như trước trong mẫu tải từ website.',
+        image: require('../../../../../assets/content/daily-life/ag_short-stay_s3.png'),
+        imageCaption: 'Bộ hồ sơ bảo lãnh thăm thân — thư mời, chứng minh tài chính và thẻ ngoại kiều',
+      },
+      {
+        step: 4,
+        title: 'Checklist theo từng nhóm thăm thân',
+        description: 'Hãy nghĩ theo nhóm quan hệ để chuẩn bị hồ sơ đúng trọng tâm thay vì gom tất cả giấy tờ chung chung.',
+        documents: [
+          'Thăm cha mẹ, anh chị em, con cái: giấy tờ chứng minh quan hệ huyết thống/hộ tịch, bản dịch tiếng Nhật nếu nơi nộp yêu cầu.',
+          'Thăm vợ/chồng: giấy đăng ký kết hôn, bản dịch và giấy tờ chứng minh người mời đang cư trú hợp pháp tại Nhật.',
+          'Thăm bạn bè hoặc người quen: thư mời, lý do mời, lịch trình rõ ràng, thông tin cư trú của người mời và khả năng tài chính của người đi hoặc người bảo lãnh.',
+          'Nếu người đi tự chi trả chuyến đi: chuẩn bị sao kê, chứng nhận công việc hoặc giấy tờ tài chính của chính người đi; nếu người mời bảo lãnh chi phí, chuẩn bị giấy tờ thu nhập của người mời.',
+        ],
+        tip: 'Không cần nhồi quá nhiều giấy tờ không liên quan. Hãy chuẩn bị đúng quan hệ, đúng mục đích và đúng người chịu chi phí chuyến đi.',
+      },
+      {
+        step: 5,
+        title: 'Sau khi được cấp visa',
+        description: 'Mang hộ chiếu và visa hợp lệ khi nhập cảnh. Tại sân bay Nhật, người nhập cảnh vẫn được kiểm tra điều kiện landing permission.',
+        documents: [
+          'Hộ chiếu',
+          'Visa đã được cấp',
+          'Thông tin chuyến đi và liên hệ ở Nhật',
+        ],
+        tip: 'eVISA yêu cầu hiển thị “Visa issuance notice” online tại sân bay; MOFA nêu rõ PDF, screenshot hoặc bản in không được chấp nhận thay thế trong trường hợp eVISA.',
+      },
+    ],
+  };
+
+export default shortStayRelativeVisit;

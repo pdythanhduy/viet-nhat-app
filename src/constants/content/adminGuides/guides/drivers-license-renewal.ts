@@ -1,0 +1,130 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const driversLicenseRenewal: AdminGuide = {
+    id: 'drivers-license-renewal',
+    category: 'license',
+    lastVerified: '2026-05-03',
+    priority: 'normal',
+    title: 'Gia hạn bằng lái Nhật',
+    titleJp: '運転免許証の更新',
+    icon: 'refresh-circle',
+    color: '#2E86C1',
+    searchKeywords: [
+      'gia han bang',
+      'gia han bang lai',
+      'koshin',
+      'renew license',
+      'license renewal',
+      'buu thiep gia han',
+      'maina menkyo',
+      '更新',
+      '免許更新',
+      '運転免許更新',
+      '更新連絡書',
+      'マイナ免許証',
+    ],
+    description: 'Cách gia hạn 運転免許証 đúng thời hạn, chuẩn bị giấy tờ cho người nước ngoài và tránh bị chuyển sang thủ tục thất hiệu lực.',
+    heroImage: require('../../../../../assets/content/daily-life/ag_drivers-license_hero.jpg'),
+    heroImageCaption: '運転免許証 — kiểm tra hạn và làm 更新 trước khi bằng lái Nhật hết hiệu lực',
+    whoIsThisFor: [
+      'Người đã có bằng lái Nhật, bao gồm người đã đổi từ bằng nước ngoài qua 外免切替.',
+      'Người nhận được 更新連絡書 / bưu thiếp gia hạn hoặc thấy ngày hết hạn trên bằng đang đến gần.',
+      'Người nước ngoài cần biết phải mang thẻ cư trú, giấy tờ thay đổi địa chỉ/tên và có thể cần đặt lịch trước tùy tỉnh/thành.',
+    ],
+    whenToDo: [
+      'Thông thường trong khoảng 2 tháng quanh sinh nhật: từ 1 tháng trước sinh nhật đến 1 tháng sau sinh nhật.',
+      'Nếu ngày hết hạn rơi vào thứ bảy, chủ nhật, ngày lễ hoặc kỳ nghỉ năm mới, thời hạn có thể kéo đến ngày làm việc kế tiếp theo quy định; vẫn nên kiểm tra bưu thiếp và trang police địa phương.',
+      'Nếu sắp đi nước ngoài, sinh con, điều trị bệnh hoặc có lý do bất khả kháng làm không thể gia hạn trong kỳ hạn, hỏi trung tâm cấp phép về 特例更新 trước kỳ hạn.',
+    ],
+    whereToDo: [
+      '運転免許試験場, 運転免許センター, 運転免許更新センター hoặc cảnh sát được chỉ định tại địa phương nơi bạn cư trú.',
+      'Ở Tokyo, nơi làm thủ tục phụ thuộc loại khóa học, điều kiện bằng và thường cần đặt lịch; tỉnh/thành khác có thể khác.',
+      'Nếu bị mất/hỏng bằng, có thay đổi thông tin hoặc có điều kiện sức khỏe cần xác nhận, nơi tiếp nhận có thể bị giới hạn hơn.',
+    ],
+    estimatedTime: 'Thường làm trong một buổi nếu đặt lịch và hồ sơ đúng, nhưng thời gian chờ và thời lượng khóa học phụ thuộc phân loại người lái, điểm vi phạm và nơi làm thủ tục.',
+    fees: [
+      'Có phí gia hạn, phí khóa học và có thể có phí liên quan マイナ免許証; mức cụ thể thay đổi theo loại bằng, tỉnh/thành và thời điểm.',
+      'Kiểm tra 更新連絡書, trang police địa phương hoặc hệ thống đặt lịch ngay trước khi đi vì phí và cách thanh toán có thể thay đổi.',
+    ],
+    documentsChecklist: [
+      { label: 'Bằng lái hiện tại hoặc マイナ免許証', required: true, note: 'Nếu giữ cả hai dạng, hãy mang cả hai theo hướng dẫn của nơi tiếp nhận.' },
+      { label: '更新連絡書 / bưu thiếp gia hạn hoặc mã đặt lịch', required: false, note: 'Một số nơi vẫn xử lý khi mất bưu thiếp, nhưng nên mang để xác định loại khóa học và quầy tiếp nhận.' },
+      { label: 'Thẻ cư trú hoặc 特別永住者証明書', required: true, note: 'NPA nêu người nước ngoài cần xuất trình giấy tờ cư trú, trừ trường hợp thủ tục dùng マイナ免許証 theo điều kiện áp dụng.' },
+      { label: 'Kính, kính áp tròng, máy trợ thính nếu trên bằng có điều kiện', required: false },
+      { label: 'Ảnh thẻ 3.0×2.4cm nếu nơi tiếp nhận yêu cầu hoặc muốn dùng ảnh tự mang', required: false },
+      { label: 'Giấy tờ chứng minh thay đổi địa chỉ/tên/quốc tịch nếu làm cập nhật cùng lúc', required: false },
+    ],
+    commonMistakes: [
+      'Để quá hạn rồi mới đi; lúc đó không còn là thủ tục 更新 thông thường mà chuyển sang thủ tục 失効 / xin lại tùy thời gian quá hạn.',
+      'Không đặt lịch ở nơi yêu cầu予約, đặc biệt các trung tâm đông người như Tokyo.',
+      'Quên thẻ cư trú, kính hoặc giấy tờ thay đổi địa chỉ/tên nên không hoàn tất được trong ngày.',
+      'Chỉ nhìn ngày sinh nhật mà không kiểm tra ngày hết hạn thực tế trên bằng và trên 更新連絡書.',
+      'Người từ 70 tuổi trở lên quên kiểm tra 高齢者講習, 認知機能検査 hoặc các yêu cầu riêng trước khi gia hạn.',
+    ],
+    faq: [
+      {
+        question: 'Không có bưu thiếp 更新連絡書 thì có gia hạn được không?',
+        answer: 'Tùy nơi tiếp nhận. Một số nơi vẫn xử lý nếu có bằng và đặt lịch đúng, nhưng bưu thiếp giúp xác định thời hạn, loại khóa học và quầy. Nếu mất, nên gọi trung tâm cấp phép địa phương trước.',
+      },
+      {
+        question: 'Bằng đã hết hạn thì làm 更新 được không?',
+        answer: 'Không coi là gia hạn thông thường nữa. NPA hướng dẫn thủ tục khi 失効 riêng; tùy thời gian quá hạn và lý do, một phần thi có thể được miễn. Hãy hỏi trung tâm cấp phép trước khi đi.',
+      },
+      {
+        question: 'Có cần ảnh thẻ không?',
+        answer: 'NPA nêu một số quầy không cần ảnh vì chụp tại chỗ, nhưng nơi tiếp nhận hoặc trường hợp muốn dùng ảnh tự mang có thể yêu cầu. Kiểm tra trang police địa phương và bưu thiếp trước.',
+      },
+    ],
+    officialLinks: [
+      { label: '警察庁 — 日本在住者の免許更新', url: 'https://www.npa.go.jp/policies/application/license_renewal/japan.html' },
+      { label: '警視庁 — 更新手続の場所', url: 'https://www.keishicho.metro.tokyo.lg.jp/menkyo/koshin/koshin/koshin01.html' },
+      { label: '警視庁 — 運転免許試験場での更新手続', url: 'https://www.keishicho.metro.tokyo.lg.jp/menkyo/koshin/koshin/koshin02.html' },
+      { label: '警察庁 — マイナ免許証とオンライン講習', url: 'https://www.npa.go.jp/bureau/traffic/r4kaisei_main.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra hạn và loại khóa học',
+        description: 'Xem ngày hết hạn trên bằng, đọc 更新連絡書 và xác định loại khóa học: 優良, 一般, 違反, 初回 hoặc yêu cầu riêng cho người cao tuổi. Nếu địa phương yêu cầu đặt lịch, đặt trước khi đi.',
+        documents: ['Bằng lái hiện tại', '更新連絡書 / thông tin đặt lịch nếu có'],
+        tip: 'Đừng chờ sát ngày hết hạn. Lịch trung tâm có thể kín, và nếu quá hạn bạn sẽ phải xử lý theo thủ tục 失効.',
+      },
+      {
+        step: 2,
+        title: 'Chuẩn bị giấy tờ cho người nước ngoài',
+        description: 'Mang giấy tờ cư trú, giấy tờ chứng minh thay đổi địa chỉ/tên nếu có, kính hoặc máy trợ thính nếu là điều kiện lái xe. Nếu dùng マイナ免許証, kiểm tra thêm yêu cầu mã PIN và liên kết マイナポータル.',
+        documents: [
+          'Thẻ cư trú hoặc 特別永住者証明書',
+          'Giấy tờ thay đổi địa chỉ/tên/quốc tịch nếu làm cập nhật cùng lúc',
+          'Kính, kính áp tròng hoặc máy trợ thính nếu cần',
+          'Ảnh thẻ nếu nơi tiếp nhận yêu cầu',
+        ],
+        tip: 'Nếu thông tin trên thẻ cư trú, 住民票 và bằng lái không khớp, hãy hỏi trước xem cần đổi thông tin nào trước.',
+      },
+      {
+        step: 3,
+        title: 'Đến đúng địa điểm và làm tiếp nhận',
+        description: 'Tới 運転免許試験場, 更新センター hoặc cảnh sát được chỉ định theo loại thủ tục. Làm tiếp nhận, nộp phí, điền 質問票 và kiểm tra thị lực/thính lực theo yêu cầu.',
+        documents: ['Bằng lái hoặc マイナ免許証', 'Mã đặt lịch hoặc số tiếp nhận nếu có', 'Phí theo hướng dẫn của nơi tiếp nhận'],
+        tip: 'Ở Tokyo, các điểm tiếp nhận và điều kiện từng nơi khác nhau; không nên áp dụng nguyên xi cho tỉnh/thành khác.',
+        image: require('../../../../../assets/content/daily-life/ag_drivers-license_s4.jpg'),
+        imageCaption: '運転免許センター — nơi tiếp nhận, kiểm tra điều kiện và cấp bằng sau khi hoàn tất 更新',
+      },
+      {
+        step: 4,
+        title: 'Học khóa 更新時講習 và nhận bằng mới',
+        description: 'Tham gia khóa học theo phân loại. Sau khi hoàn tất kiểm tra và khóa học, nhận bằng mới hoặc cập nhật thông tin trên マイナ免許証 tùy lựa chọn và điều kiện áp dụng.',
+        documents: ['Phiếu tiếp nhận hoặc giấy tờ do quầy đưa trong ngày'],
+        tip: 'Nếu có lựa chọn giữ bằng vật lý, マイナ免許証 hoặc cả hai, hãy kiểm tra phí, cách dùng và rủi ro khi mất My Number Card trước khi chọn.',
+      },
+      {
+        step: 5,
+        title: 'Kiểm tra lại thông tin sau khi nhận',
+        description: 'Kiểm tra tên, địa chỉ, ngày sinh, loại bằng, điều kiện lái xe, ngày hết hạn và màu bằng. Nếu có sai sót, báo ngay tại quầy trước khi rời trung tâm.',
+        documents: [],
+        tip: 'Sau khi về nhà, lưu lại ngày hết hạn mới trong lịch cá nhân để không bỏ lỡ kỳ 更新 tiếp theo.',
+      },
+    ],
+  };
+
+export default driversLicenseRenewal;

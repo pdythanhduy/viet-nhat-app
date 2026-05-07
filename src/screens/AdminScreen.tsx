@@ -16,7 +16,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
-import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content';
+import { ADMIN_CONTENT_META, ADMIN_GUIDES } from '../constants/content/adminGuides';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { adminGuideMatchesSearch, getAdminGuideSearchMatches } from '../utils/adminGuideSearch';

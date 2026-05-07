@@ -14,7 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { BJT_MOCK_V2_EXAMS, BJT_MOCK_V2_META } from '../constants/content';
+import { BJT_MOCK_V2_EXAMS, BJT_MOCK_V2_META } from '../constants/content/bjt';
 import { getBjtMockExamV2Stats, loadBjtProgress, recordBjtMockExamV2Result } from '../utils/bjtProgress';
 
 type SessionState = 'idle' | 'active' | 'done';

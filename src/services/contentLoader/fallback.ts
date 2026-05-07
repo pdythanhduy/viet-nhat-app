@@ -1,0 +1,39 @@
+type BundledLoader = () => unknown;
+
+export const BUNDLED: Record<string, BundledLoader> = {
+  'japanese.words': () => require('../../constants/content/japanese/words').JAPANESE_WORDS,
+  'japanese.grammar': () => require('../../constants/content/japanese/grammar').GRAMMAR_PATTERNS,
+  'japanese.phrases.all': () => require('../../constants/content/japanese/phrases').ALL_PHRASE_CATEGORIES,
+  'japanese.phrases.meta': () => require('../../constants/content/japanese/phrases').PHRASE_CATEGORY_META,
+  'japanese.phrases.greetings': () => require('../../constants/content/japanese/phrases/greetings').default,
+  'japanese.phrases.comprehension': () => require('../../constants/content/japanese/phrases/comprehension').default,
+  'japanese.phrases.combini': () => require('../../constants/content/japanese/phrases/combini').default,
+  'japanese.phrases.train': () => require('../../constants/content/japanese/phrases/train').default,
+  'japanese.phrases.hospital': () => require('../../constants/content/japanese/phrases/hospital').default,
+  'japanese.phrases.workContract': () => require('../../constants/content/japanese/phrases/workContract').default,
+  'japanese.phrases.workSchedule': () => require('../../constants/content/japanese/phrases/workSchedule').default,
+  'japanese.phrases.documents': () => require('../../constants/content/japanese/phrases/documents').default,
+  'japanese.phrases.payroll': () => require('../../constants/content/japanese/phrases/payroll').default,
+  'japanese.phrases.trainDelay': () => require('../../constants/content/japanese/phrases/trainDelay').default,
+  'japanese.phrases.cityHall': () => require('../../constants/content/japanese/phrases/cityHall').default,
+  'japanese.phrases.bank': () => require('../../constants/content/japanese/phrases/bank').default,
+  'japanese.phrases.phoneInternet': () => require('../../constants/content/japanese/phrases/phoneInternet').default,
+  'japanese.phrases.postOffice': () => require('../../constants/content/japanese/phrases/postOffice').default,
+  'japanese.phrases.naturalSpeech': () => require('../../constants/content/japanese/phrases/naturalSpeech').default,
+  'japanese.phrases.avoidPhrases': () => require('../../constants/content/japanese/phrases/avoidPhrases').default,
+  'japanese.phrases.callHospital': () => require('../../constants/content/japanese/phrases/callHospital').default,
+  'japanese.phrases.callCompany': () => require('../../constants/content/japanese/phrases/callCompany').default,
+  'japanese.phrases.callServices': () => require('../../constants/content/japanese/phrases/callServices').default,
+  'japanese.phrases.factory': () => require('../../constants/content/japanese/phrases/factory').default,
+  'japanese.phrases.construction': () => require('../../constants/content/japanese/phrases/construction').default,
+  'japanese.phrases.agriculture': () => require('../../constants/content/japanese/phrases/agriculture').default,
+  'japanese.phrases.restaurant': () => require('../../constants/content/japanese/phrases/restaurant').default,
+
+  'stories.all': () => require('../../constants/content/stories').SAMPLE_STORIES,
+
+  'dailyLife.topics': () => require('../../constants/content/dailyLife').DAILY_LIFE_TOPICS,
+  'dailyLife.meta': () => require('../../constants/content/dailyLife').DAILY_LIFE_CONTENT_META,
+
+  'adminGuides.all': () => require('../../constants/content/adminGuides').ADMIN_GUIDES,
+  'adminGuides.meta': () => require('../../constants/content/adminGuides').ADMIN_CONTENT_META,
+};

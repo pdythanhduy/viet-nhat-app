@@ -20,7 +20,7 @@ import {
   JOBS_CONTENT_META,
   WORKER_RIGHTS,
   WORKER_TYPE_GUIDES,
-} from '../constants/content';
+} from '../constants/content/jobs';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import type { EligibleWorkerType } from '../types/content';
 import { formatLastUpdated } from '../utils/contentMetadata';

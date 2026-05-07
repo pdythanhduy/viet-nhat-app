@@ -9,6 +9,7 @@ import {
   Modal,
   Pressable,
   Alert,
+  LayoutChangeEvent,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,10 +17,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { SAMPLE_STORIES } from '../constants/content/sampleStories';
+import { SAMPLE_STORIES } from '../constants/content/stories';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { Story, StoryProgress, Token, Paragraph } from '../types/story';
-import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted } from '../utils/storyProgress';
+import { getStoryProgress, saveStoryProgress, isStoryBookmarked, addStoryBookmark, removeStoryBookmark, updateReadingPosition, addWordBookmark, markStoryCompleted, LOCAL_USER_ID } from '../utils/storyProgress';
 import { stopJapaneseAudio, playJapaneseSequence } from '../utils/audio';
 import { markStoryReadToday } from '../utils/storyStreak';
 import AudioButton from '../components/AudioButton';
@@ -42,15 +43,33 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
   const [selectedWord, setSelectedWord] = useState<Token | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [hasMarkedStoryReadToday, setHasMarkedStoryReadToday] = useState(false);
+  const [revealedTranslations, setRevealedTranslations] = useState<Set<string>>(new Set());
+  const [justSaved, setJustSaved] = useState(false);
+  const [currentParagraphIdx, setCurrentParagraphIdx] = useState(0);
+  const [resumeOffer, setResumeOffer] = useState<{ paragraphIdx: number } | null>(null);
   // Track last 5%-bucket written to AsyncStorage to avoid hammering on every scroll event
   const lastWrittenBucketRef = useRef<number>(-1);
+  // Pixel y-offset of each paragraph inside the ScrollView, captured via onLayout.
+  const paragraphLayoutsRef = useRef<Record<number, number>>({});
+  const scrollViewRef = useRef<ScrollView>(null);
+  const justSavedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const foundStory = SAMPLE_STORIES.find((s) => s.id === storyId);
     setStory(foundStory || null);
     setHasMarkedStoryReadToday(false);
+    setRevealedTranslations(new Set());
+    setCurrentParagraphIdx(0);
+    setResumeOffer(null);
+    paragraphLayoutsRef.current = {};
     lastWrittenBucketRef.current = -1;
   }, [storyId]);
+
+  useEffect(() => {
+    return () => {
+      if (justSavedTimerRef.current) clearTimeout(justSavedTimerRef.current);
+    };
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -62,7 +81,7 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
           if (!progressData) {
             progressData = {
               storyId: story.id,
-              userId: 'default',
+              userId: LOCAL_USER_ID,
               currentParagraphIndex: 0,
               percentRead: 0,
               isCompleted: false,
@@ -72,6 +91,18 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
           }
 
           setProgress(progressData);
+          setCurrentParagraphIdx(progressData.currentParagraphIndex ?? 0);
+          // Offer to resume only when there's something meaningful to resume to
+          // (more than the first paragraph, less than fully read, not marked done).
+          if (
+            !progressData.isCompleted &&
+            progressData.currentParagraphIndex > 0 &&
+            progressData.percentRead < 95
+          ) {
+            setResumeOffer({ paragraphIdx: progressData.currentParagraphIndex });
+          } else {
+            setResumeOffer(null);
+          }
           const bookmarked = await isStoryBookmarked(story.id);
           setIsBookmarked(bookmarked);
         }
@@ -83,6 +114,31 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
       };
     }, [story])
   );
+
+  const handleResume = () => {
+    if (!resumeOffer) return;
+    const y = paragraphLayoutsRef.current[resumeOffer.paragraphIdx];
+    if (typeof y === 'number') {
+      scrollViewRef.current?.scrollTo({ y: Math.max(0, y - 12), animated: true });
+    }
+    setResumeOffer(null);
+  };
+
+  const handleParagraphLayout = (idx: number) => (event: LayoutChangeEvent) => {
+    paragraphLayoutsRef.current[idx] = event.nativeEvent.layout.y;
+  };
+
+  const toggleTranslation = (paragraphId: string) => {
+    setRevealedTranslations((prev) => {
+      const next = new Set(prev);
+      if (next.has(paragraphId)) {
+        next.delete(paragraphId);
+      } else {
+        next.add(paragraphId);
+      }
+      return next;
+    });
+  };
 
   const handleWordPress = (word: Token) => {
     setSelectedWord(word);
@@ -109,12 +165,26 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
   const handleSaveWord = async () => {
     if (!selectedWord) return;
     try {
-      await addWordBookmark(selectedWord.word, selectedWord.reading, selectedWord.meaning);
-      Alert.alert('Đã lưu', `Từ "${selectedWord.word}" đã được lưu.`);
-      setModalVisible(false);
+      await addWordBookmark(selectedWord.word, selectedWord.reading, selectedWord.meaning, {
+        jlptLevel: selectedWord.jlptLevel,
+        pos: selectedWord.pos,
+        sourceStoryId: story?.id,
+        sourceStoryTitle: story?.title,
+      });
+      // Keep the modal open so the reader can keep referencing the entry; show
+      // a transient inline confirmation instead of a blocking Alert.
+      setJustSaved(true);
+      if (justSavedTimerRef.current) clearTimeout(justSavedTimerRef.current);
+      justSavedTimerRef.current = setTimeout(() => setJustSaved(false), 1500);
     } catch (error) {
       console.error('Error saving word:', error);
     }
+  };
+
+  const closeWordModal = () => {
+    setModalVisible(false);
+    setJustSaved(false);
+    if (justSavedTimerRef.current) clearTimeout(justSavedTimerRef.current);
   };
 
   const handleBookmarkToggle = async () => {
@@ -149,19 +219,42 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
     const scrollPosition = event.nativeEvent.contentOffset.y;
     const denom = contentHeight - scrollViewHeight;
     if (denom <= 0) return;
-    const percentRead = Math.min(100, Math.max(0, Math.round((scrollPosition / denom) * 100)));
+
+    // Find the deepest paragraph whose top is above (scrollY + 30% viewport).
+    // That's the paragraph the reader is currently focused on, used for both
+    // the progress bar and the saved resume position.
+    const layouts = paragraphLayoutsRef.current;
+    const total = story.paragraphs.length;
+    const focusY = scrollPosition + scrollViewHeight * 0.3;
+    let visibleIdx = 0;
+    for (let i = 0; i < total; i += 1) {
+      const y = layouts[i];
+      if (typeof y === 'number' && y <= focusY) {
+        visibleIdx = i;
+      }
+    }
+    const atBottom = scrollPosition >= denom - 4;
+    if (atBottom) visibleIdx = total - 1;
+    if (visibleIdx !== currentParagraphIdx) setCurrentParagraphIdx(visibleIdx);
+
+    // Percent reflects "how far through the story is the focused paragraph".
+    // Index 0 maps to 0%; the last index (or scrolled-to-bottom) maps to 100%.
+    const denomParagraphs = Math.max(1, total - 1);
+    const paragraphPercent = atBottom
+      ? 100
+      : Math.min(100, Math.max(0, Math.round((visibleIdx / denomParagraphs) * 100)));
 
     // Write at most once per 5% bucket so AsyncStorage isn't hit on every scroll frame
-    const bucket = Math.floor(percentRead / 5);
+    const bucket = Math.floor(paragraphPercent / 5);
     if (bucket !== lastWrittenBucketRef.current) {
       lastWrittenBucketRef.current = bucket;
-      updateReadingPosition(story.id, 0, percentRead).catch((error) => {
+      updateReadingPosition(story.id, visibleIdx, paragraphPercent).catch((error) => {
         console.error('Error updating reading position:', error);
       });
     }
 
     // Mark story as read today when user reaches 20%
-    if (percentRead >= 20 && !hasMarkedStoryReadToday) {
+    if (paragraphPercent >= 20 && !hasMarkedStoryReadToday) {
       setHasMarkedStoryReadToday(true);
       markStoryReadToday().catch((error) => {
         console.error('Error marking story read today:', error);
@@ -202,57 +295,114 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
       </View>
 
       <ScrollView
+        ref={scrollViewRef}
         style={styles.scrollView}
         contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
-        {/* Progress Bar */}
-        <View style={styles.progressContainer}>
-          <View style={styles.progressBar}>
-            <View style={[styles.progressFill, { width: `${progress?.percentRead || 0}%` }]} />
-          </View>
-          <Text style={styles.progressText}>{progress?.percentRead || 0}% đọc</Text>
-        </View>
+        {/* Resume offer — only when re-entering an in-progress story */}
+        {resumeOffer ? (
+          <TouchableOpacity style={styles.resumeBanner} onPress={handleResume}>
+            <Ionicons name="play-skip-forward-outline" size={18} color={Colors.primary} />
+            <Text style={styles.resumeBannerText}>
+              Tiếp tục từ đoạn {resumeOffer.paragraphIdx + 1} / {story.paragraphs.length}
+            </Text>
+            <Ionicons name="chevron-forward" size={16} color={Colors.primary} />
+          </TouchableOpacity>
+        ) : null}
+
+        {/* Progress Bar — driven by paragraph index for stable, content-aware progress */}
+        {(() => {
+          const total = story.paragraphs.length;
+          const denomP = Math.max(1, total - 1);
+          const displayPercent = Math.min(
+            100,
+            Math.max(0, Math.round((currentParagraphIdx / denomP) * 100))
+          );
+          return (
+            <View style={styles.progressContainer}>
+              <View style={styles.progressBar}>
+                <View style={[styles.progressFill, { width: `${displayPercent}%` }]} />
+              </View>
+              <Text style={styles.progressText}>
+                Đoạn {currentParagraphIdx + 1} / {total} • {displayPercent}%
+              </Text>
+            </View>
+          );
+        })()}
 
         {/* Story Content */}
         <View style={styles.contentSection}>
-          {story.paragraphs.map((paragraph, idx) => (
-            <View key={paragraph.id} style={[styles.paragraph, idx === story.paragraphs.length - 1 && styles.paragraphLast]}>
-              {/* Paragraph header with audio */}
-              <View style={styles.paragraphHeader}>
-                <AudioButton
-                  audioId={`story:${story.id}:para:${paragraph.id}`}
-                  text={paragraph.text}
-                  size={18}
-                />
-              </View>
+          {story.paragraphs.map((paragraph, idx) => {
+            const isTranslationVisible = revealedTranslations.has(paragraph.id);
+            return (
+              <View
+                key={paragraph.id}
+                style={[styles.paragraph, idx === story.paragraphs.length - 1 && styles.paragraphLast]}
+                onLayout={handleParagraphLayout(idx)}
+              >
+                {/* Paragraph header with audio */}
+                <View style={styles.paragraphHeader}>
+                  <AudioButton
+                    audioId={`story:${story.id}:para:${paragraph.id}`}
+                    text={paragraph.text}
+                    size={18}
+                  />
+                </View>
 
-              {/* Paragraph tokens */}
-              <View style={styles.paragraphTextContainer}>
-                {paragraph.sentences?.map((sentence, sentIdx) => (
-                  <View key={sentence.id} style={styles.sentenceContainer}>
-                    {/* Sentence tokens */}
-                    <View style={styles.sentenceTokens}>
-                      {sentence.tokens?.map((token) => (
-                        <TouchableOpacity
-                          key={token.id}
-                          onPress={() => handleWordPress(token)}
-                          style={styles.tokenWrapper}
-                        >
-                          {token.reading && <Text style={styles.furigana}>{token.reading}</Text>}
-                          <Text style={styles.tokenText}>{token.word}</Text>
-                        </TouchableOpacity>
-                      ))}
+                {/* Paragraph tokens */}
+                <View style={styles.paragraphTextContainer}>
+                  {paragraph.sentences?.map((sentence) => (
+                    <View key={sentence.id} style={styles.sentenceContainer}>
+                      <View style={styles.sentenceTokens}>
+                        {sentence.tokens?.map((token) => {
+                          const isParticle = token.pos === 'PARTICLE';
+                          // Reading equals the word itself (kana-only tokens / particles) — render
+                          // an empty spacer so the line still aligns with neighbouring furigana.
+                          const showFurigana = !!token.reading && token.reading !== token.word;
+                          return (
+                            <TouchableOpacity
+                              key={token.id}
+                              onPress={() => handleWordPress(token)}
+                              style={styles.tokenWrapper}
+                            >
+                              {showFurigana ? (
+                                <Text style={styles.furigana}>{token.reading}</Text>
+                              ) : (
+                                <Text style={styles.furiganaSpacer}> </Text>
+                              )}
+                              <Text style={[styles.tokenText, isParticle && styles.tokenTextParticle]}>
+                                {token.word}
+                              </Text>
+                            </TouchableOpacity>
+                          );
+                        })}
+                      </View>
                     </View>
-                  </View>
-                ))}
-              </View>
+                  ))}
+                </View>
 
-              {/* Paragraph translation */}
-              <Text style={styles.translationText}>{paragraph.translation}</Text>
-            </View>
-          ))}
+                {/* Translation toggle — hidden by default to encourage reading first */}
+                <TouchableOpacity
+                  style={styles.translationToggle}
+                  onPress={() => toggleTranslation(paragraph.id)}
+                >
+                  <Ionicons
+                    name={isTranslationVisible ? 'eye-off-outline' : 'eye-outline'}
+                    size={14}
+                    color={Colors.primary}
+                  />
+                  <Text style={styles.translationToggleText}>
+                    {isTranslationVisible ? 'Ẩn dịch' : 'Hiện dịch'}
+                  </Text>
+                </TouchableOpacity>
+                {isTranslationVisible ? (
+                  <Text style={styles.translationText}>{paragraph.translation}</Text>
+                ) : null}
+              </View>
+            );
+          })}
         </View>
 
         {/* Replay full story */}
@@ -299,13 +449,13 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
+        onRequestClose={closeWordModal}
       >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
+        <Pressable style={styles.modalOverlay} onPress={closeWordModal}>
+          <Pressable style={styles.modalContent} onPress={(e) => e.stopPropagation()}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Chi tiết từ</Text>
-              <Pressable onPress={() => setModalVisible(false)}>
+              <Pressable onPress={closeWordModal}>
                 <Ionicons name="close" size={24} color={Colors.textPrimary} />
               </Pressable>
             </View>
@@ -351,14 +501,26 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
                   </View>
                 )}
 
-                <TouchableOpacity style={styles.saveWordButton} onPress={handleSaveWord}>
-                  <Ionicons name="star-outline" size={18} color={Colors.primary} />
-                  <Text style={styles.saveWordButtonText}>Lưu từ này</Text>
+                <TouchableOpacity
+                  style={[styles.saveWordButton, justSaved && styles.saveWordButtonSaved]}
+                  onPress={handleSaveWord}
+                  disabled={justSaved}
+                >
+                  <Ionicons
+                    name={justSaved ? 'checkmark-circle' : 'star-outline'}
+                    size={18}
+                    color={justSaved ? '#16A085' : Colors.primary}
+                  />
+                  <Text
+                    style={[styles.saveWordButtonText, justSaved && styles.saveWordButtonTextSaved]}
+                  >
+                    {justSaved ? 'Đã lưu vào sổ tay' : 'Lưu từ này'}
+                  </Text>
                 </TouchableOpacity>
               </View>
             )}
-          </View>
-        </View>
+          </Pressable>
+        </Pressable>
       </Modal>
     </SafeAreaView>
   );
@@ -409,6 +571,23 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 800,
     alignSelf: 'center',
+  },
+  resumeBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: Colors.accent,
+    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 12,
+  },
+  resumeBannerText: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '600',
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_600SemiBold',
   },
   progressContainer: {
     marginBottom: 20,
@@ -466,11 +645,18 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   furigana: {
-    fontSize: 9,
+    fontSize: 11,
     color: Colors.textMuted,
     textAlign: 'center',
     minWidth: 16,
-    lineHeight: 10,
+    lineHeight: 14,
+    marginBottom: 1,
+  },
+  furiganaSpacer: {
+    fontSize: 11,
+    lineHeight: 14,
+    minWidth: 16,
+    marginBottom: 1,
   },
   paragraphText: {
     fontSize: 16,
@@ -486,18 +672,40 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 18,
   },
+  tokenTextParticle: {
+    color: Colors.textMuted,
+    fontWeight: '400',
+  },
   sentenceTranslation: {
     fontSize: 12,
     color: Colors.textMuted,
     fontStyle: 'italic',
     marginBottom: 4,
   },
+  translationToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    alignSelf: 'flex-start',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginTop: 4,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  translationToggleText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
   translationText: {
     fontSize: 12,
     lineHeight: 16,
     color: Colors.textSecondary,
     fontStyle: 'italic',
-    marginTop: 2,
+    marginTop: 6,
   },
   replayButton: {
     backgroundColor: Colors.primary,
@@ -680,10 +888,17 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 20,
   },
+  saveWordButtonSaved: {
+    borderColor: '#16A085',
+    backgroundColor: '#E9F8F4',
+  },
   saveWordButtonText: {
     color: Colors.primary,
     fontWeight: '600',
     fontSize: 14,
     fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  saveWordButtonTextSaved: {
+    color: '#16A085',
   },
 });

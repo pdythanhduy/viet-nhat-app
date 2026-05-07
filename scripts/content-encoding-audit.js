@@ -1,19 +1,52 @@
 const fs = require('fs');
 const path = require('path');
 
-const TARGET_FILES = [
-  'src/constants/content/japanese.ts',
-  'src/constants/content/adminGuides.ts',
-  'src/constants/content/adminGuideForms.ts',
-  'src/constants/content/dailyLife.ts',
-  'src/constants/content/emergency.ts',
-  'src/constants/content/jobs.ts',
-  'src/constants/content/bjt.ts',
-  'docs/bjt/document/partitioned/keigo.json',
-  'docs/bjt/document/partitioned/scenarios.json',
-  'docs/bjt/document/partitioned/mock_test.json',
-  'docs/bjt/document/partitioned/vocabulary.json',
+const TARGET_ENTRIES = [
+  { type: 'tree', path: 'src/constants/content/japanese' },
+  { type: 'tree', path: 'src/constants/content/stories' },
+  { type: 'tree', path: 'src/constants/content/dailyLife' },
+  { type: 'tree', path: 'src/constants/content/adminGuides' },
+  { type: 'file', path: 'src/constants/content/adminGuideForms.ts' },
+  { type: 'file', path: 'src/constants/content/emergency.ts' },
+  { type: 'file', path: 'src/constants/content/jobs.ts' },
+  { type: 'file', path: 'src/constants/content/bjt.ts' },
+  { type: 'file', path: 'docs/bjt/document/partitioned/keigo.json' },
+  { type: 'file', path: 'docs/bjt/document/partitioned/scenarios.json' },
+  { type: 'file', path: 'docs/bjt/document/partitioned/mock_test.json' },
+  { type: 'file', path: 'docs/bjt/document/partitioned/vocabulary.json' },
 ];
+
+function expandTargets(entries) {
+  const out = [];
+  for (const entry of entries) {
+    if (entry.type === 'file') {
+      out.push(entry.path);
+      continue;
+    }
+    const abs = path.resolve(entry.path);
+    if (!fs.existsSync(abs)) {
+      out.push(entry.path); // emit so the audit reports [MISSING]
+      continue;
+    }
+    walkTsFiles(abs, entry.path, out);
+  }
+  return out;
+}
+
+function walkTsFiles(absDir, relDir, out) {
+  for (const name of fs.readdirSync(absDir).sort()) {
+    const absChild = path.join(absDir, name);
+    const relChild = path.posix.join(relDir.replace(/\\/g, '/'), name);
+    const stat = fs.statSync(absChild);
+    if (stat.isDirectory()) {
+      walkTsFiles(absChild, relChild, out);
+    } else if (stat.isFile() && /\.ts$/.test(name)) {
+      out.push(relChild);
+    }
+  }
+}
+
+const TARGET_FILES = expandTargets(TARGET_ENTRIES);
 
 const FIX_MODE = process.argv.includes('--fix');
 

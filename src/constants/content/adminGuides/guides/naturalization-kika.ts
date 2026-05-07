@@ -1,0 +1,150 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const naturalizationKika: AdminGuide = {
+    id: 'naturalization-kika',
+    category: 'immigration',
+    lastVerified: '2026-05-06',
+    priority: 'normal',
+    title: 'Nhập quốc tịch Nhật (帰化申請)',
+    titleJp: '帰化許可申請',
+    icon: 'flag',
+    color: '#2C3E50',
+    description: 'Hướng dẫn xin nhập quốc tịch Nhật Bản: điều kiện theo 国籍法, yêu cầu thực tế tại 法務局, giấy tờ, quy trình và những điểm quan trọng cần cân nhắc.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '帰化 là thủ tục quốc tịch theo 国籍法 và thẩm quyền 法務大臣; hồ sơ thực tế, đặt lịch tư vấn và danh sách giấy tờ do 法務局/地方法務局 nơi cư trú hướng dẫn theo từng người.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn có nợ/trễ thuế, 年金, bảo hiểm, vi phạm giao thông hoặc lịch sử cư trú/xuất nhập cảnh phức tạp.',
+        'Bạn từng ly hôn, tái hôn, có con, đổi tên, thiếu giấy tờ hộ tịch Việt Nam hoặc tên trên giấy tờ không khớp.',
+        'Bạn cần quyết định giữa 永住 và 帰化 vì quyền quốc tịch, hộ chiếu, tài sản/thừa kế hoặc quan hệ pháp lý với Việt Nam.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Không có thời hạn nộp cố định; nên đặt lịch tư vấn 法務局 trước 6-12 tháng và chỉ nộp khi 法務局 xác nhận hồ sơ đủ điều kiện tiếp nhận.',
+      office: '法務局 hoặc 地方法務局 có thẩm quyền theo nơi cư trú.',
+      doNow: [
+        'Đặt lịch tư vấn quốc tịch tại 法務局 trước khi tự gom checklist từ mạng.',
+        'Rà 5 năm gần nhất về cư trú, thuế, bảo hiểm, 年金 và vi phạm giao thông.',
+        'Chuẩn bị giấy tờ Việt Nam sớm vì dịch thuật/hộ tịch thường mất nhiều thời gian.',
+      ],
+      bring: ['Hộ chiếu và thẻ cư trú', '住民票/lịch sử cư trú', 'Giấy tờ thuế, 年金, bảo hiểm', 'Giấy tờ hộ tịch Việt Nam và bản dịch', 'Bằng lái/運転記録証明書 nếu có'],
+      ifLate: 'Không nên nộp vội khi hồ sơ chưa sạch; hỏi 法務局 cách cải thiện hồ sơ rồi nộp lại khi đủ căn cứ.',
+      officialSourceLabels: [
+        '帰化許可申請 — 法務省',
+        '帰化の条件について — 東京法務局',
+        '国籍法 — e-Gov',
+      ],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_naturalization_hero.jpg'),
+    heroImageCaption: 'Hành trình xin nhập quốc tịch Nhật Bản (帰化)',
+    whoIsThisFor: [
+      'Người đã sống và làm việc hợp pháp tại Nhật đủ năm và muốn trở thành công dân Nhật.',
+      'Người có vợ/chồng là người Nhật và muốn xét điều kiện đặc biệt rút ngắn thời gian.',
+      'Người đang cân nhắc giữa vĩnh trú (永住) và nhập quốc tịch — hai con đường khác nhau hoàn toàn.',
+    ],
+    whenToDo: [
+      'Sau khi đã đáp ứng đủ điều kiện cư trú — không nên nộp sớm hơn vì sẽ bị từ chối.',
+      'Nên tham khảo ý kiến 法務局 ít nhất 6–12 tháng trước khi nộp để biết giấy tờ cần chuẩn bị.',
+      'Đảm bảo không có vấn đề về thuế, bảo hiểm, 年金 hoặc vi phạm giao thông trong giai đoạn hồ sơ mà 法務局 yêu cầu kiểm tra.',
+    ],
+    whereToDo: [
+      '法務局 hoặc 地方法務局 — nộp tại cơ quan quản lý khu vực nơi bạn cư trú.',
+      'Bắt buộc đến trực tiếp (本人出頭) — không thể ủy quyền người khác nộp thay.',
+    ],
+    estimatedTime: 'Chuẩn bị hồ sơ: 3–6 tháng. Xét duyệt sau khi nộp: thường 1–1.5 năm, có trường hợp dài hơn.',
+    fees: [
+      'Miễn phí — 帰化申請 không thu lệ phí theo quy định của 法務省.',
+      'Chi phí thực tế phát sinh từ việc lấy giấy tờ: dịch thuật công chứng, chứng thực hộ chiếu/hộ tịch từ Việt Nam.',
+    ],
+    documentsChecklist: [
+      { label: '帰化許可申請書', required: true, note: 'Nhận tại 法務局 — không có bản tải về chính thức.' },
+      { label: 'Ảnh 5cm × 5cm (ảnh màu nền trắng, chụp trong 6 tháng)', required: true },
+      { label: 'Hộ chiếu và thẻ cư trú', required: true },
+      { label: 'Giấy tờ lịch sử cư trú (住民票の写し)', required: true },
+      { label: 'Chứng nhận thu nhập và khai thuế (源泉徴収票, 確定申告の控え)', required: true, note: 'Số năm giấy tờ do 法務局 hướng dẫn theo hồ sơ. Một số 法務局 công bố yêu cầu thuế cư trú nhiều năm gần nhất.' },
+      { label: 'Hồ sơ bảo hiểm xã hội', required: true, note: 'Chuẩn bị theo danh sách 法務局 cấp sau buổi tư vấn; một số nơi yêu cầu chứng minh thời điểm nộp phí bảo hiểm/年金.' },
+      { label: 'Giấy tờ hộ tịch từ Việt Nam (khai sinh, hộ khẩu, xác nhận độc thân/gia đình)', required: true, note: 'Cần dịch thuật tiếng Nhật có công chứng.' },
+      { label: 'Hồ sơ giải trình nghề nghiệp và hoạt động hàng ngày', required: true, note: 'Viết tay bằng tiếng Nhật theo yêu cầu của 法務局.' },
+    ],
+    commonMistakes: [
+      'Tưởng 帰化 và 永住 là giống nhau — 永住 giữ quốc tịch Việt Nam, 帰化 thì mất và trở thành công dân Nhật.',
+      'Không biết rằng sau 帰化 phải từ bỏ quốc tịch Việt Nam — Việt Nam không công nhận song tịch cho trường hợp này.',
+      'Nộp hồ sơ trước khi đủ điều kiện — bị từ chối và phải chờ thêm.',
+      'Để nợ thuế hoặc bảo hiểm dù chỉ 1 lần — ảnh hưởng nghiêm trọng đến đánh giá "素行善良".',
+      'Không chuẩn bị trước giấy tờ từ Việt Nam — dịch và công chứng có thể mất 2–3 tháng.',
+    ],
+    faq: [
+      {
+        question: 'Điều kiện cư trú cơ bản theo luật là gì?',
+        answer: 'Theo 国籍法 第5条, điều kiện chung tối thiểu là có địa chỉ tại Nhật liên tục từ 5 năm trở lên và cư trú hợp pháp. Tuy nhiên, các 法務局 cũng đánh giá tổng thể việc hòa nhập xã hội Nhật, tiếng Nhật, thuế, bảo hiểm và hành vi; Tokyo 法務局 bản cập nhật 2026/04/01 còn nêu yếu tố 10 năm trở lên ở Nhật như một điểm hòa nhập cần chú ý. Đây không phải cách nói “luật đã đổi từ 5 năm thành 10 năm” cho mọi hồ sơ.',
+      },
+      {
+        question: 'Vợ/chồng là người Nhật có được rút ngắn điều kiện không?',
+        answer: 'Có thể được nới điều kiện theo 国籍法 第7条. Các trường hợp vợ/chồng người Nhật cần kiểm tra chính xác thời gian hôn nhân, thời gian có địa chỉ tại Nhật và tình trạng cư trú thực tế với 法務局 trước khi nộp.',
+      },
+      {
+        question: 'Sau khi nhập quốc tịch Nhật thì hộ chiếu Việt Nam sẽ thế nào?',
+        answer: 'Theo quy định Nhật Bản, sau khi được cấp quốc tịch Nhật bạn phải từ bỏ quốc tịch nước ngoài. Phía Việt Nam cũng không công nhận song tịch. Thực tế là hộ chiếu Việt Nam sẽ không còn hiệu lực pháp lý và bạn sẽ nhập cảnh Việt Nam bằng hộ chiếu Nhật.',
+      },
+      {
+        question: '帰化 hay 永住 — nên chọn cái nào?',
+        answer: '永住 (vĩnh trú): giữ quốc tịch Việt Nam, vẫn cần gia hạn thẻ cư trú vật lý định kỳ, không được bầu cử. 帰化 (nhập tịch): trở thành công dân Nhật, có hộ chiếu Nhật, được bầu cử, mất quốc tịch Việt Nam. Nếu muốn giữ kết nối pháp lý với Việt Nam (thừa kế, đất đai, hộ chiếu Việt Nam) thì 永住 phù hợp hơn.',
+      },
+      {
+        question: 'Tiếng Nhật cần đạt trình độ nào?',
+        answer: 'Không có mốc JLPT cố định trong thủ tục. 東京法務局 nêu cần năng lực tiếng Nhật không gây trở ngại trong đời sống hằng ngày, gồm hội thoại và đọc viết. Thực tế hãy chuẩn bị để tự trả lời phỏng vấn và đọc/viết các nội dung cơ bản bằng tiếng Nhật.',
+      },
+    ],
+    officialLinks: [
+      { label: '帰化許可申請 — 法務省', url: 'https://www.moj.go.jp/ONLINE/NATIONALITY/6-2.html' },
+      { label: '帰化の条件について — 東京法務局', url: 'https://houmukyoku.moj.go.jp/tokyo/page000001_00885.html' },
+      { label: '国籍法 — e-Gov', url: 'https://laws.e-gov.go.jp/law/325AC0000000147' },
+      { label: '帰化許可申請書に添付する書類（その他の国籍・地域の方）— 福岡法務局', url: 'https://houmukyoku.moj.go.jp/fukuoka/page000001_00593.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra điều kiện cơ bản theo 国籍法 và hướng dẫn 法務局',
+        description: '**Điều kiện chung (国籍法 第5条):**\n\n| Điều kiện | Nội dung cần kiểm tra |\n|---|---|\n| 住所条件 | Có địa chỉ tại Nhật liên tục từ 5 năm trở lên và cư trú hợp pháp |\n| 能力条件 | Từ 18 tuổi trở lên và đã thành niên theo luật quốc tịch hiện tại |\n| 素行条件 | Hành vi tốt: không vi phạm nghiêm trọng, thuế/bảo hiểm/年金 và giao thông được đánh giá tổng thể |\n| 生計条件 | Có khả năng tự duy trì sinh hoạt hoặc cùng gia đình duy trì sinh hoạt ổn định |\n| 重国籍防止 | Về nguyên tắc phải mất hoặc từ bỏ quốc tịch nước ngoài khi nhập quốc tịch Nhật |\n| 憲法遵守 | Không tham gia/chủ trương phá hoại Hiến pháp hoặc chính phủ Nhật bằng bạo lực |\n| 日本語・社会融和 | 法務局 đánh giá khả năng tiếng Nhật và mức độ hòa nhập; 東京法務局 bản 2026/04/01 nêu thêm yếu tố 10 năm trở lên ở Nhật như điểm cần chú ý |\n\n**Điểm quan trọng:** 国籍法 vẫn ghi điều kiện địa chỉ chung là 5 năm trở lên. Không ghi trong app thành “luật đã đổi thành 10 năm”. Với từng hồ sơ, hãy dùng danh sách và nhận định của 法務局 nơi cư trú.',
+        documents: ['Thẻ cư trú — kiểm tra 在留資格 và thời hạn', 'Hộ chiếu và lịch sử xuất nhập cảnh', 'Giấy tờ thuế, bảo hiểm, 年金 theo danh sách 法務局'],
+        tip: 'Nếu chưa chắc đủ điều kiện, đặt lịch tư vấn 法務局 trước. Danh sách giấy tờ trên mạng chỉ là tham khảo; hồ sơ 帰化 thay đổi theo quốc tịch, gia đình, nghề nghiệp và nơi cư trú.',
+      },
+      {
+        step: 2,
+        title: 'Đặt lịch tư vấn tại 法務局',
+        description: '**Bước bắt buộc trước khi nộp hồ sơ.**\n\nĐến 法務局 (hoặc 地方法務局) phụ trách khu vực nơi bạn đăng ký cư trú, đặt lịch hẹn tư vấn (相談予約). Nhân viên sẽ:\n1. Đánh giá sơ bộ xem bạn có đủ điều kiện không.\n2. Cung cấp danh sách giấy tờ cụ thể cho hoàn cảnh của bạn.\n3. Giải thích mẫu đơn và cách điền.\n\n**Tìm 法務局 gần nhất:** https://houmukyoku.moj.go.jp/homu/static/kakuchocho_index.html\n\n⚠️ Danh sách giấy tờ **thay đổi theo từng người** (tình trạng hôn nhân, con cái, lịch sử việc làm...). Không thể dùng chung danh sách của người khác.',
+        documents: [],
+        image: require('../../../../../assets/content/daily-life/ag_naturalization_s2.jpg'),
+        imageCaption: '法務局 - đặt lịch tư vấn trước khi chuẩn bị hồ sơ 帰化',
+        tip: 'Mang theo thẻ cư trú và hộ chiếu khi đến tư vấn — nhân viên sẽ nhìn vào 在留資格, thời gian cư trú và lịch sử trên hộ chiếu để đánh giá ban đầu.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị giấy tờ từ Nhật và từ Việt Nam',
+        description: '**Giấy tờ từ Nhật (lấy tại Nhật):**\n- 住民票 (全部事項) — nơi đăng ký cư trú\n- 住民税の課税証明書 và 納税証明書 — 5 năm gần nhất\n- 年金の加入記録 — xác nhận từ 年金機構\n- 健康保険の被保険者証 hoặc 加入確認書\n- 運転記録証明書 nếu có bằng lái (lấy tại 警察署)\n- Hợp đồng lao động / giấy xác nhận đang làm việc\n\n**Giấy tờ từ Việt Nam (cần thời gian):**\n- Giấy khai sinh (bản dịch tiếng Nhật, công chứng)\n- Hộ chiếu Việt Nam cũ (nếu có)\n- Giấy tờ hộ gia đình / hộ khẩu (bản dịch)\n- Xác nhận chưa kết hôn hoặc giấy ly hôn (nếu liên quan)\n- Lý lịch tư pháp (有罪判決のない証明書)\n\n**Tự viết tay (自書書類) — bắt buộc viết tay tiếng Nhật, không dùng máy tính in:**\n\n**① 帰化の動機書** (1–2 trang A4 viết tay): giải thích lý do muốn nhập quốc tịch. Cần thể hiện:\n- Thời gian và lý do đến Nhật; những năm sống tại Nhật đã trải qua gì\n- Mối gắn bó với Nhật Bản: công việc, gia đình, cộng đồng, văn hóa\n- Kế hoạch tương lai tại Nhật (định cư lâu dài, gia đình, nghề nghiệp)\n- Lý do chọn 帰化 thay vì 永住 (có thể đề cập muốn hòa nhập hoàn toàn, con cái lớn lên ở Nhật...)\n- Tránh viết chỉ vì "tiện lợi hộ chiếu" — 法務局 đánh giá sự gắn bó thực sự và lâu dài\n\n**② 履歴書**: lý lịch cá nhân — lịch sử học vấn (từ bậc phổ thông), nơi làm việc, các địa chỉ đã cư trú từ khi sang Nhật đến nay\n\n**③ 生計の概況**: mô tả tình hình tài chính — thu nhập hàng tháng, chi phí sinh hoạt, tiết kiệm, không có nợ lớn\n\n⚠️ Chữ viết không cần đẹp nhưng phải rõ ràng và đọc được. Giấy tờ Việt Nam cần dịch sang tiếng Nhật bởi dịch thuật viên được thừa nhận — chừa ít nhất 2–3 tháng.',
+        documents: [],
+        image: require('../../../../../assets/content/daily-life/ag_naturalization_s3.jpg'),
+        imageCaption: '帰化 hồ sơ - chuẩn bị giấy tờ Nhật, giấy tờ Việt Nam và bản dịch trước khi nộp',
+        tip: 'Liên hệ Đại sứ quán Việt Nam tại Nhật để xác nhận cách lấy giấy tờ hộ tịch từ Việt Nam khi đang ở Nhật (nhiều loại có thể ủy quyền người thân lấy hộ).',
+      },
+      {
+        step: 4,
+        title: 'Nộp hồ sơ tại 法務局 và hoàn thành phỏng vấn',
+        description: 'Sau khi hồ sơ hoàn chỉnh, đặt lịch nộp trực tiếp tại 法務局. Bắt buộc đến đích thân (本人出頭).\n\nSau khi nộp:\n1. **Bổ sung giấy tờ (追加書類)**: 法務局 có thể yêu cầu thêm tài liệu — phải phản hồi đúng hạn.\n2. **Phỏng vấn (面接)**: nhân viên phỏng vấn trực tiếp về lý do nhập quốc tịch, cuộc sống tại Nhật, gia đình và tiếng Nhật.\n3. **Thẩm tra**: có thể có điều tra tại địa phương.\n4. **Thông báo kết quả**: nếu được phê duyệt, nhận thông báo đến 法務局 để làm thủ tục chính thức.\n\nThời gian xét duyệt: thường **12–18 tháng** sau khi nộp đủ hồ sơ.',
+        documents: ['Toàn bộ hồ sơ đã chuẩn bị', 'Hộ chiếu + thẻ cư trú gốc'],
+        tip: 'Trong thời gian chờ, tiếp tục sống bình thường, không để xảy ra vi phạm nào. Nếu thay đổi địa chỉ hoặc nơi làm việc, thông báo ngay cho 法務局 phụ trách hồ sơ của bạn.',
+      },
+      {
+        step: 5,
+        title: 'Sau khi được cấp phép — hoàn tất thủ tục',
+        description: 'Khi nhận thông báo được chấp thuận (許可通知):\n\n1. Đến 法務局 nhận **国籍取得届** và làm thủ tục xác nhận.\n2. Đăng ký tại **municipal office**: làm 住民登録 với tư cách công dân Nhật, cập nhật My Number.\n3. Xin **hộ chiếu Nhật** tại 都道府県旅券事務所.\n4. Thông báo đến cơ quan (công ty, trường học) và cập nhật các giấy tờ như bảo hiểm, tài khoản ngân hàng, thẻ tín dụng.\n5. Liên hệ **Đại sứ quán Việt Nam** để xử lý việc thôi quốc tịch Việt Nam theo đúng quy định.\n\n⚠️ Một khi đã chính thức nhập quốc tịch Nhật, hộ chiếu Việt Nam không còn hiệu lực pháp lý. Nên sắp xếp việc nhập cảnh Việt Nam tương lai bằng hộ chiếu Nhật.',
+        documents: ['Thông báo chấp thuận từ 法務局', 'Giấy tờ để làm hộ chiếu Nhật: ảnh, 本籍地 mới'],
+        tip: 'Hộ chiếu Nhật có thể xin ngay sau khi hoàn tất đăng ký hộ tịch. Nếu đang có chuyến về Việt Nam dự kiến, nên làm hộ chiếu Nhật trước khi đi để nhập cảnh hợp lệ.',
+      },
+    ],
+  };
+
+export default naturalizationKika;

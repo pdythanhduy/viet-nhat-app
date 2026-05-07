@@ -3,7 +3,7 @@ import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors } from '../constants/colors';
-import { BJT_ULTIMATE_STUDY_PLAN } from '../constants/content';
+import { BJT_ULTIMATE_STUDY_PLAN } from '../constants/content/bjt';
 
 const ORDERED_KEYS: Array<keyof (typeof BJT_ULTIMATE_STUDY_PLAN)['weeks'][number]> = [
   'vocab',

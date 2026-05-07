@@ -1,11 +1,7 @@
-import {
-  ADMIN_GUIDES,
-  CURRENT_LABOR_UPDATES,
-  DAILY_LIFE_TOPICS,
-  ESSENTIAL_PHRASES,
-  JAPANESE_WORDS,
-  WORKER_RIGHTS,
-} from '../constants/content';
+import { ADMIN_GUIDES } from '../constants/content/adminGuides';
+import { DAILY_LIFE_TOPICS } from '../constants/content/dailyLife';
+import { ESSENTIAL_PHRASES, JAPANESE_WORDS } from '../constants/content/japanese';
+import { CURRENT_LABOR_UPDATES, WORKER_RIGHTS } from '../constants/content/jobs';
 import { getAdminGuideSearchKeywords } from '../constants/content/adminGuideSearchKeywords';
 
 export type SearchResultType =

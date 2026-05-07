@@ -5,7 +5,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/colors';
-import { BJT_MOCK_V2_EXAMS, BJT_PRACTICE_QUESTIONS } from '../constants/content';
+import { BJT_MOCK_V2_EXAMS, BJT_PRACTICE_QUESTIONS } from '../constants/content/bjt';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { BjtTargetLevel, getAvailableBjtLevels, getBjtQuestionLevel } from '../utils/bjtQuestionLevels';
 import { clearBjtWrongQuestions, loadBjtProgress } from '../utils/bjtProgress';

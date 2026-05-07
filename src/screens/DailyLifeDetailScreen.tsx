@@ -16,7 +16,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors } from '../constants/colors';
 import { Disclaimers } from '../constants/disclaimers';
-import { DAILY_LIFE_CONTENT_META, DAILY_LIFE_TOPICS } from '../constants/content';
+import { DAILY_LIFE_CONTENT_META, DAILY_LIFE_TOPICS } from '../constants/content/dailyLife';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { formatLastUpdated, getSourceLabels } from '../utils/contentMetadata';
 import { recordRecentDailyLifeTopic } from '../utils/dailyLifeRecentTopics';

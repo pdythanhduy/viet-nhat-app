@@ -1,0 +1,162 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const businessManagerVisa2025: AdminGuide = {
+    id: 'business-manager-visa-2025',
+    category: 'visa',
+    lastVerified: '2026-05-06',
+    priority: 'normal',
+    title: 'Visa kinh doanh/quản lý: tiêu chuẩn mới',
+    titleJp: '経営・管理の許可基準改正',
+    icon: 'business',
+    color: '#784212',
+    searchKeywords: [
+      'business manager visa',
+      'keiei kanri',
+      'kinh doanh quan ly',
+      'visa kinh doanh',
+      '経営管理',
+      '経営・管理',
+      '3000万円',
+      '常勤職員',
+    ],
+    description: 'Từ 16/10/2025, ISA sửa tiêu chuẩn của tư cách 経営・管理. Kinh nghiệm cũ “mở công ty 5 triệu yên là đủ” không còn an toàn; hồ sơ cần chứng minh quy mô, nhân sự, tiếng Nhật, kinh nghiệm/học vấn và kế hoạch kinh doanh chặt hơn.',
+    legalScope: {
+      appliesFrom: '2025-10-16',
+      jurisdiction: 'national',
+      jurisdictionNote: 'Tiêu chuẩn do ISA áp dụng toàn quốc; hồ sơ thực tế còn phụ thuộc loại nộp COE/đổi tư cách/gia hạn và category doanh nghiệp.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-10-16',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn định góp vốn, thuê văn phòng hoặc ký hợp đồng trước khi biết có đáp ứng tiêu chuẩn mới không.',
+        'Bạn dùng vốn dưới 30 triệu yên, chưa có nhân viên toàn thời gian được tính hoặc chưa có chứng minh tiếng Nhật B2.',
+        'Bạn đang gia hạn 経営・管理 đã có trước 16/10/2025 và chưa rõ quy định chuyển tiếp.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Áp dụng với hồ sơ từ 16/10/2025; từ 15/04/2026 kiểm tra thêm giấy tờ mới nếu doanh nghiệp thuộc category 3 hoặc 4.',
+      office: 'ISA/cục xuất nhập cảnh có thẩm quyền; nên làm việc với 行政書士 và chuyên gia đánh giá business plan đúng nhóm ISA nêu.',
+      doNow: [
+        'Kiểm tra vốn/quy mô từ 30 triệu yên trở lên trước khi trả phí dịch vụ.',
+        'Xác định nhân viên toàn thời gian có được tính theo tiêu chuẩn ISA hay không.',
+        'Chuẩn bị chứng minh tiếng Nhật B2 và kinh nghiệm/học vấn trước khi lập hồ sơ.',
+      ],
+      bring: ['Hồ sơ pháp nhân/văn phòng', 'Chứng minh vốn 30 triệu yên', 'Hợp đồng và status của nhân viên toàn thời gian', 'Chứng minh tiếng Nhật B2', 'Business plan được chuyên gia phù hợp xác nhận'],
+      ifLate: 'Nếu đã lập công ty theo tiêu chuẩn cũ, cần rà lại khả năng đáp ứng tiêu chuẩn mới trước khi nộp/gia hạn; không nên nộp hồ sơ thiếu điều kiện nền.',
+      officialSourceLabels: ['経営・管理 許可基準改正 — 出入国在留管理庁', '在留資格「経営・管理」— 出入国在留管理庁'],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_visa2026_hero.jpg'),
+    heroImageCaption: '経営・管理 — tiêu chuẩn visa kinh doanh/quản lý đã bị siết từ 16/10/2025',
+    whoIsThisFor: [
+      'Người muốn mở công ty, mua công ty hoặc quản lý doanh nghiệp tại Nhật theo tư cách 経営・管理.',
+      'Người đang giữ 経営・管理 và chuẩn bị gia hạn sau khi tiêu chuẩn mới có hiệu lực.',
+      'Người được mời làm quản lý doanh nghiệp tại Nhật và cần biết yêu cầu không chỉ nằm ở chức danh.',
+    ],
+    whenToDo: [
+      'Trước khi góp vốn, thuê văn phòng, ký hợp đồng lao động hoặc trả phí dịch vụ visa.',
+      'Trước hồ sơ COE, đổi tư cách hoặc gia hạn 経営・管理 sau 16/10/2025.',
+      'Từ 15/04/2026, nếu công ty thuộc category 3 hoặc 4, kiểm tra thêm bộ giấy tờ ISA mới yêu cầu cho hồ sơ liên quan.',
+    ],
+    whereToDo: [
+      'Trang ISA về sửa đổi tiêu chuẩn 経営・管理 và trang status 経営・管理.',
+      'Cục xuất nhập cảnh có thẩm quyền hoặc hệ thống online ISA nếu hồ sơ thuộc đối tượng được nộp online.',
+      'Chuyên gia có thẩm quyền như 行政書士 để chuẩn bị hồ sơ; riêng đánh giá kế hoạch kinh doanh phải theo nhóm chuyên gia ISA nêu.',
+    ],
+    estimatedTime: 'Đây là hồ sơ rủi ro cao và cần chuẩn bị trước nhiều tháng. Thời gian xét phụ thuộc hồ sơ, khu vực, category công ty và yêu cầu bổ sung của ISA.',
+    fees: [
+      'Lệ phí lưu trú nộp theo bảng phí ISA áp dụng tại thời điểm nhận kết quả.',
+      'Chi phí lớn nhất thường không phải lệ phí ISA mà là vốn, văn phòng, nhân sự, kế toán/thuế, bảo hiểm xã hội và dịch vụ chuyên môn.',
+    ],
+    documentsChecklist: [
+      { label: 'Hồ sơ pháp nhân, đăng ký kinh doanh và văn phòng tại Nhật', required: true },
+      { label: 'Chứng minh vốn/quy mô kinh doanh từ 30 triệu yên trở lên', required: true, note: 'ISA nêu yêu cầu 資本金等 3,000万円以上 từ 16/10/2025.' },
+      { label: 'Tài liệu tuyển dụng ít nhất 1 nhân viên toàn thời gian thuộc nhóm được tính', required: true, note: 'Không phải mọi người nước ngoài làm full-time đều được tính vào 常勤職員 theo tiêu chuẩn này.' },
+      { label: 'Chứng minh năng lực tiếng Nhật tương đương CEFR B2 của người kinh doanh/quản lý hoặc nhân viên toàn thời gian', required: true },
+      { label: 'Bằng thạc sĩ/tiến sĩ/chuyên môn liên quan hoặc chứng minh 3 năm kinh nghiệm kinh doanh/quản lý', required: true },
+      { label: 'Kế hoạch kinh doanh cụ thể, hợp lý, khả thi và được chuyên gia được ISA nêu xác nhận', required: true },
+      { label: 'Tài liệu thuế, bảo hiểm xã hội, lương, hợp đồng, giấy phép ngành nghề nếu đã hoạt động', required: false },
+    ],
+    commonMistakes: [
+      'Dựa vào mốc vốn 5 triệu yên cũ sau ngày 16/10/2025.',
+      'Thuê người có visa kỹ sư/du học/特定技能 rồi tưởng được tính là 常勤職員 cho tiêu chuẩn này.',
+      'Không chuẩn bị chứng minh tiếng Nhật B2 của người phù hợp.',
+      'Lập business plan chung chung, không được 中小企業診断士, 公認会計士 hoặc 税理士 xác nhận theo hướng dẫn ISA.',
+      'Không tách hồ sơ mới/đổi tư cách với hồ sơ gia hạn của người đã có 経営・管理 trước sửa đổi.',
+    ],
+    faq: [
+      {
+        question: 'Có còn dùng mốc 5 triệu yên như trước không?',
+        answer: 'Không nên. ISA nêu từ 16/10/2025 yêu cầu quy mô vốn/tài sản kinh doanh từ 30 triệu yên trở lên đối với tiêu chuẩn mới của 経営・管理.',
+      },
+      {
+        question: 'Nhân viên toàn thời gian phải là ai?',
+        answer: 'Theo ISA, 常勤職員 được tính là người Nhật, special permanent resident hoặc người nước ngoài thuộc nhóm status như 永住者, 日本人の配偶者等, 永住者の配偶者等, 定住者. Người ở status hoạt động thuộc bảng khác như kỹ sư hoặc du học không được tính cho yêu cầu này.',
+      },
+      {
+        question: 'Ai phải có tiếng Nhật B2?',
+        answer: 'ISA nêu người xin hoặc một nhân viên toàn thời gian được tính phải có năng lực tiếng Nhật tương đương CEFR B2. Vì vậy cần xác định ngay từ đầu ai là người dùng để chứng minh điều kiện này.',
+      },
+      {
+        question: 'Kế hoạch kinh doanh cần ai xác nhận?',
+        answer: 'ISA nêu chuyên gia có kiến thức chuyên môn về quản trị, tại thời điểm thi hành gồm 中小企業診断士, 公認会計士 và 税理士. Đây là điểm rất dễ bị làm sai nếu chỉ thuê người viết kế hoạch mà không đúng vai trò được yêu cầu.',
+      },
+      {
+        question: 'Đang có 経営・管理 trước 16/10/2025 thì sao?',
+        answer: 'Không nên tự kết luận hồ sơ gia hạn chắc chắn bị rớt hoặc chắc chắn được gia hạn. ISA có thông báo riêng cho người gia hạn; cần đối chiếu tình trạng kinh doanh, khả năng đáp ứng tiêu chuẩn mới và giấy tờ theo thời điểm nộp.',
+      },
+    ],
+    officialLinks: [
+      { label: '経営・管理 許可基準改正 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/10_00237.html?hl=ja' },
+      { label: '在留資格「経営・管理」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/businessmanager.html' },
+      { label: '経営・管理 お知らせ PDF — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/content/001448361.pdf' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra mốc hồ sơ',
+        description: 'Nếu hồ sơ nộp từ 16/10/2025, phải đối chiếu theo tiêu chuẩn sửa đổi của ISA. Với hồ sơ gia hạn của người đã có 経営・管理, đọc thêm thông báo riêng của ISA thay vì áp một công thức chung.',
+        documents: [
+          'Ngày dự kiến nộp hồ sơ',
+          'Loại hồ sơ: COE, đổi tư cách hay gia hạn',
+          'Category công ty nếu đã hoạt động',
+        ],
+        tip: 'Từ 15/04/2026, ISA còn nêu thêm giấy tờ cho category 3 hoặc 4; tải checklist tại ngày nộp.',
+      },
+      {
+        step: 2,
+        title: 'Chốt quy mô vốn và nhân sự trước',
+        description: 'Tiêu chuẩn mới yêu cầu quy mô vốn/tài sản từ 30 triệu yên trở lên và ít nhất 1 nhân viên toàn thời gian thuộc nhóm được tính. Đây là điều kiện nền, không nên để đến cuối hồ sơ mới xử lý.',
+        documents: [
+          '登記事項証明書 hoặc tài liệu góp vốn/đầu tư',
+          'Hợp đồng lao động và giấy tờ cư trú của nhân viên toàn thời gian',
+          'Tài liệu lương, bảo hiểm xã hội, văn phòng',
+        ],
+        tip: 'Nếu nhân viên là người nước ngoài, phải kiểm tra đúng status cư trú của họ; không chỉ nhìn vào việc họ làm full-time.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị chứng minh tiếng Nhật và kinh nghiệm/học vấn',
+        description: 'ISA nêu yêu cầu tiếng Nhật tương đương CEFR B2 cho người xin hoặc nhân viên toàn thời gian được tính. Người xin còn cần bằng thạc sĩ/tiến sĩ/chuyên môn liên quan hoặc 3 năm kinh nghiệm kinh doanh/quản lý.',
+        documents: [
+          'JLPT/chứng chỉ hoặc bằng cấp đáp ứng hướng dẫn',
+          'Bằng thạc sĩ/tiến sĩ/chuyên môn nếu dùng điều kiện học vấn',
+          'Giấy xác nhận kinh nghiệm quản lý/kinh doanh nếu dùng điều kiện kinh nghiệm',
+        ],
+        tip: 'Đừng chỉ ghi “có kinh nghiệm” trong CV; ISA thường cần giấy tờ chứng minh từ tổ chức/công ty liên quan.',
+      },
+      {
+        step: 4,
+        title: 'Đánh giá kế hoạch kinh doanh đúng người',
+        description: 'Kế hoạch kinh doanh phải cụ thể, hợp lý, khả thi và được người có kiến thức chuyên môn mà ISA nêu xác nhận. Tại thời điểm thi hành, ISA nêu 中小企業診断士, 公認会計士 và 税理士.',
+        documents: [
+          'Business plan',
+          'Dự báo doanh thu/chi phí/dòng tiền',
+          'Tài liệu thị trường, hợp đồng, giấy phép, khách hàng nếu có',
+          'Xác nhận/đánh giá của chuyên gia phù hợp',
+        ],
+        tip: 'Người viết hồ sơ visa và người đánh giá kế hoạch kinh doanh không nhất thiết là cùng một vai trò. Kiểm tra tư cách của từng người.',
+      },
+    ],
+  };
+
+export default businessManagerVisa2025;

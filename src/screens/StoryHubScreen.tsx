@@ -14,9 +14,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { Colors } from '../constants/colors';
-import { SAMPLE_STORIES } from '../constants/content/sampleStories';
+import { SAMPLE_STORIES } from '../constants/content/stories';
 import { JLPTLevel } from '../types/jlpt';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { Story, StoryProgress, STORY_CATEGORY_LABELS } from '../types/story';
 import { getCompletionStats, loadStoryProgress } from '../utils/storyProgress';
 import { loadStoryStreak, StoryStreakData } from '../utils/storyStreak';
 
@@ -32,9 +33,22 @@ export default function StoryHubScreen({ navigation }: Props) {
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('N5');
   const [stats, setStats] = useState({ totalStories: 0, completedStories: 0, percentageComplete: 0, totalWordsLearned: 0 });
   const [streak, setStreak] = useState<StoryStreakData | null>(null);
-  const [storyProgress, setStoryProgress] = useState<any>(null);
+  const [storyProgress, setStoryProgress] = useState<Record<string, StoryProgress>>({});
 
   const levels: JLPTLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
+
+  // Stories the user has started but not finished — shown in a "Tiếp tục đọc" rail.
+  const inProgressStories: Story[] = SAMPLE_STORIES
+    .filter((story) => {
+      const p = storyProgress[story.id];
+      return p && p.percentRead > 0 && p.percentRead < 100 && !p.isCompleted;
+    })
+    .sort((a, b) => {
+      const aDate = storyProgress[a.id]?.lastReadAt ?? '';
+      const bDate = storyProgress[b.id]?.lastReadAt ?? '';
+      return bDate.localeCompare(aDate);
+    })
+    .slice(0, 5);
 
   // Reload stats and streak when screen is focused
   useFocusEffect(
@@ -61,7 +75,7 @@ export default function StoryHubScreen({ navigation }: Props) {
         </TouchableOpacity>
         <View style={styles.headerContent}>
           <Text style={styles.title}>Đọc Truyện Tiếng Nhật</Text>
-          <Text style={styles.subtitle}>Learn Japanese through stories</Text>
+          <Text style={styles.subtitle}>Học tiếng Nhật qua truyện ngắn</Text>
         </View>
         {streak && streak.currentStreak > 0 ? (
           <View style={styles.streakBadge}>
@@ -98,10 +112,44 @@ export default function StoryHubScreen({ navigation }: Props) {
           </View>
         </View>
 
+        {/* Continue reading — pinned in-progress stories */}
+        {inProgressStories.length > 0 ? (
+          <View style={styles.continueSection}>
+            <Text style={styles.continueTitle}>Tiếp tục đọc</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.continueRow}>
+              {inProgressStories.map((story) => {
+                const percent = storyProgress[story.id]?.percentRead ?? 0;
+                return (
+                  <TouchableOpacity
+                    key={story.id}
+                    style={styles.continueCard}
+                    onPress={() => navigation.navigate('StoryReading', { storyId: story.id })}
+                  >
+                    <View style={styles.continueCardHeader}>
+                      <View style={styles.continueLevelBadge}>
+                        <Text style={styles.continueLevelBadgeText}>{story.level}</Text>
+                      </View>
+                      <Text style={styles.continuePercent}>{percent}%</Text>
+                    </View>
+                    <Text style={styles.continueCardTitle} numberOfLines={2}>{story.title}</Text>
+                    <View style={styles.continueProgressBar}>
+                      <View style={[styles.continueProgressFill, { width: `${percent}%` }]} />
+                    </View>
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+          </View>
+        ) : null}
+
         {/* Level Selector */}
         <View style={styles.levelSection}>
           <Text style={styles.levelTitle}>Chọn mức độ</Text>
-          <View style={styles.levelChips}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.levelChipsRow}
+          >
             {levels.map((level) => {
               const count = SAMPLE_STORIES.filter((s) => s.level === level).length;
               const isActive = level === selectedLevel;
@@ -117,7 +165,7 @@ export default function StoryHubScreen({ navigation }: Props) {
                 </TouchableOpacity>
               );
             })}
-          </View>
+          </ScrollView>
         </View>
 
         {/* Stories List */}
@@ -132,27 +180,29 @@ export default function StoryHubScreen({ navigation }: Props) {
             <View style={styles.storiesList}>
               {filteredStories.map((story) => {
                 const isCompleted = storyProgress?.[story.id]?.isCompleted;
+                const categoryLabel = STORY_CATEGORY_LABELS[story.category] ?? story.category;
                 return (
                 <TouchableOpacity
                   key={story.id}
-                  style={[styles.storyCard, isCompleted && styles.storyCardCompleted]}
+                  style={styles.storyCard}
                   onPress={() => navigation.navigate('StoryReading', { storyId: story.id })}
                 >
                   <View style={styles.storyContent}>
                     <View style={styles.storyHeader}>
                       <Text style={styles.storyTitle}>{story.title}</Text>
-                      <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
-                        {isCompleted && (
-                          <View style={styles.completedBadge}>
-                            <Ionicons name="checkmark-circle" size={16} color={Colors.primary} />
+                      <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center' }}>
+                        {isCompleted ? (
+                          <View style={styles.completedPill}>
+                            <Ionicons name="checkmark-circle" size={14} color={Colors.white} />
+                            <Text style={styles.completedPillText}>Đã xong</Text>
                           </View>
-                        )}
+                        ) : null}
                         <View style={styles.levelBadge}>
                           <Text style={styles.levelBadgeText}>{story.level}</Text>
                         </View>
                       </View>
                     </View>
-                    <Text style={styles.storyCategory}>{story.category}</Text>
+                    <Text style={styles.storyCategory}>{categoryLabel}</Text>
                     <Text style={styles.storyDescription}>{story.description}</Text>
                     <View style={styles.storyMeta}>
                       <View style={styles.metaItem}>
@@ -274,9 +324,10 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     marginBottom: 10,
   },
-  levelChips: {
+  levelChipsRow: {
     flexDirection: 'row',
     gap: 8,
+    paddingRight: 8,
   },
   levelChip: {
     paddingHorizontal: 12,
@@ -408,14 +459,82 @@ const styles = StyleSheet.create({
     color: Colors.textMuted,
     marginTop: 2,
   },
-  completedBadge: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+  completedPill: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    gap: 4,
+    backgroundColor: '#16A085',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 999,
   },
-  storyCardCompleted: {
-    opacity: 0.7,
+  completedPillText: {
+    fontSize: 10,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.white,
+  },
+  continueSection: {
+    marginBottom: 20,
+  },
+  continueTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 10,
+  },
+  continueRow: {
+    gap: 10,
+    paddingRight: 8,
+  },
+  continueCard: {
+    width: 180,
+    backgroundColor: Colors.white,
+    borderRadius: 10,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  continueCardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  continueLevelBadge: {
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+    backgroundColor: Colors.accent,
+  },
+  continueLevelBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: Colors.primary,
+  },
+  continuePercent: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  continueCardTitle: {
+    fontSize: 13,
+    fontWeight: '600',
+    fontFamily: 'BeVietnamPro_600SemiBold',
+    color: Colors.textPrimary,
+    marginBottom: 8,
+    minHeight: 32,
+  },
+  continueProgressBar: {
+    height: 4,
+    backgroundColor: Colors.background,
+    borderRadius: 2,
+    overflow: 'hidden',
+  },
+  continueProgressFill: {
+    height: '100%',
+    backgroundColor: Colors.primary,
+    borderRadius: 2,
   },
 });

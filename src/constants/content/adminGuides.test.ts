@@ -196,11 +196,22 @@ function expectRequiredFaq(items: { question: string; answer: string }[] | undef
 }
 
 function collectRequiredAssetPaths() {
-  const sourcePath = path.join(__dirname, 'adminGuides.ts');
-  const source = fs.readFileSync(sourcePath, 'utf8');
-  const matches = source.matchAll(/require\('([^']+)'\)/g);
+  const guidesDir = path.join(__dirname, 'adminGuides', 'guides');
+  const guideFiles = fs
+    .readdirSync(guidesDir)
+    .filter((name) => name.endsWith('.ts') && name !== 'index.ts');
 
-  return [...matches].map((match) => match[1]).filter((assetPath): assetPath is string => Boolean(assetPath));
+  const out: { absolute: string; declaredIn: string }[] = [];
+  for (const name of guideFiles) {
+    const filePath = path.join(guidesDir, name);
+    const source = fs.readFileSync(filePath, 'utf8');
+    for (const match of source.matchAll(/require\('([^']+)'\)/g)) {
+      const relative = match[1];
+      if (!relative) continue;
+      out.push({ absolute: path.resolve(filePath, '..', relative), declaredIn: name });
+    }
+  }
+  return out;
 }
 
 describe('ADMIN_GUIDES content quality', () => {
@@ -220,13 +231,12 @@ describe('ADMIN_GUIDES content quality', () => {
   });
 
   it('references only committed assets that exist on disk', () => {
-    const assetPaths = collectRequiredAssetPaths();
+    const assetEntries = collectRequiredAssetPaths();
 
-    expect(assetPaths.length).toBeGreaterThan(0);
+    expect(assetEntries.length).toBeGreaterThan(0);
 
-    for (const assetPath of assetPaths) {
-      const absoluteAssetPath = path.resolve(__dirname, assetPath);
-      expect(fs.existsSync(absoluteAssetPath)).toBe(true);
+    for (const entry of assetEntries) {
+      expect(fs.existsSync(entry.absolute)).toBe(true);
     }
   });
 
