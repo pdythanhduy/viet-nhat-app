@@ -1,13 +1,15 @@
 import { JLPTLevel } from './jlpt';
 
 // Story metadata
+export type StoryCategory = 'slice-of-life' | 'web-novel' | 'fairy-tale' | 'graded-reader';
+
 export interface Story {
   id: string;
   title: string;
   titleJp: string;
   description: string;
   level: JLPTLevel;
-  category: 'slice-of-life' | 'web-novel' | 'fairy-tale' | 'graded-reader';
+  category: StoryCategory;
   author?: string;
   wordCount: number;
   estimatedReadTime: number; // minutes
@@ -16,6 +18,14 @@ export interface Story {
   createdAt: string;
   lastUpdated: string;
 }
+
+// Vietnamese display label for each category
+export const STORY_CATEGORY_LABELS: Record<StoryCategory, string> = {
+  'slice-of-life': 'Đời thường',
+  'web-novel': 'Web novel',
+  'fairy-tale': 'Cổ tích',
+  'graded-reader': 'Bài tập đọc',
+};
 
 // Paragraph = main text unit
 export interface Paragraph {

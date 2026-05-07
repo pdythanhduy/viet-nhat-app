@@ -234,16 +234,28 @@ export default function StoryReadingScreen({ navigation, route }: Props) {
                   <View key={sentence.id} style={styles.sentenceContainer}>
                     {/* Sentence tokens */}
                     <View style={styles.sentenceTokens}>
-                      {sentence.tokens?.map((token) => (
-                        <TouchableOpacity
-                          key={token.id}
-                          onPress={() => handleWordPress(token)}
-                          style={styles.tokenWrapper}
-                        >
-                          {token.reading && <Text style={styles.furigana}>{token.reading}</Text>}
-                          <Text style={styles.tokenText}>{token.word}</Text>
-                        </TouchableOpacity>
-                      ))}
+                      {sentence.tokens?.map((token) => {
+                        const isParticle = token.pos === 'PARTICLE';
+                        // Reading equals the word itself (kana-only tokens / particles) — render
+                        // an empty spacer so the line still aligns with neighbouring furigana.
+                        const showFurigana = !!token.reading && token.reading !== token.word;
+                        return (
+                          <TouchableOpacity
+                            key={token.id}
+                            onPress={() => handleWordPress(token)}
+                            style={styles.tokenWrapper}
+                          >
+                            {showFurigana ? (
+                              <Text style={styles.furigana}>{token.reading}</Text>
+                            ) : (
+                              <Text style={styles.furiganaSpacer}> </Text>
+                            )}
+                            <Text style={[styles.tokenText, isParticle && styles.tokenTextParticle]}>
+                              {token.word}
+                            </Text>
+                          </TouchableOpacity>
+                        );
+                      })}
                     </View>
                   </View>
                 ))}
@@ -466,11 +478,18 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   furigana: {
-    fontSize: 9,
+    fontSize: 11,
     color: Colors.textMuted,
     textAlign: 'center',
     minWidth: 16,
-    lineHeight: 10,
+    lineHeight: 14,
+    marginBottom: 1,
+  },
+  furiganaSpacer: {
+    fontSize: 11,
+    lineHeight: 14,
+    minWidth: 16,
+    marginBottom: 1,
   },
   paragraphText: {
     fontSize: 16,
@@ -485,6 +504,10 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     lineHeight: 18,
+  },
+  tokenTextParticle: {
+    color: Colors.textMuted,
+    fontWeight: '400',
   },
   sentenceTranslation: {
     fontSize: 12,
