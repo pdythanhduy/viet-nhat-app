@@ -3,12 +3,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export interface StoryStreakData {
   currentStreak: number;
   longestStreak: number;
-  lastReadDate: string; // YYYY-MM-DD
+  lastReadDate: string; // YYYY-MM-DD (user-local)
   totalDaysRead: number;
 }
 
 const STORAGE_KEY = 'story_streak_v1';
-const EPOCH_DATE = new Date('2026-01-01');
+// Local-time epoch used to rotate "today's story" — kept in user-local time
+// so the rotation flips at the user's midnight, not UTC midnight.
+const EPOCH_YEAR = 2026;
+const EPOCH_MONTH = 0; // January (0-indexed)
+const EPOCH_DAY = 1;
+const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 const DEFAULT_STREAK: StoryStreakData = {
   currentStreak: 0,
@@ -16,6 +21,17 @@ const DEFAULT_STREAK: StoryStreakData = {
   lastReadDate: '',
   totalDaysRead: 0,
 };
+
+function toLocalDateStr(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function startOfLocalDay(date: Date): number {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+}
 
 export async function loadStoryStreak(): Promise<StoryStreakData> {
   try {
@@ -46,7 +62,7 @@ export async function markStoryReadToday(): Promise<void> {
   try {
     const streak = await loadStoryStreak();
     const today = new Date();
-    const todayStr = today.toISOString().split('T')[0];
+    const todayStr = toLocalDateStr(today);
 
     if (streak.lastReadDate === todayStr) {
       return; // Already marked today
@@ -54,7 +70,7 @@ export async function markStoryReadToday(): Promise<void> {
 
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
+    const yesterdayStr = toLocalDateStr(yesterday);
 
     const newStreak = streak.lastReadDate === yesterdayStr ? streak.currentStreak + 1 : 1;
     const newLongestStreak = Math.max(newStreak, streak.longestStreak);
@@ -73,6 +89,11 @@ export async function markStoryReadToday(): Promise<void> {
 }
 
 export function getStoryTodayIndex(totalStories: number): number {
-  const daysSinceEpoch = Math.floor((Date.now() - EPOCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
-  return daysSinceEpoch % totalStories;
+  if (totalStories <= 0) return 0;
+  const now = new Date();
+  const epochMs = startOfLocalDay(new Date(EPOCH_YEAR, EPOCH_MONTH, EPOCH_DAY));
+  const todayMs = startOfLocalDay(now);
+  const daysSinceEpoch = Math.floor((todayMs - epochMs) / MS_PER_DAY);
+  // Normalize negative results (clock skew / pre-epoch) into a positive bucket.
+  return ((daysSinceEpoch % totalStories) + totalStories) % totalStories;
 }
