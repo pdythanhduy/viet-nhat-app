@@ -1,0 +1,152 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const electricBikeMopedRules: AdminGuide = {
+    id: 'electric-bike-moped-rules',
+    category: 'traffic',
+    lastVerified: '2026-05-07',
+    priority: 'high',
+    title: 'Xe đạp điện, e-bike và moped',
+    titleJp: '電動アシスト自転車・モペット・ペダル付き電動バイク',
+    icon: 'bicycle',
+    color: '#0E7C7B',
+    searchKeywords: [
+      'xe dap dien',
+      'e-bike',
+      'moped',
+      'full electric bicycle',
+      'xe dien co ban dap',
+      'electric assist bicycle',
+      '電動アシスト自転車',
+      'ペダル付き電動バイク',
+      'モペット',
+      'フル電動自転車',
+      '原動機付自転車',
+      'TSマーク',
+    ],
+    description: 'Phân biệt xe đạp trợ lực điện hợp lệ với moped/xe điện có bàn đạp. Đây là nhóm dễ nhầm nhất vì nhìn giống xe đạp nhưng có thể bị coi là 原動機付自転車 hoặc 自動車, cần bằng lái, biển số và 自賠責.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Tiêu chuẩn 電動アシスト自転車 và phân loại moped do quy định giao thông/xe cơ giới cấp quốc gia; biển số, thuế xe nhỏ và bãi đỗ có thể phụ thuộc municipal office; xử lý vi phạm do police địa phương thực hiện.',
+      sourceVerifiedAt: '2026-05-07',
+      nextReviewAt: '2026-11-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Xe có throttle, có thể tự chạy không cần đạp, hoặc quảng cáo là フル電動自転車/モペット.',
+        'Xe nhập khẩu/online không có 型式認定TSマーク, giấy chứng nhận hoặc thông số tiếng Nhật rõ ràng.',
+        'Bạn đã bị cảnh sát dừng xe, có tai nạn, hoặc đang không rõ xe cần bằng/biển số/bảo hiểm nào.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Kiểm tra trước khi mua và tuyệt đối trước khi chạy trên đường công cộng. Nếu không chứng minh được là 電動アシスト自転車 hợp lệ, hãy coi là xe máy/moped cho đến khi được xác nhận.',
+      office: 'Hỏi police/driver license center về phân loại giao thông; hỏi municipal office về biển số xe ≤125cc; hỏi đại lý/bảo hiểm về 自賠責.',
+      doNow: [
+        'Tìm bằng chứng xe chỉ trợ lực khi đạp, motor không tự kéo xe và trợ lực dừng ở 24 km/h.',
+        'Ưu tiên xe có 型式認定TSマーク hoặc tài liệu chính hãng Nhật nêu rõ đạt chuẩn 電動アシスト自転車.',
+        'Nếu xe có throttle hoặc chạy được bằng motor, chuẩn bị như moped: bằng lái, biển số, 自賠責, mũ bảo hiểm và thiết bị an toàn.',
+        'Nếu trang bán ghi 公道不可, không chạy trên đường công cộng dù xe có bàn đạp.',
+      ],
+      bring: ['Ảnh xe và nhãn thông số', 'Hóa đơn/販売証明書', 'Thông số motor/output', 'Sách hướng dẫn hoặc link sản phẩm chính hãng', 'Bằng lái nếu xe là moped/原付'],
+      ifLate: 'Chạy moped như xe đạp thường có thể thành không bằng, không biển số, không 自賠責 hoặc xe không đạt 保安基準. Đây là rủi ro pháp lý và bảo hiểm nghiêm trọng.',
+      officialSourceLabels: [
+        '自転車の安全利用の促進 — 警察庁',
+        '電動アシスト自転車とペダル付き電動バイク — 警視庁',
+        '駆動補助機付自転車に係る型式認定品 — 警察庁',
+        '一般原動機付自転車について — 国土交通省',
+        '自賠責保険・共済に加入するには — 国土交通省',
+      ],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_bicycle-rules_hero.jpg'),
+    heroImageCaption: '電動アシスト自転車 và moped — nhìn giống xe đạp nhưng nghĩa vụ pháp lý có thể hoàn toàn khác',
+    whoIsThisFor: [
+      'Người định mua xe đạp điện/e-bike tại Nhật hoặc mua online từ nước ngoài.',
+      'Người thấy xe có bàn đạp, pin và motor nhưng không rõ có phải xe đạp trợ lực điện hợp lệ không.',
+      'Người giao hàng/đi học/đi làm muốn tránh mua nhầm moped phải đăng ký và mua bảo hiểm.',
+    ],
+    whenToDo: [
+      'Trước khi mua, thuê, mượn hoặc chạy thử trên đường công cộng.',
+      'Ngay khi xe có throttle, nút ga, chế độ tự chạy, hoặc mô tả như モペット/フル電動自転車.',
+      'Khi chuyển từ xe đạp thường sang xe điện trợ lực hoặc khi mua xe cũ không rõ nguồn gốc.',
+    ],
+    whereToDo: [
+      'Police/driver license center: xác nhận xe thuộc xe đạp, 原付 hay 自動車 nếu thông số không rõ.',
+      'Municipal office: đăng ký ナンバープレート cho 原付/一般原動機付自転車 thuộc phạm vi ≤125cc.',
+      'Đại lý xe và công ty bảo hiểm: xác nhận 保安基準, 自賠責 và giấy tờ cần mang theo.',
+    ],
+    estimatedTime: 'Nếu là xe đạp trợ lực điện hợp lệ và giấy tờ rõ, chỉ cần kiểm tra trước khi mua. Nếu là moped/原付, cần thêm thời gian làm biển số, 自賠責 và xác nhận bằng lái.',
+    fees: [
+      'Xe đạp trợ lực điện hợp lệ không cần biển số/自賠責 như 原付, nhưng có thể cần bảo hiểm xe đạp theo địa phương.',
+      'Moped/ペダル付き電動バイク cần đăng ký và 自賠責; phí phụ thuộc loại xe, thời hạn hợp đồng và mốc áp dụng bảng phí.',
+      'Nếu xe không đạt chuẩn chạy đường công cộng, chi phí sửa/hoàn trả có thể lớn hơn giá mua rẻ ban đầu.',
+    ],
+    documentsChecklist: [
+      { label: '型式認定TSマーク hoặc tài liệu đạt chuẩn 電動アシスト自転車', required: false, note: 'NPA khuyến nghị dùng sản phẩm có 型式認定TSマーク vì đã được xác nhận đạt chuẩn.' },
+      { label: 'Thông số motor/output và cơ chế trợ lực', required: true, note: 'Cần biết xe chỉ trợ lực khi đạp hay có thể tự chạy bằng motor.' },
+      { label: '販売証明書/譲渡証明書', required: false, note: 'Cần nếu xe bị phân loại là 原付/moped và phải đăng ký biển số.' },
+      { label: 'Bằng lái Nhật phù hợp', required: false, note: 'Bắt buộc nếu xe thuộc 原付 hoặc xe máy, không bắt buộc với xe đạp trợ lực điện hợp lệ.' },
+      { label: '自賠責保険証明書', required: false, note: 'Bắt buộc nếu xe thuộc 原付/moped hoặc xe cơ giới tương ứng.' },
+    ],
+    commonMistakes: [
+      'Thấy có bàn đạp nên nghĩ chắc chắn là xe đạp.',
+      'Mua xe có throttle nhưng tắt motor rồi nghĩ sẽ được chạy như xe đạp thường.',
+      'Tin quảng cáo “e-bike” tiếng Anh mà không kiểm tra chuẩn 電動アシスト自転車 của Nhật.',
+      'Không gắn biển số, không mua 自賠責 và không đội mũ khi xe thực chất là moped/原付.',
+      'Chạy xe ghi 公道不可 trên đường công cộng.',
+    ],
+    faq: [
+      {
+        question: 'Xe đạp trợ lực điện hợp lệ khác moped ở điểm nào?',
+        answer: 'Xe đạp trợ lực điện hợp lệ chỉ dùng motor để hỗ trợ lực đạp trong giới hạn luật định và không có lực hỗ trợ ở 24 km/h trở lên. Nếu xe tự chạy bằng motor, có throttle hoặc không đạt chuẩn trợ lực, có thể bị coi là moped/原付 hoặc 自動車.',
+      },
+      {
+        question: 'Tắt motor rồi đạp bằng chân thì moped có thành xe đạp không?',
+        answer: 'Không nên hiểu như vậy. NPA nêu xe có bàn đạp thuộc 原動機付自転車 vẫn là xe máy theo thuộc tính xe; ngay cả khi đi bằng bàn đạp/người lực, việc sử dụng trên đường vẫn có thể bị coi là vận転 của 原動機付自転車.',
+      },
+      {
+        question: 'Có TSマーク là bắt buộc không?',
+        answer: 'Không phải mọi trường hợp đều trình TSマーク như một thủ tục bắt buộc với người mua, nhưng NPA khuyến nghị dùng sản phẩm có 型式認定TSマーク vì đây là dấu hiệu sản phẩm đã được xác nhận đạt chuẩn pháp luật liên quan.',
+      },
+      {
+        question: 'Nếu lỡ mua moped không đủ giấy tờ thì làm gì?',
+        answer: 'Không chạy trên đường công cộng. Liên hệ người bán để lấy giấy tờ kỹ thuật/販売証明書, hỏi municipal office/police về phân loại, và nếu không thể đăng ký/đạt chuẩn thì chỉ dùng trong khu vực tư nhân được phép hoặc trả/bán lại theo quy định.',
+      },
+    ],
+    officialLinks: [
+      { label: '自転車の安全利用の促進 — 警察庁', url: 'https://www.npa.go.jp/bureau/traffic/bicycle/' },
+      { label: '電動アシスト自転車とペダル付き電動バイク — 警視庁', url: 'https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/electric_mobility/pedal.html' },
+      { label: '駆動補助機付自転車に係る型式認定品 — 警察庁', url: 'https://www.npa.go.jp/bureau/traffic/bicycle/katashiki.html' },
+      { label: '一般原動機付自転車について — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jidosha_fr7_000092.html' },
+      { label: '自賠責保険・共済に加入するには — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/about/policyholder/index.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Phân loại xe trước khi mua',
+        description: 'Nhìn bề ngoài không đủ. Kiểm tra xe có throttle/nút ga không, motor có tự kéo xe không, trợ lực có dừng ở 24 km/h không, có 型式認定TSマーク hoặc tài liệu chính hãng Nhật không. Nếu câu trả lời không rõ, đừng chạy trên đường công cộng.',
+        documents: ['Ảnh nhãn xe', 'Thông số motor/output', 'Link hoặc sách hướng dẫn chính hãng'],
+        tip: 'Từ khóa bán hàng như “e-bike”, “full electric bicycle”, “モペット” không quyết định phân loại pháp lý. Phân loại dựa vào cấu tạo và tiêu chuẩn xe.',
+      },
+      {
+        step: 2,
+        title: 'Nếu là 電動アシスト自転車 hợp lệ',
+        description: 'Xe chỉ trợ lực lực đạp của người lái trong giới hạn luật định; trợ lực phải giảm theo tốc độ và không còn trợ lực ở 24 km/h trở lên. Nên chọn sản phẩm có 型式認定TSマーク và dùng như xe đạp: tuân thủ luật xe đạp, kiểm tra bảo hiểm xe đạp địa phương và không cải tạo motor.',
+        documents: [],
+        tip: 'Sửa firmware, thay controller hoặc gắn throttle có thể làm xe không còn đạt chuẩn xe đạp trợ lực điện.',
+      },
+      {
+        step: 3,
+        title: 'Nếu là moped/ペダル付き電動バイク',
+        description: 'Xe có thể tự chạy bằng motor hoặc không đạt chuẩn 電動アシスト自転車 có thể thuộc 一般原動機付自転車 hoặc 自動車. Khi chạy trên đường công cộng cần bằng lái phù hợp, ナンバープレート, 自賠責, mũ bảo hiểm và thiết bị như đèn, phanh, gương, đèn xi-nhan theo chuẩn xe.',
+        documents: ['販売証明書/譲渡証明書', 'Thông số output', 'Bằng lái phù hợp', '自賠責保険証明書'],
+        tip: 'Việc chỉ đạp bằng chân hoặc tắt motor không tự động biến moped thành xe đạp thường.',
+      },
+      {
+        step: 4,
+        title: 'Nếu xe không rõ hoặc ghi 公道不可',
+        description: 'Không chạy trên đường công cộng. Hỏi người bán bằng văn bản, lưu trang sản phẩm, đem thông số hỏi municipal office/police hoặc đại lý xe máy. Nếu không đăng ký được hoặc không đạt 保安基準, xử lý như xe không dùng được trên đường công cộng.',
+        documents: [],
+        tip: 'Giá mua rẻ không bù được rủi ro không bằng, không bảo hiểm hoặc tai nạn không được bồi thường đúng.',
+      },
+    ],
+  };
+
+export default electricBikeMopedRules;

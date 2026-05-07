@@ -1,0 +1,159 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const familyStayInvitation: AdminGuide = {
+    id: 'family-stay-invitation',
+    category: 'visa',
+    lastVerified: '2026-05-06',
+    priority: 'high',
+    title: 'Bảo lãnh vợ/chồng/con sang Nhật',
+    titleJp: '家族滞在・在留資格認定証明書',
+    icon: 'people',
+    color: '#2E86C1',
+    description: 'Hướng dẫn theo diện 家族滞在 cho vợ/chồng hoặc con của người đang có tư cách lưu trú phù hợp tại Nhật. Đây là thủ tục dài hạn, khác với visa du lịch thăm thân.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Family stay dài hạn thường đi theo 2 lớp: COE do ISA xử lý tại Nhật và visa do cơ quan lãnh sự Nhật ở nước ngoài xử lý.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Người được bảo lãnh không phải vợ/chồng hoặc con, hoặc có con riêng/ly hôn/quyền nuôi dưỡng phức tạp.',
+        'Thu nhập, chỗ ở hoặc giấy tờ quan hệ gia đình của người bảo lãnh chưa đủ rõ.',
+        'Bạn đang nhầm mục tiêu ở dài hạn với chuyến thăm ngắn hạn.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Bắt đầu sớm; COE thường là bước trước visa và thời gian chuẩn của ISA có thể tính theo tháng.',
+      office: 'ISA tại Nhật để xin COE; Đại sứ quán/Lãnh sự quán Nhật hoặc nơi tiếp nhận được chỉ định ở nước ngoài để xin visa.',
+      doNow: [
+        'Xác định người được mời có phải vợ/chồng hoặc con theo diện 家族滞在 không.',
+        'Gom giấy tờ quan hệ gia đình, thu nhập, thuế và chỗ ở của người bảo lãnh.',
+        'Sau khi có COE, kiểm tra nơi nộp visa theo nơi cư trú của người thân ở nước ngoài.',
+      ],
+      bring: ['Hộ chiếu người được bảo lãnh', 'Giấy tờ chứng minh quan hệ gia đình', 'Thẻ cư trú người bảo lãnh', 'Giấy tờ thu nhập/thuế', 'Giấy tờ chỗ ở'],
+      ifLate: 'Không dùng short stay để thay thế kế hoạch ở dài hạn; nếu cần vào Nhật gấp, tách rõ mục đích và hỏi cơ quan lãnh sự/ISA trước.',
+      officialSourceLabels: ['在留資格認定証明書交付申請 — 出入国在留管理庁', 'General visa: Dependent (family stays) — MOFA'],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_family-stay_hero.jpg'),
+    heroImageCaption: 'Thủ tục bảo lãnh gia đình diện 家族滞在',
+    whoIsThisFor: [
+      'Người đang ở Nhật với visa đi làm, du học hoặc một số tư cách lưu trú cho phép đưa gia đình sang.',
+      'Người muốn đưa vợ/chồng hoặc con sang sống cùng tại Nhật theo diện 家族滞在.',
+      'Người đang phân vân giữa “bảo lãnh dài hạn” và “mời sang thăm ngắn hạn”.',
+    ],
+    whenToDo: [
+      'Khi bạn đã có tư cách lưu trú ổn định, thu nhập và chỗ ở đủ để chứng minh khả năng nuôi sống gia đình.',
+      'Nên bắt đầu sớm vì COE thường mất khoảng 1 đến 3 tháng theo thời gian xử lý chuẩn của ISA, chưa tính thời gian nộp visa ở nước ngoài.',
+      'Nếu người thân chỉ sang ngắn hạn thăm vài tuần hoặc vài tháng, không nên dùng bài này mà xem bài visa thăm thân ngắn hạn.',
+    ],
+    whereToDo: [
+      'Người ở Nhật làm thủ tục xin 在留資格認定証明書 (COE) tại cục xuất nhập cảnh có thẩm quyền hoặc online nếu đủ điều kiện.',
+      'Sau khi có COE, người thân ở nước ngoài nộp hồ sơ visa tại Đại sứ quán/Lãnh sự quán Nhật hoặc nơi tiếp nhận hồ sơ được chỉ định theo nơi cư trú.',
+    ],
+    estimatedTime: 'ISA công bố thời gian chuẩn cho COE thường khoảng 1 đến 3 tháng. Sau đó còn thời gian xử lý visa ở cơ quan lãnh sự, thường khoảng 1 tuần nếu hồ sơ đầy đủ nhưng có thể lâu hơn tùy nơi nộp.',
+    fees: [
+      'Xin COE tại ISA không thu lệ phí.',
+      'Visa ở cơ quan lãnh sự có thể có phí theo bảng phí visa hiện hành của MOFA tại thời điểm nộp.',
+      'Dịch thuật, chuyển phát, giấy tờ hộ tịch và công chứng có thể phát sinh chi phí riêng.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu của người được bảo lãnh', required: true },
+      { label: 'Ảnh hồ sơ theo quy định', required: true },
+      { label: 'Giấy tờ chứng minh quan hệ gia đình', required: true, note: 'Giấy đăng ký kết hôn, giấy khai sinh... có thể cần bản dịch tiếng Nhật.' },
+      { label: 'Thẻ cư trú và hộ chiếu của người bảo lãnh ở Nhật', required: true },
+      { label: 'Giấy tờ chứng minh thu nhập và nộp thuế của người bảo lãnh', required: true, note: 'Ví dụ: 課税証明書, 納税証明書, giấy xác nhận việc làm hoặc hợp đồng lao động.' },
+      { label: 'Giấy tờ về chỗ ở tại Nhật', required: false, note: 'Hợp đồng thuê nhà, giấy xác nhận nơi ở hoặc giải trình chỗ ở dự kiến.' },
+    ],
+    commonMistakes: [
+      'Nhầm 家族滞在 với visa du lịch thăm thân ngắn hạn.',
+      'Nộp hồ sơ khi thu nhập hoặc chỗ ở chưa đủ thuyết phục.',
+      'Giấy tờ quan hệ gia đình không thống nhất tên, ngày sinh hoặc thiếu bản dịch.',
+      'Nghĩ có COE là chắc chắn được nhập cảnh; thực tế người thân vẫn phải xin visa ở cơ quan lãnh sự.',
+    ],
+    faq: [
+      {
+        question: 'Gia đình sang theo diện này có được đi làm không?',
+        answer: '家族滞在 không phải tư cách đi làm. Nếu muốn làm thêm có lương thì thường cần 資格外活動許可 và phải tuân thủ giới hạn giờ theo quy định.',
+      },
+      {
+        question: 'Cha mẹ có đi theo diện 家族滞在 được không?',
+        answer: 'Thông thường 家族滞在 chủ yếu áp dụng cho vợ/chồng và con. Cha mẹ không phải là đối tượng mặc định của diện này.',
+      },
+      {
+        question: 'Có thể xin visa trước rồi bổ sung COE sau không?',
+        answer: 'Với diện dài hạn như 家族滞在, quy trình được khuyến nghị là xin COE trước tại Nhật, sau đó dùng COE để xin visa ở nước ngoài.',
+      },
+      {
+        question: 'Checklist theo từng quan hệ nên hiểu thế nào?',
+        answer: 'Bộ giấy tờ nền vẫn xoay quanh hộ chiếu, ảnh, COE, giấy tờ quan hệ gia đình, chứng minh thu nhập và chỗ ở. Tuy nhiên vợ/chồng sẽ nặng về giấy đăng ký kết hôn và lịch sử hôn nhân; con sẽ nặng về giấy khai sinh, quyền nuôi dưỡng và giấy đồng ý của cha/mẹ còn lại nếu tình huống gia đình phức tạp.',
+      },
+    ],
+    officialLinks: [
+      { label: '在留資格認定証明書交付申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-1.html' },
+      { label: 'General visa: Dependent (family stays) — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/long/visa9.html' },
+      { label: 'Visa FAQ — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/faq.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Xác định đúng diện và đối tượng',
+        description: 'Kiểm tra xem người bảo lãnh tại Nhật có tư cách lưu trú phù hợp để đưa gia đình sang và người được bảo lãnh có thuộc nhóm vợ/chồng hoặc con hay không.',
+        documents: [
+          'Thẻ cư trú của người bảo lãnh tại Nhật',
+          'Giấy tờ gia đình: đăng ký kết hôn, khai sinh',
+        ],
+        tip: 'Nếu mục tiêu chỉ là sang thăm ngắn hạn, thủ tục đúng thường là visa 短期滞在 chứ không phải 家族滞在.',
+      },
+      {
+        step: 2,
+        title: 'Checklist theo từng quan hệ',
+        description: 'Ngoài bộ giấy tờ nền, hãy chuẩn bị thêm theo đúng quan hệ với người bảo lãnh để tránh thiếu hồ sơ.',
+        documents: [
+          'Vợ/chồng: giấy đăng ký kết hôn, bản dịch tiếng Nhật, giấy tờ chứng minh hôn nhân là thật nếu hồ sơ bị hỏi thêm, ảnh gia đình hoặc lịch sử liên lạc nếu cần giải trình.',
+          'Con: giấy khai sinh, bản dịch tiếng Nhật, hộ chiếu của con, giấy đồng ý hoặc giải trình về quyền nuôi dưỡng nếu cha mẹ không cùng đi hoặc đang sống ở hai nơi.',
+          'Con nhỏ đi theo mẹ hoặc cha sang Nhật: chuẩn bị rõ giấy tờ người chăm sóc, nơi ở, người chu cấp và kế hoạch sinh hoạt ở Nhật.',
+          'Nếu giấy tờ hộ tịch dùng tên tiếng Việt có dấu khác với hộ chiếu, nên kiểm tra kỹ cách phiên âm và bản dịch.',
+        ],
+        tip: 'Cơ quan xét hồ sơ có thể yêu cầu thêm nếu gia đình có lịch sử hôn nhân trước đây, con riêng, nhận nuôi, ly hôn hoặc giấy tờ cấp ở nhiều quốc gia khác nhau.',
+      },
+      {
+        step: 3,
+        title: 'Xin COE tại Nhật',
+        description: 'Người bảo lãnh hoặc người đại diện tại Nhật nộp hồ sơ xin 在留資格認定証明書 cho diện 家族滞在 tại ISA. COE là giấy tờ quan trọng để người thân nộp visa ở nước ngoài.',
+        documents: [
+          'Đơn xin COE',
+          'Giấy tờ chứng minh quan hệ gia đình',
+          'Giấy tờ thu nhập, thuế và việc làm của người bảo lãnh',
+        ],
+        tip: 'ISA nêu rõ COE không áp dụng cho mục đích 短期滞在 và thời gian chuẩn thường 1 đến 3 tháng.',
+        image: require('../../../../../assets/content/daily-life/ag_family-stay_s3.jpg'),
+        imageCaption: 'Nộp hồ sơ xin COE tại cục xuất nhập cảnh cho thân nhân muốn sang ở cùng',
+      },
+      {
+        step: 4,
+        title: 'Gửi COE cho người thân ở nước ngoài',
+        description: 'Sau khi được cấp COE, người bảo lãnh gửi bản điện tử hoặc bản in theo hướng dẫn hiện hành để người thân dùng khi xin visa tại cơ quan lãnh sự Nhật.',
+        documents: [
+          'COE được cấp',
+          'Hộ chiếu và ảnh của người được bảo lãnh',
+          'Mẫu đơn xin visa',
+        ],
+        tip: 'Từ 17/03/2023, MOFA/ISA cho phép dùng COE điện tử qua email hoặc bản in theo hướng dẫn hiện hành.',
+      },
+      {
+        step: 5,
+        title: 'Nộp visa và chuẩn bị nhập cảnh',
+        description: 'Người thân nộp hồ sơ visa tại nơi tiếp nhận theo nơi cư trú. Sau khi được cấp visa, khi nhập cảnh vẫn phải qua khâu xét landing permission ở sân bay Nhật.',
+        documents: [
+          'Hộ chiếu',
+          'Visa được cấp',
+          'COE và giấy tờ liên quan nếu nơi nộp yêu cầu',
+        ],
+        tip: 'Visa là điều kiện quan trọng nhưng không tự động bảo đảm được cho nhập cảnh; quyết định cuối cùng về landing permission được kiểm tra tại cửa khẩu.',
+        image: require('../../../../../assets/content/daily-life/ag_family-stay_s5.jpg'),
+        imageCaption: 'Nộp visa tại lãnh sự quán Nhật ở Việt Nam sau khi nhận COE từ người bảo lãnh',
+      },
+    ],
+  };
+
+export default familyStayInvitation;

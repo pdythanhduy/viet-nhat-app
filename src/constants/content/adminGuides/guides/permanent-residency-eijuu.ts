@@ -1,0 +1,138 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const permanentResidencyEijuu: AdminGuide = {
+    id: 'permanent-residency-eijuu',
+    category: 'immigration',
+    lastVerified: '2026-05-06',
+    priority: 'normal',
+    title: 'Xin vĩnh trú (永住許可申請)',
+    titleJp: '永住許可申請の要件と手続き',
+    icon: 'home',
+    color: '#1A5276',
+    description: 'Tư cách 永住者 (vĩnh trú) cho phép ở lại Nhật vô thời hạn và làm bất kỳ công việc nào — đây là tư cách lưu trú ổn định nhất dành cho người nước ngoài không có quốc tịch Nhật. Hồ sơ phức tạp và thời gian xét duyệt dài, nhưng điều kiện có thể đáp ứng sớm hơn nhiều người nghĩ.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '永住許可申請 do ISA xét toàn quốc; đây là hồ sơ xét tổng thể về cư trú, thuế, bảo hiểm, thu nhập, tuân thủ pháp luật và tình trạng hiện tại.',
+      sourceVerifiedAt: '2026-05-06',
+      nextReviewAt: '2026-09-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn có kỳ thuế, 年金, bảo hiểm, giao thông hoặc xuất nhập cảnh từng bị trễ/vi phạm.',
+        'Bạn đang giữ thời hạn lưu trú ngắn, sắp hết hạn hoặc hồ sơ đang chờ nhưng visa hiện tại sắp hết hạn.',
+        'Bạn dùng diện rút ngắn như spouse, 高度専門職 70/80 điểm hoặc hồ sơ gia đình/phụ thuộc phức tạp.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Nộp trước ngày hết hạn lưu trú hiện tại; nếu đang chờ 永住 mà visa hiện tại sắp hết hạn, vẫn phải nộp gia hạn riêng trước hạn.',
+      office: 'Cục xuất nhập cảnh có thẩm quyền theo nơi cư trú.',
+      doNow: [
+        'Rà lịch sử thuế, 年金, bảo hiểm và xuất nhập cảnh trước khi đặt mục tiêu nộp.',
+        'Dùng checklist ISA đúng diện của bạn, không dùng checklist truyền miệng.',
+        'Đặt nhắc hạn gia hạn visa hiện tại trong suốt thời gian chờ 永住.',
+      ],
+      bring: ['永住許可申請書', 'Ảnh thẻ 4cm x 3cm', 'Hộ chiếu', 'Thẻ cư trú', '理由書', '住民票', 'Giấy tờ thuế/thu nhập/年金/bảo hiểm', '身元保証書'],
+      ifLate: 'Nếu visa hiện tại sắp hết hạn, ưu tiên hỏi/nộp gia hạn thời hạn lưu trú; 永住 đang xét không tự kéo dài thời hạn lưu trú.',
+      officialSourceLabels: ['永住許可申請 — 出入国在留管理庁', '永住許可に関するガイドライン — 出入国在留管理庁'],
+    },
+    heroImage: require('../../../../../assets/content/daily-life/ag_permanent-residency_hero.jpg'),
+    heroImageCaption: '永住許可申請 - chuẩn bị hồ sơ cư trú, thuế và bảo hiểm trước khi nộp',
+    whoIsThisFor: [
+      'Người đã sống ở Nhật liên tục đủ năm theo điều kiện và muốn ổn định lâu dài.',
+      'Người có điểm số Highly Skilled Professional (高度専門職) từ 70+ điểm — đủ điều kiện xin sau 3 năm.',
+      'Vợ/chồng của người Nhật hoặc 永住者 đã sống ở Nhật liên tục từ 3 năm — đủ điều kiện sau 3 năm.',
+    ],
+    whenToDo: [
+      'Điều kiện thông thường: sống ở Nhật liên tục 10 năm, trong đó có ít nhất 5 năm làm việc hoặc có tư cách lao động.',
+      'Điều kiện rút ngắn: vợ/chồng người Nhật/永住者 (3 năm), Highly Skilled Professional từ 70 điểm (3 năm), 80 điểm (1 năm).',
+      '⚠️ Thay đổi từ 24/02/2026: tư cách lưu trú hiện tại phải là loại 5 năm (在留期間5年) — người đang giữ thẻ 3 năm không đủ điều kiện nộp. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027.',
+    ],
+    whereToDo: [
+      'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
+      'Municipal office nơi cư trú: xin giấy chứng nhận thu nhập, thuế cư trú và các giấy liên quan đến hộ gia đình.',
+      '税務署: xin chứng nhận thuế quốc gia theo checklist ISA nếu thuộc diện phải nộp.',
+      '年金事務所, Nenkin Net, municipal office hoặc công ty: chuẩn bị bằng chứng nộp lương hưu và bảo hiểm y tế.',
+    ],
+    documentsChecklist: [
+      { label: '永住許可申請書', required: true },
+      { label: 'Ảnh thẻ 4cm x 3cm', required: true, note: 'Theo chuẩn ảnh của ISA; người dưới 16 tuổi có thể khác.' },
+      { label: '理由書', required: true, note: 'Nếu viết ngoài tiếng Nhật, cần bản dịch tiếng Nhật.' },
+      { label: '住民票 toàn hộ', required: true, note: 'Không ghi My Number; giấy Nhật thường phải còn trong 3 tháng.' },
+      { label: 'Hộ chiếu và 在留カード', required: true },
+      { label: 'Giấy chứng minh nghề nghiệp, thu nhập, thuế, lương hưu và bảo hiểm', required: true, note: 'Số năm và loại giấy phụ thuộc tư cách lưu trú; dùng checklist ISA theo diện của bạn.' },
+      { label: '身元保証書 và giấy tờ người bảo lãnh', required: true, note: 'Thường là người Nhật, 永住者 hoặc 特別永住者 cư trú tại Nhật.' },
+      { label: '永住許可申請セルフチェックシート', required: false, note: 'ISA khuyến nghị dùng và nộp kèm để tự kiểm tra trước khi nộp.' },
+    ],
+    commonMistakes: [
+      'Nộp 永住 nhưng quên gia hạn tư cách lưu trú hiện tại khi sắp hết hạn.',
+      'Chuẩn bị giấy tờ theo kinh nghiệm người khác mà không dùng checklist đúng diện của mình.',
+      'Có kỳ thuế, 年金 hoặc bảo hiểm nộp trễ nhưng không kiểm tra trước khi nộp.',
+      'Nộp giấy chứng nhận Nhật đã quá 3 tháng hoặc giấy nước ngoài không kèm bản dịch tiếng Nhật.',
+      'Tưởng đủ số năm cư trú là chắc chắn được cấp; 永住 vẫn là hồ sơ xét tổng thể.',
+    ],
+    faq: [
+      {
+        question: 'Đang chờ 永住 mà visa hiện tại sắp hết hạn thì sao?',
+        answer: 'Phải nộp 在留期間更新許可申請 trước ngày hết hạn. ISA nêu rõ 永住 đang xét không tự kéo dài tư cách lưu trú hiện tại.',
+      },
+      {
+        question: 'Thời gian xét 永住 là bao lâu?',
+        answer: 'ISA công bố thời gian xử lý chuẩn là 4-6 tháng. Nếu thiếu giấy tờ hoặc bị yêu cầu bổ sung, thời gian thực tế có thể dài hơn.',
+      },
+      {
+        question: 'Có nên nộp khi hồ sơ thuế hoặc bảo hiểm chưa sạch không?',
+        answer: 'Không nên. Với 永住, lịch sử nộp thuế, lương hưu và bảo hiểm là phần bị kiểm tra rất kỹ. Nên rà trước tại municipal office, 税務署 và 年金事務所.',
+      },
+    ],
+    officialLinks: [
+      { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
+      { label: '永住許可に関するガイドライン — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Kiểm tra đủ điều kiện không',
+        description: 'ISA xét dựa trên 4 tiêu chí chính:\n\n**1. Thời gian cư trú liên tục:** không được rời Nhật quá 100 ngày/năm hoặc 1 lần quá 3 tháng trong giai đoạn xét.\n\n**2. Tuân thủ pháp luật:** không có tiền án, không vi phạm Luật Xuất nhập cảnh, không nợ thuế hay bảo hiểm.\n\n**3. Năng lực tài chính độc lập:** thu nhập và tài sản đủ để không cần hỗ trợ nhà nước — ~3 triệu yên/năm là tham khảo phổ biến. Từ tháng 6/2026 ISA có thể dùng My Number để kiểm tra thực tế lịch sử nộp thuế và bảo hiểm.\n\n**4. Tư cách lưu trú phải là loại 5 năm** (hiệu lực từ 24/02/2026): người đang giữ thẻ 3 năm không được nộp. Gia hạn lên 5 năm trước rồi mới nộp 永住. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027 — xác nhận lại với ISA.',
+        documents: [],
+        tip: 'Kiểm tra lịch sử xuất nhập cảnh trên passport trước — mỗi lần nhập cảnh có đóng dấu. Nếu đã ở Nhật qua nhiều visa, tính tổng thời gian thực tế ở Nhật, không phải thời gian hiệu lực visa.',
+      },
+      {
+        step: 2,
+        title: 'Chuẩn bị hồ sơ — phần cá nhân',
+        description: 'Hồ sơ cơ bản gồm:\n• Đơn xin 永住許可申請書\n• Lý do xin (理由書) — viết tay hoặc đánh máy, giải thích lý do muốn ở lại lâu dài và đóng góp cho xã hội Nhật\n• Ảnh 4×3 cm\n• Hộ chiếu (tất cả passport đã dùng từ khi sang Nhật)\n• Thẻ cư trú 在留カード\n• Giấy tờ tình trạng gia đình: 住民票 toàn hộ (世帯全員), giấy kết hôn, khai sinh con (nếu có)\n• Nhật ký nhập cảnh (xuất/nhập cảnh đủ theo passport)',
+        documents: [
+          'Đơn xin 永住許可申請書',
+          'Lý do xin (理由書)',
+          'Hộ chiếu tất cả đã dùng kể từ khi sang Nhật',
+          '在留カード',
+          '住民票 (世帯全員分)',
+          'Giấy tờ gia đình nếu có',
+        ],
+        tip: '理由書 không có mẫu cố định — viết trung thực, cụ thể về công việc, gia đình, đóng góp cộng đồng và kế hoạch tương lai tại Nhật. Một trang A4 thường đủ.',
+      },
+      {
+        step: 3,
+        title: 'Chuẩn bị hồ sơ — phần tài chính và thuế',
+        description: 'Đây là phần quan trọng nhất và thường bị thiếu:\n• 源泉徴収票 3 năm gần nhất (giấy tóm tắt thu nhập và thuế đã nộp do công ty cấp)\n• 確定申告書 控え 3 năm (nếu tự khai thuế)\n• Giấy xác nhận nộp thuế đầy đủ: 納税証明書 その1 và その2 — xin tại tax office (税務署) gần nhà\n• Giấy xác nhận nộp 住民税 đầy đủ: xin tại municipal office\n• Giấy xác nhận đóng 国民健康保険 hoặc 社会保険 — xin tại municipal office hoặc từ công ty\n• Sổ tiết kiệm hoặc sao kê tài khoản 6 tháng gần nhất (chứng minh tài chính)',
+        documents: [
+          '源泉徴収票 3 năm gần nhất',
+          '納税証明書 その1・その2 (từ 税務署)',
+          'Giấy xác nhận nộp 住民税 đầy đủ (từ municipal office)',
+          'Giấy xác nhận đóng bảo hiểm y tế và 年金',
+          'Sao kê tài khoản ngân hàng 6 tháng',
+        ],
+        tip: 'Nếu có bất kỳ kỳ nào trễ hạn nộp thuế hoặc bảo hiểm — dù chỉ 1 tháng — ISA có thể từ chối toàn bộ đơn. Kiểm tra và thanh toán hết nợ đọng trước khi nộp đơn.',
+      },
+      {
+        step: 4,
+        title: 'Nộp hồ sơ và chờ kết quả',
+        description: 'Nộp tại ISA có thẩm quyền theo địa chỉ cư trú hoặc theo kênh nộp được ISA chấp nhận nếu bạn thuộc đối tượng dùng được. Thời gian xử lý chuẩn ISA công bố là 4-6 tháng; hồ sơ thiếu hoặc cần bổ sung có thể lâu hơn. Trong thời gian chờ, tư cách lưu trú hiện tại vẫn hiệu lực — nhớ gia hạn đúng hạn nếu hết hạn trong khi đang chờ.\n\nNếu bị từ chối: thường cần chờ cải thiện hồ sơ (thu nhập, tuân thủ thuế, thời gian cư trú thêm) rồi nộp lại sau khi đã xác định điểm yếu.',
+        documents: [
+          'Toàn bộ hồ sơ từ bước 2 và 3',
+          'Phong bì dán tem có ghi địa chỉ của bạn (để ISA gửi kết quả về nhà)',
+        ],
+        tip: 'Sau khi nhận 永住者, thẻ cư trú có hiệu lực 7 năm và cần gia hạn thẻ vật lý định kỳ — nhưng tư cách lưu trú không hết hạn. Vẫn phải thực hiện các nghĩa vụ như nộp thuế, cập nhật địa chỉ và không vi phạm pháp luật để giữ tư cách này.',
+      },
+    ],
+  };
+
+export default permanentResidencyEijuu;

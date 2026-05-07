@@ -1,0 +1,138 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const trafficAccidentResponse: AdminGuide = {
+    id: 'traffic-accident-response',
+    category: 'traffic',
+    lastVerified: '2026-05-03',
+    priority: 'normal',
+    title: 'Khi gặp tai nạn giao thông',
+    titleJp: '交通事故に遭ったとき',
+    icon: 'alert-circle',
+    color: '#C0392B',
+    searchKeywords: [
+      'tai nan',
+      'tai nan giao thong',
+      'jiko',
+      '110',
+      '119',
+      'canh sat',
+      'cuu thuong',
+      'bao hiem',
+      'dashcam',
+      'hit and run',
+      '交通事故',
+      '事故',
+      '交通事故証明書',
+      '救急',
+      '警察',
+    ],
+    description: 'Checklist xử lý ngay tại hiện trường tai nạn ở Nhật: cứu người, gọi 119/110, ghi chứng cứ, báo bảo hiểm và lấy 交通事故証明書.',
+    heroImage: require('../../../../../assets/content/daily-life/ag_bicycle-rules_hero.jpg'),
+    heroImageCaption: 'Đường dân sinh tại Nhật — khi xảy ra 交通事故, ưu tiên an toàn, cứu người và báo cảnh sát',
+    whoIsThisFor: [
+      'Người lái ô tô, xe máy, xe đạp hoặc xe thuê tại Nhật.',
+      'Người đi bộ, hành khách, người chứng kiến hoặc nạn nhân trong tai nạn giao thông.',
+      'Người có bảo hiểm xe, bảo hiểm xe đạp hoặc cần chuẩn bị trước các bước liên hệ bảo hiểm sau tai nạn.',
+    ],
+    whenToDo: [
+      'Ngay khi xảy ra va chạm, dù là người gây tai nạn, nạn nhân hay người chứng kiến.',
+      'Khi có người bị thương, có nguy cơ cháy nổ, xe nằm giữa đường hoặc giao thông bị cản trở.',
+      'Trong ngày xảy ra tai nạn: báo bảo hiểm, đi khám nếu có đau/choáng và lưu lại toàn bộ chứng cứ.',
+    ],
+    whereToDo: [
+      'Tại hiện trường, nhưng chỉ sau khi đã đứng ở vị trí an toàn và tránh gây tai nạn tiếp theo.',
+      'Gọi 119 nếu có người bị thương hoặc cần cứu hộ; gọi 110 để báo cảnh sát về tai nạn.',
+      'Sau hiện trường: bệnh viện/phòng khám, công ty bảo hiểm, 自動車安全運転センター hoặc trung tâm tư vấn tai nạn địa phương nếu cần.',
+    ],
+    estimatedTime: 'Xử lý hiện trường cần làm ngay trong vài phút đầu. Việc khám bệnh, lấy 交通事故証明書, claim bảo hiểm và thương lượng bồi thường có thể kéo dài nhiều ngày đến nhiều tuần.',
+    fees: [
+      'Gọi 110/119 là cuộc gọi khẩn cấp; không coi đây là dịch vụ tư vấn thông thường.',
+      'Chi phí khám chữa bệnh, sửa xe, kéo xe, chứng nhận tai nạn và luật sư phụ thuộc bảo hiểm, lỗi tai nạn và từng trường hợp.',
+      'Không tự hứa trả tiền mặt hoặc ký thỏa thuận tại hiện trường trước khi hỏi công ty bảo hiểm/đơn vị tư vấn.',
+    ],
+    documentsChecklist: [
+      { label: 'Thông tin vị trí tai nạn', required: true, note: 'Địa chỉ, giao lộ, biển hiệu gần đó, hướng di chuyển, lane/đường đang đứng.' },
+      { label: 'Thông tin đối phương', required: true, note: 'Tên, địa chỉ, số điện thoại, biển số, loại xe, công ty bảo hiểm nếu biết.' },
+      { label: 'Ảnh/video hiện trường', required: true, note: 'Chụp xe, vết hư hỏng, vị trí dừng, biển báo, đèn tín hiệu, vết phanh và thời tiết nếu an toàn.' },
+      { label: 'Thông tin nhân chứng', required: false, note: 'Tên, số điện thoại và ghi chú lời chứng nếu người chứng kiến đồng ý.' },
+      { label: 'Giấy tờ cá nhân và xe', required: false, note: 'Bằng lái, thẻ cư trú, 車検証, 自賠責保険証明書, thông tin 任意保険 hoặc bảo hiểm xe đạp.' },
+      { label: '診断書, hóa đơn khám bệnh và 交通事故証明書', required: false, note: 'Cần cho claim bảo hiểm/bồi thường; 交通事故証明書 không cấp nếu không báo cảnh sát.' },
+    ],
+    commonMistakes: [
+      'Rời hiện trường khi chưa cứu người, chưa phòng nguy hiểm và chưa báo cảnh sát.',
+      'Nghĩ va chạm nhẹ hoặc chỉ hỏng đồ thì không cần báo cảnh sát.',
+      'Đứng giữa đường để chụp ảnh quá lâu, làm tăng nguy cơ tai nạn tiếp theo.',
+      'Tự thương lượng tiền mặt hoặc ký giấy nhận lỗi tại chỗ trước khi hỏi bảo hiểm.',
+      'Không đi khám vì thấy chỉ đau nhẹ; triệu chứng cổ/lưng/đầu có thể nặng hơn sau đó.',
+      'Quên lưu camera hành trình hoặc thông tin nhân chứng trước khi dữ liệu bị ghi đè/mất.',
+    ],
+    faq: [
+      {
+        question: 'Tai nạn rất nhẹ, chỉ trầy xe thì có cần gọi cảnh sát không?',
+        answer: 'Có. SONPO và các nguồn chính thức đều nhấn mạnh tai nạn giao thông cần báo cảnh sát. Nếu không báo, bạn có thể không lấy được 交通事故証明書 và việc claim bảo hiểm sẽ khó hơn.',
+      },
+      {
+        question: 'Có người bị thương thì gọi 119 hay 110 trước?',
+        answer: 'Nếu có người bị thương hoặc nguy hiểm đến tính mạng, ưu tiên gọi 119 hoặc nhờ người xung quanh gọi 119 ngay. Đồng thời phải bảo đảm cảnh sát được báo qua 110; nếu có nhiều người, chia nhau gọi.',
+      },
+      {
+        question: 'Có nên xin lỗi hoặc nhận lỗi ngay tại hiện trường không?',
+        answer: 'Có thể nói lời quan tâm như “大丈夫ですか” để kiểm tra tình trạng, nhưng không nên tự nhận tỷ lệ lỗi, hứa bồi thường hoặc ký thỏa thuận. Hãy để cảnh sát ghi nhận sự việc và hỏi công ty bảo hiểm trước.',
+      },
+      {
+        question: 'Bị xe bỏ chạy thì làm gì?',
+        answer: 'Không đuổi theo nếu nguy hiểm. Ghi biển số, màu xe, hướng đi, ảnh/video nếu có, gọi 110 và đi khám nếu bị thương. Dashcam và nhân chứng rất quan trọng trong trường hợp này.',
+      },
+    ],
+    officialLinks: [
+      { label: '事故にあったらまずどうする？ — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/accident/correspondence/index.html' },
+      { label: '110番通報6つのポイント — 神奈川県警察', url: 'https://www.police.pref.kanagawa.jp/kurashi/110ban_riyo/mesg2005.html' },
+      { label: '119番緊急通報 — 総務省消防庁', url: 'https://www.fdma.go.jp/mission/enrichment/kyukyumusen_kinkyutuhou/119.html' },
+      { label: '交通事故対応等 — 日本損害保険協会', url: 'https://soudanguide.sonpo.or.jp/car/q025.html' },
+      { label: '交通事故証明書 — 自動車安全運転センター', url: 'https://www.jsdc.or.jp/certificate/tabid/112/Default.aspx' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Dừng lại, bảo vệ mạng người và tránh tai nạn tiếp theo',
+        description: 'Dừng xe ngay khi an toàn, bật hazard nếu có, đưa bản thân và người khác ra vị trí an toàn nếu có thể. Nếu có người bị thương, gọi 119 hoặc nhờ người xung quanh gọi. Không di chuyển người bị thương nặng trừ khi đang có nguy cơ bị xe khác tông, cháy nổ hoặc nguy hiểm trực tiếp.',
+        documents: ['Vị trí chính xác của tai nạn', 'Số người bị thương', 'Mô tả ngắn tình trạng người bị thương'],
+        tip: 'Nếu bạn cũng bị choáng, hãy nhờ người gần đó gọi 119/110 và đứng ở nơi an toàn trước khi chụp ảnh hay trao đổi thông tin.',
+      },
+      {
+        step: 2,
+        title: 'Gọi 110 và báo đúng thông tin',
+        description: 'Báo cảnh sát rằng có 交通事故, nói rõ thời điểm, vị trí, có người bị thương không, xe liên quan và tình trạng hiện trường. Khi gọi bằng điện thoại di động, hãy đứng yên ở nơi an toàn và không tắt máy vì cảnh sát có thể gọi lại.',
+        documents: ['Địa chỉ/giao lộ/landmark', 'Biển số và loại xe nếu thấy được', 'Tên và số điện thoại của người gọi'],
+        tip: 'Theo cảnh sát, 110 là số khẩn cấp cho sự kiện hoặc 事故. Nếu chỉ cần tư vấn sau đó, dùng police station hoặc #9110 thay vì gọi 110.',
+      },
+      {
+        step: 3,
+        title: 'Ghi chứng cứ và thông tin đối phương',
+        description: 'Khi đã an toàn và cảnh sát/119 đã được gọi, chụp ảnh xe, vết hỏng, vị trí, biển báo, đèn tín hiệu, dấu phanh và điều kiện đường. Trao đổi thông tin cơ bản với đối phương, lưu thông tin nhân chứng và bảo vệ dữ liệu dashcam.',
+        documents: [
+          'Tên, địa chỉ, số điện thoại của đối phương',
+          'Biển số, loại xe, công ty bảo hiểm nếu biết',
+          'Ảnh/video hiện trường',
+          'Thông tin nhân chứng nếu có',
+        ],
+        tip: 'Không ký giấy 示談, không nhận tiền mặt và không hứa “tự xử lý riêng” tại hiện trường. Việc này có thể ảnh hưởng đến bảo hiểm.',
+      },
+      {
+        step: 4,
+        title: 'Báo bảo hiểm và đi khám',
+        description: 'Sau khi xử lý hiện trường, gọi công ty bảo hiểm hoặc đại lý càng sớm càng tốt. Nếu có đau đầu, đau cổ/lưng, tê, choáng hoặc va đập mạnh, hãy đi khám sớm và giữ hóa đơn/診断書. MLIT lưu ý nếu khám quá muộn, quan hệ giữa tai nạn và thương tích có thể khó được công nhận.',
+        documents: ['Số hợp đồng bảo hiểm', 'Số vụ việc/đồn cảnh sát xử lý nếu có', '診断書 và hóa đơn khám bệnh', 'Ảnh hư hỏng xe/vật dụng'],
+        tip: 'Nếu sửa xe, hỏi bảo hiểm trước khi tự đặt sửa lớn. Một số bảo hiểm cần xác nhận thiệt hại trước.',
+      },
+      {
+        step: 5,
+        title: 'Lấy 交通事故証明書 và theo dõi hồ sơ',
+        description: 'Khi cần claim bảo hiểm/bồi thường, xin 交通事故証明書 qua 自動車安全運転センター theo hướng dẫn. Lưu timeline liên hệ với cảnh sát, bệnh viện, bảo hiểm, garage và đối phương cho đến khi hồ sơ kết thúc.',
+        documents: ['Thông tin cảnh sát đã xử lý tai nạn', 'Thông tin người liên quan', 'Hồ sơ khám bệnh/sửa xe', 'Biên nhận và email từ bảo hiểm'],
+        tip: '交通事故証明書 không được cấp cho tai nạn không báo cảnh sát. Đây là lý do không nên bỏ qua bước gọi 110 dù tai nạn nhìn có vẻ nhẹ.',
+      },
+    ],
+  };
+
+export default trafficAccidentResponse;

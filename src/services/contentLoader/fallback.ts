@@ -33,4 +33,7 @@ export const BUNDLED: Record<string, BundledLoader> = {
 
   'dailyLife.topics': () => require('../../constants/content/dailyLife').DAILY_LIFE_TOPICS,
   'dailyLife.meta': () => require('../../constants/content/dailyLife').DAILY_LIFE_CONTENT_META,
+
+  'adminGuides.all': () => require('../../constants/content/adminGuides').ADMIN_GUIDES,
+  'adminGuides.meta': () => require('../../constants/content/adminGuides').ADMIN_CONTENT_META,
 };
