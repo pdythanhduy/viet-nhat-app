@@ -7,8 +7,8 @@ import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AudioButton from '../components/AudioButton';
 import { Colors } from '../constants/colors';
-import { ESSENTIAL_PHRASES, GRAMMAR_PATTERNS, JAPANESE_WORDS } from '../constants/content/japanese';
 import type { EssentialPhrase, PhraseCategory } from '../types/content';
+import { useEssentialPhrases, useGrammarPatterns, useJapaneseWords } from '../hooks/useJapaneseContent';
 import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
 import { stopJapaneseAudio } from '../utils/audio';
 import { loadJapaneseAudioPreferences } from '../utils/audioPreferences';
@@ -83,12 +83,16 @@ function getCategoryTags(name: string): TagId[] {
 export default function JapaneseScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
+  const words = useJapaneseWords();
+  const grammar = useGrammarPatterns();
+  const phrases = useEssentialPhrases();
   const [showRomaji, setShowRomaji] = useState(true);
   const [expanded, setExpanded] = useState<string | null>('Chào hỏi cơ bản');
   const [search, setSearch] = useState('');
   const [selectedTag, setSelectedTag] = useState<TagId>('all');
   const [dialogueOnly, setDialogueOnly] = useState(false);
-  const [wordIndex, setWordIndex] = useState(() => getTodayWordIndex(JAPANESE_WORDS.length));
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordIndexInitialized, setWordIndexInitialized] = useState(false);
   const [progress, setProgress] = useState<ProgressData>({});
   const [savedPhrases, setSavedPhrases] = useState(new Set<string>());
   const [savedDialogues, setSavedDialogues] = useState(new Set<string>());
@@ -99,17 +103,24 @@ export default function JapaneseScreen() {
   const [expandedPattern, setExpandedPattern] = useState<string | null>(null);
 
   React.useEffect(() => {
+    if (!wordIndexInitialized && words && words.length > 0) {
+      setWordIndex(getTodayWordIndex(words.length));
+      setWordIndexInitialized(true);
+    }
+  }, [words, wordIndexInitialized]);
+
+  React.useEffect(() => {
     if (route.params?.initialSearch) {
       setSearch(route.params.initialSearch);
     }
   }, [route.params?.initialSearch]);
 
   React.useEffect(() => {
-    if (!autoPlayDialogue || !expanded) return;
-    const category = ESSENTIAL_PHRASES.find((item) => item.category === expanded);
+    if (!autoPlayDialogue || !expanded || !phrases) return;
+    const category = phrases.find((item) => item.category === expanded);
     if (!category?.dialogue) return;
     void playDialogueSequence(expanded);
-  }, [autoPlayDialogue, expanded]);
+  }, [autoPlayDialogue, expanded, phrases]);
 
   useFocusEffect(useCallback(() => {
     return () => { void stopJapaneseAudio(); };
@@ -128,16 +139,17 @@ export default function JapaneseScreen() {
     });
   }, []));
 
-  const currentWord = JAPANESE_WORDS[wordIndex];
-
-  const categories = useMemo(() => ESSENTIAL_PHRASES.filter((category) => {
-    const tags = getCategoryTags(category.category);
-    const dialogueId = `dialogue:${category.category}`;
-    const hasSaved = savedDialogues.has(dialogueId) || category.phrases.some((phrase) => savedPhrases.has(phrase.jp));
-    const tagOk = selectedTag === 'all' || (selectedTag === 'saved' ? hasSaved : tags.includes(selectedTag));
-    const dialogueOk = !dialogueOnly || Boolean(category.dialogue);
-    return tagOk && dialogueOk;
-  }), [dialogueOnly, savedDialogues, savedPhrases, selectedTag]);
+  const categories = useMemo(() => {
+    if (!phrases) return [];
+    return phrases.filter((category) => {
+      const tags = getCategoryTags(category.category);
+      const dialogueId = `dialogue:${category.category}`;
+      const hasSaved = savedDialogues.has(dialogueId) || category.phrases.some((phrase) => savedPhrases.has(phrase.jp));
+      const tagOk = selectedTag === 'all' || (selectedTag === 'saved' ? hasSaved : tags.includes(selectedTag));
+      const dialogueOk = !dialogueOnly || Boolean(category.dialogue);
+      return tagOk && dialogueOk;
+    });
+  }, [phrases, dialogueOnly, savedDialogues, savedPhrases, selectedTag]);
 
   const searchResults = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -146,6 +158,23 @@ export default function JapaneseScreen() {
       .filter((phrase) => phrase.jp.toLowerCase().includes(q) || phrase.romaji.toLowerCase().includes(q) || phrase.vn.toLowerCase().includes(q) || category.category.toLowerCase().includes(q))
       .map((phrase) => ({ category, phrase })));
   }, [categories, search]);
+
+  if (!words || !grammar || !phrases) {
+    return (
+      <SafeAreaView style={styles.container} edges={['top']}>
+        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>Đang tải...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  // Aliases keep the rest of the component unchanged after migration to hooks.
+  const JAPANESE_WORDS = words;
+  const GRAMMAR_PATTERNS = grammar;
+  const ESSENTIAL_PHRASES = phrases;
+  const currentWord = JAPANESE_WORDS[wordIndex];
 
   const copyPhrase = (jp: string, romaji: string, vn: string) => {
     Clipboard.setStringAsync(`${jp}\n${romaji}\n${vn}`).catch(() => {});
@@ -604,6 +633,10 @@ const styles = StyleSheet.create({
   quickRow: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
   quickBtn: { flex: 1, minWidth: '45%', flexDirection: 'row', gap: 4, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 8, paddingHorizontal: 6 },
   quickBtnText: { color: Colors.white, fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
+
+  // Loading
+  loadingContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  loadingText: { color: Colors.textMuted, fontSize: 14 },
 
   // Content
   content: { flex: 1 },

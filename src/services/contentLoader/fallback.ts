@@ -3,6 +3,7 @@ type BundledLoader = () => unknown;
 export const BUNDLED: Record<string, BundledLoader> = {
   'japanese.words': () => require('../../constants/content/japanese/words').JAPANESE_WORDS,
   'japanese.grammar': () => require('../../constants/content/japanese/grammar').GRAMMAR_PATTERNS,
+  'japanese.phrases.all': () => require('../../constants/content/japanese/phrases').ALL_PHRASE_CATEGORIES,
   'japanese.phrases.meta': () => require('../../constants/content/japanese/phrases').PHRASE_CATEGORY_META,
   'japanese.phrases.greetings': () => require('../../constants/content/japanese/phrases/greetings').default,
   'japanese.phrases.comprehension': () => require('../../constants/content/japanese/phrases/comprehension').default,
