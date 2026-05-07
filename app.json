@@ -25,7 +25,6 @@
         "backgroundColor": "#185FA5"
       },
       "package": "com.thanhduy.camnangvietnhat",
-      "versionCode": 2,
       "permissions": [
         "RECEIVE_BOOT_COMPLETED"
       ]
