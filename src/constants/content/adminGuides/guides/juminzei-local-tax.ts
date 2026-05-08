@@ -73,8 +73,8 @@ const juminzeiLocalTax: AdminGuide = {
         vn: 'Tôi đang thất nghiệp, có thể xin giảm thuế không?',
       },
       {
-        jp: '支払いを分割にできますか。',
-        romaji: 'Shiharai o bunkatsu ni dekimasu ka.',
+        jp: '支払いを分割払いにできますか。',
+        romaji: 'Shiharai o bunkatsubarai ni dekimasu ka.',
         vn: 'Tôi có thể chia nhỏ kỳ đóng được không?',
       },
       {

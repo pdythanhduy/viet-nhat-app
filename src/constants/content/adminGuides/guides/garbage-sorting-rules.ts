@@ -73,7 +73,7 @@ const garbageSortingRules: AdminGuide = {
         vn: 'Tôi muốn vứt rác cồng kềnh, làm thế nào ạ?',
       },
       {
-        jp: '粗大ごみシール(処理券)はどこで買えますか。',
+        jp: '粗大ごみシール（処理券）はどこで買えますか。',
         romaji: 'Sodai gomi shiiru (shoriken) wa doko de kaemasu ka.',
         vn: 'Tem 粗大ごみ (phiếu xử lý) mua ở đâu ạ?',
         note: 'Thường bán ở konbini hoặc 市役所.',
@@ -84,9 +84,9 @@ const garbageSortingRules: AdminGuide = {
         vn: 'Nếu lỡ vứt sai loại rác thì phải làm sao?',
       },
       {
-        jp: '外国語で書かれた分別ルールはありますか。',
-        romaji: 'Gaikokugo de kakareta bunbetsu ruuru wa arimasu ka.',
-        vn: 'Có quy định phân loại bằng tiếng nước ngoài không?',
+        jp: '外国語版のごみ分別ガイドはありますか。',
+        romaji: 'Gaikokugo-ban no gomi bunbetsu gaido wa arimasu ka.',
+        vn: 'Có hướng dẫn phân loại rác bằng tiếng nước ngoài không?',
       },
     ],
     officialLinks: [

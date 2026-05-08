@@ -97,9 +97,9 @@ const healthInsurance: AdminGuide = {
         vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
       },
       {
-        jp: '保険料は月にいくらですか。',
-        romaji: 'Hokenryou wa tsuki ni ikura desu ka.',
-        vn: 'Phí bảo hiểm mỗi tháng bao nhiêu ạ?',
+        jp: '保険料は毎月いくらですか。',
+        romaji: 'Hokenryou wa maitsuki ikura desu ka.',
+        vn: 'Phí bảo hiểm hàng tháng bao nhiêu ạ?',
       },
       {
         jp: '保険証はいつごろ届きますか。',

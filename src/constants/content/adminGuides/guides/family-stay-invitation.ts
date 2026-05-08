@@ -101,9 +101,9 @@ const familyStayInvitation: AdminGuide = {
         vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
       },
       {
-        jp: '結婚証明書(出生証明書)は翻訳が必要ですか。',
-        romaji: 'Kekkon shoumeisho (shussei shoumeisho) wa honyaku ga hitsuyou desu ka.',
-        vn: 'Giấy đăng ký kết hôn (giấy khai sinh) có cần dịch sang tiếng Nhật không?',
+        jp: '結婚証明書（または出生証明書）は翻訳が必要ですか。',
+        romaji: 'Kekkon shoumeisho (mata wa shussei shoumeisho) wa honyaku ga hitsuyou desu ka.',
+        vn: 'Giấy đăng ký kết hôn (hoặc giấy khai sinh) có cần dịch sang tiếng Nhật không?',
       },
       {
         jp: '審査結果はどのくらいかかりますか。',
@@ -117,9 +117,9 @@ const familyStayInvitation: AdminGuide = {
         note: 'Trả lời thường: gửi về VN để người nhà nộp ở Đại sứ quán Nhật xin visa.',
       },
       {
-        jp: '私の収入で扶養できる証明はどう書けばいいですか。',
-        romaji: 'Watashi no shuunyuu de fuyou dekiru shoumei wa dou kakeba ii desu ka.',
-        vn: 'Phần chứng minh thu nhập đủ nuôi viết thế nào ạ?',
+        jp: '扶養できることを証明するには、どう書けばいいですか。',
+        romaji: 'Fuyou dekiru koto o shoumei suru ni wa, dou kakeba ii desu ka.',
+        vn: 'Để chứng minh tôi đủ khả năng nuôi, viết thế nào ạ?',
       },
     ],
     officialLinks: [

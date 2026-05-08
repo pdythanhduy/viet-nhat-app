@@ -95,8 +95,8 @@ const pensionExemptionRefund: AdminGuide = {
         vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
       },
       {
-        jp: '基礎年金番号がわかりません。確認できますか。',
-        romaji: 'Kiso nenkin bangou ga wakarimasen. Kakunin dekimasu ka.',
+        jp: '基礎年金番号がわかりません。教えていただけますか。',
+        romaji: 'Kiso nenkin bangou ga wakarimasen. Oshiete itadakemasu ka.',
         vn: 'Tôi không nhớ 基礎年金番号. Anh/chị tra giúp được không?',
       },
       {

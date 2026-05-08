@@ -96,9 +96,9 @@ const first7DaysInJapan: AdminGuide = {
         vn: 'Tôi phải làm xong trước bao giờ?',
       },
       {
-        jp: 'ここで全部できますか、それとも他の窓口に行きますか。',
-        romaji: 'Koko de zenbu dekimasu ka, soretomo hoka no madoguchi ni ikimasu ka.',
-        vn: 'Có thể làm hết ở đây hay phải sang quầy khác?',
+        jp: 'ここで全部できますか。それとも、他の窓口にも行く必要がありますか。',
+        romaji: 'Koko de zenbu dekimasu ka. Soretomo, hoka no madoguchi ni mo iku hitsuyou ga arimasu ka.',
+        vn: 'Có thể làm hết ở đây hay tôi cần sang quầy khác nữa?',
       },
     ],
     officialLinks: [

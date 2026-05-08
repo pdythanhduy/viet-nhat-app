@@ -104,9 +104,9 @@ const addressChange: AdminGuide = {
         vn: 'Tôi chuyển từ thành phố khác. Có cần 転出証明書 không?',
       },
       {
-        jp: '住所変更後、忘れないように他に何の手続きが必要ですか。',
-        romaji: 'Juusho henkou go, wasurenai you ni hoka ni nani no tetsuzuki ga hitsuyou desu ka.',
-        vn: 'Sau khi đổi địa chỉ, còn thủ tục nào khác cần làm để khỏi quên?',
+        jp: '住所変更の後、他に必要な手続きはありますか。',
+        romaji: 'Juusho henkou no ato, hoka ni hitsuyou na tetsuzuki wa arimasu ka.',
+        vn: 'Sau khi đổi địa chỉ, còn thủ tục nào khác cần làm không?',
       },
       {
         jp: '足りない書類を紙に書いていただけますか。',

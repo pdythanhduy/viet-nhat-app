@@ -113,9 +113,9 @@ const residenceCardValidity: AdminGuide = {
         vn: 'Khi đến nhận cần mang theo gì?',
       },
       {
-        jp: '手数料はかかりますか。いくらですか。',
-        romaji: 'Tesuuryou wa kakarimasu ka. Ikura desu ka.',
-        vn: 'Có mất phí không? Bao nhiêu?',
+        jp: '手数料はいくらかかりますか。',
+        romaji: 'Tesuuryou wa ikura kakarimasu ka.',
+        vn: 'Phí thủ tục là bao nhiêu ạ?',
       },
     ],
     officialLinks: [
