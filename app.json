@@ -42,8 +42,7 @@
           "sounds": []
         }
       ],
-      "expo-secure-store",
-      "@react-native-firebase/app"
+      "expo-secure-store"
     ],
     "extra": {
       "eas": {
