@@ -16,11 +16,14 @@ import { useFocusEffect, useNavigation, useRoute, RouteProp } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { loadBookmarks, saveBookmarks, Bookmark, toggleBookmarkPin } from '../utils/bookmarks';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList, TabParamList } from '../navigation/AppNavigator';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type SavedFilter = 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue';
-type RouteType = RouteProp<RootStackParamList, 'Saved'>;
+// Saved is a bottom-tab now (was a stack screen). Filter param still flows
+// in via the nested-navigator pattern: navigation.navigate('MainTabs',
+// { screen: 'Saved', params: { filter: 'guide' } }).
+type RouteType = RouteProp<TabParamList, 'Saved'>;
 
 export default function SavedScreen() {
   const navigation = useNavigation<NavigationProp>();

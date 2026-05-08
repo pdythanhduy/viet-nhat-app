@@ -53,7 +53,7 @@ export type TabParamList = {
   Admin: undefined;
   Jobs: undefined;
   Japanese: { initialSearch?: string } | undefined;
-  Settings: undefined;
+  Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
 };
 
 export type RootStackParamList = {
@@ -86,7 +86,7 @@ export type RootStackParamList = {
   JourneyChecklist: undefined;
   EmergencyHub: undefined;
   Search: { initialQuery?: string } | undefined;
-  Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
+  Settings: undefined;
   ImportantDates: undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
@@ -142,7 +142,7 @@ function TabNavigator() {
           else if (route.name === 'Admin') iconName = focused ? 'document-text' : 'document-text-outline';
           else if (route.name === 'Jobs') iconName = focused ? 'briefcase' : 'briefcase-outline';
           else if (route.name === 'Japanese') iconName = focused ? 'language' : 'language-outline';
-          else if (route.name === 'Settings') iconName = focused ? 'settings' : 'settings-outline';
+          else if (route.name === 'Saved') iconName = focused ? 'bookmark' : 'bookmark-outline';
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: Colors.primary,
@@ -166,13 +166,9 @@ function TabNavigator() {
       <Tab.Screen name="Jobs" component={JobsScreen} options={{ tabBarLabel: 'Việc làm' }} />
       <Tab.Screen name="Japanese" component={JapaneseScreen} options={{ tabBarLabel: 'Tiếng Nhật' }} />
       <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{
-          tabBarLabel: 'Cài đặt',
-          ...primaryTabHeaderOptions,
-          headerTitle: 'Cài đặt',
-        }}
+        name="Saved"
+        component={SavedScreen}
+        options={{ tabBarLabel: 'Đã lưu' }}
       />
     </Tab.Navigator>
   );
@@ -384,7 +380,11 @@ export default function AppNavigator() {
         <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />
         <Stack.Screen name="EmergencyHub" component={EmergencyHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Saved" component={SavedScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Cài đặt' }}
+        />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryReading" component={StoryReadingScreen} options={{ headerShown: false }} />

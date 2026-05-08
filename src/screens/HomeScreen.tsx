@@ -329,8 +329,8 @@ export default function HomeScreen() {
             <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Search')}>
               <Ionicons name="search-outline" size={22} color={Colors.white} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Saved')}>
-              <Ionicons name="bookmark-outline" size={22} color={Colors.white} />
+            <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Settings')}>
+              <Ionicons name="settings-outline" size={22} color={Colors.white} />
             </TouchableOpacity>
           </View>
         </View>
@@ -703,7 +703,7 @@ export default function HomeScreen() {
                       </Text>
                     </TouchableOpacity>
                   ) : null}
-                  <TouchableOpacity onPress={() => navigation.navigate('Saved')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Saved' })}>
                     <Text style={styles.sectionLink}>Xem tất cả</Text>
                   </TouchableOpacity>
                 </View>
@@ -743,7 +743,7 @@ export default function HomeScreen() {
                       </Text>
                     </TouchableOpacity>
                   ) : null}
-                  <TouchableOpacity onPress={() => navigation.navigate('Saved')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Saved' })}>
                     <Text style={styles.sectionLink}>Quản lý ghim</Text>
                   </TouchableOpacity>
                 </View>
@@ -778,14 +778,14 @@ export default function HomeScreen() {
             <>
               <View style={styles.sectionTitleRow}>
                 <Text style={styles.sectionTitle}>Bộ note mang theo</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Saved')}>
+                <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Saved' })}>
                   <Text style={styles.sectionLink}>Mở Đã lưu</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.noteGrid}>
                 <TouchableOpacity
                   style={styles.noteCard}
-                  onPress={() => navigation.navigate('Saved', { filter: 'guide' })}
+                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'guide' } })}
                 >
                   <View style={[styles.noteIconBg, { backgroundColor: Colors.accent }]}>
                     <Ionicons name="document-text-outline" size={20} color={Colors.primary} />
@@ -796,7 +796,7 @@ export default function HomeScreen() {
 
                 <TouchableOpacity
                   style={styles.noteCard}
-                  onPress={() => navigation.navigate('Saved', { filter: 'daily-life' })}
+                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'daily-life' } })}
                 >
                   <View style={[styles.noteIconBg, { backgroundColor: Colors.successLight }]}>
                     <Ionicons name="sunny-outline" size={20} color={Colors.success} />
@@ -807,7 +807,7 @@ export default function HomeScreen() {
 
                 <TouchableOpacity
                   style={styles.noteCard}
-                  onPress={() => navigation.navigate('Saved', { filter: 'phrase' })}
+                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'phrase' } })}
                 >
                   <View style={[styles.noteIconBg, { backgroundColor: '#FDECEA' }]}>
                     <Ionicons name="language-outline" size={20} color="#E74C3C" />
@@ -818,7 +818,7 @@ export default function HomeScreen() {
 
                 <TouchableOpacity
                   style={styles.noteCard}
-                  onPress={() => navigation.navigate('Saved', { filter: 'dialogue' })}
+                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'dialogue' } })}
                 >
                   <View style={[styles.noteIconBg, { backgroundColor: '#F3EBF9' }]}>
                     <Ionicons name="chatbubbles-outline" size={20} color="#9B59B6" />
