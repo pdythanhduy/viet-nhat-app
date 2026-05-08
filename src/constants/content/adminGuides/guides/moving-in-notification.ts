@@ -79,6 +79,40 @@ const movingInNotification: AdminGuide = {
           'Thường bạn cần giấy chuyển đi từ nơi cũ rồi mới làm thủ tục chuyển đến ở nơi mới.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '転入届を出したいです。',
+        romaji: 'Tennyuu todoke o dashitai desu.',
+        vn: 'Tôi muốn nộp 転入届 (đăng ký chuyển đến).',
+        note: 'Câu mở đầu khi tới quầy 市役所/区役所.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '在留カードの裏に新しい住所を書いてもらえますか。',
+        romaji: 'Zairyuu kaado no ura ni atarashii juusho o kaite moraemasu ka.',
+        vn: 'Anh/chị giúp ghi địa chỉ mới vào mặt sau 在留カード được không?',
+      },
+      {
+        jp: '国民健康保険とマイナンバーも今日できますか。',
+        romaji: 'Kokumin kenkou hoken to mai nanbaa mo kyou dekimasu ka.',
+        vn: 'Hôm nay có thể làm luôn 国保 và My Number không?',
+        note: 'Hỏi để gộp các thủ tục cùng một lần đi.',
+      },
+      {
+        jp: '住民票の写しはいくらですか。',
+        romaji: 'Juuminhyou no utsushi wa ikura desu ka.',
+        vn: 'Bản sao 住民票 bao nhiêu tiền?',
+      },
+      {
+        jp: '今日中に終わりますか。',
+        romaji: 'Kyoujuu ni owarimasu ka.',
+        vn: 'Có xong trong hôm nay không?',
+      },
+    ],
     officialLinks: [
       { label: 'Resident registration system — Ministry of Internal Affairs and Communications', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/' },
       { label: 'Moving procedures on Myna Portal', url: 'https://myna.go.jp/html/moving_oss.html' },

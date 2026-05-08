@@ -487,6 +487,54 @@ export default function AdminDetailScreen() {
           );
         })()}
 
+        {/* Câu tiếng Nhật có thể nói — placed before "Việc cần làm ngay"
+            so the user has the spoken-Japanese cheatsheet in hand before
+            walking into the office. The whole section is hidden when a
+            guide does not yet have counterPhrases authored. */}
+        {guide.counterPhrases && guide.counterPhrases.length > 0 && (
+          <View
+            style={[
+              styles.counterPhrasesCard,
+              { borderColor: guide.color + '30', backgroundColor: guide.color + '0A' },
+            ]}
+          >
+            <View style={styles.counterPhrasesHeader}>
+              <Ionicons name="chatbubbles-outline" size={16} color={guide.color} />
+              <Text style={[styles.counterPhrasesTitle, { color: guide.color }]}>
+                Câu tiếng Nhật có thể nói
+              </Text>
+            </View>
+            <Text style={styles.counterPhrasesSubtitle}>
+              Dùng khi hỏi nhân viên ở quầy. Có thể copy từng câu.
+            </Text>
+
+            {guide.counterPhrases.map((phrase, index) => (
+              <View key={`${phrase.jp}-${index}`} style={styles.phraseCard}>
+                <View style={styles.phraseTopRow}>
+                  <Text style={styles.phraseJp}>{phrase.jp}</Text>
+                  <TouchableOpacity
+                    style={styles.phraseCopyBtn}
+                    onPress={() => {
+                      Clipboard.setStringAsync(phrase.jp).catch(() => {});
+                      Alert.alert('Đã copy', phrase.jp);
+                    }}
+                    accessibilityLabel="Copy câu tiếng Nhật"
+                  >
+                    <Ionicons name="copy-outline" size={16} color={guide.color} />
+                  </TouchableOpacity>
+                </View>
+                {phrase.romaji ? (
+                  <Text style={styles.phraseRomaji}>{phrase.romaji}</Text>
+                ) : null}
+                <Text style={styles.phraseVn}>{phrase.vn}</Text>
+                {phrase.note ? (
+                  <Text style={styles.phraseNote}>{phrase.note}</Text>
+                ) : null}
+              </View>
+            ))}
+          </View>
+        )}
+
         {guide.quickAction && (
           <View style={styles.quickActionSection}>
             <View style={styles.quickActionHeader}>
@@ -1202,6 +1250,74 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.textPrimary,
     lineHeight: 18,
+  },
+  counterPhrasesCard: {
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1,
+  },
+  counterPhrasesHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 4,
+  },
+  counterPhrasesTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+  },
+  counterPhrasesSubtitle: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+    marginBottom: 12,
+  },
+  phraseCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    marginBottom: 8,
+  },
+  phraseTopRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+  },
+  phraseJp: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    lineHeight: 24,
+  },
+  phraseCopyBtn: {
+    padding: 6,
+    marginTop: -4,
+    marginRight: -4,
+  },
+  phraseRomaji: {
+    fontSize: 12,
+    color: Colors.textMuted,
+    fontStyle: 'italic',
+    marginTop: 4,
+    lineHeight: 17,
+  },
+  phraseVn: {
+    fontSize: 13,
+    color: Colors.textSecondary,
+    marginTop: 6,
+    lineHeight: 19,
+  },
+  phraseNote: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    marginTop: 6,
+    lineHeight: 16,
   },
   quickActionSection: {
     backgroundColor: Colors.white,

@@ -76,6 +76,40 @@ const pensionExemptionRefund: AdminGuide = {
         answer: 'Du học sinh trong độ tuổi vẫn có thể thuộc 国民年金. Nếu học tại trường thuộc diện áp dụng, bạn nên xin 学生納付特例. Nhật Bản năm 2026 còn đẩy mạnh việc xin online qua liên kết マイナポータル và ねんきんネット cho người đủ điều kiện tiếp tục học.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '国民年金の免除申請をしたいです。',
+        romaji: 'Kokumin nenkin no menjo shinsei o shitai desu.',
+        vn: 'Tôi muốn xin miễn 国民年金.',
+        note: 'Câu mở đầu tại 年金事務所 hoặc 市役所.',
+      },
+      {
+        jp: '脱退一時金の請求方法を教えていただけますか。',
+        romaji: 'Dattai ichijikin no seikyuu houhou o oshiete itadakemasu ka.',
+        vn: 'Anh/chị hướng dẫn giúp cách xin 脱退一時金 (tiền hoàn 1 lần)?',
+        note: 'Dùng khi sắp về nước.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '基礎年金番号がわかりません。確認できますか。',
+        romaji: 'Kiso nenkin bangou ga wakarimasen. Kakunin dekimasu ka.',
+        vn: 'Tôi không nhớ 基礎年金番号. Anh/chị tra giúp được không?',
+      },
+      {
+        jp: '失業中ですが、免除の対象になりますか。',
+        romaji: 'Shitsugyouchuu desu ga, menjo no taishou ni narimasu ka.',
+        vn: 'Tôi đang thất nghiệp, có thuộc diện được miễn không?',
+      },
+      {
+        jp: '結果はいつごろ届きますか。',
+        romaji: 'Kekka wa itsugoro todokimasu ka.',
+        vn: 'Khi nào tôi nhận được kết quả?',
+      },
+    ],
     officialLinks: [
       { label: '国民年金（やさしい日本語）— 日本年金機構', url: 'https://www.nenkin.go.jp/international/simplejapanese/japanese-system/nationalpension/nationalpension.html' },
       { label: '国民年金保険料 — 日本年金機構', url: 'https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html' },

@@ -88,6 +88,40 @@ const familyStayInvitation: AdminGuide = {
         answer: 'Bộ giấy tờ nền vẫn xoay quanh hộ chiếu, ảnh, COE, giấy tờ quan hệ gia đình, chứng minh thu nhập và chỗ ở. Tuy nhiên vợ/chồng sẽ nặng về giấy đăng ký kết hôn và lịch sử hôn nhân; con sẽ nặng về giấy khai sinh, quyền nuôi dưỡng và giấy đồng ý của cha/mẹ còn lại nếu tình huống gia đình phức tạp.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '家族を呼びたいので、在留資格認定証明書の申請をしたいです。',
+        romaji: 'Kazoku o yobitai node, zairyuu shikaku nintei shoumeisho no shinsei o shitai desu.',
+        vn: 'Tôi muốn bảo lãnh người nhà nên xin 在留資格認定証明書 (COE).',
+        note: 'Câu mở đầu tại 入国管理局.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '結婚証明書(出生証明書)は翻訳が必要ですか。',
+        romaji: 'Kekkon shoumeisho (shussei shoumeisho) wa honyaku ga hitsuyou desu ka.',
+        vn: 'Giấy đăng ký kết hôn (giấy khai sinh) có cần dịch sang tiếng Nhật không?',
+      },
+      {
+        jp: '審査結果はどのくらいかかりますか。',
+        romaji: 'Shinsa kekka wa dono kurai kakarimasu ka.',
+        vn: 'Xét duyệt mất khoảng bao lâu?',
+      },
+      {
+        jp: '認定証明書が出たら、その後はどうすればいいですか。',
+        romaji: 'Nintei shoumeisho ga detara, sono ato wa dou sureba ii desu ka.',
+        vn: 'Sau khi có 認定証明書, bước tiếp theo phải làm gì?',
+        note: 'Trả lời thường: gửi về VN để người nhà nộp ở Đại sứ quán Nhật xin visa.',
+      },
+      {
+        jp: '私の収入で扶養できる証明はどう書けばいいですか。',
+        romaji: 'Watashi no shuunyuu de fuyou dekiru shoumei wa dou kakeba ii desu ka.',
+        vn: 'Phần chứng minh thu nhập đủ nuôi viết thế nào ạ?',
+      },
+    ],
     officialLinks: [
       { label: '在留資格認定証明書交付申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-1.html' },
       { label: 'General visa: Dependent (family stays) — MOFA', url: 'https://www.mofa.go.jp/j_info/visit/visa/long/visa9.html' },

@@ -67,6 +67,40 @@ const first7DaysInJapan: AdminGuide = {
         answer: 'Có, nhưng cần phân biệt chỗ ở tạm và địa chỉ cư trú thực tế. Nếu chưa xác định nơi ở chính thức, hãy hỏi công ty/trường cách khai báo phù hợp.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '今日来ました。住居地の届出をしたいです。',
+        romaji: 'Kyou kimashita. Juukyochi no todokede o shitai desu.',
+        vn: 'Tôi mới đến hôm nay. Tôi muốn đăng ký địa chỉ cư trú.',
+        note: 'Câu mở đầu khi tới quầy 市役所/区役所.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '今この書類しかないんですが、後で持って来てもいいですか。',
+        romaji: 'Ima kono shorui shika nai n desu ga, ato de motte kite mo ii desu ka.',
+        vn: 'Hiện tôi chỉ có giấy này, có thể bổ sung sau được không?',
+        note: 'Dùng khi thiếu giấy và muốn tránh phải về tay không.',
+      },
+      {
+        jp: '足りない書類を紙に書いていただけますか。',
+        romaji: 'Tarinai shorui o kami ni kaite itadakemasu ka.',
+        vn: 'Anh/chị có thể ghi giúp danh sách giấy còn thiếu vào giấy không?',
+      },
+      {
+        jp: 'いつまでにすればいいですか。',
+        romaji: 'Itsu made ni sureba ii desu ka.',
+        vn: 'Tôi phải làm xong trước bao giờ?',
+      },
+      {
+        jp: 'ここで全部できますか、それとも他の窓口に行きますか。',
+        romaji: 'Koko de zenbu dekimasu ka, soretomo hoka no madoguchi ni ikimasu ka.',
+        vn: 'Có thể làm hết ở đây hay phải sang quầy khác?',
+      },
+    ],
     officialLinks: [
       { label: '住居地の届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
       { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuminkenkou/index.html' },

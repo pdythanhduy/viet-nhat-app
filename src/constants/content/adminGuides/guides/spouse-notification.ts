@@ -76,6 +76,40 @@ const spouseNotification: AdminGuide = {
         answer: 'Nên nộp càng sớm càng tốt và giải thích trung thực lý do muộn. Khai báo muộn có thể bất lợi khi xét các thủ tục lưu trú sau này.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '配偶者に関する届出をしたいです。',
+        romaji: 'Haiguusha ni kansuru todokede o shitai desu.',
+        vn: 'Tôi muốn nộp khai báo về vợ/chồng.',
+        note: 'Câu mở đầu tại 入国管理局.',
+      },
+      {
+        jp: '離婚届の受理証明書を持って来ました。',
+        romaji: 'Rikon todoke no juri shoumeisho o motte kimashita.',
+        vn: 'Tôi mang theo 離婚届の受理証明書 (giấy chứng nhận đã ly hôn).',
+      },
+      {
+        jp: '今後の在留資格について相談したいです。',
+        romaji: 'Kongo no zairyuu shikaku ni tsuite soudan shitai desu.',
+        vn: 'Tôi muốn được tư vấn về tư cách lưu trú sau này.',
+        note: 'Quan trọng nếu visa hiện tại phụ thuộc vợ/chồng.',
+      },
+      {
+        jp: '提出後、いつまでに次の手続きをすればいいですか。',
+        romaji: 'Teishutsu go, itsu made ni tsugi no tetsuzuki o sureba ii desu ka.',
+        vn: 'Sau khi nộp, tôi phải làm thủ tục tiếp theo trước bao giờ?',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '翻訳が必要な書類はありますか。',
+        romaji: 'Honyaku ga hitsuyou na shorui wa arimasu ka.',
+        vn: 'Có giấy nào cần dịch sang tiếng Nhật không?',
+      },
+    ],
     officialLinks: [
       { label: '配偶者に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00016.html' },
     ],

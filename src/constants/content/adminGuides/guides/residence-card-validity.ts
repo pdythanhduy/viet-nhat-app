@@ -85,6 +85,39 @@ const residenceCardValidity: AdminGuide = {
         answer: 'Không phải đổi ngay chỉ vì luật mới bắt đầu. Theo ISA, thẻ cư trú hiện hành vẫn có hiệu lực sau khi mẫu mới bắt đầu; 特定在留カード là thủ tục có thể xin cùng một số thủ tục như gia hạn, đổi tư cách, cấp lại hoặc khai báo địa chỉ nếu thuộc điều kiện.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '在留カードの有効期間更新申請をしたいです。',
+        romaji: 'Zairyuu kaado no yuukou kikan koushin shinsei o shitai desu.',
+        vn: 'Tôi muốn xin gia hạn hiệu lực 在留カード.',
+        note: 'Câu mở đầu tại quầy 入国管理局.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '申請書はどこにありますか。',
+        romaji: 'Shinseisho wa doko ni arimasu ka.',
+        vn: 'Đơn xin lấy ở đâu ạ?',
+      },
+      {
+        jp: '結果はいつごろ出ますか。',
+        romaji: 'Kekka wa itsugoro demasu ka.',
+        vn: 'Kết quả khoảng bao giờ có ạ?',
+      },
+      {
+        jp: '受け取りの時に何を持って来ればいいですか。',
+        romaji: 'Uketori no toki ni nani o motte kureba ii desu ka.',
+        vn: 'Khi đến nhận cần mang theo gì?',
+      },
+      {
+        jp: '手数料はかかりますか。いくらですか。',
+        romaji: 'Tesuuryou wa kakarimasu ka. Ikura desu ka.',
+        vn: 'Có mất phí không? Bao nhiêu?',
+      },
+    ],
     officialLinks: [
       { label: '在留カードの有効期間の更新申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00011.html' },
       { label: '在留カードとは？— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },

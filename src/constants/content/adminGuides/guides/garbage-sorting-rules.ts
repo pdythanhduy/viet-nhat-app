@@ -55,6 +55,40 @@ const garbageSortingRules: AdminGuide = {
         answer: 'Đăng ký 粗大ゴミ với địa phương, mua 粗大ゴミシール đúng mức phí, dán lên đồ và đặt ra đúng ngày hẹn. Thiết bị như TV, tủ lạnh, máy giặt, điều hòa thường phải theo kênh tái chế riêng.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: 'ごみの分け方について教えていただけますか。',
+        romaji: 'Gomi no wakekata ni tsuite oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết cách phân loại rác được không?',
+        note: 'Câu mở đầu tại quầy môi trường của 市役所/区役所.',
+      },
+      {
+        jp: 'ごみカレンダーはどこでもらえますか。',
+        romaji: 'Gomi karendaa wa doko de moraemasu ka.',
+        vn: 'Lịch rác lấy ở đâu ạ?',
+      },
+      {
+        jp: '粗大ごみを出したいんですが、どうすればいいですか。',
+        romaji: 'Sodai gomi o dashitai n desu ga, dou sureba ii desu ka.',
+        vn: 'Tôi muốn vứt rác cồng kềnh, làm thế nào ạ?',
+      },
+      {
+        jp: '粗大ごみシール(処理券)はどこで買えますか。',
+        romaji: 'Sodai gomi shiiru (shoriken) wa doko de kaemasu ka.',
+        vn: 'Tem 粗大ごみ (phiếu xử lý) mua ở đâu ạ?',
+        note: 'Thường bán ở konbini hoặc 市役所.',
+      },
+      {
+        jp: '間違って違うごみを出してしまったら、どうすればいいですか。',
+        romaji: 'Machigatte chigau gomi o dashite shimattara, dou sureba ii desu ka.',
+        vn: 'Nếu lỡ vứt sai loại rác thì phải làm sao?',
+      },
+      {
+        jp: '外国語で書かれた分別ルールはありますか。',
+        romaji: 'Gaikokugo de kakareta bunbetsu ruuru wa arimasu ka.',
+        vn: 'Có quy định phân loại bằng tiếng nước ngoài không?',
+      },
+    ],
     officialLinks: [
       { label: '廃棄物等の処理 — 環境省', url: 'https://www.env.go.jp/recycle/waste/index.html' },
       { label: '家電製品の正しいリユース・リサイクル — 環境省', url: 'https://www.env.go.jp/recycle/kaden/tvrecycle.html' },

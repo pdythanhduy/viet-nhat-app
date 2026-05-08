@@ -55,6 +55,40 @@ const juminzeiLocalTax: AdminGuide = {
         answer: 'Có thể tùy địa phương và hoàn cảnh như thất nghiệp, thu nhập giảm mạnh hoặc khó khăn tài chính. Điều kiện và hạn nộp khác nhau theo municipal office, nên hỏi quầy 市民税課 càng sớm càng tốt.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '住民税について相談したいです。',
+        romaji: 'Juuminzei ni tsuite soudan shitai desu.',
+        vn: 'Tôi muốn được tư vấn về 住民税 (thuế cư dân).',
+        note: 'Câu mở đầu tại quầy thuế của 市役所/区役所.',
+      },
+      {
+        jp: '住民税の決定通知書をいただけますか。',
+        romaji: 'Juuminzei no kettei tsuuchisho o itadakemasu ka.',
+        vn: 'Cho tôi xin 決定通知書 (thông báo quyết định thuế).',
+      },
+      {
+        jp: '今失業中なので、減額の申請はできますか。',
+        romaji: 'Ima shitsugyouchuu na node, gengaku no shinsei wa dekimasu ka.',
+        vn: 'Tôi đang thất nghiệp, có thể xin giảm thuế không?',
+      },
+      {
+        jp: '支払いを分割にできますか。',
+        romaji: 'Shiharai o bunkatsu ni dekimasu ka.',
+        vn: 'Tôi có thể chia nhỏ kỳ đóng được không?',
+      },
+      {
+        jp: '住民税の計算方法を教えていただけますか。',
+        romaji: 'Juuminzei no keisan houhou o oshiete itadakemasu ka.',
+        vn: 'Anh/chị hướng dẫn giúp cách tính thuế được không?',
+      },
+      {
+        jp: '帰国する場合、納税管理人が必要ですか。',
+        romaji: 'Kikoku suru baai, nouzei kanrinin ga hitsuyou desu ka.',
+        vn: 'Nếu tôi về nước, có cần 納税管理人 không?',
+        note: 'Người được uỷ quyền đóng thuế thay khi bạn rời Nhật.',
+      },
+    ],
     officialLinks: [
       { label: '住民税について — 財務省', url: 'https://www.mof.go.jp/tax_information/qanda020.html' },
       { label: '国税と地方税の種類 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/osirase/9000.htm' },

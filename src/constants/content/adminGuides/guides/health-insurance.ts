@@ -84,6 +84,39 @@ const healthInsurance: AdminGuide = {
         answer: 'Không nên bỏ mặc hóa đơn. Hãy đến municipal office hỏi về chia kỳ, giảm/miễn theo hoàn cảnh hoặc phương án thanh toán phù hợp.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '国民健康保険に加入したいです。',
+        romaji: 'Kokumin kenkou hoken ni kanyuu shitai desu.',
+        vn: 'Tôi muốn đăng ký 国民健康保険 (bảo hiểm y tế quốc dân).',
+        note: 'Câu mở đầu khi tới quầy 市役所/区役所.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '保険料は月にいくらですか。',
+        romaji: 'Hokenryou wa tsuki ni ikura desu ka.',
+        vn: 'Phí bảo hiểm mỗi tháng bao nhiêu ạ?',
+      },
+      {
+        jp: '保険証はいつごろ届きますか。',
+        romaji: 'Hokenshou wa itsugoro todokimasu ka.',
+        vn: 'Khi nào tôi nhận được 保険証 (thẻ bảo hiểm)?',
+      },
+      {
+        jp: '支払いはどうすればいいですか。コンビニで払えますか。',
+        romaji: 'Shiharai wa dou sureba ii desu ka. Konbini de haraemasu ka.',
+        vn: 'Đóng tiền thế nào ạ? Có đóng được ở konbini không?',
+      },
+      {
+        jp: '病院に行くときは保険証だけで大丈夫ですか。',
+        romaji: 'Byouin ni iku toki wa hokenshou dake de daijoubu desu ka.',
+        vn: 'Đi bệnh viện chỉ cần 保険証 thôi có được không?',
+      },
+    ],
     officialLinks: [
       { label: 'Bảo hiểm y tế quốc gia — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html' },
       { label: 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/web_magazine/closeup/31.html' },

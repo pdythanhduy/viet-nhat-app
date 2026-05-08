@@ -63,6 +63,39 @@ const kakuteiShinkoku: AdminGuide = {
         answer: 'Được — nộp 更正の請求 (xin hoàn lại thuế thừa) trong vòng 5 năm, hoặc 修正申告 (khai bổ sung còn thiếu) bất cứ lúc nào. Tốt hơn là tự sửa trước khi bị 税務署 phát hiện.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '確定申告をしたいです。',
+        romaji: 'Kakutei shinkoku o shitai desu.',
+        vn: 'Tôi muốn 確定申告 (tự khai thuế).',
+        note: 'Câu mở đầu tại 税務署.',
+      },
+      {
+        jp: '源泉徴収票はこれです。一緒に確認していただけますか。',
+        romaji: 'Gensen choushuuhyou wa kore desu. Issho ni kakunin shite itadakemasu ka.',
+        vn: '源泉徴収票 đây ạ. Anh/chị xem giúp được không?',
+      },
+      {
+        jp: '医療費控除の申請も一緒にできますか。',
+        romaji: 'Iryouhi koujo no shinsei mo issho ni dekimasu ka.',
+        vn: 'Có thể xin 医療費控除 (trừ phí y tế) luôn được không?',
+      },
+      {
+        jp: '還付金はいつごろ振り込まれますか。',
+        romaji: 'Kanpukin wa itsugoro furikomaremasu ka.',
+        vn: 'Tiền hoàn thuế khi nào được chuyển vào tài khoản?',
+      },
+      {
+        jp: '今書類が足りないんですが、後日持って来てもいいですか。',
+        romaji: 'Ima shorui ga tarinai n desu ga, gojitsu motte kite mo ii desu ka.',
+        vn: 'Hiện tôi đang thiếu giấy, hôm khác mang đến được không?',
+      },
+      {
+        jp: '申告書の書き方を教えていただけますか。',
+        romaji: 'Shinkokusho no kakikata o oshiete itadakemasu ka.',
+        vn: 'Anh/chị hướng dẫn giúp cách điền 申告書?',
+      },
+    ],
     officialLinks: [
       { label: '国税庁 — Trang khai thuế chính thức (e-Tax)', url: 'https://www.nta.go.jp/taxes/shiraberu/shinkoku/kakutei.htm' },
       { label: '確定申告書等作成コーナー (tạo mẫu online)', url: 'https://www.keisan.nta.go.jp/' },

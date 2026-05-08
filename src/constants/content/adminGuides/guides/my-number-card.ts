@@ -87,6 +87,40 @@ const myNumberCard: AdminGuide = {
           'Dùng khi đăng nhập e-Tax, Mynaportal và ký điện tử tài liệu hành chính quan trọng. Đây là PIN quan trọng nhất — ghi lại và cất riêng biệt với thẻ.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: 'マイナンバーカードを受け取りに来ました。',
+        romaji: 'Mai nanbaa kaado o uketori ni kimashita.',
+        vn: 'Tôi đến nhận マイナンバーカード.',
+        note: 'Khi đến quầy 市役所/区役所 nhận thẻ.',
+      },
+      {
+        jp: '交付通知書を持って来ました。',
+        romaji: 'Koufu tsuuchisho o motte kimashita.',
+        vn: 'Tôi mang theo giấy thông báo nhận thẻ.',
+      },
+      {
+        jp: '暗証番号の設定方法を教えていただけますか。',
+        romaji: 'Anshou bangou no settei houhou o oshiete itadakemasu ka.',
+        vn: 'Anh/chị hướng dẫn giúp cách đặt mật khẩu (PIN) được không?',
+      },
+      {
+        jp: '申請書ID(23桁)はどこに書いてありますか。',
+        romaji: 'Shinseisho ID (nijuu san keta) wa doko ni kaite arimasu ka.',
+        vn: 'Số 申請書 ID 23 chữ số ghi ở đâu ạ?',
+        note: 'Dùng khi nộp online/qua thư.',
+      },
+      {
+        jp: '在留カードと一緒に確認していただけますか。',
+        romaji: 'Zairyuu kaado to issho ni kakunin shite itadakemasu ka.',
+        vn: 'Anh/chị đối chiếu giúp cùng với 在留カード của tôi được không?',
+      },
+      {
+        jp: 'カードの受け取りまでどのくらいかかりますか。',
+        romaji: 'Kaado no uketori made dono kurai kakarimasu ka.',
+        vn: 'Tới lúc nhận thẻ mất khoảng bao lâu?',
+      },
+    ],
     officialLinks: [
       { label: 'Nộp đơn online (スマートフォン・PC)', url: 'https://apply.jpki.go.jp/' },
       { label: 'Hướng dẫn chính thức マイナンバーカード申請', url: 'https://www.kojinbango-card.go.jp/en-kofushinse/' },

@@ -81,6 +81,39 @@ const addressChange: AdminGuide = {
         answer: 'Nên đi làm càng sớm càng tốt và giải thích trung thực. Việc khai báo muộn có thể bất lợi trong các thủ tục lưu trú sau này.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '住所変更の手続きをしたいです。',
+        romaji: 'Juusho henkou no tetsuzuki o shitai desu.',
+        vn: 'Tôi muốn làm thủ tục đổi địa chỉ.',
+        note: 'Câu mở đầu khi tới quầy 市役所/区役所.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '在留カードの住所も今日変更できますか。',
+        romaji: 'Zairyuu kaado no juusho mo kyou henkou dekimasu ka.',
+        vn: 'Hôm nay đổi luôn địa chỉ trên 在留カード được không?',
+      },
+      {
+        jp: '他の市から引っ越してきました。転出証明書は必要ですか。',
+        romaji: 'Hoka no shi kara hikkoshite kimashita. Tenshutsu shoumeisho wa hitsuyou desu ka.',
+        vn: 'Tôi chuyển từ thành phố khác. Có cần 転出証明書 không?',
+      },
+      {
+        jp: '住所変更後、忘れないように他に何の手続きが必要ですか。',
+        romaji: 'Juusho henkou go, wasurenai you ni hoka ni nani no tetsuzuki ga hitsuyou desu ka.',
+        vn: 'Sau khi đổi địa chỉ, còn thủ tục nào khác cần làm để khỏi quên?',
+      },
+      {
+        jp: '足りない書類を紙に書いていただけますか。',
+        romaji: 'Tarinai shorui o kami ni kaite itadakemasu ka.',
+        vn: 'Anh/chị ghi giúp danh sách giấy còn thiếu được không?',
+      },
+    ],
     officialLinks: [
       { label: '住居地の届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
     ],

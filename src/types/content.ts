@@ -90,6 +90,13 @@ export interface AdminGuideQuickAction {
   officialSourceLabels: string[];
 }
 
+export interface CounterPhrase {
+  jp: string;
+  romaji?: string;
+  vn: string;
+  note?: string;
+}
+
 export interface AdminGuide {
   id: string;
   category: AdminGuideCategory;
@@ -113,6 +120,7 @@ export interface AdminGuide {
   documentsChecklist?: ChecklistItem[];
   commonMistakes?: string[];
   faq?: FAQItem[];
+  counterPhrases?: CounterPhrase[];
   officialLinks: OfficialLink[];
   steps: GuideStep[];
 }
