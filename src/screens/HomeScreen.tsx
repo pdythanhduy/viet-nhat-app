@@ -258,8 +258,10 @@ export default function HomeScreen() {
         <View style={styles.header}>
           <View style={styles.headerTextBlock}>
             <Text style={styles.greeting}>{getGreeting()}</Text>
-            <Text style={styles.appName}>Việt-Nhật</Text>
-            <Text style={styles.subtitle}>Đồng hành cùng bạn trong đời sống thực tế ở Nhật</Text>
+            <Text style={styles.appName}>Bạn đang cần làm thủ tục gì ở Nhật?</Text>
+            <Text style={styles.subtitle}>
+              Tìm nhanh giấy tờ, nơi làm, hạn xử lý và câu tiếng Nhật cần nói.
+            </Text>
           </View>
           <View style={styles.headerButtons}>
             <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Search')}>
@@ -873,8 +875,14 @@ const styles = StyleSheet.create({
     paddingRight: 12,
   },
   greeting: { fontSize: 14, color: 'rgba(255,255,255,0.8)', marginBottom: 4 },
-  appName: { fontSize: 28, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.white },
-  subtitle: { marginTop: 4, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18 },
+  appName: {
+    fontSize: 22,
+    lineHeight: 28,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.white,
+  },
+  subtitle: { marginTop: 6, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18 },
   headerButtons: {
     flexDirection: 'row',
     gap: 10,
