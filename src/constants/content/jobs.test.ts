@@ -128,7 +128,11 @@ describe('jobs content quality', () => {
       expectNonEmptyText(update.impact);
       expectValidIcon(update.icon);
       expectValidColor(update.color);
-      expect(update.url).toMatch(/^https:\/\//);
+      // url is optional — items without a verified official URL ship
+      // without a link. When url IS present, it must be a real https URL.
+      if (update.url !== undefined) {
+        expect(update.url).toMatch(/^https:\/\//);
+      }
     }
   });
 

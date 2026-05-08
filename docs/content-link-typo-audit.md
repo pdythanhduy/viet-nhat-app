@@ -87,9 +87,17 @@ summary: 'Công ty phải có quy trình nhận diện nguy cơ, báo cáo và x
 url: 'https://www.mhlw.go.jp/stf/newpage_47683.html' (KHÔNG đổi)
 ```
 
-**Status:** BROKEN_OR_WRONG_LINK
+**Status:** URL_REMOVED_TEMPORARILY
 - Title + summary: ✅ FIXED (giữ phiên bản đã sửa).
-- URL: ❌ **bị lỗi / không khớp nội dung** (đã user-verified 2026-05-09).
+- URL: ✅ **đã tạm xoá khỏi `jobs.ts`** (commit sau `87babc1`). URL cũ bị xác định BROKEN_OR_WRONG_LINK. Tạm bỏ URL khỏi app để tránh dẫn user tới nguồn sai. Cần tìm URL MHLW chính thức mới trước khi gắn lại.
+
+**Schema change để xoá URL an toàn:**
+- `LaborUpdate.url: string` → `url?: string` (optional).
+- `jobs.test.ts` chỉ validate format khi url tồn tại.
+- `JobsScreen.tsx` render item không có url như info card (không tap được, không có icon external-link); item có url thì giữ nguyên hành vi cũ.
+
+**Lịch sử URL cũ (giữ ở đây như historical note, KHÔNG còn trong source app):**
+`https://www.mhlw.go.jp/stf/newpage_47683.html` — user-verified BROKEN_OR_WRONG_LINK 2026-05-09.
 
 **Title/summary fix reason:**
 - Title cũ "nghĩa vụ chống say nắng" → cứng, hơi tối nghĩa với người Việt. "Nghĩa vụ" có sắc thái pháp lý gò bó, "chống" như đang đối kháng. Sửa thành "Phòng tránh sốc nhiệt" rõ ràng hơn.
@@ -100,7 +108,8 @@ url: 'https://www.mhlw.go.jp/stf/newpage_47683.html' (KHÔNG đổi)
 
 **Action taken in repo:**
 - ✅ FIXED title + summary trong `jobs.ts` (commit `bae8a32`).
-- ❌ **URL `https://www.mhlw.go.jp/stf/newpage_47683.html` VẪN ĐANG TRONG `jobs.ts`** — chưa thay vì không có nguồn chính thức MHLW thay thế đã verified. **Đây là release-blocker cho v1.3.0 production build.**
+- ✅ **URL đã được tạm xoá khỏi `jobs.ts`** (commit retargeting URL_REMOVED_TEMPORARILY). Field `url` của `LaborUpdate` interface đổi thành optional. Heatstroke item không còn `url`. UI render item không link như info card.
+- ⏳ Vẫn cần tìm URL MHLW chính thức mới để gắn lại — không còn block production build (item vẫn show title/summary/date hữu ích cho user).
 
 **Action needed before next production build — Needs replacement official MHLW URL:**
 
@@ -130,7 +139,7 @@ Search toàn repo không thấy item nào khác liên quan workplace heatstroke.
 
 ### Result
 - **1 item FIXED (title + summary).**
-- **1 URL BROKEN_OR_WRONG_LINK** — user đã verify URL bị lỗi/không khớp nội dung. Cần replacement official MHLW URL trước production build. Chưa tự thay theo nguyên tắc không bịa link.
+- **1 URL URL_REMOVED_TEMPORARILY** — URL cũ user-verified bị lỗi/không khớp; đã tạm xoá khỏi source app, schema `url?` optional, UI render no-link card. Lịch sử URL cũ chỉ còn trong audit doc này. Cần tìm URL MHLW chính thức mới để gắn lại sau.
 
 ---
 
@@ -156,22 +165,19 @@ Các terminology khác đã kiểm tra trong khi search — không cần action:
 | Heatstroke URL | 0 | 1 NEEDS_LINK_CHECK flag |
 | `thuê nhà` / `nhận nhà` | 0 | No fix needed |
 
-**Tổng số fix áp dụng:** 4 text replacements / 2 files
-**BROKEN_OR_WRONG_LINK còn lại (release-blocker):** 1 (workplace heatstroke URL — `mhlw.go.jp/stf/newpage_47683.html` — đã user-verified bị lỗi)
+**Tổng số fix áp dụng:** 4 text replacements + 1 URL removal (with schema/test/UI guard updates) / 4 files
+**URL_REMOVED_TEMPORARILY:** 1 (workplace heatstroke URL — `mhlw.go.jp/stf/newpage_47683.html` cũ — đã tạm xoá; item vẫn ship với title/summary/date)
 
-## Reviewer action — RELEASE BLOCKER
+## Reviewer follow-up (no longer a release blocker)
 
-URL `https://www.mhlw.go.jp/stf/newpage_47683.html` đã được user verify là **bị lỗi / không khớp nội dung** (2026-05-09). URL hiện vẫn nằm trong `src/constants/content/jobs.ts:192` và sẽ ship cùng v1.3.0 production nếu không xử lý.
+URL cũ đã được tạm xoá khỏi source app. Item `heatstroke-workplace` trong Jobs tab vẫn show title/summary/date đầy đủ — chỉ không tap được. App ship được mà không dẫn user tới link sai.
 
-**Cần làm trước v1.3.0 production build:**
+**Khi reviewer rảnh, tìm URL MHLW chính thức để gắn lại:**
 
-1. Tìm URL chính thức MHLW thay thế:
-   - Search keywords: `熱中症 職場`, `熱中症 義務化 2025`, `職場における熱中症`, `労働 熱中症 ガイドライン`.
-   - Vị trí khả năng: nhóm 労働基準 / 安全衛生 trên `mhlw.go.jp`.
-2. Quy tắc:
+1. Search keywords trên `mhlw.go.jp`: `熱中症 職場`, `熱中症 義務化 2025`, `職場における熱中症`, `労働 熱中症 ガイドライン`.
+2. Vị trí khả năng: nhóm 労働基準 / 安全衛生 trên `mhlw.go.jp`.
+3. Quy tắc khi tìm thấy:
    - ✅ Chỉ domain `mhlw.go.jp` (bao gồm subdomain).
    - ✅ Trang phải trực tiếp về 熱中症 tại nơi làm việc, có thông tin quy định 2025-06-01 (hoặc bản cập nhật).
    - ❌ Không blog tiếng Việt / news / third-party.
-3. Khi tìm thấy → update `jobs.ts` line 192 → commit → verify → retag hoặc cut `v1.3.1`.
-
-**Hoặc:** quyết định xử lý tạm theo 1 trong 3 lựa chọn ở phần "Tạm thời" trên (xoá field `url`, dùng MHLW homepage tạm, hoặc hold release).
+4. Khi tìm thấy → thêm `url: '...'` vào item heatstroke trong `jobs.ts` → commit → verify → có thể ship trong patch sau (vd `v1.3.1`).

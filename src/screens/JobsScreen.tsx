@@ -325,25 +325,47 @@ export default function JobsScreen() {
 
         <Text style={styles.sectionTitle}>Thay đổi lớn đang áp dụng trong 2026</Text>
         <View style={styles.updatesWrap}>
-          {CURRENT_LABOR_UPDATES.map((update) => (
-            <TouchableOpacity
-              key={update.id}
-              style={styles.updateCard}
-              onPress={() => openUrl(update.url)}
-              activeOpacity={0.8}
-            >
-              <View style={[styles.updateIconBg, { backgroundColor: update.color + '18' }]}>
-                <Ionicons name={update.icon} size={18} color={update.color} />
+          {CURRENT_LABOR_UPDATES.map((update) => {
+            // Items without a verified official URL render as a plain
+            // information card — no tap handler, no external-link icon —
+            // so we don't surface a link the user can't actually trust.
+            const targetUrl = update.url;
+            const cardContent = (
+              <>
+                <View style={[styles.updateIconBg, { backgroundColor: update.color + '18' }]}>
+                  <Ionicons name={update.icon} size={18} color={update.color} />
+                </View>
+                <View style={styles.updateText}>
+                  <Text style={styles.updateTitle}>{update.title}</Text>
+                  <Text style={styles.updateDate}>{update.effectiveDate}</Text>
+                  <Text style={styles.updateSummary}>{update.summary}</Text>
+                  <Text style={styles.updateImpact}>{update.impact}</Text>
+                </View>
+                {targetUrl ? (
+                  <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
+                ) : null}
+              </>
+            );
+
+            if (targetUrl) {
+              return (
+                <TouchableOpacity
+                  key={update.id}
+                  style={styles.updateCard}
+                  onPress={() => openUrl(targetUrl)}
+                  activeOpacity={0.8}
+                >
+                  {cardContent}
+                </TouchableOpacity>
+              );
+            }
+
+            return (
+              <View key={update.id} style={styles.updateCard}>
+                {cardContent}
               </View>
-              <View style={styles.updateText}>
-                <Text style={styles.updateTitle}>{update.title}</Text>
-                <Text style={styles.updateDate}>{update.effectiveDate}</Text>
-                <Text style={styles.updateSummary}>{update.summary}</Text>
-                <Text style={styles.updateImpact}>{update.impact}</Text>
-              </View>
-              <Ionicons name="open-outline" size={16} color={Colors.textMuted} />
-            </TouchableOpacity>
-          ))}
+            );
+          })}
         </View>
 
         {JOB_PLATFORMS.map((group) => {

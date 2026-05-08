@@ -44,7 +44,9 @@ export interface LaborUpdate {
   impact: string;
   icon: IoniconName;
   color: string;
-  url: string;
+  // Optional — items without a verified official URL render as
+  // information-only cards (no tap handler, no external-link icon).
+  url?: string;
 }
 
 export interface LaborRiskSign {
@@ -189,7 +191,9 @@ export const CURRENT_LABOR_UPDATES: LaborUpdate[] = [
       'Đặc biệt liên quan tới công trường, giao hàng, kho, nhà xưởng, nông nghiệp và môi trường nóng bức.',
     icon: 'sunny',
     color: '#E67E22',
-    url: 'https://www.mhlw.go.jp/stf/newpage_47683.html',
+    // url removed temporarily: previous URL was BROKEN_OR_WRONG_LINK.
+    // See docs/content-link-typo-audit.md — needs replacement official
+    // MHLW URL before this item gets a tappable link again.
   },
   {
     id: 'childcare-care-law',
