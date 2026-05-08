@@ -29,7 +29,31 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-import { BUNDLED } from '../src/services/contentLoader/fallback';
+// Hook Node's require so image assets (require('foo.jpg') etc.) inside
+// content files don't crash this script. In React Native Metro returns
+// an opaque numeric asset id; in Node we replace it with a relative
+// path string so the JSON payload stays serializable. Clients that
+// fetch from Supabase can resolve the same path against their bundle.
+{
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const Module = require('module') as { _load: (...args: unknown[]) => unknown };
+  const ASSET_RE = /\.(jpe?g|png|gif|webp|svg|bmp)$/i;
+  const originalLoad = Module._load;
+  Module._load = function patchedLoad(...args: unknown[]) {
+    const request = args[0];
+    if (typeof request === 'string' && ASSET_RE.test(request)) {
+      return { __asset: request };
+    }
+    return originalLoad.call(this, ...args);
+  };
+}
+
+// require() instead of `import` so the asset hook above is in place
+// before fallback.ts evaluates its require()s.
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { BUNDLED } = require('../src/services/contentLoader/fallback') as {
+  BUNDLED: Record<string, () => unknown>;
+};
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
