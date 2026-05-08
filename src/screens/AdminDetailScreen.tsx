@@ -88,6 +88,19 @@ function openOfficialFormLink(link: OfficialFormLink) {
   );
 }
 
+// Render the quick-summary "Mang theo" line: keep it scannable by showing
+// at most three items plus a "+ N mục khác" suffix when the full list is
+// longer. Returns an empty string for an empty list so the row can hide.
+function formatBringPreview(items: readonly string[]): string {
+  if (items.length === 0) return '';
+  const visible = items.slice(0, 3);
+  const remaining = items.length - visible.length;
+  if (remaining > 0) {
+    return `${visible.join(', ')} + ${remaining} mục khác`;
+  }
+  return visible.join(', ');
+}
+
 export default function AdminDetailScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<RouteType>();
@@ -390,6 +403,89 @@ export default function AdminDetailScreen() {
             </View>
           </View>
         )}
+
+        {/* Tóm tắt nhanh — a 4-line scannable preview that answers the
+            user's first questions ("when?", "where?", "bring what?",
+            "what if late?") in five seconds. Sits right above the full
+            "Việc cần làm ngay" block, which still carries the deeper
+            doNow / full bring list / sources for users who need them. */}
+        {guide.quickAction && (() => {
+          const qa = guide.quickAction;
+          const bringPreview = formatBringPreview(qa.bring);
+          return (
+            <View
+              style={[
+                styles.summaryCard,
+                { borderColor: guide.color + '30', backgroundColor: guide.color + '0F' },
+              ]}
+            >
+              <View style={styles.summaryHeader}>
+                <Ionicons name="sparkles-outline" size={14} color={guide.color} />
+                <Text style={[styles.summaryTitle, { color: guide.color }]}>Tóm tắt nhanh</Text>
+              </View>
+
+              {qa.deadline ? (
+                <View style={styles.summaryRow}>
+                  <Ionicons
+                    name="time-outline"
+                    size={14}
+                    color={guide.color}
+                    style={styles.summaryRowIcon}
+                  />
+                  <View style={styles.summaryRowText}>
+                    <Text style={styles.summaryRowLabel}>Hạn xử lý</Text>
+                    <Text style={styles.summaryRowValue}>{qa.deadline}</Text>
+                  </View>
+                </View>
+              ) : null}
+
+              {qa.office ? (
+                <View style={styles.summaryRow}>
+                  <Ionicons
+                    name="business-outline"
+                    size={14}
+                    color={guide.color}
+                    style={styles.summaryRowIcon}
+                  />
+                  <View style={styles.summaryRowText}>
+                    <Text style={styles.summaryRowLabel}>Nơi làm</Text>
+                    <Text style={styles.summaryRowValue}>{qa.office}</Text>
+                  </View>
+                </View>
+              ) : null}
+
+              {bringPreview ? (
+                <View style={styles.summaryRow}>
+                  <Ionicons
+                    name="briefcase-outline"
+                    size={14}
+                    color={guide.color}
+                    style={styles.summaryRowIcon}
+                  />
+                  <View style={styles.summaryRowText}>
+                    <Text style={styles.summaryRowLabel}>Mang theo</Text>
+                    <Text style={styles.summaryRowValue}>{bringPreview}</Text>
+                  </View>
+                </View>
+              ) : null}
+
+              {qa.ifLate ? (
+                <View style={styles.summaryRow}>
+                  <Ionicons
+                    name="warning-outline"
+                    size={14}
+                    color={Colors.warning}
+                    style={styles.summaryRowIcon}
+                  />
+                  <View style={styles.summaryRowText}>
+                    <Text style={styles.summaryRowLabel}>Nếu trễ / sai</Text>
+                    <Text style={styles.summaryRowValue}>{qa.ifLate}</Text>
+                  </View>
+                </View>
+              ) : null}
+            </View>
+          );
+        })()}
 
         {guide.quickAction && (
           <View style={styles.quickActionSection}>
@@ -1060,6 +1156,51 @@ const styles = StyleSheet.create({
   priorityText: {
     fontSize: 12,
     color: Colors.textSecondary,
+    lineHeight: 18,
+  },
+  summaryCard: {
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1,
+    // borderColor + backgroundColor are tinted from guide.color at render
+    // time so each guide's summary picks up its own subtle accent.
+  },
+  summaryHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 10,
+  },
+  summaryTitle: {
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  summaryRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginBottom: 8,
+  },
+  summaryRowIcon: {
+    marginTop: 2,
+  },
+  summaryRowText: {
+    flex: 1,
+  },
+  summaryRowLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textMuted,
+    marginBottom: 2,
+  },
+  summaryRowValue: {
+    fontSize: 13,
+    color: Colors.textPrimary,
     lineHeight: 18,
   },
   quickActionSection: {
