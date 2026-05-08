@@ -13,7 +13,7 @@ const cityHall: PhraseCategory = {
       { jp: '今日中に終わりますか。', romaji: 'Kyoujuu ni owarimasu ka.', vn: 'Hôm nay có làm xong trong ngày không?' },
     ],
     dialogue: {
-      situation: 'Đổi địa chỉ tại cơ quan phường',
+      situation: 'Đổi địa chỉ tại 市役所/区役所',
       lines: [
         {
           speaker: 'A',
