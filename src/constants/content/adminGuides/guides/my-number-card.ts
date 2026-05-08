@@ -10,7 +10,7 @@ const myNumberCard: AdminGuide = {
     icon: 'card',
     color: '#185FA5',
     description:
-      'My Number Card không bắt buộc để ở Nhật, nhưng cần thiết để dùng bảo hiểm điện tử (マイナ保険証), in giấy tờ tại combini, nộp 確定申告 online và đăng nhập Mynaportal. Thời gian cấp thường khoảng 1 tháng nhưng tùy municipal office và tình trạng hồ sơ.',
+      'Thẻ My Number Card thay được thẻ bảo hiểm (từ 02/12/2025), in 住民票/印鑑証明 ở konbini, đăng nhập Mynaportal và khai 確定申告 online. Không bắt buộc làm, nhưng có thì cuộc sống ở Nhật dễ hơn nhiều. Cấp thẻ mất khoảng 1 tháng — đừng để cần gấp mới làm.',
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do municipal office nơi đăng ký cư trú xử lý.',
@@ -24,15 +24,16 @@ const myNumberCard: AdminGuide = {
       ],
     },
     quickAction: {
-      deadline: 'Làm sớm sau khi địa chỉ ổn định; nếu đang cập nhật hạn thẻ sau gia hạn lưu trú, làm trước ngày My Number Card hết hạn.',
-      office: 'Nộp đơn qua apply.jpki.go.jp/QR, bưu điện hoặc máy ảnh thẻ; nhận/cập nhật tại municipal office.',
+      deadline: 'Làm ngay sau khi địa chỉ ổn định. Nếu đã có thẻ cũ và vừa gia hạn visa, đổi thẻ trước khi My Number Card hết hạn.',
+      office: 'Nộp đơn online qua app マイナポータル. Nhận thẻ tại 市役所/区役所 nơi đăng ký 住民票.',
       doNow: [
-        'Chuẩn bị ảnh đúng chuẩn và 申請書ID 23 số.',
-        'Không chuyển nhà giữa chừng mà không báo bộ phận My Number Card.',
-        'Sau khi gia hạn visa, kiểm tra ngay hạn My Number Card và chứng thư điện tử.',
+        'Chuẩn bị ảnh đúng chuẩn (45×35mm, nền trắng, chụp <6 tháng).',
+        'Tìm 申請書ID 23 chữ số (trên giấy 個人番号通知書 lúc đăng ký 住民票 lần đầu).',
+        'Mở app マイナポータル → chụp ảnh → điền form → nộp.',
+        'Đợi 交付通知書 — không chuyển nhà giữa chừng mà không báo 役所.',
       ],
-      bring: ['申請書ID hoặc QR', 'Ảnh chân dung đúng chuẩn', '交付通知書', '在留カード', 'Hộ chiếu hoặc giấy tờ định danh bổ sung'],
-      ifLate: 'Nếu thư nhận thẻ quá hạn hoặc thẻ bị hủy, hỏi municipal office để nộp lại/cấp lại; nếu thẻ đã hết hạn do gia hạn lưu trú chậm, xử lý trực tiếp tại quầy.',
+      bring: ['交付通知書 (giấy báo nhận thẻ — bắt buộc)', '在留カード (bắt buộc)', 'Hộ chiếu hoặc thẻ bảo hiểm y tế (1 trong 2 — để xác minh)', 'Bút + giấy nhỏ để ghi 4 PIN ngay tại quầy'],
+      ifLate: 'Quá hạn 交付通知書 hoặc thẻ bị huỷ → đến 市役所 hỏi nộp lại. Thẻ hết hạn do visa gia hạn chậm → xử lý ngay tại quầy.',
       officialSourceLabels: [
         'Nộp đơn online (スマートフォン・PC)',
         'Hướng dẫn chính thức マイナンバーカード申請',
@@ -43,13 +44,15 @@ const myNumberCard: AdminGuide = {
     heroImage: require('../../../../../assets/content/daily-life/ag_mynumber-card_hero.jpg'),
     heroImageCaption: 'マイナンバーカード - thẻ định danh dùng cho bảo hiểm số, combini và thủ tục online',
     whoIsThisFor: [
-      'Người đã có đăng ký cư trú (住民登録) tại Nhật và chưa có My Number Card.',
-      'Người muốn dùng マイナ保険証 thay thẻ bảo hiểm giấy cũ đã hết hiệu lực chuyển tiếp từ 02/12/2025.',
-      'Người cần in giấy tờ hành chính tại combini (コンビニ交付) không cần xếp hàng ở 役所.',
+      'Bạn đã có đăng ký cư trú (住民票) ở Nhật và chưa có thẻ.',
+      'Bạn muốn dùng マイナ保険証 thay thẻ bảo hiểm giấy.',
+      'Bạn muốn in 住民票/印鑑証明 ở konbini, không phải xếp hàng ở 役所.',
+      'Bạn muốn khai 確定申告 online qua e-Tax.',
+      'Không cần ngay nếu: vừa sang Nhật < 3 tháng và chưa có địa chỉ ổn định.',
     ],
     whenToDo: [
-      'Ngay khi có địa chỉ ổn định — thư thông báo nhận thẻ ghi 転送不要, không chuyển tiếp nếu đổi địa chỉ.',
-      'Làm sớm vì thường cần khoảng 1 tháng hoặc lâu hơn nếu hồ sơ/ảnh bị lỗi — đừng để đến khi cần gấp.',
+      'Ngay khi có chỗ ở ổn định — thư báo nhận thẻ ghi 転送不要, không chuyển tiếp nếu bạn dọn nhà giữa chừng.',
+      'Làm sớm — từ nộp đơn đến nhận thẻ thường ~1 tháng. Nếu cần gấp cho 確定申告 hoặc bảo hiểm, đừng để sát hạn.',
     ],
     whereToDo: [
       'Nộp đơn: online qua điện thoại tại apply.jpki.go.jp (nhanh nhất, 10 phút) hoặc tại quầy 役所.',
@@ -65,10 +68,11 @@ const myNumberCard: AdminGuide = {
       { label: 'Hộ chiếu hoặc thẻ bảo hiểm y tế (1 trong 2)', required: true, note: 'Cần khi đến nhận thẻ' },
     ],
     commonMistakes: [
-      'Ảnh bị trả lại: nền không đồng màu, mặt quá nhỏ, hoặc chụp quá 6 tháng trước — dùng app マイナポータル chụp thẳng để hệ thống tự kiểm.',
-      '交付通知書 ghi 転送不要 — nếu chuyển nhà giữa chừng mà không cập nhật, thư không đến và thẻ bị hủy sau 3 tháng.',
-      'Đến 役所 không mang 交付通知書 — không có giấy này không được lấy thẻ dù có 在留カード.',
-      'Nhập sai PIN ① (6–16 ký tự) quá 5 lần hoặc PIN ②③④ quá 3 lần liên tiếp → thẻ bị khóa, phải quay lại 役所 mở khóa.',
+      'Ảnh sai: nền có hoa văn, mặt quá nhỏ, ảnh cũ > 6 tháng. Dùng app マイナポータル chụp thẳng cho dễ.',
+      'Chuyển nhà giữa chừng mà không báo → thư 交付通知書 (ghi 転送不要) không tới, thẻ bị huỷ sau ~3 tháng.',
+      'Đến 役所 quên mang 交付通知書 → có 在留カード cũng không lấy được thẻ.',
+      'Đặt PIN ① giống PIN ②③④ → ngân hàng/e-Tax không chấp nhận. PIN ① phải khác và phức tạp hơn.',
+      'Nhập sai PIN ① > 5 lần hoặc PIN ②③④ > 3 lần → thẻ khoá, phải quay lại 役所 mở khoá.',
     ],
     faq: [
       {
@@ -133,7 +137,7 @@ const myNumberCard: AdminGuide = {
         step: 1,
         title: 'Chuẩn bị ảnh đúng quy cách',
         description:
-          'Ảnh sai là lý do phổ biến nhất khiến đơn bị từ chối. Yêu cầu:\n\n• Kích thước: 45mm cao × 35mm rộng.\n• Chụp trong vòng 6 tháng gần.\n• Nền trắng hoặc xám nhạt đồng đều — không có hoa văn, không bóng.\n• Khuôn mặt nhìn thẳng, mắt mở, không đội mũ, không đeo kính râm.\n• Khuôn mặt chiếm khoảng 70–80% chiều cao ảnh.\n\nCách đơn giản nhất: mở app マイナポータル → chọn 申請する → chụp ảnh ngay trong app. Hệ thống tự kiểm tra khuôn mặt và resize đúng chuẩn trước khi nộp.',
+          'Ảnh sai là lý do trượt phổ biến nhất. Quy cách:\n\n• 45mm cao × 35mm rộng.\n• Chụp trong vòng 6 tháng gần.\n• Nền trắng hoặc xám nhạt đồng đều, không hoa văn, không bóng.\n• Mặt nhìn thẳng, mắt mở, không mũ, không kính râm.\n• Khuôn mặt chiếm 70–80% chiều cao ảnh.\n\nCách dễ nhất: mở app マイナポータル → 申請する → chụp ảnh trong app. Hệ thống tự kiểm và resize đúng chuẩn trước khi nộp.',
         documents: ['Điện thoại có camera (nếu dùng app) hoặc ảnh in 45×35mm'],
         tip: 'Dùng app マイナポータル để chụp ảnh trực tiếp thay vì upload ảnh tự chụp — tỷ lệ đơn được chấp nhận cao hơn nhiều.',
       },
