@@ -197,12 +197,18 @@ export default function AdminScreen() {
         return;
       }
       if (situation.id === 'lost-residence-card') {
-        setSearch('mất thẻ cư trú');
+        // 'mất thẻ cư trú' as a single phrase had 0 hits in the search
+        // index — fall back to 'thẻ cư trú' which covers all residence-card
+        // procedures (info change, validity, etc., including the lost flow).
+        setSearch('thẻ cư trú');
         setActiveCategory('all');
         return;
       }
       if (situation.id === 'tax-insurance') {
-        setSearch('thuế bảo hiểm');
+        // 'thuế bảo hiểm' as a single phrase had 0 hits — 'bảo hiểm' on its
+        // own surfaces the insurance content, and the existing money category
+        // filter narrows to the right group.
+        setSearch('bảo hiểm');
         setActiveCategory('money');
       }
     },

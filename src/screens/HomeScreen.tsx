@@ -221,14 +221,15 @@ export default function HomeScreen() {
     }
     // The remaining situations open Search with a pre-filled query so the
     // user lands on results that match their tình huống immediately. Keys
-    // are intentionally short Vietnamese phrases the searchIndex already
-    // indexes against (visa keywords, "thuế", "市役所" labels, etc.).
+    // are short Vietnamese phrases the searchIndex actually indexes against;
+    // multi-word "thuế bảo hiểm" / "mất thẻ cư trú" combos returned zero hits
+    // so we pick the more useful single phrase from each pair.
     const queryByAction: Record<Exclude<QuickActionId, 'newcomer' | 'emergency'>, string> = {
       'visa-renewal':  'gia hạn visa',
       'moving':        'chuyển nhà',
       'official-mail': 'thuế',
-      'tax-insurance': 'thuế bảo hiểm',
-      'lost-document': 'mất thẻ cư trú',
+      'tax-insurance': 'bảo hiểm',
+      'lost-document': 'thẻ cư trú',
     };
     const initialQuery = queryByAction[action.id];
     navigation.navigate('Search', initialQuery ? { initialQuery } : undefined);
