@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Colors } from '../constants/colors';
@@ -18,6 +18,7 @@ import { SearchResultItem, searchAppContent } from '../utils/searchIndex';
 import { logSearchPerformed } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type SearchRouteProp = RouteProp<RootStackParamList, 'Search'>;
 
 function getResultIcon(type: SearchResultItem['type']) {
   if (type === 'guide') return 'document-text-outline';
@@ -39,7 +40,11 @@ function getResultColor(type: SearchResultItem['type']) {
 
 export default function SearchScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const [query, setQuery] = useState('');
+  const route = useRoute<SearchRouteProp>();
+  // Pre-fill the input when the caller supplied an initial query (Home quick
+  // actions do this for "gia hạn visa", "chuyển nhà", etc.). The string is a
+  // one-shot starting value — the user can edit or clear it freely afterwards.
+  const [query, setQuery] = useState(route.params?.initialQuery ?? '');
 
   const results = useMemo(() => searchAppContent(query), [query]);
 

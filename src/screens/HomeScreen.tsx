@@ -219,10 +219,19 @@ export default function HomeScreen() {
       navigation.navigate('EmergencyHub');
       return;
     }
-    // Visa, moving, official mail, tax/insurance, lost-document — all live in
-    // the Admin tab. Search doesn't accept a query param yet, so we drop the
-    // user on the Admin index where the existing search/filter UI takes over.
-    navigation.navigate('MainTabs', { screen: 'Admin' });
+    // The remaining situations open Search with a pre-filled query so the
+    // user lands on results that match their tình huống immediately. Keys
+    // are intentionally short Vietnamese phrases the searchIndex already
+    // indexes against (visa keywords, "thuế", "市役所" labels, etc.).
+    const queryByAction: Record<Exclude<QuickActionId, 'newcomer' | 'emergency'>, string> = {
+      'visa-renewal':  'gia hạn visa',
+      'moving':        'chuyển nhà',
+      'official-mail': 'thuế',
+      'tax-insurance': 'thuế bảo hiểm',
+      'lost-document': 'mất thẻ cư trú',
+    };
+    const initialQuery = queryByAction[action.id];
+    navigation.navigate('Search', initialQuery ? { initialQuery } : undefined);
   };
 
   const handleDismissProfileModal = () => {

@@ -85,7 +85,7 @@ export type RootStackParamList = {
   LaborHelp: undefined;
   JourneyChecklist: undefined;
   EmergencyHub: undefined;
-  Search: undefined;
+  Search: { initialQuery?: string } | undefined;
   Saved: { filter?: 'all' | 'guide' | 'daily-life' | 'phrase' | 'dialogue' } | undefined;
   ImportantDates: undefined;
   StoryHub: undefined;
