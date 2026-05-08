@@ -181,10 +181,10 @@ export const CURRENT_LABOR_UPDATES: LaborUpdate[] = [
   },
   {
     id: 'heatstroke-workplace',
-    title: 'Nghĩa vụ chống say nắng tại nơi làm việc bị siết chặt',
+    title: 'Phòng tránh sốc nhiệt (熱中症) tại nơi làm việc',
     effectiveDate: 'Áp dụng từ 2025-06-01 và vẫn là điểm nóng trong năm 2026',
     summary:
-      'Doanh nghiệp phải có quy trình nhận diện nguy cơ, báo cáo và xử lý nhanh các ca nghi say nắng trong lao động.',
+      'Công ty phải có quy trình nhận diện nguy cơ, báo cáo và xử lý nhanh các ca nghi sốc nhiệt (熱中症) khi làm việc.',
     impact:
       'Đặc biệt liên quan tới công trường, giao hàng, kho, nhà xưởng, nông nghiệp và môi trường nóng bức.',
     icon: 'sunny',

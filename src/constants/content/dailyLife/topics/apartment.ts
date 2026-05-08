@@ -13,13 +13,13 @@ const apartment: DailyLifeTopic = {
         content:
           'Nhiều người chỉ nhìn tiền thuê tháng đầu rồi ký vội. Ở Nhật, khoản vào nhà thường nặng ở phí một lần.',
         items: [
-          'Thường phải chuẩn bị khoảng 4-6 tháng tiền thuê cho đợt đầu: tiền nhà tháng đầu, tiền đặt cọc, lễ kim nếu có, phí môi giới, phí bảo lãnh, bảo hiểm và thay khóa.',
-          'Nhà ghi “không lễ kim” không có nghĩa là rẻ toàn bộ. Vẫn phải cộng thêm phí bảo lãnh, phí vệ sinh và các khoản ghi trong hợp đồng.',
+          'Thường phải chuẩn bị khoảng 4-6 tháng tiền thuê cho đợt đầu: tiền nhà tháng đầu, tiền đặt cọc (敷金), tiền lễ (礼金 / reikin) nếu có, phí môi giới, phí bảo lãnh, bảo hiểm và thay khóa.',
+          'Nhà ghi “không tiền lễ” (礼金なし) không có nghĩa là rẻ toàn bộ. Vẫn phải cộng thêm phí bảo lãnh, phí vệ sinh và các khoản ghi trong hợp đồng.',
           'Trước khi ký, nên yêu cầu bên môi giới ghi rõ tổng số tiền vào nhà bằng con số cuối cùng, không hỏi từng khoản rời rạc.',
         ],
         tip: 'Đừng chọn nhà chỉ vì tiền thuê thấp. Hãy nhìn tổng số tiền vào nhà và điều kiện hủy hợp đồng.',
         image: require('../../../../../assets/content/daily-life/dl_apartment_s1.jpg'),
-        imageCaption: 'Cửa hàng bất động sản (不動産) — xem niêm yết giá thuê, điều kiện đặt cọc và lễ kim trực tiếp trên cửa kính',
+        imageCaption: 'Cửa hàng bất động sản (不動産) — xem niêm yết giá thuê, điều kiện đặt cọc (敷金) và tiền lễ (礼金) trực tiếp trên cửa kính',
       },
       {
         title: 'Hồ sơ thường bị hỏi',
