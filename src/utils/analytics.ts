@@ -44,3 +44,11 @@ export async function logStoryCompleted(storyId: string, level: string): Promise
 export async function logSearchPerformed(query: string, resultCount: number): Promise<void> {
   // Firebase analytics disabled
 }
+
+export async function logHomeSearchPressed(): Promise<void> {
+  // Firebase analytics disabled
+}
+
+export async function logHomeQuickActionPressed(actionId: string): Promise<void> {
+  // Firebase analytics disabled
+}

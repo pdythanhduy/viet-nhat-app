@@ -54,8 +54,40 @@ import {
   loadUserProfilePromptDismissed,
   saveUserProfile,
 } from '../utils/userProfile';
+import { logHomeQuickActionPressed, logHomeSearchPressed } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+// Situations a Vietnamese resident in Japan typically arrives with.
+// Each card maps to a safe destination — Search query params aren't supported
+// yet, so admin-related entries land on the Admin tab and let the user filter
+// from there.
+type QuickActionId =
+  | 'newcomer'
+  | 'visa-renewal'
+  | 'moving'
+  | 'official-mail'
+  | 'tax-insurance'
+  | 'lost-document'
+  | 'emergency';
+
+interface QuickAction {
+  id: QuickActionId;
+  title: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  color: string;
+  bg: string;
+}
+
+const QUICK_ACTIONS: ReadonlyArray<QuickAction> = [
+  { id: 'newcomer',       title: 'Mới sang Nhật',         icon: 'compass-outline',       color: '#185FA5', bg: '#E5EFF8' },
+  { id: 'visa-renewal',   title: 'Gia hạn visa',          icon: 'card-outline',          color: '#16A085', bg: '#E5F5F1' },
+  { id: 'moving',         title: 'Chuyển nhà',            icon: 'home-outline',          color: '#D35400', bg: '#FBEDE0' },
+  { id: 'official-mail',  title: 'Nhận thư từ cơ quan',   icon: 'mail-outline',          color: '#8E44AD', bg: '#F1E9F6' },
+  { id: 'tax-insurance',  title: 'Thuế / bảo hiểm',       icon: 'receipt-outline',       color: '#2C7A7B', bg: '#E1EFEF' },
+  { id: 'lost-document',  title: 'Mất giấy tờ',           icon: 'alert-circle-outline',  color: '#C0392B', bg: '#F9E5E2' },
+  { id: 'emergency',      title: 'Khẩn cấp',              icon: 'medkit-outline',        color: '#E74C3C', bg: '#FDECEA' },
+];
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -172,6 +204,27 @@ export default function HomeScreen() {
     setShowProfileModal(false);
   };
 
+  const handleSearchCtaPress = () => {
+    void logHomeSearchPressed();
+    navigation.navigate('Search');
+  };
+
+  const handleQuickActionPress = (action: QuickAction) => {
+    void logHomeQuickActionPressed(action.id);
+    if (action.id === 'newcomer') {
+      navigation.navigate('JourneyChecklist');
+      return;
+    }
+    if (action.id === 'emergency') {
+      navigation.navigate('EmergencyHub');
+      return;
+    }
+    // Visa, moving, official mail, tax/insurance, lost-document — all live in
+    // the Admin tab. Search doesn't accept a query param yet, so we drop the
+    // user on the Admin index where the existing search/filter UI takes over.
+    navigation.navigate('MainTabs', { screen: 'Admin' });
+  };
+
   const handleDismissProfileModal = () => {
     void dismissUserProfilePrompt();
     setShowProfileModal(false);
@@ -274,6 +327,55 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.content}>
+          {/* Search CTA — Home's primary entry point: tap to open the full
+              search screen. Sits above everything because finding a procedure
+              is the user's most common need on first open. */}
+          <TouchableOpacity
+            style={styles.searchCta}
+            onPress={handleSearchCtaPress}
+            accessibilityRole="button"
+            accessibilityLabel="Tìm nhanh thủ tục"
+          >
+            <View style={styles.searchCtaIconBg}>
+              <Ionicons name="search-outline" size={20} color={Colors.primary} />
+            </View>
+            <View style={styles.searchCtaText}>
+              <Text style={styles.searchCtaTitle}>Tìm nhanh thủ tục</Text>
+              <Text style={styles.searchCtaPlaceholder}>
+                Visa, chuyển nhà, My Number, thuế...
+              </Text>
+              <Text style={styles.searchCtaHint}>
+                Gõ từ khóa hoặc chọn tình huống bên dưới.
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+          </TouchableOpacity>
+
+          {/* Situation chips — the user identifies what they're dealing with
+              and lands on the right starting point without typing. */}
+          <View style={styles.quickActionsSection}>
+            <Text style={styles.quickActionsTitle}>Tôi đang cần gì?</Text>
+            <Text style={styles.quickActionsHint}>
+              Không biết bắt đầu từ đâu? Chọn tình huống của bạn.
+            </Text>
+            <View style={styles.quickActionsGrid}>
+              {QUICK_ACTIONS.map((action) => (
+                <TouchableOpacity
+                  key={action.id}
+                  style={styles.quickActionCard}
+                  onPress={() => handleQuickActionPress(action)}
+                  accessibilityRole="button"
+                  accessibilityLabel={action.title}
+                >
+                  <View style={[styles.quickActionIconBg, { backgroundColor: action.bg }]}>
+                    <Ionicons name={action.icon} size={20} color={action.color} />
+                  </View>
+                  <Text style={styles.quickActionTitle}>{action.title}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+
           {userProfile ? (
             <View style={styles.profileHeroCard}>
               <View style={styles.profileHeroTop}>
@@ -905,6 +1007,91 @@ const styles = StyleSheet.create({
     marginTop: -16,
     paddingTop: 18,
     paddingHorizontal: 16,
+  },
+  searchCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  searchCtaIconBg: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: Colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  searchCtaText: { flex: 1 },
+  searchCtaTitle: {
+    fontSize: 15,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 3,
+  },
+  searchCtaPlaceholder: {
+    fontSize: 12,
+    color: Colors.textMuted,
+    marginBottom: 3,
+  },
+  searchCtaHint: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    lineHeight: 15,
+  },
+  quickActionsSection: {
+    marginBottom: 16,
+  },
+  quickActionsTitle: {
+    fontSize: 17,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 4,
+  },
+  quickActionsHint: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+    marginBottom: 12,
+  },
+  quickActionsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  quickActionCard: {
+    width: '48%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  quickActionIconBg: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  quickActionTitle: {
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    lineHeight: 16,
   },
   profileHeroCard: {
     backgroundColor: Colors.white,
