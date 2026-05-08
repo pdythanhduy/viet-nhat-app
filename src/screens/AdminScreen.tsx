@@ -38,10 +38,44 @@ import {
   getAdminGuideExportFileName,
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
+import { logAdminSituationPressed } from '../utils/analytics';
 import type { AdminGuide, AdminGuideCategory } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type CategoryFilter = 'all' | AdminGuideCategory;
+
+// Situation chips that sit at the top of AdminScreen. Each one is the
+// shortest path from "I'm in this real-life mess" to the right starting
+// guide. We pre-fill the existing search + category state for fuzzy cases
+// and jump straight to a specific AdminDetail when we know the guide.
+type AdminSituationId =
+  | 'newcomer'
+  | 'visa-renewal'
+  | 'moving'
+  | 'family-sponsor'
+  | 'official-mail'
+  | 'lost-residence-card'
+  | 'tax-insurance'
+  | 'emergency';
+
+interface AdminSituation {
+  id: AdminSituationId;
+  title: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  color: string;
+  bg: string;
+}
+
+const ADMIN_SITUATIONS: ReadonlyArray<AdminSituation> = [
+  { id: 'newcomer',            title: 'Mới sang Nhật',                icon: 'compass-outline',      color: '#185FA5', bg: '#E5EFF8' },
+  { id: 'visa-renewal',        title: 'Sắp hết hạn visa',             icon: 'card-outline',         color: '#16A085', bg: '#E5F5F1' },
+  { id: 'moving',              title: 'Chuyển nhà',                   icon: 'home-outline',         color: '#D35400', bg: '#FBEDE0' },
+  { id: 'family-sponsor',      title: 'Bảo lãnh gia đình',            icon: 'people-outline',       color: '#2E86C1', bg: '#E0EFF8' },
+  { id: 'official-mail',       title: 'Nhận thư từ 市役所 / 税務署',   icon: 'mail-outline',         color: '#8E44AD', bg: '#F1E9F6' },
+  { id: 'lost-residence-card', title: 'Mất thẻ cư trú',               icon: 'alert-circle-outline', color: '#C0392B', bg: '#F9E5E2' },
+  { id: 'tax-insurance',       title: 'Thuế / bảo hiểm',              icon: 'receipt-outline',      color: '#2C7A7B', bg: '#E1EFEF' },
+  { id: 'emergency',           title: 'Khẩn cấp',                     icon: 'medkit-outline',       color: '#E74C3C', bg: '#FDECEA' },
+];
 
 const CATEGORY_FILTERS: { id: CategoryFilter; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
   { id: 'all', label: 'Tất cả', icon: 'apps' },
@@ -125,6 +159,55 @@ export default function AdminScreen() {
     setActiveCategory(chip.category);
     setActiveStatus('all');
   }, []);
+
+  const handleSituationPress = useCallback(
+    (situation: AdminSituation) => {
+      void logAdminSituationPressed(situation.id);
+
+      // Three situations point at a known starting screen — open it directly.
+      if (situation.id === 'newcomer') {
+        navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan' });
+        return;
+      }
+      if (situation.id === 'family-sponsor') {
+        navigation.navigate('AdminDetail', { guideId: 'family-stay-invitation' });
+        return;
+      }
+      if (situation.id === 'emergency') {
+        navigation.navigate('EmergencyHub');
+        return;
+      }
+
+      // The remaining situations don't map to a single guide, so we pre-fill
+      // search + category and let the existing list/filter UI take over.
+      setActiveStatus('all');
+      if (situation.id === 'visa-renewal') {
+        setSearch('gia hạn visa');
+        setActiveCategory('visa');
+        return;
+      }
+      if (situation.id === 'moving') {
+        setSearch('chuyển nhà');
+        setActiveCategory('all');
+        return;
+      }
+      if (situation.id === 'official-mail') {
+        setSearch('thuế');
+        setActiveCategory('all');
+        return;
+      }
+      if (situation.id === 'lost-residence-card') {
+        setSearch('mất thẻ cư trú');
+        setActiveCategory('all');
+        return;
+      }
+      if (situation.id === 'tax-insurance') {
+        setSearch('thuế bảo hiểm');
+        setActiveCategory('money');
+      }
+    },
+    [navigation],
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -239,7 +322,7 @@ export default function AdminScreen() {
           <Ionicons name="search" size={17} color="rgba(255,255,255,0.7)" />
           <TextInput
             style={styles.searchInput}
-            placeholder="Tìm thủ tục..."
+            placeholder="Tìm visa, My Number, chuyển nhà, thuế..."
             placeholderTextColor="rgba(255,255,255,0.55)"
             value={search}
             onChangeText={setSearch}
@@ -253,6 +336,36 @@ export default function AdminScreen() {
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {/* Situation chips — top-level entry point. Hidden once the user
+            actually starts searching/filtering so we don't compete with
+            their results. */}
+        {!search.trim() && activeStatus === 'all' && (
+          <View style={styles.situationSection}>
+            <Text style={styles.situationTitle}>Bạn đang gặp tình huống nào?</Text>
+            <Text style={styles.situationDesc}>
+              Chọn tình huống gần nhất để đi nhanh tới nhóm thủ tục cần xem.
+            </Text>
+            <View style={styles.situationGrid}>
+              {ADMIN_SITUATIONS.map((situation) => (
+                <TouchableOpacity
+                  key={situation.id}
+                  style={styles.situationCard}
+                  onPress={() => handleSituationPress(situation)}
+                  accessibilityRole="button"
+                  accessibilityLabel={situation.title}
+                >
+                  <View
+                    style={[styles.situationIconBg, { backgroundColor: situation.bg }]}
+                  >
+                    <Ionicons name={situation.icon} size={20} color={situation.color} />
+                  </View>
+                  <Text style={styles.situationCardTitle}>{situation.title}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        )}
+
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -306,35 +419,6 @@ export default function AdminScreen() {
             );
           })}
         </ScrollView>
-
-        <View style={styles.exportPanel}>
-          <View style={styles.exportPanelText}>
-            <Text style={styles.exportPanelTitle}>Tải file thủ tục</Text>
-            <Text style={styles.exportPanelDesc}>
-              File HTML để xem offline, không nhúng form cũ; dùng link chính thức để tải mẫu hiện hành.
-            </Text>
-          </View>
-          <View style={styles.exportActions}>
-            <TouchableOpacity
-              style={[styles.exportButton, exportingGuides && styles.exportButtonDisabled]}
-              onPress={() => exportGuides(ADMIN_GUIDES, 'all')}
-              disabled={exportingGuides}
-              activeOpacity={0.82}
-            >
-              <Ionicons name="download-outline" size={15} color={Colors.white} />
-              <Text style={styles.exportButtonText}>{exportingGuides ? 'Đang tạo' : 'Tất cả'}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.exportButtonSecondary, exportingGuides && styles.exportButtonDisabled]}
-              onPress={() => exportGuides(filteredGuides, 'filtered')}
-              disabled={exportingGuides}
-              activeOpacity={0.82}
-            >
-              <Ionicons name="list-outline" size={15} color={Colors.primary} />
-              <Text style={styles.exportButtonSecondaryText}>Danh sách này</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
 
         {showQuickSearchChips && (
           <View style={styles.quickSearchSection}>
@@ -520,6 +604,38 @@ export default function AdminScreen() {
             )}
           </>
         )}
+
+        {/* Export panel sits down here — useful but secondary, so it doesn't
+            compete with the situation chips and search at the top. Logic is
+            unchanged; only the position moved. */}
+        <View style={styles.exportPanel}>
+          <View style={styles.exportPanelText}>
+            <Text style={styles.exportPanelTitle}>Tải file thủ tục</Text>
+            <Text style={styles.exportPanelDesc}>
+              File HTML để xem offline, không nhúng form cũ; dùng link chính thức để tải mẫu hiện hành.
+            </Text>
+          </View>
+          <View style={styles.exportActions}>
+            <TouchableOpacity
+              style={[styles.exportButton, exportingGuides && styles.exportButtonDisabled]}
+              onPress={() => exportGuides(ADMIN_GUIDES, 'all')}
+              disabled={exportingGuides}
+              activeOpacity={0.82}
+            >
+              <Ionicons name="download-outline" size={15} color={Colors.white} />
+              <Text style={styles.exportButtonText}>{exportingGuides ? 'Đang tạo' : 'Tất cả'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.exportButtonSecondary, exportingGuides && styles.exportButtonDisabled]}
+              onPress={() => exportGuides(filteredGuides, 'filtered')}
+              disabled={exportingGuides}
+              activeOpacity={0.82}
+            >
+              <Ionicons name="list-outline" size={15} color={Colors.primary} />
+              <Text style={styles.exportButtonSecondaryText}>Danh sách này</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
         <Text style={styles.resultsCount}>{filteredGuides.length} nội dung</Text>
 
@@ -766,6 +882,55 @@ const styles = StyleSheet.create({
   },
   filterTextActive: {
     color: Colors.white,
+  },
+  situationSection: {
+    paddingHorizontal: 16,
+    marginBottom: 16,
+  },
+  situationTitle: {
+    fontSize: 17,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 4,
+  },
+  situationDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+    marginBottom: 12,
+  },
+  situationGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  situationCard: {
+    width: '48%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  situationIconBg: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  situationCardTitle: {
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    lineHeight: 16,
   },
   quickSection: {
     marginHorizontal: 16,

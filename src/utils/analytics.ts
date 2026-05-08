@@ -52,3 +52,7 @@ export async function logHomeSearchPressed(): Promise<void> {
 export async function logHomeQuickActionPressed(actionId: string): Promise<void> {
   // Firebase analytics disabled
 }
+
+export async function logAdminSituationPressed(situationId: string): Promise<void> {
+  // Firebase analytics disabled
+}
