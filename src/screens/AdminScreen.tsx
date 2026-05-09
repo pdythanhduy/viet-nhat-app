@@ -164,7 +164,8 @@ export default function AdminScreen() {
     (situation: AdminSituation) => {
       void logAdminSituationPressed(situation.id);
 
-      // Three situations point at a known starting screen — open it directly.
+      // Situations that point at a known single guide → open it directly so
+      // the user lands on the procedure instead of a filtered list.
       if (situation.id === 'newcomer') {
         navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan' });
         return;
@@ -177,15 +178,19 @@ export default function AdminScreen() {
         navigation.navigate('EmergencyHub');
         return;
       }
-
-      // The remaining situations don't map to a single guide, so we pre-fill
-      // search + category and let the existing list/filter UI take over.
-      setActiveStatus('all');
       if (situation.id === 'visa-renewal') {
-        setSearch('gia hạn visa');
-        setActiveCategory('visa');
+        navigation.navigate('AdminDetail', { guideId: 'residence-card' });
         return;
       }
+      if (situation.id === 'lost-residence-card') {
+        navigation.navigate('AdminDetail', { guideId: 'lost-residence-card' });
+        return;
+      }
+
+      // The remaining situations are genuinely broader (multiple guides), so
+      // we pre-fill search + category and let the existing list/filter UI
+      // take over.
+      setActiveStatus('all');
       if (situation.id === 'moving') {
         setSearch('chuyển nhà');
         setActiveCategory('all');
@@ -193,14 +198,6 @@ export default function AdminScreen() {
       }
       if (situation.id === 'official-mail') {
         setSearch('thuế');
-        setActiveCategory('all');
-        return;
-      }
-      if (situation.id === 'lost-residence-card') {
-        // 'mất thẻ cư trú' as a single phrase had 0 hits in the search
-        // index — fall back to 'thẻ cư trú' which covers all residence-card
-        // procedures (info change, validity, etc., including the lost flow).
-        setSearch('thẻ cư trú');
         setActiveCategory('all');
         return;
       }
