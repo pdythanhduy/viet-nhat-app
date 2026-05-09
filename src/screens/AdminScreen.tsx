@@ -202,11 +202,13 @@ export default function AdminScreen() {
         return;
       }
       if (situation.id === 'tax-insurance') {
-        // 'thuế bảo hiểm' as a single phrase had 0 hits — 'bảo hiểm' on its
-        // own surfaces the insurance content, and the existing money category
-        // filter narrows to the right group.
+        // 'thuế bảo hiểm' as a single phrase had 0 hits, so we search for
+        // 'bảo hiểm' which is the more frequently asked half of this chip.
+        // Category stays 'all' deliberately: filtering to 'money' silently
+        // hides health-insurance.ts (which is category 'health') — the
+        // single most relevant guide when a user thinks "bảo hiểm".
         setSearch('bảo hiểm');
-        setActiveCategory('money');
+        setActiveCategory('all');
       }
     },
     [navigation],
