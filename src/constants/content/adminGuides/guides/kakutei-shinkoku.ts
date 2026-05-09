@@ -21,7 +21,7 @@ const kakuteiShinkoku: AdminGuide = {
     ],
     whenToDo: [
       'Nộp trong khoảng ngày 16/2 – 15/3 cho thu nhập của năm trước (ví dụ: khai thuế năm 2026 → nộp từ 16/2/2027 đến 15/3/2027).',
-      'Nếu chỉ yêu cầu hoàn thuế (환급): có thể nộp sớm từ ngày 01/01 mà không cần đợi đến 16/2.',
+      'Nếu chỉ yêu cầu hoàn thuế (還付申告): có thể nộp sớm từ ngày 01/01 mà không cần đợi đến 16/2.',
       'Trễ hạn sẽ bị tính lãi phạt (延滞税). Nếu không kịp, nộp trễ vẫn tốt hơn không nộp.',
     ],
     whereToDo: [

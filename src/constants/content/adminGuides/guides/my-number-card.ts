@@ -13,7 +13,7 @@ const myNumberCard: AdminGuide = {
       'Thẻ My Number Card thay được thẻ bảo hiểm (từ 02/12/2025), in 住民票/印鑑証明 ở konbini, đăng nhập Mynaportal và khai 確定申告 online. Không bắt buộc làm, nhưng có thì cuộc sống ở Nhật dễ hơn nhiều. Cấp thẻ mất khoảng 1 tháng — đừng để cần gấp mới làm.',
     legalScope: {
       jurisdiction: 'municipality',
-      jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do municipal office nơi đăng ký cư trú xử lý.',
+      jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do 市役所/区役所 nơi đăng ký cư trú xử lý.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
@@ -83,7 +83,7 @@ const myNumberCard: AdminGuide = {
       {
         question: 'Nhờ người khác đến lấy thẻ hộ được không?',
         answer:
-          'Về nguyên tắc chính chủ đi nhận. Trường hợp thật sự không thể đến quầy có thể cần giấy tờ ủy quyền và lý do phù hợp, nhưng điều kiện khác nhau theo municipal office nên phải gọi hỏi trước.',
+          'Về nguyên tắc chính chủ đi nhận. Trường hợp thật sự không thể đến quầy có thể cần giấy tờ ủy quyền và lý do phù hợp, nhưng điều kiện khác nhau theo 市役所/区役所 nên phải gọi hỏi trước.',
       },
       {
         question: 'PIN 署名用 (6–16 ký tự) dùng để làm gì?',
@@ -155,7 +155,7 @@ const myNumberCard: AdminGuide = {
         step: 3,
         title: 'Chờ thư 交付通知書 gửi về nhà',
         description:
-          'Municipal office gửi 交付通知書 (giấy báo đến lấy) khi thẻ đã sẵn sàng. Trang chính thức nêu thời gian thường khoảng 1 tháng từ lúc nộp đến khi municipal office gửi thông báo, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đông hồ sơ.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — quá hạn có thể phải hỏi municipal office để xử lý lại.\n\nTra trạng thái đơn: vào apply.jpki.go.jp → dùng email đã đăng ký.',
+          '市役所/区役所 gửi 交付通知書 (giấy báo đến lấy) khi thẻ đã sẵn sàng. Trang chính thức nêu thời gian thường khoảng 1 tháng từ lúc nộp đến khi 市役所/区役所 gửi thông báo, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đông hồ sơ.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — quá hạn có thể phải hỏi 市役所/区役所 để xử lý lại.\n\nTra trạng thái đơn: vào apply.jpki.go.jp → dùng email đã đăng ký.',
         documents: [],
         tip: 'Nếu sau 2 tháng chưa nhận thư, tra trạng thái online trước khi đến 役所 hỏi — thường có cập nhật trên hệ thống.',
       },

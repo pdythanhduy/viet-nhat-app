@@ -30,11 +30,11 @@ const juminzeiLocalTax: AdminGuide = {
       '税務署 hoặc e-Tax: nếu cần khai thêm thu nhập qua 確定申告.',
     ],
     documentsChecklist: [
-      { label: '住民税決定通知書', required: true, note: 'Thông báo mức thuế, thường nhận tháng 6 qua công ty hoặc municipal office.' },
+      { label: '住民税決定通知書', required: true, note: 'Thông báo mức thuế, thường nhận tháng 6 qua công ty hoặc 市役所/区役所.' },
       { label: '納付書/hóa đơn 普通徴収', required: false, note: 'Cần nếu tự nộp thay vì trừ qua lương.' },
       { label: '源泉徴収票 hoặc 確定申告控え', required: false, note: 'Dùng để đối chiếu thu nhập năm trước.' },
       { label: '離職票 hoặc 雇用保険受給資格者証', required: false, note: 'Mang theo nếu xin giảm/miễn do thất nghiệp hoặc thu nhập giảm.' },
-      { label: 'Thẻ cư trú', required: false, note: 'Mang theo khi hỏi trực tiếp tại municipal office.' },
+      { label: 'Thẻ cư trú', required: false, note: 'Mang theo khi hỏi trực tiếp tại 市役所/区役所.' },
     ],
     commonMistakes: [
       'Nghĩ năm đầu không có 住民税 thì các năm sau cũng không có.',

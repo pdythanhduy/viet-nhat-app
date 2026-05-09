@@ -13,7 +13,7 @@ const movingInNotification: AdminGuide = {
       'Đây là thủ tục báo với 市役所/区役所 rằng bạn đã chuyển đến địa chỉ mới ở Nhật. Chưa làm thủ tục này, các việc sau như bảo hiểm, My Number, ngân hàng đều bị vướng.',
     legalScope: {
       jurisdiction: 'municipality',
-      jurisdictionNote: '転入届/転居届 do municipal office xử lý theo hệ thống 住民基本台帳; với người trung/dài hạn, mang thẻ cư trú đến municipal office cũng được coi là đã làm 届出 địa chỉ theo ISA.',
+      jurisdictionNote: '転入届/転居届 do 市役所/区役所 xử lý theo hệ thống 住民基本台帳; với người trung/dài hạn, mang thẻ cư trú đến 市役所/区役所 cũng được coi là đã làm 届出 địa chỉ theo ISA.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',

@@ -12,7 +12,7 @@ const familyStayInvitation: AdminGuide = {
     description: 'Hướng dẫn theo diện 家族滞在 cho vợ/chồng hoặc con của người đang có tư cách lưu trú phù hợp tại Nhật. Đây là thủ tục dài hạn, khác với visa du lịch thăm thân.',
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: 'Family stay dài hạn thường đi theo 2 lớp: COE do ISA xử lý tại Nhật và visa do cơ quan lãnh sự Nhật ở nước ngoài xử lý.',
+      jurisdictionNote: 'Diện 家族滞在 dài hạn thường đi theo 2 lớp: COE do ISA xử lý tại Nhật và visa do cơ quan lãnh sự Nhật ở nước ngoài xử lý.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
@@ -31,7 +31,7 @@ const familyStayInvitation: AdminGuide = {
         'Sau khi có COE, kiểm tra nơi nộp visa theo nơi cư trú của người thân ở nước ngoài.',
       ],
       bring: ['Hộ chiếu người được bảo lãnh', 'Giấy tờ chứng minh quan hệ gia đình', 'Thẻ cư trú người bảo lãnh', 'Giấy tờ thu nhập/thuế', 'Giấy tờ chỗ ở'],
-      ifLate: 'Không dùng short stay để thay thế kế hoạch ở dài hạn; nếu cần vào Nhật gấp, tách rõ mục đích và hỏi cơ quan lãnh sự/ISA trước.',
+      ifLate: 'Không dùng visa 短期滞在 (ngắn hạn) để thay thế kế hoạch ở dài hạn; nếu cần vào Nhật gấp, tách rõ mục đích và hỏi cơ quan lãnh sự/ISA trước.',
       officialSourceLabels: ['在留資格認定証明書交付申請 — 出入国在留管理庁', 'General visa: Dependent (family stays) — MOFA'],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_family-stay_hero.jpg'),
@@ -177,13 +177,13 @@ const familyStayInvitation: AdminGuide = {
       {
         step: 5,
         title: 'Nộp visa và chuẩn bị nhập cảnh',
-        description: 'Người thân nộp hồ sơ visa tại nơi tiếp nhận theo nơi cư trú. Sau khi được cấp visa, khi nhập cảnh vẫn phải qua khâu xét landing permission ở sân bay Nhật.',
+        description: 'Người thân nộp hồ sơ visa tại nơi tiếp nhận theo nơi cư trú. Sau khi được cấp visa, khi nhập cảnh vẫn phải qua khâu kiểm tra nhập cảnh (上陸審査) ở sân bay Nhật.',
         documents: [
           'Hộ chiếu',
           'Visa được cấp',
           'COE và giấy tờ liên quan nếu nơi nộp yêu cầu',
         ],
-        tip: 'Visa là điều kiện quan trọng nhưng không tự động bảo đảm được cho nhập cảnh; quyết định cuối cùng về landing permission được kiểm tra tại cửa khẩu.',
+        tip: 'Visa là điều kiện quan trọng nhưng không tự động bảo đảm được nhập cảnh; quyết định cuối cùng về việc cho nhập cảnh (上陸審査) được kiểm tra tại cửa khẩu.',
         image: require('../../../../../assets/content/daily-life/ag_family-stay_s5.jpg'),
         imageCaption: 'Nộp visa tại lãnh sự quán Nhật ở Việt Nam sau khi nhận COE từ người bảo lãnh',
       },

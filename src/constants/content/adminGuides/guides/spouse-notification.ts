@@ -12,7 +12,7 @@ const spouseNotification: AdminGuide = {
     description: 'Người có tư cách lưu trú dựa trên quan hệ vợ/chồng cần khai báo với ISA khi ly hôn hoặc vợ/chồng qua đời.',
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: '配偶者に関する届出 là khai báo với ISA; thủ tục hộ tịch tại municipal office và thủ tục đổi tư cách lưu trú là các lớp việc riêng.',
+      jurisdictionNote: '配偶者に関する届出 là khai báo với ISA; thủ tục hộ tịch tại 市役所/区役所 và thủ tục đổi tư cách lưu trú là các lớp việc riêng.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
@@ -57,7 +57,7 @@ const spouseNotification: AdminGuide = {
       { label: 'Bằng chứng đã nộp khai báo', required: false, note: 'Giữ lại nếu nộp online hoặc qua bưu điện.' },
     ],
     commonMistakes: [
-      'Tưởng ly hôn tại municipal office xong là ISA tự biết và không cần khai báo.',
+      'Tưởng ly hôn tại 市役所/区役所 xong là ISA tự biết và không cần khai báo.',
       'Nhầm khai báo 配偶者に関する届出 với thủ tục đổi/gia hạn tư cách lưu trú.',
       'Để quá 14 ngày mới khai báo vì chưa chuẩn bị hướng đổi visa.',
       'Không giữ bằng chứng đã nộp khai báo.',
@@ -122,7 +122,7 @@ const spouseNotification: AdminGuide = {
           'Thẻ cư trú',
           'Giấy 離婚届受理証明書 hoặc 死亡診断書 nếu được yêu cầu',
         ],
-        tip: 'Tư cách 日本人の配偶者等 hoặc 永住者の配偶者等 gắn với quan hệ hôn nhân. Sau ly hôn, nếu không có căn cứ lưu trú khác, thời gian xử lý hồ sơ trở nên gấp — đừng để quá deadline 14 ngày.',
+        tip: 'Tư cách 日本人の配偶者等 hoặc 永住者の配偶者等 gắn với quan hệ hôn nhân. Sau ly hôn, nếu không có căn cứ lưu trú khác, thời gian xử lý hồ sơ trở nên gấp — đừng để quá hạn 14 ngày.',
       },
       {
         step: 2,

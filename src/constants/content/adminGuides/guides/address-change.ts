@@ -12,7 +12,7 @@ const addressChange: AdminGuide = {
     description: 'Khi đổi nhà ở Nhật, bạn phải báo địa chỉ mới với 市役所/区役所. Việc này quyết định cả thẻ cư trú, bảo hiểm, ngân hàng và bưu điện có gửi đúng địa chỉ hay không.',
     legalScope: {
       jurisdiction: 'municipality',
-      jurisdictionNote: 'Nghĩa vụ khai báo địa chỉ nằm trong hệ thống cư trú toàn quốc, nhưng nơi tiếp nhận là municipal office nơi cư trú mới.',
+      jurisdictionNote: 'Nghĩa vụ khai báo địa chỉ nằm trong hệ thống cư trú toàn quốc, nhưng nơi tiếp nhận là 市役所/区役所 nơi cư trú mới.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
@@ -53,7 +53,7 @@ const addressChange: AdminGuide = {
       '市役所 cũ trước khi đi (chỉ khi chuyển sang thành phố/tỉnh khác — để xin 転出証明書).',
       'Không làm ở 入国管理局 — đây là thủ tục địa phương, không phải thủ tục visa.',
     ],
-    estimatedTime: 'Thường xử lý trong ngày tại municipal office, nhưng tháng 3-4 hoặc đầu tuần có thể phải chờ lâu.',
+    estimatedTime: 'Thường xử lý trong ngày tại 市役所/区役所, nhưng tháng 3-4 hoặc đầu tuần có thể phải chờ lâu.',
     fees: [
       'Khai báo địa chỉ thường không mất phí.',
       'Nếu xin thêm bản 住民票 hoặc giấy xác nhận khác, phí phụ thuộc từng địa phương.',
@@ -62,7 +62,7 @@ const addressChange: AdminGuide = {
       { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Dùng để cập nhật địa chỉ ở mặt sau thẻ.' },
       { label: 'My Number Card', required: false, note: 'Mang theo nếu đã có để cập nhật địa chỉ và chứng thư điện tử nếu cần.' },
       { label: '転出証明書', required: false, note: 'Có thể cần khi chuyển từ thành phố/quận/phường khác.' },
-      { label: 'Hộ chiếu', required: false, note: 'Mang theo nếu mới nhập cảnh hoặc municipal office yêu cầu xác minh thêm.' },
+      { label: 'Hộ chiếu', required: false, note: 'Mang theo nếu mới nhập cảnh hoặc 市役所/区役所 yêu cầu xác minh thêm.' },
     ],
     commonMistakes: [
       'Tưởng đổi địa chỉ với nhà mạng/ngân hàng là xong → quên 市役所.',

@@ -9,12 +9,12 @@ const pensionExemptionRefund: AdminGuide = {
     titleJp: '年金・免除・脱退一時金の基本',
     icon: 'card',
     color: '#2C3E50',
-    description: 'Guide thực tế về 国民年金, 厚生年金, miễn giảm, 学生納付特例, chuyển việc và 脱退一時金 khi rời Nhật. Nội dung viết cho người nước ngoài đang sống hoặc sắp rời Nhật.',
+    description: 'Hướng dẫn thực tế về 国民年金 (lương hưu quốc dân), 厚生年金 (lương hưu công ty), miễn giảm, 学生納付特例, chuyển việc và 脱退一時金 khi rời Nhật. Nội dung viết cho người Việt đang sống hoặc sắp rời Nhật.',
     heroImage: require('../../../../../assets/content/daily-life/ag_pension_hero.jpg'),
     heroImageCaption: '年金 - kiểm tra lịch sử đóng, miễn giảm và 脱退一時金 khi rời Nhật',
     whoIsThisFor: [
-      'Người Việt đang đi làm, đi học hoặc làm part-time tại Nhật và chưa hiểu mình đang đóng loại年金 nào.',
-      'Người đang khó khăn tài chính và muốn xin miễn/猶予 thay vì để nợ年金.',
+      'Người Việt đang đi làm, đi học hoặc làm part-time tại Nhật và chưa hiểu mình đang đóng loại 年金 nào.',
+      'Người đang khó khăn tài chính và muốn xin miễn / 納付猶予 thay vì để nợ 年金.',
       'Người sắp về nước và đang phân vân có nên xin 脱退一時金 hay giữ thời gian đóng để tính lương hưu sau này.',
     ],
     whenToDo: [
@@ -23,21 +23,21 @@ const pensionExemptionRefund: AdminGuide = {
       'Trước khi rời Nhật và trong vòng 2 năm sau khi xuất cảnh nếu muốn xin 脱退一時金.',
     ],
     whereToDo: [
-      '市区町村 / ward office: một số thủ tục ban đầu liên quan tới 国民年金 và tình trạng cư trú.',
-      '日本年金機構 /年金事務所: miễn giảm, 学生納付特例, xác nhận加入, 脱退一時金 và tra cứu年金 record.',
-      'Công ty đang làm: nếu thuộc 厚生年金 thì việc tham gia/chấm dứt chủ yếu đi qua công ty.',
-      'e-Tax/税務 và 納税管理人: nếu liên quan hoàn thuế khấu trừ từ 脱退一時金 của 厚生年金.',
+      '市役所/区役所: một số thủ tục ban đầu liên quan tới 国民年金 và tình trạng cư trú.',
+      '日本年金機構 / 年金事務所: miễn giảm, 学生納付特例, xác nhận tham gia, 脱退一時金 và tra cứu lịch sử đóng 年金.',
+      'Công ty đang làm: nếu thuộc 厚生年金 thì việc tham gia / chấm dứt chủ yếu đi qua công ty.',
+      'e-Tax / 税務署 và 納税管理人: nếu liên quan hoàn thuế khấu trừ từ 脱退一時金 của 厚生年金.',
     ],
     estimatedTime: 'Miễn giảm và 学生納付特例 nên làm càng sớm càng tốt vì có giới hạn thời gian truy ngược. 脱退一時金 chỉ xin sau khi đã rời Nhật và trong 2 năm kể từ ngày đủ điều kiện; xử lý thực tế mất thêm thời gian bưu chính, xác minh và chuyển khoản quốc tế.',
     fees: [
-      '国民年金保険料 hiện hành theo 日本年金機構 cập nhật ngày 01/04/2026 là mức của năm tài khóa 2026; người thuộc第1号被保険者 phải tự đóng đúng hạn trừ khi được miễn/猶予.',
-      'Miễn giảm, 納付猶予 hay 学生納付特例 không phải là “xóa mọi ảnh hưởng” như nhau; mỗi chế độ ảnh hưởng khác nhau tới số lương hưu sau này và khả năng追納.',
+      '国民年金保険料 hiện hành theo 日本年金機構 cập nhật ngày 01/04/2026 là mức của năm tài khóa 2026; người thuộc 第1号被保険者 phải tự đóng đúng hạn trừ khi được miễn / 納付猶予.',
+      'Miễn giảm, 納付猶予 hay 学生納付特例 không phải là "xóa mọi ảnh hưởng" như nhau; mỗi chế độ ảnh hưởng khác nhau tới số lương hưu sau này và khả năng truy đóng (追納).',
       'Nếu xin 脱退一時金 của 厚生年金, có thể có thuế bị khấu trừ; việc xin hoàn phần thuế này thường phải đi qua 納税管理人 và thủ tục thuế riêng.',
     ],
     documentsChecklist: [
       { label: '年金手帳/基礎年金番号通知書 hoặc số年金 cơ bản', required: true },
       { label: 'Giấy tờ cho biết bạn đang ở 国民年金 hay 厚生年金', required: true },
-      { label: 'Nếu xin miễn/猶予: giấy tờ thu nhập, thất nghiệp hoặc hoàn cảnh kinh tế', required: false },
+      { label: 'Nếu xin miễn / 納付猶予: giấy tờ thu nhập, thất nghiệp hoặc hoàn cảnh kinh tế', required: false },
       { label: 'Nếu là du học sinh: giấy tờ trường học để xin 学生納付特例', required: false },
       { label: 'Nếu sắp về nước: ngày rời Nhật, địa chỉ ngoài Nhật và tài khoản nhận 脱退一時金', required: false },
       { label: 'Nếu muốn hoàn thuế của 脱退一時金 厚生年金: hồ sơ 納税管理人 và giấy tờ thuế liên quan', required: false },
@@ -46,14 +46,14 @@ const pensionExemptionRefund: AdminGuide = {
       'Nghĩ 年金 chỉ là khoản bị trừ vô ích và bỏ mặc không xử lý khi khó khăn.',
       'Không phân biệt 国民年金 với 厚生年金, dẫn tới xin sai chỗ hoặc tưởng công ty đang lo hết.',
       'Du học sinh để nợ 国民年金 thay vì xin 学生納付特例.',
-      'Người thất nghiệp không xin miễn/猶予 sớm, để mất khoảng thời gian có thể được bảo vệ.',
-      'Xin 脱退一時金 mà không hiểu rằng sau khi nhận, record tương ứng sẽ mất và có thể làm mất cơ hội hưởng lương hưu sau này.',
-      'Tưởng cứ về nước là tự động được hoàn全部 tiền年金 đã đóng.',
+      'Người thất nghiệp không xin miễn / 納付猶予 sớm, để mất khoảng thời gian có thể được bảo vệ.',
+      'Xin 脱退一時金 mà không hiểu rằng sau khi nhận, lịch sử đóng tương ứng sẽ mất và có thể làm mất cơ hội hưởng lương hưu sau này.',
+      'Tưởng cứ về nước là tự động được hoàn lại toàn bộ tiền 年金 đã đóng.',
     ],
     faq: [
       {
         question: 'Ai bắt buộc phải vào 国民年金?',
-        answer: '日本年金機構 nêu rõ người sống ở Nhật từ 20 đến 59 tuổi về nguyên tắc đều vào 国民年金. Nếu bạn đi làm thuộc hệ thống công ty và vào 厚生年金 thì phần cơ bản vẫn nằm trong hệ thống公的年金, nhưng cách tham gia và đóng sẽ đi qua công ty.',
+        answer: '日本年金機構 nêu rõ người sống ở Nhật từ 20 đến 59 tuổi về nguyên tắc đều vào 国民年金. Nếu bạn đi làm thuộc hệ thống công ty và vào 厚生年金 thì phần cơ bản vẫn nằm trong hệ thống 公的年金, nhưng cách tham gia và đóng sẽ đi qua công ty.',
       },
       {
         question: 'Tôi đi làm part-time có phải vào 厚生年金 không?',
@@ -61,11 +61,11 @@ const pensionExemptionRefund: AdminGuide = {
       },
       {
         question: 'Không đủ tiền đóng thì để đó có sao không?',
-        answer: 'Không nên. 日本年金機構 có các chế độ免除, 納付猶予, 学生納付特例 và産前産後免除. Nếu bạn đủ điều kiện mà không xin, việc để未納 có thể làm mất bảo vệ về障害年金 hoặc遺族年金 và làm xấu record đóng về sau.',
+        answer: 'Không nên. 日本年金機構 có các chế độ 免除, 納付猶予, 学生納付特例 và 産前産後免除. Nếu bạn đủ điều kiện mà không xin, việc để 未納 có thể làm mất bảo vệ về 障害年金 hoặc 遺族年金 và làm xấu lịch sử đóng về sau.',
       },
       {
         question: 'Về nước rồi tôi có lấy lại hết tiền nenkin đã đóng không?',
-        answer: 'Không. 脱退一時金 không phải là “trả lại toàn bộ số tiền đã đóng”. Đây là khoản lump-sum theo công thức và trần của hệ thống. 日本年金機構 cũng nhấn mạnh nếu bạn nhận 脱退一時金 thì record tương ứng bị xóa, nên phải cân nhắc trước khi xin.',
+        answer: 'Không. 脱退一時金 không phải là "trả lại toàn bộ số tiền đã đóng". Đây là khoản tiền 1 lần theo công thức và trần của hệ thống. 日本年金機構 cũng nhấn mạnh nếu bạn nhận 脱退一時金 thì lịch sử đóng tương ứng bị xóa, nên phải cân nhắc trước khi xin.',
       },
       {
         question: 'Thời hạn xin 脱退一時金 là bao lâu?',
@@ -130,9 +130,9 @@ const pensionExemptionRefund: AdminGuide = {
         title: 'Xác định bạn đang ở 国民年金 hay 厚生年金',
         description: 'Nếu bạn đi làm full-time hoặc thuộc diện công ty phải cho vào xã hội bảo hiểm, thường bạn sẽ ở 厚生年金. Nếu không thuộc diện đó mà sống ở Nhật trong độ tuổi 20-59, bạn thường rơi vào 国民年金. Đừng để bị nhầm vì chỗ này quyết định bạn phải tự đóng hay công ty trừ lương.',
         documents: [
-          'Payslip',
+          'Phiếu lương (給与明細)',
           'Thông báo tham gia bảo hiểm xã hội',
-          'Giấy từ 年金機構 hoặc city hall',
+          'Giấy từ 年金機構 hoặc 市役所/区役所',
         ],
         tip: 'Nhiều người nghĩ chỉ có “nenkin” chung chung. Thực tế hai nhánh này khác nhau rất nhiều về cách đóng và cách xử lý khi nghỉ việc.',
       },
@@ -158,7 +158,7 @@ const pensionExemptionRefund: AdminGuide = {
           'Thông tin trường thuộc danh sách対象校',
           'Tài khoản マイナポータル / ねんきんネット nếu muốn làm online',
         ],
-        tip: 'Nếu học trường không nằm trong danh sách対象校, đừng tự giả định là vẫn dùng được 学生納付特例. Hãy kiểm tra danh sách chính thức trước.',
+        tip: 'Nếu học trường không nằm trong danh sách 対象校, đừng tự giả định là vẫn dùng được 学生納付特例. Hãy kiểm tra danh sách chính thức trước.',
       },
       {
         step: 4,
@@ -169,7 +169,7 @@ const pensionExemptionRefund: AdminGuide = {
           'Số giờ làm/tuần',
           'Mức lương tháng theo hợp đồng',
         ],
-        tip: 'Nhiều người tưởng làm part-time là chắc chắn không vào社会保険. Điều đó không còn đúng trong rất nhiều công ty từ sau mở rộng áp dụng.',
+        tip: 'Nhiều người tưởng làm part-time là chắc chắn không vào 社会保険. Điều đó không còn đúng trong rất nhiều công ty từ sau mở rộng áp dụng.',
       },
       {
         step: 5,
@@ -185,7 +185,7 @@ const pensionExemptionRefund: AdminGuide = {
       {
         step: 6,
         title: 'Nếu xin 脱退一時金 của 厚生年金: để ý cả phần thuế',
-        description: 'NTA xem một số lump-sum liên quan hệ thống年金 là退職所得. Nếu không có thủ tục phù hợp, khoản chi trả có thể bị khấu trừ thuế ở mức 20.42%. Nhiều trường hợp muốn lấy lại phần khấu trừ này phải thông qua 納税管理人 và thủ tục thuế riêng sau đó.',
+        description: '国税庁 (NTA) xem một số khoản tiền 1 lần liên quan hệ thống 年金 là 退職所得. Nếu không có thủ tục phù hợp, khoản chi trả có thể bị khấu trừ thuế ở mức 20.42%. Nhiều trường hợp muốn lấy lại phần khấu trừ này phải thông qua 納税管理人 và thủ tục thuế riêng sau đó.',
         documents: [
           'Giấy quyết định chi trả 脱退一時金',
           'Chứng từ khấu trừ thuế nếu có',

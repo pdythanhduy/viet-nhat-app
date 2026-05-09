@@ -9,11 +9,11 @@ const healthInsurance: AdminGuide = {
     titleJp: '国民健康保険加入',
     icon: 'heart',
     color: '#27AE60',
-    description: 'Đăng ký bảo hiểm y tế quốc gia (Kokumin Kenkou Hoken) tại văn phòng phường/quận',
+    description: 'Đăng ký bảo hiểm y tế quốc dân (国民健康保険) tại 市役所/区役所.',
     legalScope: {
       appliesFrom: '2025-12-02',
       jurisdiction: 'national',
-      jurisdictionNote: 'Chế độ bảo hiểm y tế là toàn quốc, nhưng thủ tục 国民健康保険 và cấp 資格確認書 do municipal office/bên bảo hiểm nơi bạn tham gia xử lý.',
+      jurisdictionNote: 'Chế độ bảo hiểm y tế là toàn quốc, nhưng thủ tục 国民健康保険 và cấp 資格確認書 do 市役所/区役所/bên bảo hiểm nơi bạn tham gia xử lý.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-09-01',
       riskLevel: 'medium',
@@ -29,9 +29,9 @@ const healthInsurance: AdminGuide = {
       doNow: [
         'Xác định bạn thuộc 社会保険 của công ty hay 国民健康保険 của địa phương.',
         'Nếu không dùng マイナ保険証, hỏi nơi cấp bảo hiểm về 資格確認書.',
-        'Không bỏ qua hóa đơn bảo hiểm; nếu khó trả, hỏi municipal office về chia kỳ hoặc giảm theo hoàn cảnh.',
+        'Không bỏ qua hóa đơn bảo hiểm; nếu khó trả, hỏi 市役所 về chia kỳ hoặc giảm theo hoàn cảnh.',
       ],
-      bring: ['Thẻ cư trú', 'My Number Card hoặc giấy tờ có My Number nếu có', 'Giấy mất bảo hiểm công ty nếu vừa nghỉ việc', 'Thông tin tài khoản ngân hàng nếu muốn auto-debit'],
+      bring: ['Thẻ cư trú', 'My Number Card hoặc giấy tờ có My Number nếu có', 'Giấy mất bảo hiểm công ty nếu vừa nghỉ việc', 'Thông tin tài khoản ngân hàng nếu muốn thanh toán tự động (口座振替)'],
       ifLate: 'Đi làm thủ tục càng sớm càng tốt; có thể bị truy thu phí bảo hiểm từ ngày thuộc diện tham gia.',
       officialSourceLabels: ['Bảo hiểm y tế quốc gia — 厚生労働省', 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', '資格確認書 — 厚生労働省'],
     },
@@ -43,8 +43,8 @@ const healthInsurance: AdminGuide = {
       'Người vừa nghỉ việc, mất bảo hiểm công ty hoặc chuyển từ bảo hiểm công ty sang bảo hiểm quốc dân.',
     ],
     whenToDo: [
-      'Sau khi đăng ký cư trú tại municipal office nếu bạn thuộc diện tham gia 国民健康保険.',
-      'Khi nghỉ việc hoặc mất bảo hiểm công ty, nên làm thủ tục sớm tại municipal office.',
+      'Sau khi đăng ký cư trú tại 市役所/区役所 nếu bạn thuộc diện tham gia 国民健康保険.',
+      'Khi nghỉ việc hoặc mất bảo hiểm công ty, nên làm thủ tục sớm tại 市役所/区役所.',
       'Khi chuyển nhà sang địa phương khác, cần làm lại/cập nhật theo nơi ở mới.',
     ],
     whereToDo: [
@@ -77,11 +77,11 @@ const healthInsurance: AdminGuide = {
       },
       {
         question: 'Bảo hiểm quốc dân khác bảo hiểm công ty thế nào?',
-        answer: '社会保険 thường do công ty làm thủ tục khi bạn đủ điều kiện. 国民健康保険 do municipal office quản lý cho người không thuộc bảo hiểm công ty.',
+        answer: '社会保険 thường do công ty làm thủ tục khi bạn đủ điều kiện. 国民健康保険 do 市役所/区役所 quản lý cho người không thuộc bảo hiểm công ty.',
       },
       {
         question: 'Không trả nổi phí bảo hiểm thì làm sao?',
-        answer: 'Không nên bỏ mặc hóa đơn. Hãy đến municipal office hỏi về chia kỳ, giảm/miễn theo hoàn cảnh hoặc phương án thanh toán phù hợp.',
+        answer: 'Không nên bỏ mặc hóa đơn. Hãy đến 市役所/区役所 hỏi về chia kỳ, giảm/miễn theo hoàn cảnh hoặc phương án thanh toán phù hợp.',
       },
     ],
     counterPhrases: [
@@ -137,12 +137,12 @@ const healthInsurance: AdminGuide = {
         ],
         image: require('../../../../../assets/content/daily-life/dl_health-insurance_s1.jpg'),
         imageCaption: 'マイナ保険証 / 資格確認書 — từ 02/12/2025 không dùng thẻ bảo hiểm cũ đã hết hạn',
-        tip: 'Phí bảo hiểm phụ thuộc địa phương, thu nhập năm trước và số người trong hộ. Hãy xác nhận mức cụ thể tại municipal office nơi bạn sống.',
+        tip: 'Phí bảo hiểm phụ thuộc địa phương, thu nhập năm trước và số người trong hộ. Hãy xác nhận mức cụ thể tại 市役所/区役所 nơi bạn sống.',
       },
       {
         step: 2,
         title: 'Đến văn phòng phường/quận',
-        description: 'Đến quầy "国民健康保険" tại văn phòng phường (区役所/市役所) nơi bạn đăng ký hộ khẩu.',
+        description: 'Đến quầy "国民健康保険" tại 市役所/区役所 nơi bạn đăng ký địa chỉ.',
         documents: [],
         tip: 'Mang theo thông dịch viên hoặc nhờ bạn bè nói tiếng Nhật đi cùng nếu cần',
         image: require('../../../../../assets/content/daily-life/ag_health-insurance_s2.jpg'),
@@ -160,7 +160,7 @@ const healthInsurance: AdminGuide = {
         title: 'Nhận giấy tờ xác nhận và bắt đầu sử dụng',
         description: 'Khi có bảo hiểm y tế, phần lớn người đi khám tự trả 30% chi phí y tế; tỷ lệ có thể khác theo tuổi và điều kiện cá nhân.',
         documents: [],
-        tip: 'Khi đi khám từ 2026, hãy mang My Number Card đã đăng ký dùng làm bảo hiểm hoặc 資格確認書. Nếu không chắc mình thuộc loại nào, hỏi municipal office hoặc nơi cấp bảo hiểm.',
+        tip: 'Khi đi khám từ 2026, hãy mang My Number Card đã đăng ký dùng làm bảo hiểm hoặc 資格確認書. Nếu không chắc mình thuộc loại nào, hỏi 市役所/区役所 hoặc nơi cấp bảo hiểm.',
       },
     ],
   };
