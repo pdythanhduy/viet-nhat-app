@@ -43,11 +43,11 @@ const dentistVisitJapan: AdminGuide = {
       'Xác định: đau răng cấp tính hay khám định kỳ. Cấp tính → ưu tiên 当日予約.',
       'Tìm 歯科 gần nhà bằng Google Maps. Đọc review ngắn — chú ý có đặt hẹn online hay không.',
       'Gọi điện hoặc đặt hẹn online. Nói "歯が痛いです。予約したいです".',
-      'Mang 保険証 (hoặc マイナンバーカード), 在留カード, tiền mặt 5,000–10,000円, お薬手帳 nếu có.',
+      'Mang thẻ bảo hiểm (保険証, マイナンバーカード đã liên kết, hoặc 資格確認書), 在留カード, tiền mặt 5,000–10,000円, お薬手帳 nếu có.',
       'Đến quầy受付, nói "予約しています" + tên + giờ hẹn. Điền 問診票.',
     ],
     bring: [
-      '保険証 hoặc マイナンバーカード — bắt buộc nếu muốn dùng bảo hiểm 30%',
+      'Thẻ bảo hiểm — 保険証, マイナンバーカード (đã liên kết), hoặc 資格確認書. Bắt buộc nếu muốn dùng bảo hiểm.',
       '在留カード hoặc giấy tờ tùy thân',
       'Tiền mặt 5,000–10,000円 hoặc thẻ',
       'お薬手帳 nếu đang uống thuốc thường xuyên',
@@ -79,16 +79,16 @@ const dentistVisitJapan: AdminGuide = {
   estimatedTime:
     'Lần đầu thường 30–60 phút (chụp X-quang, lập kế hoạch điều trị). Mỗi lần điều trị tiếp theo 15–45 phút. Một liệu trình hoàn chỉnh (sâu răng nhiều, lấy tủy, bọc răng) có thể cần 4–8 lần hẹn.',
   fees: [
-    'Có 保険証 (hoặc マイナンバーカード dùng làm thẻ bảo hiểm): bệnh nhân trả khoảng 30% chi phí. Lần khám đầu tiên + chụp X-quang thường 2,000–5,000円.',
-    'Trám răng đơn giản với vật liệu thường (CR / cement): 1,500–4,000円/răng có bảo hiểm.',
-    'Lấy tủy 根管治療: thường 5,000–15,000円 cả liệu trình có bảo hiểm — chia nhiều lần hẹn.',
-    'Bọc răng kim loại bạc 銀歯 thường có bảo hiểm. Bọc sứ 自費 không có bảo hiểm — có thể 50,000–150,000円/răng.',
-    'Cấy ghép インプラント: 100% tự trả, thường 300,000–500,000円/răng.',
-    'Niềng răng 矯正: 100% tự trả, thường 300,000–1,000,000円 cả liệu trình.',
-    'Phí thay đổi tùy phòng nha và khu vực — luôn hỏi 見積書 (báo giá) trước khi đồng ý điều trị đắt tiền.',
+    'Có thẻ bảo hiểm hợp lệ (保険証, マイナンバーカード đã liên kết, hoặc 資格確認書): bệnh nhân thường trả khoảng 30% chi phí. Số tiền dưới đây chỉ là tham khảo — phí thực tế thay đổi tùy phòng nha và khu vực.',
+    'Lần khám đầu tiên + chụp X-quang: thường khoảng 2,000–5,000円 với bảo hiểm.',
+    'Trám răng đơn giản với vật liệu thường (CR / cement): thường khoảng 1,500–4,000円/răng với bảo hiểm.',
+    'Lấy tủy 根管治療: thường khoảng 5,000–15,000円 cả liệu trình với bảo hiểm — chia nhiều lần hẹn.',
+    'Bọc răng kim loại bạc 銀歯 thường có bảo hiểm. Bọc sứ 自費 thường không bảo hiểm và đắt hơn nhiều.',
+    'Cấy ghép インプラント và niềng răng 矯正 thường là 100% tự trả (自費) — chi phí cao, hỏi 見積書 từ ≥2 phòng nha trước khi quyết.',
+    'LUÔN hỏi 見積書 (báo giá) trước khi đồng ý điều trị đắt tiền hoặc 自費.',
   ],
   documentsChecklist: [
-    { label: '保険証 hoặc マイナンバーカード', required: true, note: 'Thiếu = trả 100%, đắt gấp ~3 lần.' },
+    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ chứng minh tư cách bảo hiểm hợp lệ. Thiếu = trả 100%, đắt hơn nhiều.' },
     { label: '在留カード', required: false, note: 'Một số phòng nha hỏi giấy tờ tùy thân lần đầu.' },
     { label: 'Tiền mặt 5,000–10,000円 hoặc thẻ', required: true, note: 'Một số 歯科 nhỏ chỉ nhận tiền mặt.' },
     { label: 'お薬手帳', required: false, note: 'Quan trọng — bác sĩ kiểm tra trước khi gây tê / kê thuốc.' },
@@ -114,14 +114,14 @@ const dentistVisitJapan: AdminGuide = {
         'Răng giả tháo lắp (入れ歯) bằng nhựa thường có bảo hiểm. Cầu răng (ブリッジ) bằng kim loại bạc thường có bảo hiểm. Răng giả / cầu răng bằng sứ hoặc kim loại quý là 自費 — không bảo hiểm. Hỏi rõ "保険でできるものはありますか?" trước khi quyết.',
     },
     {
-      question: 'Phòng nha bảo tôi cần làm インプラント mất 50万円 — có cách rẻ hơn không?',
+      question: 'Phòng nha bảo tôi cần làm インプラント — có cách rẻ hơn không?',
       answer:
-        'Có. インプラント là 100% tự trả. Thay vào đó có thể chọn: ブリッジ (cầu răng kim loại bạc — có bảo hiểm) hoặc 入れ歯 部分 (răng giả tháo lắp một phần — có bảo hiểm). Chất lượng thẩm mỹ thấp hơn nhưng chức năng nhai vẫn ổn. Hỏi: "保険でできる方法はありますか?". Có thể đi thêm 2 phòng nha nữa để nghe ý kiến.',
+        'Có. インプラント thường là 100% tự trả nên rất đắt. Thay vào đó có thể chọn: ブリッジ (cầu răng kim loại bạc — thường có bảo hiểm) hoặc 入れ歯 部分 (răng giả tháo lắp một phần — thường có bảo hiểm). Chất lượng thẩm mỹ thấp hơn nhưng chức năng nhai thường vẫn ổn. Hỏi: "保険でできる方法はありますか?". Nên đi thêm 1–2 phòng nha nữa để nghe ý kiến và so sánh 見積書.',
     },
     {
       question: 'Trẻ em đi nha khoa lần đầu cần chuẩn bị gì?',
       answer:
-        'Mang 保険証 của trẻ + 母子手帳 + 在留カード của cha/mẹ. Nếu khu có chương trình 子ども医療費助成 (hỗ trợ y tế trẻ em), nhiều trường hợp trẻ không phải trả tiền. Tìm phòng có 小児歯科 hoặc 歯科 thân thiện với trẻ. Đặt hẹn buổi sáng — trẻ ít mệt, ít quấy.',
+        'Mang thẻ bảo hiểm của trẻ (保険証 / マイナンバーカード / 資格確認書) + 母子手帳 + 在留カード của cha/mẹ. Một số khu có chương trình 子ども医療費助成 (hỗ trợ y tế trẻ em) — điều kiện và mức hỗ trợ tùy 市区町村, hỏi 市役所 trước. Tìm phòng có 小児歯科 hoặc 歯科 thân thiện với trẻ. Đặt hẹn buổi sáng — trẻ ít mệt, ít quấy.',
     },
     {
       question: 'Tôi đau răng dữ dội cuối tuần, các 歯科 đều đóng — phải làm sao?',
@@ -198,9 +198,9 @@ const dentistVisitJapan: AdminGuide = {
       step: 3,
       title: 'Đến phòng nha — quầy 受付 và 問診票',
       description:
-        'Đến trước giờ hẹn 5–10 phút. Mang đầy đủ:\n\n• 保険証 hoặc マイナンバーカード\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nTại quầy 受付:\n• Nói "予約しています、〇〇です" (tôi có hẹn, tên ...)\n• Đưa thẻ bảo hiểm + giấy tờ tùy thân\n• Nhận 問診票 — điền tay tại chỗ\n\n問診票 hỏi: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / dị ứng thuốc / bệnh nền / thuốc đang uống / có thai không. Nếu không hiểu, hỏi nhân viên.',
+        'Đến trước giờ hẹn 5–10 phút. Mang đầy đủ:\n\n• Thẻ bảo hiểm — 保険証, マイナンバーカード (đã liên kết), hoặc 資格確認書\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nTại quầy 受付:\n• Nói "予約しています、〇〇です" (tôi có hẹn, tên ...)\n• Đưa thẻ bảo hiểm + giấy tờ tùy thân\n• Nhận 問診票 — điền tay tại chỗ\n\n問診票 hỏi: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / dị ứng thuốc / bệnh nền / thuốc đang uống / có thai không. Nếu không hiểu, hỏi nhân viên.',
       documents: [
-        '保険証 hoặc マイナンバーカード',
+        '保険証 / マイナンバーカード / 資格確認書',
         '在留カード',
         'Tiền mặt / thẻ',
         'お薬手帳 (nếu có)',
@@ -222,7 +222,7 @@ const dentistVisitJapan: AdminGuide = {
         'Sau khi đồng ý kế hoạch:\n\n1. **Điều trị lần này**: bác sĩ làm việc cần thiết hôm nay (giảm đau, làm sạch, trám tạm). Một số việc phải chờ lần hẹn sau.\n2. **Thanh toán**: ra quầy 会計 — đưa hóa đơn, trả tiền (tiền mặt hoặc thẻ). Nhận 領収書 — giữ lại để khai 医療費控除 cuối năm nếu tổng chi phí cả nhà >100,000円.\n3. **Đặt hẹn tái khám 再診**: nhân viên đề xuất ngày — chọn phù hợp lịch của bạn.\n4. **Toa thuốc**: nếu kê kháng sinh / giảm đau → cầm 処方箋 ra 薬局 mua trong 4 ngày.\n\nUống thuốc đúng giờ, đánh răng nhẹ chỗ vừa điều trị.',
       documents: [
         'Tiền mặt / thẻ',
-        '保険証 (đã đưa rồi, sẽ trả lại)',
+        'Thẻ bảo hiểm (đã đưa rồi, sẽ trả lại)',
         '処方箋 nếu có',
       ],
       tip: 'Đặt nhắc nhở trên điện thoại cho lần hẹn tiếp theo. Bỏ lỡ tái khám = liệu trình dở dang = có thể đau / nhiễm trùng nặng hơn.',

@@ -48,12 +48,11 @@ const clinicHospitalVisitGuide: AdminGuide = {
       'Xác định có phải cấp cứu không — nếu có, gọi 119 thay vì đi phòng khám.',
       'Tìm phòng khám gần nhà / chỗ làm: Google Maps + từ khóa 内科 / 小児科 / 耳鼻科 tùy triệu chứng.',
       'Kiểm tra giờ làm và có cần đặt hẹn (予約) không — gọi điện nếu không chắc.',
-      'Chuẩn bị 保険証 (hoặc マイナンバーカード dùng làm thẻ bảo hiểm), 在留カード, tiền mặt 5,000–10,000円, お薬手帳 nếu có.',
+      'Chuẩn bị thẻ bảo hiểm (保険証, hoặc マイナンバーカード đã liên kết, hoặc 資格確認書), 在留カード, tiền mặt 5,000–10,000円, お薬手帳 nếu có.',
       'Đến quầy 受付, nói "初めてです" hoặc "再診です", điền form triệu chứng (問診票).',
     ],
     bring: [
-      '保険証 (thẻ bảo hiểm y tế) — bắt buộc nếu muốn dùng bảo hiểm 30%',
-      'マイナンバーカード nếu đã liên kết với bảo hiểm — thay được 保険証 ở phòng khám hỗ trợ',
+      'Thẻ bảo hiểm — 保険証 cũ còn hạn, hoặc マイナンバーカード đã liên kết với bảo hiểm, hoặc 資格確認書 (giấy xác nhận tư cách). Bất kỳ thẻ nào hợp lệ là được.',
       '在留カード hoặc giấy tờ tùy thân khác',
       'Tiền mặt 5,000–10,000円 hoặc thẻ (một số クリニック không nhận thẻ)',
       'お薬手帳 (sổ thuốc) — nếu đang uống thuốc thường xuyên',
@@ -83,13 +82,13 @@ const clinicHospitalVisitGuide: AdminGuide = {
   estimatedTime:
     'クリニック thường mất 1–2 giờ tổng (chờ + khám + nhận toa thuốc + ra 薬局). 病院 lớn có thể mất 3–4 giờ. Đi sáng sớm thường bớt chờ.',
   fees: [
-    'Có 保険証 (hoặc マイナンバーカード dùng làm thẻ bảo hiểm): bệnh nhân trả khoảng 30% chi phí. Một lần khám thường khoảng 1,000–4,000円 (chưa kể thuốc).',
+    'Có thẻ bảo hiểm hợp lệ (保険証, マイナンバーカード đã liên kết, hoặc 資格確認書): bệnh nhân thường trả khoảng 30% chi phí. Một lần khám thường khoảng 1,000–4,000円 (chưa kể thuốc).',
     'Không có bảo hiểm: trả 100% — có thể từ 5,000円 đến vài chục nghìn yên tùy xét nghiệm.',
     'Đi 病院 lớn không có 紹介状: nhiều nơi tính thêm phụ phí 選定療養費 — kiểm tra với từng bệnh viện trước khi đi.',
     'Phí có thể thay đổi — hỏi trực tiếp phòng khám / bệnh viện hoặc xem trang chính thức của họ.',
   ],
   documentsChecklist: [
-    { label: '保険証 hoặc マイナンバーカード', required: true, note: 'Thiếu = trả 100%. Nếu mới sang, dùng giấy tạm xác nhận bảo hiểm cũng được.' },
+    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ. Thiếu = trả 100%. Mới sang chưa có thẻ chính thức, có thể xin giấy tạm tại 市役所.' },
     { label: '在留カード', required: false, note: 'Một số phòng khám hỏi giấy tờ tùy thân. Mang theo cho chắc.' },
     { label: 'Tiền mặt 5,000–10,000円', required: true, note: 'Một số クリニック chỉ nhận tiền mặt.' },
     { label: 'お薬手帳', required: false, note: 'Nếu đang uống thuốc thường xuyên — bác sĩ xem để tránh tương tác thuốc.' },
@@ -108,7 +107,7 @@ const clinicHospitalVisitGuide: AdminGuide = {
     {
       question: 'Tôi không có 保険証, có khám được không?',
       answer:
-        'Được, nhưng phải trả 100% chi phí — thường đắt gấp 3 lần khi có bảo hiểm. Nếu mới sang Nhật và đang chờ thẻ, hỏi 市役所 xin giấy tạm 健康保険被保険者資格証明書. Nếu không tham gia bảo hiểm bắt buộc, đăng ký 国民健康保険 ở 市役所 càng sớm càng tốt.',
+        'Được, nhưng thường phải trả 100% chi phí — đắt gấp khoảng 3 lần khi có bảo hiểm. Mới sang Nhật và đang chờ thẻ chính thức, hỏi 市役所 xin giấy tạm xác nhận tư cách bảo hiểm (kiểu 健康保険被保険者資格証明書 hoặc 資格確認書). Chưa tham gia bảo hiểm bắt buộc, đăng ký 国民健康保険 ở 市役所 càng sớm càng tốt — quy trình mới sang Nhật thường mất 1–2 tuần.',
     },
     {
       question: 'Khám xong bác sĩ kê toa, tôi mua thuốc ở đâu?',
@@ -206,9 +205,9 @@ const clinicHospitalVisitGuide: AdminGuide = {
       step: 3,
       title: 'Chuẩn bị giấy tờ và đến quầy 受付',
       description:
-        'Mang đầy đủ:\n\n• 保険証 hoặc マイナンバーカード (đã liên kết bảo hiểm)\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nĐến quầy 受付 (tiếp nhận), nói "初めてです" (lần đầu) hoặc "再診です" (tái khám). Nhân viên đưa 問診票 (form triệu chứng) — điền tay tại chỗ. Mục cơ bản: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / thuốc đang uống / dị ứng / bệnh mạn tính.',
+        'Mang đầy đủ:\n\n• Thẻ bảo hiểm — 保険証 (cũ còn hạn), マイナンバーカード (đã liên kết bảo hiểm), hoặc 資格確認書\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nĐến quầy 受付 (tiếp nhận), nói "初めてです" (lần đầu) hoặc "再診です" (tái khám). Nhân viên đưa 問診票 (form triệu chứng) — điền tay tại chỗ. Mục cơ bản: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / thuốc đang uống / dị ứng / bệnh mạn tính.',
       documents: [
-        '保険証 hoặc マイナンバーカード',
+        '保険証 / マイナンバーカード / 資格確認書',
         '在留カード',
         'Tiền mặt / thẻ',
         'お薬手帳 (nếu có)',
@@ -230,7 +229,7 @@ const clinicHospitalVisitGuide: AdminGuide = {
         'Sau khi khám, ngồi đợi ở quầy. Khi tên được gọi:\n\n• Quầy 会計 đưa hóa đơn — thanh toán bằng tiền mặt hoặc thẻ.\n• Nếu có thuốc, nhận 処方箋 (toa thuốc) — KHÔNG phải thuốc.\n• Đôi khi nhận thêm 領収書 (hóa đơn để khai thuế y tế cuối năm) — giữ lại.\n\n処方箋 phải dùng trong 4 ngày kể từ ngày kê.',
       documents: [
         'Tiền mặt hoặc thẻ',
-        '保険証 (đã đưa trước rồi, sẽ trả lại)',
+        'Thẻ bảo hiểm (đã đưa trước rồi, sẽ trả lại)',
       ],
       tip: 'Giữ 領収書 nguyên năm — nếu cả nhà tổng chi phí y tế >100,000円/năm, có thể xin giảm thuế 医療費控除 khi 確定申告.',
     },
@@ -238,10 +237,10 @@ const clinicHospitalVisitGuide: AdminGuide = {
       step: 6,
       title: 'Ra 薬局 lấy thuốc',
       description:
-        'Cầm 処方箋 + 保険証 ra 薬局 gần phòng khám (thường có ngay đối diện).\n\n1. Đưa 処方箋 và 保険証 cho nhân viên. Nếu lần đầu ở 薬局 này, điền form ngắn.\n2. Đưa お薬手帳 nếu có — nhân viên dán nhãn thuốc mới.\n3. Đợi 5–15 phút.\n4. Khi nhận thuốc: nhân viên giải thích cách uống. Nếu không hiểu, nói "もう一度お願いします".\n5. Thanh toán phần thuốc (cũng được bảo hiểm 30%).\n\nVề nhà uống thuốc đúng giờ. Nếu thuốc không hợp / có phản ứng lạ, ngừng và quay lại phòng khám.',
+        'Cầm 処方箋 + thẻ bảo hiểm ra 薬局 gần phòng khám (thường có ngay đối diện).\n\n1. Đưa 処方箋 và thẻ bảo hiểm cho nhân viên. Nếu lần đầu ở 薬局 này, điền form ngắn.\n2. Đưa お薬手帳 nếu có — nhân viên dán nhãn thuốc mới.\n3. Đợi 5–15 phút.\n4. Khi nhận thuốc: nhân viên giải thích cách uống. Nếu không hiểu, nói "もう一度お願いします".\n5. Thanh toán phần thuốc — cũng thường được bảo hiểm chi trả ~70%, phần bệnh nhân trả là ~30%.\n\nVề nhà uống thuốc đúng giờ. Nếu thuốc không hợp / có phản ứng lạ, ngừng và quay lại phòng khám.',
       documents: [
         '処方箋',
-        '保険証',
+        '保険証 / マイナンバーカード / 資格確認書',
         'お薬手帳 (nếu có)',
         'Tiền mặt hoặc thẻ',
       ],

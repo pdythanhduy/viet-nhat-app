@@ -10,7 +10,7 @@ const emergencyCallsJapan: AdminGuide = {
   icon: 'call',
   color: '#C0392B',
   description:
-    'Khi gặp tình huống khẩn cấp ở Nhật, gọi 119 cho cấp cứu / cứu hỏa, gọi 110 cho cảnh sát. Tổng đài hỏi 3 việc: ở đâu, chuyện gì, có ai bị thương. Câu đầu tiên rõ ràng quan trọng hơn nói đúng ngữ pháp. Có thể nói tiếng Việt / tiếng Anh — tổng đài thường có cách kết nối thông dịch.',
+    'Khi gặp tình huống khẩn cấp ở Nhật, gọi 119 cho cấp cứu / cứu hỏa, gọi 110 cho cảnh sát. Tổng đài hỏi 3 việc: ở đâu, chuyện gì, có ai bị thương. Câu đầu tiên rõ ràng quan trọng hơn nói đúng ngữ pháp. Tổng đài 119/110 có thể kết nối thông dịch ở nhiều khu vực — không phải toàn quốc. Tiếng Nhật yếu thì cứ nói "日本語があまり話せません" trước.',
   searchKeywords: [
     'cấp cứu',
     'gọi cứu thương',
@@ -52,7 +52,7 @@ const emergencyCallsJapan: AdminGuide = {
     bring: [
       'Điện thoại có pin và sóng',
       '在留カード (để xác định danh tính khi xe cứu thương đến)',
-      '保険証 hoặc マイナンバーカード (cứu thương sẽ hỏi để biết đưa đến viện nào)',
+      '保険証 / マイナンバーカード (đã liên kết bảo hiểm) / 資格確認書 — bất kỳ thẻ nào chứng minh tư cách bảo hiểm (cứu thương sẽ hỏi để biết đưa đến viện nào)',
       'Tiền mặt 1–3 vạn (phòng khi viện không nhận thẻ ban đêm)',
       'Sổ お薬手帳 nếu người bệnh đang dùng thuốc',
     ],
@@ -87,7 +87,7 @@ const emergencyCallsJapan: AdminGuide = {
   documentsChecklist: [
     { label: 'Điện thoại (gọi được)', required: true, note: 'Sạc pin tối thiểu, biết vị trí điện thoại trong nhà.' },
     { label: '在留カード', required: true, note: 'Xe cứu thương / cảnh sát hỏi danh tính khi đến.' },
-    { label: '保険証 hoặc マイナンバーカード', required: true, note: 'Cần khi nhập viện. Để gần cửa ra để dễ mang theo.' },
+    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ. Cần khi nhập viện. Để gần cửa ra để dễ mang theo.' },
     { label: 'Tiền mặt 1–3 vạn', required: false, note: 'Phòng khi viện ban đêm không nhận thẻ.' },
     { label: 'お薬手帳', required: false, note: 'Quan trọng nếu người bệnh có bệnh mạn tính / đang dùng nhiều thuốc.' },
   ],
@@ -130,8 +130,8 @@ const emergencyCallsJapan: AdminGuide = {
     {
       jp: '救急車をお願いします。',
       romaji: 'Kyuukyuusha o onegai shimasu.',
-      vn: 'Làm ơn gọi xe cấp cứu.',
-      note: 'Câu đầu tiên khi cần xe cấp cứu.',
+      vn: 'Tôi cần xe cấp cứu.',
+      note: 'Câu đầu tiên khi gọi 119 cần xe cấp cứu. Nói rõ và ngắn.',
     },
     {
       jp: '火事です。',
@@ -166,8 +166,8 @@ const emergencyCallsJapan: AdminGuide = {
     {
       jp: '警察をお願いします。',
       romaji: 'Keisatsu o onegai shimasu.',
-      vn: 'Làm ơn gọi cảnh sát.',
-      note: 'Dùng khi cần cảnh sát.',
+      vn: 'Tôi cần cảnh sát.',
+      note: 'Câu đầu tiên khi gọi 110.',
     },
     {
       jp: '日本語があまり話せません。',
@@ -178,8 +178,8 @@ const emergencyCallsJapan: AdminGuide = {
     {
       jp: 'ベトナム語の通訳をお願いします。',
       romaji: 'Betonamu-go no tsuuyaku o onegai shimasu.',
-      vn: 'Làm ơn cho tôi phiên dịch tiếng Việt.',
-      note: 'Dùng khi cần hỗ trợ tiếng Việt.',
+      vn: 'Cho tôi phiên dịch tiếng Việt.',
+      note: 'Dùng khi cần hỗ trợ tiếng Việt. Một số khu có dịch vụ thông dịch 3 bên — không phải toàn quốc.',
     },
   ],
   officialLinks: [
@@ -226,7 +226,7 @@ const emergencyCallsJapan: AdminGuide = {
         'Trong khi đợi (5–10 phút):\n\n1. Mở cửa chính / cửa tòa nhà — không khóa.\n2. Bật đèn hành lang.\n3. Nếu có >1 người, cử 1 người ra đầu ngõ vẫy xe cứu thương — đặc biệt khu chung cư phức tạp.\n4. Chuẩn bị: 在留カード, 保険証 (hoặc マイナンバーカード), お薬手帳, ví / điện thoại / sạc.\n5. Nếu là cấp cứu: viết / in nhanh danh sách thuốc người bệnh đang uống (nếu kịp).\n\nKhi xe đến, nhân viên y tế (救急隊員) hỏi nhanh tình trạng → đưa người bệnh lên xe → bạn theo cùng nếu là người nhà.',
       documents: [
         '在留カード',
-        '保険証 hoặc マイナンバーカード',
+        '保険証 / マイナンバーカード / 資格確認書',
         'お薬手帳 (nếu có)',
         'Tiền mặt + thẻ',
         'Điện thoại + sạc',

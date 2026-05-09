@@ -127,6 +127,168 @@ Tất cả nội dung chi phí dùng "thường", "khoảng", "tùy" — không 
 - Không add image asset mới.
 - Không rewrite guide cũ.
 
+---
+
+## QA review pass — 2026-05-09 (commit follow-up)
+
+Sau khi commit `f2912de`, làm pass review nội bộ trên 3 guide. Sửa nội dung tone + an toàn pháp lý, **không** thay schema, **không** đổi UI, **không** đổi version/tag.
+
+### Tóm tắt sửa
+
+| Guide | Thay đổi | Lý do |
+|---|---|---|
+| `emergency-calls-japan` | `description`: "tổng đài thường có cách kết nối thông dịch" → "Tổng đài 119/110 có thể kết nối thông dịch ở nhiều khu vực — không phải toàn quốc." | Giảm overclaim — interpreter không phải mọi tỉnh đều có |
+| `emergency-calls-japan` | `救急車をお願いします` VN: "Làm ơn gọi xe cấp cứu" → "Tôi cần xe cấp cứu" | Trong panic-state, "Làm ơn gọi" hơi xa vời / lễ phép. "Tôi cần" trực tiếp + tự nhiên hơn cho người Việt đang gọi 119 |
+| `emergency-calls-japan` | `警察をお願いします` VN: "Làm ơn gọi cảnh sát" → "Tôi cần cảnh sát" | Cùng lý do trên |
+| `emergency-calls-japan` | `ベトナム語の通訳をお願いします` VN: "Làm ơn cho tôi phiên dịch tiếng Việt" → "Cho tôi phiên dịch tiếng Việt" + note thêm "Một số khu có dịch vụ thông dịch 3 bên — không phải toàn quốc." | Tone bớt xa, note tránh overclaim |
+| 3 guides | Tất cả nơi nhắc "保険証 hoặc マイナンバーカード" → "保険証 / マイナンバーカード / 資格確認書" + ghi rõ "bất kỳ thẻ nào chứng minh tư cách bảo hiểm" | Phản ánh thực tế post-2024 khi 紙の保険証 đang dần được thay thế. KHÔNG nói chính sách deadline cụ thể (vì còn đang đổi) — chỉ liệt kê 3 dạng thẻ hợp lệ |
+| `dentist-visit-japan` | `fees`: số yên cụ thể cho implant / niềng răng → bỏ con số chính xác, giữ "thường là 100% tự trả, hỏi 見積書 từ ≥2 phòng nha" | Tránh ghi chi phí cố định cho 自費 vì biên độ rộng và thay đổi nhanh theo phòng nha |
+| `dentist-visit-japan` | `fees`: "30% chi phí. Lần khám đầu tiên + chụp X-quang thường 2,000–5,000円" → "thường khoảng" + lead bằng disclaimer "Số tiền dưới đây chỉ là tham khảo — phí thực tế thay đổi tùy phòng nha và khu vực" | Hedge mạnh hơn |
+| `dentist-visit-japan` | FAQ "Phòng nha bảo tôi cần làm インプラント mất 50万円" → bỏ "50万円" cụ thể | Cùng lý do — không bịa số chốt |
+| `dentist-visit-japan` | FAQ trẻ em: "Nếu khu có chương trình 子ども医療費助成 (hỗ trợ y tế trẻ em), nhiều trường hợp trẻ không phải trả tiền" → "Một số khu có chương trình ... — điều kiện và mức hỗ trợ tùy 市区町村, hỏi 市役所 trước" | Trợ cấp này tùy 市区町村 — không generalize |
+| `clinic-hospital-visit-guide` | Step 5 thanh toán nhà thuốc: "(cũng được bảo hiểm 30%)" → "cũng thường được bảo hiểm chi trả ~70%, phần bệnh nhân trả là ~30%" | Diễn đạt đúng hơn — bảo hiểm chi 70%, không phải bệnh nhân trả 30% là "được bảo hiểm 30%" |
+| `clinic-hospital-visit-guide` | FAQ "Tôi không có 保険証": cập nhật để nói cả 健康保険被保険者資格証明書 và 資格確認書 + nói rõ thời gian đăng ký 国保 mất ~1–2 tuần | Cụ thể hơn cho người mới sang |
+
+### Kết luận từng guide
+
+#### 1. clinic-hospital-visit-guide — PASS sau sửa
+- Phân biệt クリニック / 病院 / cấp cứu rõ. (Step 1 / whoIsThisFor / quickAction).
+- 紹介状 + 選定療養費 đã nhắc, không bịa số phụ phí.
+- Chi phí dùng "thường", "khoảng", "có thể" đầy đủ.
+- 保険証 / マイナンバーカード / 資格確認書 wording an toàn — không claim deadline policy.
+- Counter phrases 8 câu — natural, đã qua review nội bộ.
+
+Câu cần native review (không sửa, ghi nhận):
+- `予約していませんが、診てもらえますか。` — natural ở クリニック không quá đông; với clinic đông có thể hơi presumptuous. Native confirm nếu cần đổi sang `今、診てもらえますか?` hoặc `飛び込みでも大丈夫ですか?`.
+- `費用はどのくらいかかりますか。` — natural và an toàn. Một số dùng `いくらくらいですか` ngắn hơn.
+- `ベトナム語の通訳はありますか。` — natural và đúng phong cách quầy 受付. OK.
+
+#### 2. emergency-calls-japan — PASS sau sửa
+- 119 (cứu thương + cứu hỏa) / 110 (cảnh sát) đúng. Phân biệt bằng Step 1 + quickAction.
+- #7119 / #9110: legalScope ghi rõ "tùy khu vực — không phải tỉnh nào cũng có". Step 1 tip lặp lại. Description sau sửa ghi rõ "không phải toàn quốc".
+- Counter phrases 9 câu — VN translations đã chỉnh trực tiếp/tự nhiên hơn.
+- 救急車 fee policy: hedge "hiện đang miễn phí toàn quốc... một số tỉnh đã thí điểm thu phí" — không claim chắc.
+- Address priority: ✓ (Step 3 ghi 住所 là câu hỏi đầu).
+- Không cúp máy: ✓ (Step 4 + doNow lặp lại).
+
+Câu cần native review:
+- `救急車をお願いします` — JP wording chuẩn. VN sửa thành "Tôi cần xe cấp cứu" — natural cho panic.
+- `意識がありません` — JP đúng. Có thể bổ sung biến thể `意識を失っています` (mạnh hơn). Native confirm nếu nên có cả 2.
+- `日本語があまり話せません` — natural và phổ biến.
+- `ベトナム語の通訳をお願いします` — JP chuẩn. Note hedged. OK.
+
+#### 3. dentist-visit-japan — PASS sau sửa
+- Bảo hiểm phần "thường có thể dùng cho điều trị cần thiết" → wording an toàn ✓.
+- Điều trị thẩm mỹ: ghi "thường KHÔNG được bảo hiểm" ✓.
+- Khuyên hỏi chi phí trước: ✓ ngay description + commonMistakes + 2 FAQ + Step 4 tip.
+- Yen ranges đã giảm specific cho 自費 (implant/niềng răng) sau sửa.
+- 資格確認書: thêm vào bring + checklist + steps.
+- Counter phrases 7 câu — natural, không thay.
+
+Câu cần native review:
+- `保険は使えますか` — natural và phổ biến ở quầy nha. OK.
+- `今日、治療できますか` — natural; có thể native suggest `今日中に処置できますか` formal hơn nhưng câu hiện tại OK.
+- `痛み止めはもらえますか` — natural, polite. OK.
+
+---
+
+## Source status — final
+
+| Guide | Sources hiện có | Mức tin cậy | Notes |
+|---|---|---|---|
+| `clinic-hospital-visit-guide` | mhlw.go.jp homepage, med.or.jp homepage | **HOMEPAGE LEVEL** | Source general — chưa phải deep-link xác minh từng chi tiết. Specific facts (紹介状 / 選定療養費 / 保険 30% / clinic vs hospital) đều dùng wording chung của hệ thống y tế Nhật, không bịa số mới. |
+| `emergency-calls-japan` | fdma.go.jp homepage, npa.go.jp homepage | **HOMEPAGE LEVEL** | 119/110 là kiến thức phổ thông xác nhận được từ hai homepage. Mọi điểm khác (#7119/#9110/救急車 fee/通訳) hedged "tùy khu vực" / "có thể" / "không phải toàn quốc". |
+| `dentist-visit-japan` | mhlw.go.jp homepage, jda.or.jp homepage | **HOMEPAGE LEVEL** | Sources general. Mọi yen cho 自費 đã bỏ specific số chốt. 子ども医療費助成 hedged "tùy 市区町村". 救急歯科 hedged "ở một số khu". |
+
+**KHÔNG nâng status lên "confirmed" cho bất kỳ deep-link nào.** Các điểm sau vẫn `NEEDS_OFFICIAL_SOURCE_CHECK` và content lead phải verify trước khi update officialLinks lên trang con cụ thể:
+
+- `#7119` deep-link
+- `#9110` deep-link
+- 救急車 fee policy (chính sách đang đổi 2024–2026)
+- 選定療養費 (số tiền chuẩn theo MHLW)
+- 子ども医療費助成 (theo 市区町村)
+- 休日歯科診療 (theo 都道府県 歯科医師会)
+- 保険証 → マイナンバーカード timeline (chính sách đang triển khai)
+- 領収書 → 医療費控除 ngưỡng 100,000円/năm (xác minh trên 国税庁 mỗi năm)
+
+---
+
+## Device QA checklist
+
+Để tester mở app trên điện thoại thật (iOS + Android nếu có) và check theo thứ tự:
+
+### `clinic-hospital-visit-guide`
+- [ ] Mở guide từ Admin tab.
+- [ ] Hero image (`ag_kensin_hero.jpg`) render đúng, không vỡ.
+- [ ] heroImageCaption hiển thị dưới hero.
+- [ ] quickAction section render: deadline, office, doNow (5 bullet), bring (5 line), ifLate, officialSourceLabels.
+- [ ] counterPhrases hiển thị đủ **8** câu — đọc sang phải / dọc đầy đủ jp + romaji + vn + note.
+- [ ] Tap nút copy ở 1 câu — clipboard có nội dung jp.
+- [ ] Steps render đủ 6 bước, đánh số đúng 1–6.
+- [ ] FAQ render đủ 5 câu hỏi.
+- [ ] documentsChecklist render — cả 6 row, "Bắt buộc" / "Không bắt buộc" rõ.
+
+### `emergency-calls-japan`
+- [ ] Mở guide từ Admin tab.
+- [ ] Guide không có hero — kiểm tra layout vẫn cân đối, không khoảng trắng lớn ở đầu.
+- [ ] Scroll dài: từ description → quickAction → 5 list (whoFor/when/where/...) → fees → checklist → mistakes → FAQ → counterPhrases → officialLinks → 5 steps. Mượt, không lag, không cắt.
+- [ ] Các số `119`, `110`, `#7119`, `#9110` không bị format lỗi (không bị tách thành thẻ điện thoại auto-link sai).
+- [ ] counterPhrases đủ **9** câu, jp/romaji/vn/note rõ.
+- [ ] Copy 1 câu jp — clipboard đúng.
+- [ ] FAQ trẻ em / không nhớ địa chỉ / interpreter render đủ.
+
+### `dentist-visit-japan`
+- [ ] Mở guide từ Admin tab.
+- [ ] Guide không có hero — layout OK.
+- [ ] counterPhrases đủ **7** câu.
+- [ ] Copy 1 câu jp — clipboard đúng.
+- [ ] FAQ 5 câu render đủ; FAQ implant không còn số "50万円".
+- [ ] fees render — đọc thấy rõ disclaimer "tham khảo".
+
+### Cross-cut search QA
+- [ ] Mở Search tab. Gõ "đau răng" → kết quả có `dentist-visit-japan`.
+- [ ] Gõ "cấp cứu" → kết quả có `emergency-calls-japan`.
+- [ ] Gõ "đi khám bệnh" → kết quả có `clinic-hospital-visit-guide`.
+- [ ] Gõ "119" → kết quả có `emergency-calls-japan`.
+- [ ] Gõ "保険証" → kết quả có cả 3 guide mới (vì đều có trong searchKeywords / nội dung).
+- [ ] Gõ "歯医者" → kết quả có `dentist-visit-japan`.
+- [ ] Gõ "クリニック" → kết quả có `clinic-hospital-visit-guide`.
+
+### iOS-specific
+- [ ] Long-press 1 đoạn jp trong description hoặc step → context menu copy / chia sẻ hoạt động.
+- [ ] Dynamic Type (settings → Display & Text Size lên cỡ XXL) — guide vẫn đọc được, không cắt ngang chữ.
+
+### Android-specific
+- [ ] Back button hardware → quay lại đúng AdminScreen / Search list.
+- [ ] Long-press copy 1 đoạn jp — dán được vào app khác (notes / dịch).
+
+---
+
+## Outstanding native / user review
+
+(Không sửa trong pass này, ghi vào danh sách chờ.)
+
+1. `予約していませんが、診てもらえますか。` — native confirm có natural ở mọi loại クリニック không, hay nên đổi sang `飛び込みでも大丈夫ですか?` cho phòng đông.
+2. `意識がありません` ↔ `意識を失っています` — có nên có cả 2 biến thể trong counterPhrases không?
+3. Counter phrases note dài — review xem trên app render có bị wrap xấu không (Device QA).
+4. Số tiền tham khảo nha khoa (1,500–4,000円, 5,000–15,000円) — native dentist (nếu có liên hệ) confirm có realistic 2026 không.
+5. 救急車 fee policy — re-verify trước `nextReviewAt: 2026-12-01`.
+6. Chương trình 子ども医療費助成 — content lead nên có sub-guide riêng tổng quan các 市区町村 chính (tokyo, osaka, nagoya, fukuoka...) sau này — không thuộc batch A1.
+
+---
+
+## Verification sau pass review
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` | PASS |
+| `npm run test:ci` | PASS — **251/251 tests** |
+| `npm run verify:content` | PASS — 0 issues |
+
+Không có test mới fail / regress.
+
+---
+
 ## Next batches (trong Issue #3, không thuộc PR này)
 
 Theo `docs/content_roadmap_2026.md`, các batch tiếp theo gợi ý:
