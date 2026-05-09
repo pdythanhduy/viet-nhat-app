@@ -10,14 +10,14 @@ const taxOnRemittanceToVietnam: AdminGuide = {
   icon: 'send-outline',
   color: '#C0392B',
   description:
-    'Gửi tiền về Việt Nam liên quan **2 hệ thống pháp luật + thuế**: phía Nhật (国税庁 + 財務省 + 日本銀行 quy định) và phía Việt Nam (hải quan, ngân hàng nhà nước, thuế thu nhập cá nhân nếu có). Phía Nhật có ngưỡng báo cáo 100万円/giao dịch (国際送金等支払調書). Phía Việt Nam có quy định riêng về kiểm tra nguồn tiền + thuế nếu nguồn tiền chưa khai thuế. **CẢNH BÁO**: tài liệu này chỉ là tham khảo. Luật thuế quốc tế phức tạp + thay đổi — luôn hỏi 税理士 hoặc luật sư cho trường hợp cụ thể.',
+    'Gửi tiền về Việt Nam liên quan **2 hệ thống pháp luật + thuế**: phía Nhật (国税庁 + 財務省 + 日本銀行 quy định) và phía Việt Nam (hải quan, ngân hàng nhà nước, thuế thu nhập cá nhân nếu có). Phía Nhật có ngưỡng báo cáo 100万円/giao dịch (国外送金等調書). Phía Việt Nam có quy định riêng về kiểm tra nguồn tiền + thuế nếu nguồn tiền chưa khai thuế. **CẢNH BÁO**: tài liệu này chỉ là tham khảo. Luật thuế quốc tế phức tạp + thay đổi — luôn hỏi 税理士 hoặc luật sư cho trường hợp cụ thể.',
   searchKeywords: [
     'gửi tiền về Việt Nam',
     'remittance Vietnam',
     'kokusai sokin',
     'thuế gửi tiền',
     'báo cáo giao dịch',
-    '国際送金等支払調書',
+    '国外送金等調書',
     '100万円ルール',
     '租税条約',
     'tax treaty',
@@ -36,7 +36,7 @@ const taxOnRemittanceToVietnam: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '**Phía Nhật**: 外国為替及び外国貿易法 + 国税通則法. Ngưỡng báo cáo 100万円/giao dịch (国際送金等支払調書) do 国税庁 thu thập. Một số trường hợp ngưỡng thấp hơn cho mục đích AML (Anti-Money Laundering). **Phía Việt Nam**: pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước + Luật thuế thu nhập cá nhân. Hai bên hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác nhau ở 2 nước. **Hiệp định tránh đánh thuế hai lần Nhật–Việt** (1995, sửa 2014) áp dụng cho thuế thu nhập, nhưng chi tiết phức tạp. Đây KHÔNG phải tư vấn thuế cá nhân — hỏi 税理士 chuyên về quốc tế hoặc luật sư.',
+      '**Phía Nhật**: 外国為替及び外国貿易法 + 国税通則法. Ngưỡng báo cáo 100万円/giao dịch (国外送金等調書) do 国税庁 thu thập. Một số trường hợp ngưỡng thấp hơn cho mục đích AML (Anti-Money Laundering). **Phía Việt Nam**: pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước + Luật thuế thu nhập cá nhân. Hai bên hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác nhau ở 2 nước. **Hiệp định tránh đánh thuế hai lần Nhật–Việt** (1995, sửa 2014) áp dụng cho thuế thu nhập, nhưng chi tiết phức tạp. Đây KHÔNG phải tư vấn thuế cá nhân — hỏi 税理士 chuyên về quốc tế hoặc luật sư.',
     sourceVerifiedAt: '2026-05-09',
     nextReviewAt: '2026-12-01',
     riskLevel: 'high',
@@ -50,7 +50,7 @@ const taxOnRemittanceToVietnam: AdminGuide = {
   },
   quickAction: {
     deadline:
-      'Không có deadline cứng cho 1 lần gửi. Tuy nhiên: 国際送金等支払調書 (báo cáo 国税庁) áp dụng ngay khi giao dịch >100万円. Theo dõi tổng tích lũy năm — có thể có yêu cầu khai 確定申告 nếu nguồn tiền có thuế chưa đóng.',
+      'Không có deadline cứng cho 1 lần gửi. Tuy nhiên: 国外送金等調書 (báo cáo 国税庁) áp dụng ngay khi giao dịch >100万円. Theo dõi tổng tích lũy năm — có thể có yêu cầu khai 確定申告 nếu nguồn tiền có thuế chưa đóng.',
     office:
       'Dịch vụ gửi tiền: ngân hàng Nhật (SMBC, MUFG, Mizuho), ngân hàng online (楽天銀行, ソニー銀行), dịch vụ chuyên (Wise, Remitly, SBI Remit, OFX, WorldRemit, MoneyGram). Mỗi nơi phí + tỷ giá khác. **Phía Nhật khai thuế**: 確定申告 tại 税務署 nếu cần. **Phía Việt Nam**: Cục thuế / hải quan / ngân hàng nhà nước.',
     doNow: [
@@ -69,7 +69,7 @@ const taxOnRemittanceToVietnam: AdminGuide = {
       'Email + số điện thoại (cho thông báo + tracking)',
     ],
     ifLate:
-      'Nếu đã gửi nhiều và không khai báo đúng (vd vượt 100万円 nhưng không có 国際送金等支払調書 do dịch vụ): kiểm tra với 税務署 + 税理士 ngay. Khai bù nộp muộn được áp dụng trong nhiều trường hợp, nhưng có thể có 加算税. KHÔNG đợi audit — chủ động sửa.',
+      'Nếu đã gửi nhiều và không khai báo đúng (vd vượt 100万円 nhưng không có 国外送金等調書 do dịch vụ): kiểm tra với 税務署 + 税理士 ngay. Khai bù nộp muộn được áp dụng trong nhiều trường hợp, nhưng có thể có 加算税. KHÔNG đợi audit — chủ động sửa.',
     officialSourceLabels: ['国税庁', '財務省'],
   },
   whoIsThisFor: [
@@ -126,12 +126,12 @@ const taxOnRemittanceToVietnam: AdminGuide = {
     {
       question: 'Tôi gửi 50万円/tháng cho gia đình — có cần khai gì không?',
       answer:
-        '50万円/tháng = 600万円/năm. Tổng cộng năm có thể trigger audit dù mỗi giao dịch dưới 100万円.\n\nLưu ý:\n• Mỗi giao dịch <100万円 → KHÔNG có 国際送金等支払調書 tự động.\n• NHƯNG 国税庁 vẫn có quyền yêu cầu giải trình nếu thấy bất thường.\n• Nếu nguồn tiền là LƯƠNG đã đóng thuế Nhật → không cần khai thêm. Lưu 源泉徴収票 + biên nhận giao dịch là đủ.\n• Nếu nguồn tiền KHÁC (bán đồ giá trị, thừa kế, gift từ người khác) → có thể có thuế hoặc cần khai 確定申告.\n\nKhuyến nghị: lưu mọi biên nhận + đảm bảo nguồn tiền đã được khai thuế Nhật trước khi gửi.',
+        '50万円/tháng = 600万円/năm. Tổng cộng năm có thể trigger audit dù mỗi giao dịch dưới 100万円.\n\nLưu ý:\n• Mỗi giao dịch <100万円 → KHÔNG có 国外送金等調書 tự động.\n• NHƯNG 国税庁 vẫn có quyền yêu cầu giải trình nếu thấy bất thường.\n• Nếu nguồn tiền là LƯƠNG đã đóng thuế Nhật → không cần khai thêm. Lưu 源泉徴収票 + biên nhận giao dịch là đủ.\n• Nếu nguồn tiền KHÁC (bán đồ giá trị, thừa kế, gift từ người khác) → có thể có thuế hoặc cần khai 確定申告.\n\nKhuyến nghị: lưu mọi biên nhận + đảm bảo nguồn tiền đã được khai thuế Nhật trước khi gửi.',
     },
     {
-      question: '国際送金等支払調書 là gì? Tôi có cần làm không?',
+      question: '国外送金等調書 là gì? Tôi có cần làm không?',
       answer:
-        '国際送金等支払調書 (giấy báo cáo giao dịch gửi tiền quốc tế) là form **dịch vụ gửi tiền (ngân hàng / Wise / SBI Remit etc.) tự gửi cho 国税庁** khi giao dịch ≥ 100万円. **KHÔNG phải bạn làm.**\n\nNhưng:\n• Bạn có thể bị 国税庁 hỏi về giao dịch sau đó — chuẩn bị chứng minh nguồn tiền.\n• Dịch vụ thường yêu cầu **lý do gửi tiền** (mục đích) khi giao dịch lớn — trả lời thật (生活費 / 学費 / 投資 / 家族支援 / etc.).\n• Nếu lý do mơ hồ / có dấu hiệu bất thường → dịch vụ có thể từ chối / trì hoãn để điều tra.\n\nĐây là quy trình bình thường + minh bạch — không có gì phải lo nếu nguồn tiền hợp pháp.',
+        '国外送金等調書 (giấy báo cáo giao dịch gửi tiền quốc tế) là form **dịch vụ gửi tiền (ngân hàng / Wise / SBI Remit etc.) tự gửi cho 国税庁** khi giao dịch ≥ 100万円. **KHÔNG phải bạn làm.**\n\nNhưng:\n• Bạn có thể bị 国税庁 hỏi về giao dịch sau đó — chuẩn bị chứng minh nguồn tiền.\n• Dịch vụ thường yêu cầu **lý do gửi tiền** (mục đích) khi giao dịch lớn — trả lời thật (生活費 / 学費 / 投資 / 家族支援 / etc.).\n• Nếu lý do mơ hồ / có dấu hiệu bất thường → dịch vụ có thể từ chối / trì hoãn để điều tra.\n\nĐây là quy trình bình thường + minh bạch — không có gì phải lo nếu nguồn tiền hợp pháp.',
     },
     {
       question: 'Vợ/chồng tôi nhận tiền ở VN — có phải đóng thuế VN không?',
@@ -208,7 +208,7 @@ const taxOnRemittanceToVietnam: AdminGuide = {
       step: 1,
       title: 'Hiểu khung pháp lý — 2 phía Nhật + Việt Nam',
       description:
-        'Trước khi gửi, hiểu cơ bản:\n\n**Phía Nhật**:\n• Pháp lý: 外国為替及び外国貿易法 + 国税通則法.\n• Ngưỡng báo cáo: ≥ 100万円/giao dịch → 国際送金等支払調書 (dịch vụ tự gửi 国税庁).\n• Một số dịch vụ có ngưỡng AML (Anti-Money Laundering) thấp hơn — yêu cầu thêm giấy tờ.\n• KHÔNG có thuế gửi tiền (chỉ phí dịch vụ).\n• Nguồn tiền phải hợp pháp + đã đóng thuế (vd lương đã 源泉徴収).\n\n**Phía Việt Nam**:\n• Pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước.\n• Người nhận có thể bị hỏi nguồn tiền nếu nhận lớn.\n• Thuế thu nhập cá nhân Việt Nam có quy định riêng — tiền gia đình hỗ trợ thường KHÔNG bị đánh thuế, nhưng tiền lao động / hợp đồng có thể có.\n• Hiệp định tránh đánh thuế hai lần Nhật–Việt (1995) — áp dụng cho thuế thu nhập, phức tạp.\n\n**Quan trọng**: 2 hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác ở 2 nước.',
+        'Trước khi gửi, hiểu cơ bản:\n\n**Phía Nhật**:\n• Pháp lý: 外国為替及び外国貿易法 + 国税通則法.\n• Ngưỡng báo cáo: ≥ 100万円/giao dịch → 国外送金等調書 (dịch vụ tự gửi 国税庁).\n• Một số dịch vụ có ngưỡng AML (Anti-Money Laundering) thấp hơn — yêu cầu thêm giấy tờ.\n• KHÔNG có thuế gửi tiền (chỉ phí dịch vụ).\n• Nguồn tiền phải hợp pháp + đã đóng thuế (vd lương đã 源泉徴収).\n\n**Phía Việt Nam**:\n• Pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước.\n• Người nhận có thể bị hỏi nguồn tiền nếu nhận lớn.\n• Thuế thu nhập cá nhân Việt Nam có quy định riêng — tiền gia đình hỗ trợ thường KHÔNG bị đánh thuế, nhưng tiền lao động / hợp đồng có thể có.\n• Hiệp định tránh đánh thuế hai lần Nhật–Việt (1995) — áp dụng cho thuế thu nhập, phức tạp.\n\n**Quan trọng**: 2 hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác ở 2 nước.',
       documents: [],
       tip: 'Đa số người gửi lương về cho gia đình hạt nhân: quy trình đơn giản — gửi qua dịch vụ chính thức + lưu biên nhận. Vấn đề chỉ phức tạp khi có nguồn tiền khác hoặc số rất lớn.',
     },
@@ -236,7 +236,7 @@ const taxOnRemittanceToVietnam: AdminGuide = {
       step: 4,
       title: 'Gửi tiền + lưu biên nhận',
       description:
-        '**Quy trình gửi**:\n\n1. Đăng nhập dịch vụ → "Send Money" / "送金".\n2. Chọn người nhận đã save.\n3. Nhập số tiền (yen) — dịch vụ ước tính số VND người nhận sẽ nhận.\n4. Chọn mục đích (生活費 / 学費 / 家族支援 / 投資 / 商品購入 / etc.).\n5. Confirm + thanh toán (rút từ tài khoản Nhật hoặc thẻ).\n6. Nhận biên nhận điện tử qua email + tracking number.\n\n**Khi giao dịch ≥ 100万円**:\n• Dịch vụ có thể yêu cầu thêm:\n  - 源泉徴収票 / giấy chứng minh thu nhập\n  - Lý do cụ thể\n  - Hợp đồng / chứng từ nguồn tiền\n• Có thể delay 1–3 ngày để verify.\n• 国際送金等支払調書 sẽ được dịch vụ gửi 国税庁 — bạn không phải làm gì.\n\n**Lưu**:\n• Biên nhận điện tử (lưu vào folder cloud).\n• Tracking number.\n• Số tiền + tỷ giá + ngày giờ.\n• Lý do gửi.\n• Tổng tích lũy năm (Excel hoặc app).',
+        '**Quy trình gửi**:\n\n1. Đăng nhập dịch vụ → "Send Money" / "送金".\n2. Chọn người nhận đã save.\n3. Nhập số tiền (yen) — dịch vụ ước tính số VND người nhận sẽ nhận.\n4. Chọn mục đích (生活費 / 学費 / 家族支援 / 投資 / 商品購入 / etc.).\n5. Confirm + thanh toán (rút từ tài khoản Nhật hoặc thẻ).\n6. Nhận biên nhận điện tử qua email + tracking number.\n\n**Khi giao dịch ≥ 100万円**:\n• Dịch vụ có thể yêu cầu thêm:\n  - 源泉徴収票 / giấy chứng minh thu nhập\n  - Lý do cụ thể\n  - Hợp đồng / chứng từ nguồn tiền\n• Có thể delay 1–3 ngày để verify.\n• 国外送金等調書 sẽ được dịch vụ gửi 国税庁 — bạn không phải làm gì.\n\n**Lưu**:\n• Biên nhận điện tử (lưu vào folder cloud).\n• Tracking number.\n• Số tiền + tỷ giá + ngày giờ.\n• Lý do gửi.\n• Tổng tích lũy năm (Excel hoặc app).',
       documents: [
         'Biên nhận điện tử',
       ],

@@ -113,7 +113,7 @@ const policeQuestioningRightsJapan: AdminGuide = {
     'Không yêu cầu luật sư vì nghĩ "tôi vô tội thì không cần" → sai. Luật sư bảo vệ ngay cả khi vô tội.',
     'Không liên hệ Đại sứ quán → mất quyền cơ bản theo công ước Vienna.',
     'Không mang 在留カード → vi phạm 入管法, có thể bị thêm tội độc lập.',
-    'Tin "im lặng = thừa nhận tội" → SAI. 黙秘権 là quyền hợp pháp, không thể dùng làm bằng chứng.',
+    'Tin "im lặng = thừa nhận tội" → SAI. 黙秘権 là quyền hợp pháp được pháp luật bảo vệ; theo nguyên tắc 不利益推認禁止, im lặng thường KHÔNG được dùng làm bằng chứng buộc tội trực tiếp. Trường hợp cụ thể tùy đánh giá tòa — cần luật sư.',
   ],
   faq: [
     {

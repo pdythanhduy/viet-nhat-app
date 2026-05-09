@@ -10,7 +10,7 @@ const mentalHealthStressSupport: AdminGuide = {
   icon: 'heart-outline',
   color: '#9B59B6',
   description:
-    'Sống ở nước ngoài tạo nhiều áp lực tâm lý: cô đơn, văn hóa khác, công việc / học tập căng, gia đình xa. Triệu chứng phổ biến: mất ngủ, lo âu, mất hứng thú, dễ cáu, đau đầu / dạ dày không rõ nguyên nhân. **Đây KHÔNG phải dấu hiệu yếu đuối** — đây là phản ứng bình thường của cơ thể. Có nguồn hỗ trợ miễn phí + đa ngôn ngữ ở Nhật. Trong tình huống nghĩ đến tự hại / tự tử, gọi hotline NGAY. Đây không phải tư vấn y tế cá nhân — bệnh nặng cần bác sĩ chuyên môn (精神科 / 心療内科).',
+    'Sống ở nước ngoài tạo nhiều áp lực tâm lý: cô đơn, văn hóa khác, công việc / học tập căng, gia đình xa. Triệu chứng phổ biến: mất ngủ, lo âu, mất hứng thú, dễ cáu, đau đầu / dạ dày không rõ nguyên nhân. **Đây KHÔNG phải dấu hiệu yếu đuối** — đây là phản ứng bình thường của cơ thể, **phổ biến + có thể điều trị**. Có nguồn hỗ trợ miễn phí + đa ngôn ngữ ở Nhật. Trong tình huống nghĩ đến tự hại / tự tử, gọi hotline NGAY — bạn không một mình. Đây không phải tư vấn y tế cá nhân — bệnh nặng cần bác sĩ chuyên môn (精神科 / 心療内科).',
   searchKeywords: [
     'sức khỏe tâm thần',
     'stress',
