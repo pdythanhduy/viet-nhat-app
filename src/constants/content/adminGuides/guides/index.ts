@@ -95,6 +95,9 @@ import childAllowanceJidouTeate from './child-allowance-jidou-teate';
 import policeQuestioningRightsJapan from './police-questioning-rights-japan';
 import embassyConsulateVietnamJapan from './embassy-consulate-vietnam-japan';
 import foreignResidentSupportCenters from './foreign-resident-support-centers';
+import furusatoNozeiGuide from './furusato-nozei-guide';
+import idecoPersonalPension from './ideco-personal-pension';
+import taxOnRemittanceToVietnam from './tax-on-remittance-to-vietnam';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -193,4 +196,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   policeQuestioningRightsJapan,
   embassyConsulateVietnamJapan,
   foreignResidentSupportCenters,
+  furusatoNozeiGuide,
+  idecoPersonalPension,
+  taxOnRemittanceToVietnam,
 ];
