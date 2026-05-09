@@ -10,7 +10,7 @@ const construction: PhraseCategory = {
       { jp: '図面を見ながら寸法を確認します。', romaji: 'Zumen o minagara sunpou o kakunin shimasu.', vn: 'Tôi vừa xem bản vẽ vừa kiểm tra kích thước.' },
       { jp: '資材を二階へ運びます。', romaji: 'Shizai o nikai e hakobimasu.', vn: 'Tôi chuyển vật liệu lên tầng 2.' },
       { jp: '雨なので今日は休工です。', romaji: 'Ame na node kyou wa kyuukou desu.', vn: 'Hôm nay nghỉ thi công vì mưa.' },
-      { jp: '朝礼の後で作業指示を確認しましょう。', romaji: 'Chourei no ato de sagyou shiji o kakunin shimashou.', vn: 'Sau họp sáng hãy xác nhận chỉ thị công việc.' },
+      { jp: '朝礼の後で作業指示を確認しましょう。', romaji: 'Chourei no ato de sagyou shiji o kakunin shimashou.', vn: 'Sau họp sáng hãy xác nhận lại hướng dẫn công việc.' },
     ],
     dialogue: {
       situation: 'Xin xác nhận an toàn trước khi làm trên cao',

@@ -13,7 +13,7 @@ const restaurant: PhraseCategory = {
       { jp: 'お会計はこちらでお願いします。', romaji: 'Okaikei wa kochira de onegaishimasu.', vn: 'Xin thanh toán tại đây ạ.' },
     ],
     dialogue: {
-      situation: 'Xác nhận order tại nhà hàng',
+      situation: 'Xác nhận lại món khách gọi',
       lines: [
         { speaker: 'A', speakerLabel: 'Bạn', jp: 'ご注文はラーメン一つと餃子一つでよろしいですか。', romaji: 'Gochuumon wa raamen hitotsu to gyouza hitotsu de yoroshii desu ka.', vn: 'Em xin xác nhận, mình gọi 1 ramen và 1 gyoza đúng không ạ?' },
         { speaker: 'B', speakerLabel: 'Khách', jp: 'はい。あと水をお願いします。', romaji: 'Hai. Ato mizu o onegaishimasu.', vn: 'Vâng. Và cho tôi thêm nước nhé.' },

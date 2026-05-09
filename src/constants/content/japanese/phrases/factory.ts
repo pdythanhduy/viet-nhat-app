@@ -16,7 +16,7 @@ const factory: PhraseCategory = {
       situation: 'Báo với quản lý chuyền về hàng lỗi',
       lines: [
         { speaker: 'A', speakerLabel: 'Bạn', jp: 'すみません。不良品がありました。確認をお願いします。', romaji: 'Sumimasen. Furyouhin ga arimashita. Kakunin o onegaishimasu.', vn: 'Xin lỗi, có hàng lỗi. Nhờ anh/chị kiểm tra giúp.' },
-        { speaker: 'B', speakerLabel: 'Quản lý', jp: 'わかりました。箱を止めて、こちらに持ってきてください。', romaji: 'Wakarimashita. Hako o tomete, kochira ni motte kite kudasai.', vn: 'Đã rõ. Hãy dừng thùng đó lại rồi mang qua đây.' },
+        { speaker: 'B', speakerLabel: 'Quản lý', jp: 'わかりました。箱を止めて、こちらに持ってきてください。', romaji: 'Wakarimashita. Hako o tomete, kochira ni motte kite kudasai.', vn: 'Đã rõ. Hãy giữ thùng đó lại rồi mang qua đây.' },
       ],
     },
   };

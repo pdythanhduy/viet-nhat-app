@@ -365,3 +365,113 @@ npm run test:ci        ✓ 251/251 pass
 - **Batch 3 (suggested):** admin guide Vietnamese.
 - **Native speaker review** — vẫn pending.
 
+---
+
+# Batch 2 — phrases/*.ts audit (2026-05-09)
+
+Issue #2 Batch 2: rà tiếng Việt trong các file phrase/dialogue của tab Tiếng Nhật.
+
+## Files audited
+
+24 files (excluding `index.ts` aggregator):
+
+| Group | Files |
+|---|---|
+| Identity / admin | bank, cityHall (đã fix batch 1), documents, postOffice |
+| Phone / services | callServices, callCompany, callHospital, phoneInternet |
+| Health / hospital | hospital |
+| Travel | train, trainDelay |
+| Work / industry | workContract, workSchedule, payroll, factory, construction, agriculture |
+| Restaurant / shopping | combini, restaurant |
+| Daily speech | greetings, comprehension, naturalSpeech, avoidPhrases |
+
+Tổng: ~140 phrases + ~20 dialogues across 24 files.
+
+## Statistics — Batch 2
+
+- **Total entries audited:** ~160 (phrases + dialogue lines + situation strings)
+- **OK_NATURAL:** ~157 (phần lớn đã được dịch conversational từ đầu)
+- **FIXED in Batch 2:** 3
+- **NEEDS_USER_REVIEW:** 0
+- **NEEDS_NATIVE_REVIEW:** 0 (vì các industry-specific terms đã ở words.ts batch 1.1)
+
+## Items FIXED in Batch 2
+
+### 1. construction.ts — consistency với words.ts batch 1
+
+- **Before:** `Sau họp sáng hãy xác nhận chỉ thị công việc.`
+- **After:** `Sau họp sáng hãy xác nhận lại hướng dẫn công việc.`
+- **Reason:** Dùng "chỉ thị" — không nhất quán với words.ts đã sửa "Chỉ thị công việc" → "Hướng dẫn công việc" trong batch 1. Đồng bộ tone toàn app.
+
+### 2. restaurant.ts — bỏ tiếng Anh trộn
+
+- **Before (situation string):** `Xác nhận order tại nhà hàng`
+- **After:** `Xác nhận lại món khách gọi`
+- **Reason:** "Order" tiếng Anh trong context tiếng Việt — không cần. Chuyển sang câu Việt thuần. Cũng đồng bộ với words.ts đã bỏ "order" khỏi 注文 trong batch 1.
+
+### 3. factory.ts — wording rõ nghĩa hơn
+
+- **Before:** `Đã rõ. Hãy dừng thùng đó lại rồi mang qua đây.`
+- **After:** `Đã rõ. Hãy giữ thùng đó lại rồi mang qua đây.`
+- **Reason:** "Dừng thùng" awkward (thùng không tự di chuyển). 箱を止めて trong context dây chuyền nghĩa "giữ lại / tách ra khỏi flow". "Giữ thùng đó lại" rõ hơn.
+
+## Items NOT changed (sample — đã pass review)
+
+Phần lớn phrase files được tác giả gốc dịch khá conversational. Không cần đụng:
+
+### bank.ts (high traffic)
+- `Tôi muốn mở tài khoản.` ✓
+- `Xét duyệt mất khoảng bao lâu?` ✓
+- `Hôm nay tôi chỉ làm bước đăng ký trước có được không?` ✓ (tone tự nhiên + practical)
+- Dialogue về 住所確認書類 — natural
+
+### hospital.ts (high traffic)
+- `Tôi cảm thấy không khỏe.` ✓
+- `Tôi bị sốt.` ✓
+- `Hôm nay tôi có thể được khám không?` ✓
+- Dialogue lễ tân: `Hôm nay bạn bị làm sao ạ?` — tone đúng
+
+### combini.ts
+- `Cho tôi món này.` ✓
+- `Bạn có thể hâm nóng giúp tôi không?` ✓
+- Dialogue 弁当 — natural
+
+### workContract.ts, workSchedule.ts, payroll.ts
+- "Ngày lĩnh lương là khi nào?" / "Tôi muốn xác nhận xem có thể dùng phép năm không." / "Khoản khấu trừ này là gì?" — tất cả đều tự nhiên, đúng tone HR/kế toán
+
+### phoneInternet.ts, callServices.ts, callCompany.ts, callHospital.ts, postOffice.ts
+- Phone/service dialogue: tone alo / xin báo / cần kiểm tra — phù hợp đời sống
+
+### train.ts, trainDelay.ts
+- Tone hỏi đường / báo trễ tự nhiên
+
+### Daily speech (naturalSpeech, avoidPhrases, comprehension, greetings)
+- Câu cơ bản đúng + avoidPhrases đã có note giải thích softer alternative — rất hữu ích
+
+## Why so few changes?
+
+Phần lớn `phrases/*.ts` được viết với tone conversational từ đầu (hardcoded với "anh/chị", "ạ", "giúp tôi"). Trái với `words.ts` (có nhiều translation Hán-Việt cứng), phrases files tránh hầu hết các bẫy "dịch máy". Audit batch 2 vì vậy mostly là **xác nhận chất lượng** thay vì rewrite.
+
+## Cross-batch summary (Issue #2)
+
+| Sprint | Files | Fixes | CulturalNote | New entries |
+|---|---|---|---|---|
+| Sprint 1 (initial flagged terms) | 2 | 9 + 1 | 4 | 0 |
+| Batch 1 (words.ts deeper) | 1 | 8 | 3 | 0 |
+| Batch 1.1 (words.ts deepest) | 1 | 12 | 5 + 2 expanded | 2 |
+| **Batch 2 (phrases/*)** | **3** | **3** | **0** | **0** |
+| **Total** | 5 unique files | **33** | **12 + 2** | **2** |
+
+## Verification (Batch 2)
+
+```
+npm run typecheck   ✓ pass
+npm run test:ci     ✓ 251/251 pass
+```
+
+## Out of scope (still deferred)
+
+- **Batch 3 (suggested):** Vietnamese trong admin guides (`src/constants/content/adminGuides/`) — pilot 5 guides đã rewrite (commit a1368e9), còn 74 guides chưa.
+- **Native speaker review** của 9 entries flagged trong `docs/japanese-tab-review-needed.md`.
+- **`grammar.ts`** — Vietnamese trong grammar patterns chưa rà sâu (out of phrases scope).
+
