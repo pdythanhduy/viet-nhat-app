@@ -92,6 +92,9 @@ import postOfficeMailForwarding from './post-office-mail-forwarding';
 import japaneseSchoolSystemChildren from './japanese-school-system-children';
 import japaneseLanguageSupportChildren from './japanese-language-support-children';
 import childAllowanceJidouTeate from './child-allowance-jidou-teate';
+import policeQuestioningRightsJapan from './police-questioning-rights-japan';
+import embassyConsulateVietnamJapan from './embassy-consulate-vietnam-japan';
+import foreignResidentSupportCenters from './foreign-resident-support-centers';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -187,4 +190,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   japaneseSchoolSystemChildren,
   japaneseLanguageSupportChildren,
   childAllowanceJidouTeate,
+  policeQuestioningRightsJapan,
+  embassyConsulateVietnamJapan,
+  foreignResidentSupportCenters,
 ];
