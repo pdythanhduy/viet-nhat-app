@@ -85,6 +85,10 @@ import dentistVisitJapan from './dentist-visit-japan';
 import earthquakePreparednessJapan from './earthquake-preparedness-japan';
 import typhoonEvacuationAlerts from './typhoon-evacuation-alerts';
 import hazardMapFloodTsunamiVolcano from './hazard-map-flood-tsunami-volcano';
+import electricityGasWaterContracts from './electricity-gas-water-contracts';
+import homeInternetWifiContracts from './home-internet-wifi-contracts';
+import nhkContractGuide from './nhk-contract-guide';
+import postOfficeMailForwarding from './post-office-mail-forwarding';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -173,4 +177,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   earthquakePreparednessJapan,
   typhoonEvacuationAlerts,
   hazardMapFloodTsunamiVolcano,
+  electricityGasWaterContracts,
+  homeInternetWifiContracts,
+  nhkContractGuide,
+  postOfficeMailForwarding,
 ];
