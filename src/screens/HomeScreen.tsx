@@ -219,19 +219,28 @@ export default function HomeScreen() {
       navigation.navigate('EmergencyHub');
       return;
     }
-    // The remaining situations open Search with a pre-filled query so the
-    // user lands on results that match their tình huống immediately. Keys
-    // are short Vietnamese phrases the searchIndex actually indexes against;
-    // multi-word "thuế bảo hiểm" / "mất thẻ cư trú" combos returned zero hits
-    // so we pick the more useful single phrase from each pair.
-    const queryByAction: Record<Exclude<QuickActionId, 'newcomer' | 'emergency'>, string> = {
+    // "Mất giấy tờ" used to open Search with a generic "thẻ cư trú"
+    // query, which dumped users into a long results list instead of
+    // the urgent step-by-step they're actually looking for. Now it
+    // jumps straight into the dedicated lost-residence-card guide.
+    if (action.id === 'lost-document') {
+      navigation.navigate('AdminDetail', { guideId: 'lost-residence-card' });
+      return;
+    }
+    // The remaining situations open Search with a pre-filled query so
+    // the user lands on results that match their tình huống immediately.
+    // Keys are short Vietnamese phrases the searchIndex actually indexes
+    // against; multi-word "thuế bảo hiểm" combos returned zero hits so
+    // we pick the more useful single phrase from each pair.
+    const queryByAction: Partial<
+      Record<Exclude<QuickActionId, 'newcomer' | 'emergency' | 'lost-document'>, string>
+    > = {
       'visa-renewal':  'gia hạn visa',
       'moving':        'chuyển nhà',
       'official-mail': 'thuế',
       'tax-insurance': 'bảo hiểm',
-      'lost-document': 'thẻ cư trú',
     };
-    const initialQuery = queryByAction[action.id];
+    const initialQuery = queryByAction[action.id as keyof typeof queryByAction];
     navigation.navigate('Search', initialQuery ? { initialQuery } : undefined);
   };
 

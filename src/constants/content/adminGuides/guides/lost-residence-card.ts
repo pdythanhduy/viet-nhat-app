@@ -1,0 +1,195 @@
+import type { AdminGuide } from '../../../../types/content';
+
+const lostResidenceCard: AdminGuide = {
+    id: 'lost-residence-card',
+    category: 'immigration',
+    lastVerified: '2026-05-09',
+    priority: 'high',
+    title: 'Mất thẻ cư trú — xin cấp lại',
+    titleJp: '在留カードの再交付申請（紛失・盗難・滅失）',
+    icon: 'alert-circle',
+    color: '#C0392B',
+    description:
+      'Khi mất 在留カード (mất, bị trộm, hoặc hư hỏng nặng), bạn phải xin cấp lại tại 入国管理局. Theo ISA, hạn chuẩn là 14 ngày kể từ ngày bạn biết mình mất thẻ — đi càng sớm càng tốt.',
+    heroImage: require('../../../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
+    heroImageCaption: '在留カード — mất, bị trộm hoặc hư hỏng nặng phải xin cấp lại tại 入国管理局 trong 14 ngày',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '在留カード再交付申請 do ISA (出入国在留管理庁) xử lý toàn quốc. Nếu mất kèm các giấy tờ khác (hộ chiếu, My Number Card), mỗi loại phải xử lý riêng.',
+      sourceVerifiedAt: '2026-05-09',
+      nextReviewAt: '2026-12-01',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bạn phát hiện mất sau khi đã quá 14 ngày, hoặc không nhớ chính xác ngày mất.',
+        'Mất kèm hộ chiếu hoặc giấy tờ cư trú khác — xử lý nhiều thủ tục cùng lúc.',
+        'Bạn đang ở ngoài Nhật khi phát hiện mất thẻ.',
+        'Visa hiện tại sắp hết hạn trong vài tuần tới và đang cần thẻ để gia hạn.',
+      ],
+    },
+    quickAction: {
+      deadline: 'Trong vòng 14 ngày kể từ ngày bạn biết mình mất thẻ. Đi càng sớm càng tốt — nhiều thủ tục khác cần thẻ cư trú.',
+      office: '入国管理局 (ISA) tại khu vực bạn đang sống. Một số trường hợp có thể qua quầy 市役所/区役所 trước nếu được hướng dẫn.',
+      doNow: [
+        'Báo cảnh sát (交番/警察署) ngay nếu bị trộm hoặc mất ngoài đường — xin 遺失届受理番号 (mã biên nhận khai báo).',
+        'Tìm kỹ ở nhà / công ty / trường trước khi đi ISA — nếu tìm lại được trong vài giờ, không cần thủ tục cấp lại.',
+        'Chuẩn bị: hộ chiếu (gốc), ảnh thẻ 4×3cm chụp <3 tháng, biên nhận khai báo cảnh sát (nếu có).',
+        'Đến 入国管理局 nói "在留カードを紛失したので、再交付をお願いします."',
+      ],
+      bring: [
+        'Hộ chiếu (bắt buộc — gốc, còn hiệu lực)',
+        'Ảnh thẻ 4×3cm chụp trong 3 tháng gần (bắt buộc)',
+        'Đơn xin cấp lại (在留カード再交付申請書 — lấy tại quầy ISA hoặc tải online)',
+        'Biên nhận khai báo cảnh sát (遺失届受理番号 hoặc 盗難届受理番号) nếu là mất/trộm',
+        'Giấy tờ chứng minh hư hỏng nếu là 滅失 (vd: thẻ bị cháy/hỏng — mang phần còn lại)',
+      ],
+      ifLate: 'Đến 入国管理局 ngay, nói thật ngày mình biết mình mất thẻ. ISA có thể yêu cầu giải trình; giữ giấy biên nhận để dùng cho thủ tục visa sau.',
+      officialSourceLabels: ['在留カードの再交付申請 — 出入国在留管理庁'],
+    },
+    whoIsThisFor: [
+      'Bạn vừa phát hiện 在留カード bị mất, bị trộm, hoặc bị hỏng nặng (rách, cháy, không đọc được).',
+      'Bạn đang có visa trung/dài hạn ở Nhật và cần thẻ để tiếp tục các thủ tục.',
+      'Người mất thẻ trong khi đang ở Nhật — nếu đang ở nước ngoài, hỏi ISA và lãnh sự quán Nhật trước khi quay lại.',
+      'Không phải bạn nếu: chỉ thẻ cũ hết hạn (đó là gia hạn hiệu lực thẻ — thủ tục khác). Hoặc My Number Card mất (xử lý riêng tại 市役所).',
+    ],
+    whenToDo: [
+      'Ngay khi phát hiện — không đợi tìm thêm vài ngày.',
+      'Trong vòng 14 ngày theo quy định ISA. Quá 14 ngày vẫn phải làm, nhưng chuẩn bị giải trình.',
+      'Trước khi cần dùng thẻ cho thủ tục khác (gia hạn visa, mở ngân hàng, hợp đồng nhà...).',
+    ],
+    whereToDo: [
+      '入国管理局 (ISA) tại khu vực bạn đang sống — đây là nơi xử lý chính.',
+      '交番/警察署 trước (chỉ khi bị trộm hoặc mất ngoài đường) để xin 遺失届受理番号.',
+      'Không phải nơi: 市役所 không cấp lại 在留カード. 市役所 chỉ liên quan khi bạn cần đăng ký lại địa chỉ sau cấp lại.',
+    ],
+    estimatedTime: 'Theo ISA, hồ sơ đầy đủ thường được xử lý trong ngày — bạn có thể nhận thẻ mới ngay tại quầy. Nếu hồ sơ thiếu giấy tờ, có thể phải đến lại lần 2.',
+    fees: [
+      'Theo trang ISA, thủ tục 再交付申請 do mất / trộm / hư hỏng KHÔNG có phí (miễn phí).',
+      'Tuy nhiên nếu nguyên nhân là sơ suất rõ rệt của bản thân, ISA có thể yêu cầu giải trình. Phí có thể thay đổi — kiểm tra link chính thức trước khi đi.',
+    ],
+    documentsChecklist: [
+      { label: 'Hộ chiếu (gốc, còn hiệu lực)', required: true },
+      { label: 'Ảnh thẻ 4cm × 3cm', required: true, note: 'Nền trắng/sáng, chụp trong 3 tháng gần. Thiếu hoặc sai chuẩn sẽ phải đi lại.' },
+      { label: '在留カード再交付申請書', required: true, note: 'Lấy tại quầy ISA hoặc tải PDF từ trang ISA. Điền tay tại chỗ được.' },
+      { label: 'Biên nhận khai báo cảnh sát', required: false, note: '遺失届受理番号 (mất) hoặc 盗難届受理番号 (trộm). Bắt buộc nếu lý do là mất/trộm. Nộp số mã biên nhận, không cần bản gốc.' },
+      { label: 'Phần thẻ còn lại nếu hư hỏng', required: false, note: 'Khi 滅失 (thẻ rách/cháy/hỏng) — mang phần còn lại để ISA xác nhận.' },
+    ],
+    commonMistakes: [
+      'Đợi vài ngày để tìm thêm rồi mới đi — ISA tính 14 ngày từ khi BIẾT mất, không phải từ khi nộp đơn.',
+      'Mất ngoài đường mà không báo cảnh sát trước → ISA sẽ yêu cầu quay lại làm 遺失届.',
+      'Đến 市役所 thay vì 入国管理局 — 市役所 không cấp lại 在留カード.',
+      'Mang ảnh cũ hơn 3 tháng hoặc sai kích thước → bị từ chối, phải đi chụp lại.',
+      'Mang bản photo hộ chiếu thay vì gốc → ISA chỉ chấp nhận bản gốc.',
+      'Không nhớ ngày mất rõ ràng → khó giải trình. Ghi lại ngày phát hiện ngay khi biết.',
+    ],
+    faq: [
+      {
+        question: 'Tôi vừa nhớ ra để quên thẻ trên tàu hôm qua — phải làm gì trước?',
+        answer: 'Báo nhân viên ga (駅員) hoặc 交番 gần ga — họ tra cứu đồ thất lạc (遺失物) trước. Nếu tra trong vài giờ không thấy, đi 交番 làm 遺失届 và lấy mã 遺失届受理番号. Sau đó đến 入国管理局 trong 14 ngày.',
+      },
+      {
+        question: 'Mất kèm cả hộ chiếu thì xử lý thứ tự nào?',
+        answer: 'Báo cảnh sát trước (cùng lúc cho cả thẻ và hộ chiếu). Sau đó liên hệ Đại sứ quán Việt Nam để xin lại hộ chiếu (cần thời gian). Đến 入国管理局 xin cấp lại 在留カード — có thể cần dùng giấy tạm thời từ Đại sứ quán nếu hộ chiếu chưa kịp lấy lại.',
+      },
+      {
+        question: 'Đang ở Việt Nam thì phát hiện mất thẻ — phải làm sao?',
+        answer: 'Liên hệ Đại sứ quán Nhật tại Việt Nam và 入国管理局 ở Nhật trước khi quay lại. Có thể cần xin giấy phép tái nhập cảnh đặc biệt qua đại sứ quán. Đừng tự đặt vé bay về Nhật khi không có thẻ và chưa hỏi.',
+      },
+      {
+        question: 'Thẻ bị rách/cháy/hỏng nhưng vẫn đọc được — có cần đi cấp lại không?',
+        answer: 'Tùy mức độ. Nếu thông tin chính (tên, số thẻ, ảnh) không đọc được rõ → đi cấp lại. Nếu chỉ trầy nhẹ và đọc đầy đủ → có thể chưa cần. Hỏi 入国管理局 cho chắc.',
+      },
+      {
+        question: 'Tôi tìm lại được thẻ sau khi đã làm thẻ mới — phải làm gì?',
+        answer: 'Mang thẻ cũ tìm lại được đến 入国管理局 trả lại — họ sẽ thu hồi. Không tự ý cắt/vứt thẻ cũ vì có thể bị xem là vi phạm.',
+      },
+    ],
+    counterPhrases: [
+      {
+        jp: '在留カードを紛失したので、再交付をお願いします。',
+        romaji: 'Zairyuu kaado o funshitsu shita node, saikoufu o onegaishimasu.',
+        vn: 'Tôi đã làm mất 在留カード, xin cho tôi xin cấp lại.',
+        note: 'Câu mở đầu tại quầy 入国管理局.',
+      },
+      {
+        jp: '電車で落としました。警察にも届け出ました。',
+        romaji: 'Densha de otoshimashita. Keisatsu ni mo todokede mashita.',
+        vn: 'Tôi đánh rơi trên tàu. Tôi cũng đã báo cảnh sát rồi.',
+        note: 'Dùng khi đã có 遺失届受理番号.',
+      },
+      {
+        jp: '必要な書類を教えていただけますか。',
+        romaji: 'Hitsuyou na shorui o oshiete itadakemasu ka.',
+        vn: 'Anh/chị cho tôi biết giấy tờ cần thiết được không?',
+      },
+      {
+        jp: '今日中に新しいカードをもらえますか。',
+        romaji: 'Kyoujuu ni atarashii kaado o moraemasu ka.',
+        vn: 'Hôm nay có thể nhận thẻ mới luôn không ạ?',
+      },
+      {
+        jp: '手数料はかかりますか。',
+        romaji: 'Tesuuryou wa kakarimasu ka.',
+        vn: 'Có mất phí không ạ?',
+      },
+      {
+        jp: '14日を過ぎてしまいましたが、申請できますか。',
+        romaji: 'Juuyokka o sugite shimaimashita ga, shinsei dekimasu ka.',
+        vn: 'Tôi đã quá 14 ngày rồi, vẫn nộp đơn được không?',
+        note: 'Dùng khi đã quá hạn — ISA thường vẫn xử lý nhưng cần giải trình.',
+      },
+    ],
+    officialLinks: [
+      { label: '在留カードの再交付申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-7.html' },
+      { label: '在留カードとは？— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },
+      { label: 'Tra cứu cục xuất nhập cảnh', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
+    ],
+    steps: [
+      {
+        step: 1,
+        title: 'Tìm kỹ trước khi đi đâu',
+        description: 'Trước khi đi 交番 hay 入国管理局, dành 30 phút tìm kỹ ở nhà / công ty / trường / xe / ba lô. Nhiều trường hợp tìm lại được. Ghi lại NGÀY bạn biết mình mất — ISA tính 14 ngày từ ngày này.',
+        documents: [],
+        tip: 'Nếu không tìm được sau 30 phút, đừng tìm tiếp nhiều ngày — đi báo cảnh sát + ISA luôn. Đợi càng lâu càng khó.',
+      },
+      {
+        step: 2,
+        title: 'Báo cảnh sát (chỉ khi mất ngoài đường hoặc bị trộm)',
+        description: 'Đến 交番 (đồn cảnh sát gần nhất) hoặc 警察署 (sở cảnh sát quận). Nói "在留カードを紛失しました" hoặc "盗まれました". Cảnh sát sẽ làm:\n\n• 遺失届 (báo mất) hoặc 盗難届 (báo trộm).\n• Cấp 受理番号 (mã biên nhận) — GHI LẠI số này, sẽ cần đưa cho 入国管理局.\n\nMất ở nhà mình hoặc công ty: KHÔNG cần báo cảnh sát, đi thẳng 入国管理局.',
+        documents: [
+          'Hộ chiếu (để cảnh sát xác minh danh tính)',
+          'Bút và giấy ghi mã 受理番号',
+        ],
+        tip: 'Nếu rơi trên tàu / xe bus: hỏi nhân viên ga / hãng xe trước về 遺失物 (đồ thất lạc) — nhiều khi tìm thấy trong 1-2 giờ.',
+      },
+      {
+        step: 3,
+        title: 'Đến 入国管理局 và điền đơn 再交付申請書',
+        description: 'Đến 入国管理局 khu vực bạn đang sống. Lấy số chờ. Khi đến lượt:\n\n1. Nói: "在留カードを紛失したので、再交付をお願いします."\n2. Nhân viên đưa đơn 在留カード再交付申請書 (hoặc bạn đã tải sẵn).\n3. Điền các trường: 氏名/フリガナ (tên theo hộ chiếu, フリガナ viết KATAKANA), 生年月日/国籍 (copy từ hộ chiếu), 紛失の事由 (chọn lý do: 紛失 / 盗難 / 滅失), 紛失した場所・日時 (nơi và ngày mất), 警察への届出 (số 受理番号 nếu đã báo cảnh sát).\n4. Đính kèm ảnh 4×3cm.\n5. Nộp + chờ — thường được xử lý trong ngày nếu hồ sơ đầy đủ.',
+        documents: [
+          'Hộ chiếu (gốc)',
+          'Ảnh 4×3cm',
+          'Đơn 在留カード再交付申請書',
+          '受理番号 từ cảnh sát (nếu có)',
+        ],
+        tip: 'Đi sáng sớm — chiều thường đông hơn. Mang theo bút riêng để điền.',
+      },
+      {
+        step: 4,
+        title: 'Nhận thẻ mới và kiểm tra ngay tại quầy',
+        description: 'Khi nhân viên đưa thẻ mới, đọc kỹ TRƯỚC KHI rời quầy:\n\n• Họ tên / ngày sinh / quốc tịch / giới tính — đúng không\n• 在留資格 (tư cách lưu trú) và 在留期間 — copy từ thẻ cũ\n• Số thẻ mới (12 ký tự) — KHÁC số thẻ cũ\n• Ảnh — đúng ảnh bạn nộp\n• Mặt sau: nếu trước đây thẻ cũ có địa chỉ ghi mặt sau, thẻ mới sẽ trống — phải đi 市役所 đăng ký lại địa chỉ.',
+        documents: [],
+        tip: 'Sai bất kỳ thông tin nào → yêu cầu chỉnh ngay tại quầy. Đi về rồi mới phát hiện sẽ phải làm thủ tục đính chính riêng.',
+      },
+      {
+        step: 5,
+        title: 'Sau khi nhận thẻ — cập nhật địa chỉ + báo các nơi liên quan',
+        description: 'Thẻ mới có số khác thẻ cũ → các nơi đang lưu thông tin thẻ cũ cần được cập nhật:\n\n1. **市役所/区役所** — đăng ký lại địa chỉ lên mặt sau thẻ mới (làm trong vòng 14 ngày).\n2. **Ngân hàng** — báo số thẻ mới để cập nhật hồ sơ.\n3. **Công ty / trường** — đưa bản copy thẻ mới cho HR / phòng tuyển sinh.\n4. **SIM / nhà mạng** — báo nếu hợp đồng có thông tin thẻ.\n5. **Bảo hiểm tư nhân, hợp đồng thuê nhà** — báo chủ nhà / công ty bảo hiểm.',
+        documents: [
+          '在留カード mới (gốc + 1-2 bản photo)',
+        ],
+        tip: 'Nếu mặt sau thẻ mới chưa có địa chỉ, các thủ tục đòi "địa chỉ in trên thẻ" sẽ bị từ chối → đi 市役所 trước, các thủ tục khác sau.',
+      },
+    ],
+  };
+
+export default lostResidenceCard;

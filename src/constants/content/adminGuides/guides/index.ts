@@ -78,6 +78,7 @@ import overstayingIllegalStayProcedures from './overstaying-illegal-stay-procedu
 import visaEmergencyMedicalDisasterExtension from './visa-emergency-medical-disaster-extension';
 import freelanceSideJobWorkVisaRules from './freelance-side-job-work-visa-rules';
 import employmentCrisisVisaJobLossLayoff from './employment-crisis-visa-job-loss-layoff';
+import lostResidenceCard from './lost-residence-card';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -159,4 +160,5 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   visaEmergencyMedicalDisasterExtension,
   freelanceSideJobWorkVisaRules,
   employmentCrisisVisaJobLossLayoff,
+  lostResidenceCard,
 ];
