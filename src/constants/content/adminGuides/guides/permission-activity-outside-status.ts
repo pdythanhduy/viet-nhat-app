@@ -17,7 +17,7 @@ const permissionActivityOutsideStatus: AdminGuide = {
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
-        'Bạn đã đi làm trước khi có permission hoặc từng vượt giới hạn giờ.',
+        'Bạn đã đi làm trước khi có giấy phép hoặc từng vượt giới hạn giờ.',
         'Công việc dự kiến liên quan ngành bị hạn chế, công việc đêm/khu giải trí hoặc nhiều nơi làm cùng lúc.',
         'Bạn nghỉ học, chuyển trường, đổi tư cách hoặc đang gia hạn/đổi visa.',
       ],
@@ -26,7 +26,7 @@ const permissionActivityOutsideStatus: AdminGuide = {
       deadline: 'Xin và được phép trước khi bắt đầu hoạt động có thu nhập ngoài phạm vi tư cách lưu trú.',
       office: 'Cục xuất nhập cảnh có thẩm quyền; online chỉ dùng trong một số trường hợp khi nộp cùng thủ tục lưu trú khác.',
       doNow: [
-        'Không nhận ca làm trước khi permission hợp lệ.',
+        'Không nhận ca làm trước khi giấy phép hợp lệ.',
         'Tính tổng giờ của tất cả nơi làm, không tính riêng từng nơi.',
         'Kiểm tra công việc có thuộc nhóm bị cấm như 風俗営業 hoặc hoạt động liên quan không.',
       ],
@@ -64,7 +64,7 @@ const permissionActivityOutsideStatus: AdminGuide = {
       { label: 'Thông tin công việc dự kiến', required: false, note: 'Có thể cần nếu xin dạng cá biệt hoặc ISA yêu cầu giải thích.' },
     ],
     commonMistakes: [
-      'Đi làm trước khi có permission.',
+      'Đi làm trước khi có giấy phép.',
       'Tính 28 giờ/tuần theo từng nơi làm thay vì tổng tất cả nơi làm.',
       'Làm quá giờ trong tuần có lịch học bình thường.',
       'Làm công việc thuộc lĩnh vực bị cấm như một số công việc liên quan 風俗営業.',
@@ -77,11 +77,11 @@ const permissionActivityOutsideStatus: AdminGuide = {
       },
       {
         question: 'Kỳ nghỉ dài của du học sinh có được làm nhiều hơn không?',
-        answer: 'Trong kỳ nghỉ dài theo quy định của cơ sở giáo dục, du học sinh có thể được làm tối đa 8 giờ/ngày trong phạm vi permission cho phép.',
+        answer: 'Trong kỳ nghỉ dài theo quy định của cơ sở giáo dục, du học sinh có thể được làm tối đa 8 giờ/ngày trong phạm vi giấy phép cho phép.',
       },
       {
         question: 'Làm nhận tiền mặt có tính là làm thêm không?',
-        answer: 'Có. Cách nhận lương không làm thay đổi nghĩa vụ về permission, giới hạn giờ và khai báo thu nhập.',
+        answer: 'Có. Cách nhận lương không làm thay đổi nghĩa vụ về giấy phép, giới hạn giờ và khai báo thu nhập.',
       },
       {
         question: 'Nếu lỡ làm quá giờ thì sao?',
@@ -118,7 +118,7 @@ const permissionActivityOutsideStatus: AdminGuide = {
       {
         step: 3,
         title: 'Tránh công việc bị cấm',
-        description: 'Một số ngành như風俗営業 và công việc liên quan có thể bị cấm dù có giấy phép làm thêm.',
+        description: 'Một số ngành như 風俗営業 và công việc liên quan có thể bị cấm dù có giấy phép làm thêm.',
         documents: [],
         tip: 'Nếu không chắc công việc có phù hợp không, hãy hỏi ISA trước khi ký hợp đồng.',
       },

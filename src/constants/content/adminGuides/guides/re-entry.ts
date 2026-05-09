@@ -31,7 +31,7 @@ const reEntry: AdminGuide = {
         'Nếu dùng みなし再入国, phải quay lại trong 1 năm hoặc trước ngày hết hạn lưu trú nếu hạn đó đến sớm hơn.',
         'Xin 再入国許可 chính thức nếu kế hoạch ở ngoài Nhật vượt khung みなし再入国.',
       ],
-      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', '再入国出国記録（再入国EDカード） khi xuất cảnh', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin permit chính thức'],
+      bring: ['Hộ chiếu còn hiệu lực', 'Thẻ cư trú còn hiệu lực', '再入国出国記録（再入国EDカード） khi xuất cảnh', 'Kế hoạch/vé quay lại', 'Đơn 再入国許可申請書 nếu xin giấy phép chính thức'],
       ifLate: 'Nếu đã rời Nhật và lỡ hạn tái nhập cảnh, liên hệ cơ quan Nhật ở nước ngoài/ISA ngay; không tự mua vé quay lại khi quyền tái nhập cảnh không còn rõ.',
       officialSourceLabels: ['みなし再入国許可 — 出入国在留管理庁', '再入国許可 — 出入国在留管理庁', '再入国許可申請 — 出入国在留管理庁'],
     },

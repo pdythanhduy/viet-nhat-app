@@ -186,7 +186,143 @@ npm run verify:content  ✓ pass (sẽ chạy ở pre-commit)
 
 ## Out of scope (deferred)
 
-- **Admin Batch 2 (suggested):** ~10 guides tiếp theo (visa-related: re-entry, status-of-residence-change, residence-card, residence-card-info-change, job-change-notification, permission-activity-outside-status, ...)
+- **Admin Batch 3 (suggested):** ~10 guides tiếp theo (life events, family, traffic, daily-law…)
 - **Còn ~60 guides** chưa audit Vietnamese-naturalness
 - **Annual-health-checkup-kensin và một số guide ngoài batch** vẫn còn "municipal office" — sẽ xử lý trong batch sau
 - **Native speaker review** vẫn pending cho tất cả (toàn workflow)
+
+---
+
+# Admin Guides Batch 2 (2026-05-09)
+
+10 guides nhóm visa / lưu trú / công việc.
+
+## Summary
+
+- **Guides checked:** 10
+- **Guides changed:** 8
+- **Guides unchanged:** 2 (`job-change-notification`, `visa-status-overview` — đã đọc tự nhiên, không cần đụng)
+- **Total field/text changes:** ~25 individual edits
+- **Critical language bugs found:** 2
+  - 1 typo: "chở sang ngày mai" → "chờ sang ngày mai" (overstaying)
+  - 1 self-induced bug: bulk-replace "permission" làm hỏng tên biến (đã sửa ngay tại commit cùng patch)
+- **Items needing source check:** 0
+- **Items needing user review:** 0
+
+## 10 guides mapping
+
+| User-listed ID | Actual file used | Notes |
+|---|---|---|
+| re-entry-permit | re-entry | Same content |
+| status-of-residence-change | status-of-residence-change | ✓ |
+| residence-card | residence-card | ✓ |
+| residence-card-info-change | residence-card-info-change | ✓ |
+| job-change-notification | job-change-notification | ✓ |
+| work-visa-basic | visa-status-overview | Closest tổng quan visa |
+| specified-skilled-worker | ssw-training-worker-2027 | 特定技能 + 育成就労 mới |
+| visa-renewal | (skipped — same as residence-card "Gia hạn thời hạn lưu trú") |
+| overstaying-illegal-stay-procedures | overstaying-illegal-stay-procedures | ✓ |
+| freelance-side-job-work-visa-rules | freelance-side-job-work-visa-rules | ✓ |
+| (substitute) | permission-activity-outside-status | Replace cho slot trùng visa-renewal |
+
+## Guide details
+
+### 1. residence-card-info-change
+
+Changed:
+- 4 occurrences: `municipal office` → `市役所/区役所` (replace_all)
+- `Giấy tờ Việt Nam/nhật` → `Giấy tờ Việt Nam / Nhật` (capitalize + space)
+
+Reason: terminology consistency với batch 1, fix typo capitalize.
+
+### 2. residence-card
+
+Changed:
+- whenToDo: `... municipal office hoặc người bảo lãnh` → `... 市役所/区役所 hoặc người bảo lãnh`
+
+Reason: terminology consistency.
+
+### 3. re-entry
+
+Changed:
+- bring + ifLate + steps: `permit chính thức` (3 occurrences) → `再入国許可 chính thức` / `giấy phép chính thức`
+
+Reason: "permit" English → giữ tên Nhật chuẩn (再入国許可) ở chỗ context cụ thể, "giấy phép chính thức" ở chỗ generic.
+
+### 4. status-of-residence-change
+
+Changed:
+- whoIsThisFor: `đi làm theo diện work visa` → `đi làm theo diện visa lao động`
+- commonMistakes: `online system không nhận hồ sơ` → `hệ thống online không nhận hồ sơ`
+
+Reason: "work visa" và "online system" English thừa.
+
+### 5. ssw-training-worker-2027
+
+Changed:
+- doNow: `Xác định status hiện tại:` → `Xác định tình trạng hiện tại:`
+
+Reason: "status" English → "tình trạng" Việt.
+
+### 6. permission-activity-outside-status
+
+Changed:
+- 4 occurrences: `permission` (English) → `giấy phép`
+- `như風俗営業` → `như 風俗営業` (kanji-glued fix)
+
+⚠️ **Bug self-induced trong patch này:** replace_all `permission` → `giấy phép` làm hỏng cả tên biến `permissionActivityOutsideStatus` và id `permission-activity-outside-status`. Đã sửa ngay (revert tên biến + id) trước khi commit. Code TS lại pass, chỉ user-facing strings còn fix mới. Bài học: replace_all phải tránh từ trùng tên định danh code.
+
+### 7. overstaying-illegal-stay-procedures (heavy fixes — file đầy English)
+
+Changed (~10 fixes):
+- **Typo bug**: `chở sang ngày mai` → `chờ sang ngày mai` (lỗi đánh máy rõ ràng)
+- `tự ngỏ` → `tự khai báo` (tự ngỏ không phải VN tự nhiên)
+- description: `"grace period" tự động` → `thời gian "đệm" tự động`
+- whenToDo: `apply rescue measure (救済措置)` → `xin biện pháp cứu trợ (救済措置)`
+- estimatedTime: `Nếu apply rescue: ... Nếu tự ra nước ngoài (departure): ... 1 năm upper entry ban` → `Nếu xin cứu trợ (救済措置): ... Nếu tự ra nước ngoài qua 出国命令: ... cấm nhập cảnh 1 năm`
+- commonMistakes: `entry ban` → `cấm nhập cảnh`; `(self-departure)` → `(tự rời Nhật)`; `này là` → `đây là` (typo)
+- faq: `"grace period"` → `thời gian "đệm"`; `apply rescue` → `nộp đơn xin cứu trợ`
+- faq: `(deportation order)` → `(lệnh tự rời Nhật)`; `entry ban` → `cấm nhập cảnh` (multiple)
+- faq: `cảnh báo/fine` → `cảnh báo / phạt tiền`
+- faq: `Rescue measure không áp dụng` → `Biện pháp cứu trợ không áp dụng nữa`
+
+### 8. freelance-side-job-work-visa-rules (heavy fixes — file đầy English)
+
+Changed (~6 fixes):
+- whenToDo: `tốt hơn là ask first.` → `Hỏi trước luôn an toàn hơn.`
+- commonMistakes: `\"business\" (kinh doanh) vs \"part-time job\" (việc thêm) — rule khác nhau` → `"kinh doanh" (business) và "việc làm thêm part-time" — quy tắc xin phép khác nhau`
+- faq: `không phạt retroactive` → `không phạt ngược về quá khứ`
+- step 2 description: `time limit (thường 1 năm)` → `thời hạn (thường 1 năm)`
+- step 3 description: `cần 開業届 (business registration)` → `cần nộp 開業届 (đăng ký mở kinh doanh) tại 税務署`
+- step 1 table: `may report thuế` → `vẫn phải khai thuế` (typo "may" → "vẫn phải")
+
+## Items NOT changed
+
+- **2 guides** đã đọc rất tự nhiên: `job-change-notification`, `visa-status-overview`. Đa số dùng tone Việt-thực-dụng, có giải thích kanji khi cần.
+- **counterPhrases / steps tables / officialLinks**: không đụng theo scope.
+- **Một số English-Vietnamese mixing acceptable** (vd "freelance", "side job" lặp đi lặp lại trong freelance file): để lại vì người Việt ở Nhật trong context đó vẫn dùng nguyên tiếng Anh — không phải clunky.
+
+## Critical language bugs found
+
+1. **`overstaying-illegal-stay-procedures.ts:27`** typo: `chở sang ngày mai` (không có nghĩa) → fixed thành `chờ sang ngày mai`.
+2. **Self-induced regression** trong patch này: `permission-activity-outside-status.ts` bị bulk-replace làm hỏng tên biến `permissionActivityOutsideStatus` và id field. Đã restore trước khi commit. typecheck pass.
+
+## Cross-batch summary (Issue #2 cumulative)
+
+| Sprint | Files | Fixes | New entries | CulturalNote |
+|---|---|---|---|---|
+| Sprint 1 (initial) | 2 | 10 | 0 | 4 |
+| Batch 1 (words deeper) | 1 | 8 | 0 | 3 |
+| Batch 1.1 (words deepest) | 1 | 12 | 2 (礼金, 敷金) | 5 + 2 expanded |
+| Batch 2 (phrases) | 3 | 3 | 0 | 0 |
+| Admin Batch 1 (10 guides) | 9 | ~36 | 0 | 0 |
+| **Admin Batch 2 (10 guides)** | **8** | **~25** | **0** | **0** |
+| **Total** | 22 unique files | **~94** | **2** | **12 + 2** |
+
+## Verification (Batch 2)
+
+```
+npm run typecheck       ✓ pass
+npm run test:ci         ✓ 251/251 pass
+npm run verify:content  ✓ pass (sẽ chạy ở pre-commit)
+```

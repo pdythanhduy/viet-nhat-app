@@ -12,12 +12,12 @@ const residenceCardInfoChange: AdminGuide = {
     description: 'Khai báo khi thay đổi họ tên, ngày sinh, giới tính, quốc tịch/khu vực trên thẻ cư trú.',
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: 'Đổi thông tin ngoài địa chỉ trên thẻ cư trú là thủ tục ISA; đổi địa chỉ cư trú vẫn làm tại municipal office.',
+      jurisdictionNote: 'Đổi thông tin ngoài địa chỉ trên thẻ cư trú là thủ tục ISA; đổi địa chỉ cư trú vẫn làm tại 市役所/区役所.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [
-        'Giấy tờ Việt Nam/nhật có cách viết tên khác nhau hoặc ngày thay đổi pháp lý không rõ.',
+        'Giấy tờ Việt Nam / Nhật có cách viết tên khác nhau hoặc ngày thay đổi pháp lý không rõ.',
         'Bạn đổi quốc tịch, đổi tên sau kết hôn/ly hôn hoặc giấy tờ nước ngoài cần dịch/chứng nhận.',
         'Đã quá hạn 14 ngày hoặc thông tin trên thẻ, hộ chiếu, ngân hàng không còn khớp.',
       ],
@@ -44,7 +44,7 @@ const residenceCardInfoChange: AdminGuide = {
     whenToDo: [
       'Trong vòng 14 ngày kể từ ngày phát sinh thay đổi thuộc diện khai báo.',
       'Trước khi dùng thẻ cư trú cho thủ tục ngân hàng, bảo hiểm, thuê nhà hoặc ISA tiếp theo nếu thông tin đã khác.',
-      'Không dùng thủ tục này để đổi địa chỉ cư trú; địa chỉ là thủ tục riêng tại municipal office.',
+      'Không dùng thủ tục này để đổi địa chỉ cư trú; địa chỉ là thủ tục riêng tại 市役所/区役所.',
     ],
     whereToDo: [
       'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
@@ -66,7 +66,7 @@ const residenceCardInfoChange: AdminGuide = {
     faq: [
       {
         question: 'Đổi địa chỉ có phải làm ở ISA không?',
-        answer: 'Thông thường không. Đổi địa chỉ cư trú là thủ tục tại municipal office. Bài này dành cho các mục ngoài địa chỉ như họ tên, ngày sinh, giới tính, quốc tịch/khu vực.',
+        answer: 'Thông thường không. Đổi địa chỉ cư trú là thủ tục tại 市役所/区役所. Bài này dành cho các mục ngoài địa chỉ như họ tên, ngày sinh, giới tính, quốc tịch/khu vực.',
       },
       {
         question: 'Đổi họ sau kết hôn thì có cần khai báo không?',
@@ -90,7 +90,7 @@ const residenceCardInfoChange: AdminGuide = {
           'Hộ chiếu',
           'Giấy tờ chứng minh thay đổi: hộ chiếu mới, giấy đổi tên, giấy tờ quốc tịch...',
         ],
-        tip: 'Đổi địa chỉ là thủ tục riêng tại municipal office, không dùng bài này.',
+        tip: 'Đổi địa chỉ là thủ tục riêng tại 市役所/区役所, không dùng bài này.',
       },
       {
         step: 2,

@@ -9,7 +9,7 @@ const overstayingIllegalStayProcedures: AdminGuide = {
     titleJp: 'オーバーステイ（不法滞在）への対応と救済手続き',
     icon: 'warning',
     color: '#E74C3C',
-    description: 'Thủ tục khi bạn ở lại Nhật quá hạn visa. Không có "grace period" tự động — chỉ cần quá 1 ngày = bất hợp pháp. Tuy nhiên có 3 cách xử lý tùy tình huống.',
+    description: 'Thủ tục khi bạn ở lại Nhật quá hạn visa. Không có thời gian "đệm" tự động — chỉ cần quá 1 ngày = bất hợp pháp. Tuy nhiên có 3 cách xử lý tùy tình huống.',
     whoIsThisFor: [
       'Người vừa phát hiện visa mình hết hạn rồi.',
       'Người nhập viện hoặc gặp sự cố nên quên gia hạn trong 2 tháng.',
@@ -18,46 +18,46 @@ const overstayingIllegalStayProcedures: AdminGuide = {
     ],
     whenToDo: [
       'Ngay khi phát hiện visa hết hạn — đừng chờ thêm ngày nào.',
-      'Nếu nhập viện hoặc bệnh nặng: trong vòng 2 tháng từ ngày hết hạn, có thể apply rescue measure (救済措置).',
+      'Nếu nhập viện hoặc bệnh nặng: trong vòng 2 tháng từ ngày hết hạn, có thể xin biện pháp cứu trợ (救済措置).',
       'Nếu đã quá 2 tháng: hãy liên hệ ISA để hỏi xem có tùy chọn khác không.',
     ],
     whereToDo: [
       'ISA — cục công an nhập cảnh (出入国在留管理庁). Tìm cục gần nhất tại moj.go.jp.',
       'Gọi điện hoặc đến trực tiếp — nên đi trực tiếp để tìm hiểu tùy chọn.',
-      'Không nên chở sang ngày mai — hành động ngay hôm nay sẽ có lợi hơn.',
+      'Không nên chờ sang ngày mai — hành động ngay hôm nay sẽ có lợi hơn.',
     ],
-    estimatedTime: 'Nếu apply rescue: 1-4 tuần để xét duyệt (có thể được phép ở lại). Nếu tự ra nước ngoài (departure): ~1 tuần xử lý tại ISA, 1 năm upper entry ban.',
+    estimatedTime: 'Nếu xin cứu trợ (救済措置): 1-4 tuần để xét duyệt (có thể được phép ở lại). Nếu tự ra nước ngoài qua 出国命令: ~1 tuần xử lý tại ISA, sau đó cấm nhập cảnh 1 năm.',
     commonMistakes: [
-      'Chờ quá lâu để tự ngỏ — thay vì 1 năm ban, có thể bị 5 năm hoặc lâu hơn nếu bị bắt.',
+      'Chờ quá lâu mới tự khai báo — thay vì cấm nhập cảnh 1 năm, có thể bị 5 năm hoặc lâu hơn nếu bị bắt.',
       'Không biết có 救済措置 (rescue) nên vội tự rời Nhật mà không cần.',
-      'Tiếp tục làm việc khi đã overstay — này là vi phạm pháp luật thêm, bị phạt và xử lý nặng hơn.',
+      'Tiếp tục làm việc khi đã overstay — đây là vi phạm pháp luật thêm, bị phạt và xử lý nặng hơn.',
       'Che giấu tình trạng overstay từ bảo hiểm/ngân hàng — khi được phát hiện sẽ bị xử lý kép.',
-      'Không hiểu sự khác biệt giữa 出国命令 (self-departure) và bị buộc đi — vội mà đi tự nguyện sẽ mất lợi.',
+      'Không hiểu sự khác biệt giữa 出国命令 (tự rời Nhật) và bị buộc rời — vội đi tự nguyện sai cách có thể mất lợi thế.',
     ],
     faq: [
       {
         question: 'Overstay 1 ngày cũng bị tính không?',
-        answer: 'Đúng. Luật Nhật không có "grace period" — chỉ cần quá 1 ngày hết hạn = bất hợp pháp (不法滞在). Không có ngoại lệ trừ rescue measure (救済措置).',
+        answer: 'Đúng. Luật Nhật không có thời gian "đệm" — chỉ cần quá 1 ngày hết hạn = bất hợp pháp (不法滞在). Không có ngoại lệ trừ biện pháp cứu trợ (救済措置).',
       },
       {
-        question: 'Rescue measure (救済措置) là gì?',
-        answer: 'Đây là biện pháp cứu trợ: nếu bạn **quên** làm gia hạn lần cuối (最後の更新を忘れた) hoặc **nhập viện** khiến vượt quá hạn, trong vòng **2 tháng từ ngày hết hạn**, bạn có thể apply rescue. ISA sẽ xem xét và có thể cấp phép ở lại hoặc gia hạn. Tuy nhiên, phải ứng dụng trong 2 tháng — quá thời hạn này không được rescue.',
+        question: 'Biện pháp cứu trợ (救済措置) là gì?',
+        answer: 'Là cơ chế cứu trợ: nếu bạn **quên** làm gia hạn lần cuối (最後の更新を忘れた) hoặc **nhập viện** khiến vượt quá hạn, trong vòng **2 tháng từ ngày hết hạn**, bạn có thể nộp đơn xin cứu trợ. ISA sẽ xem xét và có thể cấp phép ở lại hoặc gia hạn. Phải nộp trong 2 tháng — quá thời hạn này không được cứu trợ.',
       },
       {
         question: '出国命令 là gì? Có phải tốt không?',
-        answer: '出国命令 (deportation order) là: nếu bạn **tự nguyện** đi ra nước ngoài sau khi bị overstay, ISA cho phép bạn rời Nhật một cách "tự nguyện" thay vì bị buộc đi. Khi đó, entry ban là 1 năm (短期) thay vì 5-10 năm (nếu bị bắt). Đây là tùy chọn tốt hơn nếu bạn phải rời Nhật.',
+        answer: '出国命令 (lệnh tự rời Nhật) là: nếu bạn **tự nguyện** ra nước ngoài sau khi bị overstay, ISA cho phép bạn rời Nhật một cách "tự nguyện" thay vì bị buộc đi. Khi đó, lệnh cấm nhập cảnh là 1 năm thay vì 5-10 năm (nếu bị bắt). Đây là lựa chọn tốt hơn nếu bạn phải rời Nhật.',
       },
       {
         question: 'Nếu overstay rồi bị bắt thì sao?',
-        answer: 'Sẽ có: (1) cảnh báo/fine, (2) entry ban từ 5-10 năm hoặc lâu hơn, (3) bị buộc ra nước ngoài, (4) lệnh cấm nhập cảnh. Quá trình rất khó chịu và tốn kém. Vì vậy nên xử lý chủ động sớm.',
+        answer: 'Sẽ có: (1) cảnh báo / phạt tiền, (2) cấm nhập cảnh 5-10 năm hoặc lâu hơn, (3) bị buộc ra nước ngoài, (4) ghi vào hồ sơ pháp lý. Quá trình rất khó chịu và tốn kém. Vì vậy nên xử lý chủ động sớm.',
       },
       {
         question: 'Nếu quá 2 tháng rồi mới phát hiện thì sao?',
-        answer: 'Liên hệ ISA ngay để hỏi. Rescue measure không áp dụng, nhưng bạn vẫn có thể apply 出国命令 để rời Nhật tự nguyện với entry ban 1 năm. Tốt hơn là bị bắt sau đó bị ban 5-10 năm.',
+        answer: 'Liên hệ ISA ngay để hỏi. Biện pháp cứu trợ không áp dụng nữa, nhưng bạn vẫn có thể xin 出国命令 để rời Nhật tự nguyện với cấm nhập cảnh 1 năm. Tốt hơn là bị bắt rồi bị cấm 5-10 năm.',
       },
       {
         question: 'Tôi vừa phát hiện overstay hôm qua — bây giờ mới nộp rescue, có được không?',
-        answer: 'Bạn vẫn có cơ hội vì mới phát hiện. Nộp ngay hôm nay (không quá 2 tháng từ ngày hết hạn visa), kèm bằng chứng tại sao quên (ví dụ: giấy xác nhận nhập viện, hóa đơn bệnh viện, hoặc lý do chính đáng khác). ISA sẽ xem xét.',
+        answer: 'Bạn vẫn có cơ hội vì mới phát hiện. Nộp ngay hôm nay (chưa quá 2 tháng từ ngày visa hết hạn), kèm bằng chứng tại sao quên (giấy xác nhận nhập viện, hóa đơn bệnh viện hoặc lý do chính đáng khác). ISA sẽ xem xét.',
       },
     ],
     officialLinks: [

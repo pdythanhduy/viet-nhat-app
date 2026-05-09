@@ -27,7 +27,7 @@ const sswTrainingWorker2027: AdminGuide = {
       deadline: 'Mốc vận hành chính là 01/04/2027; năm 2026 có mốc tiền thủ tục, không phải hệ thống mới đã chạy toàn bộ.',
       office: 'ISA, công ty tiếp nhận, cơ quan hỗ trợ đăng ký, OTIT/FRESC hoặc 労働基準監督署 khi có tranh chấp.',
       doNow: [
-        'Xác định status hiện tại: 技能実習, 特定技能1号, 特定技能2号 hay chuẩn bị đi mới.',
+        'Xác định tình trạng hiện tại: 技能実習, 特定技能1号, 特定技能2号 hay chuẩn bị đi mới.',
         'Kiểm tra ngành/lĩnh vực thuộc 16 lĩnh vực 特定技能, không dùng danh sách 14 ngành cũ.',
         'Giữ bản sao hợp đồng, bảng lương, lịch làm, khoản khấu trừ và tin nhắn trao đổi.',
       ],

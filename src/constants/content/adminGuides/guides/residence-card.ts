@@ -49,7 +49,7 @@ const residenceCard: AdminGuide = {
     ],
     whenToDo: [
       'Nếu thời hạn lưu trú hiện tại từ 6 tháng trở lên, thường có thể nộp từ khoảng 3 tháng trước ngày hết hạn.',
-      'Nên chuẩn bị hồ sơ sớm hơn thời điểm nộp vì có thể cần giấy tờ từ công ty, trường, municipal office hoặc người bảo lãnh.',
+      'Nên chuẩn bị hồ sơ sớm hơn thời điểm nộp vì có thể cần giấy tờ từ công ty, trường, 市役所/区役所 hoặc người bảo lãnh.',
       'Không nên đợi sát ngày hết hạn; nếu thiếu giấy tờ, bạn có thể không kịp bổ sung.',
       'Nếu có lý do đặc biệt như nhập viện hoặc công tác dài ngày, hãy hỏi ISA về khả năng nộp sớm.',
     ],

@@ -43,7 +43,7 @@ const statusOfResidenceChange: AdminGuide = {
     heroImage: require('../../../../../assets/content/daily-life/ag_status-change_hero.jpg'),
     heroImageCaption: 'Thủ tục đổi tư cách lưu trú tại ISA',
     whoIsThisFor: [
-      'Người sắp tốt nghiệp và chuẩn bị đi làm theo diện work visa.',
+      'Người sắp tốt nghiệp và chuẩn bị đi làm theo diện visa lao động.',
       'Người đổi mục đích ở Nhật hoặc chuyển sang một tư cách lưu trú khác hẳn hiện tại.',
       'Người không còn phù hợp với điều kiện của tư cách hiện tại và cần nộp hồ sơ đổi đúng diện.',
     ],
@@ -74,7 +74,7 @@ const statusOfResidenceChange: AdminGuide = {
       'Nhầm giữa đổi tư cách lưu trú và gia hạn thời hạn lưu trú.',
       'Nhận việc hoặc bắt đầu công việc mới khi hồ sơ chưa rõ tình trạng pháp lý.',
       'Nộp hồ sơ thiếu giấy tờ từ công ty mới, đặc biệt phần mô tả công việc và điều kiện tuyển dụng.',
-      'Để đến đúng ngày hết hạn mới định nộp online, trong khi ISA nêu online system không nhận hồ sơ vào ngày cuối.',
+      'Để đến đúng ngày hết hạn mới định nộp online, trong khi ISA nêu hệ thống online không nhận hồ sơ vào ngày cuối.',
     ],
     faq: [
       {
