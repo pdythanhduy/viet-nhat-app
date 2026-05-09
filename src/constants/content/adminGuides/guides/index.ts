@@ -102,6 +102,9 @@ import mentalHealthStressSupport from './mental-health-stress-support';
 import medicalInterpretationMultilingualHospitals from './medical-interpretation-multilingual-hospitals';
 import holidayNightMedicalCare from './holiday-night-medical-care';
 import pharmacyPrescriptionGuide from './pharmacy-prescription-guide';
+import vietnameseCommunityJapan from './vietnamese-community-japan';
+import freeJapaneseClassesLocal from './free-japanese-classes-local';
+import localVolunteeringChonaikai from './local-volunteering-chonaikai';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -207,4 +210,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   medicalInterpretationMultilingualHospitals,
   holidayNightMedicalCare,
   pharmacyPrescriptionGuide,
+  vietnameseCommunityJapan,
+  freeJapaneseClassesLocal,
+  localVolunteeringChonaikai,
 ];
