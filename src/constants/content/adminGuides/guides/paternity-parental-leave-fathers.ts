@@ -92,7 +92,7 @@ const paternityParentalLeaveFathers: AdminGuide = {
   fees: [
     '**育休 申請**: MIỄN PHÍ.',
     '**育児休業給付金 (theo 雇用保険)**:\n  • 6 tháng đầu: 67% lương trước nghỉ (cap ~310,000円/tháng theo dữ liệu trước đây — kiểm tra mức 2025–2026 với ハローワーク).\n  • 6 tháng sau: 50% lương trước nghỉ.\n  • Tax-free + miễn 社会保険料 → take-home rate thực tế ~80% lương net.',
-    '**出生後休業支援給付金** (cải cách 2025): thêm 13% trên 67% nếu cả cha + mẹ đều dùng 育休 trong cùng kỳ — effective ~tháng 4/2025. **Mức + điều kiện cụ thể KIỂM TRA với ハローワーク**.',
+    '**出生後休業支援給付金** (cải cách 2025): thêm 13% trên 67% (tổng ~80%) — chỉ áp dụng cho **window cụ thể trong 8 tuần đầu sau sinh** (đa số trường hợp ~28 ngày), khi **cả cha + mẹ** đều dùng 育休/産休 trong cùng kỳ. KHÔNG phải áp dụng cho toàn thời gian 育休. Effective ~tháng 4/2025. **Window thời gian + điều kiện cụ thể KIỂM TRA với ハローワーク**.',
     '**産前産後 + 育休 中 social insurance**: miễn 健康保険料 + 厚生年金保険料 — KHÔNG mất quyền y tế.',
     '**Tax 住民税 / 所得税**: 給付金 không tính vào thu nhập tính thuế.',
     'Phí + mức thay đổi — kiểm tra với HR công ty + ハローワーク trước khi tính tài chính.',

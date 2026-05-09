@@ -1,6 +1,6 @@
 # Native / Legal Review Pending Items — A1 to A9
 
-**Date:** 2026-05-10 (updated A6 + A7 + A8 + A9 batches + QA pass A4–A9)
+**Date:** 2026-05-10 (updated A6 + A7 + A8 + A9 batches + QA pass A4–A9 + QA Round 2 prioritized review)
 **Scope:** Tổng hợp các điểm cần review human từ 26 guide đã thêm trong batch A1–A9.
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
 **Branches:** A1–A3 đã ship trong v1.3.2 (main + Apple Review). A4–A9 trên `feature/post-v1.3.2-content` (CHƯA ship).
@@ -741,3 +741,58 @@ Thêm 10 guide mới + 1 QA pass commit. Tổng feature branch: **26 guide bổ 
 12. Phí ranges A4–A9 — confirm 2026
 13. Các 都道府県/市町村 specifics
 14. Search keywords improvements cho panic-search
+
+---
+
+## UPDATE — QA Round 2 prioritized review (2026-05-10)
+
+**Trigger**: User request "Ưu tiên thực hiện review đi" sau khi commit Batch A8.
+**Scope**: Spot-check HIGHEST + HIGH priority items đã liệt kê + verify hotlines/numbers + factual claims độ phơi nhiễm cao.
+
+### Findings + fixes
+
+| # | Guide | Issue | Action |
+|---|---|---|---|
+| 1 | `paternity-parental-leave-fathers.ts` | 出生後休業支援給付金 (cải cách 2025) +13% — chưa nói rõ chỉ áp dụng window 8 tuần / 28 ngày sau sinh, dễ hiểu nhầm thành toàn 1 năm 育休 | Sửa fee line: thêm "**chỉ áp dụng cho window cụ thể trong 8 tuần đầu sau sinh** (đa số trường hợp ~28 ngày)" + "**KHÔNG phải áp dụng cho toàn thời gian 育休**" |
+| 2 | `tax-on-remittance-to-vietnam.ts` | Claim "Hiệp định Nhật–Việt 1995, **sửa 2014**" — không xác minh được nghị định thư 2014 chính thức | Sửa thành "ký 1995-10, **có thể có nghị định thư sửa đổi sau đó — kiểm tra ngày hiệu lực bản hiện hành với 国税庁 hoặc 税理士**" |
+
+### Items verified — không cần đụng
+
+| Guide | Verified | Note |
+|---|---|---|
+| `nhk-contract-guide.ts` | Cooling-off applicability | ≥6 chỗ đã hedge "vùng tranh cãi pháp lý — hỏi 国民生活センター 188". Tone đủ phòng thủ. |
+| `embassy-consulate-vietnam-japan.ts` | Phân vùng Tokyo/Osaka/Fukuoka | Đã hedge "kiểm tra trên trang chính thức" + Aichi (Nagoya) hedged "thường thuộc Tokyo, có thể thuộc Osaka". |
+| `mental-health-stress-support.ts` | Hotline numbers | いのちの電話 0570-783-556 ✓ / よりそい 0120-279-338 ✓ / AMDA Tokyo 03-6233-9266 ✓ / AMDA Osaka 06-4395-0555 ✓ — tất cả khớp số chính thức. |
+| `police-questioning-rights-japan.ts` | 黙秘権 + 不利益推認禁止 claims | QA pass `a93729a` đã hedge thành "thường KHÔNG được dùng làm bằng chứng buộc tội trực tiếp. Trường hợp cụ thể tùy đánh giá tòa — cần luật sư." Tone phù hợp. |
+| `tax-on-remittance-to-vietnam.ts` | 国外送金等調書 (đã fix QA pass `a93729a`) | Tất cả 6 chỗ đã đúng (không còn 国際送金等支払調書 sai). |
+| `ideco-personal-pension.ts` | 限度額 specifics | Đã hedge "Mức cụ thể đang đổi 2024–2026 — kiểm tra trang chính thức" + "Cải cách 2024–2026 đang tăng giới hạn cho một số nhóm". |
+| `child-allowance-jidou-teate.ts` | 10/2024 cải cách specifics | Đã hedge "kiểm tra với 市役所" + "policy thay đổi". |
+
+### Pending review status sau QA Round 2
+
+- HIGHEST: 4/4 đã được tự review (police, tax-remit, NHK, mental-health) → **không còn HIGHEST tự xử lý được**.
+- HIGH (paternity 2025 reform window) → **fixed Round 2**.
+- Còn lại: items thực sự cần native + legal external review (luật sư, 税理士, 社労士) — không thể tự fix.
+
+### Verification
+
+- `npm run verify`: ✅ 0 issues, 0 lines fixed
+- `npm run test:ci`: ✅ 251/251 pass
+
+### Recommendations cho external review
+
+Reviewer ưu tiên kiểm tra:
+
+1. **Tài chính / thuế** (cần 税理士 quốc tế):
+   - `tax-on-remittance-to-vietnam.ts` — hiệp định Nhật–Việt nghị định thư hiện hành
+   - `ideco-personal-pension.ts` — 限度額 cải cách 2024–2026 chính xác
+   - `furusato-nozei-guide.ts` — tax mechanics cho người nước ngoài
+2. **Lao động** (cần 社労士):
+   - `paternity-parental-leave-fathers.ts` — 出生後休業支援給付金 window + điều kiện
+   - `unemployment-benefits.ts` / `employment-crisis-visa-job-loss-layoff.ts`
+   - `labor-rights-dispute.ts` / `workplace-accident-rousai.ts`
+3. **Tiêu dùng / hợp đồng** (cần 国民生活センター hoặc luật sư consumer):
+   - `nhk-contract-guide.ts` — cooling-off applicability cho 受信契約
+   - `electricity-gas-water-contracts.ts` / `home-internet-wifi-contracts.ts` — quy trình giải quyết tranh chấp
+4. **Hình sự** (cần luật sư hình sự):
+   - `police-questioning-rights-japan.ts` — 黙秘権 nuance + Vietnamese specifics
