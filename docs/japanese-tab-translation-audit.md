@@ -226,3 +226,142 @@ npm run test:ci     ✓ 251/251 pass
 - **Batch 3 (suggested):** rà admin guide content (Vietnamese trong `src/constants/content/adminGuides/`).
 - **Native speaker review:** vẫn cần — tôi self-QA, không thay native được.
 
+---
+
+# Batch 1.1 — deeper pass cho words.ts (2026-05-09)
+
+User feedback sau Batch 1: "vẫn còn cảm giác dịch máy / Hán-Việt cứng / không giống tiếng người Việt sống ở Nhật nói". Batch này rà sâu hơn, tập trung vào nuance, voice, exampleMeaning, và culturalNote chất lượng — không chỉ keyword obvious.
+
+## Classification framework
+
+| Status | Định nghĩa |
+|---|---|
+| **OK_NATURAL** | Đọc tự nhiên, đúng ngữ cảnh, không cần sửa |
+| **FIXED** | Đã sửa trong batch này |
+| **NEEDS_USER_REVIEW** | Có thể OK nhưng user nên đọc lại bằng mắt |
+| **NEEDS_NATIVE_REVIEW** | Cần native VN ở Nhật xác nhận tone (cách dùng thực tế) |
+
+## Statistics — Batch 1.1
+
+- **Total entries audited:** ~112 (toàn bộ `JAPANESE_WORDS` array)
+- **OK_NATURAL:** ~96 (đa số tốt sau 2 batch trước, không cần đụng)
+- **FIXED in Batch 1.1:** 14 (refine + thêm culturalNote + 2 entry mới)
+- **NEEDS_USER_REVIEW:** ~6 (xem danh sách dưới)
+- **NEEDS_NATIVE_REVIEW:** ~3 (tone cụ thể)
+
+## Items FIXED in Batch 1.1
+
+### Refined exampleMeaning (4 entries)
+
+| 漢字 | Trước | Sau | Reason |
+|---|---|---|---|
+| 年金 | Giấy tờ về nenkin/lương hưu đã được gửi đến. | Tôi vừa nhận giấy tờ về nenkin. | Câu chủ động, gọn |
+| 納付書 | Tôi đã thanh toán bằng phiếu thanh toán. | Tôi đã đóng tiền bằng 納付書. | Bớt redundant; dùng 納付書 thay vì lặp meaning |
+| 口座振替 | Tôi muốn chuyển sang thanh toán tự động qua tài khoản. | Tôi muốn đổi sang thanh toán tự động. | Bớt lặp meaning; "đổi" tự nhiên hơn "chuyển sang" |
+| 確定申告 | Tôi muốn xác nhận xem có cần khai thuế cá nhân không. | Tôi muốn hỏi xem mình có cần làm 確定申告 không. | "Hỏi" tự nhiên hơn "xác nhận"; dùng 確定申告 nguyên bản |
+
+### CulturalNote bổ sung (5 entries quan trọng)
+
+| 漢字 | Note ngắn |
+|---|---|
+| 健康保険 | Phân biệt — bao gồm cả công ty và quốc dân. Đến bệnh viện chỉ trả 30% |
+| 国民健康保険 | Dành cho người không tham gia bảo hiểm công ty (du học/freelancer). Đăng ký 市役所; phí theo thu nhập năm trước |
+| 市役所 | Nơi xử lý mọi thủ tục dân sự. Đông nhất tháng 3-4 và đầu tuần |
+| 健康診断 | Công ty/trường tổ chức 1 lần/năm miễn phí. Bao gồm: cao/cân, máu, X-quang, mắt |
+| 残業代 | Luật: tăng ca ≥125%, đêm ≥125%, ngày nghỉ ≥135% |
+| 口座振替 (cập nhật) | Lý do dùng (không sợ quên), giấy tờ cần (通帳 + 印鑑) |
+| 納付書 (cập nhật) | Hay gặp với 国保, 国民年金, 住民税 |
+
+### Wording fixes (4 entries)
+
+| 漢字 | Trước | Sau | Reason |
+|---|---|---|---|
+| 気温 | Nhiệt độ không khí | Nhiệt độ ngoài trời | "Không khí" technical; "ngoài trời" thực tế |
+| テーブルの片付け | Dọn bàn / dọn dẹp bàn | Dọn bàn | Bỏ redundant |
+| お釣り | Tiền thối lại | Tiền thừa / tiền thối | "Thừa" universal hơn (miền Bắc); "thối" miền Nam |
+| 下げる | Dọn bát đĩa xuống / "Tôi dọn đĩa trống xuống." | Dọn (đĩa/ly đã ăn xong) / "Tôi dọn đĩa khách đã ăn xong." | "Trống" awkward — đĩa "ăn xong" tự nhiên |
+
+### Entries NEW added (2 entries — user list)
+
+#### 礼金 (reikin) — chưa có trong words.ts
+- meaning: `Tiền lễ (礼金) — khoản trả 1 lần khi ký hợp đồng thuê nhà`
+- example: `このアパートは礼金なしです。` / `Căn hộ này không có tiền lễ.`
+- culturalNote: 1-2 tháng tiền nhà, KHÔNG hoàn lại; phân biệt với 敷金; cảnh báo "礼金なし" có thể vẫn có phí khác
+
+#### 敷金 (shikikin) — chưa có trong words.ts
+- meaning: `Tiền đặt cọc (敷金) — có thể được hoàn lại khi trả nhà`
+- example: `敷金は家賃2ヶ月分です。` / `Tiền đặt cọc là 2 tháng tiền nhà.`
+- culturalNote: 1-3 tháng tiền nhà; chủ trừ chi phí sửa chữa do bạn (theo guideline MLIT) rồi hoàn lại; khác 礼金 (KHÔNG hoàn lại)
+
+## Re-check kết quả 18 terms user list
+
+| 漢字 | Status sau Batch 1.1 |
+|---|---|
+| 年金 | FIXED (refined exampleMeaning) |
+| 国民年金 | OK (đã tốt từ pass 1) |
+| 厚生年金 | OK (đã tốt từ pass 1) |
+| 納付書 | FIXED (refined + extended culturalNote) |
+| 口座振替 | FIXED (refined exampleMeaning + thêm culturalNote) |
+| 確定申告 | FIXED (refined exampleMeaning) |
+| 市役所 | FIXED (thêm culturalNote) |
+| 区役所 | OK (đủ từ pass 1; culturalNote ở 市役所 đã cover) |
+| 本人確認書類 | OK (đã tốt từ batch 1) |
+| 転入届 | OK (đã tốt từ pass 1) |
+| 転出証明書 | OK (đã tốt từ batch 1, có culturalNote) |
+| 開通 | OK (đã tốt từ batch 1) |
+| 作業指示 | OK (đã tốt từ batch 1) |
+| 休み希望 | OK (đã tốt từ batch 1) |
+| 注文 | OK (đã tốt từ batch 1) |
+| 会計 | OK (đã tốt từ batch 1) |
+| 礼金 | **NEW** added trong batch 1.1 |
+| 敷金 | **NEW** added trong batch 1.1 |
+
+## NEEDS_USER_REVIEW (~6 entries)
+
+User nên đọc bằng mắt — không sai, nhưng tone có thể tinh chỉnh thêm:
+
+1. **乗り換え** — meaning "Chuyển tàu / đổi tuyến". Có thể ngắn hơn: "Đổi tàu"? VN người Việt đi tàu Nhật thường nói "đổi tuyến" hoặc "đổi tàu". OK.
+2. **定期券** — meaning chỉ "Vé tháng". Có thể thêm context "(đi tàu/xe bus)" nếu user mới chưa biết. Hiện đủ context qua example.
+3. **送金** — meaning "Chuyển tiền". OK. Example "海外送金" → "Tôi muốn chuyển tiền ra nước ngoài." OK.
+4. **契約解除** — meaning "Hủy hợp đồng". OK. Example "Tôi muốn xác nhận điều kiện hủy hợp đồng." Hơi formal — alternative "Tôi muốn hỏi điều kiện hủy hợp đồng." Cả hai OK.
+5. **保険料** — example "Phí bảo hiểm là bao nhiêu?" OK. Conversational variant: "Phí bảo hiểm bao nhiêu một tháng?" — chỉ context-dependent.
+6. **農薬** — meaning "Thuốc nông nghiệp". OK technical. Người làm nông VN thường nói "thuốc trừ sâu" / "thuốc bảo vệ thực vật" — keep generic.
+
+## NEEDS_NATIVE_REVIEW (~3 entries)
+
+Cần native VN ở Nhật xác nhận tone thực dụng:
+
+1. **作業指示 = "Hướng dẫn công việc"** — ổn nhưng native ngành xây dựng ở Nhật có dùng từ khác (vd "phổ biến công việc"/"phân công ca")?
+2. **休憩所 = "Chỗ nghỉ"** — ngắn gọn, nhưng có thể native gọi "khu nghỉ" / "phòng nghỉ" tùy môi trường.
+3. **配膳 = "Phục vụ món"** — ổn nhưng native nhà hàng ở Nhật có thể dùng "bưng món ra" / "lên món" (closer to industry talk).
+
+## Top 5 before/after fixes (Batch 1.1)
+
+1. **礼金** — chưa có → entry đầy đủ với culturalNote phân biệt 敷金
+2. **敷金** — chưa có → entry đầy đủ với culturalNote phân biệt 礼金
+3. **健康保険** — vague meaning "Bảo hiểm y tế" → "(chế độ chung)" + culturalNote phân biệt với 国保
+4. **市役所** — không có culturalNote → thêm ghi chú life context (mọi thủ tục dân sự + thời điểm đông)
+5. **残業代** — không có culturalNote → thêm rates 125%/125%/135%
+
+## Cross-batch summary (3 sprints tích lũy)
+
+| Metric | Sprint 1 | Batch 1 | Batch 1.1 | Total |
+|---|---|---|---|---|
+| Wording fixes | 9 | 8 | 4 | 21 |
+| CulturalNote thêm | 4 | 3 | 5 (+2 cập nhật) | 12 (+2 cập nhật) |
+| Entries mới | 0 | 0 | 2 (礼金, 敷金) | 2 |
+| Items audited | 9 (explicit) | ~150 | ~112 | ~150 (toàn bộ) |
+
+## Verification (Batch 1.1)
+
+```
+npm run typecheck      ✓ pass
+npm run test:ci        ✓ 251/251 pass
+```
+
+## Out of scope (carry-forward)
+
+- **Batch 2 (suggested):** 27 phrases files (`phrases/*.ts`).
+- **Batch 3 (suggested):** admin guide Vietnamese.
+- **Native speaker review** — vẫn pending.
+

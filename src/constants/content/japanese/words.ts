@@ -89,6 +89,28 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     exampleMeaning: 'Tôi đóng tiền nhà mỗi tháng.',
   },
   {
+    word: '礼金',
+    reading: 'れいきん',
+    romaji: 'reikin',
+    meaning: 'Tiền lễ (礼金) — khoản trả 1 lần khi ký hợp đồng thuê nhà',
+    example: 'このアパートは礼金なしです。',
+    exampleRomaji: 'Kono apaato wa reikin nashi desu.',
+    exampleMeaning: 'Căn hộ này không có tiền lễ.',
+    culturalNote:
+      'Trả 1 lần khi ký hợp đồng, thường 1–2 tháng tiền nhà, KHÔNG được hoàn lại khi trả nhà. Khác với 敷金 (đặt cọc — có thể hoàn). Nhà ghi "礼金なし" thì miễn khoản này nhưng vẫn có thể có phí khác trong hợp đồng — đọc kỹ trước khi ký.',
+  },
+  {
+    word: '敷金',
+    reading: 'しききん',
+    romaji: 'shikikin',
+    meaning: 'Tiền đặt cọc (敷金) — có thể được hoàn lại khi trả nhà',
+    example: '敷金は家賃2ヶ月分です。',
+    exampleRomaji: 'Shikikin wa yachin nikagetsubun desu.',
+    exampleMeaning: 'Tiền đặt cọc là 2 tháng tiền nhà.',
+    culturalNote:
+      'Trả 1 lần khi ký hợp đồng, thường 1–3 tháng tiền nhà. Khi trả nhà, chủ trừ chi phí sửa chữa hư hỏng do bạn gây (theo guideline MLIT) rồi hoàn lại phần còn lại. Khác với 礼金 (KHÔNG hoàn lại).',
+  },
+  {
     word: '有給休暇',
     reading: 'ゆうきゅうきゅうか',
     romaji: 'yuukyuu kyuuka',
@@ -125,6 +147,8 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     example: '市役所で手続きをします。',
     exampleRomaji: 'Shiyakusho de tetsuzuki o shimasu.',
     exampleMeaning: 'Tôi làm thủ tục ở tòa thị chính.',
+    culturalNote:
+      'Nơi xử lý gần như mọi thủ tục dân sự: đăng ký địa chỉ, 国保, My Number, 住民票, 印鑑登録, thuế cư dân, kết hôn/khai sinh. Mở giờ hành chính các ngày trong tuần; đông nhất tháng 3-4 và đầu tuần.',
   },
   {
     word: '区役所',
@@ -139,19 +163,23 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     word: '健康保険',
     reading: 'けんこうほけん',
     romaji: 'kenkou hoken',
-    meaning: 'Bảo hiểm y tế',
+    meaning: 'Bảo hiểm y tế (chế độ chung)',
     example: '健康保険について確認したいです。',
     exampleRomaji: 'Kenkou hoken ni tsuite kakunin shitai desu.',
-    exampleMeaning: 'Tôi muốn xác nhận về bảo hiểm y tế.',
+    exampleMeaning: 'Tôi muốn hỏi về bảo hiểm y tế.',
+    culturalNote:
+      'Từ chung — bao gồm cả 健康保険 do công ty cung cấp (cho người đi làm) và 国民健康保険 (cho người tự lo). Khi đến bệnh viện, đưa thẻ 保険証 thì chỉ trả 30% chi phí.',
   },
   {
     word: '国民健康保険',
     reading: 'こくみんけんこうほけん',
     romaji: 'kokumin kenkou hoken',
-    meaning: 'Bảo hiểm y tế quốc dân',
+    meaning: 'Bảo hiểm y tế quốc dân (国保)',
     example: '国民健康保険に加入しました。',
     exampleRomaji: 'Kokumin kenkou hoken ni kanyuu shimashita.',
     exampleMeaning: 'Tôi đã tham gia bảo hiểm y tế quốc dân.',
+    culturalNote:
+      'Dành cho người không tham gia bảo hiểm công ty: du học sinh, freelancer, người không đi làm. Đăng ký tại 市役所/区役所; phí tính theo thu nhập năm trước. Khi nghỉ việc → tự động phải chuyển sang chế độ này.',
   },
   {
     word: '年金',
@@ -160,7 +188,7 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     meaning: 'Lương hưu / nenkin',
     example: '年金の書類が届きました。',
     exampleRomaji: 'Nenkin no shorui ga todokimashita.',
-    exampleMeaning: 'Giấy tờ về nenkin/lương hưu đã được gửi đến.',
+    exampleMeaning: 'Tôi vừa nhận giấy tờ về nenkin.',
   },
   {
     word: '国民年金',
@@ -200,9 +228,9 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     meaning: 'Phiếu thanh toán (giấy nộp tiền)',
     example: '納付書で支払いました。',
     exampleRomaji: 'Noufusho de shiharaimashita.',
-    exampleMeaning: 'Tôi đã thanh toán bằng phiếu thanh toán.',
+    exampleMeaning: 'Tôi đã đóng tiền bằng 納付書.',
     culturalNote:
-      'Có thể đóng tại ngân hàng, bưu điện hoặc konbini. Giữ lại biên nhận để đối chiếu sau.',
+      'Có thể đóng tại ngân hàng, bưu điện hoặc konbini. Giữ lại biên nhận để đối chiếu sau. Hay gặp với 国保, 国民年金, 住民税 khi không trừ qua lương.',
   },
   {
     word: '口座振替',
@@ -211,7 +239,9 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     meaning: 'Thanh toán tự động qua tài khoản',
     example: '口座振替にしたいです。',
     exampleRomaji: 'Kouza furikae ni shitai desu.',
-    exampleMeaning: 'Tôi muốn chuyển sang thanh toán tự động qua tài khoản.',
+    exampleMeaning: 'Tôi muốn đổi sang thanh toán tự động.',
+    culturalNote:
+      'Phổ biến cho điện/nước/ga/internet/bảo hiểm/thuế: ngân hàng tự trừ vào ngày cố định, không sợ quên đóng. Đăng ký 1 lần tại nơi cung cấp dịch vụ hoặc tại 市役所 (cho thuế). Cần 通帳 + 印鑑 ngân hàng.',
   },
   {
     word: '送金',
@@ -276,7 +306,9 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     meaning: 'Khám sức khỏe định kỳ',
     example: '健康診断の日程を確認しました。',
     exampleRomaji: 'Kenkou shindan no nittei o kakunin shimashita.',
-    exampleMeaning: 'Tôi đã xác nhận lịch khám sức khỏe định kỳ.',
+    exampleMeaning: 'Tôi đã xem lịch khám sức khỏe.',
+    culturalNote:
+      'Công ty/trường thường tổ chức 1 lần/năm và miễn phí cho nhân viên/sinh viên. Bao gồm đo cao/cân nặng, máu, nước tiểu, X-quang ngực, mắt, huyết áp. Người tự kinh doanh có thể đăng ký riêng tại bệnh viện.',
   },
   {
     word: '確定申告',
@@ -285,7 +317,7 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
     meaning: 'Khai thuế cá nhân (kakutei shinkoku)',
     example: '確定申告が必要か確認したいです。',
     exampleRomaji: 'Kakutei shinkoku ga hitsuyou ka kakunin shitai desu.',
-    exampleMeaning: 'Tôi muốn xác nhận xem có cần khai thuế cá nhân không.',
+    exampleMeaning: 'Tôi muốn hỏi xem mình có cần làm 確定申告 không.',
     culturalNote:
       'Thường nộp từ 16/02 đến 15/03 hàng năm cho thu nhập năm dương lịch trước. Người đi làm 1 nơi đã có 年末調整 thường không cần làm; freelancer/người làm 2 nơi/người có thu nhập phụ trên ngưỡng thì cần.',
   },
@@ -305,7 +337,7 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
   { word: '安全靴', reading: 'あんぜんぐつ', romaji: 'anzen gutsu', meaning: 'Giày bảo hộ', example: '安全靴は必ず履いてください。', exampleRomaji: 'Anzen gutsu wa kanarazu haite kudasai.', exampleMeaning: 'Nhất định phải mang giày bảo hộ.' },
   { word: '作業着', reading: 'さぎょうぎ', romaji: 'sagyougi', meaning: 'Đồng phục làm việc', example: '作業着に着替えます。', exampleRomaji: 'Sagyougi ni kigaemasu.', exampleMeaning: 'Tôi thay sang đồ làm việc.' },
   { word: '休憩', reading: 'きゅうけい', romaji: 'kyuukei', meaning: 'Nghỉ giải lao', example: '十時から休憩です。', exampleRomaji: 'Juuji kara kyuukei desu.', exampleMeaning: 'Nghỉ giải lao từ 10 giờ.' },
-  { word: '残業代', reading: 'ざんぎょうだい', romaji: 'zangyoudai', meaning: 'Tiền làm thêm giờ', example: '残業代を確認したいです。', exampleRomaji: 'Zangyoudai o kakunin shitai desu.', exampleMeaning: 'Tôi muốn kiểm tra tiền làm thêm giờ.' },
+  { word: '残業代', reading: 'ざんぎょうだい', romaji: 'zangyoudai', meaning: 'Tiền làm thêm giờ (tăng ca)', example: '残業代を確認したいです。', exampleRomaji: 'Zangyoudai o kakunin shitai desu.', exampleMeaning: 'Tôi muốn kiểm tra tiền làm thêm giờ.', culturalNote: 'Theo luật: làm thêm sau 8h/ngày hoặc 40h/tuần được trả ≥ 125% lương cơ bản; làm đêm (22h–5h) ≥ 125%; ngày nghỉ ≥ 135%. Nếu phiếu lương không có cột 残業代 dù bạn có tăng ca, hỏi HR ngay.' },
   { word: '早退', reading: 'そうたい', romaji: 'soutai', meaning: 'Về sớm', example: '体調が悪いので早退したいです。', exampleRomaji: 'Taichou ga warui node soutai shitai desu.', exampleMeaning: 'Tôi muốn về sớm vì không khỏe.' },
   { word: '欠勤', reading: 'けっきん', romaji: 'kekkin', meaning: 'Nghỉ làm', example: '明日は欠勤します。', exampleRomaji: 'Ashita wa kekkin shimasu.', exampleMeaning: 'Ngày mai tôi nghỉ làm.' },
   { word: '交代', reading: 'こうたい', romaji: 'koutai', meaning: 'Đổi ca / thay ca', example: '午後のシフトと交代できますか。', exampleRomaji: 'Gogo no shifuto to koutai dekimasu ka.', exampleMeaning: 'Có thể đổi sang ca chiều không?' },
@@ -342,7 +374,7 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
   { word: '選別', reading: 'せんべつ', romaji: 'senbetsu', meaning: 'Phân loại', example: '大きさで選別します。', exampleRomaji: 'Ookisa de senbetsu shimasu.', exampleMeaning: 'Tôi phân loại theo kích cỡ.' },
   { word: '箱詰め', reading: 'はこづめ', romaji: 'hakodume', meaning: 'Đóng thùng', example: '収穫した野菜を箱詰めします。', exampleRomaji: 'Shuukaku shita yasai o hakodume shimasu.', exampleMeaning: 'Tôi đóng thùng rau đã thu hoạch.' },
   { word: '温室', reading: 'おんしつ', romaji: 'onshitsu', meaning: 'Nhà kính', example: '温室の温度を確認してください。', exampleRomaji: 'Onshitsu no ondo o kakunin shite kudasai.', exampleMeaning: 'Xin hãy kiểm tra nhiệt độ nhà kính.' },
-  { word: '気温', reading: 'きおん', romaji: 'kion', meaning: 'Nhiệt độ không khí', example: '今日は気温が高いです。', exampleRomaji: 'Kyou wa kion ga takai desu.', exampleMeaning: 'Hôm nay nhiệt độ cao.' },
+  { word: '気温', reading: 'きおん', romaji: 'kion', meaning: 'Nhiệt độ ngoài trời', example: '今日は気温が高いです。', exampleRomaji: 'Kyou wa kion ga takai desu.', exampleMeaning: 'Hôm nay nhiệt độ cao.' },
   { word: '長靴', reading: 'ながぐつ', romaji: 'nagagutsu', meaning: 'Ủng', example: '畑では長靴を履いてください。', exampleRomaji: 'Hatake de wa nagagutsu o haite kudasai.', exampleMeaning: 'Trong ruộng hãy mang ủng.' },
   { word: '雨具', reading: 'あまぐ', romaji: 'amagu', meaning: 'Đồ đi mưa', example: '雨具を持って行ってください。', exampleRomaji: 'Amagu o motte itte kudasai.', exampleMeaning: 'Xin hãy mang đồ đi mưa.' },
   { word: '休憩所', reading: 'きゅうけいじょ', romaji: 'kyuukeijo', meaning: 'Chỗ nghỉ', example: '休憩所で水を飲みましょう。', exampleRomaji: 'Kyuukeijo de mizu o nomimashou.', exampleMeaning: 'Hãy uống nước ở chỗ nghỉ.' },
@@ -358,9 +390,9 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
   { word: '満席', reading: 'まんせき', romaji: 'manseki', meaning: 'Hết chỗ', example: '今は満席です。', exampleRomaji: 'Ima wa manseki desu.', exampleMeaning: 'Hiện tại đã hết chỗ.' },
   { word: '厨房', reading: 'ちゅうぼう', romaji: 'chuubou', meaning: 'Bếp', example: '厨房に伝えます。', exampleRomaji: 'Chuubou ni tsutaemasu.', exampleMeaning: 'Tôi sẽ báo cho bếp.' },
   { word: '洗い場', reading: 'あらいば', romaji: 'araiba', meaning: 'Khu rửa chén', example: '洗い場を手伝ってください。', exampleRomaji: 'Araiba o tetsudatte kudasai.', exampleMeaning: 'Xin hãy phụ khu rửa chén.' },
-  { word: 'テーブルの片付け', reading: 'テーブルのかたづけ', romaji: 'teeburu no katazuke', meaning: 'Dọn bàn / dọn dẹp bàn', example: 'テーブルを片付けます。', exampleRomaji: 'Teeburu o katazukemasu.', exampleMeaning: 'Tôi dọn bàn.' },
+  { word: 'テーブルの片付け', reading: 'テーブルのかたづけ', romaji: 'teeburu no katazuke', meaning: 'Dọn bàn', example: 'テーブルを片付けます。', exampleRomaji: 'Teeburu o katazukemasu.', exampleMeaning: 'Tôi dọn bàn.' },
   { word: '会計', reading: 'かいけい', romaji: 'kaikei', meaning: 'Tính tiền / thanh toán', example: 'レジで会計します。', exampleRomaji: 'Reji de kaikei shimasu.', exampleMeaning: 'Tôi thanh toán ở quầy.' },
-  { word: 'お釣り', reading: 'おつり', romaji: 'otsuri', meaning: 'Tiền thối lại', example: 'お釣りはこちらです。', exampleRomaji: 'Otsuri wa kochira desu.', exampleMeaning: 'Tiền thối đây ạ.' },
+  { word: 'お釣り', reading: 'おつり', romaji: 'otsuri', meaning: 'Tiền thừa / tiền thối', example: 'お釣りはこちらです。', exampleRomaji: 'Otsuri wa kochira desu.', exampleMeaning: 'Tiền thối đây ạ.' },
   { word: 'レジ', reading: 'レジ', romaji: 'reji', meaning: 'Quầy tính tiền', example: 'レジをお願いします。', exampleRomaji: 'Reji o onegaishimasu.', exampleMeaning: 'Xin phụ trách quầy thu ngân.' },
   { word: '取り皿', reading: 'とりざら', romaji: 'torizara', meaning: 'Đĩa nhỏ chia món', example: '取り皿をお持ちします。', exampleRomaji: 'Torizara o omochi shimasu.', exampleMeaning: 'Tôi sẽ mang đĩa nhỏ ra.' },
   { word: '箸', reading: 'はし', romaji: 'hashi', meaning: 'Đũa', example: 'お箸をお持ちします。', exampleRomaji: 'Ohashi o omochi shimasu.', exampleMeaning: 'Tôi sẽ mang đũa ra.' },
@@ -370,6 +402,6 @@ export const JAPANESE_WORDS: JapaneseWord[] = [
   { word: 'おすすめ', reading: 'おすすめ', romaji: 'osusume', meaning: 'Món gợi ý', example: '今日のおすすめはこちらです。', exampleRomaji: 'Kyou no osusume wa kochira desu.', exampleMeaning: 'Món gợi ý hôm nay là món này.' },
   { word: '品切れ', reading: 'しなぎれ', romaji: 'shinagire', meaning: 'Hết món', example: '申し訳ありませんが、品切れです。', exampleRomaji: 'Moushiwake arimasen ga, shinagire desu.', exampleMeaning: 'Xin lỗi, món này đã hết.' },
   { word: '配膳', reading: 'はいぜん', romaji: 'haizen', meaning: 'Phục vụ món', example: '料理を配膳します。', exampleRomaji: 'Ryouri o haizen shimasu.', exampleMeaning: 'Tôi mang món ra phục vụ.' },
-  { word: '下げる', reading: 'さげる', romaji: 'sageru', meaning: 'Dọn bát đĩa xuống', example: '空いた皿を下げます。', exampleRomaji: 'Aita sara o sagemasu.', exampleMeaning: 'Tôi dọn đĩa trống xuống.' },
+  { word: '下げる', reading: 'さげる', romaji: 'sageru', meaning: 'Dọn (đĩa/ly đã ăn xong)', example: '空いた皿を下げます。', exampleRomaji: 'Aita sara o sagemasu.', exampleMeaning: 'Tôi dọn đĩa khách đã ăn xong.' },
   { word: 'シフト', reading: 'シフト', romaji: 'shifuto', meaning: 'Ca làm', example: '来週のシフトを確認しました。', exampleRomaji: 'Raishuu no shifuto o kakunin shimashita.', exampleMeaning: 'Tôi đã kiểm tra ca làm tuần sau.' },
 ];
