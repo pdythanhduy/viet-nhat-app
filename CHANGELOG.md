@@ -10,6 +10,74 @@ The latest entry is at the top.
 > single `1.3.0` entry below. The internal `1.4.0` label has been
 > reverted in `app.json`.
 
+## v1.3.2 - 2026-05-09
+
+Content patch on top of v1.3.1. Adds 10 practical life guides
+across medical access, disaster preparedness, and daily utility
+setup. No UI rework, no schema changes for AdminGuide. ADMIN_GUIDES
+count: 80 → 90.
+
+### Added
+- Added 10 new practical life guides:
+  - **Cách đi khám bệnh ở Nhật** (`clinic-hospital-visit-guide`)
+  - **Gọi cấp cứu, cảnh sát ở Nhật** (`emergency-calls-japan`)
+  - **Đi nha khoa ở Nhật** (`dentist-visit-japan`)
+  - **Hướng dẫn khi động đất ở Nhật** (`earthquake-preparedness-japan`)
+  - **Hướng dẫn khi bão / 警戒レベル ở Nhật** (`typhoon-evacuation-alerts`)
+  - **Bản đồ phòng tai (ハザードマップ) — lũ / sóng thần / núi lửa** (`hazard-map-flood-tsunami-volcano`)
+  - **Hợp đồng điện, gas, nước ở Nhật** (`electricity-gas-water-contracts`)
+  - **Internet, Wi-Fi nhà ở Nhật** (`home-internet-wifi-contracts`)
+  - **NHK đến nhà thì xử lý thế nào?** (`nhk-contract-guide`)
+  - **Bưu điện, chuyển tiếp thư và gửi hàng ở Nhật** (`post-office-mail-forwarding`)
+- Added `docs/full-content-backlog-45-guides.md` as master content
+  roadmap (replaces private GitHub Issue #5).
+- Added per-batch report docs under `docs/content-roadmap-a1-...md`,
+  `a2-...md`, `a3-...md` documenting source status, counter phrases,
+  and pending items.
+- Added `docs/native-legal-review-pending-a1-a3.md` consolidating
+  ~120 review questions for native Japanese, Vietnamese content,
+  and legal/consumer reviewers.
+- Added `docs/release-checkpoint-90-guides.md` snapshot of the
+  90-guide release-readiness state.
+
+### Improved
+- Expanded search keywords for panic-search behavior across the 10
+  new guides (~94 new VN + JP keywords including "mất điện", "rò
+  gas", "internet bị cắt", "không nhận được hàng", "震度", "防災バッグ",
+  "罹災証明書", etc.).
+- Added 76 Japanese counter phrases for medical, disaster, and
+  daily utility situations (jp + romaji + vn + note).
+- Improved safety wording for disaster guides: lead earthquake
+  Step 2 with 内閣府 / 消防庁 official phrasing (姿勢を低く・頭を守る・
+  じっとする), hedged 緊急地震速報 lead time as "vài giây – vài
+  chục giây tùy khoảng cách từ tâm chấn", removed unsourced "≥10m"
+  evacuation distance number, clarified "active 火山" classification
+  ≠ imminent eruption.
+- Improved cautious / legal-safe wording for NHK and consumer
+  contracts: hedged NHK cooling-off applicability for 受信契約 in
+  5 places (vùng tranh cãi pháp lý — direct user to 国民生活
+  センター 188 first), softened 不退去罪 threshold language,
+  swapped search keywords "từ chối NHK" / "không ký NHK" → neutral
+  "xem xét NHK" / "không ký vội", refined work-refusal claim under
+  労働安全衛生法 from "không vi phạm hợp đồng" → "có lý do chính đáng".
+- Tightened post-office customs wording: dropped overclaim "Khai
+  dưới 50,000円 thường không bị truy thu thuế VN" → "khai trung
+  thực, không khai sai để né thuế".
+- Synchronized `app.json` version with `package.json` (both at
+  `1.3.2`).
+
+### Notes
+- Some legal / consumer items remain pending human review,
+  especially **NHK cooling-off applicability** for 受信契約 (vùng
+  án lệ tranh cãi tại Nhật).
+- Some official deep links remain marked
+  **NEEDS_OFFICIAL_SOURCE_CHECK** (~22 items: #7119, #9110, 救急車
+  fee policy, 警戒レベル, 緊急地震速報, 171 NTT, customs VN, etc.).
+  Homepage-level links are in place; deep-link verification pending.
+- **Device QA on iOS / Android is required before production
+  submission.** Smoke-test checklist available in
+  `docs/release-checkpoint-90-guides.md` and per-batch reports.
+
 ## v1.3.1 - 2026-05-09
 
 Patch release on top of v1.3.0 covering content / link / typo audit
