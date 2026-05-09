@@ -18,6 +18,9 @@ const postOfficeMailForwarding: AdminGuide = {
     'chuyển tiếp thư',
     'đổi địa chỉ nhận thư',
     'hẹn giao lại',
+    'không nhận được hàng',
+    'hàng chưa đến',
+    'hàng mất',
     '不在票',
     '再配達',
     '郵便局',
@@ -31,6 +34,7 @@ const postOfficeMailForwarding: AdminGuide = {
     'Japan Post',
     'kokusai yubin',
     'chuyển nhà thư',
+    '内容証明郵便',
   ],
   legalScope: {
     jurisdiction: 'national',
@@ -112,7 +116,7 @@ const postOfficeMailForwarding: AdminGuide = {
     'Bỏ qua 不在票 quá 1 tuần → thư / hàng trả lại người gửi, có thể mất hoặc tốn phí gửi lại.',
     'Gửi đồ bị cấm về VN (thực phẩm tươi sống, hạt giống, thuốc theo toa, một số mỹ phẩm có cồn cao) → bị giữ ở hải quan, có thể mất hàng + bị phạt.',
     'Không hỏi tracking → khó claim khi hàng mất.',
-    'Khai hải quan sai (giá trị thấp / nội dung sai) để né phí → hàng có thể bị giữ, người nhận VN bị truy thu thuế hoặc bị từ chối.',
+    'Khai hải quan sai (giá trị thấp / nội dung sai) để né phí → vi phạm quy định, hàng có thể bị giữ, người nhận VN bị phạt hoặc bị từ chối nhận.',
     'Không bao bọc kỹ đồ dễ vỡ → hỏng đến nơi, khó claim nếu không có bảo hiểm thêm.',
     'Tin theo cuộc gọi / SMS giả "Japan Post nói có gói hàng, nhấn link" → scam phổ biến. Japan Post KHÔNG bao giờ gửi link SMS yêu cầu thanh toán.',
   ],
@@ -236,7 +240,7 @@ const postOfficeMailForwarding: AdminGuide = {
       step: 4,
       title: 'Gửi hàng quốc tế — về Việt Nam',
       description:
-        '3 lựa chọn theo tốc độ + giá:\n\n**EMS** (Express Mail Service):\n• 3–7 ngày đến VN.\n• Phí cao nhất.\n• Có tracking + bảo hiểm cơ bản (có thể thêm).\n• Đến tận nhà người nhận.\n\n**航空便** (air mail):\n• 1–2 tuần đến VN.\n• Phí trung bình.\n• Có tracking nếu chọn 書留.\n\n**船便** (sea mail):\n• 1–3 tháng đến VN.\n• Phí rẻ nhất.\n• Phù hợp đồ nặng + không gấp (vd sách, đồ trang trí).\n\n**Tại quầy bưu điện**:\n1. Cân + đo hàng.\n2. Điền 税関告知書 (khai hải quan): nội dung + giá trị + lý do gửi (gift / commercial).\n3. Điền địa chỉ người nhận tiếng Anh + số điện thoại VN.\n4. Trả phí.\n5. Nhận biên lai có 追跡番号 (tracking).\n\n**KHAI BÁO ĐÚNG**:\n• Nội dung: chính xác (vd "Used clothes" thay vì "Gift" mơ hồ).\n• Giá trị: thực tế. Khai dưới 50,000円 thường không bị truy thu thuế VN nhưng tùy hải quan.\n• KHÔNG khai sai hoặc khai không có giá trị → có thể bị giữ.',
+        '3 lựa chọn theo tốc độ + giá:\n\n**EMS** (Express Mail Service):\n• 3–7 ngày đến VN.\n• Phí cao nhất.\n• Có tracking + bảo hiểm cơ bản (có thể thêm).\n• Đến tận nhà người nhận.\n\n**航空便** (air mail):\n• 1–2 tuần đến VN.\n• Phí trung bình.\n• Có tracking nếu chọn 書留.\n\n**船便** (sea mail):\n• 1–3 tháng đến VN.\n• Phí rẻ nhất.\n• Phù hợp đồ nặng + không gấp (vd sách, đồ trang trí).\n\n**Tại quầy bưu điện**:\n1. Cân + đo hàng.\n2. Điền 税関告知書 (khai hải quan): nội dung + giá trị + lý do gửi (gift / commercial).\n3. Điền địa chỉ người nhận tiếng Anh + số điện thoại VN.\n4. Trả phí.\n5. Nhận biên lai có 追跡番号 (tracking).\n\n**KHAI BÁO TRUNG THỰC**:\n• Nội dung: chính xác (vd "Used clothes" thay vì "Gift" mơ hồ).\n• Giá trị: thực tế. KHÔNG khai sai / khai dưới giá trị thật để né thuế — có thể bị hải quan giữ + người nhận VN bị phạt.\n• Mức thuế nhập khẩu / VAT của VN tùy loại hàng + giá trị + hải quan đánh giá — không có công thức chung. Hỏi hải quan VN hoặc Vietnam Post nếu cần biết trước.',
       documents: [
         'Hàng đã đóng gói chắc chắn',
         'Địa chỉ người nhận tiếng Anh + ZIP code',
