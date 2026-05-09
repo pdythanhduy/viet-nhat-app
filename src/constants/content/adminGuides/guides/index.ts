@@ -79,6 +79,9 @@ import visaEmergencyMedicalDisasterExtension from './visa-emergency-medical-disa
 import freelanceSideJobWorkVisaRules from './freelance-side-job-work-visa-rules';
 import employmentCrisisVisaJobLossLayoff from './employment-crisis-visa-job-loss-layoff';
 import lostResidenceCard from './lost-residence-card';
+import clinicHospitalVisitGuide from './clinic-hospital-visit-guide';
+import emergencyCallsJapan from './emergency-calls-japan';
+import dentistVisitJapan from './dentist-visit-japan';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -161,4 +164,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   freelanceSideJobWorkVisaRules,
   employmentCrisisVisaJobLossLayoff,
   lostResidenceCard,
+  clinicHospitalVisitGuide,
+  emergencyCallsJapan,
+  dentistVisitJapan,
 ];
