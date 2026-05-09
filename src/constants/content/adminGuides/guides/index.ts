@@ -98,6 +98,10 @@ import foreignResidentSupportCenters from './foreign-resident-support-centers';
 import furusatoNozeiGuide from './furusato-nozei-guide';
 import idecoPersonalPension from './ideco-personal-pension';
 import taxOnRemittanceToVietnam from './tax-on-remittance-to-vietnam';
+import mentalHealthStressSupport from './mental-health-stress-support';
+import medicalInterpretationMultilingualHospitals from './medical-interpretation-multilingual-hospitals';
+import holidayNightMedicalCare from './holiday-night-medical-care';
+import pharmacyPrescriptionGuide from './pharmacy-prescription-guide';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -199,4 +203,8 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   furusatoNozeiGuide,
   idecoPersonalPension,
   taxOnRemittanceToVietnam,
+  mentalHealthStressSupport,
+  medicalInterpretationMultilingualHospitals,
+  holidayNightMedicalCare,
+  pharmacyPrescriptionGuide,
 ];
