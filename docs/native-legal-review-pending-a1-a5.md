@@ -1,22 +1,27 @@
-# Native / Legal Review Pending Items — A1 to A3
+# Native / Legal Review Pending Items — A1 to A5
 
-**Date:** 2026-05-09
-**Scope:** Tổng hợp các điểm cần review human từ 10 guide đã thêm trong batch A1, A2, A3.
+**Date:** 2026-05-09 (updated A4 + A5 batches)
+**Scope:** Tổng hợp các điểm cần review human từ 16 guide đã thêm trong batch A1, A2, A3, A4, A5.
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
 
 ---
 
 ## Purpose
 
-Ba batch đầu tiên đã thêm tổng cộng **10 guide** mới vào ADMIN_GUIDES (80 → 90):
+Năm batch đầu tiên đã thêm tổng cộng **16 guide** mới vào ADMIN_GUIDES (80 → 96):
 
 | Batch | Guides | Topics |
 |---|---|---|
 | **A1** (3) | clinic-hospital-visit-guide, emergency-calls-japan, dentist-visit-japan | Y tế cơ bản: khám bệnh, gọi 119/110, nha khoa |
 | **A2** (3) | earthquake-preparedness-japan, typhoon-evacuation-alerts, hazard-map-flood-tsunami-volcano | Thiên tai: động đất, bão, hazard map |
 | **A3** (4) | electricity-gas-water-contracts, home-internet-wifi-contracts, nhk-contract-guide, post-office-mail-forwarding | Tiện ích hằng ngày: utility, internet, NHK, bưu điện |
+| **A4** (3) | japanese-school-system-children, japanese-language-support-children, child-allowance-jidou-teate | Giáo dục + trợ cấp con: school system, 日本語指導, 児童手当 |
+| **A5** (3) | police-questioning-rights-japan, embassy-consulate-vietnam-japan, foreign-resident-support-centers | Pháp lý + hỗ trợ: police rights, Đại sứ quán, 多文化共生 |
 
-Tổng **76 counterPhrases mới** (Japanese + romaji + Vietnamese + note) và nhiều tuyên bố pháp lý / nguồn cần verify.
+Tổng **121 counterPhrases mới** (Japanese + romaji + Vietnamese + note) và nhiều tuyên bố pháp lý / nguồn cần verify.
+
+**Lưu ý A1–A3** đã ship trong v1.3.2 (tag `v1.3.2`, đang chờ Apple Review).
+**Lưu ý A4 + A5** chưa ship — sẽ vào release tiếp theo (v1.3.3 hoặc v1.4.0).
 
 Document này gom lại tất cả các điểm CHƯA verify để gửi cho:
 
@@ -448,3 +453,183 @@ Sau khi A1–A3 (90 guide) đã device QA + native review pass — có thể cut
 - Khi 1 item được review xong + sửa, mark ✓ trong Summary table.
 - Khi mở batch mới (A4+), thêm pending items vào document này (single source of truth).
 - Re-verify quarterly cho items có `nextReviewAt: 2026-12-01`.
+
+---
+
+# UPDATE — A4 + A5 added (2026-05-09)
+
+Bổ sung pending items cho 6 guide mới.
+
+## A4 — Education / children pending
+
+### Native Japanese (22 phrases mới)
+
+#### `japanese-school-system-children` (7 phrases)
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| 子どもの学校手続きをしたいです | Kodomo no gakkou tetsuzuki o shitai desu | Tôi muốn làm thủ tục trường học cho con | Standard tại 市役所 — confirm OK |
+| 転入学の手続きをお願いします | Tennyuugaku no tetsuzuki o onegai shimasu | Xin giúp tôi làm thủ tục chuyển trường | OK? |
+| 日本語指導はありますか | Nihongo shidou wa arimasu ka | Có hỗ trợ tiếng Nhật cho con không? | OK? |
+| 学区はどこですか | Gakku wa doko desu ka | Khu trường (trường gần nhà) là trường nào? | OK? |
+| 給食費はいくらですか | Kyuushokuhi wa ikura desu ka | Phí cơm trưa là bao nhiêu? | OK? |
+| 入学に必要なものを教えてください | Nyuugaku ni hitsuyou na mono o oshiete kudasai | Cho tôi biết những thứ cần thiết khi nhập học | OK? |
+| ベトナム語の説明はありますか | Betonamu-go no setsumei wa arimasu ka | Có tài liệu giải thích tiếng Việt không? | OK? |
+
+#### `japanese-language-support-children` (7 phrases)
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| 日本語指導はありますか | Nihongo shidou wa arimasu ka | Có hỗ trợ tiếng Nhật cho con không? | (cùng câu) — confirm context khác (担任 vs 教育委員会) |
+| 取り出し授業をお願いしたいです | Toridashi jugyou o onegai shitai desu | Tôi muốn xin lớp riêng cho con | Tone formal có quá soft? |
+| 子どもが授業についていけません | Kodomo ga jugyou ni tsuite ikemasen | Con tôi không theo kịp bài | Báo trực tiếp 担任 — confirm tone |
+| 巡回指導を頼めますか | Junkai shidou o tanomemasu ka | Có thể xin giáo viên đi thăm không? | Wording natural? |
+| 日本語教室を紹介してください | Nihongo kyoushitsu o shoukai shite kudasai | Xin giới thiệu lớp tiếng Nhật cho tôi | OK? |
+| ベトナム語の支援はありますか | Betonamu-go no shien wa arimasu ka | Có hỗ trợ tiếng Việt không? | OK? |
+| 子どもが学校に行きたがりません | Kodomo ga gakkou ni ikitagarimasen | Con tôi không muốn đi học | Tín hiệu cần báo gấp — natural? |
+
+#### `child-allowance-jidou-teate` (8 phrases)
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| 児童手当の申請をしたいです | Jidou teate no shinsei o shitai desu | Tôi muốn đăng ký trợ cấp trẻ em | OK? |
+| 認定請求書をください | Nintei seikyuusho o kudasai | Cho tôi đơn xin trợ cấp | OK? |
+| 必要な書類を教えてください | Hitsuyou na shorui o oshiete kudasai | Cho tôi biết giấy tờ cần thiết | OK? |
+| いつから振り込まれますか | Itsu kara furikomaremasu ka | Khi nào tiền được chuyển vào tài khoản? | OK? |
+| 引っ越しの手続きをお願いします | Hikkoshi no tetsuzuki o onegai shimasu | Xin giúp tôi làm thủ tục chuyển nhà | OK? |
+| 子どもが生まれたので、申請したいです | Kodomo ga umareta node, shinsei shitai desu | Tôi vừa sinh con nên muốn đăng ký | OK? |
+| 振り込み口座を変更したいです | Furikomi kouza o henkou shitai desu | Tôi muốn đổi tài khoản nhận tiền | OK? |
+| ベトナム語の説明はありますか | Betonamu-go no setsumei wa arimasu ka | Có tài liệu giải thích tiếng Việt không? | OK? |
+
+### Vietnamese naturalness — A4
+
+| Guide | Wording | Question |
+|---|---|---|
+| `japanese-school-system-children` FAQ | "Hệ thống Nhật tính theo năm sinh: 4/1 năm trước đến 3/31 năm sau là cùng 学年" | Có dễ hiểu? Hay nên dùng "năm học" rõ hơn? |
+| `japanese-language-support-children` Step 5 | "trẻ em có khả năng song ngữ vô cùng" | Tone đúng? |
+| `child-allowance-jidou-teate` description | "kéo dài đến hết tuổi 18 (cuối năm tài chính)" | "Cuối năm tài chính" có cần giải thích thêm? |
+
+### Legal / consumer — A4
+
+11 mục `NEEDS_OFFICIAL_SOURCE_CHECK` (đã liệt kê trong `docs/content-roadmap-a4-education-children-guides.md`):
+
+1. **児童手当 cải cách 10/2024** — cần verify deep-link こども家庭庁 cho mức tiền chính xác.
+2. **Mức tiền cụ thể (yen/tháng)** — KHÔNG đưa số chi tiết. Hedge mạnh.
+3. **現況届 yêu cầu** — tùy 市. Hedge.
+4. **15 ngày deadline backdate** — quy định MEXT/こども家庭庁 chuẩn quốc gia, ổn định.
+5. **高校無償化** — có ngưỡng thu nhập, tùy 都道府県.
+6. **就学援助** — tùy 市町村.
+7. **Phí đầu vào 小学校** — range tham khảo.
+8. **Quy trình 入試 高校** — tùy 都道府県.
+9. **Coverage 日本語指導 cụ thể** — chưa list từng 市.
+10. **Hotline いじめ相談 0120-0-78310** — số chính thức MEXT.
+11. **「かすたねっと」 URL** — verify trang chính xác.
+
+---
+
+## A5 — Legal / support pending — **HIGHEST PRIORITY LEGAL REVIEW**
+
+### Native Japanese (23 phrases mới)
+
+#### `police-questioning-rights-japan` (8 phrases) — **HIGH priority**
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| 通訳をお願いします | Tsuuyaku o onegai shimasu | Xin cho tôi thông dịch viên | Standard request — OK? |
+| 弁護士に連絡したいです | Bengoshi ni renraku shitai desu | Tôi muốn liên hệ luật sư | OK? |
+| 領事館に連絡したいです | Ryoujikan ni renraku shitai desu | Tôi muốn liên hệ lãnh sự quán | OK? |
+| 任意ですか、逮捕ですか | Nin'i desu ka, taiho desu ka | Là tự nguyện hay bị bắt? | Realistic trong panic state? |
+| 私は何の容疑ですか | Watashi wa nan no yougi desu ka | Tôi bị nghi gì? | Tone formal đủ? |
+| 黙秘権を行使します | Mokuhiken o koushi shimasu | Tôi thực hiện quyền giữ im lặng | Formal đủ? Có nên `答えたくありません`? |
+| 署名はできません。弁護士に確認してから決めます | Shomei wa dekimasen. Bengoshi ni kakunin shite kara kimemasu | Tôi không ký được. Tôi quyết định sau khi hỏi luật sư | Câu cứu mạng — confirm tone đúng |
+| 今日は都合が悪いので、後日にしたいです | Kyou wa tsugou ga warui node, gojitsu ni shitai desu | Hôm nay tôi bận, xin lùi lại ngày khác | Từ chối 任意聴取 — tone đủ rõ? |
+
+#### `embassy-consulate-vietnam-japan` (7 phrases)
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| パスポートをなくしました | Pasupooto o nakushimashita | Tôi đã làm mất hộ chiếu | OK? |
+| 紛失届受理証明書をください | Funshitsu todoke juri shoumeisho o kudasai | Cho tôi giấy chứng nhận đã khai báo mất | OK? |
+| パスポートの有効期限が切れています | Pasupooto no yuukou kigen ga kirete imasu | Hộ chiếu của tôi đã hết hạn | OK? |
+| ベトナム大使館に連絡したいです | Betonamu taishikan ni renraku shitai desu | Tôi muốn liên hệ Đại sứ quán Việt Nam | OK? |
+| 緊急ですか、通常ですか | Kinkyuu desu ka, tsuujou desu ka | Là khẩn cấp hay thường? | OK? |
+| 受付時間を教えてください | Uketsuke jikan o oshiete kudasai | Cho tôi biết giờ tiếp nhận hồ sơ | OK? |
+| 予約は必要ですか | Yoyaku wa hitsuyou desu ka | Có cần đặt hẹn trước không? | OK? |
+
+#### `foreign-resident-support-centers` (8 phrases)
+
+| jp | romaji | vn | Reviewer Q |
+|---|---|---|---|
+| 相談したいことがあります | Soudan shitai koto ga arimasu | Tôi có việc muốn được tư vấn | OK? |
+| ベトナム語の通訳はありますか | Betonamu-go no tsuuyaku wa arimasu ka | Có thông dịch tiếng Việt không? | OK? |
+| 無料で相談できますか | Muryou de soudan dekimasu ka | Có thể tư vấn miễn phí không? | OK? |
+| 日本語教室を紹介してください | Nihongo kyoushitsu o shoukai shite kudasai | Xin giới thiệu lớp tiếng Nhật cho tôi | OK? |
+| 弁護士を紹介してください | Bengoshi o shoukai shite kudasai | Xin giới thiệu luật sư cho tôi | OK? |
+| 通訳に来てもらえますか | Tsuuyaku ni kite moraemasu ka | Có thể cử thông dịch đi cùng tôi không? | OK? |
+| いつ開いていますか | Itsu aite imasu ka | Khi nào trung tâm mở cửa? | OK? |
+| 緊急のときはどこに連絡すればいいですか | Kinkyuu no toki wa doko ni renraku sureba ii desu ka | Khi khẩn cấp thì tôi nên liên hệ ở đâu? | OK? |
+
+### Legal / consumer — A5 — **HIGHEST PRIORITY**
+
+⚠️ **`police-questioning-rights-japan` cần luật sư hình sự + consumer review TRƯỚC khi user dựa vào:**
+
+1. **黙秘権 quy định 刑事訴訟法 + Hiến pháp 38条** — diễn đạt đúng?
+2. **Timeline 48h / 72h / 23 ngày** — diễn đạt đúng theo 刑事訴訟法?
+3. **当番弁護士 hệ thống** — luật sư xác nhận về quy trình + giới hạn của hệ thống.
+4. **法テラス số 0570-078374** — verify với 法テラス trang chính.
+5. **Vienna Convention 1963 quyền lãnh sự** — tone đúng + KHÔNG overclaim?
+6. **公務執行妨害** — diễn đạt đúng?
+7. **Tone "biết quyền" vs "đối kháng cảnh sát"** — review balance.
+8. **Câu `任意ですか、逮捕ですか?`** — realistic trong panic? Native confirm.
+
+⚠️ **`embassy-consulate-vietnam-japan`:**
+
+9. **Phân vùng Tokyo/Osaka/Fukuoka** — chính xác cấp cao, nhưng phân vùng cụ thể từng 都道府県 thay đổi.
+10. **Phí cấp hộ chiếu** — đã KHÔNG đưa con số yen cụ thể.
+11. **60 ngày khai sinh** — quy định Việt Nam (Luật Quốc tịch + Luật Hộ tịch). Verify với tài liệu chính thức.
+12. **Hotline bảo hộ công dân 24/7** — KHÔNG đưa số cụ thể (đã direct user đến trang chính thức).
+
+⚠️ **`foreign-resident-support-centers`:**
+
+13. **DV相談+ 0120-279-889** — verify với trang 内閣府.
+14. **いのちの電話 0570-783-556** — verify với 一般社団法人 日本いのちの電話連盟.
+15. **Yorisoi Hotline 0120-279-338** — verify với Social Inclusion Support Center.
+16. **国民生活センター 188** — chính thức.
+
+### Vietnamese naturalness — A5
+
+| Guide | Wording | Question |
+|---|---|---|
+| `police-questioning-rights-japan` description | "Đây là tài liệu tham khảo — KHÔNG phải tư vấn pháp lý cá nhân" | Disclaimer này có cần lặp ở đầu mỗi step? |
+| `police-questioning-rights-japan` FAQ | "có thể bị thêm tội 公務執行妨害" | Hedge "có thể" đủ? |
+| `embassy-consulate-vietnam-japan` Step 5 | "trong vòng 14 ngày — quy định 入管法" | "Quy định 入管法" có cần dẫn điều luật cụ thể? |
+| `foreign-resident-support-centers` Step 5 | "いのちの電話" hotline | Có cần thêm "tự tử" trong description hay sensitive? |
+
+---
+
+## Priority order cho reviewer
+
+### HIGHEST priority — luật sư + native review BẮT BUỘC trước scale
+1. `police-questioning-rights-japan` — toàn bộ guide (luật sư hình sự + native)
+2. NHK cooling-off applicability (đã có trong A3 — chưa review xong)
+3. `child-allowance-jidou-teate` mức tiền — verify với こども家庭庁
+
+### HIGH priority
+4. `embassy-consulate-vietnam-japan` phân vùng — verify với trang chính thức Đại sứ quán
+5. `foreign-resident-support-centers` hotlines — verify với 内閣府 + 国民生活センター
+6. A5 23 counterPhrases — native confirm tone
+
+### MEDIUM priority
+7. A4 22 counterPhrases — native confirm
+8. A4 trường học wording (年級, 学区, 給食費) — native + cha mẹ thực tế confirm
+9. Phí range A4 / A5 — confirm 2026
+
+### Total pending sau update A5
+
+| Loại | Count |
+|---|---|
+| Native Japanese phrases | 76 (A1–A3) + 22 (A4) + 23 (A5) = **121** |
+| Vietnamese naturalness | 14 (A1–A3) + 3 (A4) + 4 (A5) = **21** |
+| Legal / consumer | 8 (A1–A3) + 0 (A4 light) + 8 (A5 — most HIGHEST) = **16** |
+| Official source | 22 (A1–A3) + 11 (A4) + 16 (A5) = **49** |
+| Device QA | 10 guide → **16 guide** |
