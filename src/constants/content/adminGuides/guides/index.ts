@@ -89,6 +89,9 @@ import electricityGasWaterContracts from './electricity-gas-water-contracts';
 import homeInternetWifiContracts from './home-internet-wifi-contracts';
 import nhkContractGuide from './nhk-contract-guide';
 import postOfficeMailForwarding from './post-office-mail-forwarding';
+import japaneseSchoolSystemChildren from './japanese-school-system-children';
+import japaneseLanguageSupportChildren from './japanese-language-support-children';
+import childAllowanceJidouTeate from './child-allowance-jidou-teate';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -181,4 +184,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   homeInternetWifiContracts,
   nhkContractGuide,
   postOfficeMailForwarding,
+  japaneseSchoolSystemChildren,
+  japaneseLanguageSupportChildren,
+  childAllowanceJidouTeate,
 ];
