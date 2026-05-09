@@ -139,3 +139,90 @@ grep "niên kim|cơ quan phường|ward office|Phúc lợi niên|Quốc dân ni�
 - **Schema changes:** 0
 - **UI changes:** 0
 - **Other content/admin guides:** 0
+
+---
+
+# Batch 1 — extended sweep of words.ts (2026-05-09)
+
+Sau lần fix đầu (9 critical entries trên), batch này rà nốt `words.ts` cho các entry còn đọc cứng / dịch máy / mơ hồ. Phạm vi: chỉ `words.ts`, không đụng phrases khác.
+
+## Items changed (Batch 1)
+
+### 住民票
+- **Before:** meaning `Giấy chứng nhận cư trú` / exampleMeaning `Tôi đã lấy giấy chứng nhận cư trú ở quận.`
+- **After:** meaning `Giấy chứng nhận cư trú (juuminhyou)` / exampleMeaning `Tôi đã lấy 住民票 ở văn phòng hành chính quận.`
+- **Added culturalNote:** `Xin tại 市役所/区役所 (đôi khi đóng phí ~300 yên/bản). Cần khi mở tài khoản, ký hợp đồng thuê nhà, làm visa và nhiều thủ tục khác.`
+- **Reason:** "Ở quận" mơ hồ. Thêm romaji + culturalNote cho thuật ngữ user gặp gần như mỗi tháng.
+
+### 家賃
+- **Before:** exampleMeaning `Tiền nhà được trả hàng tháng.` (passive voice, awkward)
+- **After:** exampleMeaning `Tôi đóng tiền nhà mỗi tháng.`
+- **Reason:** Câu chủ động tự nhiên hơn cho người Việt.
+
+### 転出証明書
+- **Before:** meaning `Giấy chuyển đi`
+- **After:** meaning `Giấy chuyển đi (xin từ 市役所 cũ trước khi sang thành phố mới)`
+- **Added culturalNote:** `Xin tại 市役所/区役所 nơi ở cũ trước khi chuyển sang thành phố/tỉnh khác. Mang đến 市役所 nơi mới để làm 転入届.`
+- **Reason:** User dễ nhầm "giấy chuyển đi" với loại giấy khác. Thêm context về workflow 2-đầu (cũ → mới) ngay trong meaning.
+
+### 開通
+- **Before:** meaning `Kích hoạt / thông tuyến`
+- **After:** meaning `Kích hoạt (SIM, internet, đường dây)`
+- **Reason:** "Thông tuyến" technical, không phổ biến với user Việt. Cụ thể hoá đối tượng (SIM, internet) thay vì abstract "tuyến".
+
+### 本人確認書類
+- **Before:** meaning `Giấy tờ xác minh danh tính`
+- **After:** meaning `Giấy tờ tùy thân`
+- **Added culturalNote:** `Thường gồm: 在留カード, hộ chiếu, bằng lái, hoặc My Number Card. Mang theo bản gốc khi làm thủ tục ngân hàng, SIM, hợp đồng.`
+- **Reason:** "Giấy tờ tùy thân" là cụm Việt chuẩn; "xác minh danh tính" là dịch máy. CulturalNote liệt kê các loại giấy tờ cụ thể.
+
+### 注文
+- **Before:** meaning `Gọi món / đơn gọi món` / exampleMeaning `Xin cho tôi nhận order.` (mixed English)
+- **After:** meaning `Gọi món` / exampleMeaning `Mời quý khách gọi món.`
+- **Reason:** Bỏ "đơn gọi món" thừa (dùng cùng nghĩa), bỏ tiếng Anh "order" trộn lộn xộn. Câu mới đúng vai vai trò người nhân viên (đang mời khách gọi món).
+
+### 会計
+- **Before:** meaning `Tính tiền` / exampleMeaning `Tôi tính tiền ở quầy.`
+- **After:** meaning `Tính tiền / thanh toán` / exampleMeaning `Tôi thanh toán ở quầy.`
+- **Reason:** "Thanh toán" tự nhiên hơn khi user là khách hàng. Giữ "tính tiền" để cover use case nhân viên thu ngân.
+
+### 作業指示
+- **Before:** meaning `Chỉ thị công việc` / exampleMeaning `Tôi nghe chỉ thị công việc ở buổi họp sáng.`
+- **After:** meaning `Hướng dẫn công việc` / exampleMeaning `Tôi nghe hướng dẫn công việc ở buổi họp sáng.`
+- **Reason:** "Chỉ thị" có sắc thái mệnh lệnh quân đội/chính trị; "hướng dẫn" trung tính, đúng tone công xưởng/công trường.
+
+### 休み希望
+- **Before:** meaning `Nguyện vọng nghỉ` / exampleMeaning `Xin hãy nộp nguyện vọng nghỉ tuần sau.`
+- **After:** meaning `Đăng ký ngày nghỉ (lịch nghỉ mong muốn)` / exampleMeaning `Xin hãy đăng ký lịch nghỉ tuần sau.`
+- **Reason:** "Nguyện vọng" trang trọng đến mức không phù hợp với cảnh xếp ca công xưởng. "Đăng ký ngày nghỉ" là cụm chuẩn HR Việt Nam.
+
+## Items NOT changed in Batch 1
+
+Đã rà toàn bộ ~150 entries còn lại trong `words.ts`. Các nhóm sau pass review:
+
+- **Identity & residency** (lines 1-100): 在留カード, マイナンバーカード, 保険証, 銀行口座, 残業, 定期券, 乗り換え, 有給休暇 — tự nhiên, không cần sửa.
+- **Factory work** (lines 286-305): 工場, ライン, 検品, 不良品, 部品, 組み立て, 工程, 出荷, 梱包, 数量, 在庫, 機械, 手袋, 安全靴, 作業着, 休憩, 残業代, 早退, 欠勤, 交代 — wording thực tế công xưởng, OK.
+- **Construction** (lines 307-326): 建設現場, 足場, ヘルメット, 安全帯, 高所作業, 危険, 立入禁止, 工具, 資材, 搬入, 搬出, 図面, 寸法, 測る, 休工, 現場監督, 朝礼, 片付け, 報告 — chuẩn ngành xây dựng, OK.
+- **Agriculture** (lines 328-347): 農場, 畑, 収穫, 苗, 種, 肥料, 農薬, 水やり, 選別, 箱詰め, 温室, 気温, 長靴, 雨具, 休憩所, 出荷場, 台車, 腰, 熱中症 — OK (熱中症 đã chuẩn "Sốc nhiệt").
+- **Restaurant** (lines 349-368): 飲食店, 予約, 満席, 厨房, 洗い場, テーブルの片付け, お釣り, レジ, 取り皿, 箸, スプーン, 持ち帰り, 店内, おすすめ, 品切れ, 配膳, 下げる, シフト — wording phục vụ chuẩn, OK.
+
+## Batch 1 totals
+
+- **Items audited (full file):** ~150 entries
+- **Items changed in Batch 1:** 9 (8 wording fixes + culturalNote thêm vào 3 entries: 住民票, 転出証明書, 本人確認書類)
+- **CulturalNote totals across both passes:** 7 (国民年金, 厚生年金, 納付書, 確定申告, 住民票, 転出証明書, 本人確認書類)
+- **Items unchanged after batch 1:** ~141 entries
+
+## Verification (Batch 1)
+
+```
+npm run typecheck   ✓ pass
+npm run test:ci     ✓ 251/251 pass
+```
+
+## Out of scope (deferred to next batches)
+
+- **Batch 2 (suggested):** rà 27 phrases files (`phrases/bank.ts`, `phrases/hospital.ts`, `phrases/factory.ts`, etc.) cho cùng style audit.
+- **Batch 3 (suggested):** rà admin guide content (Vietnamese trong `src/constants/content/adminGuides/`).
+- **Native speaker review:** vẫn cần — tôi self-QA, không thay native được.
+
