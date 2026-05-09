@@ -105,6 +105,9 @@ import pharmacyPrescriptionGuide from './pharmacy-prescription-guide';
 import vietnameseCommunityJapan from './vietnamese-community-japan';
 import freeJapaneseClassesLocal from './free-japanese-classes-local';
 import localVolunteeringChonaikai from './local-volunteering-chonaikai';
+import japaneseResumeRirekisho from './japanese-resume-rirekisho';
+import jobInterviewJapan from './job-interview-japan';
+import paternityParentalLeaveFathers from './paternity-parental-leave-fathers';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -213,4 +216,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   vietnameseCommunityJapan,
   freeJapaneseClassesLocal,
   localVolunteeringChonaikai,
+  japaneseResumeRirekisho,
+  jobInterviewJapan,
+  paternityParentalLeaveFathers,
 ];

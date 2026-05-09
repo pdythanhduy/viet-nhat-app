@@ -1,8 +1,9 @@
-# Native / Legal Review Pending Items — A1 to A5
+# Native / Legal Review Pending Items — A1 to A9
 
-**Date:** 2026-05-09 (updated A4 + A5 batches)
-**Scope:** Tổng hợp các điểm cần review human từ 16 guide đã thêm trong batch A1, A2, A3, A4, A5.
+**Date:** 2026-05-10 (updated A6 + A7 + A8 + A9 batches + QA pass A4–A9)
+**Scope:** Tổng hợp các điểm cần review human từ 26 guide đã thêm trong batch A1–A9.
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
+**Branches:** A1–A3 đã ship trong v1.3.2 (main + Apple Review). A4–A9 trên `feature/post-v1.3.2-content` (CHƯA ship).
 
 ---
 
@@ -633,3 +634,110 @@ Bổ sung pending items cho 6 guide mới.
 | Legal / consumer | 8 (A1–A3) + 0 (A4 light) + 8 (A5 — most HIGHEST) = **16** |
 | Official source | 22 (A1–A3) + 11 (A4) + 16 (A5) = **49** |
 | Device QA | 10 guide → **16 guide** |
+
+---
+
+# UPDATE — A6 + A7 + A8 + A9 added + QA pass A4–A9 (2026-05-10)
+
+Thêm 10 guide mới + 1 QA pass commit. Tổng feature branch: **26 guide bổ sung sau v1.3.2**.
+
+## A6 — Tax / finance pending (HIGH risk)
+
+| Guide | Counter phrases | Risk |
+|---|---|---|
+| `furusato-nozei-guide` | 7 | low |
+| `ideco-personal-pension` | 8 | **high** — đầu tư + retirement |
+| `tax-on-remittance-to-vietnam` | 8 | **high** — cross-border |
+
+**Legal/consumer review HIGH priority**:
+1. `tax-on-remittance-to-vietnam` — cross-border tax phức tạp + đã FIX 国外送金等調書 (đúng tên 法定調書 sau QA pass).
+2. `ideco-personal-pension` — không tư vấn đầu tư cá nhân + 限度額 cải cách 2024–2026.
+3. 出国税 (exit tax) áp dụng — disclaimer rõ.
+
+## A7 — Health expansion pending
+
+| Guide | Counter phrases | Risk |
+|---|---|---|
+| `mental-health-stress-support` | 8 | **high** — tâm thần + tự sát |
+| `medical-interpretation-multilingual-hospitals` | 7 | low |
+| `holiday-night-medical-care` | 7 | medium |
+| `pharmacy-prescription-guide` | 8 | low |
+
+**Legal/consumer review HIGH**:
+1. `mental-health-stress-support` — disclaimer mạnh sau QA pass ("phổ biến + có thể điều trị" + "bạn không một mình"). Hotlines verify (いのちの電話, よりそい).
+2. AMDA Tokyo/Osaka số phone — verify với trang AMDA.
+3. #7119/#8000 coverage tùy 都道府県 — đã hedge.
+4. 救急車 fee policy 2024–2026 — re-verify trước nextReviewAt.
+
+## A8 — Career pending
+
+| Guide | Counter phrases | Risk |
+|---|---|---|
+| `japanese-resume-rirekisho` | 6 | low |
+| `job-interview-japan` | 8 | low |
+| `paternity-parental-leave-fathers` | 8 | medium — labor law |
+
+**Legal/consumer review MEDIUM**:
+1. `paternity-parental-leave-fathers` — 育児・介護休業法 + 雇用保険 + 出生後休業支援給付金 (cải cách 2025). Mức tiền + điều kiện cụ thể KIỂM TRA với ハローワーク.
+2. パタハラ (paternity harassment) hedge — đã rõ.
+3. 育休 visa impact — đã hedge "đa số trường hợp KHÔNG ảnh hưởng".
+
+## A9 — Community pending
+
+| Guide | Counter phrases | Risk |
+|---|---|---|
+| `vietnamese-community-japan` | 6 | medium — scam warning |
+| `free-japanese-classes-local` | 7 | low |
+| `local-volunteering-chonaikai` | 8 | low |
+
+**Legal/consumer review MEDIUM**:
+1. `vietnamese-community-japan` scam list — comprehensive nhưng cần update khi có scam mới (vd crypto trends).
+2. 町内会 không bắt buộc theo luật — đã hedge "tenant contract có thể yêu cầu".
+
+---
+
+## QA pass A4–A9 commit (2026-05-10, `a93729a`)
+
+3 fixes critical:
+
+1. **`tax-on-remittance-to-vietnam`**: factual fix — `国際送金等支払調書` → `国外送金等調書` (9 chỗ replaced — đúng theo 国税庁 + 法律 2008).
+2. **`police-questioning-rights-japan`**: hedge 黙秘権 claim absolute → "thường KHÔNG được dùng làm bằng chứng buộc tội trực tiếp" + reference 不利益推認禁止.
+3. **`mental-health-stress-support`**: strengthen hope-giving — "phổ biến + có thể điều trị" + "bạn không một mình".
+
+13 guide khác đã review qua grep — pattern matches còn lại đều đúng usage hoặc trong scam-warning context. Không cần fix thêm.
+
+---
+
+## Tổng pending sau A6–A9
+
+| Loại | Count |
+|---|---|
+| Native Japanese phrases | 121 (A1–A5) + 23 (A6) + 30 (A7) + 22 (A8) + 21 (A9) = **217** phrases |
+| Vietnamese naturalness | 21 (A1–A5) + ~5 (A6–A9) = **~26** điểm |
+| Legal / consumer | 16 (A1–A5) + 3 (A6 — tax/iDeCo HIGHEST) + 1 (A7 — mental-health HIGH) + 1 (A8 — paternity-leave) + 1 (A9 — scam list) = **22** items |
+| Official source | 49 (A1–A5) + 19 (A6) + 12 (A7) + 8 (A8) + 5 (A9) = **~93** items |
+| Device QA | 16 → **26 guide** |
+
+## Priority order cho reviewer (sau A9)
+
+### HIGHEST (ship blocker khi đến v1.3.3 / v1.4.0)
+1. `police-questioning-rights-japan` (A5) — luật sư hình sự + native (đã hedge sau QA pass nhưng vẫn high)
+2. `tax-on-remittance-to-vietnam` (A6) — 税理士 cross-border (đã fix 国外送金等調書 sau QA pass)
+3. NHK cooling-off (A3) — chưa review xong từ trước
+4. `mental-health-stress-support` (A7) — bác sĩ tâm thần verify hotline + tone (đã strengthen sau QA pass)
+
+### HIGH
+5. `ideco-personal-pension` (A6) — 金融アドバイザー verify 限度額 + 出国 logic
+6. `child-allowance-jidou-teate` (A4) — verify 児童手当 cải cách 10/2024 với こども家庭庁
+7. `paternity-parental-leave-fathers` (A8) — 社会保険労務士 verify 出生後休業支援給付金 cải cách 2025
+8. `embassy-consulate-vietnam-japan` (A5) phân vùng — verify với trang Đại sứ quán
+
+### MEDIUM
+9. A7/A8 hotlines + AMDA + ハローワーク numbers
+10. A9 scam list update theo trend mới
+11. Counter phrases tone cho A6–A9 — native confirm
+
+### LOW
+12. Phí ranges A4–A9 — confirm 2026
+13. Các 都道府県/市町村 specifics
+14. Search keywords improvements cho panic-search
