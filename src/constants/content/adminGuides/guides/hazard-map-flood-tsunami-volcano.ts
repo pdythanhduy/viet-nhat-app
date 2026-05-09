@@ -14,8 +14,10 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
   searchKeywords: [
     'hazard map',
     'ハザードマップ',
+    '防災マップ',
     'bản đồ phòng tai',
     'ngập lũ',
+    'lũ lụt',
     'sóng thần',
     'lở đất',
     'núi lửa',
@@ -25,9 +27,11 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     '火山',
     '避難場所',
     '避難所',
+    '想定浸水深',
     'risk map',
     '171',
     '災害用伝言ダイヤル',
+    '災害用伝言板',
   ],
   legalScope: {
     jurisdiction: 'mixed',
@@ -38,7 +42,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     riskLevel: 'low',
     whenToAskExpert: [
       'Nhà gần sông / núi / ven biển — có thể yêu cầu 市役所 giải thích chi tiết hoặc tham gia training di tản hàng năm.',
-      'Sống gần núi lửa active (Sakurajima, Aso, Asama, Fuji, v.v.) — hỏi 火山防災協議会 địa phương về kế hoạch di tản.',
+      'Sống gần núi lửa được 気象庁 phân loại "active" (vd Sakurajima, Aso, Asama, Phú Sĩ, v.v.) — phân loại "active" KHÔNG có nghĩa sắp phun trào, chỉ là núi lửa có lịch sử hoạt động trong khoảng 1 vạn năm gần đây. Hỏi 火山防災協議会 địa phương về kế hoạch di tản nếu lo lắng.',
     ],
   },
   quickAction: {
@@ -121,14 +125,14 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
         '避難場所 = điểm tập trung khẩn cấp tạm thời (公園, 広場) — đến đầu tiên khi có nguy hiểm gần nhà (cháy, lở đất, sóng thần). Thường mở ngay, ở vài giờ.\n\n避難所 = nơi tạm lánh dài hạn (trường học, công viên thể thao) — ở vài ngày đến vài tuần khi nhà không về được. Có chăn, đồ ăn, nước, vệ sinh.\n\nKiểm tra 防災マップ — thường list cả 2 loại với ký hiệu khác nhau.',
     },
     {
-      question: 'Tôi sống gần núi lửa Phú Sĩ / Asama / Sakurajima — có thực sự nguy hiểm không?',
+      question: 'Tôi sống gần núi lửa được phân loại "active" (vd Phú Sĩ, Asama, Sakurajima) — có thực sự nguy hiểm không?',
       answer:
-        'Tùy khoảng cách + lịch sử phun trào. 気象庁 phát 噴火警戒レベル 1–5 cho mỗi núi lửa active. Cấp 1 = bình thường, cấp 5 = di tản bắt buộc. Khu vực gần núi lửa active có 火山防災マップ riêng từ 火山防災協議会 — chỉ rõ vùng tro bay, dòng lửa, lahar (lũ bùn). Hỏi 市役所 vì policy di tản tùy vùng. KHÔNG generalize — kiểm tra cụ thể núi lửa + khu mình.',
+        '"Active" theo phân loại 気象庁 không có nghĩa sắp phun trào — chỉ là núi lửa có lịch sử hoạt động trong khoảng 1 vạn năm gần đây. Mức nguy hiểm thực tế tùy khoảng cách + lịch sử phun trào cụ thể. 気象庁 phát 噴火警戒レベル 1–5 cho mỗi núi lửa cần monitor: cấp 1 = trạng thái bình thường, cấp 5 = di tản bắt buộc khu vực nguy hiểm. Khu vực gần núi lửa active thường có 火山防災マップ riêng từ 火山防災協議会 — chỉ rõ vùng tro bay, dòng lửa, lahar (lũ bùn). Hỏi 市役所 cho khu cụ thể của mình — KHÔNG generalize.',
     },
     {
       question: 'Sau khi xem ハザードマップ, tôi nên làm gì với gia đình?',
       answer:
-        '4 việc: (1) Cùng nhau xem bản đồ — mỗi người biết 避難所 và đường đi. (2) Quyết định "điểm gặp" nếu thất lạc (vd "避難所 A" hoặc "nhà bà ngoại"). (3) Lưu số 171 + cách dùng vào điện thoại mọi người. (4) Nhắc nhau 1 lần đầu mỗi mùa bão (tháng 5–6) + đầu năm (kỷ niệm 11/3 動đất Tohoku 2011, 1/17 động đất Kobe 1995).',
+        '4 việc: (1) Cùng nhau xem bản đồ — mỗi người biết 避難所 và đường đi. (2) Quyết định "điểm gặp" nếu thất lạc (vd "避難所 A" hoặc "nhà bà ngoại"). (3) Lưu số 171 + cách dùng vào điện thoại mọi người. (4) Nhắc nhau 1 lần đầu mỗi mùa bão (tháng 5–6) + ngày 11 tháng 3 (kỷ niệm động đất Tohoku 2011) + ngày 17 tháng 1 (kỷ niệm động đất Kobe 1995) — 2 ngày này media + 市役所 thường có thông tin cập nhật.',
     },
   ],
   counterPhrases: [
@@ -198,7 +202,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
       step: 3,
       title: 'Note 避難所 + 避難場所 gần nhà',
       description:
-        'Trên bản đồ, ký hiệu thường là:\n\n• 🏫 = 避難所 (trường học, công viên thể thao — ở dài hạn)\n• 🌳 = 避難場所 (công viên, quảng trường — tập trung khẩn cấp tạm thời)\n• 🏥 = 救急医療機関 (bệnh viện cấp cứu)\n\nNote 2–3 chỗ gần nhất cho mỗi loại:\n• Tên + địa chỉ\n• Đường đi (5–15 phút walking)\n• Số điện thoại nếu có\n\nĐi thử thực tế 1 lần — biết đường khi cần đi trong mưa / đêm.',
+        'Trên bản đồ, ký hiệu thường là:\n\n• Hình trường học = 避難所 (trường học, công viên thể thao — ở dài hạn)\n• Hình cây / công viên = 避難場所 (công viên, quảng trường — tập trung khẩn cấp tạm thời)\n• Chữ thập / hình bệnh viện = 救急医療機関 (bệnh viện cấp cứu)\n\nKý hiệu cụ thể tùy 市町村 — đọc legend trên bản đồ. Note 2–3 chỗ gần nhất cho mỗi loại:\n• Tên + địa chỉ\n• Đường đi (5–15 phút walking)\n• Số điện thoại nếu có\n\nĐi thử thực tế 1 lần — biết đường khi cần đi trong mưa / đêm.',
       documents: [
         'Bản đồ đã chụp',
         'Notes app',
@@ -209,7 +213,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
       step: 4,
       title: 'Test 171 (災害用伝言ダイヤル) trước thiên tai',
       description:
-        '171 là dịch vụ thoại miễn phí của NTT để gửi/nhận tin trong thiên tai. Khi mạng di động tắc, 171 vẫn hoạt động.\n\n**Cách dùng (gửi tin):**\n1. Gọi `171`\n2. Bấm `1` (gửi tin)\n3. Bấm số điện thoại nhà / điện thoại của bạn\n4. Ghi tin 30 giây\n\n**Cách dùng (nghe tin):**\n1. Gọi `171`\n2. Bấm `2` (nghe tin)\n3. Bấm số điện thoại của người mình muốn nghe\n4. Nghe tin\n\n**Test miễn phí:** ngày 1 và 15 mỗi tháng. Cũng vào ngày 5/9 (防災の日 — 1/9 thường có training quốc gia).\n\nLưu số 171 + cách dùng vào điện thoại của cả gia đình.',
+        '171 là dịch vụ thoại miễn phí của NTT để gửi/nhận tin trong thiên tai. Khi mạng di động tắc, 171 vẫn hoạt động.\n\n**Cách dùng (gửi tin):**\n1. Gọi `171`\n2. Bấm `1` (gửi tin)\n3. Bấm số điện thoại nhà / điện thoại của bạn\n4. Ghi tin 30 giây\n\n**Cách dùng (nghe tin):**\n1. Gọi `171`\n2. Bấm `2` (nghe tin)\n3. Bấm số điện thoại của người mình muốn nghe\n4. Nghe tin\n\n**Test miễn phí:** ngày 1 và 15 hàng tháng. Cũng có thể test trong 防災週間 (30/8 – 5/9 hàng năm) và ngày 1 tháng 9 (防災の日 — kỷ niệm Đại địa chấn Kanto 1923, có training quốc gia).\n\nLưu số 171 + cách dùng vào điện thoại của cả gia đình.',
       documents: [],
       tip: 'Có cả 災害用伝言板 (web): vào trang nhà mạng (NTT/au/SoftBank/Rakuten) → đăng ký + đọc tin theo số điện thoại. Khi voice tắc, web thường còn dùng được.',
     },
@@ -219,7 +223,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
       description:
         'ハザードマップ không phải làm 1 lần xong. Cập nhật khi:\n\n1. **Chuyển nhà** — khu mới, nguy cơ mới. Làm lại Step 1–3.\n2. **Đầu mùa bão** (tháng 5–6) — kiểm tra cập nhật cho mùa.\n3. **3–5 năm/lần** — 市役所 cập nhật bản đồ. Xem có gì thay đổi (vd thêm vùng ngập do biến đổi khí hậu, đổi vị trí 避難所).\n4. **Sau thiên tai lớn ở khu khác** — tin tức cập nhật cảnh báo.\n\nGhi nhắc trong calendar điện thoại — định kỳ 1 năm review.',
       documents: [],
-      tip: 'Khi tới ngày kỷ niệm 11/3 (Tohoku 2011) hoặc 1/17 (Kobe 1995), media + 市役所 thường có thông tin cập nhật + sự kiện diễn tập. Tham gia 1 lần để quen.',
+      tip: 'Ngày 11 tháng 3 (kỷ niệm động đất Tohoku 2011) và 17 tháng 1 (kỷ niệm động đất Kobe 1995), media + 市役所 thường có thông tin cập nhật + sự kiện diễn tập. Tham gia 1 lần để quen.',
     },
   ],
 };

@@ -22,9 +22,17 @@ const earthquakePreparednessJapan: AdminGuide = {
     'Yahoo phòng thiên tai',
     '地震',
     '揺れ',
+    '震度',
     '緊急地震速報',
+    '緊急地震',
     '災害用伝言ダイヤル',
     '171',
+    '防災バッグ',
+    'vali phòng tai',
+    '罹災証明書',
+    'giấy chứng nhận thiệt hại',
+    '地震保険',
+    'sau động đất',
   ],
   legalScope: {
     jurisdiction: 'national',
@@ -102,9 +110,9 @@ const earthquakePreparednessJapan: AdminGuide = {
   ],
   commonMistakes: [
     'Chạy ra ngoài khi đang rung lắc — gạch, kính, biển hiệu rơi từ trên cao nguy hiểm hơn ở trong nhà.',
-    'Đứng dưới khung cửa — ý tưởng cũ, không còn được khuyến nghị ở Nhật. Dưới gầm bàn cứng tốt hơn.',
+    'Đứng dưới khung cửa — không phải lựa chọn tốt nhất. Hướng dẫn hiện tại của 内閣府 / 消防庁 ưu tiên "ngồi xuống + che đầu cổ + giữ chặt" (姿勢を低く・頭を守る・じっとする) dưới gầm bàn cứng.',
     'Đi thang máy sau động đất — có thể kẹt nếu có dư chấn. Dùng cầu thang.',
-    'Không cài app cảnh báo trước — 緊急地震速報 cho 5–30 giây trước khi rung tới, đủ để chui xuống gầm bàn.',
+    'Không cài app cảnh báo trước — 緊急地震速報 thường báo vài giây – vài chục giây trước khi sóng địa chấn lớn tới (tùy khoảng cách từ tâm chấn). Đủ để chui xuống gầm bàn nếu sẵn sàng.',
     'Không có vali 防災バッグ chuẩn bị sẵn — khi cần không kịp gom.',
     'Không biết 避難所 gần nhà ở đâu — chạy lung tung khi cần di tản.',
     'Không kiểm tra 地震保険 — khi nhà hư mới biết 火災保険 không bao động đất.',
@@ -113,12 +121,12 @@ const earthquakePreparednessJapan: AdminGuide = {
     {
       question: 'Tôi vừa nghe 緊急地震速報 trên điện thoại — phải làm gì trong vài giây?',
       answer:
-        '緊急地震速報 báo trước rung lắc lớn vài giây – vài chục giây. Trong giây đó: ngồi xuống ngay, chui dưới gầm bàn cứng, giữ chặt chân bàn. Nếu đang nấu — tắt bếp gas trên đường chui xuống. Nếu đang đi ngoài đường — tránh xa tòa nhà cao và cột điện, vào khoảng trống.',
+        '緊急地震速報 thường báo vài giây – vài chục giây trước rung lắc lớn (thời gian phụ thuộc khoảng cách từ tâm chấn — gần tâm chấn có khi chỉ 0–2 giây, xa hơn có thể 10–30 giây). Trong khoảng đó: ngồi xuống ngay, chui dưới gầm bàn cứng, giữ chặt chân bàn. Nếu đang nấu — tắt bếp gas trên đường chui xuống. Nếu đang đi ngoài đường — tránh xa tòa nhà cao và cột điện, vào khoảng trống.',
     },
     {
       question: '揺れ kết thúc rồi, tôi nên ra ngoài hay ở trong nhà?',
       answer:
-        'Tùy mức độ. Nếu là 震度 4 trở xuống và nhà không hư hại — thường có thể ở lại, nghe NHK 30 phút – 1 giờ. Nếu 震度 5 trở lên hoặc nhà có dấu hiệu hư hại (nứt lớn, nghiêng, gas rò, mất điện) — chuẩn bị di tản. Theo dõi thông báo từ 市役所 / NHK / Yahoo!防災速報.',
+        'Tùy mức độ + tình trạng nhà cụ thể. Thông thường: 震度 4 trở xuống + nhà không có dấu hiệu hư hại → có thể ở lại trong khi theo dõi NHK 30 phút – 1 giờ chờ dư chấn. 震度 5 trở lên hoặc nhà có dấu hiệu hư hại (nứt lớn, nghiêng, gas rò, mất điện kèm khói lạ) → chuẩn bị di tản. Khi phân vân, di tản an toàn hơn ở lại. Theo dõi thông báo cụ thể từ 市役所 / NHK / Yahoo!防災速報.',
     },
     {
       question: 'Gia đình tôi ở chỗ khác, không liên lạc được — phải làm sao?',
@@ -140,8 +148,8 @@ const earthquakePreparednessJapan: AdminGuide = {
     {
       jp: '助けてください！',
       romaji: 'Tasukete kudasai!',
-      vn: 'Làm ơn cứu tôi!',
-      note: 'Câu cấp cứu cơ bản nhất. Hét lớn nếu mắc kẹt.',
+      vn: 'Cứu tôi với!',
+      note: 'Câu cấp cứu cơ bản nhất. Hét lớn nếu mắc kẹt — không cần lễ phép trong tình huống này.',
     },
     {
       jp: 'けがをしました。',
@@ -196,9 +204,9 @@ const earthquakePreparednessJapan: AdminGuide = {
     },
     {
       step: 2,
-      title: 'KHI rung lắc — Drop / Cover / Hold',
+      title: 'KHI rung lắc — 姿勢を低く / 頭を守る / じっとする',
       description:
-        'Nguyên tắc Nhật Bản (Drop! Cover! Hold On!):\n\n1. **Drop (ngồi xuống)** — không chạy. Nguy cơ ngã + đồ rơi vào cao hơn nhiều.\n2. **Cover (che đầu cổ)** — chui dưới gầm bàn cứng. Không có bàn → vào hành lang trong nhà, lấy gối / áo / túi che đầu.\n3. **Hold On (giữ chặt)** — nắm chặt chân bàn để bàn không trượt khi rung mạnh.\n\nNgoài đường: tránh xa tòa nhà cao, cột điện, biển hiệu. Vào công viên / khoảng trống.\n\nTrong tàu / xe: ngồi yên, vịn chặt. Tài xế sẽ dừng xe an toàn.\n\nKHÔNG: chạy ra ngoài, đứng dưới khung cửa, đi thang máy.',
+        'Nguyên tắc 内閣府 / 消防庁: "ngồi xuống thấp + che đầu cổ + giữ yên" (姿勢を低く・頭を守る・じっとする). Tương đương quy tắc quốc tế Drop / Cover / Hold On:\n\n1. **姿勢を低く / Drop (ngồi xuống thấp)** — không chạy. Nguy cơ ngã + đồ rơi vào cao hơn nhiều khi đứng.\n2. **頭を守る / Cover (che đầu cổ)** — chui dưới gầm bàn cứng. Không có bàn → vào hành lang trong nhà, lấy gối / áo / túi che đầu cổ.\n3. **じっとする / Hold On (giữ yên)** — nắm chặt chân bàn để bàn không trượt khi rung mạnh. Đợi rung dừng hoàn toàn mới ra.\n\nNgoài đường: tránh xa tòa nhà cao, cột điện, biển hiệu. Vào công viên / khoảng trống.\n\nTrong tàu / xe: ngồi yên, vịn chặt. Tài xế sẽ dừng xe an toàn.\n\nKHÔNG: chạy ra ngoài, đứng dưới khung cửa, đi thang máy.',
       documents: [],
       tip: 'Khi vừa nghe 緊急地震速報 trên điện thoại — hành động NGAY, không cần kiểm tra. Vài giây trước rung quan trọng nhất.',
     },
@@ -206,7 +214,7 @@ const earthquakePreparednessJapan: AdminGuide = {
       step: 3,
       title: 'NGAY SAU rung lắc — kiểm tra an toàn',
       description:
-        'Trong 5 phút đầu sau khi rung dừng:\n\n1. **Kiểm tra bản thân + người nhà** — có ai bị thương không. Sơ cứu cơ bản nếu có.\n2. **Tắt bếp gas** — nếu chưa tắt khi rung. Mở cửa sổ thoáng nếu nghi gas rò. KHÔNG bật lửa / công tắc điện cho đến khi chắc chắn không có gas.\n3. **Mở 1 cửa ra ngoài** — phòng nhà bị nghiêng kẹt cửa.\n4. **Tránh đồ trên cao** — kệ sách / TV có thể đổ ở dư chấn.\n5. **Bật điện thoại / radio** — nghe NHK + app cảnh báo.\n\nNếu nghi nhà bị hư nặng (tường nứt lớn, nghiêng, sàn lệch) → ra ngoài + đợi xa tòa nhà ≥ 10m.',
+        'Trong 5 phút đầu sau khi rung dừng:\n\n1. **Kiểm tra bản thân + người nhà** — có ai bị thương không. Sơ cứu cơ bản nếu có.\n2. **Tắt bếp gas** — nếu chưa tắt khi rung. Mở cửa sổ thoáng nếu nghi gas rò. KHÔNG bật lửa / công tắc điện cho đến khi chắc chắn không có gas.\n3. **Mở 1 cửa ra ngoài** — phòng nhà bị nghiêng kẹt cửa.\n4. **Tránh đồ trên cao** — kệ sách / TV có thể đổ ở dư chấn.\n5. **Bật điện thoại / radio** — nghe NHK + app cảnh báo.\n\nNếu nghi nhà bị hư nặng (tường nứt lớn, nghiêng, sàn lệch) → ra ngoài + đứng ra xa tòa nhà một khoảng cách an toàn (tránh khu có thể đổ / kính rớt).',
       documents: [],
       tip: 'Đeo dép / giày trong nhà ngay khi rung dừng — kính vỡ trên sàn nguy hiểm, đặc biệt với trẻ em.',
     },

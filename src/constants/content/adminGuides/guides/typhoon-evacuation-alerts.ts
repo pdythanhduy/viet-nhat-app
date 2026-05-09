@@ -10,10 +10,13 @@ const typhoonEvacuationAlerts: AdminGuide = {
   icon: 'rainy-outline',
   color: '#2980B9',
   description:
-    'Bão (台風) và mưa lớn (大雨) ở Nhật khác động đất ở chỗ có vài ngày để chuẩn bị. Hệ thống 警戒レベル 1–5 do 内閣府 thiết lập từ 2019: cấp 3 = chuẩn bị di tản, cấp 4 = di tản NGAY, cấp 5 = đã quá muộn để di tản, lên tầng cao nhất. Người Việt thường xem TV nhưng không hiểu — guide này giải nghĩa từng cấp.',
+    'Bão (台風) và mưa lớn (大雨) ở Nhật khác động đất ở chỗ có vài ngày để chuẩn bị. Hệ thống 警戒レベル 1–5 do 内閣府 thiết lập từ 5/2019, sửa 5/2021 (đổi 避難勧告 → 避難指示): cấp 3 = chuẩn bị di tản, cấp 4 = di tản NGAY, cấp 5 = nguy hiểm tính mạng đang xảy ra, có thể đã quá muộn ra ngoài an toàn — ở chỗ cao nhất trong nhà. Người Việt thường xem TV nhưng không hiểu — guide này giải nghĩa từng cấp.',
   searchKeywords: [
     'bão',
     'mưa lớn',
+    'lũ',
+    'lụt',
+    'ngập',
     '台風',
     'di tản',
     '警戒レベル',
@@ -21,11 +24,17 @@ const typhoonEvacuationAlerts: AdminGuide = {
     '避難勧告',
     '大雨警報',
     'cảnh báo bão',
+    'cảnh báo cấp 3',
     'cảnh báo cấp 4',
     'cảnh báo cấp 5',
     '避難所',
     'NHK',
     'Yahoo phòng thiên tai',
+    '防災バッグ',
+    'vali phòng tai',
+    'trước bão',
+    'sau bão',
+    '罹災証明書',
   ],
   legalScope: {
     jurisdiction: 'national',
@@ -107,7 +116,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     'Lái xe qua đường ngập — chỉ 30cm nước có thể cuốn xe. Nắp hố ga mở dưới nước không thấy.',
     'Không kiểm tra hazard map trước → không biết khu mình có nguy cơ lũ / lở đất hay không.',
     'Để đồ trên ban công không cố định → bị gió thổi bay, đập kính nhà mình hoặc nhà hàng xóm.',
-    'Đi làm khi cấp 4–5 vì sếp ép — bạn có quyền từ chối, không vi phạm hợp đồng (luật bảo vệ an toàn lao động).',
+    'Đi làm khi cấp 4–5 vì sếp ép — trong tình huống có 避難指示 trong khu của bạn, có lý do chính đáng để từ chối đi làm theo 労働安全衛生法 (nghĩa vụ bảo vệ an toàn của người sử dụng lao động). Báo sếp trước qua LINE / điện thoại, ghi lại bằng chứng. Tranh chấp sau bão → 労働基準監督署.',
     'Không sạc điện thoại + pin dự phòng → mất điện không liên lạc được.',
   ],
   faq: [
@@ -124,7 +133,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     {
       question: 'Sếp bắt tôi đi làm khi 警戒レベル 4 — phải làm sao?',
       answer:
-        'Theo 労働安全衛生法, người sử dụng lao động có nghĩa vụ bảo vệ an toàn người lao động. Khi có 警戒レベル 4 hoặc 避難指示 trong khu, có quyền từ chối đi làm để bảo vệ tính mạng — không vi phạm hợp đồng. Liên hệ sếp trước (LINE / điện thoại) báo "避難指示が出ています、出社できません". Nếu sếp không đồng ý hoặc trừ lương — liên hệ 労働基準監督署 sau khi an toàn.',
+        'Theo 労働安全衛生法, người sử dụng lao động có nghĩa vụ bảo vệ an toàn người lao động. Khi 市役所 phát 警戒レベル 4 / 避難指示 cho khu của bạn, thường có lý do chính đáng để từ chối đi làm để bảo vệ tính mạng. Liên hệ sếp TRƯỚC (LINE / điện thoại) báo "避難指示が出ています、出社できません" + lưu tin nhắn / email làm bằng chứng. Hợp đồng cụ thể có thể quy định khác — nếu sếp không đồng ý hoặc trừ lương sau bão, liên hệ 労働基準監督署 hoặc luật sư lao động.',
     },
     {
       question: 'Đường về nhà ngập — đi qua được không?',
@@ -134,7 +143,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     {
       question: 'Bão đã qua, lúc nào tôi có thể về nhà?',
       answer:
-        '避難所 có thông báo khi an toàn về (giải tỏa 警戒レベル). Trước khi về: hỏi nhân viên 避難所 hoặc nghe NHK. Khi về: kiểm tra nhà bên ngoài trước (kính vỡ, dây điện rớt, gas rò) trước khi vào. Nếu có dây điện rớt → tránh xa + báo 東京電力 / 関西電力 / công ty điện địa phương. Chụp ảnh thiệt hại trước khi dọn (cần cho 罹災証明書 nếu xin hỗ trợ).',
+        '避難所 có thông báo khi an toàn về (giải tỏa 警戒レベル). Trước khi về: hỏi nhân viên 避難所 hoặc nghe NHK. Khi về: kiểm tra nhà bên ngoài trước (kính vỡ, dây điện rớt, gas rò) trước khi vào. Nếu có dây điện rớt → tránh xa + báo công ty điện địa phương (東京電力, 関西電力, 中部電力, v.v.). Chụp ảnh thiệt hại trước khi dọn (cần cho 罹災証明書 nếu xin hỗ trợ).',
     },
   ],
   counterPhrases: [
@@ -159,8 +168,8 @@ const typhoonEvacuationAlerts: AdminGuide = {
     {
       jp: '助けてください！',
       romaji: 'Tasukete kudasai!',
-      vn: 'Làm ơn cứu tôi!',
-      note: 'Câu cấp cứu. Nếu mắc kẹt do nước / gió.',
+      vn: 'Cứu tôi với!',
+      note: 'Câu cấp cứu. Nếu mắc kẹt do nước / gió. Hét lớn — không cần lễ phép trong tình huống nguy hiểm.',
     },
     {
       jp: '道が冠水しています。',
@@ -242,7 +251,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
       step: 6,
       title: 'Sau bão — kiểm tra nhà + bảo hiểm',
       description:
-        'Đợi đến khi 警戒レベル giảm + thông báo từ 市役所. Khi an toàn về:\n\n1. **Bên ngoài nhà:** kiểm tra dây điện rớt, kính vỡ, gas rò. Tránh xa + gọi 東京電力 / 関西電力 / công ty điện địa phương nếu thấy dây điện.\n2. **Trong nhà:** mở cửa sổ thoáng. Kiểm tra ngập / mái dột / nứt tường.\n3. **Chụp ảnh thiệt hại** trước khi dọn — cần cho 罹災証明書 và bảo hiểm.\n4. **罹災証明書**: xin tại 市役所 nếu nhà bị hư hại — bắt buộc cho thủ tục hỗ trợ.\n5. **Bảo hiểm 火災保険 + 風水害**: gọi công ty bảo hiểm báo claim. Không có 風水害 thì 火災保険 thường KHÔNG bao thiệt hại do bão.\n6. **Visa / 在留カード**: nếu hết hạn trong tình huống thiên tai, 入管 có thể cấp 在留資格 thời hạn ngắn — xem guide visa-emergency-medical-disaster-extension.',
+        'Đợi đến khi 警戒レベル giảm + thông báo từ 市役所. Khi an toàn về:\n\n1. **Bên ngoài nhà:** kiểm tra dây điện rớt, kính vỡ, gas rò. Tránh xa + gọi công ty điện địa phương (東京電力 ở Kanto, 関西電力 ở Kansai, 中部電力 ở Chubu, v.v.) nếu thấy dây điện.\n2. **Trong nhà:** mở cửa sổ thoáng. Kiểm tra ngập / mái dột / nứt tường.\n3. **Chụp ảnh thiệt hại** trước khi dọn — cần cho 罹災証明書 và bảo hiểm.\n4. **罹災証明書**: xin tại 市役所 nếu nhà bị hư hại — bắt buộc cho thủ tục hỗ trợ.\n5. **Bảo hiểm 火災保険 + 風水害**: gọi công ty bảo hiểm báo claim. Không có 風水害 thì 火災保険 thường KHÔNG bao thiệt hại do bão.\n6. **Visa / 在留カード**: nếu hết hạn trong tình huống thiên tai, 入管 có thể cấp 在留資格 thời hạn ngắn — xem guide visa-emergency-medical-disaster-extension.',
       documents: [
         'Ảnh chụp thiệt hại',
         '在留カード',
