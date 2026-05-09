@@ -42,9 +42,20 @@ export default function SearchScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<SearchRouteProp>();
   // Pre-fill the input when the caller supplied an initial query (Home quick
-  // actions do this for "gia hạn visa", "chuyển nhà", etc.). The string is a
-  // one-shot starting value — the user can edit or clear it freely afterwards.
+  // actions do this for "gia hạn visa", "chuyển nhà", etc.). The user can
+  // edit or clear it freely afterwards. We watch route.params.initialQuery
+  // so a *second* navigation with a different query (e.g. user goes Home →
+  // taps chip A → back → Home → taps chip B) actually updates the input —
+  // useState's initializer only runs once and would leave the old query in
+  // place when React Navigation reuses the screen instance.
   const [query, setQuery] = useState(route.params?.initialQuery ?? '');
+  const initialQuery = route.params?.initialQuery;
+
+  useEffect(() => {
+    if (initialQuery !== undefined) {
+      setQuery(initialQuery);
+    }
+  }, [initialQuery]);
 
   const results = useMemo(() => searchAppContent(query), [query]);
 
