@@ -124,6 +124,8 @@ import specificResidenceCardMyNumber2026 from './specific-residence-card-my-numb
 import ikuseiShuroSystemGuide from './ikusei-shuro-system-guide';
 import discriminationHumanRightsSupport from './discrimination-human-rights-support';
 import visaFeeIncrease20252026 from './visa-fee-increase-2025-2026';
+import naturalizationKika2026Changes from './naturalization-kika-2026-changes';
+import jistaEntrySystemGuide from './jista-entry-system-guide';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -251,4 +253,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   ikuseiShuroSystemGuide,
   discriminationHumanRightsSupport,
   visaFeeIncrease20252026,
+  naturalizationKika2026Changes,
+  jistaEntrySystemGuide,
 ];
