@@ -108,6 +108,9 @@ import localVolunteeringChonaikai from './local-volunteering-chonaikai';
 import japaneseResumeRirekisho from './japanese-resume-rirekisho';
 import jobInterviewJapan from './job-interview-japan';
 import paternityParentalLeaveFathers from './paternity-parental-leave-fathers';
+import domesticViolenceDvSupport from './domestic-violence-dv-support';
+import houterasuLegalAidForeigners from './houterasu-legal-aid-foreigners';
+import childVaccinationSchedule from './child-vaccination-schedule';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -219,4 +222,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   japaneseResumeRirekisho,
   jobInterviewJapan,
   paternityParentalLeaveFathers,
+  domesticViolenceDvSupport,
+  houterasuLegalAidForeigners,
+  childVaccinationSchedule,
 ];

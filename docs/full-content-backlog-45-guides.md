@@ -31,33 +31,33 @@ Avoid overclaiming legal/medical/policy facts.
 
 ## Medical / health
 
-1. clinic-hospital-visit-guide — Cách đi khám bệnh ở Nhật
-2. emergency-calls-japan — Gọi cấp cứu, cảnh sát ở Nhật
-3. dentist-visit-japan — Đi nha khoa ở Nhật
-4. mental-health-stress-support — Sức khỏe tâm thần / stress / hotline hỗ trợ
-5. long-term-care-insurance-kaigo — Bảo hiểm chăm sóc dài hạn / 介護保険
+1. clinic-hospital-visit-guide — Cách đi khám bệnh ở Nhật ✅ DONE
+2. emergency-calls-japan — Gọi cấp cứu, cảnh sát ở Nhật ✅ DONE
+3. dentist-visit-japan — Đi nha khoa ở Nhật ✅ DONE
+4. mental-health-stress-support — Sức khỏe tâm thần / stress / hotline hỗ trợ ✅ DONE
+5. long-term-care-insurance-kaigo — Bảo hiểm chăm sóc dài hạn / 介護保険 ⚠️ FILE EXISTS, NOT REGISTERED YET
 
 ## Disaster preparedness
 
-6. earthquake-preparedness-japan — Hướng dẫn khi động đất
-7. typhoon-evacuation-alerts — Hướng dẫn khi bão / 台風
-8. hazard-map-flood-tsunami-volcano — Lũ lụt / sóng thần / núi lửa / hazard map
-9. fire-earthquake-insurance-home — Bảo hiểm hỏa hoạn / động đất cho nhà thuê
+6. earthquake-preparedness-japan — Hướng dẫn khi động đất ✅ DONE
+7. typhoon-evacuation-alerts — Hướng dẫn khi bão / 台風 ✅ DONE
+8. hazard-map-flood-tsunami-volcano — Lũ lụt / sóng thần / núi lửa / hazard map ✅ DONE
+9. fire-earthquake-insurance-home — Bảo hiểm hỏa hoạn / động đất cho nhà thuê ⚠️ FILE EXISTS, NOT REGISTERED YET
 
 ## Daily utilities and living essentials
 
-10. electricity-gas-water-contracts — Hợp đồng điện / gas / nước
-11. home-internet-wifi-contracts — Internet / Wi-Fi nhà
-12. nhk-contract-guide — NHK là gì, xử lý khi nhân viên NHK đến nhà
-13. post-office-mail-forwarding — Bưu điện / chuyển tiếp thư / gửi hàng
-14. consumer-rights-cooling-off — Mua sắm, trả hàng, cooling-off, hotline 188
+10. electricity-gas-water-contracts — Hợp đồng điện / gas / nước ✅ DONE
+11. home-internet-wifi-contracts — Internet / Wi-Fi nhà ✅ DONE
+12. nhk-contract-guide — NHK là gì, xử lý khi nhân viên NHK đến nhà ✅ DONE
+13. post-office-mail-forwarding — Bưu điện / chuyển tiếp thư / gửi hàng ✅ DONE
+14. consumer-rights-cooling-off — Mua sắm, trả hàng, cooling-off, hotline 188 ⚠️ FILE EXISTS, NOT REGISTERED YET
 
 ## Education / children
 
-15. japanese-school-system-children — Hệ thống trường học Nhật Bản
-16. japanese-language-support-children — Hỗ trợ tiếng Nhật cho con / 日本語指導
-17. child-allowance-jidou-teate — Trợ cấp trẻ em / 児童手当
-18. study-in-japan-student-guide — Du học Nhật, visa du học, trường tiếng Nhật, học bổng cơ bản
+15. japanese-school-system-children — Hệ thống trường học Nhật Bản ✅ DONE
+16. japanese-language-support-children — Hỗ trợ tiếng Nhật cho con / 日本語指導 ✅ DONE
+17. child-allowance-jidou-teate — Trợ cấp trẻ em / 児童手当 ✅ DONE
+18. study-in-japan-student-guide — Du học Nhật, visa du học, trường tiếng Nhật, học bổng cơ bản ⚠️ FILE EXISTS, NOT REGISTERED YET
 
 ---
 
@@ -66,29 +66,29 @@ Avoid overclaiming legal/medical/policy facts.
 ## Legal rights and support
 
 19. discrimination-human-rights-support — Phân biệt đối xử / nhân quyền / nơi tư vấn
-20. police-questioning-rights-japan — Khi bị cảnh sát hỏi/thẩm vấn/bắt giữ
-21. embassy-consulate-vietnam-japan — Đại sứ quán / lãnh sự quán Việt Nam tại Nhật
+20. police-questioning-rights-japan — Khi bị cảnh sát hỏi/thẩm vấn/bắt giữ ✅ DONE (2026-05-09)
+21. embassy-consulate-vietnam-japan — Đại sứ quán / lãnh sự quán Việt Nam tại Nhật ✅ DONE
 22. inheritance-will-japan-foreigners — Di chúc / thừa kế tại Nhật cho người nước ngoài
-23. domestic-violence-dv-support — Bạo lực gia đình / DV / nơi tạm lánh / visa
+23. domestic-violence-dv-support — Bạo lực gia đình / DV / nơi tạm lánh / visa ✅ DONE (2026-05-14)
 
 ## Community and support
 
-24. foreign-resident-support-centers — Trung tâm hỗ trợ người nước ngoài / 多文化共生センター
-25. free-japanese-classes-local — Lớp tiếng Nhật miễn phí / giá rẻ
-26. vietnamese-community-japan — Cộng đồng người Việt tại Nhật
-27. local-volunteering-chonaikai — Tình nguyện / 町内会 / hoạt động cộng đồng
+24. foreign-resident-support-centers — Trung tâm hỗ trợ người nước ngoài / 多文化共生センター ✅ DONE
+25. free-japanese-classes-local — Lớp tiếng Nhật miễn phí / giá rẻ ✅ DONE
+26. vietnamese-community-japan — Cộng đồng người Việt tại Nhật ✅ DONE
+27. local-volunteering-chonaikai — Tình nguyện / 町内会 / hoạt động cộng đồng ✅ DONE
 
 ## Tax / finance expansion
 
-28. furusato-nozei-guide — Furusato Nouzei / ふるさと納税
-29. ideco-personal-pension — iDeCo / lương hưu cá nhân / lợi ích thuế
-30. tax-on-remittance-to-vietnam — Thuế/quy định khi gửi tiền về Việt Nam
+28. furusato-nozei-guide — Furusato Nouzei / ふるさと納税 ✅ DONE
+29. ideco-personal-pension — iDeCo / lương hưu cá nhân / lợi ích thuế ✅ DONE
+30. tax-on-remittance-to-vietnam — Thuế/quy định khi gửi tiền về Việt Nam ✅ DONE
 
 ## Work / career expansion
 
-31. japanese-resume-rirekisho — Cách viết CV Nhật / 履歴書
-32. job-interview-japan — Phỏng vấn xin việc ở Nhật
-33. paternity-parental-leave-fathers — Nghỉ chăm con cho bố / 育児休業 cho nam giới
+31. japanese-resume-rirekisho — Cách viết CV Nhật / 履歴書 ✅ DONE
+32. job-interview-japan — Phỏng vấn xin việc ở Nhật ✅ DONE
+33. paternity-parental-leave-fathers — Nghỉ chăm con cho bố / 育児休業 cho nam giới ✅ DONE
 
 ---
 
@@ -118,9 +118,24 @@ Do not implement without official-source verification.
 
 # Additional possible guides from review notes
 
-43. medical-interpretation-and-multilingual-hospitals — Bệnh viện có phiên dịch / hỗ trợ đa ngôn ngữ
-44. holiday-night-medical-care — Khám bệnh đêm/cuối tuần/ngày lễ
-45. pharmacy-prescription-guide — Nhà thuốc / toa thuốc / cách nhận thuốc ở Nhật
+43. medical-interpretation-and-multilingual-hospitals — Bệnh viện có phiên dịch / hỗ trợ đa ngôn ngữ ✅ DONE
+44. holiday-night-medical-care — Khám bệnh đêm/cuối tuần/ngày lễ ✅ DONE
+45. pharmacy-prescription-guide — Nhà thuốc / toa thuốc / cách nhận thuốc ở Nhật ✅ DONE
+
+---
+
+# Additional gaps identified 2026-05-14 review (post 110 guides)
+
+46. houterasu-legal-aid-foreigners — 法テラス / tư vấn pháp lý + ứng phí luật sư cho người thu nhập thấp ✅ DONE (2026-05-14)
+47. child-vaccination-schedule — Tiêm chủng cho trẻ em (定期 vs 任意), 母子手帳, lịch 0–13 tuổi ✅ DONE (2026-05-14)
+
+## Remaining real gaps (chưa làm)
+
+- 19. discrimination-human-rights-support
+- 22. inheritance-will-japan-foreigners
+- 27. local-volunteering-chonaikai (note: file đã có — verify lại)
+- Job change tenshoku deep-dive (separate from job-change-notification về 入管)
+- Birth registration với 領事館 Việt Nam (split from embassy / baby guides)
 
 ---
 
