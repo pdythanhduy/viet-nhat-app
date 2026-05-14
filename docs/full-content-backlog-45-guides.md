@@ -1,5 +1,13 @@
 # Full content backlog: 45 missing guides from May 2026 review
 
+## STATUS as of 2026-05-14 (FINAL)
+
+**Backlog 45/45 = 100% DONE** ✅ + 2 additional (#46, #47).
+
+Main HEAD `27f2475`. ADMIN_GUIDES: 90 (v1.3.2) → **128**.
+
+See [`docs/admin-guides-complete-123-checkpoint.md`](admin-guides-complete-123-checkpoint.md) for pre-merge audit + residual risk.
+
 ## Purpose
 
 This document stores the full backlog of missing guide ideas identified after the current 80-guide release.
@@ -65,10 +73,10 @@ Avoid overclaiming legal/medical/policy facts.
 
 ## Legal rights and support
 
-19. discrimination-human-rights-support — Phân biệt đối xử / nhân quyền / nơi tư vấn
+19. discrimination-human-rights-support — Phân biệt đối xử / nhân quyền / nơi tư vấn ✅ DONE (2026-05-14)
 20. police-questioning-rights-japan — Khi bị cảnh sát hỏi/thẩm vấn/bắt giữ ✅ DONE (2026-05-09)
 21. embassy-consulate-vietnam-japan — Đại sứ quán / lãnh sự quán Việt Nam tại Nhật ✅ DONE
-22. inheritance-will-japan-foreigners — Di chúc / thừa kế tại Nhật cho người nước ngoài
+22. inheritance-will-japan-foreigners — Di chúc / thừa kế tại Nhật cho người nước ngoài ✅ DONE (2026-05-14, A11)
 23. domestic-violence-dv-support — Bạo lực gia đình / DV / nơi tạm lánh / visa ✅ DONE (2026-05-14)
 
 ## Community and support
@@ -96,9 +104,9 @@ Avoid overclaiming legal/medical/policy facts.
 
 ## Technology and daily convenience
 
-34. essential-apps-japan-life — App cần thiết khi sống ở Nhật
-35. point-cards-coupons-japan — Rakuten Point, dPoint, Ponta, coupon
-36. pet-registration-japan — Nuôi thú cưng, đăng ký chó, tiêm phòng, quy tắc chung cư
+34. essential-apps-japan-life — App cần thiết khi sống ở Nhật ✅ DONE (2026-05-14, A11)
+35. point-cards-coupons-japan — Rakuten Point, dPoint, Ponta, coupon ✅ DONE (2026-05-14, A11)
+36. pet-registration-japan — Nuôi thú cưng, đăng ký chó, tiêm phòng, quy tắc chung cư ✅ DONE (2026-05-14)
 
 ---
 
@@ -107,12 +115,12 @@ Avoid overclaiming legal/medical/policy facts.
 These are high-value but must be handled carefully because policy may change.
 Do not implement without official-source verification.
 
-37. specific-residence-card-my-number-2026 — 特定在留カード / thẻ cư trú hợp nhất My Number
-38. myna-health-insurance-card-2026 — マイナ保険証 / bảo hiểm y tế tích hợp My Number
-39. visa-fee-increase-2025-2026 — Phí thủ tục visa tăng 2025–2026
-40. naturalization-kika-2026-changes — Nhập tịch / 帰化 và thay đổi 2026
-41. ikusei-shuro-system-guide — 育成就労 thay thế thực tập kỹ năng
-42. jista-entry-system-guide — JESTA / hệ thống xét duyệt nhập cảnh điện tử
+37. specific-residence-card-my-number-2026 — 特定在留カード / thẻ cư trú hợp nhất My Number ✅ DONE (2026-05-14, A12)
+38. myna-health-insurance-card-2026 — マイナ保険証 / bảo hiểm y tế tích hợp My Number ✅ DONE (2026-05-14, A12)
+39. visa-fee-increase-2025-2026 — Phí thủ tục visa tăng 2025–2026 ✅ DONE (2026-05-14)
+40. naturalization-kika-2026-changes — Nhập tịch / 帰化 và thay đổi 2026 ✅ DONE (2026-05-14)
+41. ikusei-shuro-system-guide — 育成就労 thay thế thực tập kỹ năng ✅ DONE (2026-05-14, A12)
+42. jista-entry-system-guide — JESTA / hệ thống xét duyệt nhập cảnh điện tử ✅ DONE (2026-05-14)
 
 ---
 
@@ -129,13 +137,21 @@ Do not implement without official-source verification.
 46. houterasu-legal-aid-foreigners — 法テラス / tư vấn pháp lý + ứng phí luật sư cho người thu nhập thấp ✅ DONE (2026-05-14)
 47. child-vaccination-schedule — Tiêm chủng cho trẻ em (定期 vs 任意), 母子手帳, lịch 0–13 tuổi ✅ DONE (2026-05-14)
 
-## Remaining real gaps (chưa làm)
+## Status as of 2026-05-14 (final)
 
-- 19. discrimination-human-rights-support
-- 22. inheritance-will-japan-foreigners
-- 27. local-volunteering-chonaikai (note: file đã có — verify lại)
+**Backlog 45/45 = 100% DONE** ✅
+
+Plus 2 additional gaps identified post-review:
+- #46 houterasu-legal-aid-foreigners ✅ DONE
+- #47 child-vaccination-schedule ✅ DONE
+
+ADMIN_GUIDES count: 90 (v1.3.2 ship) → **128** (main HEAD `27f2475`).
+
+## Future ideas (not blocking)
+
 - Job change tenshoku deep-dive (separate from job-change-notification về 入管)
 - Birth registration với 領事館 Việt Nam (split from embassy / baby guides)
+- Phase 2 app features (Find Nearby + Calculators) — see `app_features_roadmap_2026.md`
 
 ---
 
