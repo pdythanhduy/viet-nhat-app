@@ -1,7 +1,7 @@
-# Native / Legal Review Pending Items — A1 to A9
+# Native / Legal Review Pending Items — A1 to A10
 
-**Date:** 2026-05-10 (updated A6 + A7 + A8 + A9 batches + QA pass A4–A9 + QA Round 2 prioritized review)
-**Scope:** Tổng hợp các điểm cần review human từ 26 guide đã thêm trong batch A1–A9.
+**Date:** 2026-05-14 (updated A10 + 3 bonus parallel batches sau QA Round 2)
+**Scope:** Tổng hợp các điểm cần review human từ 33 guide đã thêm trong batch A1–A10 (kèm 3 bonus).
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
 **Branches:** A1–A3 đã ship trong v1.3.2 (main + Apple Review). A4–A9 trên `feature/post-v1.3.2-content` (CHƯA ship).
 
@@ -796,3 +796,149 @@ Reviewer ưu tiên kiểm tra:
    - `electricity-gas-water-contracts.ts` / `home-internet-wifi-contracts.ts` — quy trình giải quyết tranh chấp
 4. **Hình sự** (cần luật sư hình sự):
    - `police-questioning-rights-japan.ts` — 黙秘権 nuance + Vietnamese specifics
+
+---
+
+## A10 + bonus pending (2026-05-14)
+
+**Scope**: 7 guide thêm sau QA Round 2 — 4 P0 finish + 3 bonus daily-law/health.
+**Commits**: `8edb652` (7 guide + 3 bonus đăng ký song song) + `7e17487` (fix register 4 P0 + widen QA test hosts).
+
+### A10 — P0 finish
+
+#### `long-term-care-insurance-kaigo.ts` (health, 8 counterPhrases)
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 16 特定疾病 cho 第2号 (40–64) — list chính xác | Official source | High | 厚労省 chốt; tham khảo nguồn second-hand đôi khi sai |
+| Phí kaigo hằng tháng 40–64 + 65+ | Official source | Medium | Thay đổi theo 市町村 + thu nhập + 介護報酬改定 |
+| 7 cấp 要介護 + 限度額 hằng tháng (~50,000–362,000円) | Official source | High | 介護報酬改定 2024–2026 đang đổi |
+| 特養 vs 有料老人ホーム phí ranges 2024–2026 | Official source | Medium | Range đã hedged — cần kiểm tra |
+| 地域包括支援センター tiếng Việt coverage | Service | Low | Tùy 市町村 |
+| Bố/mẹ 短期滞在 KHÔNG vào kaigo claim | Legal | Medium | Đã hedge — confirm với 行政書士 |
+| Counter phrases (8 câu) ボランティア tiếng Việt | Native Japanese | Medium | Confirm tự nhiên |
+
+#### `fire-earthquake-insurance-home.ts` (money, 8 counterPhrases)
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 失火責任法 (1899) — "vô ý KHÔNG đền hàng xóm" trừ 重大過失 | Legal | **High** | Luật cũ, nuance theo case — confirm với 弁護士 bất động sản |
+| 地震保険 8 nhóm 都道府県 phí + 限度額 (50,000,000/10,000,000) | Official source | High | GIROJ link có sẵn — verify chính xác |
+| 火災保険 phí ranges 2024–2026 | Official source | Medium | Đã hedged "tham khảo" |
+| こくみん共済 / 都道府県民共済 phí | Official source | Medium | Đã hedge "rough estimate" |
+| 借家人賠償 + 個人賠償 mức tối thiểu | Legal | Medium | Tùy gói — xem 約款 cụ thể |
+| 振込詐欺救済法 quy trình (mentioned trong FAQ) | Legal | Low | Link 188 + #9110 đủ |
+| 60-ngày báo 事故 timeline | Legal | Low | Đã hedge "thường 60 ngày" |
+| Counter phrases (8 câu) — tone tranh chấp với 保険会社 | Native Japanese | Medium | Confirm |
+
+#### `consumer-rights-cooling-off.ts` (daily-law, 9 counterPhrases) — **HIGHEST**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 8/20-ngày cooling-off period — 特定商取引法 chi tiết theo loại | Legal | **HIGHEST** | Quy định cứng — sai ảnh hưởng người dùng trực tiếp |
+| 消費者契約法 1 năm / 5 năm thời hiệu vô hiệu hóa | Legal | High | Đã có — confirm với 弁護士 chuyên consumer |
+| 188 phiên dịch tiếng Việt coverage | Service | Medium | Tùy 消費生活センター 市町村 |
+| NHK cooling-off applicability — vẫn tranh cãi | Legal | High | Đã hedge nhiều chỗ — cẩn thận tone |
+| 闇金 vô hiệu hóa lãi suất (利息制限法 + 出資法) | Legal | High | Luật sư 多重債務 chuyên |
+| 内容証明郵便 mẫu template trong FAQ | Legal | Medium | Confirm wording với 弁護士 |
+| 還付金詐欺 cảnh báo chi tiết | Police / 警察 | Low | Đã hedge "100% lừa đảo" |
+| Counter phrases (9 câu) — tone phù hợp panic state | Native Japanese | Medium | Confirm với native |
+
+#### `study-in-japan-student-guide.ts` (visa, 9 counterPhrases) — **HIGH**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| アルバイト 28 giờ/tuần — strict luật + 40 giờ kỳ nghỉ dài | Legal | **High** | Vi phạm → huỷ visa, cần chính xác |
+| 法務省告示 trường list URL dynamic | Official source | High | Đã link 2024–2025; URL đổi qua năm |
+| 学費 ranges 2024–2026 (国公立 cố定 535,800円 cứng) | Official source | Medium | 国公立 cố定 đúng; 私立 thay đổi |
+| 特定活動 sau tốt nghiệp 6+6 tháng | Legal | High | Quy định 2024–2026 thay đổi |
+| MEXT 学費 + 生活費 cho 大学院 145,000円/tháng | Official source | Medium | Tham khảo — có thể đổi |
+| 学生納付特例 国民年金 | Official source | Low | Đã hedge "qua 市役所" |
+| 留学生 corner ハローワーク tiếng Việt | Service | Low | Tùy địa phương |
+| Counter phrases (9 câu) — formal 申請 tone | Native Japanese | Medium | Confirm với native |
+
+### Bonus pending (3 guide từ parallel agent)
+
+#### `domestic-violence-dv-support.ts` (daily-law, priority high) — **HIGHEST legal**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 配偶者暴力相談支援センター hotline đa ngôn ngữ | Service / Official | **High** | 0120-279-889 + chuyển khu phải verify |
+| 保護命令 quy trình + thời hiệu | Legal | **HIGHEST** | 配偶者暴力防止法 chi tiết — luật sư DV |
+| Visa 保護 cho nạn nhân DV (入管 ngoại lệ) | Legal | **HIGHEST** | 入管 quy định không công khai rộng — 行政書士/luật sư |
+| シェルター chấp nhận người nước ngoài | Service | High | Tùy シェルター — confirm |
+
+#### `houterasu-legal-aid-foreigners.ts` (daily-law)
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 0570-078374 (sapo-dial) — đa ngôn ngữ tiếng Việt qua phiên dịch | Service | High | Coverage tiếng Việt cụ thể — confirm |
+| Điều kiện thu nhập 民事法律扶助 | Official source | High | Số thay đổi hằng năm |
+| 国選弁護人 quy trình hình sự | Legal | Medium | Luật sư hình sự confirm |
+| 3 lần/vụ 30 phút giới hạn tư vấn | Official source | Medium | Confirm với 法テラス |
+
+#### `child-vaccination-schedule.ts` (health)
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 五種混合 (DPT-IPV-Hib) mới 4/2024 lịch | Official source | **High** | Chính sách mới, dễ sai |
+| 任意接種 trợ cấp 自治体 (ロタ vv) | Official source | Medium | Tùy 市町村 |
+| HPV 男女 2024 cải cách mở rộng | Official source | Medium | Mới — confirm với 厚労省 |
+| 母子手帳 ghi tiếng Việt issuing 市町村 | Service | Low | Tùy 市町村 |
+| 予診票 không nhận đúng địa chỉ flow | Service | Medium | Hỏi 保健所 |
+
+### Total pending sau A10
+
+| Loại | Count cumulative |
+|---|---|
+| Native Japanese phrases | 217 (A1–A9) + ~58 (A10 + bonus) = **~275** phrases |
+| Vietnamese naturalness | ~26 (A1–A9) + ~10 (A10 + bonus) = **~36** điểm |
+| Legal / consumer | 22 (A1–A9) + 6 (cooling-off + DV + 失火責任法 + 闇金 + visa-保護 + 28h) = **28** items |
+| Official source | ~93 (A1–A9) + ~22 (A10 + bonus) = **~115** items |
+| Device QA | 26 → **33 guide** |
+
+### Priority cho reviewer sau A10 (tổng hợp lại)
+
+#### HIGHEST (ship blocker khi đến v1.3.3 / v1.4.0)
+
+1. `consumer-rights-cooling-off` (A10) — 特商法 + 消費者契約法 — 弁護士 chuyên consumer.
+2. `domestic-violence-dv-support` (A10 bonus) — 保護命令 + visa 保護 — 弁護士/行政書士 入管.
+3. `tax-on-remittance-to-vietnam` (A6) — 税理士 cross-border (đã fix Round 2).
+4. `police-questioning-rights-japan` (A5) — luật sư hình sự (đã hedge Round 2).
+5. NHK cooling-off (A3) — chưa review xong.
+
+#### HIGH
+
+6. `study-in-japan-student-guide` (A10) — 28h/tuần + 特定活動 — 行政書士 入管.
+7. `fire-earthquake-insurance-home` (A10) — 失火責任法 + 借家人賠償 — 弁護士.
+8. `long-term-care-insurance-kaigo` (A10) — 16 特定疾病 + 限度額 — 介護福祉士/厚労省.
+9. `houterasu-legal-aid-foreigners` (A10 bonus) — điều kiện thu nhập + 国選 quy trình.
+10. `child-vaccination-schedule` (A10 bonus) — 五種混合 + HPV — 小児科/保健所.
+11. `ideco-personal-pension` (A6) — 金融アドバイザー.
+12. `child-allowance-jidou-teate` (A4) — こども家庭庁.
+13. `paternity-parental-leave-fathers` (A8) — 社労士 (đã fix Round 2).
+14. `mental-health-stress-support` (A7) — bác sĩ tâm thần (đã strengthen Round 2).
+
+#### MEDIUM
+
+15. A10 hotlines: 188 + 0570-078374 + 0120-279-889 + AMDA — verify chính thức.
+16. A10 counter phrases tone — ~58 câu native confirm.
+17. A6–A9 hotlines + AMDA + ハローワーク numbers.
+
+#### LOW
+
+18. Phí ranges A4–A10 — confirm 2026.
+19. Các 都道府県/市町村 specifics A10.
+20. Search keywords improvements cho panic-search.
+
+### Items chưa fix tự xử lý được — gửi external
+
+- HIGHEST 1, 2 (consumer cooling-off + DV) → 弁護士 chuyên consumer + 弁護士/行政書士 入管.
+- HIGH 6, 7, 8 (study visa + fire-quake insurance + kaigo) → 行政書士 + 弁護士 + 介護福祉士 chuyên.
+
+### Verification A10
+
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ 251/251 (44 suites)
+- `npm run verify:content`: ✅ 0 issues, 0 suspicious lines
+- Commits: `8edb652` (7 guide TS files + report + backlog update) + `7e17487` (register fix + widen test hosts).
