@@ -72,7 +72,7 @@ const studyInJapanStudentGuide: AdminGuide = {
     ],
     ifLate:
       'Đã quá hạn nộp COE cho kỳ春 → đợi kỳ秋 (vào học tháng 10) — nộp tháng 3–5. Đã quá hạn cả 2 kỳ trong năm → chuẩn bị cho năm sau. KHÔNG nên xin visa 短期滞在 rồi cố chuyển sang 留学 ở Nhật — đa số trường hợp ISA từ chối.',
-    officialSourceLabels: ['出入国在留管理庁 (ISA)', '文部科学省 (MEXT)'],
+    officialSourceLabels: ['出入国在留管理庁 (ISA)', '文部科学省 (MEXT) — Study in Japan'],
   },
   whoIsThisFor: [
     'Học sinh Việt Nam vừa tốt nghiệp THPT muốn sang Nhật học 日本語学校 + tiếp 専門学校 / 大学.',
