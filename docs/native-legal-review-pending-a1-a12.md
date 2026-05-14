@@ -1,7 +1,7 @@
-# Native / Legal Review Pending Items — A1 to A11
+# Native / Legal Review Pending Items — A1 to A12
 
-**Date:** 2026-05-14 (updated A11 — P1 #22 inheritance + P2 #34/#35 apps/points)
-**Scope:** Tổng hợp các điểm cần review human từ 36 guide đã thêm trong batch A1–A11 (kèm 3 bonus).
+**Date:** 2026-05-14 (updated A12 — Policy 2026: 特定在留カード + マイナ保険証 + 育成就労 + bonus pet/discrimination/visa-fee)
+**Scope:** Tổng hợp các điểm cần review human từ 46 guide đã thêm trong batch A1–A12 (kèm 6 bonus).
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
 **Branches:** A1–A3 đã ship trong v1.3.2 (main + Apple Review). A4–A9 trên `feature/post-v1.3.2-content` (CHƯA ship).
 
@@ -1040,3 +1040,140 @@ Reviewer ưu tiên kiểm tra:
 - `npm run test:ci`: ✅ 251/251 (44 suites)
 - `npm run verify:content`: ✅ 0 issues
 - Commits: `7fea124` (3 guide + index.ts) + `0d6daa6` (báo cáo A11).
+
+---
+
+## A12 + bonus parallel pending (2026-05-14)
+
+**Scope**: 3 policy guide A12 + 3 bonus parallel agent.
+**Commits**: `c55c545` (3 policy A12) + `b347bf8` (pet) + `178cbf0` (discrimination + visa-fee) + `4bee9bb` (báo cáo A12) + `6056036` (checkpoint).
+
+### A12 — Policy 2026 sensitive
+
+#### `specific-residence-card-my-number-2026.ts` (immigration, 7 counterPhrases) — **HIGHEST policy**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 14/06/2026 mốc bắt đầu ISA cấp | Official source | **HIGHEST** | Confirm gần ngày với ISA |
+| Nhóm thủ tục đủ điều kiện xin | Legal | **HIGHEST** | ISA quy định cụ thể |
+| Phí cụ thể cho 特定在留カード | Official source | High | Chưa công bố tại 2026-05-14 |
+| Quy trình cho trẻ em + người chưa có My Number Card | Service | High | Chưa stable |
+| Tính năng sinh trắc / chip IC | Official source | Medium | Chưa công bố |
+| Counter phrases (7 câu) | Native Japanese | Medium | Confirm với 行政書士 |
+
+#### `myna-health-insurance-card-2026.ts` (health, 8 counterPhrases) — **HIGH**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| Hạn cuối thẻ vật lý 01/12/2025 | Official source | **HIGHEST** | Theo 保険者 cụ thể |
+| Quy trình 資格確認書 (社保 / 国保 / 後期高齢) | Service / Official | High | Khác từng nơi |
+| 顔認証付きカードリーダー coverage | Service | Medium | Đang triển khai |
+| 償還払い quy trình | Legal / Official | High | Confirm với 保険者 |
+| Hạn 5 năm 資格確認書 | Official source | Medium | Confirm 厚労省 |
+| Counter phrases (8 câu) | Native Japanese | Medium | Confirm |
+
+#### `ikusei-shuro-system-guide.ts` (visa, 8 counterPhrases) — **HIGHEST policy**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 01/04/2027 mốc vận hành | Official source | **HIGHEST** | Luật 2024 đã thông qua |
+| 15/04/2026 + 01/09/2026 tiền vận hành | Official source | High | Confirm ISA |
+| 転籍 điều kiện cụ thể | Legal | **HIGHEST** | Đợi ISA công bố |
+| 監理支援機関 yêu cầu | Legal / Official | High | Q&A ISA cập nhật |
+| Phí 送出機関 max 1,500 USD | Official source | High | DOLAB Bộ LĐ-TB-XH |
+| Lương tối thiểu vùng 2026 | Official source | Medium | Confirm MHLW |
+| Counter phrases (8 câu) | Native Japanese | Medium | Confirm |
+
+### Bonus pending (3 guide thêm song song)
+
+#### `pet-registration-japan.ts` (P2 #36) — MEDIUM
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 登録 chó 15 ngày sau 91 ngày tuổi | Official source | Medium | 狂犬病予防法 |
+| Quy định 共同住宅 cho thú cưng | Legal | Medium | Tùy chủ nhà |
+| Phí 登録 + 狂犬病 vaccine | Official source | Low | Tùy 市町村 |
+| 動物検疫所 nhập/xuất | Official source | Medium | Quy định quốc tế |
+
+#### `discrimination-human-rights-support.ts` (P1 #19) — **HIGH**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 法務省人権 hotline 0570-003-110 | Service | High | Confirm số chính thức |
+| 部落差別 + ヘイトスピーチ luật cho người nước ngoài | Legal | High | 弁護士 chuyên |
+| 入管 nhân quyền giải pháp | Legal | High | Trường hợp cụ thể |
+| Counter phrases | Native Japanese | Medium | Confirm |
+
+#### `visa-fee-increase-2025-2026.ts` (#39) — **HIGHEST**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| Phí 入管 cập nhật 2025-2026 cụ thể | Official source | **HIGHEST** | Quy định cứng — confirm ISA |
+| 在留期間更新 / 在留資格変更 phí mới | Official source | High | Cập nhật thường xuyên |
+| 永住申請 phí mới | Official source | High | Đắt nhất |
+| Counter phrases — quầy 入管 | Native Japanese | Low | Đơn giản |
+
+### Total pending sau A12
+
+| Loại | Count cumulative |
+|---|---|
+| Native Japanese phrases | 297 (A1–A11) + 23 (A12) + ~20 (bonus 3) = **~340** phrases |
+| Vietnamese naturalness | 41 + ~6 + ~5 = **~52** điểm |
+| Legal / consumer | 36 + 5 (A12 HIGHEST) + 3 (bonus) = **44** items |
+| Official source | 130 + ~25 + ~10 = **~165** items |
+| Device QA | 36 → **46 guide** |
+
+### Priority order cho reviewer (cập nhật sau A12)
+
+#### HIGHEST (ship blocker cho v1.3.3 / v1.4.0)
+
+1. `consumer-rights-cooling-off` (A10) — 弁護士 chuyên consumer.
+2. `domestic-violence-dv-support` (A10 bonus) — 弁護士/行政書士 入管.
+3. `inheritance-will-japan-foreigners` (A11) — 弁護士 + 税理士 cross-border.
+4. `specific-residence-card-my-number-2026` (A12) — 行政書士 chuyên 入管.
+5. `ikusei-shuro-system-guide` (A12) — 行政書士 + 監理支援機関.
+6. `visa-fee-increase-2025-2026` (bonus) — ISA + 行政書士.
+7. `tax-on-remittance-to-vietnam` (A6) — 税理士 cross-border.
+8. `police-questioning-rights-japan` (A5) — luật sư hình sự.
+9. NHK cooling-off (A3) — chưa review xong.
+
+#### HIGH
+
+10. `myna-health-insurance-card-2026` (A12) — 保険者 + 厚労省.
+11. `discrimination-human-rights-support` (bonus) — 法務省人権 + 弁護士.
+12. `study-in-japan-student-guide` (A10) — 行政書士.
+13. `fire-earthquake-insurance-home` (A10) — 弁護士.
+14. `long-term-care-insurance-kaigo` (A10) — 介護福祉士/厚労省.
+15. `inheritance-will-japan-foreigners` (A11) — 民法 968 + 遺留分.
+16. `houterasu-legal-aid-foreigners` (A10 bonus).
+17. `child-vaccination-schedule` (A10 bonus).
+18. `ideco-personal-pension` (A6).
+19. `child-allowance-jidou-teate` (A4).
+20. `paternity-parental-leave-fathers` (A8) — đã fix Round 2.
+21. `mental-health-stress-support` (A7) — đã strengthen Round 2.
+
+### Tổng kết A1–A12
+
+| Batch | Số guide | Status |
+|---|---|---|
+| A1–A3 | 10 | ship v1.3.2 |
+| A4–A12 + bonus | ~36 | feature branch |
+| **Total added** | **~46** | — |
+
+ADMIN_GUIDES: 80 (pre-A1) → **126** (+46 mới).
+
+Backlog 45 progress:
+- P0 (1–18): 18/18 ✓
+- P1 (19–33): 15/15 ✓ (sau bonus #19 discrimination)
+- P2 (34–36): 3/3 ✓ (sau bonus #36 pet)
+- Policy-sensitive (37–42): 4/6 ✓ (#37 + #38 + #39 + #41) — còn #40 + #42
+- Additional (43–45): 3/3 ✓
+- **TOTAL**: **43/45 = 96%**.
+
+### Verification A12
+
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ 251/251 (44 suites) — sau clear jest cache.
+- `npm run verify:content`: ✅ 0 issues
+- Branch hiện tại: `feature/admin-guides-complete-123` (parallel agent đổi từ post-v1.3.2).
+- Commits A12: `c55c545` + `b347bf8` + `178cbf0` + `4bee9bb` + `6056036` (checkpoint).
