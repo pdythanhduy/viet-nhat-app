@@ -35,14 +35,14 @@ Avoid overclaiming legal/medical/policy facts.
 2. emergency-calls-japan — Gọi cấp cứu, cảnh sát ở Nhật ✅ DONE
 3. dentist-visit-japan — Đi nha khoa ở Nhật ✅ DONE
 4. mental-health-stress-support — Sức khỏe tâm thần / stress / hotline hỗ trợ ✅ DONE
-5. long-term-care-insurance-kaigo — Bảo hiểm chăm sóc dài hạn / 介護保険 ⚠️ FILE EXISTS, NOT REGISTERED YET
+5. long-term-care-insurance-kaigo — Bảo hiểm chăm sóc dài hạn / 介護保険 ✅ DONE (2026-05-14)
 
 ## Disaster preparedness
 
 6. earthquake-preparedness-japan — Hướng dẫn khi động đất ✅ DONE
 7. typhoon-evacuation-alerts — Hướng dẫn khi bão / 台風 ✅ DONE
 8. hazard-map-flood-tsunami-volcano — Lũ lụt / sóng thần / núi lửa / hazard map ✅ DONE
-9. fire-earthquake-insurance-home — Bảo hiểm hỏa hoạn / động đất cho nhà thuê ⚠️ FILE EXISTS, NOT REGISTERED YET
+9. fire-earthquake-insurance-home — Bảo hiểm hỏa hoạn / động đất cho nhà thuê ✅ DONE (2026-05-14)
 
 ## Daily utilities and living essentials
 
@@ -50,14 +50,14 @@ Avoid overclaiming legal/medical/policy facts.
 11. home-internet-wifi-contracts — Internet / Wi-Fi nhà ✅ DONE
 12. nhk-contract-guide — NHK là gì, xử lý khi nhân viên NHK đến nhà ✅ DONE
 13. post-office-mail-forwarding — Bưu điện / chuyển tiếp thư / gửi hàng ✅ DONE
-14. consumer-rights-cooling-off — Mua sắm, trả hàng, cooling-off, hotline 188 ⚠️ FILE EXISTS, NOT REGISTERED YET
+14. consumer-rights-cooling-off — Mua sắm, trả hàng, cooling-off, hotline 188 ✅ DONE (2026-05-14)
 
 ## Education / children
 
 15. japanese-school-system-children — Hệ thống trường học Nhật Bản ✅ DONE
 16. japanese-language-support-children — Hỗ trợ tiếng Nhật cho con / 日本語指導 ✅ DONE
 17. child-allowance-jidou-teate — Trợ cấp trẻ em / 児童手当 ✅ DONE
-18. study-in-japan-student-guide — Du học Nhật, visa du học, trường tiếng Nhật, học bổng cơ bản ⚠️ FILE EXISTS, NOT REGISTERED YET
+18. study-in-japan-student-guide — Du học Nhật, visa du học, trường tiếng Nhật, học bổng cơ bản ✅ DONE (2026-05-14)
 
 ---
 
