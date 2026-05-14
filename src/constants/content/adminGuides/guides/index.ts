@@ -122,6 +122,8 @@ import petRegistrationJapan from './pet-registration-japan';
 import mynaHealthInsuranceCard2026 from './myna-health-insurance-card-2026';
 import specificResidenceCardMyNumber2026 from './specific-residence-card-my-number-2026';
 import ikuseiShuroSystemGuide from './ikusei-shuro-system-guide';
+import discriminationHumanRightsSupport from './discrimination-human-rights-support';
+import visaFeeIncrease20252026 from './visa-fee-increase-2025-2026';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -247,4 +249,6 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   mynaHealthInsuranceCard2026,
   specificResidenceCardMyNumber2026,
   ikuseiShuroSystemGuide,
+  discriminationHumanRightsSupport,
+  visaFeeIncrease20252026,
 ];
