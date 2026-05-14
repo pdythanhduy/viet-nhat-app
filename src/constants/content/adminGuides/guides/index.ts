@@ -119,6 +119,9 @@ import inheritanceWillJapanForeigners from './inheritance-will-japan-foreigners'
 import essentialAppsJapanLife from './essential-apps-japan-life';
 import pointCardsCouponsJapan from './point-cards-coupons-japan';
 import petRegistrationJapan from './pet-registration-japan';
+import mynaHealthInsuranceCard2026 from './myna-health-insurance-card-2026';
+import specificResidenceCardMyNumber2026 from './specific-residence-card-my-number-2026';
+import ikuseiShuroSystemGuide from './ikusei-shuro-system-guide';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -241,4 +244,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   essentialAppsJapanLife,
   pointCardsCouponsJapan,
   petRegistrationJapan,
+  mynaHealthInsuranceCard2026,
+  specificResidenceCardMyNumber2026,
+  ikuseiShuroSystemGuide,
 ];
