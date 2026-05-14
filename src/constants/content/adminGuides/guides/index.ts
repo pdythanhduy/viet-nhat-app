@@ -115,6 +115,9 @@ import longTermCareInsuranceKaigo from './long-term-care-insurance-kaigo';
 import fireEarthquakeInsuranceHome from './fire-earthquake-insurance-home';
 import consumerRightsCoolingOff from './consumer-rights-cooling-off';
 import studyInJapanStudentGuide from './study-in-japan-student-guide';
+import inheritanceWillJapanForeigners from './inheritance-will-japan-foreigners';
+import essentialAppsJapanLife from './essential-apps-japan-life';
+import pointCardsCouponsJapan from './point-cards-coupons-japan';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -233,4 +236,7 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   fireEarthquakeInsuranceHome,
   consumerRightsCoolingOff,
   studyInJapanStudentGuide,
+  inheritanceWillJapanForeigners,
+  essentialAppsJapanLife,
+  pointCardsCouponsJapan,
 ];
