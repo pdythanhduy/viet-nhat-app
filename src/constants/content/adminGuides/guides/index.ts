@@ -118,6 +118,7 @@ import studyInJapanStudentGuide from './study-in-japan-student-guide';
 import inheritanceWillJapanForeigners from './inheritance-will-japan-foreigners';
 import essentialAppsJapanLife from './essential-apps-japan-life';
 import pointCardsCouponsJapan from './point-cards-coupons-japan';
+import petRegistrationJapan from './pet-registration-japan';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -239,4 +240,5 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   inheritanceWillJapanForeigners,
   essentialAppsJapanLife,
   pointCardsCouponsJapan,
+  petRegistrationJapan,
 ];
