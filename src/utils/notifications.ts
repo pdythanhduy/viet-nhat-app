@@ -64,6 +64,22 @@ export async function requestPermission(): Promise<boolean> {
   return true;
 }
 
+export type NotificationPermissionState = 'granted' | 'denied' | 'undetermined' | 'unsupported';
+
+export async function getNotificationPermissionStatus(): Promise<NotificationPermissionState> {
+  if (!Device.isDevice) return 'unsupported';
+  if (isExpoGo) return 'granted';
+  try {
+    const { status, canAskAgain } = await Notifications.getPermissionsAsync();
+    if (status === 'granted') return 'granted';
+    if (status === 'denied' && !canAskAgain) return 'denied';
+    if (status === 'denied') return 'denied';
+    return 'undetermined';
+  } catch {
+    return 'undetermined';
+  }
+}
+
 export async function loadImportantDates(): Promise<ImportantDate[]> {
   try {
     const raw = await AsyncStorage.getItem(DATES_STORAGE_KEY);

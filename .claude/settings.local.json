@@ -19,7 +19,16 @@
       "Bash(node -e ' *)",
       "WebFetch(domain:www.moj.go.jp)",
       "WebFetch(domain:www.nenkin.go.jp)",
-      "WebFetch(domain:www.hellowork.mhlw.go.jp)"
+      "WebFetch(domain:www.hellowork.mhlw.go.jp)",
+      "Bash(npm run *)",
+      "Bash(git commit *)",
+      "Bash(awk '/^const N2_STORY_SEEDS/,/^const N1_STORY_SEEDS/' src/constants/content/sampleStories.ts)",
+      "Bash(awk '/^const N1_STORY_SEEDS/,/^const N1_STORIES/' src/constants/content/sampleStories.ts)",
+      "Bash(npm test *)",
+      "Bash(gh pr *)",
+      "PowerShell(gh *)",
+      "Bash(node scripts/split-daily-life.js)",
+      "Bash(node *)"
     ]
   }
 }

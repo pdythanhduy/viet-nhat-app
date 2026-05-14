@@ -10,6 +10,7 @@ import {
   Platform,
   FlatList,
   TextInput,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,6 +25,8 @@ import {
   deleteImportantDate,
   getDaysUntil,
   requestPermission,
+  getNotificationPermissionStatus,
+  type NotificationPermissionState,
 } from '../utils/notifications';
 
 const PRESETS: { label: string; icon: IoniconName; color: string }[] = [
@@ -32,6 +35,8 @@ const PRESETS: { label: string; icon: IoniconName; color: string }[] = [
   { label: 'Bảo hiểm lao động', icon: 'shield-checkmark', color: '#27AE60' },
   { label: 'Hộ chiếu hết hạn', icon: 'id-card', color: '#9B59B6' },
   { label: 'Hợp đồng lao động', icon: 'document-text', color: '#F39C12' },
+  { label: 'Lịch tiêm chủng con', icon: 'medkit', color: '#16A085' },
+  { label: 'Thuế / 国保', icon: 'receipt', color: '#2C7A7B' },
   { label: 'Khác', icon: 'calendar', color: '#5C6B8A' },
 ];
 
@@ -157,6 +162,9 @@ export default function ImportantDatesScreen() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState(PRESETS[0]);
   const [customLabel, setCustomLabel] = useState('');
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [permissionState, setPermissionState] =
+    useState<NotificationPermissionState>('undetermined');
 
   const today = new Date();
   const currentYear = today.getFullYear();
@@ -189,16 +197,49 @@ export default function ImportantDatesScreen() {
   useFocusEffect(
     useCallback(() => {
       loadImportantDates().then(setDates);
+      getNotificationPermissionStatus().then(setPermissionState);
     }, [])
   );
 
   const openAdd = () => {
+    setEditingId(null);
     setSelectedPreset(PRESETS[0]);
     setCustomLabel('');
     setSelYear(0);
     setSelMonth(today.getMonth());
     setSelDay(today.getDate() - 1);
     setShowModal(true);
+  };
+
+  const openEdit = (item: ImportantDate) => {
+    const matchedPreset =
+      PRESETS.find((p) => p.label === item.label) ??
+      PRESETS.find((p) => p.label === 'Khác')!;
+    setSelectedPreset(matchedPreset);
+    setCustomLabel(matchedPreset.label === 'Khác' ? item.label : '');
+
+    const [y, m, d] = item.date.split('-');
+    const yearIdx = Math.max(
+      0,
+      Math.min(parseInt(y, 10) - currentYear, years.length - 1)
+    );
+    const monthIdx = Math.max(0, Math.min(parseInt(m, 10) - 1, 11));
+    const dayIdx = Math.max(0, parseInt(d, 10) - 1);
+    setSelYear(yearIdx);
+    setSelMonth(monthIdx);
+    setSelDay(dayIdx);
+
+    setEditingId(item.id);
+    setShowModal(true);
+  };
+
+  const openSystemSettings = () => {
+    Linking.openSettings().catch(() => {
+      Alert.alert(
+        'Không mở được Cài đặt',
+        'Vui lòng vào Cài đặt điện thoại → Thông báo → bật quyền cho ứng dụng này.'
+      );
+    });
   };
 
   const handleSave = async () => {
@@ -212,8 +253,8 @@ export default function ImportantDatesScreen() {
         ? customLabel.trim() || 'Nhắc nhở'
         : selectedPreset.label;
 
-    const newDate: ImportantDate = {
-      id: Date.now().toString(),
+    const dateItem: ImportantDate = {
+      id: editingId ?? Date.now().toString(),
       label,
       date: isoDate,
       icon: selectedPreset.icon,
@@ -221,14 +262,23 @@ export default function ImportantDatesScreen() {
     };
 
     const permitted = await requestPermission();
+    const nextStatus = await getNotificationPermissionStatus();
+    setPermissionState(nextStatus);
     if (!permitted) {
-      Alert.alert('Cần quyền thông báo', 'Vui lòng cấp quyền trong Cài đặt điện thoại.', [{ text: 'OK' }]);
+      Alert.alert(
+        'Chưa có quyền thông báo',
+        'Nhắc nhở vẫn được lưu nhưng app sẽ không gửi thông báo. Bạn có thể bật quyền trong Cài đặt điện thoại bất kỳ lúc nào.',
+        [{ text: 'OK' }]
+      );
     }
 
-    await scheduleNotificationsForDate(newDate);
-    const updated = [...dates, newDate];
+    await scheduleNotificationsForDate(dateItem);
+    const updated = editingId
+      ? dates.map((d) => (d.id === editingId ? dateItem : d))
+      : [...dates, dateItem];
     await saveImportantDates(updated);
     setDates(updated);
+    setEditingId(null);
     setShowModal(false);
   };
 
@@ -274,6 +324,29 @@ export default function ImportantDatesScreen() {
           </Text>
         </View>
 
+        {permissionState === 'denied' ? (
+          <View style={styles.permissionBanner}>
+            <Ionicons name="notifications-off" size={18} color={Colors.danger} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.permissionTitle}>App chưa có quyền thông báo</Text>
+              <Text style={styles.permissionDesc}>
+                Nhắc nhở vẫn lưu, nhưng sẽ không có thông báo. Hãy bật quyền trong Cài đặt.
+              </Text>
+            </View>
+            <TouchableOpacity style={styles.permissionAction} onPress={openSystemSettings}>
+              <Text style={styles.permissionActionText}>Mở Cài đặt</Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
+
+        <View style={styles.safetyBox}>
+          <Ionicons name="information-circle-outline" size={14} color={Colors.textMuted} />
+          <Text style={styles.safetyText}>
+            Đây là nhắc nhở cá nhân — không thay cơ quan chính thức. Hãy tự kiểm tra
+            giấy tờ gốc trước hạn.
+          </Text>
+        </View>
+
         {dates.length === 0 ? (
           <View style={styles.emptyBox}>
             <Ionicons name="calendar-outline" size={52} color={Colors.textMuted} />
@@ -290,17 +363,28 @@ export default function ImportantDatesScreen() {
             const status = getDaysStatus(days2);
             return (
               <View key={item.id} style={styles.dateCard}>
-                <View style={[styles.iconBg, { backgroundColor: item.color + '18' }]}>
-                  <Ionicons name={item.icon} size={24} color={item.color} />
-                </View>
-                <View style={styles.dateInfo}>
-                  <Text style={styles.dateLabel}>{item.label}</Text>
-                  <Text style={styles.dateValue}>{formatDate(item.date)}</Text>
-                  <View style={[styles.statusBadge, { backgroundColor: status.bg }]}>
-                    <Text style={[styles.statusText, { color: status.color }]}>{status.label}</Text>
+                <TouchableOpacity
+                  onPress={() => openEdit(item)}
+                  style={styles.dateCardBody}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Sửa nhắc nhở ${item.label}`}
+                >
+                  <View style={[styles.iconBg, { backgroundColor: item.color + '18' }]}>
+                    <Ionicons name={item.icon} size={24} color={item.color} />
                   </View>
-                </View>
-                <TouchableOpacity onPress={() => handleDelete(item.id, item.label)} style={styles.deleteBtn}>
+                  <View style={styles.dateInfo}>
+                    <Text style={styles.dateLabel}>{item.label}</Text>
+                    <Text style={styles.dateValue}>{formatDate(item.date)}</Text>
+                    <View style={[styles.statusBadge, { backgroundColor: status.bg }]}>
+                      <Text style={[styles.statusText, { color: status.color }]}>{status.label}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => handleDelete(item.id, item.label)}
+                  style={styles.deleteBtn}
+                  accessibilityLabel={`Xóa nhắc nhở ${item.label}`}
+                >
                   <Ionicons name="trash-outline" size={18} color={Colors.textMuted} />
                 </TouchableOpacity>
               </View>
@@ -310,15 +394,22 @@ export default function ImportantDatesScreen() {
         <View style={{ height: 32 }} />
       </ScrollView>
 
-      {/* Modal thêm ngày */}
+      {/* Modal thêm/sửa ngày */}
       <Modal visible={showModal} animationType="slide" transparent>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHandle} />
 
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Thêm ngày quan trọng</Text>
-              <TouchableOpacity onPress={() => setShowModal(false)}>
+              <Text style={styles.modalTitle}>
+                {editingId ? 'Sửa nhắc nhở' : 'Thêm ngày quan trọng'}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setEditingId(null);
+                  setShowModal(false);
+                }}
+              >
                 <Ionicons name="close" size={22} color={Colors.textSecondary} />
               </TouchableOpacity>
             </View>
@@ -405,7 +496,9 @@ export default function ImportantDatesScreen() {
 
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: accentColor }]} onPress={handleSave}>
               <Ionicons name="checkmark-circle" size={20} color={Colors.white} />
-              <Text style={styles.saveBtnText}>Xác nhận & bật nhắc nhở</Text>
+              <Text style={styles.saveBtnText}>
+                {editingId ? 'Cập nhật nhắc nhở' : 'Xác nhận & bật nhắc nhở'}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -439,6 +532,55 @@ const styles = StyleSheet.create({
   },
   infoText: { flex: 1, fontSize: 13, color: Colors.textSecondary, lineHeight: 19 },
   bold: { fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
+  permissionBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    padding: 12,
+    marginBottom: 12,
+    backgroundColor: Colors.dangerLight,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: Colors.danger + '50',
+  },
+  permissionTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.danger,
+    marginBottom: 2,
+  },
+  permissionDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+  },
+  permissionAction: {
+    backgroundColor: Colors.danger,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  permissionActionText: {
+    color: Colors.white,
+    fontSize: 12,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  safetyBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginBottom: 12,
+  },
+  safetyText: {
+    flex: 1,
+    fontSize: 11,
+    lineHeight: 16,
+    color: Colors.textMuted,
+  },
   emptyBox: { alignItems: 'center', paddingVertical: 48, gap: 10 },
   emptyTitle: { fontSize: 17, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textSecondary },
   emptyDesc: { fontSize: 13, color: Colors.textMuted, textAlign: 'center', paddingHorizontal: 24 },
@@ -467,6 +609,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 3,
   },
+  dateCardBody: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 14 },
   iconBg: { width: 50, height: 50, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
   dateInfo: { flex: 1 },
   dateLabel: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, marginBottom: 2 },

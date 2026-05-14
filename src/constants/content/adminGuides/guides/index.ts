@@ -89,6 +89,41 @@ import electricityGasWaterContracts from './electricity-gas-water-contracts';
 import homeInternetWifiContracts from './home-internet-wifi-contracts';
 import nhkContractGuide from './nhk-contract-guide';
 import postOfficeMailForwarding from './post-office-mail-forwarding';
+import japaneseSchoolSystemChildren from './japanese-school-system-children';
+import japaneseLanguageSupportChildren from './japanese-language-support-children';
+import childAllowanceJidouTeate from './child-allowance-jidou-teate';
+import policeQuestioningRightsJapan from './police-questioning-rights-japan';
+import embassyConsulateVietnamJapan from './embassy-consulate-vietnam-japan';
+import foreignResidentSupportCenters from './foreign-resident-support-centers';
+import furusatoNozeiGuide from './furusato-nozei-guide';
+import idecoPersonalPension from './ideco-personal-pension';
+import taxOnRemittanceToVietnam from './tax-on-remittance-to-vietnam';
+import mentalHealthStressSupport from './mental-health-stress-support';
+import medicalInterpretationMultilingualHospitals from './medical-interpretation-multilingual-hospitals';
+import holidayNightMedicalCare from './holiday-night-medical-care';
+import pharmacyPrescriptionGuide from './pharmacy-prescription-guide';
+import vietnameseCommunityJapan from './vietnamese-community-japan';
+import freeJapaneseClassesLocal from './free-japanese-classes-local';
+import localVolunteeringChonaikai from './local-volunteering-chonaikai';
+import japaneseResumeRirekisho from './japanese-resume-rirekisho';
+import jobInterviewJapan from './job-interview-japan';
+import paternityParentalLeaveFathers from './paternity-parental-leave-fathers';
+import domesticViolenceDvSupport from './domestic-violence-dv-support';
+import houterasuLegalAidForeigners from './houterasu-legal-aid-foreigners';
+import childVaccinationSchedule from './child-vaccination-schedule';
+import longTermCareInsuranceKaigo from './long-term-care-insurance-kaigo';
+import fireEarthquakeInsuranceHome from './fire-earthquake-insurance-home';
+import consumerRightsCoolingOff from './consumer-rights-cooling-off';
+import studyInJapanStudentGuide from './study-in-japan-student-guide';
+import inheritanceWillJapanForeigners from './inheritance-will-japan-foreigners';
+import essentialAppsJapanLife from './essential-apps-japan-life';
+import pointCardsCouponsJapan from './point-cards-coupons-japan';
+import petRegistrationJapan from './pet-registration-japan';
+import mynaHealthInsuranceCard2026 from './myna-health-insurance-card-2026';
+import specificResidenceCardMyNumber2026 from './specific-residence-card-my-number-2026';
+import ikuseiShuroSystemGuide from './ikusei-shuro-system-guide';
+import discriminationHumanRightsSupport from './discrimination-human-rights-support';
+import visaFeeIncrease20252026 from './visa-fee-increase-2025-2026';
 
 export const ADMIN_GUIDES: AdminGuide[] = [
   residenceCard,
@@ -181,4 +216,39 @@ export const ADMIN_GUIDES: AdminGuide[] = [
   homeInternetWifiContracts,
   nhkContractGuide,
   postOfficeMailForwarding,
+  japaneseSchoolSystemChildren,
+  japaneseLanguageSupportChildren,
+  childAllowanceJidouTeate,
+  policeQuestioningRightsJapan,
+  embassyConsulateVietnamJapan,
+  foreignResidentSupportCenters,
+  furusatoNozeiGuide,
+  idecoPersonalPension,
+  taxOnRemittanceToVietnam,
+  mentalHealthStressSupport,
+  medicalInterpretationMultilingualHospitals,
+  holidayNightMedicalCare,
+  pharmacyPrescriptionGuide,
+  vietnameseCommunityJapan,
+  freeJapaneseClassesLocal,
+  localVolunteeringChonaikai,
+  japaneseResumeRirekisho,
+  jobInterviewJapan,
+  paternityParentalLeaveFathers,
+  domesticViolenceDvSupport,
+  houterasuLegalAidForeigners,
+  childVaccinationSchedule,
+  longTermCareInsuranceKaigo,
+  fireEarthquakeInsuranceHome,
+  consumerRightsCoolingOff,
+  studyInJapanStudentGuide,
+  inheritanceWillJapanForeigners,
+  essentialAppsJapanLife,
+  pointCardsCouponsJapan,
+  petRegistrationJapan,
+  mynaHealthInsuranceCard2026,
+  specificResidenceCardMyNumber2026,
+  ikuseiShuroSystemGuide,
+  discriminationHumanRightsSupport,
+  visaFeeIncrease20252026,
 ];
