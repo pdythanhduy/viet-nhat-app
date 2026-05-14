@@ -1,7 +1,7 @@
-# Native / Legal Review Pending Items — A1 to A10
+# Native / Legal Review Pending Items — A1 to A11
 
-**Date:** 2026-05-14 (updated A10 + 3 bonus parallel batches sau QA Round 2)
-**Scope:** Tổng hợp các điểm cần review human từ 33 guide đã thêm trong batch A1–A10 (kèm 3 bonus).
+**Date:** 2026-05-14 (updated A11 — P1 #22 inheritance + P2 #34/#35 apps/points)
+**Scope:** Tổng hợp các điểm cần review human từ 36 guide đã thêm trong batch A1–A11 (kèm 3 bonus).
 **Source backlog:** `docs/full-content-backlog-45-guides.md`
 **Branches:** A1–A3 đã ship trong v1.3.2 (main + Apple Review). A4–A9 trên `feature/post-v1.3.2-content` (CHƯA ship).
 
@@ -942,3 +942,101 @@ Reviewer ưu tiên kiểm tra:
 - `npm run test:ci`: ✅ 251/251 (44 suites)
 - `npm run verify:content`: ✅ 0 issues, 0 suspicious lines
 - Commits: `8edb652` (7 guide TS files + report + backlog update) + `7e17487` (register fix + widen test hosts).
+
+---
+
+## A11 pending (2026-05-14)
+
+**Scope**: 3 guide P1/P2 — đóng phần P1 backlog + 2 P2 essential apps & point cards.
+**Commits**: `7fea124` (3 guide + index.ts) + `0d6daa6` (báo cáo A11).
+
+### `inheritance-will-japan-foreigners.ts` (daily-law, 8 counterPhrases) — **HIGHEST legal**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| 通則法 đ.36 + renvoi cho người Việt — phân tích luật quốc tịch | Legal | **HIGHEST** | Cross-border phức tạp — 弁護士 chuyên cross-border |
+| 民法 968 自筆証書遺言 yêu cầu cứng + 2019 cải cách 財産目録 | Legal | High | Đã hedge — cần 弁護士 confirm wording |
+| 公正証書遺言 phí theo giá trị tài sản (5,000–240,000円+) | Official source | Medium | Confirm với 公証連合会 hiện tại |
+| 相続税 基礎控除 (3,000万 + 600万×N) + bậc thang thuế | Official source | High | Chuẩn theo 国税庁 2024–2026 — confirm cải cách 2023 |
+| 配偶者控除 1.6億円 / 法定相続分 | Legal | Medium | Stable nhưng nên verify |
+| 遺留分 1/2 hoặc 1/3 phần luật (民法 1042) | Legal | High | Cần luật sư cho cross-border applicability |
+| Thời hạn 3 tháng (相続放棄) / 4 tháng (準確定) / 10 tháng (相続税) | Legal | **HIGHEST** | Deadline cứng — sai = phạt |
+| VN Bộ luật Dân sự 2015 thừa kế — cập nhật từ Quốc hội VN | Legal | High | Luật VN ảnh hưởng phần dân sự |
+| 16 bệnh đặc定 — KHÔNG nằm trong guide này (chỉ trong kaigo) | Internal | — | Confirm không nhầm |
+| Counter phrases (8 câu) — formal pháp lý tone | Native Japanese | Medium | Confirm với native |
+
+### `essential-apps-japan-life.ts` (daily-law, 7 counterPhrases) — **LOW** practical
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| Phí mobile carrier ranges 2026 (ahamo, povo, LINEMO, 楽天) | Official source | Low | Thay đổi theo tháng |
+| PayPay 5% combini touch — chính sách 2024–2026 | Official source | Low | Có thể đổi |
+| Rakuten Super Sale SPU rate 47x lý thuyết | Marketing | Low | Lý thuyết — thực tế 5–15x |
+| マイナポータル iPhone iOS 14+ NFC + Android Felica | Official source | Low | Stable — confirm với 内閣府 |
+| URL store app stable (Apple Store / Google Play) | Service | Low | Đa số stable |
+| Counter phrases (7 câu) — service / store tone | Native Japanese | Low | Đơn giản |
+
+### `point-cards-coupons-japan.ts` (money, 7 counterPhrases) — **LOW**
+
+| Item | Review type | Priority | Why |
+|---|---|---|---|
+| Tỷ lệ tích point theo hệ 2026 | Official source | Low | Mỗi hệ tự điều chỉnh hằng năm |
+| V-Point hợp nhất từ T-Point 2024-04 | Official source | Medium | Mới — confirm với V-Point Inc. |
+| 三井住友NL 5% combini + danh sách cửa hàng partner | Official source | Medium | Có thể mở rộng / thu hẹp |
+| Phí thẻ tín dụng năm đầu miễn phí | Official source | Low | Confirm với từng công ty |
+| Sale calendar 2026 + Rakuten お買い物マラソン rule | Marketing | Low | Năm sau cập nhật |
+| Hạn point các hệ (1 năm 通常, "期間限定" ngắn) | Official source | Low | Đã hedged — confirm |
+| Counter phrases (7 câu) — quầy thanh toán tone | Native Japanese | Low | Phổ biến, đơn giản |
+
+### Total pending sau A11
+
+| Loại | Count cumulative |
+|---|---|
+| Native Japanese phrases | 275 (A1–A10) + 22 (A11) = **~297** phrases |
+| Vietnamese naturalness | ~36 (A1–A10) + ~5 (A11) = **~41** điểm |
+| Legal / consumer | 28 (A1–A10) + 8 (A11 inheritance HIGHEST) = **36** items |
+| Official source | ~115 (A1–A10) + ~15 (A11) = **~130** items |
+| Device QA | 33 → **36 guide** |
+
+### Priority order cho reviewer (cập nhật sau A11)
+
+#### HIGHEST (ship blocker khi đến v1.3.3 / v1.4.0)
+
+1. `consumer-rights-cooling-off` (A10) — 弁護士 chuyên consumer.
+2. `domestic-violence-dv-support` (A10 bonus) — 弁護士/行政書士 入管.
+3. `inheritance-will-japan-foreigners` (A11) — 弁護士 + 税理士 chuyên cross-border (Nhật + VN).
+4. `tax-on-remittance-to-vietnam` (A6) — 税理士 cross-border (đã fix Round 2).
+5. `police-questioning-rights-japan` (A5) — luật sư hình sự (đã hedge Round 2).
+6. NHK cooling-off (A3) — chưa review xong.
+
+#### HIGH
+
+7. `study-in-japan-student-guide` (A10) — 行政書士 入管.
+8. `fire-earthquake-insurance-home` (A10) — 弁護士.
+9. `long-term-care-insurance-kaigo` (A10) — 介護福祉士/厚労省.
+10. `inheritance-will-japan-foreigners` (A11) — 民法 968 + 遺留分 + 相続税 chi tiết.
+11. `houterasu-legal-aid-foreigners` (A10 bonus).
+12. `child-vaccination-schedule` (A10 bonus) — 五種混合 mới.
+13. `ideco-personal-pension` (A6).
+14. `child-allowance-jidou-teate` (A4).
+15. `paternity-parental-leave-fathers` (A8) — đã fix Round 2.
+16. `mental-health-stress-support` (A7) — đã strengthen Round 2.
+
+#### MEDIUM
+
+17. A11 V-Point + 三井住友NL details.
+18. A10 hotlines + A6–A9 hotlines.
+19. A11 counter phrases tone — 22 câu.
+
+#### LOW
+
+20. Phí ranges A4–A11 — confirm 2026.
+21. App URL + tier price A11 essential-apps.
+22. Point card hệ tỷ lệ 2026 — cập nhật hằng năm.
+
+### Verification A11
+
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ 251/251 (44 suites)
+- `npm run verify:content`: ✅ 0 issues
+- Commits: `7fea124` (3 guide + index.ts) + `0d6daa6` (báo cáo A11).
