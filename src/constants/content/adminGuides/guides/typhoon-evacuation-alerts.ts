@@ -46,7 +46,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     whenToAskExpert: [
       'Sống ở khu có lịch sử lũ lụt / lở đất — kiểm tra hazard map kỹ trước mùa bão (tham khảo guide hazard-map-flood-tsunami-volcano).',
       'Người già / người tàn tật / phụ nữ có thai — di tản sớm hơn警戒レベル 3, hỏi 市役所 về danh sách ưu tiên 要支援者.',
-      'Công ty bắt đi làm khi警戒レベル 4–5 — người sử dụng lao động có 安全配慮義務 (労働契約法 第5条), không được ép qua vùng có 避難指示. Hỏi 労働基準監督署 nếu cần.',
+      'Công ty bắt đi làm khi 警戒レベル 4–5 — người sử dụng lao động có 安全配慮義務 (労働契約法 第5条), không được ép qua vùng có 避難指示. Hỏi 労働基準監督署 nếu cần.',
     ],
   },
   quickAction: {
