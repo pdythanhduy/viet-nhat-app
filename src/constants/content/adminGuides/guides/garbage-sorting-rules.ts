@@ -89,6 +89,38 @@ const garbageSortingRules: AdminGuide = {
         vn: 'Có hướng dẫn phân loại rác bằng tiếng nước ngoài không?',
       },
     ],
+    keyTerms: [
+      {
+        term: '燃えるゴミ',
+        reading: 'もえるゴミ',
+        meaningVi: 'rác cháy được (rác hữu cơ + giấy bẩn)',
+        noteVi: 'Rác bếp, giấy ăn, lá cây, tã, đồ ăn thừa. Túi rác chuyên dụng theo 市町村. Đổ 2-3 lần/tuần, lịch in trong sổ phân loại.',
+      },
+      {
+        term: '燃えないゴミ',
+        reading: 'もえないゴミ',
+        meaningVi: 'rác không cháy (kim loại, sứ, thủy tinh)',
+        noteVi: 'Nồi chảo nhỏ, dao cùn, ly vỡ, bóng đèn. Bọc giấy báo đồ sắc nhọn + ghi chữ "キケン" (nguy hiểm). Đổ 1-2 lần/tháng.',
+      },
+      {
+        term: '資源ゴミ',
+        reading: 'しげんゴミ',
+        meaningVi: 'rác tái chế',
+        noteVi: 'Chai nhựa (PET), lon nhôm/sắt, chai thủy tinh, giấy báo, bìa carton. Rửa sạch + tháo nhãn trước khi đổ. Mỗi loại 1 ngày riêng.',
+      },
+      {
+        term: '粗大ごみ',
+        reading: 'そだいごみ',
+        meaningVi: 'rác cồng kềnh',
+        noteVi: 'Đồ to (ghế sofa, tủ, xe đạp...) trên 30cm. PHẢI ĐẶT LỊCH trước với 市役所 + mua tem (300-3000円 tùy đồ). KHÔNG được vứt tự do.',
+      },
+      {
+        term: 'ゴミ収集日',
+        reading: 'ゴミしゅうしゅうび',
+        meaningVi: 'ngày thu rác',
+        noteVi: 'Lịch in trong sổ phân loại 市役所 phát khi bạn 転入届. Phải đem rác ra trước 8 giờ sáng đúng ngày — sai ngày = rác bị bỏ lại, có thể bị nhắc nhở.',
+      },
+    ],
     officialLinks: [
       { label: '廃棄物等の処理 — 環境省', url: 'https://www.env.go.jp/recycle/waste/index.html' },
       { label: '家電製品の正しいリユース・リサイクル — 環境省', url: 'https://www.env.go.jp/recycle/kaden/tvrecycle.html' },

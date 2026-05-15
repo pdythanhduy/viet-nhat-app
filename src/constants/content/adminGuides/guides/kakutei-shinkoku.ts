@@ -96,6 +96,38 @@ const kakuteiShinkoku: AdminGuide = {
         vn: 'Anh/chị hướng dẫn giúp cách điền 申告書?',
       },
     ],
+    keyTerms: [
+      {
+        term: '確定申告',
+        reading: 'かくていしんこく',
+        meaningVi: 'khai thuế cá nhân (cuối năm)',
+        noteVi: 'Khai báo thu nhập 1 năm với 国税庁, nộp từ 16/2 đến 15/3 năm sau. Áp dụng cho 個人事業主, người có thu nhập phụ, hoặc muốn xin hoàn thuế.',
+      },
+      {
+        term: '源泉徴収票',
+        reading: 'げんせんちょうしゅうひょう',
+        meaningVi: 'giấy xác nhận thuế đã khấu trừ (do công ty cấp)',
+        noteVi: 'Công ty cấp vào tháng 12 hoặc tháng 1. Tóm tắt lương + thuế công ty đã trừ giúp bạn. Phải có khi làm 確定申告.',
+      },
+      {
+        term: '所得',
+        reading: 'しょとく',
+        meaningVi: 'thu nhập (tính thuế)',
+        noteVi: 'Khác với 収入 (doanh thu): 所得 = 収入 - 必要経費. Thuế tính trên 所得, không phải 収入.',
+      },
+      {
+        term: '控除',
+        reading: 'こうじょ',
+        meaningVi: 'khoản trừ (giảm thuế)',
+        noteVi: 'Các khoản giảm trừ vào 所得 trước khi tính thuế: 基礎控除, 配偶者控除, 扶養控除, 社会保険料控除, 医療費控除, ふるさと納税…',
+      },
+      {
+        term: '還付',
+        reading: 'かんぷ',
+        meaningVi: 'hoàn thuế',
+        noteVi: 'Khi thuế công ty đã trừ NHIỀU HƠN thuế thực tế phải nộp (vd có nhiều 控除), nhà nước hoàn lại phần dư. Chuyển vào tài khoản ngân hàng bạn khai.',
+      },
+    ],
     officialLinks: [
       { label: '国税庁 — Trang khai thuế chính thức (e-Tax)', url: 'https://www.nta.go.jp/taxes/shiraberu/shinkoku/kakutei.htm' },
       { label: '確定申告書等作成コーナー (tạo mẫu online)', url: 'https://www.keisan.nta.go.jp/' },
