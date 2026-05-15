@@ -35,7 +35,7 @@ import {
   toggleGuideChecklistItem,
 } from '../utils/guideChecklistProgress';
 import { useGuideProgress } from '../hooks/useGuideProgress';
-import RichText from '../components/RichText';
+import RichText, { RichInline } from '../components/RichText';
 import {
   buildAdminGuideExportHtml,
   getAdminGuideExportFileName,
@@ -361,7 +361,7 @@ export default function AdminDetailScreen() {
       <View style={[styles.guideHeader, { backgroundColor: guide.color }]}>
         <Text style={styles.guideJp}>{guide.titleJp}</Text>
         <Text style={styles.guideTitle}>{guide.title}</Text>
-        <Text style={styles.guideDesc}>{guide.description}</Text>
+        <RichInline text={guide.description} style={styles.guideDesc} />
         <View style={styles.headerStatsRow}>
           <View style={styles.headerStatPill}>
             <Ionicons name="list-outline" size={12} color="rgba(255,255,255,0.9)" />
@@ -543,13 +543,13 @@ export default function AdminDetailScreen() {
               </View>
               <View style={styles.quickActionTitleBlock}>
                 <Text style={styles.detailSectionTitle}>Việc cần làm ngay</Text>
-                <Text style={styles.quickActionSubtitle}>{guide.quickAction.deadline}</Text>
+                <RichInline text={guide.quickAction.deadline} style={styles.quickActionSubtitle} />
               </View>
             </View>
 
             <View style={styles.quickActionOfficeBox}>
               <Ionicons name="business-outline" size={15} color={guide.color} />
-              <Text style={styles.quickActionOfficeText}>{guide.quickAction.office}</Text>
+              <RichInline text={guide.quickAction.office} style={styles.quickActionOfficeText} />
             </View>
 
             <InfoList title="Làm ngay" items={guide.quickAction.doNow} color={guide.color} />
@@ -557,7 +557,7 @@ export default function AdminDetailScreen() {
 
             <View style={styles.ifLateBox}>
               <Ionicons name="alert-circle-outline" size={15} color={Colors.warning} />
-              <Text style={styles.ifLateText}>{guide.quickAction.ifLate}</Text>
+              <RichInline text={guide.quickAction.ifLate} style={styles.ifLateText} />
             </View>
 
             <View style={styles.quickSourcesRow}>
@@ -849,9 +849,10 @@ export default function AdminDetailScreen() {
                 {step.tip && (
                   <View style={[styles.tipBox, { backgroundColor: guide.color + '12', borderColor: guide.color + '30' }]}>
                     <Ionicons name="bulb" size={15} color={guide.color} />
-                    <Text style={[styles.tipText, { color: guide.color === Colors.primary ? Colors.primaryDark : guide.color }]}>
-                      {step.tip}
-                    </Text>
+                    <RichInline
+                      text={step.tip}
+                      style={[styles.tipText, { color: guide.color === Colors.primary ? Colors.primaryDark : guide.color }]}
+                    />
                   </View>
                 )}
               </View>
@@ -879,7 +880,7 @@ export default function AdminDetailScreen() {
             {guide.commonMistakes.map((mistake) => (
               <View key={mistake} style={styles.mistakeItem}>
                 <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
-                <Text style={styles.mistakeText}>{mistake}</Text>
+                <RichInline text={mistake} style={styles.mistakeText} />
               </View>
             ))}
           </View>
@@ -898,7 +899,7 @@ export default function AdminDetailScreen() {
                   activeOpacity={0.8}
                 >
                   <View style={styles.faqHeader}>
-                    <Text style={[styles.faqQuestion, { flex: 1 }]}>{item.question}</Text>
+                    <RichInline text={item.question} style={[styles.faqQuestion, { flex: 1 }]} />
                     <Ionicons
                       name={open ? 'chevron-up' : 'chevron-down'}
                       size={16}
@@ -1078,7 +1079,7 @@ function InfoList({ title, items, color }: { title: string; items: string[]; col
       {items.map((item) => (
         <View key={item} style={styles.infoListItem}>
           <View style={[styles.infoBullet, { backgroundColor: color }]} />
-          <Text style={styles.infoListText}>{item}</Text>
+          <RichInline text={item} style={styles.infoListText} />
         </View>
       ))}
     </View>
@@ -1089,7 +1090,7 @@ function InfoText({ title, text, color }: { title: string; text: string; color: 
   return (
     <View style={styles.infoBlock}>
       <Text style={[styles.infoBlockTitle, { color }]}>{title}</Text>
-      <Text style={styles.infoListText}>{text}</Text>
+      <RichInline text={text} style={styles.infoListText} />
     </View>
   );
 }
