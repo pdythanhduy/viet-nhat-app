@@ -487,6 +487,54 @@ export default function AdminDetailScreen() {
           );
         })()}
 
+        {/* Từ vựng cần biết — short glossary of Japanese terms the user
+            will see on forms, signs, counters, or letters for this
+            procedure. Vietnamese-first; Japanese term is the search key,
+            not the explanation. Hidden when no keyTerms authored. */}
+        {guide.keyTerms && guide.keyTerms.length > 0 && (
+          <View
+            style={[
+              styles.counterPhrasesCard,
+              { borderColor: guide.color + '30', backgroundColor: guide.color + '08' },
+            ]}
+          >
+            <View style={styles.counterPhrasesHeader}>
+              <Ionicons name="book-outline" size={16} color={guide.color} />
+              <Text style={[styles.counterPhrasesTitle, { color: guide.color }]}>
+                Từ vựng cần biết
+              </Text>
+            </View>
+            <Text style={styles.counterPhrasesSubtitle}>
+              Các từ tiếng Nhật bạn sẽ thấy trên giấy tờ, biển hiệu, hoặc tại quầy.
+            </Text>
+
+            {guide.keyTerms.map((kt, index) => (
+              <View key={`${kt.term}-${index}`} style={styles.phraseCard}>
+                <View style={styles.phraseTopRow}>
+                  <Text style={styles.phraseJp}>{kt.term}</Text>
+                  <TouchableOpacity
+                    style={styles.phraseCopyBtn}
+                    onPress={() => {
+                      Clipboard.setStringAsync(kt.term).catch(() => {});
+                      Alert.alert('Đã copy', kt.term);
+                    }}
+                    accessibilityLabel="Copy từ tiếng Nhật"
+                  >
+                    <Ionicons name="copy-outline" size={16} color={guide.color} />
+                  </TouchableOpacity>
+                </View>
+                {kt.reading ? (
+                  <Text style={styles.phraseRomaji}>{kt.reading}</Text>
+                ) : null}
+                <Text style={styles.phraseVn}>{kt.meaningVi}</Text>
+                {kt.noteVi ? (
+                  <RichInline text={kt.noteVi} style={styles.phraseNote} />
+                ) : null}
+              </View>
+            ))}
+          </View>
+        )}
+
         {/* Câu tiếng Nhật có thể nói — placed before "Việc cần làm ngay"
             so the user has the spoken-Japanese cheatsheet in hand before
             walking into the office. The whole section is hidden when a

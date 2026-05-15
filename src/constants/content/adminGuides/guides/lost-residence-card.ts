@@ -138,6 +138,38 @@ const lostResidenceCard: AdminGuide = {
         note: 'Dùng khi đã quá hạn — ISA thường vẫn xử lý nhưng cần giải trình.',
       },
     ],
+    keyTerms: [
+      {
+        term: '在留カード',
+        reading: 'ざいりゅうカード',
+        meaningVi: 'thẻ cư trú',
+        noteVi: 'Thẻ ID dành cho người nước ngoài ở Nhật trung-dài hạn. Phải mang theo người luôn (luật yêu cầu).',
+      },
+      {
+        term: '再交付',
+        reading: 'さいこうふ',
+        meaningVi: 'cấp lại',
+        noteVi: 'Khi mất/hỏng thẻ, bạn xin 再交付 tại 入管. Khác với "gia hạn" (更新) — đây là làm lại thẻ vì đã mất.',
+      },
+      {
+        term: '紛失届',
+        reading: 'ふんしつとどけ',
+        meaningVi: 'giấy báo mất',
+        noteVi: 'Đến 交番 (đồn cảnh sát) khai báo mất thẻ → họ cấp 受理番号 (mã biên nhận). Cần mã này khi nộp 再交付 tại 入管.',
+      },
+      {
+        term: '受理番号',
+        reading: 'じゅりばんごう',
+        meaningVi: 'mã biên nhận (cảnh sát cấp)',
+        noteVi: 'Số mà cảnh sát đưa cho bạn sau khi báo mất. Ghi vào điện thoại / chụp ảnh — sẽ phải điền vào đơn xin 再交付.',
+      },
+      {
+        term: '出入国在留管理庁',
+        reading: 'しゅつにゅうこくざいりゅうかんりちょう',
+        meaningVi: 'Cục Quản lý Xuất nhập cảnh và Lưu trú (ISA)',
+        noteVi: 'Cơ quan xử lý visa và thẻ cư trú. Còn gọi tắt là 入管. Đây là nơi nộp đơn 再交付.',
+      },
+    ],
     officialLinks: [
       { label: '在留カードの再交付申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-7.html' },
       { label: '在留カードとは？— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },

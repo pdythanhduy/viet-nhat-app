@@ -119,6 +119,38 @@ const movingInNotification: AdminGuide = {
         vn: 'Có xong trong hôm nay không?',
       },
     ],
+    keyTerms: [
+      {
+        term: '転入届',
+        reading: 'てんにゅうとどけ',
+        meaningVi: 'giấy báo chuyển đến',
+        noteVi: 'Nộp ở 市役所/区役所 nơi bạn vừa chuyển tới, trong vòng 14 ngày từ ngày bắt đầu ở.',
+      },
+      {
+        term: '転出証明書',
+        reading: 'てんしゅつしょうめいしょ',
+        meaningVi: 'giấy xác nhận đã chuyển đi',
+        noteVi: '市役所 ở thành phố cũ cấp khi bạn báo chuyển đi. Đem theo khi nộp 転入届 ở thành phố mới.',
+      },
+      {
+        term: '住民票',
+        reading: 'じゅうみんひょう',
+        meaningVi: 'giấy chứng nhận cư trú',
+        noteVi: 'Sau khi xong 転入届, xin luôn vài bản 住民票 — cần cho ngân hàng, công ty, hợp đồng nhà.',
+      },
+      {
+        term: '市役所 / 区役所',
+        reading: 'しやくしょ / くやくしょ',
+        meaningVi: 'ủy ban thành phố / ủy ban quận',
+        noteVi: 'Cơ quan hành chính địa phương. 区役所 dùng cho các quận thuộc thành phố lớn (Tokyo 23 ku, Osaka, Yokohama…).',
+      },
+      {
+        term: '在留カード',
+        reading: 'ざいりゅうカード',
+        meaningVi: 'thẻ cư trú',
+        noteVi: 'Mang theo khi đi 市役所. Nhân viên sẽ ghi địa chỉ mới lên mặt sau thẻ.',
+      },
+    ],
     officialLinks: [
       { label: 'Resident registration system — Ministry of Internal Affairs and Communications', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/' },
       { label: 'Moving procedures on Myna Portal', url: 'https://myna.go.jp/html/moving_oss.html' },
