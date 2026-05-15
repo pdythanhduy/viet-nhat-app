@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
-    color: Colors.textPrimary,
   },
   table: {
     borderWidth: 1,
