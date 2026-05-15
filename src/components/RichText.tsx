@@ -47,13 +47,25 @@ function isSeparator(cells: string[]): boolean {
   return cells.every((c) => /^:?-+:?$/.test(c));
 }
 
-export function RichInline({ text, style }: { text: string; style?: StyleProp<TextStyle> }) {
+export function RichInline({
+  text,
+  style,
+  numberOfLines,
+}: {
+  text: string;
+  style?: StyleProp<TextStyle>;
+  numberOfLines?: number;
+}) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   if (parts.length === 1) {
-    return <Text style={style}>{text}</Text>;
+    return (
+      <Text style={style} numberOfLines={numberOfLines}>
+        {text}
+      </Text>
+    );
   }
   return (
-    <Text style={style}>
+    <Text style={style} numberOfLines={numberOfLines}>
       {parts.map((part, i) =>
         part.startsWith('**') && part.endsWith('**') ? (
           <Text key={i} style={styles.bold}>
