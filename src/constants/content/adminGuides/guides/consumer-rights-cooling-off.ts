@@ -51,7 +51,7 @@ const consumerRightsCoolingOff: AdminGuide = {
     office:
       '**国民生活センター — 188** (gọi miễn phí từ mọi điện thoại Nhật — phát âm "iya-iya" = không không). Sẽ kết nối đến **消費生活センター** 都道府県/市町村 gần nhất. **警察相談 #9110** cho trường hợp lừa đảo có yếu tố hình sự. **法テラス 0570-078374** cho tư vấn pháp lý có thu nhập thấp.',
     doNow: [
-      '**KHÔNG hoảng**. Lưu mọi chứng cứ: hợp đồng, biên nhận, email, SMS, ảnh, recording cuộc gọi nếu có.',
+      '**KHÔNG hoảng**. Lưu mọi chứng cứ: hợp đồng, biên nhận, email, SMS, ảnh, ghi âm cuộc gọi nếu có.',
       'Kiểm tra thời gian: bạn ký bao nhiêu ngày trước? Có nằm trong 8/20 ngày không?',
       'Kiểm tra loại giao dịch: 訪問販売 (qua nhà / cửa) / 電話勧誘 / 連鎖販売 / online / cửa hàng?',
       'Nếu trong cooling-off period → viết **書面 (thư) gửi 内容証明郵便** đến công ty (chứng cứ pháp lý mạnh nhất).',
@@ -62,7 +62,7 @@ const consumerRightsCoolingOff: AdminGuide = {
       '在留カード hoặc ID',
       'Số 通帳 / thẻ tín dụng (KHÔNG đưa cho ai khác — chỉ ghi note)',
       'Receipts thanh toán',
-      'Email / SMS / recording (chụp ảnh tin nhắn)',
+      'Email / SMS / ghi âm (chụp ảnh tin nhắn)',
     ],
     ifLate:
       'Quá cooling-off period (>8 hoặc >20 ngày) → **CÒN cách**: luật 消費者契約法 cho phép vô hiệu hóa khi có 不実告知 (nói dối) / 断定的判断の提供 (khẳng định lợi nhuận chắc chắn) / 不利益事実の不告知 (không nói rõ bất lợi). Hết hạn 1 năm sau khi phát hiện hoặc 5 năm sau ký. Gọi 188 ngay.',
@@ -92,14 +92,14 @@ const consumerRightsCoolingOff: AdminGuide = {
     '**警察相談 #9110** — không khẩn cấp, tư vấn về lừa đảo có yếu tố hình sự.',
     '**法テラス** 0570-078374 — tư vấn pháp lý có thu nhập thấp / miễn phí.',
     '**外国人相談センター** — hỗ trợ đa ngôn ngữ (xem foreign-resident-support-centers).',
-    '**Cơ quan giao dịch**:\n• Hợp đồng → công ty.\n• 内容証明郵便 → bưu điện gần nhất (gửi recommended với ghi nội dung).',
+    '**Cơ quan giao dịch**:\n• Hợp đồng → công ty.\n• 内容証明郵便 → bưu điện gần nhất (gửi dưới dạng thư bảo đảm có ghi nội dung).',
     '**Online**:\n• 国民生活センター: www.kokusen.go.jp\n• 消費者庁: www.caa.go.jp\n• 消費者ホットライン: 188',
   ],
   estimatedTime:
     'Gọi 188: 15–30 phút tư vấn ban đầu. Viết 内容証明 + gửi: 1–2 giờ + 1,500–2,500円 phí bưu điện. Cooling-off hiệu lực: ngay khi gửi 通知 (trước 24h ngày cuối của hạn). Hoàn tiền: 1–4 tuần. Tranh chấp lớn cần 弁護士: vài tháng.',
   fees: [
     '**Hoàn toàn miễn phí**:\n• Gọi 188 — miễn phí từ mọi điện thoại Nhật.\n• Tư vấn 消費生活センター — miễn phí.\n• 警察相談 #9110 — miễn phí.\n• 法テラス tư vấn ban đầu — miễn phí (thu nhập thấp).\n• Cooling-off thực hiện — KHÔNG có phí, công ty PHẢI hoàn tiền 100%.',
-    '**Chi phí giao tiếp**:\n• 内容証明郵便: ~1,500–2,500円 (recommended có ghi nội dung).\n• 配達証明 (giao có biên nhận): +320円.\n• Email/SMS: miễn phí (nhưng không có giá trị pháp lý mạnh).',
+    '**Chi phí giao tiếp**:\n• 内容証明郵便: ~1,500–2,500円 (thư bảo đảm có ghi nội dung).\n• 配達証明 (giao có biên nhận): +320円.\n• Email/SMS: miễn phí (nhưng không có giá trị pháp lý mạnh).',
     '**Khi cần 弁護士 / 司法書士**:\n• Tư vấn ban đầu 30 phút: 5,000円 (đa số). Có nơi miễn phí lần đầu.\n• Đại diện tranh chấp: 50,000–500,000円+ tùy vụ.\n• 法テラス cho thu nhập thấp: hỗ trợ tài chính / miễn phí.',
     '**Phí đối tượng có thể ép thu nhưng KHÔNG hợp pháp**:\n• Phí "huỷ hợp đồng": 訪問販売 / 電話勧誘 trong cooling-off → KHÔNG có quyền thu.\n• Phí "đã sử dụng": dịch vụ chưa giao đầy đủ → KHÔNG có quyền thu.\n• 違約金 ngoài 9条 消費者契約法 → có thể vô hiệu hóa.',
   ],
@@ -148,7 +148,7 @@ const consumerRightsCoolingOff: AdminGuide = {
     {
       question: 'Vay 闇金 (cho vay bất hợp pháp) → giờ họ đòi đe doạ — phải làm gì?',
       answer:
-        '**Quan trọng**: KHÔNG trả thêm. Luật bảo vệ bạn.\n\n**Luật 利息制限法 + 出資法**:\n\n• Lãi suất hợp pháp tối đa: 15–20%/năm tùy số tiền.\n• 闇金 thường tính >100%/năm (10–50%/10 ngày phổ biến).\n• **Toàn bộ phần vượt quá pháp định → VÔ HIỆU**.\n• Một số trường hợp **toàn bộ nợ vô hiệu** (ngay cả gốc).\n\n**Bước cần làm NGAY**:\n\n1. **NGỪNG mọi liên hệ với 闇金**:\n• Đừng tự gọi lại / trả lời.\n• Đừng đưa số tài khoản mới.\n• Đừng gặp trực tiếp.\n\n2. **Gọi 188** — họ hướng dẫn chuyên gia 闇金.\n\n3. **Gọi 弁護士 chuyên 闇金 / 多重債務**:\n• 法テラス: 0570-078374.\n• 弁護士会 ở mỗi 都道府県 có 多重債務相談.\n• Tư vấn ban đầu thường miễn phí.\n\n4. **Sau khi 弁護士 nhận case**:\n• 弁護士 sẽ gửi **介入通知** đến 闇金 → họ KHÔNG được liên lạc bạn nữa.\n• Vi phạm → 弁護士 báo 警察 / 弁護士会.\n\n5. **Nếu bị đe doạ / quấy rối**:\n• Gọi 110 (警察 khẩn cấp) hoặc #9110.\n• Báo công sở để bảo vệ.\n• Bằng chứng (recording, SMS, ảnh) lưu kỹ.\n\n**Phòng ngừa lần sau**:\n• KHÔNG vay từ nguồn không có 登録番号 (số đăng ký 貸金業).\n• Check trang 金融庁: trang đăng ký 貸金業者.\n• Nếu thật cần tiền → 消費者金融 hợp pháp (アコム, レイク, プロミス — lãi 15–18%/năm) hoặc 銀行 personal loan.\n• 法テラス cho hỗ trợ tài chính người thu nhập thấp.',
+        '**Quan trọng**: KHÔNG trả thêm. Luật bảo vệ bạn.\n\n**Luật 利息制限法 + 出資法**:\n\n• Lãi suất hợp pháp tối đa: 15–20%/năm tùy số tiền.\n• 闇金 thường tính >100%/năm (10–50%/10 ngày phổ biến).\n• **Toàn bộ phần vượt quá pháp định → VÔ HIỆU**.\n• Một số trường hợp **toàn bộ nợ vô hiệu** (ngay cả gốc).\n\n**Bước cần làm NGAY**:\n\n1. **NGỪNG mọi liên hệ với 闇金**:\n• Đừng tự gọi lại / trả lời.\n• Đừng đưa số tài khoản mới.\n• Đừng gặp trực tiếp.\n\n2. **Gọi 188** — họ hướng dẫn chuyên gia 闇金.\n\n3. **Gọi 弁護士 chuyên 闇金 / 多重債務**:\n• 法テラス: 0570-078374.\n• 弁護士会 ở mỗi 都道府県 có 多重債務相談.\n• Tư vấn ban đầu thường miễn phí.\n\n4. **Sau khi 弁護士 nhận case**:\n• 弁護士 sẽ gửi **介入通知** đến 闇金 → họ KHÔNG được liên lạc bạn nữa.\n• Vi phạm → 弁護士 báo 警察 / 弁護士会.\n\n5. **Nếu bị đe doạ / quấy rối**:\n• Gọi 110 (警察 khẩn cấp) hoặc #9110.\n• Báo công sở để bảo vệ.\n• Bằng chứng (ghi âm, SMS, ảnh) lưu kỹ.\n\n**Phòng ngừa lần sau**:\n• KHÔNG vay từ nguồn không có 登録番号 (số đăng ký 貸金業).\n• Check trang 金融庁: trang đăng ký 貸金業者.\n• Nếu thật cần tiền → 消費者金融 hợp pháp (アコム, レイク, プロミス — lãi 15–18%/năm) hoặc 銀行 personal loan.\n• 法テラス cho hỗ trợ tài chính người thu nhập thấp.',
     },
   ],
   counterPhrases: [

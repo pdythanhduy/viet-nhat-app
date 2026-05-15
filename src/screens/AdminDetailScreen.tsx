@@ -434,7 +434,7 @@ export default function AdminDetailScreen() {
                   />
                   <View style={styles.summaryRowText}>
                     <Text style={styles.summaryRowLabel}>Hạn xử lý</Text>
-                    <Text style={styles.summaryRowValue}>{qa.deadline}</Text>
+                    <RichInline text={qa.deadline} style={styles.summaryRowValue} />
                   </View>
                 </View>
               ) : null}
@@ -449,7 +449,7 @@ export default function AdminDetailScreen() {
                   />
                   <View style={styles.summaryRowText}>
                     <Text style={styles.summaryRowLabel}>Nơi làm</Text>
-                    <Text style={styles.summaryRowValue}>{qa.office}</Text>
+                    <RichInline text={qa.office} style={styles.summaryRowValue} />
                   </View>
                 </View>
               ) : null}
@@ -464,7 +464,7 @@ export default function AdminDetailScreen() {
                   />
                   <View style={styles.summaryRowText}>
                     <Text style={styles.summaryRowLabel}>Mang theo</Text>
-                    <Text style={styles.summaryRowValue}>{bringPreview}</Text>
+                    <RichInline text={bringPreview} style={styles.summaryRowValue} />
                   </View>
                 </View>
               ) : null}
@@ -479,7 +479,7 @@ export default function AdminDetailScreen() {
                   />
                   <View style={styles.summaryRowText}>
                     <Text style={styles.summaryRowLabel}>Nếu trễ / sai</Text>
-                    <Text style={styles.summaryRowValue}>{qa.ifLate}</Text>
+                    <RichInline text={qa.ifLate} style={styles.summaryRowValue} />
                   </View>
                 </View>
               ) : null}
@@ -613,7 +613,7 @@ export default function AdminDetailScreen() {
                 value={formatLastUpdated(guide.legalScope.nextReviewAt)}
               />
             </View>
-            <Text style={styles.legalScopeNote}>{guide.legalScope.jurisdictionNote}</Text>
+            <RichInline text={guide.legalScope.jurisdictionNote} style={styles.legalScopeNote} />
             {guide.legalScope.whenToAskExpert?.length ? (
               <InfoList
                 title="Khi nên hỏi chuyên gia/cơ quan"
