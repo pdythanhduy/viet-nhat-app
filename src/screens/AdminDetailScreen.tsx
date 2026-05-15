@@ -613,7 +613,7 @@ export default function AdminDetailScreen() {
                 value={formatLastUpdated(guide.legalScope.nextReviewAt)}
               />
             </View>
-            <Text style={styles.legalScopeNote}>{guide.legalScope.jurisdictionNote}</Text>
+            <RichInline text={guide.legalScope.jurisdictionNote} style={styles.legalScopeNote} />
             {guide.legalScope.whenToAskExpert?.length ? (
               <InfoList
                 title="Khi nên hỏi chuyên gia/cơ quan"

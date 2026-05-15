@@ -111,7 +111,7 @@ const embassyConsulateVietnamJapan: AdminGuide = {
     'Không đặt hẹn → đợi cả ngày hoặc bị từ chối nếu cơ quan có hệ thống đặt online.',
     'Đến không đúng giờ làm việc / ngày nghỉ Việt Nam → đóng cửa.',
     'Không mang đủ phí tiền mặt → phải về lấy thêm.',
-    'Hộ chiếu chỉ còn vài tháng đến khi xin gia hạn → có thể bị từ chối làm thủ tục khác cần hộ chiếu valid >6 tháng.',
+    'Hộ chiếu chỉ còn vài tháng đến khi xin gia hạn → có thể bị từ chối làm thủ tục khác cần hộ chiếu còn hạn >6 tháng.',
     'Tự dịch giấy tờ Nhật mà không công chứng → không được chấp nhận. Phải qua dịch thuật + công chứng tại 行政書士 / 公証役場.',
     'Tin "Đại sứ quán xử lý visa Nhật" → SAI. Visa Nhật + 在留カード là việc của 入管.',
     'Không lưu hotline bảo hộ công dân → khẩn cấp không gọi được.',

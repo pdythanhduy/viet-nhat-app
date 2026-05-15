@@ -172,3 +172,133 @@ Spot-check these guides on device (iOS + Android if possible) after merge:
 - `npm run test:ci` → reported in PR
 - `npm run verify:content` → reported in PR
 - No new dependency, no new file added except this audit doc.
+
+---
+
+## 8. Follow-up after PR #14 review (2026-05-15)
+
+User testing after PR #14 merged found two remaining issues that the original audit missed:
+
+1. **Raw `**` still visible in the "Tóm tắt nhanh" card.**
+2. **English leftovers in user-visible procedure content.**
+
+This section documents the follow-up fixes applied on top of the merged PR #14 work.
+
+### 8.1 "Tóm tắt nhanh" `**` leak — root cause + fix
+
+**Render site:** `src/screens/AdminDetailScreen.tsx` lines 437 / 452 / 467 / 482 (the four summary rows above the full "Việc cần làm ngay" block).
+
+Each row was rendering its `quickAction` field with a plain `<Text>`, **not** `RichInline` — so `**bold**` inside `qa.deadline`, `qa.office`, `qa.bring` (preview), and `qa.ifLate` leaked through literally.
+
+Note that the **same** four fields ARE wrapped in `RichInline` further down the screen (lines 546 / 552 / 555 / 556 / 560) in the main "Việc cần làm ngay" block. The bug only affected the upper "Tóm tắt nhanh" preview, which is why PR #14's manual QA didn't catch it (the rendered bold below looked correct).
+
+**Affected guides** (16 leak sites across 9 guides):
+
+| Guide | quickAction fields with `**` |
+|---|---|
+| `consumer-rights-cooling-off` | `deadline`, `office`, `ifLate`, `doNow[]` (x3) |
+| `discrimination-human-rights-support` | `office`, `doNow[]` |
+| `embassy-consulate-vietnam-japan` | `office` |
+| `essential-apps-japan-life` | `deadline`, `office`, `doNow[]` (x6) |
+| `fire-earthquake-insurance-home` | `office`, `doNow[]` (x2) |
+| `foreign-resident-support-centers` | `office` |
+| `free-japanese-classes-local` | `office` |
+| `holiday-night-medical-care` | `office` |
+| `ikusei-shuro-system-guide` | `deadline`, `office` |
+
+`doNow[]` and `bring[]` weren't affected (they always rendered via `InfoList` → `RichInline`).
+
+**Fix:** swap the four `<Text>` nodes in the "Tóm tắt nhanh" card to `<RichInline>`, keeping the `summaryRowValue` style intact:
+
+```diff
+- <Text style={styles.summaryRowValue}>{qa.deadline}</Text>
++ <RichInline text={qa.deadline} style={styles.summaryRowValue} />
+```
+
+(same swap × 4: `deadline`, `office`, `bringPreview`, `ifLate`)
+
+### 8.2 Second `**` leak — `legalScope.jurisdictionNote`
+
+While auditing render sites, a second plain-`<Text>` leak was found:
+
+**Render site:** `AdminDetailScreen.tsx` line 616 — `<Text style={styles.legalScopeNote}>{guide.legalScope.jurisdictionNote}</Text>`
+
+**Affected guides** (6 guides):
+
+- `ideco-personal-pension`
+- `ikusei-shuro-system-guide`
+- `inheritance-will-japan-foreigners`
+- `jista-entry-system-guide`
+- `mental-health-stress-support`
+- `tax-on-remittance-to-vietnam`
+
+**Fix:** swap to `RichInline`, style preserved:
+
+```diff
+- <Text style={styles.legalScopeNote}>{guide.legalScope.jurisdictionNote}</Text>
++ <RichInline text={guide.legalScope.jurisdictionNote} style={styles.legalScopeNote} />
+```
+
+### 8.3 Other render sites verified clean
+
+| Field | Render via | Status |
+|---|---|---|
+| `step.title` | plain `<Text>` (line 786) | ✅ no `**` content found |
+| `step.imageCaption` | plain `<Text>` (line 827) | ✅ no `**` content |
+| `step.documents[]` | plain `<Text>` (line 843) | ✅ no `**` content |
+| `documentsChecklist[].label / .note` | plain `<Text>` (lines 712, 714) | ✅ no `**` content |
+| `quickAction.officialSourceLabels[]` | plain `<Text>` (line 567) | ✅ no `**` content (short labels only) |
+| `DailyLifeDetailScreen` topic.description / section.title / section.tip | plain `<Text>` | ✅ Daily Life content has **zero** `**` |
+
+If future content authors add `**` to any of the "no content found" fields, they'll leak again. Section 5.4 of this audit notes a possible lint rule as a backstop.
+
+### 8.4 English leftovers in user-visible content — 8 fixes
+
+Audited the same scope (description / quickAction / steps / faq / info lists / commonMistakes / legalScope) for obvious English words that have a natural Vietnamese equivalent.
+
+| File | Field | Before → After |
+|---|---|---|
+| `consumer-rights-cooling-off.ts` | `doNow[0]` | `recording cuộc gọi` → `ghi âm cuộc gọi` |
+| `consumer-rights-cooling-off.ts` | `bring[2]` | `Email / SMS / recording (chụp ảnh tin nhắn)` → `Email / SMS / ghi âm (chụp ảnh tin nhắn)` |
+| `consumer-rights-cooling-off.ts` | `whereToDo[2]` | `gửi recommended với ghi nội dung` → `gửi dưới dạng thư bảo đảm có ghi nội dung` |
+| `consumer-rights-cooling-off.ts` | `fees[1]` | `(recommended có ghi nội dung)` → `(thư bảo đảm có ghi nội dung)` |
+| `consumer-rights-cooling-off.ts` | `faq[].answer` (闇金 question) | `Bằng chứng (recording, SMS, ảnh)` → `Bằng chứng (ghi âm, SMS, ảnh)` |
+| `embassy-consulate-vietnam-japan.ts` | `commonMistakes[4]` | `hộ chiếu valid >6 tháng` → `hộ chiếu còn hạn >6 tháng` |
+| `inheritance-will-japan-foreigners.ts` | `commonMistakes[4]` | `hình thức có valid với luật Nhật` → `hình thức có hợp lệ theo luật Nhật` |
+| `paternity-parental-leave-fathers.ts` | `faq[].answer` (work-visa question) | `chỉ cần valid 雇用契約` → `chỉ cần 雇用契約 còn hiệu lực` |
+
+### 8.5 English intentionally kept
+
+Found but **not** changed — these are either spoken phrases users repeat verbatim, banking/postal product names, well-known loanwords, or proper nouns:
+
+| Kept English | Why |
+|---|---|
+| `"English please"`, `"Vietnamese please"` (`discrimination-human-rights-support`, `emergency-calls-japan`) | The user is meant to **say** these to a Japanese operator. Translating defeats the purpose. |
+| `personal loan` (`consumer-rights-cooling-off` faq about 闇金) | Banking product term widely used in VN expat finance discussions. |
+| `online application`, `application`, `apply` in `japanese-resume-rirekisho.ts` and `job-interview-japan.ts` | Heavily used jargon in VN-expat job-hunting context; rewording risks lowering recognition. Could be cleaned in a dedicated job-content pass. |
+| `face-to-face`, `option` (`discrimination-human-rights-support`) | Common VN loanwords. |
+| `output` (`electric-bike-moped-rules`) | Technical motor spec — keeps the product datasheet term. |
+| `multi-level marketing`, `Anti-Money Laundering (AML)` (already in PR #14 audit) | Standard ISO/regulatory terminology + appears with its kanji counterpart. |
+| `Free` / `Premium` (when used as app-store labels) | App-distribution branding. |
+| All English words inside `searchKeywords[]` (not visible to the user) | Search relevance. |
+
+The `japanese-resume-rirekisho` / `job-interview-japan` pair has the densest Vietlish ("Reject KHÔNG phải failure — chỉ là chưa fit", "Apply muộn deadline …"). Not in this PR's scope but flagged as a high-value follow-up.
+
+### 8.6 Verification (this follow-up)
+
+Re-ran after edits:
+
+- `npm run typecheck` → reported in PR
+- `npm run content:qa-admin-guides` → reported in PR
+- `npm run verify:content` → reported in PR
+
+### 8.7 Files changed in follow-up
+
+- `src/screens/AdminDetailScreen.tsx` (2 chunks — Tóm tắt nhanh × 4 fields + legalScope.jurisdictionNote)
+- `src/constants/content/adminGuides/guides/consumer-rights-cooling-off.ts` (5 string edits)
+- `src/constants/content/adminGuides/guides/embassy-consulate-vietnam-japan.ts` (1 edit)
+- `src/constants/content/adminGuides/guides/inheritance-will-japan-foreigners.ts` (1 edit)
+- `src/constants/content/adminGuides/guides/paternity-parental-leave-fathers.ts` (1 edit)
+- `docs/admin-guide-readability-richtext-audit.md` (this appended section)
+
+All edits are content-only or screen-rendering-only; no logic change, no new dependency, no AI Mail touch.

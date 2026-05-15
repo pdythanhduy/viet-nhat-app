@@ -129,7 +129,7 @@ const inheritanceWillJapanForeigners: AdminGuide = {
     'Không có nhân chứng cho 公正証書 → cần 2 nhân chứng KHÔNG phải người thừa kế.',
     'Quên 3 tháng deadline 相続放棄 → tự động kế thừa cả nợ.',
     'Quên 10 tháng deadline 相続税 → phạt 5–20% + lãi.',
-    'Tin "đến Đại sứ quán VN làm di chúc là đủ" → Có thể có hiệu lực với luật VN nhưng phải xem hình thức có valid với luật Nhật khi tài sản ở Nhật.',
+    'Tin "đến Đại sứ quán VN làm di chúc là đủ" → Có thể có hiệu lực với luật VN nhưng phải xem hình thức có hợp lệ theo luật Nhật khi tài sản ở Nhật.',
     'Không liệt kê đầy đủ tài sản → người thừa kế bỏ sót → tranh chấp sau.',
     'Lưu di chúc ở nơi gia đình không tìm thấy → có như không.',
     'Đặt 2 người (vợ + con) cùng 遺言執行者 (người thi hành) mà không quy định ưu tiên → tranh chấp sau.',

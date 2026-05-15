@@ -140,7 +140,7 @@ const paternityParentalLeaveFathers: AdminGuide = {
     {
       question: 'Tôi có visa lao động — 育休 có ảnh hưởng visa không?',
       answer:
-        '**Đa số trường hợp KHÔNG**:\n\n• 育休 vẫn duy trì 雇用契約 với công ty.\n• 雇用保険 + 社会保険 không bị gián đoạn (chỉ miễn phí).\n• Visa 技術・人文知識・国際業務 / 高度専門職 / 経営・管理: không yêu cầu phải đi làm hằng ngày, chỉ cần valid 雇用契約.\n• 在留期限 không thay đổi vì 育休.\n• 確定申告 / 住民税 ít ảnh hưởng.\n\n**Khi 在留期間 update / extend**:\n\n• 入管 yêu cầu chứng minh thu nhập (源泉徴収票 / 課税証明書).\n• 給付金 KHÔNG hiện trên 源泉徴収票 (vì tax-free).\n• Có thể cần thêm: 育児休業給付支給決定通知書, 育児休業中の証明書.\n• Nói chuyện với HR trước khi update để chuẩn bị giấy tờ.\n\n**永住 / 帰化 application trong / ngay sau 育休**:\n\n• Có thể ảnh hưởng — 入管 / 法務省 xét thu nhập + 安定性.\n• Hỏi luật sư / 行政書士 trước khi apply.\n\n**Visa 留学 / 家族滞在**: KHÔNG có 育児休業 vì không phải 雇用契約 chính thức. Nếu vợ visa lao động + bạn 家族滞在: vợ là người dùng 育休, không phải bạn.',
+        '**Đa số trường hợp KHÔNG**:\n\n• 育休 vẫn duy trì 雇用契約 với công ty.\n• 雇用保険 + 社会保険 không bị gián đoạn (chỉ miễn phí).\n• Visa 技術・人文知識・国際業務 / 高度専門職 / 経営・管理: không yêu cầu phải đi làm hằng ngày, chỉ cần 雇用契約 còn hiệu lực.\n• 在留期限 không thay đổi vì 育休.\n• 確定申告 / 住民税 ít ảnh hưởng.\n\n**Khi 在留期間 update / extend**:\n\n• 入管 yêu cầu chứng minh thu nhập (源泉徴収票 / 課税証明書).\n• 給付金 KHÔNG hiện trên 源泉徴収票 (vì tax-free).\n• Có thể cần thêm: 育児休業給付支給決定通知書, 育児休業中の証明書.\n• Nói chuyện với HR trước khi update để chuẩn bị giấy tờ.\n\n**永住 / 帰化 application trong / ngay sau 育休**:\n\n• Có thể ảnh hưởng — 入管 / 法務省 xét thu nhập + 安定性.\n• Hỏi luật sư / 行政書士 trước khi apply.\n\n**Visa 留学 / 家族滞在**: KHÔNG có 育児休業 vì không phải 雇用契約 chính thức. Nếu vợ visa lao động + bạn 家族滞在: vợ là người dùng 育休, không phải bạn.',
     },
   ],
   counterPhrases: [
