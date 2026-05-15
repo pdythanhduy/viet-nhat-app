@@ -872,6 +872,36 @@ export default function HomeScreen() {
             </TouchableOpacity>
           ))}
 
+          {/* Dịch Thư Nhật — UI mock entry point (Phase 1.5). No real AI/API yet;
+              the Beta badge + caption keep expectations honest. */}
+          <TouchableOpacity
+            style={styles.mailTranslateCard}
+            onPress={() => navigation.navigate('MailTranslateIntro')}
+            accessibilityRole="button"
+            accessibilityLabel="Dịch Thư Nhật (bản thử nghiệm)"
+          >
+            <View style={styles.mailTranslateLeft}>
+              <View style={styles.mailTranslateIconBg}>
+                <Ionicons name="mail-open-outline" size={22} color={Colors.primary} />
+              </View>
+              <View style={styles.mailTranslateText}>
+                <View style={styles.mailTranslateTitleRow}>
+                  <Text style={styles.mailTranslateTitle}>Dịch Thư Nhật</Text>
+                  <View style={styles.mailTranslateBadge}>
+                    <Text style={styles.mailTranslateBadgeText}>BETA</Text>
+                  </View>
+                </View>
+                <Text style={styles.mailTranslateDesc}>
+                  Chụp thư tiếng Nhật để xem bản giải thích tiếng Việt.
+                </Text>
+                <Text style={styles.mailTranslateCaption}>
+                  Bản thử nghiệm giao diện, hiện dùng dữ liệu mẫu.
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color={Colors.primary} />
+          </TouchableOpacity>
+
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Điểm cần để ý</Text>
             {visibleUpdates.hasMore ? (
@@ -1429,6 +1459,72 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderColor: `${Colors.primary}30`,
+  },
+  mailTranslateCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+    marginTop: 10,
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: `${Colors.primary}30`,
+  },
+  mailTranslateLeft: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    flex: 1,
+  },
+  mailTranslateIconBg: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    backgroundColor: Colors.accent,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mailTranslateText: { flex: 1 },
+  mailTranslateTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 4,
+    flexWrap: 'wrap',
+  },
+  mailTranslateTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+  },
+  mailTranslateBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 999,
+    backgroundColor: Colors.warning,
+  },
+  mailTranslateBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.white,
+    letterSpacing: 0.5,
+  },
+  mailTranslateDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 17,
+    marginBottom: 4,
+  },
+  mailTranslateCaption: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    fontStyle: 'italic',
+    lineHeight: 15,
   },
   firstStepsLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, flex: 1 },
   firstStepsIconBg: { width: 40, height: 40, borderRadius: 12, backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center' },
