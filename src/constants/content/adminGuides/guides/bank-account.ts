@@ -103,6 +103,42 @@ const bankAccount: AdminGuide = {
         answer: 'Có. Nếu không cập nhật, thư xác nhận không đến nơi hoặc tài khoản có thể bị hạn chế khi ngân hàng kiểm tra thông tin.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '口座を開きたいです。',
+        romaji: 'Kouza o hirakitai desu.',
+        vn: 'Tôi muốn mở tài khoản ngân hàng.',
+        note: 'Câu mở đầu tại quầy ngân hàng / 郵便局.',
+      },
+      {
+        jp: '在留カードで本人確認できますか。',
+        romaji: 'Zairyuu kaado de honnin kakunin dekimasu ka.',
+        vn: 'Xác minh danh tính bằng 在留カード được không?',
+      },
+      {
+        jp: 'キャッシュカードはいつ届きますか。',
+        romaji: 'Kyasshu kaado wa itsu todokimasu ka.',
+        vn: 'Thẻ ATM khi nào tới ạ?',
+        note: 'Thẻ thường gửi qua bưu điện sau 1-2 tuần, có khi đến nhà đăng ký.',
+      },
+      {
+        jp: '通帳も作りたいです。',
+        romaji: 'Tsuuchou mo tsukuritai desu.',
+        vn: 'Tôi muốn làm cả 通帳 (sổ ngân hàng).',
+        note: 'Một số ngân hàng mặc định 通帳レス (không sổ); xin sổ giấy nếu thích.',
+      },
+      {
+        jp: '海外送金はできますか。',
+        romaji: 'Kaigai soukin wa dekimasu ka.',
+        vn: 'Có thể chuyển tiền ra nước ngoài (về VN) không?',
+      },
+      {
+        jp: '住所変更の手続きをお願いします。',
+        romaji: 'Juusho henkou no tetsuzuki o onegai shimasu.',
+        vn: 'Cho tôi làm thủ tục đổi địa chỉ.',
+        note: 'Cần làm sau khi 転入届 — nếu không, thư từ ngân hàng không tới.',
+      },
+    ],
     keyTerms: [
       {
         term: '口座開設',
