@@ -136,7 +136,7 @@ const domesticViolenceDvSupport: AdminGuide = {
     'Tin chồng/vợ "tôi sẽ thay đổi" sau mỗi lần xin lỗi → mô hình "honeymoon phase" của DV. Thay đổi cần điều trị tâm lý chuyên môn, không tự nhiên.',
     'Sợ "con sẽ bị đưa về 児童相談所" → 児童相談所 ưu tiên giữ trẻ với mẹ/cha không bạo hành. Trẻ bị tách khỏi cha mẹ chỉ khi cả hai cùng có vấn đề.',
     'Không lấy 診断書 khi đi viện vì xấu hổ → mất bằng chứng quan trọng cho tòa.',
-    'Quay về VN luôn không qua thủ tục → có thể vi phạm quyền nuôi con (nếu chồng/vợ kiện 子の連れ去り theo công ước Hague). Tham vấn luật sư trước.',
+    'Quay về VN luôn không qua thủ tục → có thể vi phạm quyền nuôi con (nếu chồng/vợ kiện 子の連れ去り tại tòa Nhật). Lưu ý: Việt Nam KHÔNG phải thành viên Công ước Hague về bắt cóc trẻ — luật áp dụng phức tạp hơn, cần luật sư tư pháp quốc tế trước khi đưa con đi.',
   ],
   faq: [
     {
@@ -177,7 +177,7 @@ const domesticViolenceDvSupport: AdminGuide = {
     {
       question: 'Tôi muốn về VN với con vĩnh viễn — có được không?',
       answer:
-        'Phức tạp. Cần làm ĐÚNG QUY TRÌNH:\n\n1. **Nếu chưa ly hôn + chồng có 親権**: tự đưa con về VN có thể vi phạm Công ước Hague (Nhật + VN đều ký). Chồng có thể kiện đòi đưa con về Nhật.\n\n2. **Nếu đã ly hôn + có 親権 đầy đủ**: được phép đưa con về VN. Nhưng cần làm thủ tục: xuất cảnh hợp lệ + làm 在外公館 (đại sứ quán VN) đăng ký con là công dân VN nếu cần.\n\n3. **Trong tình huống DV cấp cứu**: liên hệ Đại sứ quán Việt Nam Tokyo — họ có thể giúp giấy thông hành khẩn cấp + hướng dẫn quy trình hợp pháp.\n\n**LUÔN tham vấn**: luật sư chuyên gia đình + 入管 + Đại sứ quán + 配偶者暴力相談支援センター cùng lúc TRƯỚC khi đưa con về VN. Sai bước có thể mất quyền nuôi con vĩnh viễn.',
+        'Phức tạp. Cần làm ĐÚNG QUY TRÌNH:\n\n1. **Nếu chưa ly hôn + chồng có 親権**: tự đưa con về VN có thể vi phạm quyền nuôi con của chồng theo luật Nhật (民法). Chồng có thể kiện đòi đưa con về Nhật qua thủ tục tư pháp quốc tế. **Lưu ý**: Nhật là thành viên Công ước Hague 1980 về bắt cóc trẻ qua biên giới (từ 2014), nhưng **Việt Nam KHÔNG phải thành viên**. Điều này KHÔNG có nghĩa "an toàn về VN" — ngược lại, không có Hague nghĩa là không có cơ chế quốc tế chuẩn để giải quyết tranh chấp; áp dụng luật riêng từng nước + thỏa thuận song phương + tư pháp quốc tế phức tạp.\n\n2. **Nếu đã ly hôn + có 親権 đầy đủ**: được phép đưa con về VN. Nhưng cần làm thủ tục: xuất cảnh hợp lệ + làm 在外公館 (đại sứ quán VN) đăng ký con là công dân VN nếu cần.\n\n3. **Trong tình huống DV cấp cứu**: liên hệ Đại sứ quán Việt Nam Tokyo — họ có thể giúp giấy thông hành khẩn cấp + hướng dẫn quy trình hợp pháp.\n\n**LUÔN tham vấn**: luật sư chuyên gia đình + 入管 + Đại sứ quán + 配偶者暴力相談支援センター cùng lúc TRƯỚC khi đưa con về VN. Sai bước có thể mất quyền nuôi con vĩnh viễn hoặc bị truy tố hình sự (誘拐罪) tại Nhật.',
     },
   ],
   counterPhrases: [

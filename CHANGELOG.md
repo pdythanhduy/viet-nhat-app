@@ -14,10 +14,10 @@ The latest entry is at the top.
 
 Content release đóng full backlog 45/45 + verify 22 source-check items
 + ship reviewer brief cho 9 HIGHEST-risk guide. ADMIN_GUIDES count:
-90 → **128** (+38 guide). Không sửa UI, không đổi schema.
+90 → **127** (+37 guide). Không sửa UI, không đổi schema.
 
 ### Added
-- **38 new guide** across A4–A12 batches + 4 standalone post-A12:
+- **37 new guide** across A4–A12 batches + 4 standalone post-A12:
   - A4 (3): `japanese-school-system-children`, `japanese-language-support-children`, `child-allowance-jidou-teate`
   - A5 (3): `police-questioning-rights-japan`, `embassy-consulate-vietnam-japan`, `foreign-resident-support-centers`
   - A6 (2): `ideco-personal-pension`, `tax-on-remittance-to-vietnam`

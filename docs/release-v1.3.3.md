@@ -10,11 +10,11 @@
 
 ## Summary
 
-Đóng full content backlog 45/45 + verify 22 source-check items + ship reviewer brief cho 9 HIGHEST-risk guide. ADMIN_GUIDES count: **90 → 128** (+38 guide). Không sửa UI, không đổi schema, không thêm asset mới.
+Đóng full content backlog 45/45 + verify 22 source-check items + ship reviewer brief cho 9 HIGHEST-risk guide. ADMIN_GUIDES count: **90 → 127** (+37 guide). Không sửa UI, không đổi schema, không thêm asset mới.
 
 | Field | Before (1.3.2) | After (1.3.3) |
 |---|---|---|
-| ADMIN_GUIDES | 90 | **128** |
+| ADMIN_GUIDES | 90 | **127** |
 | `app.json` version | 1.3.2 | **1.3.3** |
 | Content backlog (`full-content-backlog-45-guides.md`) | 18/45 (40%) | **45/45 (100%)** ✅ |
 | Counter phrases | 76 (A1–A3) | **~340** (A1–A12 + post-A12) |
@@ -26,7 +26,7 @@
 
 ---
 
-## 38 new guides shipped (A4–A12 + post-A12 standalone)
+## 37 new guides shipped (A4–A12 + post-A12 standalone)
 
 Chi tiết breakdown trong `docs/content-roadmap-a4-...` đến `a12-...md` + `docs/admin-guides-complete-123-checkpoint.md`. Highlight categories:
 

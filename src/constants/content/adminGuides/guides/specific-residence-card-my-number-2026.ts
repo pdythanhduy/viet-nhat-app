@@ -88,7 +88,7 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
     'KHÔNG có một mốc chung. Khi xin kèm gia hạn / đổi tư cách: theo thời gian chuẩn của thủ tục đó (2–4 tuần đến 3 tháng tùy thủ tục). Sau khi nhận thẻ: kích hoạt My Number functions tại 市役所 ~30 phút.',
   fees: [
     'KHÔNG có "phí 特定在留カード riêng" công bố tại 2026-05-14.',
-    'Theo ISA, cấp 特定在留カード đi cùng thủ tục cấp thẻ thông thường (vd 在留期間更新 4,000円, 在留資格変更 4,000円).',
+    'Theo ISA, cấp 特定在留カード đi cùng thủ tục cấp thẻ thông thường: 在留期間更新 6,000円 (giấy) / 5,500円 (online), 在留資格変更 6,000円 (giấy) / 5,500円 (online) — đã tăng từ 01/04/2025 (xem guide `visa-fee-increase-2025-2026`).',
     'Có thể có phí cụ thể cho việc tích hợp My Number Card — kiểm tra ISA tại ngày nộp.',
     'My Number Card riêng (nếu chưa có): MIỄN PHÍ tại 市役所.',
     'Cấp lại thẻ khi mất: ~1,000–2,000円 (theo quy định hiện hành cho 在留カード).',
