@@ -257,12 +257,12 @@ const mentalHealthStressSupport: AdminGuide = {
       step: 6,
       title: 'Phòng ngừa + nguồn lực dài hạn',
       description:
-        'Sau khi qua giai đoạn cấp tính:\n\n**Phòng ngừa tái phát**:\n• Tiếp tục thuốc theo chỉ định.\n• Nhận biết dấu hiệu sớm (mất ngủ, cô đơn, mất hứng thú) + can thiệp sớm.\n• Lifestyle ổn định.\n• Không cô lập — duy trì kết nối xã hội.\n\n**Xây support system**:\n• 1–2 người thân tin cậy biết tình trạng → có thể gọi khi khó khăn.\n• Nhóm cộng đồng người Việt ở khu — Facebook / LINE.\n• 多文化共生センター — tham gia event.\n• Online cộng đồng (cẩn thận chọn nhóm tích cực, không drama).\n\n**Học kỹ năng**:\n• Mindfulness / thiền — app Calm, Headspace (tiếng Anh) hoặc CD/Youtube tiếng Việt.\n• CBT (Cognitive Behavioral Therapy) self-help — sách tiếng Việt có sẵn.\n• Kỹ năng nói "không" / đặt giới hạn.\n• Quản lý thời gian.\n\n**Trường hợp khẩn cấp về sau**:\n• Số hotline lưu sẵn.\n• Kế hoạch hành động khi triệu chứng quay lại (gọi ai, đi đâu).\n• Người thân biết kế hoạch.\n\n**Khi về Việt Nam**:\n• Mang đầy đủ thuốc + đơn 1–2 tháng.\n• Lấy 診療情報提供書 (giấy tóm tắt điều trị) từ bác sĩ Nhật để bác sĩ VN tiếp tục.\n• Hệ thống tâm lý VN đang phát triển — search "tâm lý uy tín [tên thành phố]" để tìm bác sĩ tốt.',
+        'Sau khi qua giai đoạn cấp tính:\n\n**Phòng ngừa tái phát**:\n• Tiếp tục thuốc theo chỉ định.\n• Nhận biết dấu hiệu sớm (mất ngủ, cô đơn, mất hứng thú) + can thiệp sớm.\n• Giữ lối sống ổn định.\n• Không cô lập — duy trì kết nối xã hội.\n\n**Xây mạng lưới hỗ trợ**:\n• 1–2 người thân tin cậy biết tình trạng → có thể gọi khi khó khăn.\n• Nhóm cộng đồng người Việt ở khu — Facebook / LINE.\n• 多文化共生センター — tham gia sự kiện.\n• Cộng đồng trực tuyến (cẩn thận chọn nhóm tích cực, không thị phi).\n\n**Học kỹ năng**:\n• Thiền chánh niệm (mindfulness) — app Calm, Headspace (tiếng Anh) hoặc clip YouTube tiếng Việt.\n• Liệu pháp nhận thức hành vi (CBT) tự thực hành — sách tiếng Việt có sẵn.\n• Kỹ năng nói "không" / đặt giới hạn.\n• Quản lý thời gian.\n\n**Trường hợp khẩn cấp về sau**:\n• Số hotline lưu sẵn.\n• Kế hoạch hành động khi triệu chứng quay lại (gọi ai, đi đâu).\n• Người thân biết kế hoạch.\n\n**Khi về Việt Nam**:\n• Mang đầy đủ thuốc + đơn 1–2 tháng.\n• Lấy 診療情報提供書 (giấy tóm tắt điều trị) từ bác sĩ Nhật để bác sĩ VN tiếp tục.\n• Hệ thống tâm lý VN đang phát triển — tra "tâm lý uy tín [tên thành phố]" để tìm bác sĩ tốt.',
       documents: [
         'Sổ tâm trạng',
         '診療情報提供書 (nếu chuyển bác sĩ)',
       ],
-      tip: 'Sức khỏe tâm thần = đầu tư dài hạn. Ngày tốt sẽ vượt ngày xấu nếu duy trì điều trị + lifestyle. Bạn xứng đáng được giúp đỡ.',
+      tip: 'Sức khỏe tâm thần = đầu tư dài hạn. Ngày tốt sẽ vượt ngày xấu nếu duy trì điều trị + lối sống lành mạnh. Bạn xứng đáng được giúp đỡ.',
     },
   ],
 };

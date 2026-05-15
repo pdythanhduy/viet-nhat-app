@@ -241,7 +241,7 @@ const petRegistrationJapan: AdminGuide = {
         '賃貸契約書 đọc kỹ',
         '管理規約 chung cư',
       ],
-      tip: 'Đừng mua pet vội — nuôi pet là cam kết 10–20 năm + thay đổi lifestyle. Cân nhắc thử trial bằng pet sitting / volunteer 動物愛護センター trước.',
+      tip: 'Đừng vội mua thú cưng — nuôi thú cưng là cam kết 10–20 năm + thay đổi lối sống. Cân nhắc thử trước bằng cách trông giữ thú thuê (pet sitting) hoặc tình nguyện tại 動物愛護センター.',
     },
     {
       step: 2,
