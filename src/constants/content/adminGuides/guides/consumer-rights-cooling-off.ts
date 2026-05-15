@@ -10,7 +10,7 @@ const consumerRightsCoolingOff: AdminGuide = {
   icon: 'shield-checkmark-outline',
   color: '#3F51B5',
   description:
-    'Cooling-off (クーリング・オフ) là quyền hủy hợp đồng vô điều kiện trong 8–20 ngày khi mua qua **訪問販売 / 電話勧誘 / マルチ商法 / 内職商法** (luật 特定商取引法). KHÔNG áp dụng cho mua online / mua tại cửa hàng — nhưng vẫn có quyền tiêu dùng khác. Khi gặp rắc rối: gọi **188** (国民生活センター) — chuyển đến trung tâm tư vấn 消費生活センター gần nhất MIỄN PHÍ. Đây là nguồn quan trọng cho lừa đảo, hợp đồng ép ký, NHK, ISP, mua trả góp, vay nóng.',
+    'Cooling-off (クーリング・オフ) là quyền hủy hợp đồng vô điều kiện trong 8–20 ngày khi mua qua các kiểu giao dịch dễ bị ép: **bán hàng tại nhà** (訪問販売), **gọi điện chào hàng** (電話勧誘), **bán hàng đa cấp** (マルチ商法), **việc làm tại nhà có ký quỹ** (内職商法) — quy định bởi luật 特定商取引法. KHÔNG áp dụng cho mua online / mua tại cửa hàng — nhưng vẫn có quyền tiêu dùng khác. Khi gặp rắc rối: gọi **188** (đường dây của trung tâm bảo vệ người tiêu dùng quốc gia 国民生活センター) — sẽ chuyển đến trung tâm tư vấn địa phương (消費生活センター) gần nhất, MIỄN PHÍ. Đây là nguồn quan trọng cho lừa đảo, hợp đồng ép ký, NHK, ISP, mua trả góp, vay nóng.',
   searchKeywords: [
     'cooling off',
     'クーリングオフ',

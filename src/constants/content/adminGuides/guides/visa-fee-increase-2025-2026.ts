@@ -10,7 +10,7 @@ const visaFeeIncrease20252026: AdminGuide = {
   icon: 'cash-outline',
   color: '#D35400',
   description:
-    'Từ **2025-04-01**, phí làm thủ tục cư trú tại 出入国在留管理庁 (ISA) **TĂNG đáng kể**. Ví dụ chính: 在留期間更新 từ **4,000 yên → 6,000 yên** (giấy) hoặc **5,500 yên** (online — rẻ hơn 500 yên). Hồ sơ nộp TRƯỚC 2025-03-31 vẫn áp phí cũ. Lý do tăng: phí giữ nguyên 19 năm, ISA cần kinh phí xử lý điện tử + nhân lực. **Tip tiết kiệm**: dùng **オンライン申請** qua 在留申請オンラインシステム — giảm 500 yên + xử lý nhanh hơn. Đây là tài liệu định hướng — bảng phí cụ thể từng thủ tục **kiểm tra trang ISA chính thức** trước khi nộp.',
+    'Từ **2025-04-01**, phí làm thủ tục cư trú tại Cục Quản lý Xuất nhập cảnh (出入国在留管理庁 / ISA) **TĂNG đáng kể**. Ví dụ chính: phí gia hạn thời hạn lưu trú (在留期間更新) từ **4,000 yên → 6,000 yên** nếu nộp giấy, hoặc **5,500 yên** nếu nộp online (rẻ hơn 500 yên). Hồ sơ nộp TRƯỚC 2025-03-31 vẫn áp phí cũ. Lý do tăng: phí giữ nguyên 19 năm, ISA cần kinh phí xử lý điện tử + nhân lực. **Tip tiết kiệm**: nộp online qua hệ thống 在留申請オンラインシステム — giảm 500 yên + xử lý nhanh hơn. Đây là tài liệu định hướng — bảng phí cụ thể từng thủ tục **kiểm tra trang ISA chính thức** trước khi nộp.',
   searchKeywords: [
     'phí visa Nhật',
     'phí gia hạn visa',
