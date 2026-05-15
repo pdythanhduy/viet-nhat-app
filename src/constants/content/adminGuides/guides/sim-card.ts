@@ -59,6 +59,41 @@ const simCard: AdminGuide = {
         answer: 'Không nên. SIM đứng tên bạn có thể liên quan xác minh danh tính, thanh toán và rủi ro pháp lý nếu bị dùng sai mục đích.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: 'SIMの契約をしたいです。',
+        romaji: 'SIM no keiyaku o shitai desu.',
+        vn: 'Tôi muốn đăng ký SIM.',
+        note: 'Câu mở đầu tại quầy nhà mạng.',
+      },
+      {
+        jp: '本人確認は在留カードでいいですか。',
+        romaji: 'Honnin kakunin wa zairyuu kaado de ii desu ka.',
+        vn: 'Xác minh danh tính bằng 在留カード được không?',
+      },
+      {
+        jp: '一番安いプランを教えてください。',
+        romaji: 'Ichiban yasui puran o oshiete kudasai.',
+        vn: 'Anh/chị giới thiệu giúp gói rẻ nhất.',
+      },
+      {
+        jp: 'MNPで番号を引き継ぎたいです。',
+        romaji: 'MNP de bangou o hikitsugi tai desu.',
+        vn: 'Tôi muốn chuyển mạng nhưng giữ số cũ (MNP).',
+        note: 'Cần MNP予約番号 từ nhà mạng cũ trước.',
+      },
+      {
+        jp: 'SIMロック解除はできますか。',
+        romaji: 'SIM rokku kaijo wa dekimasu ka.',
+        vn: 'Có thể mở khóa SIM (SIMロック解除) được không?',
+        note: 'Khi điện thoại bị khóa mạng cũ, hỏi để mở khóa miễn phí.',
+      },
+      {
+        jp: '解約したいです。違約金はありますか。',
+        romaji: 'Kaiyaku shitai desu. Iyakukin wa arimasu ka.',
+        vn: 'Tôi muốn hủy hợp đồng. Có phí hủy không?',
+      },
+    ],
     keyTerms: [
       {
         term: '本人確認',
