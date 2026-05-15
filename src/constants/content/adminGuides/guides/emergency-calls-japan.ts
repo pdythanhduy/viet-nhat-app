@@ -216,7 +216,7 @@ const emergencyCallsJapan: AdminGuide = {
       step: 3,
       title: 'Nói địa chỉ và mô tả tình huống',
       description:
-        'Tổng đài hỏi 3 việc theo thứ tự:\n\n1. **住所はどこですか?** (Địa chỉ ở đâu?) — Nói số nhà, tên tòa, tầng, phòng. Nếu ngoài đường, mô tả mốc gần (ga / コンビニ / biển hiệu).\n\n2. **何がありましたか?** (Chuyện gì xảy ra?) — Nói ngắn: "father が倒れた" (bố ngã), "車にぶつかった" (đụng xe), "煙が出ている" (có khói).\n\n3. **けが人は何人ですか?** (Có bao nhiêu người bị thương?) — Trả lời số: "1人" (1 người) / "2人" (2 người).\n\nNếu không hiểu, nói "もう一度ゆっくりお願いします" (xin nhắc lại chậm). Tổng đài đã trải qua nhiều người không nói rõ tiếng Nhật.',
+        'Tổng đài hỏi 3 việc theo thứ tự:\n\n1. **住所はどこですか?** (Địa chỉ ở đâu?) — Nói số nhà, tên tòa, tầng, phòng. Nếu ngoài đường, mô tả mốc gần (ga / コンビニ / biển hiệu).\n\n2. **何がありましたか?** (Chuyện gì xảy ra?) — Nói ngắn: "父が倒れた" (bố ngã), "車にぶつかった" (đụng xe), "煙が出ている" (có khói).\n\n3. **けが人は何人ですか?** (Có bao nhiêu người bị thương?) — Trả lời số: "1人" (1 người) / "2人" (2 người).\n\nNếu không hiểu, nói "もう一度ゆっくりお願いします" (xin nhắc lại chậm). Tổng đài đã trải qua nhiều người không nói rõ tiếng Nhật.',
       documents: [],
       tip: 'Nếu không nhớ địa chỉ tiếng Nhật, mở 在留カード mặt sau — địa chỉ in sẵn. Đọc theo 漢字 cũng được.',
     },

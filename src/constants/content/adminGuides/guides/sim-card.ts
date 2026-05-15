@@ -88,14 +88,14 @@ const simCard: AdminGuide = {
         title: 'Đăng ký',
         description: 'Có thể đăng ký tại cửa hàng hoặc online. Đăng ký online có thể yêu cầu eKYC, chụp giấy tờ và selfie. Với eSIM, một số nhà mạng yêu cầu xác minh mạnh hơn so với SIM vật lý.',
         documents: [],
-        tip: 'Từ các biện pháp chống lừa đảo điện thoại, xác minh online/eSIM có thể thay đổi. Nếu hồ sơ bị từ chối, hãy thử đăng ký tại cửa hàng hoặc hỏi nhà mạng về giấy tờ thay thế.',
+        tip: 'Do các biện pháp chống lừa đảo qua điện thoại, xác minh online/eSIM có thể thay đổi. Nếu hồ sơ bị từ chối, hãy thử đăng ký tại cửa hàng hoặc hỏi nhà mạng về giấy tờ thay thế.',
       },
       {
         step: 4,
         title: 'Kích hoạt và sử dụng',
         description: 'Sau khi nhận SIM, cắm vào điện thoại và kích hoạt theo hướng dẫn của nhà mạng. Với eSIM (Rakuten, một số MVNO): kích hoạt ngay qua app không cần chờ bưu điện. Kiểm tra APN settings nếu không có kết nối 4G/5G.',
         documents: [],
-        tip: 'Điện thoại phải được unlock (mở khóa mạng) mới dùng được SIM của nhà mạng khác',
+        tip: 'Điện thoại phải được unlock (mở khóa mạng) mới dùng được SIM của nhà mạng khác.',
       },
     ],
   };

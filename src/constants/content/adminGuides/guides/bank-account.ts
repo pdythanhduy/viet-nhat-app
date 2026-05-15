@@ -12,7 +12,7 @@ const bankAccount: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote:
-        'Mở tài khoản là xét duyệt của từng ngân hàng theo quy định xác minh danh tính, cư trú và phòng chống rửa tiền. Giấy tờ cư trú do municipal office/ISA cấp, còn việc có nhận hồ sơ, yêu cầu dấu/chữ ký hay bổ sung giấy tờ là chính sách của ngân hàng.',
+        'Mở tài khoản là xét duyệt của từng ngân hàng theo quy định xác minh danh tính, cư trú và phòng chống rửa tiền. Giấy tờ cư trú do 市役所/区役所/ISA cấp, còn việc có nhận hồ sơ, yêu cầu dấu/chữ ký hay bổ sung giấy tờ là chính sách của ngân hàng.',
       sourceVerifiedAt: '2026-05-06',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
@@ -26,7 +26,7 @@ const bankAccount: AdminGuide = {
       deadline:
         'Làm sau khi đăng ký địa chỉ; cập nhật ngân hàng ngay khi đổi địa chỉ, đổi tên, gia hạn thẻ cư trú hoặc rời Nhật.',
       office:
-        'Ngân hàng/ứng dụng ngân hàng bạn chọn; municipal office và ISA chỉ là nơi cấp/cập nhật giấy tờ cư trú.',
+        'Ngân hàng/ứng dụng ngân hàng bạn chọn; 市役所/区役所 và ISA chỉ là nơi cấp/cập nhật giấy tờ cư trú.',
       doNow: [
         'Mở trang chính thức của ngân hàng để kiểm tra điều kiện người nước ngoài, giấy tờ, thời hạn lưu trú còn lại và cách nộp hồ sơ.',
         'Chuẩn bị thẻ cư trú có địa chỉ hiện tại, giấy tờ đang làm việc/đang học nếu mới nhập cảnh, và phương thức liên hệ tại Nhật.',
