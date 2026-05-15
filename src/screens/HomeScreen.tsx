@@ -332,7 +332,7 @@ export default function HomeScreen() {
             <Text style={styles.greeting}>{getGreeting()}</Text>
             <Text style={styles.appName}>Bạn đang cần làm thủ tục gì ở Nhật?</Text>
             <Text style={styles.subtitle}>
-              Tìm nhanh giấy tờ, nơi làm, hạn xử lý và câu tiếng Nhật cần nói.
+              Tra thủ tục, deadline và câu tiếng Nhật cần dùng — bằng tiếng Việt.
             </Text>
           </View>
           <View style={styles.headerButtons}>
@@ -375,7 +375,7 @@ export default function HomeScreen() {
           <View style={styles.quickActionsSection}>
             <Text style={styles.quickActionsTitle}>Tôi đang cần gì?</Text>
             <Text style={styles.quickActionsHint}>
-              Không biết bắt đầu từ đâu? Chọn tình huống của bạn.
+              Bấm vào tình huống đang gặp để vào đúng hướng dẫn.
             </Text>
             <View style={styles.quickActionsGrid}>
               {QUICK_ACTIONS.map((action) => (
@@ -592,7 +592,7 @@ export default function HomeScreen() {
                     </TouchableOpacity>
                   ) : null}
                   <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Admin' })}>
-                    <Text style={styles.sectionLink}>Mở thủ tục</Text>
+                    <Text style={styles.sectionLink}>Mở tab Thủ tục</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -787,9 +787,9 @@ export default function HomeScreen() {
             savedCounts.dialogue > 0) ? (
             <>
               <View style={styles.sectionTitleRow}>
-                <Text style={styles.sectionTitle}>Bộ note mang theo</Text>
+                <Text style={styles.sectionTitle}>Đã lưu theo loại</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Saved' })}>
-                  <Text style={styles.sectionLink}>Mở Đã lưu</Text>
+                  <Text style={styles.sectionLink}>Mở tab Đã lưu</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.noteGrid}>
@@ -840,7 +840,7 @@ export default function HomeScreen() {
             </>
           ) : null}
 
-          <Text style={styles.sectionTitle}>Đi nhanh vào đúng chỗ</Text>
+          <Text style={styles.sectionTitle}>Duyệt theo chủ đề</Text>
           <View style={styles.categoryGrid}>
             {CATEGORIES.map((category) => (
               <TouchableOpacity key={category.id} style={styles.categoryCard} onPress={() => handleCategoryPress(category.tab)}>
@@ -852,7 +852,7 @@ export default function HomeScreen() {
             ))}
           </View>
 
-          <Text style={styles.sectionTitle}>Mới sang Nhật</Text>
+          <Text style={styles.sectionTitle}>Cho người mới sang Nhật</Text>
           {ONBOARDING_GUIDES.map((guide) => (
             <TouchableOpacity
               key={guide.guideId}
@@ -873,7 +873,7 @@ export default function HomeScreen() {
           ))}
 
           <View style={styles.sectionTitleRow}>
-            <Text style={styles.sectionTitle}>Điểm cần để ý</Text>
+            <Text style={styles.sectionTitle}>Cập nhật chính sách quan trọng</Text>
             {visibleUpdates.hasMore ? (
               <TouchableOpacity onPress={() => toggleSection('updates')}>
                 <Text style={styles.sectionLink}>
@@ -939,7 +939,7 @@ export default function HomeScreen() {
               </View>
               <View style={styles.allGuidesText}>
                 <Text style={styles.allGuidesTitle}>Xem toàn bộ thủ tục</Text>
-                <Text style={styles.allGuidesDesc}>Mở tất cả guide về visa, gia đình, thuế, nenkin, ngân hàng, nhà ở và đời sống.</Text>
+                <Text style={styles.allGuidesDesc}>Visa, gia đình, thuế, nenkin, ngân hàng, nhà ở, đời sống — đầy đủ trong tab Thủ tục.</Text>
               </View>
             </View>
             <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
