@@ -31,13 +31,21 @@ function normalizeText(value: string) {
     .trim();
 }
 
+// Strip **bold** markdown markers from a snippet without dropping the word
+// they wrap. Search results render snippets as plain <Text>, so raw `**`
+// would otherwise leak through. Matching still uses `searchText`, which keeps
+// the original text — searching for a bolded word continues to work.
+function stripMarkdownBold(value: string): string {
+  return value.replace(/\*\*([^*]+)\*\*/g, '$1');
+}
+
 const SEARCH_INDEX: SearchResultItem[] = [
   ...ADMIN_GUIDES.map((guide) => ({
     id: guide.id,
     type: 'guide' as const,
     title: guide.title,
     subtitle: 'Thủ tục hành chính',
-    snippet: guide.description,
+    snippet: stripMarkdownBold(guide.description),
     searchText: [
       guide.title,
       guide.titleJp,
@@ -56,7 +64,7 @@ const SEARCH_INDEX: SearchResultItem[] = [
     type: 'daily-life' as const,
     title: topic.title,
     subtitle: 'Đời sống hằng ngày',
-    snippet: topic.description,
+    snippet: stripMarkdownBold(topic.description),
     searchText: [
       topic.title,
       topic.titleJp,
@@ -127,7 +135,7 @@ const SEARCH_INDEX: SearchResultItem[] = [
     type: 'jobs' as const,
     title: item.title,
     subtitle: 'Việc làm và quyền lợi',
-    snippet: item.summary,
+    snippet: stripMarkdownBold(item.summary),
     searchText: [item.title, item.summary, item.impact, item.effectiveDate].join(' '),
   })),
   ...WORKER_RIGHTS.map((item, index) => ({
@@ -135,7 +143,7 @@ const SEARCH_INDEX: SearchResultItem[] = [
     type: 'jobs' as const,
     title: item.title,
     subtitle: 'Quyền lợi lao động',
-    snippet: item.description,
+    snippet: stripMarkdownBold(item.description),
     searchText: [item.title, item.description].join(' '),
   })),
   {

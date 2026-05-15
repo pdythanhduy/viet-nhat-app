@@ -19,4 +19,12 @@ describe('searchAppContent', () => {
     const results = searchAppContent(query);
     expect(results.map((item) => item.id)).toContain(guideId);
   });
+
+  it('strips **bold** markdown markers from result snippets', () => {
+    // Any guide with `**` in its description will surface this check.
+    const results = searchAppContent('jesta');
+    const jesta = results.find((r) => r.id === 'jista-entry-system-guide');
+    expect(jesta).toBeDefined();
+    expect(jesta?.snippet).not.toMatch(/\*\*/);
+  });
 });

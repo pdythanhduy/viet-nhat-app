@@ -108,7 +108,7 @@ const consumerRightsCoolingOff: AdminGuide = {
     { label: 'Biên nhận thanh toán', required: true, note: 'Receipt / 領収書 / sao kê ngân hàng.' },
     { label: 'Catalog / brochure', required: false, note: 'Nếu họ đưa giấy quảng cáo trước khi ký.' },
     { label: 'Email / SMS / line', required: true, note: 'Chụp ảnh + lưu file. KHÔNG xóa.' },
-    { label: 'Recording cuộc gọi', required: false, note: 'Hợp pháp ghi âm để bảo vệ bản thân.' },
+    { label: 'Ghi âm cuộc gọi', required: false, note: 'Hợp pháp ghi âm để bảo vệ bản thân.' },
     { label: 'Tên + công ty + số điện thoại đối phương', required: true, note: 'Cho 消費生活センター + 弁護士.' },
     { label: '在留カード', required: true, note: 'ID khi đến 消費生活センター.' },
   ],
@@ -143,7 +143,7 @@ const consumerRightsCoolingOff: AdminGuide = {
     {
       question: 'Tôi bị NHK đến nhà ép ký rồi — giờ huỷ thế nào?',
       answer:
-        'NHK là khu vực pháp lý tranh chấp. **Có cách**:\n\n**Cooling-off cho NHK**:\n\n• NHK 受信契約 là **vùng tranh cãi** — có ý kiến cooling-off áp dụng (是 訪問販売), có ý kiến không.\n• 消費者庁 + 国民生活センター đã hỗ trợ một số trường hợp huỷ qua cooling-off — nhưng **không tự động chiến thắng**.\n• Gọi 188 → tư vấn cụ thể từng trường hợp.\n\n**Quy trình huỷ**:\n\n1. **Lưu chứng cứ**:\n• Hợp đồng đã ký.\n• Ngày ký + nhân viên NHK.\n• Recording cuộc gọi nếu có.\n• Câu họ nói (nếu họ dọa / nói dối).\n\n2. **Gọi 188 trước** — hỏi:\n• "私はNHKと契約を結んだが、訪問販売だと思うので解約したい" (Tôi đã ký NHK qua訪問販売, muốn huỷ).\n• Họ hướng dẫn từng bước.\n\n3. **Viết 内容証明郵便** đến NHK với nội dung cooling-off (8 ngày).\n\n4. **Nếu ngoài hạn 8 ngày**:\n• Vẫn có thể vô hiệu hóa qua 消費者契約法 nếu NHK 不実告知 (vd nói "ai cũng phải ký").\n• Gọi 188 / 弁護士.\n\n5. **Nếu NHK đe doạ kiện**:\n• Vẫn gọi 188 + 弁護士.\n• KHÔNG hoảng — đa số trường hợp NHK kiện vì không trả phí, không vì huỷ contract.\n\n**Phòng ngừa lần sau**:\n\nXem guide **nhk-contract-guide** — 5 cách xử lý NHK đến cửa mà không phải ký:\n• Không mở cửa.\n• Nói "今、忙しいので帰ってください" (bận, mời về).\n• "考えさせてください" (cho tôi suy nghĩ — không ký ngay).\n• Nói "テレビは持っていません" nếu thật.\n• Gọi 188 nếu họ ép.',
+        'NHK là khu vực pháp lý tranh chấp. **Có cách**:\n\n**Cooling-off cho NHK**:\n\n• NHK 受信契約 là **vùng tranh cãi** — có ý kiến cooling-off áp dụng (是 訪問販売), có ý kiến không.\n• 消費者庁 + 国民生活センター đã hỗ trợ một số trường hợp huỷ qua cooling-off — nhưng **không tự động chiến thắng**.\n• Gọi 188 → tư vấn cụ thể từng trường hợp.\n\n**Quy trình huỷ**:\n\n1. **Lưu chứng cứ**:\n• Hợp đồng đã ký.\n• Ngày ký + nhân viên NHK.\n• Ghi âm cuộc gọi nếu có.\n• Câu họ nói (nếu họ dọa / nói dối).\n\n2. **Gọi 188 trước** — hỏi:\n• "私はNHKと契約を結んだが、訪問販売だと思うので解約したい" (Tôi đã ký NHK qua訪問販売, muốn huỷ).\n• Họ hướng dẫn từng bước.\n\n3. **Viết 内容証明郵便** đến NHK với nội dung cooling-off (8 ngày).\n\n4. **Nếu ngoài hạn 8 ngày**:\n• Vẫn có thể vô hiệu hóa qua 消費者契約法 nếu NHK 不実告知 (vd nói "ai cũng phải ký").\n• Gọi 188 / 弁護士.\n\n5. **Nếu NHK đe doạ kiện**:\n• Vẫn gọi 188 + 弁護士.\n• KHÔNG hoảng — đa số trường hợp NHK kiện vì không trả phí, không vì huỷ contract.\n\n**Phòng ngừa lần sau**:\n\nXem guide **nhk-contract-guide** — 5 cách xử lý NHK đến cửa mà không phải ký:\n• Không mở cửa.\n• Nói "今、忙しいので帰ってください" (bận, mời về).\n• "考えさせてください" (cho tôi suy nghĩ — không ký ngay).\n• Nói "テレビは持っていません" nếu thật.\n• Gọi 188 nếu họ ép.',
     },
     {
       question: 'Vay 闇金 (cho vay bất hợp pháp) → giờ họ đòi đe doạ — phải làm gì?',
