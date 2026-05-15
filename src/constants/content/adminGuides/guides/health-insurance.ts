@@ -141,7 +141,7 @@ const healthInsurance: AdminGuide = {
       },
       {
         step: 2,
-        title: 'Đến văn phòng phường/quận',
+        title: 'Đến 市役所/区役所',
         description: 'Đến quầy "国民健康保険" tại 市役所/区役所 nơi bạn đăng ký địa chỉ.',
         documents: [],
         tip: 'Mang theo thông dịch viên hoặc nhờ bạn bè nói tiếng Nhật đi cùng nếu cần',
