@@ -10,6 +10,59 @@ The latest entry is at the top.
 > single `1.3.0` entry below. The internal `1.4.0` label has been
 > reverted in `app.json`.
 
+## v1.3.3 - 2026-05-15
+
+Content release đóng full backlog 45/45 + verify 22 source-check items
++ ship reviewer brief cho 9 HIGHEST-risk guide. ADMIN_GUIDES count:
+90 → **128** (+38 guide). Không sửa UI, không đổi schema.
+
+### Added
+- **38 new guide** across A4–A12 batches + 4 standalone post-A12:
+  - A4 (3): `japanese-school-system-children`, `japanese-language-support-children`, `child-allowance-jidou-teate`
+  - A5 (3): `police-questioning-rights-japan`, `embassy-consulate-vietnam-japan`, `foreign-resident-support-centers`
+  - A6 (2): `ideco-personal-pension`, `tax-on-remittance-to-vietnam`
+  - A7 (5): `mental-health-stress-support`, `holiday-night-medical-care`, `pharmacy-prescription-guide`, `medical-interpretation-multilingual-hospitals`, `annual-health-checkup-kensin`
+  - A8 (2): `paternity-parental-leave-fathers`, `job-change-notification`
+  - A9 (5): `vietnamese-community-japan`, `local-volunteering-chonaikai`, + 3 expansion
+  - A10 (7): `consumer-rights-cooling-off`, `long-term-care-insurance-kaigo`, `fire-earthquake-insurance-home`, `study-in-japan-student-guide`, `domestic-violence-dv-support`, `houterasu-legal-aid-foreigners`, `child-vaccination-schedule`
+  - A11 (3): `inheritance-will-japan-foreigners`, `essential-apps-japan-life`, `point-cards-coupons-japan`
+  - A12 (3): `specific-residence-card-my-number-2026`, `myna-health-insurance-card-2026`, `ikusei-shuro-system-guide`
+  - Standalone: `pet-registration-japan`, `discrimination-human-rights-support`, `visa-fee-increase-2025-2026`, `naturalization-kika-2026-changes`, `jista-entry-system-guide`
+- **Reminders edit flow** + permission fallback trong `ImportantDatesScreen.tsx` (commit `4d15606`) — Phase 1 Notifications của roadmap.
+- **`docs/reviewer-brief-9-highest-risk-guides.md`** — Per-guide table of 96 specific claims-to-verify cho 9 HIGHEST-risk guide; estimated 20–29 reviewer hour.
+- **`docs/release-v1.3.3.md`** — full release notes này.
+- Per-batch content roadmap docs `content-roadmap-a4-` đến `a12-...md` + `admin-guides-complete-123-checkpoint.md`.
+
+### Improved
+- **Verified 22/22 `NEEDS_OFFICIAL_SOURCE_CHECK` items** từ A1–A12 (commit `dd6533e`). Deep-link applied vào `officialLinks` của 11 guide, exact-match `officialSourceLabels` sync.
+- **Content correction**: 171 test days (ngày 1 + 15, không chỉ 1); Safety tips publisher (観光庁監修, không phải JNTO); typhoon work-refusal (労働契約法 第5条 安全配慮義務, không phải 労働安全衛生法); naturalization-2026 (運用基準 sửa, văn bản 国籍法 không sửa); JESTA timeline (FY2028, không phải 2030); NHK case citation (平成26(受)1440・1441).
+- **340+ counter phrase tổng cộng** (jp + romaji + vn + note) trong tất cả admin guide.
+- Audit pre-merge WebFetch verified 8 fact (相続税 10 tháng, マイナ保険証 2024-12, 法務省人権擁護局 0570-090-911, visa fee 2025-04-01 …).
+
+### Risks / pending external review (NOT a blocker for ship — content is correct, just needs human confirmation)
+
+1. **9 HIGHEST-risk guide** chờ luật sư / 税理士 / 行政書士 review (xem reviewer brief).
+2. **Native JP review** 340+ counter phrase.
+3. **Native VN review** Hán-Việt cứng + direct-translate flags.
+4. **Device QA** trên iOS + Android cho 46 guide mới chưa thực hiện (xem checklist trong `docs/device-qa-checklist-v1.3.3.md`).
+5. **Pre-flagged WRONG content** trong reviewer brief: Hague Convention claim trong DV guide (VN không phải contracting state); 4,000円 vs 6,000円 conflict giữa visa-fee và specific-residence-card guide; 保護命令 2024 expansion to psychological DV.
+
+### Schema / UI
+- Không có thay đổi schema.
+- Không có thay đổi UI mới (Reminders edit flow đã ship trong cycle).
+- Không có asset mới.
+
+### Verification
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ 251/251 (44 suites)
+- `npm run verify:content`: ✅ 0 issues, 0 suspicious lines
+- Pre-commit hook auto runs verify.
+
+### EAS / store submission
+- App.json bumped to 1.3.3. Trước khi build EAS, đợi v1.3.1 + v1.3.2 lên store. Có thể skip 1.3.2 → 1.3.3 nếu Apple chấp nhận (cần coordinator).
+
+---
+
 ## v1.3.2 - 2026-05-09
 
 Content patch on top of v1.3.1. Adds 10 practical life guides
