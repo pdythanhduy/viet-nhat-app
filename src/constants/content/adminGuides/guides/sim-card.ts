@@ -59,6 +59,38 @@ const simCard: AdminGuide = {
         answer: 'Không nên. SIM đứng tên bạn có thể liên quan xác minh danh tính, thanh toán và rủi ro pháp lý nếu bị dùng sai mục đích.',
       },
     ],
+    keyTerms: [
+      {
+        term: '本人確認',
+        reading: 'ほんにんかくにん',
+        meaningVi: 'xác minh danh tính',
+        noteVi: 'Bắt buộc khi đăng ký SIM. Mang 在留カード bản gốc, một số nhà mạng yêu cầu thêm địa chỉ giấy tờ khớp.',
+      },
+      {
+        term: 'eKYC',
+        reading: 'イーケーワイシー',
+        meaningVi: 'xác minh danh tính online (eKYC)',
+        noteVi: 'Đăng ký SIM online qua app: chụp ảnh giấy tờ + selfie. Quy trình eSIM thường nghiêm hơn SIM vật lý.',
+      },
+      {
+        term: 'SIMロック解除',
+        reading: 'シムロックかいじょ',
+        meaningVi: 'mở khóa mạng SIM',
+        noteVi: 'Điện thoại mua từ nhà mạng A thường bị khóa, không dùng SIM nhà mạng B được. Yêu cầu họ 解除 trước khi đổi mạng (miễn phí từ 2021).',
+      },
+      {
+        term: 'MNP',
+        reading: 'エムエヌピー',
+        meaningVi: 'chuyển mạng giữ số (MNP)',
+        noteVi: 'Khi đổi nhà mạng nhưng muốn giữ số cũ. Xin MNP予約番号 (mã chuyển) từ nhà mạng cũ → đem sang nhà mạng mới.',
+      },
+      {
+        term: '解約',
+        reading: 'かいやく',
+        meaningVi: 'hủy hợp đồng',
+        noteVi: 'Khi muốn ngưng dùng SIM. Nhiều hợp đồng cũ có 違約金 (phí hủy), nhưng đa số gói mới 2026 đã bỏ phí này.',
+      },
+    ],
     officialLinks: [
       { label: 'Rakuten Mobile — Đăng ký online', url: 'https://network.mobile.rakuten.co.jp' },
       { label: 'IIJmio — MVNO giá rẻ', url: 'https://www.iijmio.jp' },

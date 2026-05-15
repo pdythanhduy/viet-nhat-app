@@ -103,6 +103,38 @@ const bankAccount: AdminGuide = {
         answer: 'Có. Nếu không cập nhật, thư xác nhận không đến nơi hoặc tài khoản có thể bị hạn chế khi ngân hàng kiểm tra thông tin.',
       },
     ],
+    keyTerms: [
+      {
+        term: '口座開設',
+        reading: 'こうざかいせつ',
+        meaningVi: 'mở tài khoản ngân hàng',
+        noteVi: 'Cụm từ chính bạn sẽ thấy trên website ngân hàng và đơn xin. Khi đến quầy, nói "口座を開きたいです" (Tôi muốn mở tài khoản).',
+      },
+      {
+        term: '本人確認',
+        reading: 'ほんにんかくにん',
+        meaningVi: 'xác minh danh tính',
+        noteVi: 'Ngân hàng / SIM / dịch vụ online đều yêu cầu. Mang 在留カード là đủ cho đa số. Một số ngân hàng cần thêm 1 giấy có địa chỉ hiện tại.',
+      },
+      {
+        term: '通帳',
+        reading: 'つうちょう',
+        meaningVi: 'sổ ngân hàng (sổ giao dịch)',
+        noteVi: 'Sổ giấy in chi tiết giao dịch tại ATM hoặc quầy. Nhiều ngân hàng mới cho chọn 通帳レス (không sổ, xem trên app) — giảm phí duy trì.',
+      },
+      {
+        term: 'キャッシュカード',
+        reading: 'キャッシュカード',
+        meaningVi: 'thẻ rút tiền ATM',
+        noteVi: 'Thẻ nhựa để rút / chuyển khoản tại ATM. Khác với クレジットカード (thẻ tín dụng — phải xét duyệt riêng).',
+      },
+      {
+        term: '振込',
+        reading: 'ふりこみ',
+        meaningVi: 'chuyển khoản',
+        noteVi: 'Khi nhập số tài khoản người nhận và chuyển tiền. Phí 0–880円 tùy ngân hàng, miễn phí khi chuyển trong cùng ngân hàng.',
+      },
+    ],
     officialLinks: [
       { label: 'Japan Post Bank — Người nước ngoài', url: 'https://www.jp-bank.japanpost.jp/kaisetu/kat_gaikokujin.html' },
       { label: 'SMBC — Hỏi đáp mở tài khoản', url: 'https://qa.smbc.co.jp/faq/show/2835' },

@@ -118,6 +118,38 @@ const residenceCardValidity: AdminGuide = {
         vn: 'Phí thủ tục là bao nhiêu ạ?',
       },
     ],
+    keyTerms: [
+      {
+        term: '在留期間',
+        reading: 'ざいりゅうきかん',
+        meaningVi: 'thời hạn lưu trú (visa)',
+        noteVi: 'Ghi trên mặt thẻ 在留カード (vd "5年", "3年", "1年"). Khi hết hạn phải gia hạn (更新) hoặc đổi tư cách (変更), nếu không sẽ thành overstay.',
+      },
+      {
+        term: '在留資格',
+        reading: 'ざいりゅうしかく',
+        meaningVi: 'tư cách lưu trú (loại visa)',
+        noteVi: 'Vd "技術・人文知識・国際業務", "留学", "家族滞在", "永住者". Quyết định bạn được làm gì ở Nhật. Khác với 在留期間 (chỉ là thời hạn).',
+      },
+      {
+        term: '更新',
+        reading: 'こうしん',
+        meaningVi: 'gia hạn (cùng loại visa)',
+        noteVi: 'Nộp tại 入管 trước khi 在留期間 hết. Khuyến nghị 3 tháng trước hạn — không sớm quá 3 tháng.',
+      },
+      {
+        term: '変更',
+        reading: 'へんこう',
+        meaningVi: 'đổi tư cách lưu trú',
+        noteVi: 'Khi đổi loại visa (vd 留学 → 技人国 sau khi tốt nghiệp). Nộp tại 入管 trước khi visa cũ hết hạn.',
+      },
+      {
+        term: '不法残留',
+        reading: 'ふほうざんりゅう',
+        meaningVi: 'lưu trú bất hợp pháp (overstay)',
+        noteVi: 'Tự động xảy ra khi 在留期間 hết mà chưa gia hạn / đổi tư cách. Hậu quả: bị 退去強制 (trục xuất) + cấm tái nhập 5-10 năm.',
+      },
+    ],
     officialLinks: [
       { label: '在留カードの有効期間の更新申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00011.html' },
       { label: '在留カードとは？— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },
