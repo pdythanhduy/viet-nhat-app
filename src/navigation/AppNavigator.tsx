@@ -41,6 +41,7 @@ import LaborHelpScreen from '../screens/LaborHelpScreen';
 import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
+import HoiCamNangScreen from '../screens/HoiCamNangScreen';
 import StoryHubScreen from '../screens/StoryHubScreen';
 import StoryReadingScreen from '../screens/StoryReadingScreen';
 import StoryVocabDashboard from '../screens/StoryVocabDashboard';
@@ -90,6 +91,7 @@ export type RootStackParamList = {
   JourneyChecklist: undefined;
   EmergencyHub: undefined;
   Search: { initialQuery?: string } | undefined;
+  HoiCamNang: undefined;
   Settings: undefined;
   ImportantDates: undefined;
   StoryHub: undefined;
@@ -388,6 +390,7 @@ export default function AppNavigator() {
         <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />
         <Stack.Screen name="EmergencyHub" component={EmergencyHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="HoiCamNang" component={HoiCamNangScreen} options={{ headerShown: false }} />
         <Stack.Screen
           name="Settings"
           component={SettingsScreen}
