@@ -13,6 +13,7 @@ import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Colors } from '../constants/colors';
+import { RichInline } from '../components/RichText';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { SearchResultItem, searchAppContent } from '../utils/searchIndex';
 import { logSearchPerformed } from '../utils/analytics';
@@ -160,11 +161,13 @@ export default function SearchScreen() {
                       <Ionicons name={getResultIcon(item.type)} size={18} color={color} />
                     </View>
                     <View style={styles.resultText}>
-                      <Text style={styles.resultSubtitle}>{item.subtitle}</Text>
-                      <Text style={styles.resultTitle}>{item.title}</Text>
-                      <Text style={styles.resultSnippet} numberOfLines={2}>
-                        {item.snippet}
-                      </Text>
+                      <RichInline text={item.subtitle} style={styles.resultSubtitle} />
+                      <RichInline text={item.title} style={styles.resultTitle} />
+                      <RichInline
+                        text={item.snippet}
+                        style={styles.resultSnippet}
+                        numberOfLines={2}
+                      />
                     </View>
                     <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
                   </TouchableOpacity>
