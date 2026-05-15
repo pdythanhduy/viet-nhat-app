@@ -249,7 +249,7 @@ const furusatoNozeiGuide: AdminGuide = {
       step: 6,
       title: 'Tối ưu năm sau — strategy',
       description:
-        'Sau lần đầu, có thể tối ưu:\n\n1. **Tích điểm**: chọn nền tảng theo điểm thưởng phù hợp lifestyle (Rakuten, au PAY, dPoint).\n\n2. **Sự kiện sale**: 楽天マラソン (3–4 lần/năm), Black Friday, cuối năm — quyên trong sự kiện điểm cao.\n\n3. **Quà theo mùa**:\n• Mùa hè: thịt nướng, bia\n• Mùa thu: nho, táo, gạo mới\n• Cuối năm: cua, tôm hùm, おせち\n\n4. **定期便**: quyên 1 lần, nhận quà nhiều tháng — giảm stress chọn lựa.\n\n5. **Đa dạng 自治体**: mỗi 自治体 có đặc sản riêng. Quyên rộng để khám phá Nhật.\n\n6. **Vợ chồng cùng quyên**: mỗi người có 控除限度額 riêng nếu cả 2 đi làm. Tổng family quyên gấp đôi.\n\n7. **Theo dõi giới hạn**: tracker trên Excel hoặc app — không vượt 限度額.',
+        'Sau lần đầu, có thể tối ưu:\n\n1. **Tích điểm**: chọn nền tảng theo điểm thưởng phù hợp lối sống của bạn (Rakuten, au PAY, dPoint).\n\n2. **Sự kiện sale**: 楽天マラソン (3–4 lần/năm), Black Friday, cuối năm — quyên trong sự kiện điểm cao.\n\n3. **Quà theo mùa**:\n• Mùa hè: thịt nướng, bia\n• Mùa thu: nho, táo, gạo mới\n• Cuối năm: cua, tôm hùm, おせち\n\n4. **定期便**: quyên 1 lần, nhận quà nhiều tháng — giảm stress chọn lựa.\n\n5. **Đa dạng 自治体**: mỗi 自治体 có đặc sản riêng. Quyên rộng để khám phá Nhật.\n\n6. **Vợ chồng cùng quyên**: mỗi người có 控除限度額 riêng nếu cả 2 đi làm. Tổng family quyên gấp đôi.\n\n7. **Theo dõi giới hạn**: tracker trên Excel hoặc app — không vượt 限度額.',
       documents: [],
       tip: 'Năm 2 trở đi quen quy trình → quyên thoải mái + tận dụng tốt 限度額. Năm đầu: thử 1–2 lần để hiểu.',
     },
