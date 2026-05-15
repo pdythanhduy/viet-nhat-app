@@ -44,6 +44,10 @@ import SearchScreen from '../screens/SearchScreen';
 import StoryHubScreen from '../screens/StoryHubScreen';
 import StoryReadingScreen from '../screens/StoryReadingScreen';
 import StoryVocabDashboard from '../screens/StoryVocabDashboard';
+import MailTranslateIntroScreen from '../screens/MailTranslateIntroScreen';
+import MailCaptureScreen from '../screens/MailCaptureScreen';
+import MailProcessingScreen from '../screens/MailProcessingScreen';
+import MailResultScreen from '../screens/MailResultScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
@@ -91,6 +95,10 @@ export type RootStackParamList = {
   StoryHub: undefined;
   StoryReading: { storyId: string };
   StoryVocabDashboard: undefined;
+  MailTranslateIntro: undefined;
+  MailCapture: undefined;
+  MailProcessing: { sampleId: string };
+  MailResult: { sampleId: string };
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -389,6 +397,26 @@ export default function AppNavigator() {
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryReading" component={StoryReadingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryVocabDashboard" component={StoryVocabDashboard} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="MailTranslateIntro"
+          component={MailTranslateIntroScreen}
+          options={{ ...plainHeaderOptions, headerTitle: 'Dịch Thư Nhật' }}
+        />
+        <Stack.Screen
+          name="MailCapture"
+          component={MailCaptureScreen}
+          options={{ ...plainHeaderOptions, headerTitle: 'Chụp / chọn thư' }}
+        />
+        <Stack.Screen
+          name="MailProcessing"
+          component={MailProcessingScreen}
+          options={{ ...plainHeaderOptions, headerTitle: 'Đang xử lý', headerBackVisible: false }}
+        />
+        <Stack.Screen
+          name="MailResult"
+          component={MailResultScreen}
+          options={{ ...plainHeaderOptions, headerTitle: 'Kết quả phân tích' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
