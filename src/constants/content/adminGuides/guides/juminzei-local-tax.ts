@@ -91,6 +91,38 @@ const juminzeiLocalTax: AdminGuide = {
         note: 'Người được uỷ quyền đóng thuế thay khi bạn rời Nhật.',
       },
     ],
+    keyTerms: [
+      {
+        term: '住民税',
+        reading: 'じゅうみんぜい',
+        meaningVi: 'thuế cư trú (thuế địa phương)',
+        noteVi: 'Đóng cho 市町村 + 都道府県 nơi bạn ở vào ngày 1/1. Tính trên thu nhập NĂM TRƯỚC. Người mới sang Nhật năm đầu thường KHÔNG có 住民税.',
+      },
+      {
+        term: '納付書',
+        reading: 'のうふしょ',
+        meaningVi: 'phiếu nộp tiền (thuế)',
+        noteVi: '市役所 gửi qua bưu điện, thường tháng 6. Mang phiếu này ra コンビニ / ngân hàng đóng. Có 4 đợt/năm hoặc 1 đợt cả năm.',
+      },
+      {
+        term: '特別徴収',
+        reading: 'とくべつちょうしゅう',
+        meaningVi: 'thu thuế đặc biệt (trừ lương)',
+        noteVi: 'Nếu bạn đi làm công ty, công ty tự trừ 住民税 vào lương (12 tháng/năm). Không tự đóng — không nhận 納付書 giấy.',
+      },
+      {
+        term: '普通徴収',
+        reading: 'ふつうちょうしゅう',
+        meaningVi: 'thu thuế thông thường (tự đóng)',
+        noteVi: 'Người tự kinh doanh, sinh viên có thu nhập, người mới nghỉ việc — tự đóng theo 納付書 từ 市役所.',
+      },
+      {
+        term: '納税管理人',
+        reading: 'のうぜいかんりにん',
+        meaningVi: 'người quản lý nộp thuế (khi bạn về nước)',
+        noteVi: 'Nếu rời Nhật trước khi đóng hết 住民税, phải đề cử 1 người ở Nhật làm 納税管理人 thay bạn. Đăng ký tại 市役所 trước khi đi.',
+      },
+    ],
     officialLinks: [
       { label: '住民税について — 財務省', url: 'https://www.mof.go.jp/tax_information/qanda020.html' },
       { label: '国税と地方税の種類 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/osirase/9000.htm' },

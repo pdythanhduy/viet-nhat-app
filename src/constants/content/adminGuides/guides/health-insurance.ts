@@ -117,6 +117,38 @@ const healthInsurance: AdminGuide = {
         vn: 'Đi bệnh viện chỉ cần 保険証 thôi có được không?',
       },
     ],
+    keyTerms: [
+      {
+        term: '国民健康保険',
+        reading: 'こくみんけんこうほけん',
+        meaningVi: 'bảo hiểm y tế quốc dân (国保)',
+        noteVi: 'Dành cho người KHÔNG có bảo hiểm qua công ty (sinh viên, tự kinh doanh, người thất nghiệp, gia đình phụ thuộc...). Đăng ký tại 市役所/区役所.',
+      },
+      {
+        term: '社会保険',
+        reading: 'しゃかいほけん',
+        meaningVi: 'bảo hiểm xã hội (qua công ty)',
+        noteVi: 'Nếu bạn làm việc full-time cho công ty Nhật, công ty sẽ tự đăng ký 社会保険 cho bạn — gồm y tế + lương hưu.',
+      },
+      {
+        term: '保険証',
+        reading: 'ほけんしょう',
+        meaningVi: 'thẻ bảo hiểm y tế',
+        noteVi: 'Mang theo mỗi lần đi khám / mua thuốc. Hiện thay dần bằng マイナ保険証 (My Number Card đã liên kết bảo hiểm) — nhưng 保険証 cũ còn hạn vẫn dùng được.',
+      },
+      {
+        term: '資格確認書',
+        reading: 'しかくかくにんしょ',
+        meaningVi: 'giấy xác nhận tư cách bảo hiểm',
+        noteVi: 'Từ 2024-12, không phát hành 保険証 mới. Người chưa có マイナ保険証 sẽ được cấp 資格確認書 tự động, dùng thay 保険証 khi đi viện.',
+      },
+      {
+        term: '高額療養費',
+        reading: 'こうがくりょうようひ',
+        meaningVi: 'trợ cấp viện phí cao',
+        noteVi: 'Nếu viện phí trong tháng vượt mức quy định theo thu nhập (vd 8 vạn yên với thu nhập trung bình), phần vượt được hoàn lại. Hỏi 市役所 sau khi nhận hóa đơn lớn.',
+      },
+    ],
     officialLinks: [
       { label: 'Bảo hiểm y tế quốc gia — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html' },
       { label: 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/web_magazine/closeup/31.html' },

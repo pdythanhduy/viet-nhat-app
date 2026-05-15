@@ -188,6 +188,38 @@ const emergencyCallsJapan: AdminGuide = {
       note: 'Dùng khi cần hỗ trợ tiếng Việt. Một số khu có dịch vụ thông dịch 3 bên — không phải toàn quốc.',
     },
   ],
+  keyTerms: [
+    {
+      term: '救急車',
+      reading: 'きゅうきゅうしゃ',
+      meaningVi: 'xe cấp cứu',
+      noteVi: 'Gọi 119 để gọi xe cấp cứu. Hiện đang miễn phí trên toàn quốc — một số tỉnh đã thí điểm thu phí cho trường hợp gọi không thực sự cấp cứu.',
+    },
+    {
+      term: '警察',
+      reading: 'けいさつ',
+      meaningVi: 'cảnh sát',
+      noteVi: 'Gọi 110 cho trường hợp khẩn cấp (đang bị tấn công, trộm cướp, tai nạn). Không khẩn cấp → #9110.',
+    },
+    {
+      term: '消防',
+      reading: 'しょうぼう',
+      meaningVi: 'cứu hỏa',
+      noteVi: '119 dùng chung cho cứu hỏa + cứu thương. Nói "火事です" (chạy bộ) nếu là cháy, "救急です" nếu là cấp cứu y tế.',
+    },
+    {
+      term: '交番',
+      reading: 'こうばん',
+      meaningVi: 'đồn cảnh sát nhỏ trong khu',
+      noteVi: 'Khi không gọi điện được (sóng yếu / pin hết), chạy đến 交番 gần nhất. Mỗi khu dân cư thường có 1–2 交番, mở 24/7.',
+    },
+    {
+      term: '受理番号',
+      reading: 'じゅりばんごう',
+      meaningVi: 'mã biên nhận (cảnh sát cấp)',
+      noteVi: 'Khi báo mất / báo trộm tại cảnh sát, nhận được 受理番号. Dùng cho thủ tục bảo hiểm, xin cấp lại thẻ, khóa thẻ ngân hàng.',
+    },
+  ],
   officialLinks: [
     { label: '総務省消防庁 (FDMA) — 119', url: 'https://www.fdma.go.jp/' },
     { label: '警察庁 (NPA) — 110', url: 'https://www.npa.go.jp/' },

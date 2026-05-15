@@ -97,6 +97,13 @@ export interface CounterPhrase {
   note?: string;
 }
 
+export interface AdminGuideKeyTerm {
+  term: string;
+  reading?: string;
+  meaningVi: string;
+  noteVi?: string;
+}
+
 export interface AdminGuide {
   id: string;
   category: AdminGuideCategory;
@@ -121,6 +128,7 @@ export interface AdminGuide {
   commonMistakes?: string[];
   faq?: FAQItem[];
   counterPhrases?: CounterPhrase[];
+  keyTerms?: AdminGuideKeyTerm[];
   officialLinks: OfficialLink[];
   steps: GuideStep[];
 }
