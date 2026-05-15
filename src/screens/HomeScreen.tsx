@@ -370,6 +370,33 @@ export default function HomeScreen() {
             <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
           </TouchableOpacity>
 
+          {/* Hỏi Cẩm Nang — experimental chat-style retrieval. Smaller card so
+              it doesn't compete with the main Search CTA, marked BETA so users
+              know expectations are low. Phase 1 is local-only retrieval — no
+              network call, no AI. See docs/feature-rag-chatbot-assessment.md. */}
+          <TouchableOpacity
+            style={styles.askCta}
+            onPress={() => navigation.navigate('HoiCamNang')}
+            accessibilityRole="button"
+            accessibilityLabel="Mở Hỏi Cẩm Nang"
+          >
+            <View style={styles.askCtaIconBg}>
+              <Ionicons name="sparkles-outline" size={16} color={Colors.primary} />
+            </View>
+            <View style={styles.askCtaText}>
+              <View style={styles.askCtaTitleRow}>
+                <Text style={styles.askCtaTitle}>Hỏi Cẩm Nang</Text>
+                <View style={styles.askCtaBeta}>
+                  <Text style={styles.askCtaBetaText}>BETA</Text>
+                </View>
+              </View>
+              <Text style={styles.askCtaSubtitle}>
+                Hỏi tự nhiên bằng tiếng Việt — app sẽ gợi ý bài cần đọc.
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+          </TouchableOpacity>
+
           {/* Situation chips — the user identifies what they're dealing with
               and lands on the right starting point without typing. */}
           <View style={styles.quickActionsSection}>
@@ -1062,6 +1089,57 @@ const styles = StyleSheet.create({
   searchCtaHint: {
     fontSize: 11,
     color: Colors.textMuted,
+    lineHeight: 15,
+  },
+  askCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  askCtaIconBg: {
+    width: 30,
+    height: 30,
+    borderRadius: 10,
+    backgroundColor: Colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  askCtaText: { flex: 1 },
+  askCtaTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 2,
+  },
+  askCtaTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+  },
+  askCtaBeta: {
+    backgroundColor: Colors.accent,
+    borderRadius: 6,
+    paddingHorizontal: 6,
+    paddingVertical: 1,
+  },
+  askCtaBetaText: {
+    color: Colors.primary,
+    fontSize: 9,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    letterSpacing: 0.4,
+  },
+  askCtaSubtitle: {
+    fontSize: 11,
+    color: Colors.textSecondary,
     lineHeight: 15,
   },
   quickActionsSection: {
