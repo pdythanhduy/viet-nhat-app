@@ -57,7 +57,13 @@ const emergencyCallsJapan: AdminGuide = {
       'Sổ お薬手帳 nếu người bệnh đang dùng thuốc',
     ],
     ifLate: 'Nếu không gọi được điện thoại (sóng yếu, pin hết): đến 交番 gần nhất, hoặc nhờ người đi đường gọi giúp. Trong tòa nhà, nhấn nút 火災報知器 (báo cháy) hoặc gọi quản lý tòa.',
-    officialSourceLabels: ['総務省消防庁 (FDMA) — 119', '警察庁 (NPA) — 110'],
+    officialSourceLabels: [
+      '総務省消防庁 (FDMA) — 119',
+      '警察庁 (NPA) — 110',
+      '総務省消防庁 (FDMA) — #7119 救急安心センター事業',
+      '警察庁 — 警察相談専用電話 #9110',
+      '茨城県 — 救急搬送における選定療養費の徴収について',
+    ],
   },
   whoIsThisFor: [
     'Người Việt mới sang Nhật chưa biết gọi số nào trong cấp cứu.',
@@ -185,6 +191,9 @@ const emergencyCallsJapan: AdminGuide = {
   officialLinks: [
     { label: '総務省消防庁 (FDMA) — 119', url: 'https://www.fdma.go.jp/' },
     { label: '警察庁 (NPA) — 110', url: 'https://www.npa.go.jp/' },
+    { label: '総務省消防庁 (FDMA) — #7119 救急安心センター事業', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html' },
+    { label: '警察庁 — 警察相談専用電話 #9110', url: 'https://www.npa.go.jp/bureau/soumu/soudan/soudanmadoguti.pdf' },
+    { label: '茨城県 — 救急搬送における選定療養費の徴収について', url: 'https://www.pref.ibaraki.jp/hokenfukushi/iryo/iryo/isei/sentei_ryoyohi.html' },
   ],
   steps: [
     {

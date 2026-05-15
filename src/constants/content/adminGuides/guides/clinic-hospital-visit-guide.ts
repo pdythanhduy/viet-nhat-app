@@ -58,8 +58,13 @@ const clinicHospitalVisitGuide: AdminGuide = {
       'お薬手帳 (sổ thuốc) — nếu đang uống thuốc thường xuyên',
       'Danh sách / ảnh chụp thuốc đang uống và dị ứng (nếu có)',
     ],
-    ifLate: 'Nếu phòng khám đã đóng cửa và triệu chứng nặng lên: gọi 119 (cấp cứu) hoặc hỏi #7119 (tư vấn y tế nếu khu vực có hỗ trợ).',
-    officialSourceLabels: ['厚生労働省 (MHLW) — 医療・健康'],
+    ifLate: 'Nếu phòng khám đã đóng cửa và triệu chứng nặng lên: gọi 119 (cấp cứu) hoặc hỏi #7119 (tư vấn y tế nếu khu vực có hỗ trợ — phủ sóng khoảng 41 vùng, chưa toàn quốc).',
+    officialSourceLabels: [
+      '厚生労働省 (MHLW) — 医療・健康',
+      '厚生労働省 — 紹介状なし大病院受診時の選定療養費',
+      '厚生労働省 — 資格確認書について',
+      '総務省消防庁 (FDMA) — #7119 救急安心センター事業',
+    ],
   },
   whoIsThisFor: [
     'Người Việt mới sang Nhật chưa từng đi khám bệnh ở Nhật.',
@@ -182,6 +187,9 @@ const clinicHospitalVisitGuide: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省 (MHLW) — 医療・健康', url: 'https://www.mhlw.go.jp/' },
+    { label: '厚生労働省 — 紹介状なし大病院受診時の選定療養費', url: 'https://www.mhlw.go.jp/stf/newpage_26666.html' },
+    { label: '厚生労働省 — 資格確認書について', url: 'https://www.mhlw.go.jp/stf/newpage_45470.html' },
+    { label: '総務省消防庁 (FDMA) — #7119 救急安心センター事業', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html' },
     { label: '日本医師会', url: 'https://www.med.or.jp/' },
   ],
   steps: [

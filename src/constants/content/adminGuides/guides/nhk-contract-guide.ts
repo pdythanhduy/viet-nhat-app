@@ -65,7 +65,12 @@ const nhkContractGuide: AdminGuide = {
     ],
     ifLate:
       'Đã ký giấy mà không hiểu / cảm thấy bị ép: 特定商取引法 có cơ chế cooling-off cho 訪問販売 (8 ngày), nhưng việc cooling-off có áp dụng cho 受信契約 NHK hay không là vùng còn tranh cãi pháp lý. Trước khi gửi 解約通知書, hỏi 国民生活センター 188 — họ sẽ tư vấn miễn phí dựa trên hoàn cảnh cụ thể của bạn.',
-    officialSourceLabels: ['NHK', '国民生活センター'],
+    officialSourceLabels: [
+      'NHK',
+      '国民生活センター',
+      '国民生活センター — NHK受信料に関する紛争（ADR事例）',
+      '最高裁判所 — NHK受信契約事件判決（平成26(受)1440・1441）',
+    ],
   },
   whoIsThisFor: [
     'Người Việt vừa chuyển đến nhà mới — chưa biết về NHK.',
@@ -189,6 +194,8 @@ const nhkContractGuide: AdminGuide = {
   officialLinks: [
     { label: 'NHK', url: 'https://www.nhk.or.jp/' },
     { label: '国民生活センター', url: 'https://www.kokusen.go.jp/' },
+    { label: '国民生活センター — NHK受信料に関する紛争（ADR事例）', url: 'https://www.kokusen.go.jp/adr/hunsou/data/adr-20140522_019.html' },
+    { label: '最高裁判所 — NHK受信契約事件判決（平成26(受)1440・1441）', url: 'https://www.courts.go.jp/app/files/hanrei_jp/281/087281_hanrei.pdf' },
   ],
   steps: [
     {

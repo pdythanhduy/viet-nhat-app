@@ -73,7 +73,12 @@ const homeInternetWifiContracts: AdminGuide = {
     ],
     ifLate:
       'Cần internet gấp trước khi 光回線 đến: đăng ký ホームルーター hoặc ポケット Wi-Fi — đến trong 3–7 ngày, cắm là dùng. Có thể dùng tạm cho đến khi 光回線 lắp xong, sau đó hủy ホームルーター (chú ý 解約金 nếu có).',
-    officialSourceLabels: ['総務省 (MIC)', '国民生活センター'],
+    officialSourceLabels: [
+      '総務省 (MIC)',
+      '国民生活センター',
+      '消費者庁 — 特定商取引法ガイド（訪問販売 クーリング・オフ）',
+      '総務省 — 電気通信事業法 初期契約解除制度',
+    ],
   },
   whoIsThisFor: [
     'Người Việt vừa chuyển đến nhà mới ở Nhật — chưa có mạng.',
@@ -199,6 +204,8 @@ const homeInternetWifiContracts: AdminGuide = {
   officialLinks: [
     { label: '総務省 (MIC)', url: 'https://www.soumu.go.jp/' },
     { label: '国民生活センター', url: 'https://www.kokusen.go.jp/' },
+    { label: '消費者庁 — 特定商取引法ガイド（訪問販売 クーリング・オフ）', url: 'https://www.no-trouble.caa.go.jp/what/doortodoorsales/' },
+    { label: '総務省 — 電気通信事業法 初期契約解除制度', url: 'https://www.soumu.go.jp/menu_seisaku/ictseisaku/keitai_portal/gimonkaiketsu/q_5.html' },
   ],
   steps: [
     {

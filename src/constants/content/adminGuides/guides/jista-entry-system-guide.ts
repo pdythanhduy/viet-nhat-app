@@ -39,7 +39,7 @@ const jistaEntrySystemGuide: AdminGuide = {
   },
   quickAction: {
     deadline:
-      'Tại 2026-05-14: JESTA **CHƯA có mốc vận hành chính thức**. Báo chí 2024–2025 đề cập "dự kiến trong giai đoạn 2026–2030". Không có deadline gấp.',
+      'Tại 2026-05-15: 入管法改正案 (gồm JESTA) đã 閣議決定 ngày **10/03/2026**. Mục tiêu vận hành **trong 令和10 niên độ (FY2028, tức 04/2028–03/2029)**, hạn pháp lý đến 03/2029. Phí cụ thể chưa quyết định (sẽ định qua 政令).',
     office:
       '**Sau khi JESTA vận hành** (dự kiến): nộp online qua trang chính thức (TBD — chưa công bố URL). **Hiện tại 2026-05-14**: theo dõi cập nhật từ **MOFA / ISA / 観光庁**. **Đại sứ quán Nhật** ở quốc gia khách miễn visa sẽ thông báo cho công dân.',
     doNow: [
@@ -56,7 +56,13 @@ const jistaEntrySystemGuide: AdminGuide = {
     ],
     ifLate:
       'JESTA chưa vận hành → không có "muộn". Khi vận hành: làm theo quy trình cụ thể được công bố.',
-    officialSourceLabels: ['出入国在留管理庁 (ISA)'],
+    officialSourceLabels: [
+      '出入国在留管理庁 (ISA) ホームページ',
+      '出入国在留管理庁「不法滞在者ゼロプラン」',
+      '不法滞在者ゼロプラン（JESTA記載PDF）',
+      'ゼロプラン実施状況（令和7年10月）PDF',
+      '電子渡航認証制度（ESTA）調査研究について',
+    ],
   },
   whoIsThisFor: [
     'Người quan tâm chính sách nhập cảnh Nhật 2026+.',
@@ -68,7 +74,7 @@ const jistaEntrySystemGuide: AdminGuide = {
   ],
   whenToDo: [
     '**Hiện tại (2026-05-14)**: JESTA chưa vận hành — không cần làm gì.',
-    'Theo dõi mốc vận hành qua MOFA / ISA / 観光庁 — có thể trong 2026–2030.',
+    'Theo dõi mốc vận hành qua ISA / MOFA / 観光庁 — mục tiêu chính thức là FY2028 (04/2028–03/2029).',
     'Khi đi du lịch Nhật + thuộc nhóm miễn visa: kiểm tra JESTA yêu cầu (sau khi vận hành) **72 giờ – 1 tuần trước chuyến bay**.',
     'Không có "đăng ký sớm cho tương lai" — JESTA sẽ có hạn hiệu lực giới hạn.',
   ],
@@ -151,7 +157,11 @@ const jistaEntrySystemGuide: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '出入国在留管理庁 (ISA)', url: 'https://www.moj.go.jp/isa/' },
+    { label: '出入国在留管理庁 (ISA) ホームページ', url: 'https://www.moj.go.jp/isa/' },
+    { label: '出入国在留管理庁「不法滞在者ゼロプラン」', url: 'https://www.moj.go.jp/isa/policies/others/05_001390.html' },
+    { label: '不法滞在者ゼロプラン（JESTA記載PDF）', url: 'https://www.moj.go.jp/isa/content/001446180.pdf' },
+    { label: 'ゼロプラン実施状況（令和7年10月）PDF', url: 'https://www.moj.go.jp/isa/content/001448366.pdf' },
+    { label: '電子渡航認証制度（ESTA）調査研究について', url: 'https://www.moj.go.jp/isa/immigration/resources/02_00012.html' },
   ],
   steps: [
     {

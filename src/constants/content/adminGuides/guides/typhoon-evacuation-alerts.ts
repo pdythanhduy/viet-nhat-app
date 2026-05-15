@@ -46,7 +46,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     whenToAskExpert: [
       'Sống ở khu có lịch sử lũ lụt / lở đất — kiểm tra hazard map kỹ trước mùa bão (tham khảo guide hazard-map-flood-tsunami-volcano).',
       'Người già / người tàn tật / phụ nữ có thai — di tản sớm hơn警戒レベル 3, hỏi 市役所 về danh sách ưu tiên 要支援者.',
-      'Công ty bắt đi làm khi警戒レベル 4–5 — quyền từ chối theo 労働安全衛生法, hỏi 労働基準監督署 nếu cần.',
+      'Công ty bắt đi làm khi警戒レベル 4–5 — người sử dụng lao động có 安全配慮義務 (労働契約法 第5条), không được ép qua vùng có 避難指示. Hỏi 労働基準監督署 nếu cần.',
     ],
   },
   quickAction: {
@@ -73,7 +73,13 @@ const typhoonEvacuationAlerts: AdminGuide = {
     ],
     ifLate:
       'Đã sang cấp 5 và chưa di tản: KHÔNG ra ngoài (gió + nước cuốn nguy hiểm). Lên tầng cao nhất trong nhà, xa cửa kính / cửa sổ. Giữ điện thoại + nước + đồ ăn cạnh người. Gọi 119 nếu nguy cấp.',
-    officialSourceLabels: ['気象庁 (JMA)', '内閣府防災'],
+    officialSourceLabels: [
+      '気象庁 (JMA)',
+      '内閣府（防災担当）— 避難情報に関するガイドライン（警戒レベル）',
+      '内閣府（防災担当）— 被災者支援（罹災証明書の交付）',
+      '観光庁監修 — 災害時情報提供アプリ「Safety tips」',
+      '厚生労働省 — 労働契約法第5条 安全配慮義務',
+    ],
   },
   whoIsThisFor: [
     'Người Việt sống ở Nhật chưa quen hệ thống 警戒レベル.',
@@ -116,7 +122,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     'Lái xe qua đường ngập — chỉ 30cm nước có thể cuốn xe. Nắp hố ga mở dưới nước không thấy.',
     'Không kiểm tra hazard map trước → không biết khu mình có nguy cơ lũ / lở đất hay không.',
     'Để đồ trên ban công không cố định → bị gió thổi bay, đập kính nhà mình hoặc nhà hàng xóm.',
-    'Đi làm khi cấp 4–5 vì sếp ép — trong tình huống có 避難指示 trong khu của bạn, có lý do chính đáng để từ chối đi làm theo 労働安全衛生法 (nghĩa vụ bảo vệ an toàn của người sử dụng lao động). Báo sếp trước qua LINE / điện thoại, ghi lại bằng chứng. Tranh chấp sau bão → 労働基準監督署.',
+    'Đi làm khi cấp 4–5 vì sếp ép — trong tình huống có 避難指示 trong khu của bạn, người sử dụng lao động có 安全配慮義務 (労働契約法 第5条 — nghĩa vụ chăm lo an toàn tính mạng người lao động). Nếu ép qua zone 避難指示 thì vi phạm nghĩa vụ này. Báo sếp trước qua LINE / điện thoại, ghi lại bằng chứng. Tranh chấp sau bão → 労働基準監督署 hoặc luật sư.',
     'Không sạc điện thoại + pin dự phòng → mất điện không liên lạc được.',
   ],
   faq: [
@@ -133,7 +139,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     {
       question: 'Sếp bắt tôi đi làm khi 警戒レベル 4 — phải làm sao?',
       answer:
-        'Theo 労働安全衛生法, người sử dụng lao động có nghĩa vụ bảo vệ an toàn người lao động. Khi 市役所 phát 警戒レベル 4 / 避難指示 cho khu của bạn, thường có lý do chính đáng để từ chối đi làm để bảo vệ tính mạng. Liên hệ sếp TRƯỚC (LINE / điện thoại) báo "避難指示が出ています、出社できません" + lưu tin nhắn / email làm bằng chứng. Hợp đồng cụ thể có thể quy định khác — nếu sếp không đồng ý hoặc trừ lương sau bão, liên hệ 労働基準監督署 hoặc luật sư lao động.',
+        'Theo 労働契約法 第5条, người sử dụng lao động có 安全配慮義務 — nghĩa vụ chăm lo an toàn tính mạng người lao động. Khi 市役所 phát 警戒レベル 4 / 避難指示 cho khu của bạn, ép nhân viên qua vùng có lệnh di tản thường vi phạm nghĩa vụ này. Liên hệ sếp TRƯỚC (LINE / điện thoại) báo "避難指示が出ています、出社できません" + lưu tin nhắn / email làm bằng chứng. Lưu ý: luật không quy định "quyền từ chối đi làm" rõ ràng — framework là 安全配慮義務 của bên sử dụng lao động. Nếu sếp không đồng ý hoặc trừ lương sau bão, liên hệ 労働基準監督署 hoặc luật sư lao động.',
     },
     {
       question: 'Đường về nhà ngập — đi qua được không?',
@@ -192,7 +198,10 @@ const typhoonEvacuationAlerts: AdminGuide = {
   ],
   officialLinks: [
     { label: '気象庁 (JMA)', url: 'https://www.jma.go.jp/' },
-    { label: '内閣府防災', url: 'https://www.bousai.go.jp/' },
+    { label: '内閣府（防災担当）— 避難情報に関するガイドライン（警戒レベル）', url: 'https://www.bousai.go.jp/oukyu/hinanjouhou/r3_hinanjouhou_guideline/' },
+    { label: '内閣府（防災担当）— 被災者支援（罹災証明書の交付）', url: 'https://www.bousai.go.jp/taisaku/hisaisyagyousei/' },
+    { label: '観光庁監修 — 災害時情報提供アプリ「Safety tips」', url: 'https://www.mlit.go.jp/kankocho/seisaku_seido/kihonkeikaku/jizoku_kankochi/anzenkakuho/inbound/tool.html' },
+    { label: '厚生労働省 — 労働契約法第5条 安全配慮義務', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000121431_00177.html' },
   ],
   steps: [
     {

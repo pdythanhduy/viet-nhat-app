@@ -69,7 +69,14 @@ const earthquakePreparednessJapan: AdminGuide = {
     ],
     ifLate:
       'Chưa có vali phòng tai và động đất xảy ra — gom nhanh: nước chai, mì gói, sạc dự phòng, giấy tờ, thuốc, áo ấm, túi nhựa. Tốc độ quan trọng hơn đầy đủ. Sau lần này về chuẩn bị vali sẵn.',
-    officialSourceLabels: ['気象庁 (JMA)', '内閣府防災', '総務省消防庁 (FDMA)'],
+    officialSourceLabels: [
+      '気象庁 (JMA) — 緊急地震速報のしくみ',
+      '内閣府（防災担当）— 被災者支援（罹災証明書の交付）',
+      '内閣府（防災担当）— 被災者生活再建支援法',
+      'NTT東日本 — 災害用伝言ダイヤル（171）',
+      '日本損害保険協会 — 地震保険について',
+      '総務省消防庁 (FDMA)',
+    ],
   },
   whoIsThisFor: [
     'Người Việt mới sang Nhật chưa từng trải qua động đất.',
@@ -136,7 +143,7 @@ const earthquakePreparednessJapan: AdminGuide = {
     {
       question: 'Tôi chưa biết 避難所 ở đâu — tìm thế nào?',
       answer:
-        'Vào trang web 市役所 / 区役所 nơi mình sống, tìm "防災マップ" hoặc "避難所". Hoặc xem trên app Safety tips (do JNTO phát hành) — có 避難所 nhập theo vị trí GPS. Cũng có thể đến trực tiếp 市役所 xin bản giấy. Lưu screenshot vào điện thoại để dùng khi mạng hỏng.',
+        'Vào trang web 市役所 / 区役所 nơi mình sống, tìm "防災マップ" hoặc "避難所". Hoặc xem trên app Safety tips (do 観光庁 / Japan Tourism Agency giám sát) — có 避難所 nhập theo vị trí GPS. Cũng có thể đến trực tiếp 市役所 xin bản giấy. Lưu screenshot vào điện thoại để dùng khi mạng hỏng.',
     },
     {
       question: 'Tôi không có 地震保険 — nhà bị hư có được hỗ trợ không?',
@@ -189,8 +196,11 @@ const earthquakePreparednessJapan: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '気象庁 (JMA)', url: 'https://www.jma.go.jp/' },
-    { label: '内閣府防災', url: 'https://www.bousai.go.jp/' },
+    { label: '気象庁 (JMA) — 緊急地震速報のしくみ', url: 'https://www.jma.go.jp/jma/kishou/know/jishin/eew/shikumi/shikumi.html' },
+    { label: '内閣府（防災担当）— 被災者支援（罹災証明書の交付）', url: 'https://www.bousai.go.jp/taisaku/hisaisyagyousei/' },
+    { label: '内閣府（防災担当）— 被災者生活再建支援法', url: 'https://www.bousai.go.jp/taisaku/seikatsusaiken/shiensya_kouhyou.html' },
+    { label: 'NTT東日本 — 災害用伝言ダイヤル（171）', url: 'https://www.ntt-east.co.jp/saigai/voice171s/howto.html' },
+    { label: '日本損害保険協会 — 地震保険について', url: 'https://www.sonpo.or.jp/insurance/jishin/index.html' },
     { label: '総務省消防庁 (FDMA)', url: 'https://www.fdma.go.jp/' },
   ],
   steps: [

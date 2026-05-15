@@ -75,7 +75,11 @@ const electricityGasWaterContracts: AdminGuide = {
     ],
     ifLate:
       'Quên đăng ký trước khi chuyển vào: điện thường vẫn có (chỉ cần báo trong vòng 1 tuần để khỏi bị tính nhầm). Nước cũng tương tự. Gas KHÔNG tự dùng được — phải đặt hẹn 開栓 và đợi vài ngày tới 1 tuần (đặc biệt mùa cao điểm 3–4).',
-    officialSourceLabels: ['経済産業省 (METI)', '国民生活センター'],
+    officialSourceLabels: [
+      '経済産業省 (METI)',
+      '国民生活センター',
+      '資源エネルギー庁 — 電気料金及び電気事業制度について',
+    ],
   },
   whoIsThisFor: [
     'Người Việt vừa chuyển đến nhà mới ở Nhật — cần mở 3 dịch vụ.',
@@ -201,6 +205,7 @@ const electricityGasWaterContracts: AdminGuide = {
   officialLinks: [
     { label: '経済産業省 (METI)', url: 'https://www.meti.go.jp/' },
     { label: '国民生活センター', url: 'https://www.kokusen.go.jp/' },
+    { label: '資源エネルギー庁 — 電気料金及び電気事業制度について', url: 'https://www.enecho.meti.go.jp/category/electricity_and_gas/electric/' },
   ],
   steps: [
     {

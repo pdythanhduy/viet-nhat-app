@@ -56,7 +56,13 @@ const naturalizationKika2026Changes: AdminGuide = {
     ],
     ifLate:
       'Quy trình 帰化 không có "trễ" — chỉ xét hồ sơ. Nếu đã nộp mà có cải cách vận hành mới → 法務局 sẽ hướng dẫn cập nhật.',
-    officialSourceLabels: ['法務省 (MOJ) — 帰化'],
+    officialSourceLabels: [
+      '法務省 国籍Q&A（帰化の条件）',
+      '法務省 国籍法',
+      '法務省 帰化許可申請（手続案内）',
+      '法務省 帰化許可申請のてびき（PDF）',
+      '法務省 帰化許可申請者数等の推移',
+    ],
   },
   whoIsThisFor: [
     'Người Việt đã đọc guide chính `naturalization-kika.ts` + muốn biết cập nhật 2026.',
@@ -109,7 +115,7 @@ const naturalizationKika2026Changes: AdminGuide = {
     {
       question: 'Luật 国籍法 có thay đổi gì lớn 2026 không?',
       answer:
-        '**Cơ bản KHÔNG**.\n\nLuật 国籍法 (Quốc tịch) hiện hành ổn định nhiều năm. Cải cách 2026 chủ yếu là **vận hành**:\n\n• Tích hợp My Number Card sau 帰化.\n• Hệ thống online 法務局 (đang triển khai dần).\n• Tương tác với 特定在留カード trong giai đoạn chuyển tiếp.\n\n**Điều kiện 帰化** (theo 国籍法 đ.5) **KHÔNG đổi**:\n\n1. Cư trú ở Nhật 5+ năm liên tục.\n2. 20 tuổi trở lên + đủ năng lực dân sự.\n3. Có thiện ý + không vi phạm.\n4. Không có hành vi chống chính phủ Nhật.\n5. Phải từ bỏ quốc tịch hiện tại (重国籍 không cho phép).\n6. Có khả năng kinh tế tự nuôi.\n7. Có hiểu biết tiếng Nhật cơ bản (thực tế: nói + đọc + viết).\n\n**Ngoại lệ + giảm điều kiện** (theo từng case) — không đổi.\n\nNếu nghe tin đồn "luật mới 2026" → KIỂM TRA trang 法務省 chính thức.',
+        '**Văn bản luật 国籍法 KHÔNG sửa, nhưng VẬN HÀNH (審査運用基準) đã siết từ 01/04/2026** — đây là điểm quan trọng cần phân biệt.\n\n**国籍法 đ.5 — văn bản luật không đổi**:\n\n1. Cư trú ở Nhật **5+ năm** liên tục (luật vẫn ghi 5年).\n2. **18 tuổi** trở lên (đã hạ từ 20 → 18 từ 01/04/2022 theo sửa 成年年齢).\n3. Hành vi đoan chính (素行).\n4. Sinh kế tự nuôi (生計).\n5. Phải từ bỏ quốc tịch hiện tại (重国籍 防止).\n6. Tuân thủ Hiến pháp Nhật.\n\n**Thay đổi VẬN HÀNH từ 01/04/2026 (theo 法務省)**:\n\n• 居住要件 vận hành: **5年 → 原則 10年** (gióng với 永住).\n• Xác nhận **5年 nộp thuế** (trước: 1年).\n• Xác nhận **2年 đóng 社会保険** (mới).\n\n→ Văn bản luật ghi "5 năm" nhưng 法務局 trong 審査 thực tế sẽ yêu cầu hồ sơ 10 năm cư trú + 5 năm thuế + 2 năm 保険. Đây là **基準運用 change**, không phải sửa luật.\n\nBối cảnh: tháng 1/2026 chính phủ ra "外国人との秩序ある共生のための総合的対応策" — đồng nhất với 永住 10 năm.\n\n**Cải cách vận hành khác 2026** (My Number, online 法務局, 特定在留カード) — không đổi điều kiện cơ bản, chỉ đổi cách nộp / quản lý.\n\nNếu nghe tin đồn "国籍法改正 2026" → SAI. Đúng là 法務省 審査運用基準 改訂.',
     },
     {
       question: 'Tôi đang trong quy trình 帰化 — có ảnh hưởng gì từ 14/06/2026 (特定在留カード)?',
@@ -155,7 +161,11 @@ const naturalizationKika2026Changes: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '法務省 (MOJ) — 帰化', url: 'https://www.moj.go.jp/MINJI/minji78.html' },
+    { label: '法務省 国籍Q&A（帰化の条件）', url: 'https://www.moj.go.jp/MINJI/minji78.html' },
+    { label: '法務省 国籍法', url: 'https://www.moj.go.jp/MINJI/kokusekiho.html' },
+    { label: '法務省 帰化許可申請（手続案内）', url: 'https://www.moj.go.jp/ONLINE/NATIONALITY/6-2.html' },
+    { label: '法務省 帰化許可申請のてびき（PDF）', url: 'https://houmukyoku.moj.go.jp/kofu/page000001_00305.pdf' },
+    { label: '法務省 帰化許可申請者数等の推移', url: 'https://www.moj.go.jp/MINJI/toukei_t_minj03.html' },
   ],
   steps: [
     {

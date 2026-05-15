@@ -71,7 +71,11 @@ const postOfficeMailForwarding: AdminGuide = {
     ],
     ifLate:
       'Quên 転送届 trước khi chuyển: làm muộn vẫn được, có hiệu lực sau khoảng 1 tuần. Trong khi chờ — thư có thể bị trả lại người gửi. Liên hệ trực tiếp các tổ chức quan trọng (ngân hàng, 入管, 市役所, công ty) để cập nhật địa chỉ luôn.',
-    officialSourceLabels: ['日本郵便'],
+    officialSourceLabels: [
+      '日本郵便',
+      '日本郵便 — ベトナム宛 国際郵便（料金・条件・追跡）',
+      '在ベトナム日本国大使館 — ベトナム出入国情報（持ち込み・持ち出し制限）',
+    ],
   },
   whoIsThisFor: [
     'Người Việt vừa chuyển nhà — cần làm 転送届 để không mất thư.',
@@ -200,6 +204,8 @@ const postOfficeMailForwarding: AdminGuide = {
   officialLinks: [
     { label: '日本郵便', url: 'https://www.post.japanpost.jp/' },
     { label: '国民生活センター', url: 'https://www.kokusen.go.jp/' },
+    { label: '日本郵便 — ベトナム宛 国際郵便（料金・条件・追跡）', url: 'https://www.post.japanpost.jp/cgi-kokusai/country.php?cid=208' },
+    { label: '在ベトナム日本国大使館 — ベトナム出入国情報（持ち込み・持ち出し制限）', url: 'https://www.vn.emb-japan.go.jp/itpr_ja/JP_Shuttsunyukoku.html' },
   ],
   steps: [
     {

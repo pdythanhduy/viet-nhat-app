@@ -54,7 +54,12 @@ const dentistVisitJapan: AdminGuide = {
       'Danh sách thuốc / dị ứng (nếu có) — quan trọng vì nha khoa dùng thuốc tê',
     ],
     ifLate: 'Nếu đau dữ dội ngoài giờ làm việc của 歯科 và không tìm được phòng nha mở: thử 救急歯科 cuối tuần (歯科医師会 có lịch ở một số khu), hoặc gọi #7119 hỏi nơi nào nhận. Trong khi chờ, không ăn đồ cứng / nóng / lạnh, có thể uống thuốc giảm đau không kê toa từ 薬局.',
-    officialSourceLabels: ['日本歯科医師会 (JDA)', '厚生労働省 (MHLW) — 歯科保健'],
+    officialSourceLabels: [
+      '厚生労働省 — 医療情報ネット（休日・夜間対応医療機関検索）',
+      '日本歯科医師会 (JDA) — 都道府県歯科医師会リンク',
+      '厚生労働省 (MHLW) — 歯科保健',
+      '厚生労働省 — 紹介状なし大病院受診時の選定療養費（歯科5,500円）',
+    ],
   },
   whoIsThisFor: [
     'Người Việt đang đau răng / sưng nướu / chảy máu nướu lâu ngày.',
@@ -174,8 +179,10 @@ const dentistVisitJapan: AdminGuide = {
     },
   ],
   officialLinks: [
+    { label: '厚生労働省 — 医療情報ネット（休日・夜間対応医療機関検索）', url: 'https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2800/initialize' },
+    { label: '日本歯科医師会 (JDA) — 都道府県歯科医師会リンク', url: 'https://www.jda.or.jp/links/links04.html' },
     { label: '厚生労働省 (MHLW) — 歯科保健', url: 'https://www.mhlw.go.jp/' },
-    { label: '日本歯科医師会 (JDA)', url: 'https://www.jda.or.jp/' },
+    { label: '厚生労働省 — 紹介状なし大病院受診時の選定療養費（歯科5,500円）', url: 'https://www.mhlw.go.jp/stf/newpage_26666.html' },
   ],
   steps: [
     {

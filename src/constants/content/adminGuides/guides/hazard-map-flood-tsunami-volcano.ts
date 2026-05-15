@@ -64,7 +64,12 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     ],
     ifLate:
       'Chưa xem trước và sự cố sắp xảy ra — vào trang Yahoo!天気・防災 hoặc app Safety tips, gõ địa chỉ. Cảnh báo realtime + nguy cơ cơ bản hiện ra trong vài phút.',
-    officialSourceLabels: ['国土交通省 — 重ねるハザードマップ', '内閣府防災', '気象庁 (JMA)'],
+    officialSourceLabels: [
+      '国土交通省 — ハザードマップポータルサイト',
+      '内閣府（防災担当）',
+      '気象庁 (JMA) — 噴火警戒レベルの説明',
+      '観光庁監修 — 災害時情報提供アプリ「Safety tips」',
+    ],
   },
   whoIsThisFor: [
     'Người Việt vừa chuyển nhà ở Nhật — chưa biết khu mới có nguy cơ gì.',
@@ -83,7 +88,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     '重ねるハザードマップ của 国土交通省 (disaportal.gsi.go.jp) — bản tổng hợp toàn quốc, có thể chồng nhiều loại nguy cơ.',
     '気象庁 (jma.go.jp) — bản đồ núi lửa, sóng thần, cảnh báo realtime.',
     'Quầy 市役所 / 区役所 — bản giấy miễn phí.',
-    'App Safety tips (do JNTO phát hành) — đa ngôn ngữ, có tiếng Việt, dùng GPS chỉ rủi ro tại vị trí.',
+    'App Safety tips (do 観光庁 / Japan Tourism Agency giám sát) — đa ngôn ngữ, có tiếng Việt, dùng GPS chỉ rủi ro tại vị trí.',
   ],
   estimatedTime:
     'Lần đầu xem ハザードマップ + note 避難所: 30–60 phút. Cập nhật mỗi năm: 10–15 phút. Test 171 vào ngày 1/15 hàng tháng: 2–3 phút.',
@@ -112,7 +117,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     {
       question: 'Tôi mở trang 市役所 nhưng toàn tiếng Nhật, không hiểu — có cách nào dễ hơn?',
       answer:
-        'Có. App **Safety tips** (do JNTO + 観光庁 phát hành, có tiếng Việt) là lựa chọn dễ nhất — gõ địa chỉ hoặc bật GPS, app hiện cảnh báo + nguy cơ cơ bản. Hoặc dùng Google Translate trên trang 市役所 — không hoàn hảo nhưng đủ hiểu cấp độ rủi ro. Cuối cùng, đến quầy 市役所 xin bản giấy + nhờ nhân viên giải thích bằng tiếng Anh / dùng app dịch.',
+        'Có. App **Safety tips** (do 観光庁 / Japan Tourism Agency giám sát, có tiếng Việt) là lựa chọn dễ nhất — gõ địa chỉ hoặc bật GPS, app hiện cảnh báo + nguy cơ cơ bản. Hoặc dùng Google Translate trên trang 市役所 — không hoàn hảo nhưng đủ hiểu cấp độ rủi ro. Cuối cùng, đến quầy 市役所 xin bản giấy + nhờ nhân viên giải thích bằng tiếng Anh / dùng app dịch.',
     },
     {
       question: 'Khu nhà tôi nằm trong vùng "想定浸水深 3m" — nghĩa là gì?',
@@ -174,9 +179,10 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '国土交通省 — 重ねるハザードマップ', url: 'https://disaportal.gsi.go.jp/' },
-    { label: '内閣府防災', url: 'https://www.bousai.go.jp/' },
-    { label: '気象庁 (JMA)', url: 'https://www.jma.go.jp/' },
+    { label: '国土交通省 — ハザードマップポータルサイト', url: 'https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/faq/faq.html' },
+    { label: '内閣府（防災担当）', url: 'https://www.bousai.go.jp/' },
+    { label: '気象庁 (JMA) — 噴火警戒レベルの説明', url: 'https://www.jma.go.jp/jma/kishou/know/kazan/level_toha/level_toha.html' },
+    { label: '観光庁監修 — 災害時情報提供アプリ「Safety tips」', url: 'https://www.mlit.go.jp/kankocho/seisaku_seido/kihonkeikaku/jizoku_kankochi/anzenkakuho/inbound/tool.html' },
   ],
   steps: [
     {

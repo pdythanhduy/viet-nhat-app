@@ -334,6 +334,15 @@ Vietnamese reviewer (sống ở Nhật) confirm các điểm sau có dễ hiểu
 
 ## Section 4 — Official source check
 
+**Status update 2026-05-15**: **22/22 mục đã verify** qua WebFetch/WebSearch (4 research agent parallel). Deep-link đã apply vào `officialLinks` từng guide. Xem chi tiết findings + URL trong git log `feat(admin): verify A1-A12 official sources` hoặc commit message tương ứng.
+
+3 content correction đã apply trong cùng commit:
+- **171 test days**: nay ghi rõ "ngày 1 và 15 mỗi tháng" + 防災週間 / 防災ボランティア週間 (trước: chỉ ngày 1).
+- **Safety tips publisher**: 観光庁監修 (Japan Tourism Agency, MLIT) — KHÔNG phải JNTO. Sửa 4 chỗ: `essential-apps-japan-life`, `earthquake-preparedness-japan`, `hazard-map-flood-tsunami-volcano`, `typhoon-evacuation-alerts`.
+- **typhoon work-refusal legal basis**: 労働契約法 第5条 (安全配慮義務) — KHÔNG phải 労働安全衛生法. Framework là "nghĩa vụ chăm lo an toàn của người sử dụng lao động", không phải "quyền từ chối đi làm của nhân viên".
+
+**Lịch sử bảng dưới đây**: giữ làm tham khảo về 22 item gốc đã verify.
+
 Tổng **22 mục** `NEEDS_OFFICIAL_SOURCE_CHECK` qua 3 batch. Content lead verify deep-link + verify số liệu trước khi nâng `officialLinks` lên trang con cụ thể.
 
 ### A1 — Medical guides
@@ -1166,9 +1175,9 @@ Backlog 45 progress:
 - P0 (1–18): 18/18 ✓
 - P1 (19–33): 15/15 ✓ (sau bonus #19 discrimination)
 - P2 (34–36): 3/3 ✓ (sau bonus #36 pet)
-- Policy-sensitive (37–42): 4/6 ✓ (#37 + #38 + #39 + #41) — còn #40 + #42
+- Policy-sensitive (37–42): 6/6 ✓ (#37 + #38 + #39 + #40 + #41 + #42 — #40 naturalization-2026 + #42 JESTA ship commit `27f2475`)
 - Additional (43–45): 3/3 ✓
-- **TOTAL**: **43/45 = 96%**.
+- **TOTAL**: **45/45 = 100%** ✅.
 
 ### Verification A12
 
@@ -1177,3 +1186,59 @@ Backlog 45 progress:
 - `npm run verify:content`: ✅ 0 issues
 - Branch hiện tại: `feature/admin-guides-complete-123` (parallel agent đổi từ post-v1.3.2).
 - Commits A12: `c55c545` + `b347bf8` + `178cbf0` + `4bee9bb` + `6056036` (checkpoint).
+
+---
+
+## A13 — Official source deep-link verification (2026-05-15)
+
+Sau khi backlog 45/45 đóng, 4 research agent parallel verify lại 22 source-check item + audit post-A12 guide:
+
+### Output
+
+| Batch | Items verify | Guide update | Status |
+|---|---|---|---|
+| A1 medical | 7 (FDMA #7119, NPA #9110, 救急車 Ibaraki, MHLW 選定療養費, Tokyo マル乳, JDA, MHLW 資格確認書) | clinic + emergency + dentist | ✅ all VERIFIED |
+| A2 disaster | 10 (内閣府 警戒レベル, JMA EEW, NTT 171, 観光庁 Safety tips, 内閣府 被災者支援金, 罹災証明書, sonpo.or.jp, JMA 噴火警戒, MLIT 浸水深, MHLW 労働契約法) | earthquake + typhoon + hazard-map | ✅ 9 VERIFIED + 1 PARTIAL (item 10: framing corrected) |
+| A3 utilities | 5 (kokusen NHK ADR, caa.go.jp 訪問販売, METI 電気事業, post.japanpost VN cid=208, 在ベトナム大使館) | NHK + internet + electricity + post | ✅ 2 VERIFIED + 3 PARTIAL |
+| Post-A12 | 2 guide (naturalization-2026, JESTA) | naturalization-kika-2026-changes + jista-entry-system-guide | ✅ MEDIUM-HIGH / HIGH confidence |
+
+### Content correction trong cùng pass
+
+1. **171 test days**: từ "ngày 1 hàng tháng" → "ngày 1 và 15 hàng tháng" + 防災週間 + 防災ボランティア週間 (NTT East official spec).
+2. **Safety tips publisher**: từ "JNTO" → "観光庁監修 / Japan Tourism Agency (MLIT)". Sửa 4 file: `essential-apps-japan-life`, `earthquake-preparedness-japan`, `hazard-map-flood-tsunami-volcano`, `typhoon-evacuation-alerts`.
+3. **typhoon work-refusal**: từ "労働安全衛生法 → quyền từ chối đi làm" → "労働契約法 第5条 安全配慮義務 → người sử dụng lao động không được ép qua zone 避難指示" (framework chính xác là 安全配慮義務 của bên sử dụng, không phải quyền từ chối của người lao động).
+4. **naturalization-2026 FAQ**: rõ "国籍法 văn bản KHÔNG đổi, 審査運用基準 đổi từ 01/04/2026: 居住要件 5→10 năm + 5 năm thuế + 2 năm 保険" + sửa "20 tuổi → 18 tuổi" (成年年齢 hạ từ 2022-04-01).
+5. **JESTA timeline**: từ "2026–2030" → "閣議決定 10/03/2026, mục tiêu vận hành FY2028 (04/2028–03/2029)".
+6. **NHK case citation**: sửa từ "平成26(オ)1130" → "平成26(受)1440・1441" (Grand Bench 2017-12-06).
+
+### URL highlight (sample — full list trong từng guide)
+
+- FDMA #7119: `https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html`
+- MHLW 選定療養費: `https://www.mhlw.go.jp/stf/newpage_26666.html`
+- MHLW 資格確認書: `https://www.mhlw.go.jp/stf/newpage_45470.html`
+- 内閣府 警戒レベル: `https://www.bousai.go.jp/oukyu/hinanjouhou/r3_hinanjouhou_guideline/`
+- JMA EEW しくみ: `https://www.jma.go.jp/jma/kishou/know/jishin/eew/shikumi/shikumi.html`
+- 観光庁 Safety tips: `https://www.mlit.go.jp/kankocho/seisaku_seido/kihonkeikaku/jizoku_kankochi/anzenkakuho/inbound/tool.html`
+- sonpo.or.jp 地震保険: `https://www.sonpo.or.jp/insurance/jishin/index.html`
+- 最高裁 NHK 判決: `https://www.courts.go.jp/app/files/hanrei_jp/281/087281_hanrei.pdf`
+- 消費者庁 訪問販売: `https://www.no-trouble.caa.go.jp/what/doortodoorsales/`
+- ISA ゼロプラン PDF (JESTA): `https://www.moj.go.jp/isa/content/001446180.pdf`
+- 在ベトナム大使館 出入国情報: `https://www.vn.emb-japan.go.jp/itpr_ja/JP_Shuttsunyukoku.html`
+
+### Caveats còn lại (chuyển sang legal review hoặc human native)
+
+- Item 1 (#7119): coverage hiện ~41 vùng — chưa toàn quốc. Wording đã hedge.
+- Item 3 (救急車 7,700円): chỉ Mie Matsusaka + Ibaraki, không nationwide. Wording đã hedge.
+- Item 6 (休日歯科): JDA không có nationwide list — guide chuyển sang MHLW 医療情報ネット primary.
+- Item 18 (NHK cooling-off): vẫn là vùng tranh cãi pháp lý — keep hedge wording, không kết luận. Cần luật sư consumer.
+- Item 20 (utility 月額/工事費/解約金 range): không có 公的 "guideline" — giữ range hedge wording.
+- Item 22 (customs VN): customs.gov.vn JS-rendered, không deep-link sạch — dùng 在ベトナム大使館 thay.
+- naturalization 處理期間 "10–15 tháng": không có MOJ source — 法務省 ghi "標準処理期間 ありません". Đã loại bỏ con số cứng.
+- JESTA: chưa có application portal — chỉ có PDF + announcement page. URL có thể đổi khi system go-live (FY2028).
+
+### Verification A13
+
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ 251/251 (44 suites).
+- `npm run verify:content`: ✅ 0 issues.
+- Files touched: 11 guide + doc này.
