@@ -7,8 +7,109 @@ The latest entry is at the top.
 > but no `1.4.0` build was ever shipped to the App Store / Play Store
 > (current live store version is `1.2.0`). To keep store release history
 > clean, everything cut between `1.2.0` and now is consolidated under the
-> single `1.3.0` entry below. The internal `1.4.0` label has been
-> reverted in `app.json`.
+> single `1.3.0` entry below. The internal `1.4.0` label was reverted
+> at that time; the current `v1.4.0` release below is the first real
+> 1.4.0 build with a new user-visible feature.
+
+## v1.4.0 - 2026-05-15
+
+Feature release adding **Hỏi Cẩm Nang BETA** — a local retrieval
+assistant that lets users ask procedure questions in natural Vietnamese
+and get back the right guide(s) plus actionable bullets, glossary,
+and counter phrases. No AI API, no backend, no network call — fully
+on-device retrieval over the existing 128 admin guides + 28 daily-life
+topics + glossary + counter phrases.
+
+### Release notes (Vietnamese)
+
+- ✨ Thêm **Hỏi Cẩm Nang BETA**: hỏi thủ tục bằng tiếng Việt, app gợi ý bài liên quan.
+- 📚 Thêm giải thích từ Nhật trong nhiều thủ tục.
+- 💬 Thêm câu tiếng Nhật có thể nói tại quầy.
+- 🔍 Cải thiện tìm kiếm và hiển thị nội dung.
+- 🛠️ Sửa lỗi hiển thị ký tự markdown (`**`) ở thẻ tóm tắt, kết quả tìm kiếm và phần phạm vi pháp lý.
+- ⚡ Cải thiện ổn định và kiểm thử.
+
+### リリースノート (日本語)
+
+- ✨ 「Hỏi Cẩm Nang BETA」を追加しました。ベトナム語で質問すると、関連する手続きガイドを探せます。
+- 📚 手続き内の日本語用語の説明を追加しました。
+- 💬 窓口で使える日本語フレーズを追加しました。
+- 🔍 検索結果と表示を改善しました。
+- 🛠️ Markdown 記号(`**`)が画面に表示される問題を修正しました。
+- ⚡ 安定性とテストを改善しました。
+
+### Added
+
+- **Hỏi Cẩm Nang BETA** (PR #30 / commit `bcd6750`):
+  - `src/screens/HoiCamNangScreen.tsx` — chat-style screen with question input, 5 suggested chips, source cards, glossary panel, counter-phrase panel, low-confidence pill, always-on disclaimer
+  - `src/utils/chatRetrieval.ts` — token-aggregated retrieval over the existing `searchIndex` `NORMALIZED_INDEX`. No LLM, no embeddings, no network. Bullets are verbatim from `quickAction.doNow[0]` → `quickAction.deadline` → `faq[0].answer` → `description`.
+  - `src/utils/chatRetrieval.test.ts` — 7 unit tests covering empty query, retrieval cite, no `**` leak, glossary surfacing, counter phrase surfacing, low-confidence fallback, suggested-question demo-path guarantee
+  - Home entry card with BETA pill, below Search CTA, navigates to `HoiCamNang` route
+  - `docs/hoi-cam-nang-phase-1.md` — implementation design doc
+- **Japanese term glossary** (PR #19 + PR #24):
+  - Schema: `AdminGuideKeyTerm` interface + `keyTerms?: AdminGuideKeyTerm[]` on `AdminGuide`
+  - "Từ cần biết" card in `AdminDetailScreen`, hidden when `keyTerms` is absent
+  - Batch 1 (PR #19): `moving-in-notification`, `lost-residence-card`, `health-insurance`, `juminzei-local-tax`, `emergency-calls-japan` — 25 terms total
+  - Batch 2 (PR #24): 5 additional guides with 25 more terms
+- **Counter phrases** (PR #25): added to `bank-account` (6 phrases) + `sim-card` (6 phrases)
+- **RAG chatbot assessment doc** (PR #29): `docs/feature-rag-chatbot-assessment.md` — full design + phased plan with Phase 2 blockers explicitly gated
+- **Project README + source overview** (PR #9): `README.md` + `docs/source-overview-current.md`
+- **AI Mail decision log** (PR #8): `docs/feature-ai-mail-translate-decision-log.md` — internal-only product rule with 6 exposure conditions
+
+### Improved
+
+- **Home UX hierarchy polish** (PR #10): 8 wording edits across section titles + CTAs (e.g. "Đi nhanh vào đúng chỗ" → "Duyệt theo chủ đề", "Mới sang Nhật" section → "Cho người mới sang Nhật" to disambiguate from quick-action chip)
+- **Markdown bold rendering** (PR #11 + #14 + #16 + #18 + #22): `RichText` / `RichInline` now used wherever authored content can contain `**bold**`. Fixed the four `Tóm tắt nhanh` summary rows, `legalScope.jurisdictionNote`, and SearchScreen result subtitle/title/snippet (extended `RichInline` with optional `numberOfLines` prop)
+- **Search result readability** (PR #22): subtitle/title/snippet rendered via RichInline, snippet still truncates at 2 lines
+- **Admin guide audit** (PR #13): typo fixes across 4 guides — "father が倒れた" → "父が倒れた", "municipal office" → "市役所/区役所" in `bank-account.ts`, step 2 title disambiguation in `health-insurance.ts`, wording calque fix in `sim-card.ts`
+- **English leftover cleanup** (PR #16 + #18 + #27): "recording" → "ghi âm", "valid" → "còn hạn / hợp lệ / còn hiệu lực", "Recording cuộc gọi" label → "Ghi âm cuộc gọi", lifestyle/CBT/event/Online/Download cleanup in `mental-health-stress-support`, `furusato-nozei-guide`, `pet-registration-japan`, `essential-apps-japan-life`
+- **`RichText` bold style** (PR #14): removed forced `color: Colors.textPrimary` so bold inherits parent text color (fixes invisible bold on colored guide hero + tip box)
+
+### Fixed
+
+- **`dateUtils.test.ts` timezone-stable** (PR #21 + PR #26): test fed in `2026-04-10T08:00:00+09:00` which serializes to `2026-04-09T23:00Z` in UTC, causing `setHours(0,0,0,0)` to snap to a different calendar day. Test now uses afternoon JST (`18:00+09:00`) so the moment is unambiguously April 10 in any TZ. Production code unchanged. CI `Verify` workflow back to green.
+
+### Schema / UI
+
+- New type: `AdminGuideKeyTerm` in `src/types/content.ts`
+- New optional field on `AdminGuide`: `keyTerms?: AdminGuideKeyTerm[]`
+- `RichInline` component now accepts optional `numberOfLines?: number` prop (backward-compatible)
+- New route in `RootStackParamList`: `HoiCamNang: undefined`
+- New screen: `src/screens/HoiCamNangScreen.tsx`
+
+### Build
+
+- iOS bundleId: `com.thanhduy.camnangvietnhat` (unchanged)
+- Android package: `com.thanhduy.camnangvietnhat` (unchanged)
+- `appVersionSource: "remote"` + `autoIncrement: true` in `eas.json` — iOS `buildNumber` and Android `versionCode` are auto-incremented by EAS at build time; not set manually in `app.json`. After this release, EAS will assign the next sequential numbers above whatever was used for the last `1.3.3` build.
+- No new native dependency, no new permission, no new env var.
+
+### Not included (intentionally deferred)
+
+- ❌ AI Mail / Dịch Thư Nhật user-facing entry — remains internal-only per `docs/feature-ai-mail-translate-decision-log.md`. The 4 `MailTranslate*` screens stay registered in `AppNavigator` but with zero entry point from Home/Settings. 6 exposure conditions still pending.
+- ❌ Phase 2 RAG (backend LLM + citations) — explicitly gated; same 6-condition discipline as AI Mail.
+- ❌ OCR / vision LLM — Phase 2 of AI Mail; not in this release.
+- ❌ New API key / env var / dependency.
+- ❌ IAP / monetization.
+- ❌ Privacy Policy change.
+
+### Known non-blocking follow-ups
+
+- **Issue #31** — non-blocking. Will be addressed in a patch release.
+- `Alert.alert` for "Đã copy" confirmation in `HoiCamNangScreen` could be a lighter toast (Phase 1.5 polish).
+- Android multi-line TextInput Enter-key behaviour — send button works regardless; minor inconsistency.
+- Stop-word list in `chatRetrieval.ts` has 3 unreachable single-character entries (`a`, `o`, `u`) — dead code, harmless.
+- `juminzei-local-tax` still missing `legalScope` + `quickAction` (audit score 73) — needs source verification PR.
+- `embassy-consulate-vietnam-japan` missing Fukuoka Consulate official URL.
+
+### Verification
+
+- `npm run typecheck`: ✅
+- `npm run test:ci`: ✅ (44 suites, 258/258 tests after Hỏi Cẩm Nang's 7 added)
+- `npm run content:qa-admin-guides`: ✅ (9/9 in 2 suites)
+- `npm run verify:content`: ✅ (0 issues, 0 suspicious lines)
+- CI `Verify` workflow: ✅ green (post dateUtils fix)
+- Device QA: ✅ on phone per maintainer's confirmation
 
 ## v1.3.3 - 2026-05-15
 
