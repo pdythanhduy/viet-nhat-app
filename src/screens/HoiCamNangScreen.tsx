@@ -9,7 +9,7 @@
 // previous turns. Each question is an independent retrieval against the
 // existing searchIndex.
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -23,7 +23,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as Clipboard from 'expo-clipboard';
 
@@ -38,6 +38,7 @@ import {
 import { SearchResultItem } from '../utils/searchIndex';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type HoiCamNangRouteProp = RouteProp<RootStackParamList, 'HoiCamNang'>;
 
 type Turn =
   | { kind: 'user'; id: string; text: string }
@@ -63,9 +64,11 @@ function getResultColor(type: SearchResultItem['type']) {
 
 export default function HoiCamNangScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const route = useRoute<HoiCamNangRouteProp>();
   const [input, setInput] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
   const scrollRef = useRef<ScrollView | null>(null);
+  const autoAskedRef = useRef(false);
 
   const hasMessages = turns.length > 0;
 
@@ -94,6 +97,16 @@ export default function HoiCamNangScreen() {
   const handleSubmit = useCallback(() => {
     ask(input);
   }, [ask, input]);
+
+  // If another screen navigated in with an initialQuestion param (e.g.
+  // PlanDetail's "Hỏi thêm về bước này" CTA), auto-fire it once on mount.
+  // autoAskedRef prevents re-firing if the user pops back and re-enters.
+  const initialQuestion = route.params?.initialQuestion;
+  useEffect(() => {
+    if (!initialQuestion || autoAskedRef.current) return;
+    autoAskedRef.current = true;
+    ask(initialQuestion);
+  }, [initialQuestion, ask]);
 
   const handleSuggested = useCallback(
     (question: string) => {

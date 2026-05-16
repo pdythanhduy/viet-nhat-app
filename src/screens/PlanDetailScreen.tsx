@@ -43,6 +43,8 @@ import {
   clearActivePlan,
   createPlanFromAnswers,
   loadActivePlan,
+  SnoozedStep,
+  snoozeStep,
   StoredPlan,
   toggleStepComplete,
 } from '../utils/planStorage';
@@ -65,6 +67,7 @@ export default function PlanDetailScreen() {
   const [stored, setStored] = useState<StoredPlan | null>(null);
   const [loading, setLoading] = useState(true);
   const [glossaryOpen, setGlossaryOpen] = useState<PlanGlossaryChip | null>(null);
+  const [snoozeTarget, setSnoozeTarget] = useState<PlanStep | null>(null);
 
   // Load existing plan from AsyncStorage, or create one from wizard answers
   // on first entry.
@@ -111,12 +114,37 @@ export default function PlanDetailScreen() {
   }, []);
 
   const handleAskChatbot = useCallback(() => {
-    // Phase 0: no real wire yet. Next commit will pre-fill HoiCamNangScreen
-    // with a situation-aware initial question.
-    Alert.alert(
-      'Hỏi Cẩm Nang',
-      'Phase 1 sẽ mở Hỏi Cẩm Nang kèm câu hỏi tự động về tình huống của bạn.',
-    );
+    // Pre-fill the chat with a plan-level question. HoiCamNangScreen reads
+    // route.params.initialQuestion on mount and auto-fires it once.
+    navigation.navigate('HoiCamNang', {
+      initialQuestion: 'Tôi đang làm thủ tục cấp lại thẻ cư trú. Có lưu ý nào quan trọng không?',
+    });
+  }, [navigation]);
+
+  const handleAskAboutStep = useCallback(
+    (step: PlanStep) => {
+      // Per-step contextual question. Phrase the step title as a follow-up.
+      const question = `Tôi đang ở bước "${step.title}" trong lộ trình mất thẻ cư trú. Có lưu ý gì cụ thể không?`;
+      navigation.navigate('HoiCamNang', { initialQuestion: question });
+    },
+    [navigation],
+  );
+
+  const handleApplySnooze = useCallback(
+    async (step: PlanStep, choice: SnoozeChoice) => {
+      const next = await snoozeStep('lost-residence-card', step.id, {
+        remindAt: choice.remindAt.toISOString(),
+        label: choice.label,
+      });
+      if (next) setStored(next);
+      setSnoozeTarget(null);
+    },
+    [],
+  );
+
+  const handleClearSnooze = useCallback(async (stepId: string) => {
+    const next = await snoozeStep('lost-residence-card', stepId, null);
+    if (next) setStored(next);
   }, []);
 
   const handleResetPlan = useCallback(() => {
@@ -245,6 +273,9 @@ export default function PlanDetailScreen() {
               onOpenGlossary={(g) => setGlossaryOpen(g)}
               onOpenSource={handleOpenSource}
               onCopyPhrase={handleCopyPhrase}
+              onOpenSnooze={(step) => setSnoozeTarget(step)}
+              onClearSnooze={handleClearSnooze}
+              onAskAboutStep={handleAskAboutStep}
             />
           ))}
 
@@ -279,6 +310,11 @@ export default function PlanDetailScreen() {
       </View>
 
       <GlossaryModal entry={glossaryOpen} onClose={() => setGlossaryOpen(null)} />
+      <SnoozeModal
+        step={snoozeTarget}
+        onClose={() => setSnoozeTarget(null)}
+        onPick={handleApplySnooze}
+      />
     </SafeAreaView>
   );
 }
@@ -334,9 +370,22 @@ interface GroupProps {
   onOpenGlossary: (g: PlanGlossaryChip) => void;
   onOpenSource: (guideId: string) => void;
   onCopyPhrase: (jp: string) => void;
+  onOpenSnooze: (step: PlanStep) => void;
+  onClearSnooze: (stepId: string) => void;
+  onAskAboutStep: (step: PlanStep) => void;
 }
 
-function Group({ group, stored, onToggle, onOpenGlossary, onOpenSource, onCopyPhrase }: GroupProps) {
+function Group({
+  group,
+  stored,
+  onToggle,
+  onOpenGlossary,
+  onOpenSource,
+  onCopyPhrase,
+  onOpenSnooze,
+  onClearSnooze,
+  onAskAboutStep,
+}: GroupProps) {
   const done = group.steps.filter((s) => !!stored?.completedSteps[s.id]).length;
   const total = group.steps.length;
   const groupComplete = done === total && total > 0;
@@ -372,12 +421,16 @@ function Group({ group, stored, onToggle, onOpenGlossary, onOpenSource, onCopyPh
             accent={group.accent}
             done={!!stored?.completedSteps[step.id]}
             completedAt={stored?.completedSteps[step.id]}
+            snooze={stored?.snoozedSteps?.[step.id] ?? null}
             isLast={index === group.steps.length - 1}
             indexInGroup={index + 1}
             onToggle={() => onToggle(step.id)}
             onOpenGlossary={onOpenGlossary}
             onOpenSource={onOpenSource}
             onCopyPhrase={onCopyPhrase}
+            onOpenSnooze={() => onOpenSnooze(step)}
+            onClearSnooze={() => onClearSnooze(step.id)}
+            onAskAboutStep={() => onAskAboutStep(step)}
           />
         ))}
       </View>
@@ -390,12 +443,16 @@ interface TimelineStepProps {
   accent: string;
   done: boolean;
   completedAt?: string;
+  snooze: SnoozedStep | null;
   isLast: boolean;
   indexInGroup: number;
   onToggle: () => void;
   onOpenGlossary: (g: PlanGlossaryChip) => void;
   onOpenSource: (guideId: string) => void;
   onCopyPhrase: (jp: string) => void;
+  onOpenSnooze: () => void;
+  onClearSnooze: () => void;
+  onAskAboutStep: () => void;
 }
 
 function TimelineStep({
@@ -403,12 +460,16 @@ function TimelineStep({
   accent,
   done,
   completedAt,
+  snooze,
   isLast,
   indexInGroup,
   onToggle,
   onOpenGlossary,
   onOpenSource,
   onCopyPhrase,
+  onOpenSnooze,
+  onClearSnooze,
+  onAskAboutStep,
 }: TimelineStepProps) {
   return (
     <View style={styles.timelineRow}>
@@ -442,6 +503,19 @@ function TimelineStep({
           <Text style={styles.completedTimestamp}>
             ✓ Đã làm {formatRelativeShort(completedAt)}
           </Text>
+        ) : null}
+
+        {!done && snooze ? (
+          <TouchableOpacity
+            style={styles.snoozePill}
+            onPress={onClearSnooze}
+            accessibilityRole="button"
+            accessibilityLabel="Bỏ nhắc"
+          >
+            <Ionicons name="alarm" size={12} color="#E67E22" />
+            <Text style={styles.snoozePillText}>Nhắc {snooze.label}</Text>
+            <Ionicons name="close" size={12} color="#E67E22" />
+          </TouchableOpacity>
         ) : null}
 
         {step.detail ? <Text style={styles.stepDetail}>{step.detail}</Text> : null}
@@ -493,8 +567,106 @@ function TimelineStep({
             <Ionicons name="chevron-forward" size={12} color={Colors.primary} />
           </TouchableOpacity>
         ) : null}
+
+        {/* Per-step action row: snooze (if not done) + ask chatbot. */}
+        {!done ? (
+          <View style={styles.stepActionRow}>
+            <TouchableOpacity
+              style={styles.stepActionBtn}
+              onPress={onOpenSnooze}
+              accessibilityRole="button"
+            >
+              <Ionicons name="alarm-outline" size={12} color={Colors.textSecondary} />
+              <Text style={styles.stepActionBtnText}>Nhắc tôi sau</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.stepActionBtn}
+              onPress={onAskAboutStep}
+              accessibilityRole="button"
+            >
+              <Ionicons name="sparkles-outline" size={12} color={Colors.primary} />
+              <Text style={[styles.stepActionBtnText, { color: Colors.primary }]}>
+                Hỏi thêm về bước này
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
       </View>
     </View>
+  );
+}
+
+// ─── Snooze modal ──────────────────────────────────────────────────────
+
+interface SnoozeChoice {
+  id: string;
+  label: string;
+  remindAt: Date;
+}
+
+function buildSnoozeChoices(now = new Date()): SnoozeChoice[] {
+  const oneHour = new Date(now.getTime() + 60 * 60 * 1000);
+  const fourHours = new Date(now.getTime() + 4 * 60 * 60 * 1000);
+  const tomorrow8 = new Date(now);
+  tomorrow8.setDate(now.getDate() + 1);
+  tomorrow8.setHours(8, 0, 0, 0);
+  return [
+    { id: '1h', label: '1 giờ nữa', remindAt: oneHour },
+    { id: '4h', label: '4 giờ nữa', remindAt: fourHours },
+    { id: 'tomorrow-8', label: 'Sáng mai 8:00', remindAt: tomorrow8 },
+  ];
+}
+
+function SnoozeModal({
+  step,
+  onClose,
+  onPick,
+}: {
+  step: PlanStep | null;
+  onClose: () => void;
+  onPick: (step: PlanStep, choice: SnoozeChoice) => void;
+}) {
+  const choices = useMemo(() => buildSnoozeChoices(), []);
+  return (
+    <Modal
+      visible={!!step}
+      transparent
+      animationType="fade"
+      onRequestClose={onClose}
+    >
+      <Pressable style={styles.modalBackdrop} onPress={onClose}>
+        <Pressable style={styles.modalCard}>
+          {step ? (
+            <>
+              <View style={styles.modalHeader}>
+                <Ionicons name="alarm" size={18} color="#E67E22" />
+                <Text style={styles.modalTitle}>Nhắc tôi sau</Text>
+              </View>
+              <Text style={styles.snoozeStepTitle}>{step.title}</Text>
+              <Text style={styles.snoozeNote}>
+                Phase 0: chỉ lưu mốc — chưa thực sự bật thông báo. Phase 1 sẽ gửi nhắc nhở qua
+                expo-notifications.
+              </Text>
+              <View style={styles.snoozeChoiceList}>
+                {choices.map((choice) => (
+                  <TouchableOpacity
+                    key={choice.id}
+                    style={styles.snoozeChoiceBtn}
+                    onPress={() => onPick(step, choice)}
+                  >
+                    <Ionicons name="time-outline" size={14} color={Colors.primary} />
+                    <Text style={styles.snoozeChoiceText}>{choice.label}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+              <TouchableOpacity style={styles.modalCloseBtn} onPress={onClose}>
+                <Text style={styles.modalCloseBtnText}>Huỷ</Text>
+              </TouchableOpacity>
+            </>
+          ) : null}
+        </Pressable>
+      </Pressable>
+    </Modal>
   );
 }
 
@@ -894,6 +1066,82 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
+  },
+  snoozePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: 4,
+    backgroundColor: '#FEF5E9',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: '#E67E2244',
+  },
+  snoozePillText: {
+    fontSize: 11,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: '#B6601C',
+  },
+  stepActionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 8,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+  },
+  stepActionBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+  },
+  stepActionBtnText: {
+    fontSize: 11,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textSecondary,
+  },
+  snoozeStepTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 4,
+  },
+  snoozeNote: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    lineHeight: 16,
+    marginBottom: 12,
+  },
+  snoozeChoiceList: {
+    gap: 8,
+    marginBottom: 12,
+  },
+  snoozeChoiceBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: Colors.background,
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  snoozeChoiceText: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
   },
   footerActions: {
     marginTop: 12,

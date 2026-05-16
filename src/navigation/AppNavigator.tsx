@@ -98,7 +98,7 @@ export type RootStackParamList = {
   JourneyChecklist: undefined;
   EmergencyHub: undefined;
   Search: { initialQuery?: string } | undefined;
-  HoiCamNang: undefined;
+  HoiCamNang: { initialQuestion?: string } | undefined;
   MyJapanPlan: undefined;
   PlanWizard: { situationId: PlanSituationId };
   PlanDetail: { situationId: PlanSituationId; answers: Record<string, string> };
