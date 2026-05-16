@@ -6,6 +6,20 @@ Single source of truth for the product decision around when (and whether) to sur
 
 ## Decisions
 
+### 2026-05-16 — Exposure regression reverted (commit 69be23b → PR #36)
+
+- **What happened:** Commit `69be23b feat(home): Mail Translate discovery card + Aptabase missing-key warning` (on `main`, 2026-05-16) added a public Home discovery card "Dịch thư tiếng Nhật" that navigated to `MailTranslateIntro` and fired `track('mail_translate_open')`. This was added the day after the 2026-05-15 internal-only decision below and **directly violated** it — the 6 gate items in §"Conditions required BEFORE re-considering public exposure" were (and still are) all ❌.
+- **Decision:** The 2026-05-15 internal-only decision below stands unchanged. AI Mail remains internal-only until all 6 gates are cleared.
+- **Action taken:**
+  - PR [#36](https://github.com/pdythanhduy/viet-nhat-app/pull/36) (`fix(mail): hide AI Mail public entry until gates are cleared`) — **merged to `main`** as squash commit `44803b7`.
+  - Removed only the public exposure surface (the `<TouchableOpacity style={styles.mailCta}>` block + its 7 styles + the now-unused `track` import in `src/screens/HomeScreen.tsx`).
+  - Preserved (per §"What stays in the repo despite this decision"): all 4 `MailTranslate*` screens, the 4 route registrations in `AppNavigator`, the `mail_translate_open` analytics event, the `aiMailSamples` mock data, the intro screen polish, and the Aptabase missing-key warning that shipped in the same `69be23b` commit.
+  - Replaced the card block with an inline `HomeScreen.tsx` comment pointing future contributors back to this file.
+- **Not affected:** `v1.4.0` tag (`d590a5a`) and the App Review build never contained the card. The exposure existed only on `main` (v1.5.0 prep) between `69be23b` and `44803b7`. No emergency v1.4.1 patch needed.
+- **Why this entry exists:** Future-proof the audit trail. If anyone proposes "let's just add a small Home button to try it" again — point them at this file first (per §"How to flip the switch later"). The gate has not moved.
+
+---
+
 ### 2026-05-15 — Do NOT expose Phase 1 mock to users
 
 - **Decision:** Keep "AI Dịch Thư Nhật" Phase 1 as **internal prototype only**.
