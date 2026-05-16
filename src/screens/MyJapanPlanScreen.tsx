@@ -1,40 +1,99 @@
-// My Japan Plan — Phase 0 UI mock.
+// My Japan Plan — entry screen.
 //
-// Entry screen: empty active-plan list + "Tạo lộ trình mới" CTA + situation
-// picker. Only "Mất thẻ cư trú" is interactive; the other two show
-// "Sắp có" so the user sees the roadmap.
+// Phase 0 polish: shows the user's active plan (loaded from planStorage)
+// with progress summary + Tiếp tục CTA. Below that, the situation picker
+// lets the user start a new flow. If they pick the SAME flow as an existing
+// active plan, we ask to replace.
 //
-// Phase 0 = no AsyncStorage, no real plan state. Active plan list is always
-// empty in this PR. Phase 1 wires the real store.
-//
-// See docs/feature-my-japan-plan-assessment.md §4.1 and §5 Phase 0.
+// Only "Mất thẻ cư trú" has a real plan in Phase 0; the other two situations
+// show "Sắp có". The active-plan card only renders if loadActivePlan returns
+// non-null — Phase 1 will extend with multiple active plans across flows.
 
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Colors } from '../constants/colors';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { PLAN_SITUATIONS, PlanSituation } from '../constants/planFlows/lostResidenceCard.sample';
+import {
+  LOST_CARD_SAMPLE_PLAN,
+  PLAN_SITUATIONS,
+  PlanSituation,
+  PlanSituationId,
+} from '../constants/planFlows/lostResidenceCard.sample';
+import { loadActivePlan, StoredPlan } from '../utils/planStorage';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function MyJapanPlanScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const [activePlan, setActivePlan] = useState<StoredPlan | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const handlePick = (situation: PlanSituation) => {
-    if (!situation.available) return;
-    navigation.navigate('PlanWizard', { situationId: situation.id });
-  };
+  // Re-fetch every time the screen comes into focus so Tiếp tục updates
+  // after the user ticks steps on PlanDetail and pops back.
+  useFocusEffect(
+    useCallback(() => {
+      let cancelled = false;
+      (async () => {
+        const plan = await loadActivePlan('lost-residence-card');
+        if (!cancelled) {
+          setActivePlan(plan);
+          setLoading(false);
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
+    }, []),
+  );
+
+  const handleContinue = useCallback(() => {
+    if (!activePlan) return;
+    navigation.navigate('PlanDetail', {
+      situationId: activePlan.flowId,
+      answers: activePlan.answers,
+    });
+  }, [activePlan, navigation]);
+
+  const handlePick = useCallback(
+    (situation: PlanSituation) => {
+      if (!situation.available) return;
+      if (activePlan && activePlan.flowId === situation.id) {
+        Alert.alert(
+          'Đã có lộ trình đang chạy',
+          'Bạn đang có lộ trình "' +
+            situation.title +
+            '" với tiến độ đã lưu. Bắt đầu lại sẽ tạo wizard mới và ghi đè câu trả lời cũ. Tiến độ tích sẽ KHÔNG bị xoá ở bước này — chỉ ghi đè khi bạn hoàn tất wizard.',
+          [
+            { text: 'Quay lại', style: 'cancel' },
+            {
+              text: 'Tiếp tục lộ trình cũ',
+              onPress: handleContinue,
+            },
+            {
+              text: 'Bắt đầu wizard mới',
+              style: 'destructive',
+              onPress: () => navigation.navigate('PlanWizard', { situationId: situation.id }),
+            },
+          ],
+        );
+        return;
+      }
+      navigation.navigate('PlanWizard', { situationId: situation.id });
+    },
+    [activePlan, navigation, handleContinue],
+  );
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -65,15 +124,23 @@ export default function MyJapanPlanScreen() {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.emptyBox}>
-            <Ionicons name="map" size={28} color={Colors.primary} />
-            <Text style={styles.emptyTitle}>Chưa có lộ trình đang chạy</Text>
-            <Text style={styles.emptyDesc}>
-              Chọn một tình huống bên dưới để bắt đầu lộ trình đầu tiên.
-            </Text>
-          </View>
+          {loading ? (
+            <Text style={styles.loadingText}>Đang tải lộ trình…</Text>
+          ) : activePlan ? (
+            <ActivePlanCard plan={activePlan} onContinue={handleContinue} />
+          ) : (
+            <View style={styles.emptyBox}>
+              <Ionicons name="map" size={28} color={Colors.primary} />
+              <Text style={styles.emptyTitle}>Chưa có lộ trình đang chạy</Text>
+              <Text style={styles.emptyDesc}>
+                Chọn một tình huống bên dưới để bắt đầu lộ trình đầu tiên.
+              </Text>
+            </View>
+          )}
 
-          <Text style={styles.sectionLabel}>Tạo lộ trình mới</Text>
+          <Text style={styles.sectionLabel}>
+            {activePlan ? 'Bắt đầu lộ trình khác' : 'Tạo lộ trình mới'}
+          </Text>
 
           {PLAN_SITUATIONS.map((situation) => {
             const disabled = !situation.available;
@@ -118,12 +185,83 @@ export default function MyJapanPlanScreen() {
             <Ionicons name="information-circle-outline" size={14} color={Colors.textMuted} />
             <Text style={styles.disclaimerText}>
               Lộ trình do app tạo từ bài hướng dẫn có sẵn — chỉ tham khảo, không thay
-              tư vấn 入管 / luật sư. Đây là bản thử nghiệm (Phase 0), dữ liệu mẫu.
+              tư vấn 入管 / luật sư. Tiến độ tự lưu trên máy bạn, không gửi đi đâu.
             </Text>
           </View>
         </ScrollView>
       </View>
     </SafeAreaView>
+  );
+}
+
+// ─── Active plan card ──────────────────────────────────────────────────
+
+function ActivePlanCard({
+  plan,
+  onContinue,
+}: {
+  plan: StoredPlan;
+  onContinue: () => void;
+}) {
+  // Phase 0 has hardcoded sample groups for the one flow — derive progress
+  // from there. Phase 1 will store group structure inside the plan itself
+  // so we don't depend on the sample.
+  if (plan.flowId !== 'lost-residence-card') return null;
+
+  const totalSteps = LOST_CARD_SAMPLE_PLAN.groups.reduce(
+    (sum, g) => sum + g.steps.length,
+    0,
+  );
+  const doneCount = LOST_CARD_SAMPLE_PLAN.groups.reduce(
+    (sum, g) =>
+      sum + g.steps.filter((s) => !!plan.completedSteps[s.id]).length,
+    0,
+  );
+  const percent = totalSteps === 0 ? 0 : Math.round((doneCount / totalSteps) * 100);
+  const isComplete = totalSteps > 0 && doneCount === totalSteps;
+
+  return (
+    <TouchableOpacity
+      style={styles.activePlanCard}
+      onPress={onContinue}
+      accessibilityRole="button"
+    >
+      <View style={styles.activePlanHeader}>
+        <View style={styles.activePlanIconBg}>
+          <Ionicons name="map" size={18} color={Colors.primary} />
+        </View>
+        <View style={styles.activePlanTextBlock}>
+          <Text style={styles.activePlanLabel}>ĐANG CHẠY</Text>
+          <Text style={styles.activePlanTitle}>{LOST_CARD_SAMPLE_PLAN.title}</Text>
+        </View>
+        {isComplete ? (
+          <View style={styles.activePlanCompletePill}>
+            <Ionicons name="trophy" size={12} color="#27AE60" />
+            <Text style={styles.activePlanCompleteText}>Xong!</Text>
+          </View>
+        ) : null}
+      </View>
+
+      <View style={styles.activePlanProgressBar}>
+        <View
+          style={[
+            styles.activePlanProgressFill,
+            { width: `${percent}%`, backgroundColor: isComplete ? '#27AE60' : Colors.primary },
+          ]}
+        />
+      </View>
+      <View style={styles.activePlanProgressRow}>
+        <Text style={styles.activePlanProgressText}>
+          {doneCount}/{totalSteps} việc · {percent}%
+        </Text>
+        <View style={styles.activePlanContinueRow}>
+          <Text style={styles.activePlanContinueText}>
+            {isComplete ? 'Xem lại' : 'Tiếp tục'}
+          </Text>
+          <Ionicons name="chevron-forward" size={14} color={Colors.primary} />
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 }
 
@@ -184,6 +322,12 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingBottom: 24,
   },
+  loadingText: {
+    fontSize: 13,
+    color: Colors.textMuted,
+    textAlign: 'center',
+    paddingVertical: 20,
+  },
   emptyBox: {
     backgroundColor: Colors.white,
     borderRadius: 14,
@@ -207,6 +351,91 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     textAlign: 'center',
     paddingHorizontal: 12,
+  },
+  activePlanCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 20,
+    borderWidth: 1.5,
+    borderColor: Colors.primary,
+  },
+  activePlanHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 12,
+  },
+  activePlanIconBg: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    backgroundColor: Colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  activePlanTextBlock: { flex: 1 },
+  activePlanLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
+    letterSpacing: 0.6,
+    marginBottom: 2,
+  },
+  activePlanTitle: {
+    fontSize: 15,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+  },
+  activePlanCompletePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: '#E8F8EE',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  activePlanCompleteText: {
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: '#1E8449',
+  },
+  activePlanProgressBar: {
+    height: 6,
+    backgroundColor: Colors.border,
+    borderRadius: 3,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  activePlanProgressFill: {
+    height: '100%',
+    borderRadius: 3,
+  },
+  activePlanProgressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  activePlanProgressText: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  activePlanContinueRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
+  },
+  activePlanContinueText: {
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.primary,
   },
   sectionLabel: {
     fontSize: 12,
