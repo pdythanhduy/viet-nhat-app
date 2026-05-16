@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const schoolEnrollmentChildren: AdminGuide = {
     id: 'school-enrollment-children',
     category: 'daily-law',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Đăng ký trường tiểu học / trung học cơ sở cho con',
     titleJp: '外国籍の子どもの就学手続き',

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pensionExemptionRefund: AdminGuide = {
     id: 'pension-exemption-refund',
     category: 'money',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: '年金, miễn giảm và hoàn nenkin khi về nước',
     titleJp: '年金・免除・脱退一時金の基本',

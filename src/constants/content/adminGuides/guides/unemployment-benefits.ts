@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const unemploymentBenefits: AdminGuide = {
     id: 'unemployment-benefits',
     category: 'money',
-    lastVerified: '2026-04-14',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Trợ cấp thất nghiệp (失業給付)',
     titleJp: '失業給付・雇用保険の受給手続き',

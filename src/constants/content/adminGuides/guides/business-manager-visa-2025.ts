@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const businessManagerVisa2025: AdminGuide = {
     id: 'business-manager-visa-2025',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Visa kinh doanh/quản lý: tiêu chuẩn mới',
     titleJp: '経営・管理の許可基準改正',
@@ -24,7 +24,7 @@ const businessManagerVisa2025: AdminGuide = {
       appliesFrom: '2025-10-16',
       jurisdiction: 'national',
       jurisdictionNote: 'Tiêu chuẩn do ISA áp dụng toàn quốc; hồ sơ thực tế còn phụ thuộc loại nộp COE/đổi tư cách/gia hạn và category doanh nghiệp.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-05-16',
       nextReviewAt: '2026-10-16',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -34,7 +34,7 @@ const businessManagerVisa2025: AdminGuide = {
       ],
     },
     quickAction: {
-      deadline: 'Áp dụng với hồ sơ từ 16/10/2025; từ 15/04/2026 kiểm tra thêm giấy tờ mới nếu doanh nghiệp thuộc category 3 hoặc 4.',
+      deadline: 'Đã áp dụng với hồ sơ từ 16/10/2025. Đã áp dụng từ 15/04/2026: bộ giấy tờ bổ sung cho doanh nghiệp category 3 hoặc 4 — luôn verify checklist mới nhất với ISA / 行政書士 trước khi nộp.',
       office: 'ISA/cục xuất nhập cảnh có thẩm quyền; nên làm việc với 行政書士 và chuyên gia đánh giá business plan đúng nhóm ISA nêu.',
       doNow: [
         'Kiểm tra vốn/quy mô từ 30 triệu yên trở lên trước khi trả phí dịch vụ.',
@@ -54,8 +54,8 @@ const businessManagerVisa2025: AdminGuide = {
     ],
     whenToDo: [
       'Trước khi góp vốn, thuê văn phòng, ký hợp đồng lao động hoặc trả phí dịch vụ visa.',
-      'Trước hồ sơ COE, đổi tư cách hoặc gia hạn 経営・管理 sau 16/10/2025.',
-      'Từ 15/04/2026, nếu công ty thuộc category 3 hoặc 4, kiểm tra thêm bộ giấy tờ ISA mới yêu cầu cho hồ sơ liên quan.',
+      'Trước hồ sơ COE, đổi tư cách hoặc gia hạn 経営・管理 (mọi hồ sơ từ 16/10/2025 đã theo tiêu chuẩn mới).',
+      'Nếu công ty thuộc category 3 hoặc 4: bộ giấy tờ bổ sung đã áp dụng từ 15/04/2026 — verify checklist mới nhất trên trang ISA trước khi nộp.',
     ],
     whereToDo: [
       'Trang ISA về sửa đổi tiêu chuẩn 経営・管理 và trang status 経営・管理.',
@@ -120,7 +120,7 @@ const businessManagerVisa2025: AdminGuide = {
           'Loại hồ sơ: COE, đổi tư cách hay gia hạn',
           'Category công ty nếu đã hoạt động',
         ],
-        tip: 'Từ 15/04/2026, ISA còn nêu thêm giấy tờ cho category 3 hoặc 4; tải checklist tại ngày nộp.',
+        tip: 'Từ 15/04/2026 ISA đã yêu cầu thêm giấy tờ cho category 3 hoặc 4 — luôn tải checklist mới nhất trên trang ISA tại ngày nộp.',
       },
       {
         step: 2,

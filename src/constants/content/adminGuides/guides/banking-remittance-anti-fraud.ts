@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const bankingRemittanceAntiFraud: AdminGuide = {
     id: 'banking-remittance-anti-fraud',
     category: 'money',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Ngân hàng, chuyển tiền và chống khóa tài khoản',
     titleJp: '銀行口座・海外送金・マネロン対策の基本',

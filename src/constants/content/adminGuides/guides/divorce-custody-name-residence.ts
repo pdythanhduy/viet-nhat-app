@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const divorceCustodyNameResidence: AdminGuide = {
     id: 'divorce-custody-name-residence',
     category: 'daily-law',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Ly hôn, nuôi con và giấy tờ cư trú',
     titleJp: '離婚・親権・氏名変更・在留手続き',

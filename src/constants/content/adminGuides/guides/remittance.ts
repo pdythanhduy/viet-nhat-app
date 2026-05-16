@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const remittance: AdminGuide = {
     id: 'remittance',
     category: 'money',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Chuyển tiền về Việt Nam',
     titleJp: 'ベトナムへの海外送金',

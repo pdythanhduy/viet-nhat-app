@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nurseryKindergartenGuide: AdminGuide = {
     id: 'nursery-kindergarten-guide',
     category: 'daily-law',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Nhà trẻ, mẫu giáo và chỗ gửi trẻ ở Nhật',
     titleJp: '保育園・幼稚園・こども園の選び方と申込み',

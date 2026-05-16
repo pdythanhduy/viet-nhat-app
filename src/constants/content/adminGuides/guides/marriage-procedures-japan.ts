@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const marriageProceduresJapan: AdminGuide = {
     id: 'marriage-procedures-japan',
     category: 'immigration',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Thủ tục kết hôn tại Nhật',
     titleJp: '婚姻届・在日外国人の結婚手続き',

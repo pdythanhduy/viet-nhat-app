@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const annualHealthCheckupKensin: AdminGuide = {
     id: 'annual-health-checkup-kensin',
     category: 'health',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Khám sức khỏe định kỳ miễn phí (健康診断)',
     titleJp: '定期健康診断・特定健診・事業者健診',

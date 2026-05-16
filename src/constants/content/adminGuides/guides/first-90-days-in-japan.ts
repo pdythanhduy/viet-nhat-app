@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first90DaysInJapan: AdminGuide = {
     id: 'first-90-days-in-japan',
     category: 'daily-law',
-    lastVerified: '2026-04-12',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: '90 ngày đầu ở Nhật',
     titleJp: '来日後90日間の生活立ち上げチェック',

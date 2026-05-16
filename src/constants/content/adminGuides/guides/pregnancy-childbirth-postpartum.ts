@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pregnancyChildbirthPostpartum: AdminGuide = {
     id: 'pregnancy-childbirth-postpartum',
     category: 'health',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Mang thai, sinh con và sau sinh ở Nhật',
     titleJp: '妊娠・出産・産後の手続き',

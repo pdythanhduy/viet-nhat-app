@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
@@ -72,7 +72,7 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       },
       {
         question: 'Trong năm 2026 có gì đã mở?',
-        answer: 'ISA công bố thủ tục 施行日前申請: dự kiến từ 15/04/2026 nhận hồ sơ xin phép 監理支援機関, và từ 01/09/2026 nhận hồ sơ công nhận 育成就労計画.',
+        answer: 'ISA công bố thủ tục 施行日前申請: từ 15/04/2026 đã bắt đầu nhận hồ sơ xin phép 監理支援機関; từ 01/09/2026 nhận hồ sơ công nhận 育成就労計画 (chưa đến mốc).',
       },
       {
         question: '特定技能 có cập nhật trong 2026 không?',

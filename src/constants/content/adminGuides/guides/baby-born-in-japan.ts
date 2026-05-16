@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const babyBornInJapan: AdminGuide = {
     id: 'baby-born-in-japan',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Con sinh ở Nhật: quốc tịch, hộ chiếu, cư trú',
     titleJp: '日本で生まれた子どもの国籍・旅券・在留',

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const rentingAndBuyingHome: AdminGuide = {
     id: 'renting-and-buying-home',
     category: 'money',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Thuê nhà, trả nhà và mua nhà ở Nhật',
     titleJp: '賃貸住宅・退去費・住宅購入の基本',

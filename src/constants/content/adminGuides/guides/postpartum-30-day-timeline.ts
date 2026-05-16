@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const postpartum30DayTimeline: AdminGuide = {
     id: 'postpartum-30-day-timeline',
     category: 'health',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Timeline 0-30 ngày sau sinh',
     titleJp: '出産後30日までの手続きタイムライン',

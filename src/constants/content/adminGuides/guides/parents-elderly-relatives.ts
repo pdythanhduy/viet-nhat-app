@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const parentsElderlyRelatives: AdminGuide = {
     id: 'parents-elderly-relatives',
     category: 'visa',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Bảo lãnh cha mẹ / người thân lớn tuổi',
     titleJp: '親の呼び寄せ・高齢親族の在留',

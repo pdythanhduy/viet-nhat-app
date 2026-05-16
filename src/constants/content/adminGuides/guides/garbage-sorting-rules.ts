@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const garbageSortingRules: AdminGuide = {
     id: 'garbage-sorting-rules',
     category: 'daily-law',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Phân loại rác đúng cách tại Nhật',
     titleJp: 'ごみの分け方・出し方',

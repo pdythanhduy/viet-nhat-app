@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const mynaHealthInsuranceCard2026: AdminGuide = {
   id: 'myna-health-insurance-card-2026',
   category: 'health',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-05-16',
   priority: 'normal',
   title: 'マイナ保険証 — Bảo hiểm y tế tích hợp My Number (chuyển đổi 2024–2026)',
   titleJp: 'マイナ保険証 — 健康保険証の一体化',
   icon: 'medical-outline',
   color: '#00897B',
   description:
-    'Từ **02/12/2024**, Nhật bắt đầu **ngừng cấp 健康保険証 vật lý mới**, chuyển sang **マイナ保険証** — chức năng bảo hiểm y tế tích hợp trên My Number Card. Thẻ vật lý hiện hành tiếp tục hiệu lực **đến tối đa 01/12/2025** (hoặc theo hạn ghi trên thẻ). Sau đó: phải dùng マイナ保険証 hoặc **資格確認書** (giấy thay thế cho người không thể dùng My Number Card). Đây là **tài liệu định hướng theo nguồn 厚労省 + マイナポータル** — kiểm tra với bảo hiểm + bệnh viện trước khi đi khám.',
+    'Thời kỳ chuyển tiếp **đã kết thúc 01/12/2025**. Hiện tại (2026), thẻ 健康保険証 vật lý cũ **đã hết hiệu lực** (trừ một số thẻ có hạn ghi sau 12/2025). Hệ thống chính thức là **マイナ保険証** (chức năng bảo hiểm y tế tích hợp trên My Number Card) hoặc **資格確認書** (giấy thay thế cho người không thể dùng My Number Card). Mốc lịch sử: **02/12/2024** ngừng cấp thẻ vật lý mới; **01/12/2025** thẻ vật lý cũ hết hiệu lực. Đây là **tài liệu định hướng theo nguồn 厚労省 + マイナポータル** — kiểm tra với bảo hiểm + bệnh viện trước khi đi khám.',
   searchKeywords: [
     'マイナ保険証',
     'myna hoken sho',
@@ -29,7 +29,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) cấp thẻ vật lý + đăng ký マイナ保険証 + cấp 資格確認書. 02/12/2024 ngừng cấp thẻ vật lý mới. 01/12/2025 thẻ cũ hết hiệu lực (hoặc theo hạn ghi). Cải cách có ngoại lệ cho trẻ em / người cao tuổi / hoàn cảnh đặc biệt — kiểm tra 厚労省.',
+      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) đăng ký マイナ保険証 + cấp 資格確認書 cho người không dùng được. Mốc đã qua: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 thẻ cũ hết hiệu lực (trừ thẻ có hạn ghi sau). Ngoại lệ cho trẻ em / người cao tuổi / hoàn cảnh đặc biệt — đa số được cấp 資格確認書 tự động — kiểm tra 厚労省.',
     sourceVerifiedAt: '2026-05-14',
     nextReviewAt: '2026-09-01',
     riskLevel: 'high',
@@ -43,7 +43,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   },
   quickAction: {
     deadline:
-      '**02/12/2024**: ngừng cấp 健康保険証 vật lý mới. **Đến hạn ghi trên thẻ** (tối đa 01/12/2025): thẻ vật lý hiện hành hết hiệu lực. Sau đó phải dùng **マイナ保険証** hoặc **資格確認書**. KHÔNG có deadline cấp 資格確認書 — nhưng nên xin TRƯỚC khi thẻ vật lý hết hạn để tránh tạm thời không có bảo hiểm.',
+      '**Đã qua thời kỳ chuyển tiếp**: thẻ vật lý cũ đã hết hiệu lực từ 01/12/2025 (trừ thẻ có hạn ghi sau). Hiện tại bắt buộc dùng **マイナ保険証** hoặc **資格確認書**. NẾU bạn vẫn chưa kích hoạt: làm NGAY — đang đi viện không có thẻ hợp lệ phải tự trả 100% rồi xin hoàn (償還払い). KHÔNG có deadline cấp 資格確認書 — nhiều 保険者 đã tự động cấp cho người chưa kích hoạt マイナ保険証.',
     office:
       '**保険者** (bảo hiểm của bạn) là người cấp giấy + xử lý đăng ký:\n• 協会けんぽ / 健保組合 (nhân viên công ty) — qua phòng nhân sự công ty.\n• 国民健康保険 (国保 — tự kinh doanh / thất nghiệp / 60+) — qua **市役所/区役所** phòng 国保課.\n• 後期高齢者医療制度 (75+) — qua 市役所.\n• 共済組合 (nhân viên公務員) — qua tổ chức công.\n**マイナポータル** kích hoạt 健康保険証 利用申込 (qua app sau khi có My Number Card).',
     doNow: [
@@ -75,13 +75,13 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
     'KHÔNG dành cho: tư vấn cá nhân — vấn đề khẩn cấp y tế → bệnh viện trực tiếp. Vấn đề bảo hiểm → 保険者 trực tiếp.',
   ],
   whenToDo: [
-    '**02/12/2024**: ngừng cấp 健康保険証 vật lý mới. Người mới gia nhập bảo hiểm sau ngày này chỉ nhận マイナ保険証 hoặc 資格確認書.',
-    '**Đến hạn thẻ** (tối đa 01/12/2025): kiểm tra hạn trên thẻ vật lý hiện tại — đa số đến 12/2025.',
-    '**Trước hạn thẻ vật lý 1–2 tháng**: xin 資格確認書 (nếu chưa có My Number Card hoặc không muốn dùng) hoặc kích hoạt マイナ保険証.',
-    '**Khi đổi việc** / 退職 / 入社: đăng ký lại với 保険者 mới — マイナ保険証 link tự động sau xác nhận.',
+    '**NGAY BÂY GIỜ** nếu bạn chưa kích hoạt マイナ保険証 và chưa có 資格確認書: thẻ vật lý cũ đã hết hiệu lực từ 01/12/2025 → rủi ro phải tự trả 100% khi đi viện.',
+    '**Mốc đã qua**: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 đa số thẻ vật lý hết hiệu lực (một số có hạn ghi sau vẫn dùng được đến hạn ghi).',
+    '**Khi đổi việc** / 退職 / 入社: đăng ký lại với 保険者 mới — マイナ保険証 link tự động sau xác nhận (5–10 ngày).',
     '**Khi đổi 市町村** (cho 国保): chuyển 住民票 + đăng ký 国保 mới.',
     '**Khi 75 tuổi**: tự động chuyển sang 後期高齢者医療制度 — マイナ保険証 chuyển theo.',
-    '**Sau khi nhận con mới sinh**: đăng ký bảo hiểm cho con trong 14 ngày — マイナ保険証 cho con (nếu có My Number Card cho con).',
+    '**Sau khi nhận con mới sinh**: đăng ký bảo hiểm cho con trong 14 ngày — 資格確認書 cho con (đa số trẻ em chưa có My Number Card).',
+    '**Khi 資格確認書 sắp hết hạn** (tối đa 5 năm): xin lại tại 保険者.',
   ],
   whereToDo: [
     '**Đăng ký マイナ保険証**:\n• **マイナポータル app** (Free) — link với My Number Card qua NFC.\n• Setup → 健康保険証 利用申込 → 1–2 tuần có hiệu lực.\n• Hoặc tại 顔認証付きカードリーダー ở bệnh viện đầu tiên (đa số tự kích hoạt).',
@@ -122,9 +122,9 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   ],
   faq: [
     {
-      question: 'Thẻ 健康保険証 vật lý của tôi đến khi nào hết hạn?',
+      question: 'Tôi còn cầm thẻ 健康保険証 vật lý — vẫn dùng được không?',
       answer:
-        'Kiểm tra **mặt trước thẻ** — ghi 有効期限 (hạn) cụ thể.\n\n**Quy định chung 2024–2026** (theo 厚労省):\n\n• **02/12/2024**: ngừng cấp THẺ MỚI vật lý cho người mới đăng ký bảo hiểm.\n• **Thẻ vật lý hiện hành**: tiếp tục có hiệu lực **đến hạn ghi trên thẻ** (tối đa **01/12/2025**).\n• Sau 01/12/2025: thẻ vật lý KHÔNG còn hiệu lực — phải dùng マイナ保険証 hoặc 資格確認書.\n\n**Ngoại lệ**:\n\n• **協会けんぽ**: hạn 12/2025.\n• **健保組合 lớn**: tương tự hoặc theo công bố 保険者.\n• **国保**: hạn theo 市町村 — thường cuối năm tài chính (3月) hoặc cuối năm dương lịch.\n• **後期高齢者医療制度**: hạn theo 都道府県広域連合.\n\n**Kiểm tra cụ thể**:\n• Đọc thẻ vật lý hiện tại.\n• Gọi 保険者 (số trên thẻ).\n• Trang web 保険者.\n\n**Sau hạn**:\n• Đã đăng ký マイナ保険証 → tự động dùng được.\n• Chưa đăng ký → cần 資格確認書 (cấp miễn phí, có thể được cấp tự động hoặc xin tại 保険者).',
+        'Kiểm tra **mặt trước thẻ** — ghi 有効期限 (hạn).\n\n**Tình trạng hiện tại (2026)**:\n\n• **Đa số thẻ vật lý đã hết hiệu lực** từ 01/12/2025 — KHÔNG dùng được tại viện.\n• **Một số thẻ có hạn ghi sau 12/2025** vẫn dùng được đến hạn ghi (ngoại lệ — tự kiểm tra).\n• Sau khi thẻ vật lý hết → BẮT BUỘC dùng マイナ保険証 hoặc 資格確認書.\n\n**Nếu thẻ vật lý của bạn đã hết hạn**:\n\n• Đã kích hoạt マイナ保険証 trước đó → tự động dùng được tại viện có 顔認証付きカードリーダー.\n• Chưa kích hoạt + chưa có 資格確認書 → đi viện có thể phải tự trả 100% → xin hoàn (償還払い) sau.\n• Nhiều 保険者 đã tự động cấp 資格確認書 cho người chưa kích hoạt — kiểm tra mail từ 保険者.\n\n**Hành động ngay**:\n\n1. Đọc hạn thẻ vật lý hiện tại.\n2. Kiểm tra mail/thông báo từ 保険者 — có thể đã nhận 資格確認書 mà không để ý.\n3. Nếu cả 2 đều không có → gọi 保険者 (số trên thẻ cũ) xin 資格確認書 NGAY hoặc kích hoạt マイナ保険証 qua マイナポータル.\n\n**Theo 保険者**:\n\n• **協会けんぽ**: hạn 12/2025 — đa số đã hết.\n• **健保組合**: theo công bố 保険者 — đa số 12/2025.\n• **国保**: theo 市町村 — đa số 7/2025 hoặc 12/2025.\n• **後期高齢者医療制度**: theo 都道府県広域連合 — đa số 7/2025.',
     },
     {
       question: 'Cách kích hoạt マイナ保険証 từng bước?',
@@ -205,15 +205,15 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
       step: 1,
       title: 'Hiểu lộ trình chuyển đổi 2024–2026',
       description:
-        '**Lịch sử + tương lai**:\n\n• **Trước 02/12/2024**: hệ thống cũ — chỉ thẻ 健康保険証 vật lý.\n• **02/12/2024**: 厚労省 ngừng cấp thẻ vật lý mới. Người mới đăng ký bảo hiểm sau ngày này chỉ nhận マイナ保険証 hoặc 資格確認書.\n• **02/12/2024 – 01/12/2025**: thời kỳ chuyển tiếp — thẻ vật lý cũ vẫn hiệu lực đến hạn ghi trên thẻ.\n• **Sau 01/12/2025**: thẻ vật lý hết hiệu lực — phải dùng マイナ保険証 hoặc 資格確認書.\n• **Đến 2026**: cải cách hoàn tất — マイナ保険証 là hệ thống chính.\n\n**Phân loại người dùng**:\n\n• **A. Đã có My Number Card + đã kích hoạt 健康保険証**:\n  - Sẵn sàng dùng マイナ保険証.\n  - KHÔNG cần làm gì thêm.\n\n• **B. Đã có My Number Card nhưng CHƯA kích hoạt 健康保険証**:\n  - Cần kích hoạt qua マイナポータル.\n  - Hoặc tự kích hoạt tại 顔認証付きカードリーダー bệnh viện đầu tiên.\n\n• **C. CHƯA có My Number Card**:\n  - **Option 1**: Xin My Number Card (1 tháng cấp) + kích hoạt 健康保険証.\n  - **Option 2**: Xin 資格確認書 từ 保険者 — không cần My Number Card.\n  - Đa số trường hợp: Option 2 nhanh hơn cho tạm thời.\n\n• **D. Trẻ em / người cao tuổi không quen công nghệ**:\n  - 資格確認書 là option tốt nhất.\n  - Nếu muốn My Number Card → quy trình đơn giản hơn (trẻ em không cần PIN ký).',
+        '**Lịch sử lộ trình**:\n\n• **Trước 02/12/2024**: hệ thống cũ — chỉ thẻ 健康保険証 vật lý.\n• **02/12/2024**: 厚労省 ngừng cấp thẻ vật lý mới. Người mới đăng ký bảo hiểm sau ngày này chỉ nhận マイナ保険証 hoặc 資格確認書.\n• **02/12/2024 – 01/12/2025**: thời kỳ chuyển tiếp — thẻ vật lý cũ vẫn hiệu lực đến hạn ghi trên thẻ.\n• **01/12/2025**: đa số thẻ vật lý hết hiệu lực (một số có hạn ghi sau vẫn dùng đến hạn).\n• **Hiện tại (2026)**: マイナ保険証 + 資格確認書 là 2 lựa chọn chính thức. Cải cách đã hoàn tất phần lớn.\n\n**Phân loại người dùng**:\n\n• **A. Đã có My Number Card + đã kích hoạt 健康保険証**:\n  - Sẵn sàng dùng マイナ保険証.\n  - KHÔNG cần làm gì thêm.\n\n• **B. Đã có My Number Card nhưng CHƯA kích hoạt 健康保険証**:\n  - Cần kích hoạt qua マイナポータル.\n  - Hoặc tự kích hoạt tại 顔認証付きカードリーダー bệnh viện đầu tiên.\n\n• **C. CHƯA có My Number Card**:\n  - **Option 1**: Xin My Number Card (1 tháng cấp) + kích hoạt 健康保険証.\n  - **Option 2**: Xin 資格確認書 từ 保険者 — không cần My Number Card.\n  - Đa số trường hợp: Option 2 nhanh hơn cho tạm thời.\n\n• **D. Trẻ em / người cao tuổi không quen công nghệ**:\n  - 資格確認書 là option tốt nhất.\n  - Nếu muốn My Number Card → quy trình đơn giản hơn (trẻ em không cần PIN ký).',
       documents: [],
-      tip: 'Lộ trình mỗi người khác — kiểm tra hạn thẻ vật lý hiện tại trước khi quyết định gấp hay không.',
+      tip: 'Đa số người Việt giờ thuộc nhóm B hoặc C — nếu chưa hành động, làm NGAY để tránh tình huống không bảo hiểm khi đi viện.',
     },
     {
       step: 2,
       title: 'Kiểm tra thẻ hiện tại + quyết định option',
       description:
-        '**Bước 1 — Kiểm tra thẻ 健康保険証 vật lý hiện tại**:\n\n• Tìm hạn trên thẻ (有効期限 / 有効期間).\n• Đa số:\n  - 協会けんぽ: hạn 12/2025.\n  - 健保組合: tùy 保険者, thường 12/2025.\n  - 国保 (市町村): tùy 市町村, thường 7/2025 hoặc 12/2025.\n  - 後期高齢: 7/2025 hoặc 12/2025.\n• KHÔNG có hạn ghi → gọi 保険者 hỏi.\n\n**Bước 2 — Đếm thời gian**:\n\n• >6 tháng đến hạn → không gấp.\n• 1–6 tháng → bắt đầu hành động.\n• <1 tháng → gấp.\n\n**Bước 3 — Chọn option**:\n\n**Có My Number Card đã + có app マイナポータル**:\n• → Kích hoạt 健康保険証 利用申込 trong app (bước 3 dưới).\n• Thời gian: 1–2 tuần có hiệu lực.\n\n**Có My Number Card nhưng KHÔNG dùng app**:\n• → Đến viện đầu tiên có 顔認証付きカードリーダー → tự động kích hoạt.\n• Hoặc — xin 資格確認書 từ 保険者 (đơn giản hơn).\n\n**Chưa có My Number Card + muốn nhanh**:\n• → Xin 資格確認書 từ 保険者 (1–2 tuần cấp).\n• Sau đó xin My Number Card từ tốn.\n\n**Chưa có My Number Card + muốn đầy đủ**:\n• → Xin My Number Card trước (1 tháng cấp).\n• Sau đó kích hoạt 健康保険証 利用申込.\n• Trong khi chờ: 資格確認書 tạm thời.\n\n**Kế hoạch khuyến nghị cho người Việt mới sang**:\n\n1. Đăng ký 住民票 + 健康保険 trong 7 ngày.\n2. Yêu cầu 資格確認書 ngay → dùng được trong 1 tuần.\n3. Cùng lúc xin My Number Card → 1 tháng cấp.\n4. Sau khi có thẻ → kích hoạt 健康保険証 利用申込.\n5. Tổng 1–2 tháng đầy đủ hệ thống.',
+        '**Bước 1 — Kiểm tra trạng thái hiện tại**:\n\n**Thẻ 健康保険証 vật lý cũ** (nếu còn cầm):\n• Tìm hạn trên thẻ (有効期限 / 有効期間).\n• Đa số đã hết hạn 7/2025–12/2025.\n• Còn hạn ghi sau 12/2025 → vẫn dùng đến hạn ghi.\n\n**Kiểm tra 資格確認書**: đa số 保険者 đã tự động gửi qua bưu điện cho người chưa kích hoạt マイナ保険証. Tìm trong giấy tờ nhận từ 保険者 trong 2025.\n\n**Kiểm tra マイナ保険証**: mở app マイナポータル → menu 健康保険証 → xem đã kích hoạt chưa.\n\n**Bước 2 — Đánh giá rủi ro**:\n\n• Đã có ít nhất 1 trong 3 (マイナ保険証 / 資格確認書 / thẻ vật lý còn hạn) → ổn.\n• KHÔNG có cái nào → GẤP — rủi ro phải tự trả 100% khi đi viện.\n\n**Bước 3 — Chọn option**:\n\n**Có My Number Card đã + có app マイナポータル**:\n• → Kích hoạt 健康保険証 利用申込 trong app (bước 3 dưới).\n• Thời gian: 1–2 tuần có hiệu lực.\n\n**Có My Number Card nhưng KHÔNG dùng app**:\n• → Đến viện đầu tiên có 顔認証付きカードリーダー → tự động kích hoạt.\n• Hoặc — xin 資格確認書 từ 保険者 (đơn giản hơn).\n\n**Chưa có My Number Card + muốn nhanh**:\n• → Xin 資格確認書 từ 保険者 (1–2 tuần cấp).\n• Sau đó xin My Number Card từ tốn.\n\n**Chưa có My Number Card + muốn đầy đủ**:\n• → Xin My Number Card trước (1 tháng cấp).\n• Sau đó kích hoạt 健康保険証 利用申込.\n• Trong khi chờ: 資格確認書 tạm thời.\n\n**Kế hoạch khuyến nghị cho người Việt mới sang**:\n\n1. Đăng ký 住民票 + 健康保険 trong 7 ngày.\n2. Yêu cầu 資格確認書 ngay → dùng được trong 1 tuần.\n3. Cùng lúc xin My Number Card → 1 tháng cấp.\n4. Sau khi có thẻ → kích hoạt 健康保険証 利用申込.\n5. Tổng 1–2 tháng đầy đủ hệ thống.',
       documents: ['健康保険証 vật lý hiện tại', '在留カード'],
       tip: '資格確認書 là backup tốt — luôn có (kể cả khi dùng マイナ保険証) cho trường hợp mất My Number Card.',
     },

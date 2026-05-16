@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const taxYearEndAdjustmentFiling: AdminGuide = {
     id: 'tax-year-end-adjustment-filing',
     category: 'money',
-    lastVerified: '2026-04-11',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Thuế, 年末調整, 確定申告 và 扶養',
     titleJp: '税金・年末調整・確定申告・扶養の基本',

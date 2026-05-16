@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicy2026ActionByUserType: AdminGuide = {
     id: 'japan-policy-2026-action-by-user-type',
     category: 'visa',
-    lastVerified: '2026-04-19',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Chính sách 2026: Hành động theo từng nhóm người dùng',
     titleJp: '2026年制度変更：対象者別アクションガイド',

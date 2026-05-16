@@ -3,12 +3,12 @@ import type { AdminGuide } from '../../../../types/content';
 const simCard: AdminGuide = {
     id: 'sim-card',
     category: 'daily-law',
-    lastVerified: '2026-04-10',
+    lastVerified: '2026-05-16',
     title: 'Đăng ký SIM điện thoại',
     titleJp: 'SIMカード契約',
     icon: 'phone-portrait',
     color: '#D35400',
-    description: 'Hướng dẫn đăng ký SIM/eSIM tại Nhật. Từ 2026, xác minh danh tính online có xu hướng chặt hơn, nên cần kiểm tra giấy tờ từng nhà mạng.',
+    description: 'Hướng dẫn đăng ký SIM/eSIM tại Nhật. Trong 2026, xác minh danh tính online (eKYC) ngày càng chặt — nên kiểm tra trước yêu cầu giấy tờ từng nhà mạng để tránh bị từ chối.',
     heroImage: require('../../../../../assets/content/daily-life/dl_sim_s1.jpg'),
     heroImageCaption: 'Đăng ký SIM tại Nhật — cần 在留カード và địa chỉ khớp giấy tờ',
     whoIsThisFor: [

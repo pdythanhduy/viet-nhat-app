@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const motorcycleVoluntaryInsurance: AdminGuide = {
     id: 'motorcycle-voluntary-insurance',
     category: 'traffic',
-    lastVerified: '2026-04-29',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: 'Bảo hiểm xe máy tự nguyện (任意保険)',
     titleJp: 'バイク・原付の任意保険・ファミリーバイク特約',

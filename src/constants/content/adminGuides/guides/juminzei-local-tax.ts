@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const juminzeiLocalTax: AdminGuide = {
     id: 'juminzei-local-tax',
     category: 'money',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-16',
     priority: 'normal',
     title: 'Thuế cư dân địa phương (住民税)',
     titleJp: '住民税・特別徴収・普通徴収',
@@ -131,7 +131,7 @@ const juminzeiLocalTax: AdminGuide = {
       {
         step: 1,
         title: 'Hiểu trước: 住民税 là thuế của năm TRƯỚC',
-        description: '住民税 tính trên thu nhập năm dương lịch TRƯỚC (1/1–31/12), không phải năm hiện tại.\n\nVí dụ:\n• Thu nhập năm 2024 → tính thuế → ra hoá đơn tháng 6/2025 → nộp từ 6/2025 đến 5/2026.\n\nThuế suất chuẩn: ~10% thu nhập chịu thuế (6% tỉnh/thành phố + 4% quận/huyện) + khoản cố định 均等割 vài nghìn yên/năm tuỳ địa phương.\n\nNăm đầu tiên ở Nhật: chưa có thu nhập năm trước → chưa có 住民税. Năm thứ 2 mới bắt đầu.',
+        description: '住民税 tính trên thu nhập năm dương lịch TRƯỚC (1/1–31/12), không phải năm hiện tại.\n\nVí dụ:\n• Thu nhập năm 2025 → tính thuế → ra hoá đơn tháng 6/2026 → nộp từ 6/2026 đến 5/2027.\n\nThuế suất chuẩn: ~10% thu nhập chịu thuế (6% tỉnh/thành phố + 4% quận/huyện) + khoản cố định 均等割 vài nghìn yên/năm tuỳ địa phương.\n\nNăm đầu tiên ở Nhật: chưa có thu nhập năm trước → chưa có 住民税. Năm thứ 2 mới bắt đầu.',
         documents: [],
         tip: '住民税 KHÁC HẲN 所得税 (thuế thu nhập quốc gia bị trừ hàng tháng). Kể cả khi công ty đã xử lý 年末調整, 住民税 vẫn là nghĩa vụ riêng do địa phương quản lý.',
       },

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first30DaysWorkStudyJapan: AdminGuide = {
     id: 'first-30-days-work-study-japan',
     category: 'daily-law',
-    lastVerified: '2026-04-12',
+    lastVerified: '2026-05-16',
     priority: 'high',
     title: '30 ngày đầu đi làm / đi học ở Nhật',
     titleJp: '来日後30日間の仕事・学校チェック',
