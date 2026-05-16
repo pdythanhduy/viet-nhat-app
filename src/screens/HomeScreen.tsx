@@ -397,6 +397,33 @@ export default function HomeScreen() {
             <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
           </TouchableOpacity>
 
+          {/* Lộ trình cá nhân — Phase 0 UI mock. Same small-card style as
+              Hỏi Cẩm Nang. Phase 0 shows hardcoded sample plan only. Phase 1
+              wires AsyncStorage + expo-notifications + real branching.
+              See docs/feature-my-japan-plan-assessment.md. */}
+          <TouchableOpacity
+            style={styles.askCta}
+            onPress={() => navigation.navigate('MyJapanPlan')}
+            accessibilityRole="button"
+            accessibilityLabel="Mở Lộ trình cá nhân"
+          >
+            <View style={styles.askCtaIconBg}>
+              <Ionicons name="map-outline" size={16} color={Colors.primary} />
+            </View>
+            <View style={styles.askCtaText}>
+              <View style={styles.askCtaTitleRow}>
+                <Text style={styles.askCtaTitle}>Lộ trình cá nhân</Text>
+                <View style={styles.askCtaBeta}>
+                  <Text style={styles.askCtaBetaText}>BETA</Text>
+                </View>
+              </View>
+              <Text style={styles.askCtaSubtitle}>
+                Chọn tình huống — app tạo lộ trình từng bước có deadline.
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+          </TouchableOpacity>
+
           {/* Situation chips — the user identifies what they're dealing with
               and lands on the right starting point without typing. */}
           <View style={styles.quickActionsSection}>
