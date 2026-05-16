@@ -196,6 +196,50 @@ const typhoonEvacuationAlerts: AdminGuide = {
       note: 'Một số 避難所 có hỗ trợ — không phải tỉnh nào cũng có.',
     },
   ],
+  keyTerms: [
+    {
+      term: '台風',
+      reading: 'たいふう',
+      meaningVi: 'bão (tropical cyclone)',
+      noteVi: 'Mùa bão Nhật: 6/15-10/30 (mạnh nhất 8-9). Khác typhoon ở các nước: Nhật dùng số thứ tự năm (vd 台風19号 = bão số 19 của năm). 気象庁 (JMA) cảnh báo trước 5 ngày. App khuyến nghị: 気象庁 official, Yahoo!天気, NHK World JP.',
+    },
+    {
+      term: '警戒レベル',
+      reading: 'けいかいレベル',
+      meaningVi: 'cấp cảnh báo thiên tai (5 cấp)',
+      noteVi: 'Hệ thống quốc gia 5 cấp do 内閣府 thống nhất 2019: Lv1 (chú ý) → Lv2 (chuẩn bị) → Lv3 (高齢者等避難 — người già nên đi) → Lv4 (避難指示 — TẤT CẢ phải đi) → Lv5 (緊急安全確保 — đã muộn, lo an toàn tại chỗ). Đừng đợi Lv4 nếu thuộc nhóm rủi ro.',
+    },
+    {
+      term: '避難指示',
+      reading: 'ひなんしじ',
+      meaningVi: 'lệnh sơ tán (cấp 4)',
+      noteVi: 'Khi 市役所 phát 避難指示 = TẤT CẢ người trong khu phải đi 避難所 NGAY. Không phải "khuyến nghị". Phát qua: 防災行政無線 (loa phường), 緊急速報メール (điện thoại tự reo), TV/Radio. Trễ = nguy hiểm. App Safety tips của 観光庁 có cảnh báo tiếng Anh/Việt.',
+    },
+    {
+      term: '特別警報',
+      reading: 'とくべつけいほう',
+      meaningVi: 'cảnh báo đặc biệt (cấp cao nhất)',
+      noteVi: 'Mức nghiêm trọng hơn 警報. Khi 気象庁 phát 特別警報 = thiên tai chưa từng có quy mô + nguy hiểm tính mạng. Phát cho: mưa lớn, sóng cao, bão, tuyết, núi lửa, sóng thần. Khi nghe → 命を守る行動 (hành động cứu mạng) ngay, không cần đợi 市役所 ra lệnh.',
+    },
+    {
+      term: '線状降水帯',
+      reading: 'せんじょうこうすいたい',
+      meaningVi: '"dải mưa kéo dài" (gây ngập rất nguy hiểm)',
+      noteVi: 'Khái niệm 気象庁 dùng từ 2021: mưa cực lớn liên tục trên 1 dải hẹp 50-300km dài × 20-50km rộng × 3 giờ+. Ngập đột ngột + lở đất. Khi nghe trên TV → tránh tầng hầm, đường ngập, vùng đồi.',
+    },
+    {
+      term: '土砂災害警戒情報',
+      reading: 'どしゃさいがいけいかいじょうほう',
+      meaningVi: 'cảnh báo lở đất / sạt lở',
+      noteVi: 'Phát khi mưa lớn trên đất đã ngậm nước. Nếu nhà bạn gần đồi / vách / sông nhỏ → đi 避難所 NGAY khi nghe. Dấu hiệu cảnh báo thực địa: nước chảy ngầu lạ, đá rơi, đất nứt, tiếng "ゴゴゴ" từ đồi. Không quay lại lấy đồ.',
+    },
+    {
+      term: '罹災証明書',
+      reading: 'りさいしょうめいしょ',
+      meaningVi: 'giấy chứng nhận thiệt hại (sau thiên tai)',
+      noteVi: 'Do 市役所 cấp sau khi thẩm định nhà bị 全壊 / 大規模半壊 / 半壊 / 一部損壊. CẦN để: nhận tiền hỗ trợ, miễn thuế, hoãn vay, đòi bảo hiểm. Xin trong 1 tháng — lưu ảnh thiệt hại trước khi sửa. Cùng loại với động đất.',
+    },
+  ],
   officialLinks: [
     { label: '気象庁 (JMA)', url: 'https://www.jma.go.jp/' },
     { label: '内閣府（防災担当）— 避難情報に関するガイドライン（警戒レベル）', url: 'https://www.bousai.go.jp/oukyu/hinanjouhou/r3_hinanjouhou_guideline/' },
