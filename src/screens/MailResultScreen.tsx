@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import {
@@ -23,6 +23,7 @@ import {
   type MailWarningSeverity,
 } from '../constants/aiMailSamples';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import { track } from '../utils/analytics';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'MailResult'>;
 type Rt = RouteProp<RootStackParamList, 'MailResult'>;
@@ -97,6 +98,12 @@ export default function MailResultScreen() {
   const navigation = useNavigation<Nav>();
   const route = useRoute<Rt>();
   const sample = getMailSampleById(route.params.sampleId);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (sample) track('mail_summary_viewed');
+    }, [sample])
+  );
 
   if (!sample) {
     return (

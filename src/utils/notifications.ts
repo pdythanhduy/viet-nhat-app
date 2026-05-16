@@ -5,6 +5,7 @@ import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StorageKeys } from '../constants/storageKeys';
 import type { IoniconName } from '../types/content';
+import { track } from './analytics';
 import { getDaysUntil } from './dateUtils';
 
 // Expo Go SDK 53+ removed remote push notifications on Android.
@@ -43,7 +44,7 @@ async function ensureAndroidChannel() {
   });
 }
 
-export async function requestPermission(): Promise<boolean> {
+export async function requestPermission(kind: 'study' | 'word' | 'date' = 'study'): Promise<boolean> {
   if (!Device.isDevice) return false;
 
   if (isExpoGo) {
@@ -60,6 +61,8 @@ export async function requestPermission(): Promise<boolean> {
   const { status } = await Notifications.requestPermissionsAsync();
   if (status !== 'granted') return false;
 
+  // Fired only on the first OS-prompt grant — not on subsequent already-granted calls.
+  track('notification_permission_granted', { kind });
   await ensureAndroidChannel();
   return true;
 }
@@ -111,7 +114,7 @@ async function cancelNotificationsForDate(dateId: string): Promise<void> {
 export async function scheduleNotificationsForDate(item: ImportantDate): Promise<void> {
   await cancelNotificationsForDate(item.id);
 
-  const permitted = await requestPermission();
+  const permitted = await requestPermission('date');
   if (!permitted) return;
 
   for (const days of REMINDER_DAYS) {
@@ -162,7 +165,7 @@ export async function scheduleJapaneseStudyReminder(
   content: DailyReminderContent = DEFAULT_STUDY_CONTENT
 ): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(JAPANESE_REMINDER_ID).catch(() => undefined);
-  const permitted = await requestPermission();
+  const permitted = await requestPermission('study');
   if (!permitted) {
     throw new Error('notification-permission-denied');
   }
@@ -193,7 +196,7 @@ export async function scheduleWordOfDayReminder(
   content: DailyReminderContent = DEFAULT_WORD_CONTENT
 ): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(WORD_OF_DAY_REMINDER_ID).catch(() => undefined);
-  const permitted = await requestPermission();
+  const permitted = await requestPermission('word');
   if (!permitted) {
     throw new Error('notification-permission-denied');
   }

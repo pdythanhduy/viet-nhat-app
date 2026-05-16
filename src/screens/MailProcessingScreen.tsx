@@ -16,6 +16,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import { track } from '../utils/analytics';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'MailProcessing'>;
 type Rt = RouteProp<RootStackParamList, 'MailProcessing'>;
@@ -41,6 +42,7 @@ export default function MailProcessingScreen() {
     }, STEP_INTERVAL_MS);
 
     const finishTimer = setTimeout(() => {
+      track('mail_translated');
       navigation.replace('MailResult', { sampleId });
     }, TOTAL_DELAY_MS);
 

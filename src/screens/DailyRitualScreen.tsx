@@ -22,7 +22,7 @@ import { getTodayPhrase, getTodayQuizQuestions } from '../utils/dailyRitualConte
 import type { QuizPhrase, QuizQuestion } from '../utils/japaneseQuiz';
 import { loadStreak, markStudiedToday, StreakData } from '../utils/japaneseStreak';
 import { refreshDailyReminderContent } from '../utils/dailyReminderSync';
-import { logQuizCompleted, logQuizStarted } from '../utils/analytics';
+import { track } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type Stage = 'intro' | 'quiz' | 'done';
@@ -47,7 +47,11 @@ export default function DailyRitualScreen() {
 
   useFocusEffect(
     React.useCallback(() => {
-      loadStreak().then(setStreak);
+      track('daily_ritual_view');
+      loadStreak().then((data) => {
+        setStreak(data);
+        track('streak_viewed', { current_streak: data.currentStreak });
+      });
       return () => {
         void stopJapaneseAudio();
       };
@@ -65,7 +69,7 @@ export default function DailyRitualScreen() {
   const alreadyDoneToday = streak?.lastStudyDate === todayDateString();
 
   const handleStartQuiz = () => {
-    logQuizStarted('daily_ritual').catch(() => undefined);
+    track('ritual_started');
     setCurrentIndex(0);
     setSelectedIndex(null);
     setScore(0);
@@ -75,14 +79,20 @@ export default function DailyRitualScreen() {
   const handleSelect = (index: number) => {
     if (selectedIndex !== null) return;
     setSelectedIndex(index);
-    if (index === questions[currentIndex].correctIndex) setScore((prev) => prev + 1);
+    const isCorrect = index === questions[currentIndex].correctIndex;
+    if (isCorrect) setScore((prev) => prev + 1);
+    track('quiz_answered', { correct: isCorrect, question_index: currentIndex });
   };
 
   const handleNext = async () => {
     if (currentIndex + 1 >= questions.length) {
       const updated = await markStudiedToday();
       setPostStreak(updated);
-      logQuizCompleted('daily_ritual', score, questions.length).catch(() => undefined);
+      track('ritual_completed', {
+        score,
+        total: questions.length,
+        new_streak: updated.currentStreak,
+      });
       // Re-sync notifications so tomorrow's text reflects new streak
       refreshDailyReminderContent().catch(() => undefined);
       setStage('done');

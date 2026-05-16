@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppState, AppStateStatus } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   useFonts,
@@ -12,6 +13,7 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { navigate } from './src/navigation/navigationRef';
 import { addDailyRitualNotificationListener, rescheduleAll } from './src/utils/notifications';
 import { refreshDailyReminderContent } from './src/utils/dailyReminderSync';
+import { initAnalytics, track } from './src/utils/analytics';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,11 +25,30 @@ export default function App() {
   });
 
   React.useEffect(() => {
+    initAnalytics();
+    track('app_open');
     Promise.all([rescheduleAll(), refreshDailyReminderContent()]).catch(() => {});
   }, []);
 
   React.useEffect(() => {
-    const subscription = addDailyRitualNotificationListener(() => {
+    let lastState: AppStateStatus = AppState.currentState;
+    const subscription = AppState.addEventListener('change', (next) => {
+      if (lastState === 'active' && (next === 'background' || next === 'inactive')) {
+        track('app_background');
+      } else if (
+        (lastState === 'background' || lastState === 'inactive') &&
+        next === 'active'
+      ) {
+        track('app_open');
+      }
+      lastState = next;
+    });
+    return () => subscription.remove();
+  }, []);
+
+  React.useEffect(() => {
+    const subscription = addDailyRitualNotificationListener((slot) => {
+      track('notification_opened', { slot });
       navigate('DailyRitual');
     });
     return () => subscription.remove();

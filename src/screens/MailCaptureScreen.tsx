@@ -18,6 +18,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { MAIL_SAMPLES } from '../constants/aiMailSamples';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import { track } from '../utils/analytics';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'MailCapture'>;
 
@@ -25,6 +26,7 @@ export default function MailCaptureScreen() {
   const navigation = useNavigation<Nav>();
 
   const handlePickSample = (sampleId: string) => {
+    track('mail_image_uploaded');
     navigation.navigate('MailProcessing', { sampleId });
   };
 
