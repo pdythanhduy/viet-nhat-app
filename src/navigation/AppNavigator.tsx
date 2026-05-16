@@ -44,6 +44,10 @@ import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
 import HoiCamNangScreen from '../screens/HoiCamNangScreen';
+import MyJapanPlanScreen from '../screens/MyJapanPlanScreen';
+import PlanWizardScreen from '../screens/PlanWizardScreen';
+import PlanDetailScreen from '../screens/PlanDetailScreen';
+import type { PlanSituationId } from '../constants/planFlows/lostResidenceCard.sample';
 import StoryHubScreen from '../screens/StoryHubScreen';
 import StoryReadingScreen from '../screens/StoryReadingScreen';
 import StoryVocabDashboard from '../screens/StoryVocabDashboard';
@@ -95,6 +99,9 @@ export type RootStackParamList = {
   EmergencyHub: undefined;
   Search: { initialQuery?: string } | undefined;
   HoiCamNang: undefined;
+  MyJapanPlan: undefined;
+  PlanWizard: { situationId: PlanSituationId };
+  PlanDetail: { situationId: PlanSituationId; answers: Record<string, string> };
   Settings: undefined;
   ImportantDates: undefined;
   StoryHub: undefined;
@@ -398,6 +405,9 @@ export default function AppNavigator() {
         <Stack.Screen name="EmergencyHub" component={EmergencyHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
         <Stack.Screen name="HoiCamNang" component={HoiCamNangScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MyJapanPlan" component={MyJapanPlanScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="PlanWizard" component={PlanWizardScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="PlanDetail" component={PlanDetailScreen} options={{ headerShown: false }} />
         <Stack.Screen
           name="Settings"
           component={SettingsScreen}
