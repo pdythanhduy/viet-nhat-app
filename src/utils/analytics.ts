@@ -58,8 +58,11 @@ export function initAnalytics(): void {
 
   const key = getAptabaseKey();
   if (!key) {
+    // Loud in dev so contributors notice; silent in production so a missing/forgotten
+    // key never crashes the app or floods user-facing logs. Set the key in
+    // app.json -> expo.extra.aptabaseAppKey to start collecting events.
     if (__DEV__) {
-      console.log('[analytics] No Aptabase key in app.json extra.aptabaseAppKey — events log to console only');
+      console.warn('[analytics] Aptabase key missing; events will only log locally');
     }
     return;
   }

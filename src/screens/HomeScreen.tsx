@@ -54,7 +54,7 @@ import {
   loadUserProfilePromptDismissed,
   saveUserProfile,
 } from '../utils/userProfile';
-import { logHomeQuickActionPressed, logHomeSearchPressed } from '../utils/analytics';
+import { logHomeQuickActionPressed, logHomeSearchPressed, track } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -395,6 +395,36 @@ export default function HomeScreen() {
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+          </TouchableOpacity>
+
+          {/* Dịch Thư Nhật discovery card — Phase 1 mock has zero entry points
+              elsewhere in the app. Without this card, users never find it and
+              all mail_* analytics read zero. Same askCta shape so it doesn't
+              redesign Home; envelope icon + warm tint to differentiate from
+              the blue chat card above. Tap fires mail_translate_open before
+              navigating, mirroring how MailTranslateIntroScreen logs on focus. */}
+          <TouchableOpacity
+            style={styles.mailCta}
+            onPress={() => {
+              track('mail_translate_open');
+              navigation.navigate('MailTranslateIntro');
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Mở công cụ dịch thư tiếng Nhật"
+          >
+            <View style={styles.mailCtaIconBg}>
+              <Ionicons name="mail-open-outline" size={16} color={Colors.warning} />
+            </View>
+            <View style={styles.mailCtaText}>
+              <Text style={styles.mailCtaTitle}>Dịch thư tiếng Nhật</Text>
+              <Text style={styles.mailCtaSubtitle}>
+                Chụp thư từ quận, bảo hiểm, NHK… để xem nội dung chính, deadline và việc cần làm.
+              </Text>
+            </View>
+            <View style={styles.mailCtaPill}>
+              <Text style={styles.mailCtaPillText}>Mở công cụ</Text>
+              <Ionicons name="chevron-forward" size={12} color={Colors.warning} />
+            </View>
           </TouchableOpacity>
 
           {/* Situation chips — the user identifies what they're dealing with
@@ -1141,6 +1171,53 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: Colors.textSecondary,
     lineHeight: 15,
+  },
+  mailCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+  },
+  mailCtaIconBg: {
+    width: 30,
+    height: 30,
+    borderRadius: 10,
+    backgroundColor: Colors.warningLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mailCtaText: { flex: 1 },
+  mailCtaTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+  },
+  mailCtaSubtitle: {
+    fontSize: 11,
+    color: Colors.textSecondary,
+    lineHeight: 15,
+  },
+  mailCtaPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: Colors.warningLight,
+    borderRadius: 999,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+  },
+  mailCtaPillText: {
+    fontSize: 10,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.warning,
+    letterSpacing: 0.3,
   },
   quickActionsSection: {
     marginBottom: 16,

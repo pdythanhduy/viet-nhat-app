@@ -12,11 +12,10 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import type { RootStackParamList } from '../navigation/AppNavigator';
-import { track } from '../utils/analytics';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'MailTranslateIntro'>;
 
@@ -30,11 +29,8 @@ const BULLETS: { icon: keyof typeof Ionicons.glyphMap; text: string }[] = [
 export default function MailTranslateIntroScreen() {
   const navigation = useNavigation<Nav>();
 
-  useFocusEffect(
-    React.useCallback(() => {
-      track('mail_translate_open');
-    }, [])
-  );
+  // mail_translate_open is fired by the upstream entry-point tap (e.g. Home card)
+  // so we don't double-count here when the screen re-focuses on back-navigation.
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
