@@ -65,7 +65,7 @@ const childAllowanceJidouTeate: AdminGuide = {
     ],
     ifLate:
       'Quá 15 ngày sau ngày sinh / chuyển nhà / đón con: vẫn nộp được nhưng tiền chỉ tính từ tháng nộp đơn, KHÔNG backdate. Vẫn có lợi → đi nộp ngay. Không có deadline tuyệt đối — không quá muộn để bắt đầu nhận.',
-    officialSourceLabels: ['こども家庭庁'],
+    officialSourceLabels: ['児童手当制度のご案内 — こども家庭庁'],
   },
   whoIsThisFor: [
     'Gia đình người Việt có con < 18 tuổi (đến hết năm tài chính 18 tuổi) đang sống tại Nhật.',
@@ -190,8 +190,44 @@ const childAllowanceJidouTeate: AdminGuide = {
       note: 'Một số 市 có pamphlet đa ngôn ngữ.',
     },
   ],
+  keyTerms: [
+    {
+      term: '児童手当',
+      reading: 'じどうてあて',
+      meaningVi: 'trợ cấp trẻ em (theo Luật 児童手当法)',
+      noteVi: 'Tên chính thức của khoản trợ cấp này. Đừng nhầm với 児童扶養手当 (jidou fuyou teate — trợ cấp cho gia đình đơn thân — khác quy định và cao hơn). Từ 10/2024 đã bỏ 所得制限 + kéo dài đến hết năm tài chính 18 tuổi.',
+    },
+    {
+      term: '認定請求',
+      reading: 'にんていせいきゅう',
+      meaningVi: 'đơn xin xét duyệt lần đầu',
+      noteVi: 'Form 認定請求書 — nộp 1 lần đầu (lúc sinh con / chuyển nhà / đón con). Trong 15 ngày để được full backdate. Khác với 額改定請求書 (nộp khi sinh thêm con).',
+    },
+    {
+      term: '額改定請求書',
+      reading: 'がくかいていせいきゅうしょ',
+      meaningVi: 'đơn điều chỉnh mức trợ cấp (khi có thay đổi số con)',
+      noteVi: 'Nộp khi sinh thêm con — KHÔNG cần làm lại 認定請求 từ đầu. Cũng nộp khi 1 con qua tuổi không còn được nhận (tự động dừng, nhưng các con còn lại có thể đổi thứ tự "con thứ mấy" → ảnh hưởng mức tiền).',
+    },
+    {
+      term: '現況届',
+      reading: 'げんきょうとどけ',
+      meaningVi: 'báo cáo tình hình hàng năm',
+      noteVi: 'Một số 市 vẫn yêu cầu nộp tháng 6 hàng năm để xác nhận gia đình vẫn đủ điều kiện. Nhiều 市 đã bỏ từ 2022 (xét tự động qua マイナンバー). Nếu 市 còn yêu cầu mà quên nộp → tiền tạm dừng tháng 10.',
+    },
+    {
+      term: '主たる生計維持者',
+      reading: 'しゅたるせいけいいじしゃ',
+      meaningVi: 'người chính nuôi gia đình (người đứng tên đăng ký)',
+      noteVi: 'Người có thu nhập cao hơn — đứng tên nhận trợ cấp + tài khoản ngân hàng phải là của người này. KHÔNG nhất thiết là người chăm con trực tiếp. Sau ly hôn → người 親権者 (có quyền nuôi con) đứng tên thay.',
+    },
+  ],
   officialLinks: [
-    { label: 'こども家庭庁', url: 'https://www.cfa.go.jp/' },
+    { label: '児童手当制度のご案内 — こども家庭庁', url: 'https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai/' },
+    { label: '児童手当の制度改正について(2024年10月〜) — こども家庭庁', url: 'https://www.cfa.go.jp/policies/kokoseido/jidouteate/' },
+    { label: '児童手当法(e-Gov 法令検索)', url: 'https://laws.e-gov.go.jp/law/346AC0000000073' },
+    { label: 'マイナポータル(オンライン申請)', url: 'https://myna.go.jp/' },
+    { label: 'こども家庭庁 — TOP', url: 'https://www.cfa.go.jp/' },
   ],
   steps: [
     {
