@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavigationContainer, NavigatorScreenParams, NavigationContainerRef } from '@react-navigation/native';
+import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
+import { navigationRef } from './navigationRef';
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,6 +31,7 @@ import BJTMockTestScreen from '../screens/BJTMockTestScreen';
 import BJTReviewScreen from '../screens/BJTReviewScreen';
 import JapanesePracticeScreen from '../screens/JapanesePracticeScreen';
 import JapaneseQuizScreen from '../screens/JapaneseQuizScreen';
+import DailyRitualScreen from '../screens/DailyRitualScreen';
 import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
 import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -68,6 +70,7 @@ export type RootStackParamList = {
   DailyLifeDetail: { topicId: string };
   JapanesePractice: { categoryName: string; categoryColor?: string };
   JapaneseQuiz: { categoryName?: string; categoryColor?: string; direction?: 'jp-to-vn' | 'vn-to-jp' | 'mixed' };
+  DailyRitual: undefined;
   BJT: undefined;
   BJTVocabulary: undefined;
   BJTKeigo: undefined;
@@ -185,7 +188,6 @@ function TabNavigator() {
 }
 
 export default function AppNavigator() {
-  const navigationRef = React.useRef<NavigationContainerRef<RootStackParamList>>(null);
   const routeNameRef = React.useRef<string | undefined>(undefined);
 
   return (
@@ -348,6 +350,11 @@ export default function AppNavigator() {
           name="JapaneseQuiz"
           component={JapaneseQuizScreen}
           options={plainHeaderOptions}
+        />
+        <Stack.Screen
+          name="DailyRitual"
+          component={DailyRitualScreen}
+          options={{ ...plainHeaderOptions, headerTitle: 'Hôm nay' }}
         />
         <Stack.Screen
           name="JapaneseKana"

@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StorageKeys } from '../constants/storageKeys';
 
-const KEY = 'japanese_streak_v1';
+const KEY = StorageKeys.japaneseStreak;
 
 export interface StreakData {
   currentStreak: number;

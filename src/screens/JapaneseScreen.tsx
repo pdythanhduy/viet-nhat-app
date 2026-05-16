@@ -408,10 +408,15 @@ export default function JapaneseScreen() {
             <Text style={styles.headerSub}>{getGreeting()}</Text>
           </View>
           {streak ? (
-            <View style={styles.streakBadge}>
+            <TouchableOpacity
+              style={styles.streakBadge}
+              onPress={() => navigation.navigate('DailyRitual')}
+              accessibilityRole="button"
+              accessibilityLabel={`Streak ${streak.currentStreak} ngày — mở Hôm nay`}
+            >
               <Text style={styles.streakNum}>{streak.currentStreak}</Text>
               <Text style={styles.streakLabel}>ngày</Text>
-            </View>
+            </TouchableOpacity>
           ) : null}
         </View>
 
@@ -432,6 +437,13 @@ export default function JapaneseScreen() {
         </View>
 
         <View style={styles.quickRow}>
+          <TouchableOpacity
+            style={[styles.quickBtn, styles.quickBtnPrimary]}
+            onPress={() => navigation.navigate('DailyRitual')}
+          >
+            <Text style={styles.quickBtnEmoji}>🔥</Text>
+            <Text style={styles.quickBtnText}>Hôm nay</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JapaneseKana')}>
             <Ionicons name="grid-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Bảng chữ</Text>
@@ -632,6 +644,8 @@ const styles = StyleSheet.create({
   searchInput: { flex: 1, color: Colors.white, fontSize: 14, paddingVertical: 0 },
   quickRow: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
   quickBtn: { flex: 1, minWidth: '45%', flexDirection: 'row', gap: 4, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: 10, paddingVertical: 8, paddingHorizontal: 6 },
+  quickBtnPrimary: { backgroundColor: 'rgba(255,255,255,0.32)' },
+  quickBtnEmoji: { fontSize: 14 },
   quickBtnText: { color: Colors.white, fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold' },
 
   // Loading

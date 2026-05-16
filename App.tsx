@@ -9,8 +9,9 @@ import {
   BeVietnamPro_800ExtraBold,
 } from '@expo-google-fonts/be-vietnam-pro';
 import AppNavigator from './src/navigation/AppNavigator';
-import { loadJapaneseAudioPreferences } from './src/utils/audioPreferences';
-import { rescheduleAll, syncDailyReminderSchedules } from './src/utils/notifications';
+import { navigate } from './src/navigation/navigationRef';
+import { addDailyRitualNotificationListener, rescheduleAll } from './src/utils/notifications';
+import { refreshDailyReminderContent } from './src/utils/dailyReminderSync';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,15 +23,14 @@ export default function App() {
   });
 
   React.useEffect(() => {
-    Promise.all([
-      rescheduleAll(),
-      loadJapaneseAudioPreferences().then((prefs) =>
-        syncDailyReminderSchedules({
-          studyReminderEnabled: prefs.studyReminderEnabled,
-          wordReminderEnabled: prefs.wordReminderEnabled,
-        })
-      ),
-    ]).catch(() => {});
+    Promise.all([rescheduleAll(), refreshDailyReminderContent()]).catch(() => {});
+  }, []);
+
+  React.useEffect(() => {
+    const subscription = addDailyRitualNotificationListener(() => {
+      navigate('DailyRitual');
+    });
+    return () => subscription.remove();
   }, []);
 
   if (!fontsLoaded) return null;
