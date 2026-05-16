@@ -184,6 +184,44 @@ const furusatoNozeiGuide: AdminGuide = {
       note: 'Hỏi 市役所 — thường từ tháng 6 năm sau.',
     },
   ],
+  keyTerms: [
+    {
+      term: 'ふるさと納税',
+      reading: 'ふるさとのうぜい',
+      meaningVi: '"đóng thuế quê hương" (quyên góp cho địa phương + giảm thuế + nhận quà)',
+      noteVi: 'KHÔNG phải đầu tư. Là cách chuyển hướng thuế bạn đằng nào cũng phải đóng + được quà địa phương (gạo, thịt bò Wagyu, hải sản, trái cây…). Phí cố định 2,000円/năm; trong 控除限度額 thì phần còn lại được khấu trừ thuế. Áp dụng cho mọi cư dân Nhật (kể cả người Việt) có 住民票 + nộp thuế.',
+    },
+    {
+      term: '控除限度額',
+      reading: 'こうじょげんどがく',
+      meaningVi: 'mức tối đa được khấu trừ thuế trong năm',
+      noteVi: 'Phụ thuộc thu nhập + tình trạng (kết hôn, có con, người phụ thuộc). Người độc thân lương 400万: ~42,000円; lương 600万: ~77,000円; lương 800万: ~129,000円. Vượt limit → phần dư KHÔNG được khấu trừ (vẫn được quà nhưng coi như mất tiền). Dùng シミュレーター trên trang ふるなび / さとふる / 楽天 trước khi donate.',
+    },
+    {
+      term: 'ワンストップ特例',
+      reading: 'ワンストップとくれい',
+      meaningVi: 'cách làm ふるさと納税 mà KHÔNG cần 確定申告',
+      noteVi: 'Điều kiện: (1) Đi làm công ty có 年末調整 (KHÔNG tự kinh doanh / freelancer); (2) Donate ≤ 5 自治体 trong năm; (3) Nộp 寄附金税額控除に係る申告特例申請書 trong 1/10 năm sau cho TỪNG 自治体. Khấu trừ chỉ vào 住民税 (không vào 所得税). Gửi sai/thiếu/quá 5 自治体 → vẫn phải 確定申告.',
+    },
+    {
+      term: '寄附金受領証明書',
+      reading: 'きふきんじゅりょうしょうめいしょ',
+      meaningVi: 'giấy chứng nhận đã quyên góp (cho khai thuế)',
+      noteVi: '自治体 gửi qua bưu điện sau khi nhận tiền — 1-3 tháng tuỳ nơi. CẦN cho 確定申告 nếu KHÔNG dùng ワンストップ. GIỮ KỸ — mất = phải xin 自治体 cấp lại (~1 tháng). Nếu dùng portal lớn (ふるなび / 楽天 / さとふる) → có thể dùng XML certificate online thay giấy.',
+    },
+    {
+      term: '返礼品',
+      reading: 'へんれいひん',
+      meaningVi: 'quà cảm ơn của địa phương',
+      noteVi: 'Tỉ lệ ≤ 30% số tiền donate (theo 総務省 quy định). Quà phổ biến: gạo, thịt bò, hải sản, trái cây theo mùa, đồ thủ công địa phương. Một số 自治体 có quà gift card / coupon Amazon (rất ít vì 総務省 hạn chế). Chọn theo nhu cầu thực — donate vì quà KHÔNG có giá trị nếu quá hạn mức.',
+    },
+    {
+      term: '寄附金税額控除',
+      reading: 'きふきんぜいがくこうじょ',
+      meaningVi: 'khấu trừ thuế từ tiền quyên góp',
+      noteVi: 'Khấu trừ vào 住民税 + 所得税 (2,000円 đầu KHÔNG được trừ — đó là phí cố định). Bắt đầu áp dụng: 住民税 từ tháng 6 năm sau; 所得税 hoàn vào tài khoản qua 確定申告 (1-2 tháng sau khai). Với ワンストップ: chỉ vào 住民税.',
+    },
+  ],
   officialLinks: [
     { label: '総務省 — ふるさと納税ポータル', url: 'https://www.soumu.go.jp/' },
     { label: '国税庁', url: 'https://www.nta.go.jp/' },

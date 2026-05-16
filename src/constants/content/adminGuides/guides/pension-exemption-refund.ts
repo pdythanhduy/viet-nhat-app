@@ -74,7 +74,7 @@ const pensionExemptionRefund: AdminGuide = {
         '離職票 / 雇用保険受給資格者証 (cho 免除 do thất nghiệp)',
       ],
       ifLate: 'Quá hạn 免除 申請 → có thể truy ngược 2 năm 1 tháng nhưng phải có lý do hợp lý. Quá 2 năm 脱退一時金 → MẤT QUYỀN — không cấp lại. Quá hạn 追納 (10 năm) → không đóng bù được, tháng miễn vẫn tính một phần vào lương hưu sau này. Đang nợ → 年金事務所 sẽ gửi 督促状 → có thể 差押 (siết tài khoản); KHÔNG bỏ ngơ.',
-      officialSourceLabels: ['日本年金機構 国民年金保険料の免除'],
+      officialSourceLabels: ['国民年金保険料の免除制度・納付猶予制度 — 日本年金機構'],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_pension_hero.jpg'),
     heroImageCaption: '年金 - kiểm tra lịch sử đóng, miễn giảm và 脱退一時金 khi rời Nhật',

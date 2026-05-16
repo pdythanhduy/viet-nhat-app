@@ -199,6 +199,50 @@ const taxOnRemittanceToVietnam: AdminGuide = {
       note: 'Hỏi trước — dịch vụ có thể yêu cầu thêm giấy tờ + thời gian xử lý.',
     },
   ],
+  keyTerms: [
+    {
+      term: '海外送金',
+      reading: 'かいがいそうきん',
+      meaningVi: 'chuyển tiền ra nước ngoài',
+      noteVi: 'Bản thân việc gửi tiền KHÔNG bị đánh thuế ở Nhật (tiền sau thuế của bạn). NHƯNG có thể bị xét nếu: (1) Tổng gửi vượt 100万円/lần → ngân hàng/dịch vụ phải báo cáo cho 国税庁 qua 国外送金等調書 (luật 国外送金等調書法); (2) Tiền không khớp với thu nhập đã khai → 税務署 có thể hỏi nguồn.',
+    },
+    {
+      term: '国外送金等調書',
+      reading: 'こくがいそうきんとうちょうしょ',
+      meaningVi: 'báo cáo chuyển tiền nước ngoài (do ngân hàng / dịch vụ nộp)',
+      noteVi: 'Khi bạn chuyển > 100万円/lần ra nước ngoài, ngân hàng/Wise/Revolut/Western Union BẮT BUỘC gửi báo cáo cho 国税庁. Bạn KHÔNG cần làm gì — nhưng nên có giấy chứng minh nguồn tiền (giấy lương, sao kê), phòng khi 税務署 hỏi.',
+    },
+    {
+      term: '贈与税',
+      reading: 'ぞうよぜい',
+      meaningVi: 'thuế quà tặng (tại Nhật)',
+      noteVi: 'Nếu BẠN nhận tiền/tài sản TỪ người khác > 110万円/năm (basic exemption) → bạn (người nhận) phải nộp 贈与税. Áp dụng cả khi nhận TỪ VN sang. Bố mẹ ở VN gửi tiền cho bạn ở Nhật > 110万円/năm → bạn cần báo 確定申告 (mục 贈与). Hỏi 税務署 / 税理士 nếu nhận tiền lớn.',
+    },
+    {
+      term: '扶養送金',
+      reading: 'ふようそうきん',
+      meaningVi: 'gửi tiền cho người phụ thuộc (chu cấp gia đình)',
+      noteVi: 'Tiền BẠN gửi VỀ cho gia đình ở VN (cha mẹ, vợ/chồng, con) để khai 扶養控除 — phải có 送金関係書類 chứng minh. Nếu thân nhân 30-70 tuổi: cần ≥ 38万円/người/năm. Gửi qua bank/Wise/Revolut chính thức HỢP LỆ; gửi tiền mặt qua người quen KHÔNG hợp lệ.',
+    },
+    {
+      term: '所得税',
+      reading: 'しょとくぜい',
+      meaningVi: 'thuế thu nhập quốc gia',
+      noteVi: 'Thuế tính trên thu nhập trong năm. Khác với 住民税 (thuế địa phương, năm trước). 所得税 lũy tiến 5-45% tuỳ thu nhập + 復興特別所得税 2.1% bổ sung. Tự động khấu trừ qua lương (給与所得者) hoặc khai qua 確定申告. Không liên quan trực tiếp đến tiền BẠN gửi về VN (chỉ liên quan đến thu nhập của BẠN ở Nhật).',
+    },
+    {
+      term: '租税条約',
+      reading: 'そぜいじょうやく',
+      meaningVi: 'hiệp định thuế song phương',
+      noteVi: 'Hiệp định Nhật-VN ký 1995 (có hiệu lực): tránh đánh thuế 2 lần. Nếu bạn có thu nhập ở VN (cho thuê nhà, dividend) → có thể được miễn / giảm thuế Nhật. Áp dụng phức tạp — phải hỏi 税理士 chuyên 国際税務. Không tự suy đoán.',
+    },
+    {
+      term: '帰国時の納税義務',
+      reading: 'きこくじののうぜいぎむ',
+      meaningVi: 'nghĩa vụ nộp thuế khi về nước',
+      noteVi: 'Nếu về VN giữa năm, bạn vẫn có nghĩa vụ nộp: (1) 住民税 phần còn lại (tính trên thu nhập năm trước); (2) 所得税 cho khoảng thời gian đã làm năm hiện tại. PHẢI đăng ký 納税管理人 tại 市役所 trước khi đi nếu chưa đóng hết. KHÔNG đóng = ảnh hưởng cấp visa nếu quay lại.',
+    },
+  ],
   officialLinks: [
     { label: '国税庁', url: 'https://www.nta.go.jp/' },
     { label: '財務省', url: 'https://www.mof.go.jp/' },
