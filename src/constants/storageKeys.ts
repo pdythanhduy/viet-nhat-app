@@ -18,4 +18,5 @@ export const StorageKeys = {
   sentenceBookmarks: 'sentence_bookmarks_v1',
   wordBookmarks: 'word_bookmarks_v1',
   storyStreak: 'story_streak_v1',
+  japaneseStreak: 'japanese_streak_v1',
 } as const;

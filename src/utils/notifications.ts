@@ -141,7 +141,26 @@ export async function rescheduleAll(): Promise<void> {
 
 const JAPANESE_REMINDER_ID = 'japanese_study_reminder';
 
-export async function scheduleJapaneseStudyReminder(): Promise<void> {
+export const DAILY_RITUAL_NOTIFICATION_KIND = 'daily-ritual';
+
+interface DailyReminderContent {
+  title: string;
+  body: string;
+}
+
+const DEFAULT_STUDY_CONTENT: DailyReminderContent = {
+  title: '🇯🇵 Luyện tiếng Nhật hôm nay chưa?',
+  body: 'Chỉ cần 5 phút mỗi ngày để duy trì streak của bạn.',
+};
+
+const DEFAULT_WORD_CONTENT: DailyReminderContent = {
+  title: '🌸 Từ của hôm nay',
+  body: 'Học một từ tiếng Nhật mỗi buổi sáng — mở app để xem từ hôm nay!',
+};
+
+export async function scheduleJapaneseStudyReminder(
+  content: DailyReminderContent = DEFAULT_STUDY_CONTENT
+): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(JAPANESE_REMINDER_ID).catch(() => undefined);
   const permitted = await requestPermission();
   if (!permitted) {
@@ -151,8 +170,9 @@ export async function scheduleJapaneseStudyReminder(): Promise<void> {
   await Notifications.scheduleNotificationAsync({
     identifier: JAPANESE_REMINDER_ID,
     content: {
-      title: '🇯🇵 Luyện tiếng Nhật hôm nay chưa?',
-      body: 'Chỉ cần 5 phút mỗi ngày để duy trì streak của bạn.',
+      title: content.title,
+      body: content.body,
+      data: { kind: DAILY_RITUAL_NOTIFICATION_KIND, slot: 'evening' },
       ...(Platform.OS === 'android' && { channelId: 'reminders' }),
     },
     trigger: {
@@ -169,7 +189,9 @@ export async function cancelJapaneseStudyReminder(): Promise<void> {
 
 const WORD_OF_DAY_REMINDER_ID = 'word_of_day_reminder';
 
-export async function scheduleWordOfDayReminder(): Promise<void> {
+export async function scheduleWordOfDayReminder(
+  content: DailyReminderContent = DEFAULT_WORD_CONTENT
+): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(WORD_OF_DAY_REMINDER_ID).catch(() => undefined);
   const permitted = await requestPermission();
   if (!permitted) {
@@ -179,8 +201,9 @@ export async function scheduleWordOfDayReminder(): Promise<void> {
   await Notifications.scheduleNotificationAsync({
     identifier: WORD_OF_DAY_REMINDER_ID,
     content: {
-      title: '🌸 Từ của hôm nay',
-      body: 'Học một từ tiếng Nhật mỗi buổi sáng — mở app để xem từ hôm nay!',
+      title: content.title,
+      body: content.body,
+      data: { kind: DAILY_RITUAL_NOTIFICATION_KIND, slot: 'morning' },
       ...(Platform.OS === 'android' && { channelId: 'reminders' }),
     },
     trigger: {
@@ -193,6 +216,18 @@ export async function scheduleWordOfDayReminder(): Promise<void> {
 
 export async function cancelWordOfDayReminder(): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(WORD_OF_DAY_REMINDER_ID).catch(() => undefined);
+}
+
+export type DailyRitualNotificationHandler = (slot: 'morning' | 'evening' | 'unknown') => void;
+
+export function addDailyRitualNotificationListener(handler: DailyRitualNotificationHandler) {
+  return Notifications.addNotificationResponseReceivedListener((response) => {
+    const data = response.notification.request.content.data as
+      | { kind?: string; slot?: 'morning' | 'evening' }
+      | undefined;
+    if (!data || data.kind !== DAILY_RITUAL_NOTIFICATION_KIND) return;
+    handler(data.slot ?? 'unknown');
+  });
 }
 
 export async function syncDailyReminderSchedules(input: {

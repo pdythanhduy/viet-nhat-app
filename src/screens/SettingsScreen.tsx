@@ -27,6 +27,7 @@ import {
   scheduleJapaneseStudyReminder,
   scheduleWordOfDayReminder,
 } from '../utils/notifications';
+import { getCurrentDailyReminderContent } from '../utils/dailyReminderSync';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import type { UserProfile } from '../types/profile';
 import { buildUserProfileSummary, loadUserProfile, saveUserProfile } from '../utils/userProfile';
@@ -107,7 +108,8 @@ export default function SettingsScreen() {
     }
 
     try {
-      await scheduleJapaneseStudyReminder();
+      const content = await getCurrentDailyReminderContent();
+      await scheduleJapaneseStudyReminder({ title: content.studyTitle, body: content.studyBody });
       const next = await saveJapaneseAudioPreferences({
         ...audioPrefs,
         studyReminderEnabled: true,
@@ -134,7 +136,8 @@ export default function SettingsScreen() {
     }
 
     try {
-      await scheduleWordOfDayReminder();
+      const content = await getCurrentDailyReminderContent();
+      await scheduleWordOfDayReminder({ title: content.wordTitle, body: content.wordBody });
       const next = await saveJapaneseAudioPreferences({
         ...audioPrefs,
         wordReminderEnabled: true,

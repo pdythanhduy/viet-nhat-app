@@ -65,7 +65,7 @@ describe('admin guide database snapshot', () => {
 
     expect(guide?.schema_version).toBe(ADMIN_GUIDE_DATABASE_SCHEMA_VERSION);
     expect(guide?.content_version).toBe(snapshot.contentVersion);
-    expect(guide?.last_verified).toBe('2026-05-06');
+    expect(guide?.last_verified).toBe('2026-05-16');
     expect(guide?.legal_scope?.riskLevel).toBe('high');
     expect(guide?.quick_action?.doNow.length).toBeGreaterThan(0);
     expect(guide?.official_links.length).toBeGreaterThan(0);
