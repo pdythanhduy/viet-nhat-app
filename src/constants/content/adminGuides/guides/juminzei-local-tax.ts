@@ -12,7 +12,6 @@ const juminzeiLocalTax: AdminGuide = {
     description: '住民税 (thuế cư dân) tính trên thu nhập NĂM TRƯỚC — hoàn toàn khác 所得税 (thuế thu nhập). Vì vậy năm đầu tiên ở Nhật chưa bị tính, nhưng năm thứ hai sẽ nhận hoá đơn vào tháng 6 — và nhiều người Việt bất ngờ với số tiền.',
     searchKeywords: [
       'thuế cư dân',
-      'thuế cư trú',
       'thuế địa phương',
       '住民税',
       'juuminzei',

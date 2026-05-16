@@ -11,10 +11,8 @@ const kakuteiShinkoku: AdminGuide = {
     color: '#6C3483',
     description: 'Không phải ai cũng cần tự khai thuế — nhưng nếu có nhiều nguồn thu nhập, làm freelance, vừa nghỉ việc giữa năm, hoặc muốn hoàn thuế cho chi phí y tế hay vay mua nhà, bạn phải tự nộp 確定申告 trước ngày 15/3 hằng năm.',
     searchKeywords: [
-      'khai thuế',
       'tự khai thuế',
       'khai thuế cuối năm',
-      'hoàn thuế',
       '確定申告',
       'kakutei shinkoku',
       'khai thue',
