@@ -80,7 +80,12 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
       ],
       ifLate:
         'Quá 14 ngày 出生届: nộp được nhưng có thể phạt hành chính (戸籍法 §137: tối đa 50,000円 — thường được miễn nếu có lý do hợp lý). Quá 15 ngày 児童手当: mất phần backdate. Quá 30 ngày 在留資格取得: em bé thành 不法在留 — phải nộp 在留特別許可 (mở case ISA, không phải mặc nhiên). Đi nộp ngay + giải trình lý do.',
-      officialSourceLabels: ['厚生労働省', '法務省', 'こども家庭庁', '出入国在留管理庁'],
+      officialSourceLabels: [
+        '出産育児一時金等について — 厚生労働省',
+        '出生届 — 法務省',
+        '児童手当制度のご案内 — こども家庭庁',
+        '在留資格取得許可申請 — 出入国在留管理庁',
+      ],
     },
     keyTerms: [
       {

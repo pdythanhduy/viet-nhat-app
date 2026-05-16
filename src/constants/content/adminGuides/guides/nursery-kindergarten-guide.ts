@@ -84,7 +84,7 @@ const nurseryKindergartenGuide: AdminGuide = {
       ],
       ifLate:
         'Quá hạn đợt chính: chuyển sang đợt giữa năm (空き = chỗ trống) hoặc xếp 待機児童リスト. Thực tế ở khu đông (Tokyo 23 区, Saitama, Kanagawa) có thể đợi 6–18 tháng. Phương án tạm: 認可外保育園 / 一時保育 (giữ trẻ ngày) / べビーシッター — tốn hơn nhưng có chỗ ngay. Quay lại nộp lần tiếp theo + nâng điểm 保育の必要性 (vd: xác nhận quay lại làm full-time).',
-      officialSourceLabels: ['こども家庭庁', '文部科学省'],
+      officialSourceLabels: ['保育｜こども家庭庁', '幼稚園について教えて！｜文部科学省'],
     },
     keyTerms: [
       {

@@ -65,7 +65,7 @@ const childAllowanceJidouTeate: AdminGuide = {
     ],
     ifLate:
       'Quá 15 ngày sau ngày sinh / chuyển nhà / đón con: vẫn nộp được nhưng tiền chỉ tính từ tháng nộp đơn, KHÔNG backdate. Vẫn có lợi → đi nộp ngay. Không có deadline tuyệt đối — không quá muộn để bắt đầu nhận.',
-    officialSourceLabels: ['こども家庭庁'],
+    officialSourceLabels: ['児童手当制度のご案内 — こども家庭庁'],
   },
   whoIsThisFor: [
     'Gia đình người Việt có con < 18 tuổi (đến hết năm tài chính 18 tuổi) đang sống tại Nhật.',
