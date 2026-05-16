@@ -197,6 +197,56 @@ const idecoPersonalPension: AdminGuide = {
       note: 'Câu QUAN TRỌNG — hỏi trước khi mở nếu có ý định về VN.',
     },
   ],
+  keyTerms: [
+    {
+      term: 'iDeCo',
+      reading: 'イデコ',
+      meaningVi: 'lương hưu cá nhân tự nguyện (有期 / dài hạn)',
+      noteVi: 'Tên đầy đủ: 個人型確定拠出年金 (こじんがたかくていきょしゅつねんきん). Khác với 公的年金 (国民年金 + 厚生年金 — bắt buộc). iDeCo tự nguyện đóng góp + tự chọn quỹ → tự chịu lời lỗ. KHÔNG PHẢI LỜI KHUYÊN ĐẦU TƯ — đây là chế độ thuế.',
+    },
+    {
+      term: '確定拠出年金',
+      reading: 'かくていきょしゅつねんきん',
+      meaningVi: 'lương hưu định mức đóng góp (defined contribution)',
+      noteVi: 'Khái niệm: SỐ TIỀN ĐÓNG cố định, SỐ TIỀN NHẬN thì tuỳ kết quả đầu tư (có thể lãi hoặc lỗ). Khác 確定給付年金 (DB) nơi số nhận cố định. iDeCo = 個人型 DC; 企業型DC = công ty đóng cho nhân viên.',
+    },
+    {
+      term: '掛金',
+      reading: 'かけきん',
+      meaningVi: 'số tiền đóng góp hàng tháng',
+      noteVi: 'Mức tối thiểu 5,000円/tháng. Tối đa thay đổi theo loại 被保険者: 第1号 (tự doanh) ¥68,000/tháng; 第2号 (đi làm công ty) ¥12,000-23,000 tuỳ có 企業型 hay không; 第3号 (vợ/chồng phụ thuộc) ¥23,000. Tất cả 掛金 KHẤU TRỪ THUẾ HOÀN TOÀN (所得控除).',
+    },
+    {
+      term: '所得控除',
+      reading: 'しょとくこうじょ',
+      meaningVi: 'khấu trừ thu nhập (giảm thuế thu nhập + 住民税)',
+      noteVi: 'Mọi 掛金 iDeCo được trừ khỏi thu nhập chịu thuế. Ví dụ: lương ¥500万 + iDeCo ¥27.6万/năm (¥23,000 × 12) → thu nhập tính thuế chỉ ¥472.4万. Tiết kiệm thực tế ~15-30% của ¥27.6万 = ¥4-8万/năm tuỳ 所得税率 + 住民税.',
+    },
+    {
+      term: '受給',
+      reading: 'じゅきゅう',
+      meaningVi: 'nhận tiền (khi đủ 60 tuổi)',
+      noteVi: 'Bắt đầu từ 60 tuổi (cần đã đóng ≥ 10 năm tổng — nếu < 10 năm thì lùi thời điểm nhận theo công thức). 3 cách: (1) 一時金 (1 lần — có 退職所得控除); (2) 年金 (chia kỳ — có 公的年金等控除); (3) 併給 (kết hợp). Mỗi cách có ưu/nhược về thuế — hỏi 税理士 trước khi quyết định.',
+    },
+    {
+      term: '中途引き出し',
+      reading: 'ちゅうとひきだし',
+      meaningVi: 'rút trước (gần như KHÔNG được)',
+      noteVi: 'Khác với NISA. Tiền iDeCo KHÔNG rút được trước 60 tuổi, trừ trường hợp đặc biệt rất hẹp: tử vong (受給者), khuyết tật nặng, hoặc số 加入者期間 < 3 năm + 資産額 < 25万円. Đây là điểm rủi ro chính — cân nhắc kỹ trước khi mở.',
+    },
+    {
+      term: '加入者期間',
+      reading: 'かにゅうしゃきかん',
+      meaningVi: 'thời gian tham gia (tính cho quyền nhận)',
+      noteVi: 'Tổng thời gian đã tham gia iDeCo. Cần ≥ 10 năm tổng để bắt đầu nhận ở 60 tuổi. Nếu thiếu (vd 8 năm) → tuổi nhận tăng theo công thức (vd 8 năm = 62 tuổi). Người rời Nhật giữa chừng (vd về VN sau 5 năm) → tài sản bị giữ đến khi đủ điều kiện nhận, không thể rút.',
+    },
+    {
+      term: '運営管理機関',
+      reading: 'うんえいかんりきかん',
+      meaningVi: 'cơ quan quản lý tài khoản iDeCo (ngân hàng / công ty chứng khoán)',
+      noteVi: 'Nơi bạn mở tài khoản iDeCo. Phổ biến: SBI証券 / 楽天証券 / マネックス / メガバンク. Khác nhau về phí + danh sách quỹ. Đổi 機関 được nhưng mất 1-2 tháng + có thể bị phí. Chọn cẩn thận từ đầu.',
+    },
+  ],
   officialLinks: [
     { label: '国民年金基金連合会 (iDeCo公式)', url: 'https://www.nenkin.go.jp/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },

@@ -197,6 +197,44 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
       note: 'Tại 市役所 (国保) hoặc nhân sự (社保).',
     },
   ],
+  keyTerms: [
+    {
+      term: 'マイナ保険証',
+      reading: 'マイナほけんしょう',
+      meaningVi: 'thẻ bảo hiểm y tế tích hợp trên My Number Card',
+      noteVi: 'Sau 12/2025 là cách CHÍNH THỨC để khám bệnh. Bạn dùng マイナンバーカード thay 健康保険証 giấy + đặt lên máy đọc trong bệnh viện. Lợi ích: tự động đối chiếu lịch sử khám / thuốc / 高額療養費 limit. Cần đăng ký liên kết ở マイナポータル app hoặc tại bệnh viện có máy セットアップ trước lần đầu dùng.',
+    },
+    {
+      term: '資格確認書',
+      reading: 'しかくかくにんしょ',
+      meaningVi: 'giấy xác nhận tư cách bảo hiểm (thay thế khi không dùng được マイナ保険証)',
+      noteVi: 'Áp dụng cho: người KHÔNG có My Number Card, hoặc có nhưng chưa liên kết bảo hiểm, hoặc người cao tuổi không sử dụng kỹ thuật số. Bảo hiểm chủ động gửi nếu thấy bạn chưa liên kết — KHÔNG cần xin. Hạn ≤ 5 năm. Mất / hỏng → 市役所 (国保) hoặc 健保組合 (社保) cấp lại.',
+    },
+    {
+      term: '健康保険証',
+      reading: 'けんこうほけんしょう',
+      meaningVi: 'thẻ bảo hiểm y tế (giấy/nhựa cũ — đã ngừng cấp mới)',
+      noteVi: 'Từ 02/12/2024 KHÔNG cấp thẻ mới nữa. Thẻ cũ còn hạn dùng được đến 01/12/2025 (hoặc đến hạn nếu trên thẻ ghi sau 12/2025). Sau 12/2025: cần dùng マイナ保険証 hoặc 資格確認書.',
+    },
+    {
+      term: '健康保険証利用登録',
+      reading: 'けんこうほけんしょうりようとうろく',
+      meaningVi: 'đăng ký liên kết bảo hiểm với My Number Card',
+      noteVi: 'Phải làm 1 lần trước khi dùng được マイナ保険証. 3 cách: (1) マイナポータル app trên smartphone NFC; (2) Quầy セブン銀行 ATM; (3) Tại bệnh viện/phòng khám có máy đọc thẻ. Miễn phí.',
+    },
+    {
+      term: '医療情報・薬剤情報',
+      reading: 'いりょうじょうほう・やくざいじょうほう',
+      meaningVi: 'thông tin lịch sử khám + thuốc',
+      noteVi: 'Khi dùng マイナ保険証 → bệnh viện thấy được lịch sử 3 năm gần: thuốc đã uống + bệnh nền + khám sức khoẻ. Tránh được kê thuốc trùng / phản ứng. Lần đầu phải BẤM ĐỒNG Ý tại máy đọc → nếu không đồng ý, vẫn dùng được nhưng bệnh viện không thấy thông tin.',
+    },
+    {
+      term: '限度額適用認定証',
+      reading: 'げんどがくてきようにんていしょ',
+      meaningVi: 'giấy chứng nhận hạn mức (cho 高額療養費)',
+      noteVi: 'Trước: phải xin giấy này TRƯỚC khi nhập viện lớn để chỉ trả phần dưới hạn mức 高額療養費 tại quầy. Với マイナ保険証 từ 2024: tự động — KHÔNG cần xin giấy này nữa. Lợi ích lớn khi cấp cứu / nhập viện gấp.',
+    },
+  ],
   officialLinks: [
     { label: '厚生労働省 — マイナ保険証', url: 'https://www.mhlw.go.jp/stf/index_16745.html' },
   ],
