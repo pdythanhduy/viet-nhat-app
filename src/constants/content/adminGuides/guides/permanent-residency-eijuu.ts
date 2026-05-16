@@ -11,7 +11,6 @@ const permanentResidencyEijuu: AdminGuide = {
     color: '#1A5276',
     description: 'Tư cách 永住者 (vĩnh trú) cho phép ở lại Nhật vô thời hạn và làm bất kỳ công việc nào — đây là tư cách lưu trú ổn định nhất dành cho người nước ngoài không có quốc tịch Nhật. Hồ sơ phức tạp và thời gian xét duyệt dài, nhưng điều kiện có thể đáp ứng sớm hơn nhiều người nghĩ.',
     searchKeywords: [
-      'vĩnh trú',
       'xin vĩnh trú',
       '永住',
       'eijuu',
@@ -34,9 +33,7 @@ const permanentResidencyEijuu: AdminGuide = {
       '高度専門職',
       'koudo senmonshoku',
       'HSP',
-      'fast track vĩnh trú',
       '日本人の配偶者',
-      'rút ngắn vĩnh trú',
       'continuous residence 10 years',
     ],
     legalScope: {
