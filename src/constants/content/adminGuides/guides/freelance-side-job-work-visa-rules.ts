@@ -119,27 +119,27 @@ const freelanceSideJobWorkVisaRules: AdminGuide = {
     faq: [
       {
         question: '資格外活動許可 là gì?',
-        answer: 'Là phép ISA cấp khi bạn muốn làm hoạt động kinh doanh (business/freelance) ngoài phạm vi tư cách visa hiện tại. Nếu không xin phép mà làm = vi phạm pháp luật.',
+        answer: 'Phép Nyukan cấp cho phép làm hoạt động CÓ THÙ LAO ngoài phạm vi tư cách lưu trú hiện tại. Áp dụng cho: visa không-lao-động (留学, 家族滞在, 文化活動, 宗教) muốn làm part-time / freelance, hoặc visa lao động (技人国, 特定技能 v.v.) muốn làm thêm ngoài ngành đã đăng ký. KHÔNG xin phép mà làm = 不法就労, vi phạm 入管法 §70.',
       },
       {
         question: 'Khi nào cần 資格外活動許可?',
-        answer: 'Cần khi: (1) Freelance/contractor nhận từ khách hàng khác (multiple clients), (2) Content creator monetize (YouTube ads, Etsy sales, streaming), (3) Bán hàng online (Amazon, Yahoo Auctions), (4) Kinh doanh cá nhân (個人事業主). Không cần khi: (1) Part-time job với 1 công ty/cửa hàng (có hợp đồng), (2) Gift/hobby không lấy tiền, (3) Hoạt động trong phạm vi tư cách hiện tại.',
+        answer: 'Phụ thuộc loại visa hiện tại. (A) Visa không-lao-động (留学, 家族滞在, …): CẦN xin phép trước MỌI hoạt động trả lương, kể cả part-time 1 cửa hàng có hợp đồng. (B) Visa lao động (技人国, 特定技能, 高度専門職): CẦN xin nếu side activity NGOÀI ngành/phạm vi visa (vd: kỹ sư đi dạy tiếng Việt online lấy tiền). KHÔNG cần khi: (1) Hoạt động hoàn toàn trong phạm vi tư cách hiện tại, (2) Hobby không nhận thù lao, (3) Visa 永住 / 配偶者 / 定住者 — không có 就労制限.',
       },
       {
-        question: 'Tôi xin part-time job phụ — cần 資格外活動許可 không?',
-        answer: 'Nếu part-time job ở cửa hàng/công ty nào đó (có hợp đồng) = không cần 資格外活動許可, chỉ cần báo công ty chính biết (xem hợp đồng). Tuy nhiên, nên báo ISA khi gia hạn visa để họ biết tình huống.',
+        question: 'Tôi đang dùng visa 留学 (hoặc 家族滞在) và xin part-time job — cần 資格外活動許可 không?',
+        answer: 'CÓ — BẮT BUỘC. Visa 留学 + 家族滞在 không cho phép làm việc trả lương dù chỉ 1 cửa hàng. Phải xin 資格外活動許可 trước (thường là 包括許可 — cho phép tổng quát ≤28 giờ/tuần). Báo công ty chính biết là quy định nội bộ riêng, KHÔNG thay thế nghĩa vụ với Nyukan. Trên 技人国 / vị trí lao động chính thức + side job cùng ngành = thường không cần; cùng ngành thì hỏi 行政書士.',
       },
       {
         question: 'YouTube monetize cần 資格外活動許可 không?',
-        answer: 'Có. YouTube monetize = bạn lấy doanh thu quảng cáo (business income) từ Google AdSense. Đây là kinh doanh nên cần 資格外活動許可. Nếu chỉ upload video không kiếm tiền = không cần.',
+        answer: 'CÓ nếu bạn nhận doanh thu (AdSense, sponsorship, super-chat, affiliate). Phụ thuộc tư cách hiện tại: 永住 / 配偶者 không cần riêng phép; các tư cách khác cần xin 個別許可 (specific permission) vì YouTube không nằm trong phạm vi của 留学 / 家族滞在 / 技人国 mặc định. Upload không lấy tiền = không cần. Trường hợp phức tạp tham vấn 行政書士 chuyên 入管.',
       },
       {
         question: 'Tôi đang làm freelance rồi, giờ phát hiện cần phép — mình bị sao?',
-        answer: 'Xin phép ngay. ISA thường cấp 資格外活動許可 tính từ ngày bạn xin (không phạt ngược về quá khứ nếu bạn chủ động báo). Tuy nhiên đừng trì hoãn — vi phạm càng lâu càng bị xem là cố tình.',
+        answer: 'Xin 資格外活動許可 NGAY. Phép ISA cấp chỉ có hiệu lực tính từ ngày được CẤP về sau — KHÔNG xoá lịch sử hoạt động trước đó. Hoạt động trả lương trong giai đoạn chưa có phép vẫn là 不法就労 theo 入管法 §70 và Nyukan CÓ THỂ xét lịch sử đó khi gia hạn / đổi visa. Chủ động đến Nyukan + giải trình thường được xem xét nhẹ hơn so với bị phát hiện sau, nhưng KHÔNG có gì đảm bảo. Tham vấn 弁護士 / 行政書士 chuyên 入管 trước khi đến nếu lo lắng.',
       },
       {
         question: 'Nếu bị phát hiện không xin phép mà làm freelance thì sao?',
-        answer: 'ISA có thể: (1) Từ chối gia hạn visa, (2) Yêu cầu ngừng hoạt động, (3) Phạt tiền hoặc ở mức nặng là buộc rời Nhật. Vì vậy nên xin phép sớm.',
+        answer: 'Hậu quả tiềm năng (Nyukan quyết định từng case): (1) Phạt 不法就労 theo 入管法 §70 — tới 3 năm tù hoặc ¥300万, (2) Từ chối gia hạn / đổi tư cách lưu trú, (3) 退去強制 + 上陸拒否期間 5-10 năm trong trường hợp nghiêm trọng. Công ty/người trả tiền cũng có thể bị phạt 不法就労助長. Tham vấn 弁護士 ngay nếu bị Nyukan liên hệ.',
       },
     ],
     counterPhrases: [
