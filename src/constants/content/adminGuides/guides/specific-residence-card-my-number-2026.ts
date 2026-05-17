@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const specificResidenceCardMyNumber2026: AdminGuide = {
   id: 'specific-residence-card-my-number-2026',
   category: 'immigration',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-05-17',
   priority: 'normal',
   title: 'Thẻ cư trú hợp nhất My Number Card — 特定在留カード (từ 14/06/2026)',
   titleJp: '特定在留カード — 在留カードとマイナンバーカードの一体化',
@@ -181,6 +181,56 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
       romaji: 'Kodomo no baai wa dou sureba yoi desu ka.',
       vn: 'Trường hợp trẻ em thì làm thế nào?',
       note: 'Tại 市役所/入管 — quy trình trẻ em.',
+    },
+  ],
+  keyTerms: [
+    {
+      term: '特定在留カード',
+      reading: 'とくていざいりゅうカード',
+      meaningVi: 'Thẻ cư trú đặc định (kết hợp My Number Card)',
+      noteVi: 'Thẻ cư trú thế hệ mới bắt đầu cấp từ 14/06/2026 bởi 出入国在留管理庁. Tích hợp chức năng My Number Card vào 1 thẻ. KHÔNG bắt buộc đổi ngay — thẻ 在留カード hiện hành vẫn có hiệu lực đến ngày ghi trên thẻ. Người xin tự nguyện theo điều kiện thủ tục (gia hạn / đổi tư cách / 永住 / cấp lại).',
+    },
+    {
+      term: 'マイナンバーカード',
+      reading: 'マイナンバーカード',
+      meaningVi: 'My Number Card (thẻ số cá nhân Nhật)',
+      noteVi: 'Thẻ riêng do 市役所 cấp, có chip điện tử + số 12 chữ số. Trước 14/06/2026: người nước ngoài có 2 thẻ riêng (在留カード + My Number Card). Sau 14/06/2026: có thể gộp thành 1 thẻ 特定在留カード. Người chưa có My Number Card có thể đăng ký tại 市役所 trước hoặc đợi xin kèm 特定在留カード.',
+    },
+    {
+      term: '在留カード',
+      reading: 'ざいりゅうカード',
+      meaningVi: 'thẻ cư trú (chuẩn hiện hành)',
+      noteVi: 'Thẻ chuẩn ISA cấp cho người nước ngoài cư trú trung/dài hạn. Sau 14/06/2026 vẫn được cấp bình thường cho người KHÔNG đủ điều kiện hoặc không chọn 特定在留カード. Phải mang theo khi ra ngoài (在留カード携帯義務 §23-2 入管法 — phạt đến 20 vạn yên nếu không có).',
+    },
+    {
+      term: '一体化',
+      reading: 'いったいか',
+      meaningVi: 'tích hợp / gộp thành một',
+      noteVi: 'Khái niệm 在留カード + マイナンバーカード 一体化 = "thẻ cư trú gộp với My Number". Đây là mục tiêu của cải cách 2026 — giảm số thẻ phải mang + đơn giản hóa thủ tục hành chính. Lưu ý: 一体化 KHÔNG có nghĩa thẻ cũ tự động bị thu — phải qua thủ tục xin cấp 特定在留カード.',
+    },
+    {
+      term: '通知カード / 個人番号通知書',
+      reading: 'つうちカード / こじんばんごうつうちしょ',
+      meaningVi: 'thẻ thông báo số / giấy thông báo số cá nhân',
+      noteVi: 'Giấy/thẻ tạm chỉ ghi số My Number (không có ảnh, không có chip) — cấp tự động khi đăng ký 市役所 mới. KHÁC My Number Card (chính thức có ảnh + chip). Khi xin 特定在留カード mà chưa có My Number Card, có thể dùng 通知カード/通知書 làm bằng chứng số My Number để 市役所 chuyển đổi.',
+    },
+    {
+      term: '在留申請オンライン',
+      reading: 'ざいりゅうしんせいオンライン',
+      meaningVi: 'hệ thống nộp đơn lưu trú online (ISA)',
+      noteVi: 'Hệ thống online của 出入国在留管理庁. Người dùng đăng ký trước với tư cách phù hợp + xác thực; sau 14/06/2026 có thể được dùng để xin 特定在留カード trong các thủ tục gia hạn / đổi tư cách. Phí thường thấp hơn ~500 yên so với nộp trực tiếp. KHÔNG nhận đơn vào ngày hết hạn visa.',
+    },
+    {
+      term: '在留カード再交付',
+      reading: 'ざいりゅうカードさいこうふ',
+      meaningVi: 'cấp lại thẻ cư trú',
+      noteVi: 'Thủ tục cấp lại khi mất / hỏng / đổi tên / đổi thông tin. Sau 14/06/2026: nếu thuộc nhóm đủ điều kiện, có thể chọn cấp 特定在留カード thay vì 在留カード thường trong cùng thủ tục re-issue.',
+    },
+    {
+      term: '移行期間 / 経過措置',
+      reading: 'いこうきかん / けいかそち',
+      meaningVi: 'giai đoạn chuyển tiếp / biện pháp quá độ',
+      noteVi: 'Khoảng thời gian sau 14/06/2026 khi cả 2 loại thẻ (在留カード thường + 特定在留カード) cùng tồn tại. ISA chưa công bố thời hạn cứng cho 移行期間 — chính sách có thể cập nhật theo thực tế vận hành. KHÔNG nghe môi giới nói "phải đổi gấp" — kiểm tra trực tiếp với ISA.',
     },
   ],
   officialLinks: [

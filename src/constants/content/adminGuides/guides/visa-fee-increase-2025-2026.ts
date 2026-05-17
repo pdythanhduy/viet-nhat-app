@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaFeeIncrease20252026: AdminGuide = {
   id: 'visa-fee-increase-2025-2026',
   category: 'immigration',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-05-17',
   priority: 'normal',
   title: 'Phí visa Nhật tăng từ 2025-04-01 — bảng giá mới + cách tiết kiệm',
   titleJp: '在留関係手続の手数料改定（2025年4月1日〜）',
@@ -212,6 +212,62 @@ const visaFeeIncrease20252026: AdminGuide = {
       romaji: 'Kekka wa itsu kimasu ka.',
       vn: 'Khi nào có kết quả?',
       note: 'Kết quả qua hagaki (postcard) hoặc email (online申請).',
+    },
+  ],
+  keyTerms: [
+    {
+      term: '手数料',
+      reading: 'てすうりょう',
+      meaningVi: 'lệ phí thủ tục (visa, hành chính)',
+      noteVi: 'Phí thanh toán cho 出入国在留管理庁 khi NHẬN kết quả (KHÔNG phải khi nộp). Trả bằng 収入印紙 (tem thuế) — mua tại bưu điện / 法務局 / 入管. Online申請 thường rẻ hơn ~500 yên. Trẻ em hoặc một số trường hợp được miễn theo 法務省令.',
+    },
+    {
+      term: '手数料改定',
+      reading: 'てすうりょうかいてい',
+      meaningVi: 'điều chỉnh / sửa đổi bảng phí',
+      noteVi: 'Đợt tăng phí 2025-04-01 là đợt đầu kể từ 2006 (~19 năm giữ nguyên). Lý do ISA công bố: nâng cấp hệ thống online + nhân lực xử lý. Hồ sơ nộp TRƯỚC 2025-03-31 vẫn áp phí cũ. Có thể có đợt điều chỉnh tiếp — kiểm tra trang ISA tại ngày nộp.',
+    },
+    {
+      term: '在留期間更新申請',
+      reading: 'ざいりゅうきかんこうしんしんせい',
+      meaningVi: 'đơn xin gia hạn thời hạn lưu trú',
+      noteVi: 'Phí mới (từ 2025-04-01): 6,000 yên (giấy) / 5,500 yên (online). Phí cũ trước đó: 4,000 yên. Khi nộp trễ + bị 不許可 → vẫn mất phí.',
+    },
+    {
+      term: '在留資格変更申請',
+      reading: 'ざいりゅうしかくへんこうしんせい',
+      meaningVi: 'đơn xin đổi tư cách lưu trú',
+      noteVi: 'Phí giống 在留期間更新: 6,000 yên (giấy) / 5,500 yên (online). Cấp khi được phê duyệt. Khác 在留期間更新 — đây là đổi tư cách (vd 留学 → 技人国).',
+    },
+    {
+      term: '永住許可申請',
+      reading: 'えいじゅうきょかしんせい',
+      meaningVi: 'đơn xin vĩnh trú',
+      noteVi: 'Phí mới: 10,000 yên (giấy) / 9,500 yên (online). Phí cũ: 8,000 yên. Hồ sơ phức tạp + tỷ lệ duyệt thấp hơn các thủ tục khác → nhiều người dùng 行政書士 (thêm chi phí ngoài lệ phí ISA, tham khảo 10-20 vạn yên/case).',
+    },
+    {
+      term: '在留資格認定証明書交付申請',
+      reading: 'ざいりゅうしかくにんていしょうめいしょこうふしんせい',
+      meaningVi: 'đơn xin Giấy chứng nhận tư cách lưu trú (COE)',
+      noteVi: 'COE cho người nước ngoài muốn sang Nhật — người ở Nhật xin trước, gửi điện tử cho người nhà nộp visa tại Đại sứ quán. Hiện vẫn MIỄN PHÍ (theo ISA 2025-04-01). Có thể có thay đổi sau — kiểm tra trang ISA.',
+    },
+    {
+      term: '再入国許可',
+      reading: 'さいにゅうこくきょか',
+      meaningVi: 'giấy phép tái nhập cảnh',
+      noteVi: 'Cho phép rời Nhật và quay lại mà giữ tư cách lưu trú. Phí mới: 6,000 yên (một lần) / 9,000 yên (nhiều lần). みなし再入国 (rời <1 năm + ý định quay lại) MIỄN PHÍ — chỉ cần đánh dấu ô đặc biệt trên thẻ embarkation lúc xuất cảnh. Đa số người Việt sang VN <1 năm dùng được みなし再入国.',
+    },
+    {
+      term: '在留申請オンラインシステム',
+      reading: 'ざいりゅうしんせいオンラインシステム',
+      meaningVi: 'hệ thống nộp đơn lưu trú online',
+      noteVi: 'Hệ thống của ISA tại online.immi-moj.go.jp. Giảm ~500 yên so với nộp giấy + xử lý nhanh hơn. CẦN: My Number Card + ICカードリーダー hoặc smartphone Nhật có NFC. Đăng ký tài khoản trước khi nộp lần đầu. KHÔNG nhận đơn vào ngày hết hạn visa — luôn nộp sớm.',
+    },
+    {
+      term: '収入印紙',
+      reading: 'しゅうにゅういんし',
+      meaningVi: 'tem thuế (dùng nộp phí hành chính)',
+      noteVi: 'Tem mua tại bưu điện / 法務局 / một số 入管. Dán lên đơn để thanh toán 手数料. Mua đúng mệnh giá theo phí cần nộp (vd 6,000 yên: 1 tem 6,000 hoặc combo). Tem KHÔNG hoàn lại nếu hồ sơ 不許可 — vì phí được tính khi NHẬN kết quả, dù phê duyệt hay từ chối.',
     },
   ],
   officialLinks: [
