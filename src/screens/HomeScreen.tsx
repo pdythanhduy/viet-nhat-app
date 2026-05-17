@@ -15,17 +15,14 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { ADMIN_GUIDES } from '../constants/content/adminGuides';
 import { DAILY_LIFE_TOPICS } from '../constants/content/dailyLife';
-import { EMERGENCY_CONTACTS } from '../constants/content/emergency';
 import { loadImportantDates, getDaysUntil } from '../utils/notifications';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import ProfileSetupModal from '../components/ProfileSetupModal';
 import type { UserProfile } from '../types/profile';
 import {
-  CATEGORIES,
   FAMILY_VISA_GROUPS,
   GENERIC_TIPS,
   LAW_UPDATES,
-  ONBOARDING_GUIDES,
   buildPersonalizedActions,
   getGreeting,
   type ActiveAlert,
@@ -35,6 +32,16 @@ import {
   type ReadyGuide,
   type SavedCounts,
 } from './homeScreenContent';
+import { HomeHeader } from './home/HomeHeader';
+import { HomeSearchCta, HomeAskCta } from './home/HomeTopCtas';
+import {
+  HomeQuickActions,
+  type QuickAction,
+  type QuickActionId,
+} from './home/HomeQuickActions';
+import { HomeCategoryGrid } from './home/HomeCategoryGrid';
+import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
+import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import {
   buildChecklistProgressItems,
   buildCompletedChecklistItems,
@@ -57,37 +64,6 @@ import {
 import { logHomeQuickActionPressed, logHomeSearchPressed } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
-
-// Situations a Vietnamese resident in Japan typically arrives with.
-// Each card maps to a safe destination — Search query params aren't supported
-// yet, so admin-related entries land on the Admin tab and let the user filter
-// from there.
-type QuickActionId =
-  | 'newcomer'
-  | 'visa-renewal'
-  | 'moving'
-  | 'official-mail'
-  | 'tax-insurance'
-  | 'lost-document'
-  | 'emergency';
-
-interface QuickAction {
-  id: QuickActionId;
-  title: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  color: string;
-  bg: string;
-}
-
-const QUICK_ACTIONS: ReadonlyArray<QuickAction> = [
-  { id: 'newcomer',       title: 'Mới sang Nhật',         icon: 'compass-outline',       color: '#185FA5', bg: '#E5EFF8' },
-  { id: 'visa-renewal',   title: 'Gia hạn visa',          icon: 'card-outline',          color: '#16A085', bg: '#E5F5F1' },
-  { id: 'moving',         title: 'Chuyển nhà',            icon: 'home-outline',          color: '#D35400', bg: '#FBEDE0' },
-  { id: 'official-mail',  title: 'Nhận thư từ cơ quan',   icon: 'mail-outline',          color: '#8E44AD', bg: '#F1E9F6' },
-  { id: 'tax-insurance',  title: 'Thuế / bảo hiểm',       icon: 'receipt-outline',       color: '#2C7A7B', bg: '#E1EFEF' },
-  { id: 'lost-document',  title: 'Mất giấy tờ',           icon: 'alert-circle-outline',  color: '#C0392B', bg: '#F9E5E2' },
-  { id: 'emergency',      title: 'Khẩn cấp',              icon: 'medkit-outline',        color: '#E74C3C', bg: '#FDECEA' },
-];
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -327,105 +303,23 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.header}>
-          <View style={styles.headerTextBlock}>
-            <Text style={styles.greeting}>{getGreeting()}</Text>
-            <Text style={styles.appName}>Bạn đang cần làm thủ tục gì ở Nhật?</Text>
-            <Text style={styles.subtitle}>
-              Tra thủ tục, deadline và câu tiếng Nhật cần dùng — bằng tiếng Việt.
-            </Text>
-          </View>
-          <View style={styles.headerButtons}>
-            <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Search')}>
-              <Ionicons name="search-outline" size={22} color={Colors.white} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.headerIconBtn} onPress={() => navigation.navigate('Settings')}>
-              <Ionicons name="settings-outline" size={22} color={Colors.white} />
-            </TouchableOpacity>
-          </View>
-        </View>
+        <HomeHeader
+          greeting={getGreeting()}
+          onSearchPress={() => navigation.navigate('Search')}
+          onSettingsPress={() => navigation.navigate('Settings')}
+        />
 
         <View style={styles.content}>
-          {/* Search CTA — Home's primary entry point: tap to open the full
-              search screen. Sits above everything because finding a procedure
-              is the user's most common need on first open. */}
-          <TouchableOpacity
-            style={styles.searchCta}
-            onPress={handleSearchCtaPress}
-            accessibilityRole="button"
-            accessibilityLabel="Tìm nhanh thủ tục"
-          >
-            <View style={styles.searchCtaIconBg}>
-              <Ionicons name="search-outline" size={20} color={Colors.primary} />
-            </View>
-            <View style={styles.searchCtaText}>
-              <Text style={styles.searchCtaTitle}>Tìm nhanh thủ tục</Text>
-              <Text style={styles.searchCtaPlaceholder}>
-                Visa, chuyển nhà, My Number, thuế...
-              </Text>
-              <Text style={styles.searchCtaHint}>
-                Gõ từ khóa hoặc chọn tình huống bên dưới.
-              </Text>
-            </View>
-            <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
-          </TouchableOpacity>
+          <HomeSearchCta onPress={handleSearchCtaPress} />
 
-          {/* Hỏi Cẩm Nang — experimental chat-style retrieval. Smaller card so
-              it doesn't compete with the main Search CTA, marked BETA so users
-              know expectations are low. Phase 1 is local-only retrieval — no
-              network call, no AI. See docs/feature-rag-chatbot-assessment.md. */}
-          <TouchableOpacity
-            style={styles.askCta}
-            onPress={() => navigation.navigate('HoiCamNang')}
-            accessibilityRole="button"
-            accessibilityLabel="Mở Hỏi Cẩm Nang"
-          >
-            <View style={styles.askCtaIconBg}>
-              <Ionicons name="sparkles-outline" size={16} color={Colors.primary} />
-            </View>
-            <View style={styles.askCtaText}>
-              <View style={styles.askCtaTitleRow}>
-                <Text style={styles.askCtaTitle}>Hỏi Cẩm Nang</Text>
-                <View style={styles.askCtaBeta}>
-                  <Text style={styles.askCtaBetaText}>BETA</Text>
-                </View>
-              </View>
-              <Text style={styles.askCtaSubtitle}>
-                Hỏi tự nhiên bằng tiếng Việt — app sẽ gợi ý bài cần đọc.
-              </Text>
-            </View>
-            <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
-          </TouchableOpacity>
+          <HomeAskCta onPress={() => navigation.navigate('HoiCamNang')} />
 
           {/* AI Mail remains internal-only until gates in decision log are cleared.
               See docs/feature-ai-mail-translate-decision-log.md. Mail routes +
               screens stay registered for Phase 2 scaffolding, but no Home/Settings
               entry point is rendered. */}
 
-          {/* Situation chips — the user identifies what they're dealing with
-              and lands on the right starting point without typing. */}
-          <View style={styles.quickActionsSection}>
-            <Text style={styles.quickActionsTitle}>Tôi đang cần gì?</Text>
-            <Text style={styles.quickActionsHint}>
-              Bấm vào tình huống đang gặp để vào đúng hướng dẫn.
-            </Text>
-            <View style={styles.quickActionsGrid}>
-              {QUICK_ACTIONS.map((action) => (
-                <TouchableOpacity
-                  key={action.id}
-                  style={styles.quickActionCard}
-                  onPress={() => handleQuickActionPress(action)}
-                  accessibilityRole="button"
-                  accessibilityLabel={action.title}
-                >
-                  <View style={[styles.quickActionIconBg, { backgroundColor: action.bg }]}>
-                    <Ionicons name={action.icon} size={20} color={action.color} />
-                  </View>
-                  <Text style={styles.quickActionTitle}>{action.title}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          </View>
+          <HomeQuickActions onActionPress={handleQuickActionPress} />
 
           {userProfile ? (
             <View style={styles.profileHeroCard}>
@@ -873,36 +767,12 @@ export default function HomeScreen() {
           ) : null}
 
           <Text style={styles.sectionTitle}>Duyệt theo chủ đề</Text>
-          <View style={styles.categoryGrid}>
-            {CATEGORIES.map((category) => (
-              <TouchableOpacity key={category.id} style={styles.categoryCard} onPress={() => handleCategoryPress(category.tab)}>
-                <View style={[styles.categoryIconBg, { backgroundColor: category.bg }]}>
-                  <Ionicons name={category.icon} size={24} color={category.color} />
-                </View>
-                <Text style={[styles.categoryTitle, { color: category.color }]}>{category.title}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+          <HomeCategoryGrid onCategoryPress={handleCategoryPress} />
 
           <Text style={styles.sectionTitle}>Cho người mới sang Nhật</Text>
-          {ONBOARDING_GUIDES.map((guide) => (
-            <TouchableOpacity
-              key={guide.guideId}
-              style={styles.firstStepsCard}
-              onPress={() => navigation.navigate('AdminDetail', { guideId: guide.guideId })}
-            >
-              <View style={styles.firstStepsLeft}>
-                <View style={styles.firstStepsIconBg}>
-                  <Ionicons name={guide.icon} size={20} color={Colors.primary} />
-                </View>
-                <View style={styles.firstStepsText}>
-                  <Text style={styles.firstStepsTitle}>{guide.title}</Text>
-                  <Text style={styles.firstStepsDesc}>{guide.description}</Text>
-                </View>
-              </View>
-              <Ionicons name="arrow-forward-circle" size={26} color={Colors.primary} />
-            </TouchableOpacity>
-          ))}
+          <HomeOnboardingGuides
+            onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId })}
+          />
 
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Cập nhật chính sách quan trọng</Text>
@@ -983,21 +853,7 @@ export default function HomeScreen() {
               <Text style={styles.sectionLink}>Mở trung tâm khẩn</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.emergencyContainer}>
-            {EMERGENCY_CONTACTS.map((contact) => (
-              <TouchableOpacity key={contact.id} style={styles.emergencyCard} onPress={() => handleCallEmergency(contact.number)}>
-                <View style={[styles.emergencyIcon, { backgroundColor: `${contact.color}18` }]}>
-                  <Ionicons name={contact.icon} size={22} color={contact.color} />
-                </View>
-                <View style={styles.emergencyInfo}>
-                  <Text style={styles.emergencyName}>{contact.name}</Text>
-                  <Text style={styles.emergencyNameJp}>{contact.nameJp}</Text>
-                  <Text style={[styles.emergencyNumber, { color: contact.color }]}>{contact.number}</Text>
-                </View>
-                <Ionicons name="call" size={18} color={contact.color} />
-              </TouchableOpacity>
-            ))}
-          </View>
+          <HomeEmergencyContacts onCall={handleCallEmergency} />
 
           <View style={styles.bottomPad} />
         </View>
@@ -1014,43 +870,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.primary },
-  header: {
-    backgroundColor: Colors.primary,
-    paddingHorizontal: 20,
-    paddingTop: 12,
-    paddingBottom: 24,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  headerTextBlock: {
-    flex: 1,
-    paddingRight: 12,
-  },
-  greeting: { fontSize: 14, color: 'rgba(255,255,255,0.8)', marginBottom: 4 },
-  appName: {
-    fontSize: 22,
-    lineHeight: 28,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.white,
-  },
-  subtitle: { marginTop: 6, fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 18 },
-  headerButtons: {
-    flexDirection: 'row',
-    gap: 10,
-    flexShrink: 0,
-    alignItems: 'center',
-    marginTop: 2,
-  },
-  headerIconBtn: {
-    width: 42,
-    height: 42,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255,255,255,0.14)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   content: {
     backgroundColor: Colors.background,
     borderTopLeftRadius: 24,
@@ -1058,142 +877,6 @@ const styles = StyleSheet.create({
     marginTop: -16,
     paddingTop: 18,
     paddingHorizontal: 16,
-  },
-  searchCta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    backgroundColor: Colors.white,
-    borderRadius: 16,
-    padding: 14,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  searchCtaIconBg: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    backgroundColor: Colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  searchCtaText: { flex: 1 },
-  searchCtaTitle: {
-    fontSize: 15,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.textPrimary,
-    marginBottom: 3,
-  },
-  searchCtaPlaceholder: {
-    fontSize: 12,
-    color: Colors.textMuted,
-    marginBottom: 3,
-  },
-  searchCtaHint: {
-    fontSize: 11,
-    color: Colors.textMuted,
-    lineHeight: 15,
-  },
-  askCta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    backgroundColor: Colors.white,
-    borderRadius: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  askCtaIconBg: {
-    width: 30,
-    height: 30,
-    borderRadius: 10,
-    backgroundColor: Colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  askCtaText: { flex: 1 },
-  askCtaTitleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginBottom: 2,
-  },
-  askCtaTitle: {
-    fontSize: 13,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.textPrimary,
-  },
-  askCtaBeta: {
-    backgroundColor: Colors.accent,
-    borderRadius: 6,
-    paddingHorizontal: 6,
-    paddingVertical: 1,
-  },
-  askCtaBetaText: {
-    color: Colors.primary,
-    fontSize: 9,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    letterSpacing: 0.4,
-  },
-  askCtaSubtitle: {
-    fontSize: 11,
-    color: Colors.textSecondary,
-    lineHeight: 15,
-  },
-  quickActionsSection: {
-    marginBottom: 16,
-  },
-  quickActionsTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.textPrimary,
-    marginBottom: 4,
-  },
-  quickActionsHint: {
-    fontSize: 12,
-    color: Colors.textSecondary,
-    lineHeight: 17,
-    marginBottom: 12,
-  },
-  quickActionsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  quickActionCard: {
-    width: '48%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    backgroundColor: Colors.white,
-    borderRadius: 14,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  quickActionIconBg: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  quickActionTitle: {
-    flex: 1,
-    fontSize: 12,
-    fontWeight: '700',
-    fontFamily: 'BeVietnamPro_700Bold',
-    color: Colors.textPrimary,
-    lineHeight: 16,
   },
   profileHeroCard: {
     backgroundColor: Colors.white,
@@ -1497,27 +1180,6 @@ const styles = StyleSheet.create({
   },
   recentLabel: { fontSize: 11, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textMuted, marginBottom: 4 },
   recentTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, lineHeight: 18 },
-  categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 8 },
-  categoryCard: { width: '47%', borderRadius: 16, padding: 16, alignItems: 'center', backgroundColor: Colors.white },
-  categoryIconBg: { width: 52, height: 52, borderRadius: 14, justifyContent: 'center', alignItems: 'center', marginBottom: 12 },
-  categoryTitle: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', lineHeight: 20, textAlign: 'center' },
-  firstStepsCard: {
-    backgroundColor: Colors.accent,
-    borderRadius: 16,
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: `${Colors.primary}30`,
-  },
-  firstStepsLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, flex: 1 },
-  firstStepsIconBg: { width: 40, height: 40, borderRadius: 12, backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center' },
-  firstStepsText: { flex: 1 },
-  firstStepsTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
-  firstStepsDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   updatesContainer: { gap: 10, marginBottom: 4 },
   updateCard: { backgroundColor: Colors.white, borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 1, borderColor: Colors.border },
   updateIcon: { width: 42, height: 42, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
@@ -1540,12 +1202,5 @@ const styles = StyleSheet.create({
   allGuidesText: { flex: 1 },
   allGuidesTitle: { fontSize: 14, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary, marginBottom: 3 },
   allGuidesDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
-  emergencyContainer: { gap: 10 },
-  emergencyCard: { backgroundColor: Colors.white, borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 },
-  emergencyIcon: { width: 44, height: 44, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
-  emergencyInfo: { flex: 1 },
-  emergencyName: { fontSize: 13, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.textPrimary },
-  emergencyNameJp: { fontSize: 11, color: Colors.textMuted, marginTop: 1 },
-  emergencyNumber: { fontSize: 15, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', marginTop: 3 },
   bottomPad: { height: 24 },
 });
