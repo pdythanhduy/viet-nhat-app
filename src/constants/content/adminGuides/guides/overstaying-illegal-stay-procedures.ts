@@ -126,6 +126,82 @@ const overstayingIllegalStayProcedures: AdminGuide = {
         answer: 'Bạn vẫn có cơ hội vì mới phát hiện. Nộp ngay hôm nay (chưa quá 2 tháng từ ngày visa hết hạn), kèm bằng chứng tại sao quên (giấy xác nhận nhập viện, hóa đơn bệnh viện hoặc lý do chính đáng khác). ISA sẽ xem xét.',
       },
     ],
+    counterPhrases: [
+      {
+        jp: '弁護士に相談したいです。',
+        romaji: 'Bengoshi ni soudan shitai desu.',
+        vn: 'Tôi muốn tham vấn luật sư.',
+        note: 'Câu đầu tiên cần dùng. KHÔNG tự đến Nyukan khi chưa có tư vấn. Gọi 法テラス 0570-078374 hoặc Đại sứ quán Việt Nam 03-3466-3311 để được giới thiệu luật sư.',
+      },
+      {
+        jp: 'ベトナム語の通訳をお願いします。',
+        romaji: 'Betonamu-go no tsuuyaku o onegai shimasu.',
+        vn: 'Xin thông dịch viên tiếng Việt.',
+        note: 'Quyền có thông dịch khi làm việc với Nyukan. KHÔNG ký bất kỳ giấy gì khi chưa hiểu rõ.',
+      },
+      {
+        jp: '在留資格について質問があります。',
+        romaji: 'Zairyuu shikaku ni tsuite shitsumon ga arimasu.',
+        vn: 'Tôi có câu hỏi về tư cách lưu trú.',
+        note: 'Khi gọi 0570-013904 (Foreign Residents Support Center) — câu mở đầu trung tính.',
+      },
+      {
+        jp: '今は答えたくありません。弁護士なしでは話しません。',
+        romaji: 'Ima wa kotaetaku arimasen. Bengoshi nashi de wa hanashimasen.',
+        vn: 'Tôi không muốn trả lời lúc này. Tôi sẽ không nói khi chưa có luật sư.',
+        note: 'Quyền 黙秘 (giữ im lặng) theo 憲法 §38. Áp dụng khi Nyukan / cảnh sát hỏi mà chưa có luật sư hỗ trợ.',
+      },
+    ],
+    keyTerms: [
+      {
+        term: '不法残留',
+        reading: 'ふほうざんりゅう',
+        meaningVi: 'lưu trú trái phép (visa đã hết hạn)',
+        noteVi: 'Vi phạm 入管法 §70. Phạt tới 3 năm tù hoặc ¥300万 (hoặc cả hai). Kèm 退去強制 + 上陸拒否期間 5-10 năm. KHÔNG có "ngày đệm" — quá 1 ngày là vi phạm. Mỗi ngày overstay thêm làm tình hình tệ hơn.',
+      },
+      {
+        term: '退去強制',
+        reading: 'たいきょきょうせい',
+        meaningVi: 'trục xuất bắt buộc (cưỡng chế rời Nhật)',
+        noteVi: 'Khác 出国命令. Nyukan bắt + tạm giữ tại 入管 facility (vài tuần - vài tháng) → trục xuất về nước. Kèm 上陸拒否 5 năm (lần đầu) / 10 năm (tái phạm hoặc nặng) / vĩnh viễn (đặc biệt nghiêm trọng). Khó xin lại visa Nhật sau này. Tham vấn 弁護士 nếu thấy có rủi ro 退去強制.',
+      },
+      {
+        term: '出国命令',
+        reading: 'しゅっこくめいれい',
+        meaningVi: 'lệnh rời Nhật tự nguyện (theo 入管法 §24-3)',
+        noteVi: 'CÓ THỂ áp dụng khi: (1) tự nguyện đến báo cáo Nyukan; (2) không có tiền án nặng khác; (3) hợp tác đầy đủ; (4) có khả năng tự rời. Nếu Nyukan cấp → 出国準備期間 (4-8 tuần) + cấm tái nhập 1 năm thay vì 5-10 năm. KHÔNG phải "tự động" — Nyukan đánh giá. Tham vấn 弁護士 trước.',
+      },
+      {
+        term: '在留特別許可',
+        reading: 'ざいりゅうとくべつきょか',
+        meaningVi: 'quyền cho phép ở lại đặc biệt (do Bộ trưởng Tư pháp cấp, 入管法 §50)',
+        noteVi: 'RẤT HIẾM được cấp. KHÔNG phải lựa chọn người vi phạm có thể "apply" — là quyền riêng của Bộ trưởng Tư pháp. Thường chỉ xem xét khi có hoàn cảnh nhân đạo cực kỳ đặc biệt (kết hôn người Nhật + có con Nhật + quan hệ thực sự, hoặc điều trị bệnh không thể nhận ở nước về). BẮT BUỘC 弁護士. KHÔNG nên dựa vào.',
+      },
+      {
+        term: '上陸拒否期間',
+        reading: 'じょうりくきょひきかん',
+        meaningVi: 'thời gian cấm tái nhập Nhật',
+        noteVi: 'Theo 入管法 §5. Sau khi rời/bị trục xuất: cấm tái nhập 1 năm (出国命令), 5 năm (退去強制 lần đầu), 10 năm (tái phạm hoặc tội nặng như 不法就労), vĩnh viễn (tội rất nghiêm trọng). Trong thời gian cấm, KHÔNG xin visa Nhật được, kể cả visa du lịch.',
+      },
+      {
+        term: '救済措置',
+        reading: 'きゅうさいそち',
+        meaningVi: 'biện pháp cứu trợ (trong 2 tháng từ ngày overstay)',
+        noteVi: 'Khi có lý do khách quan (quên hạn do tài liệu Nyukan delay, bệnh nặng đột ngột, thảm họa) — Nyukan THƯỜNG xét gia hạn / cấp lại tư cách trong 2 tháng. KHÔNG có gì đảm bảo — Nyukan đánh giá từng trường hợp. Cần 診断書 / 罹災証明書 / bằng chứng khách quan. Tham vấn 弁護士 / 行政書士 trước khi nộp.',
+      },
+      {
+        term: '不法就労',
+        reading: 'ふほうしゅうろう',
+        meaningVi: 'lao động trái phép (làm việc khi đã overstay)',
+        noteVi: 'Vi phạm 入管法 §70 RIÊNG — thêm tội bên cạnh 不法残留. Phạt tới 3 năm tù hoặc ¥300万. Kèm tăng 上陸拒否 từ 5 năm lên 10 năm. NGỪNG NGAY mọi hoạt động trả lương khi phát hiện overstay. Công ty thuê người 不法就労 cũng phạm tội 不法就労助長.',
+      },
+      {
+        term: '法テラス',
+        reading: 'ほうテラス',
+        meaningVi: 'Japan Legal Support Center — hỗ trợ pháp lý miễn phí',
+        noteVi: 'Hotline 0570-078374 (đa ngôn ngữ). Hỗ trợ tư vấn pháp lý miễn phí lần đầu cho người thu nhập thấp. Có thể trả góp phí luật sư. Đặc biệt hữu ích cho trường hợp 不法残留 / 不法就労 khi không đủ tiền thuê luật sư riêng.',
+      },
+    ],
     officialLinks: [
       { label: 'ISA — Overstay & Rescue Measure', url: 'https://www.moj.go.jp/isa/' },
       { label: '出国命令制度 — Deportation Order System', url: 'https://www.moj.go.jp/isa/applications/procedures/' },
