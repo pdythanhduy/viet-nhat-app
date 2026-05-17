@@ -160,6 +160,44 @@ const naturalizationKika2026Changes: AdminGuide = {
       note: 'Cho trẻ em song quốc tịch — trước 22 tuổi.',
     },
   ],
+  keyTerms: [
+    {
+      term: '特定在留カード',
+      reading: 'とくていざいりゅうカード',
+      meaningVi: 'thẻ cư trú tích hợp My Number Card (mới từ 14/06/2026)',
+      noteVi: 'Tuỳ chọn MỚI: gộp 在留カード + マイナンバーカード vào 1 thẻ. Cho người nước ngoài thường (chưa nhập tịch). Sau khi nhập tịch (帰化) thì người Nhật mới dùng マイナンバーカード thường — KHÔNG cần 特定在留カード nữa. Giai đoạn chuyển tiếp 2026 có thể gặp pha trộn — kiểm tra với 市役所 nếu hồ sơ phức tạp.',
+    },
+    {
+      term: '帰化許可申請',
+      reading: 'きかきょかしんせい',
+      meaningVi: 'đơn xin nhập tịch (nộp tại 法務局)',
+      noteVi: 'Nộp tại 法務局 / 地方法務局 nơi cư trú. 2026 cập nhật: một số 法務局 mở online appointment booking + cho phép nộp tài liệu bổ sung điện tử (kiểm tra trang 法務局 của bạn). Quy trình cốt lõi vẫn là tư vấn trực tiếp + nộp giấy tờ bản gốc. Tham vấn 行政書士 chuyên 国籍 nếu hồ sơ có yếu tố phức tạp (ly hôn, con ngoài giá thú, thay đổi tên).',
+    },
+    {
+      term: '戸籍',
+      reading: 'こせき',
+      meaningVi: 'hộ tịch (sổ đăng ký gia đình của Nhật)',
+      noteVi: 'Sau khi 帰化 được cấp + đăng ký tại 市役所, bạn được tạo 戸籍 mới (lập hộ riêng hoặc nhập vào 戸籍 của vợ/chồng Nhật). Tên 戸籍 quyết định cách viết tên Nhật chính thức của bạn — quan trọng cho mọi giấy tờ sau này. Suy nghĩ kỹ tên Nhật trước khi đăng ký (sửa sau cần thủ tục đổi tên riêng tại tòa).',
+    },
+    {
+      term: '官報告示',
+      reading: 'かんぽうこくじ',
+      meaningVi: 'công bố trên 官報 (Gazette chính phủ)',
+      noteVi: 'Khi 帰化 được duyệt, tên người được công bố trên 官報. Đây là bằng chứng pháp lý chính thức của việc nhập tịch (kể cả khi chưa kịp làm 戸籍 mới). Bản online: kanpo.npb.go.jp. Người nhập tịch CÓ THỂ yêu cầu xoá tên khỏi bản online sau một thời gian (chính sách 官報 cập nhật) — kiểm tra trang 国立印刷局.',
+    },
+    {
+      term: '国籍選択届',
+      reading: 'こくせきせんたくとどけ',
+      meaningVi: 'tờ khai chọn quốc tịch (cho trẻ song quốc tịch)',
+      noteVi: 'Theo 国籍法 §14, người có song quốc tịch phải chọn 1 quốc tịch trước 22 tuổi. Áp dụng cho con của bạn nếu bạn 帰化 mà con còn quốc tịch VN. Việt Nam KHÔNG công nhận song tịch — chọn Nhật = mất tịch Việt; chọn Việt = mất tịch Nhật. Tham vấn 弁護士 / 行政書士 + Đại sứ quán VN trước khi quyết định cho con.',
+    },
+    {
+      term: '帰化後の手続き',
+      reading: 'きかごのてつづき',
+      meaningVi: 'thủ tục sau khi được nhập tịch',
+      noteVi: 'Trong 1 tháng sau khi 法務局 thông báo duyệt: (1) nộp 帰化届 tại 市役所 để tạo 戸籍 mới; (2) xin マイナンバーカード mới (số My Number giữ nguyên); (3) trả lại 在留カード cho ISA; (4) cập nhật ngân hàng / 健康保険 / 年金 / hợp đồng / bằng lái với tên Nhật mới + tư cách công dân; (5) thông báo Đại sứ quán Việt Nam để xử lý mất quốc tịch VN theo luật VN.',
+    },
+  ],
   officialLinks: [
     { label: '法務省 国籍Q&A（帰化の条件）', url: 'https://www.moj.go.jp/MINJI/minji78.html' },
     { label: '法務省 国籍法', url: 'https://www.moj.go.jp/MINJI/kokusekiho.html' },
