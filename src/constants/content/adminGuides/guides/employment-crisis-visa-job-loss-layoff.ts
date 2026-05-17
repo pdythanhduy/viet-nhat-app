@@ -87,7 +87,6 @@ const employmentCrisisVisaJobLossLayoff: AdminGuide = {
       officialSourceLabels: [
         'ISA — 特定活動 (Job-Seeking Status)',
         '労働基準監督署 — Dispute Mediation',
-        '出入国在留管理庁 — 在留資格 inquiry 0570-013904',
       ],
     },
     whoIsThisFor: [
