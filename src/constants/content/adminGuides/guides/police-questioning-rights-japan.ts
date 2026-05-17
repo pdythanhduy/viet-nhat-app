@@ -192,6 +192,56 @@ const policeQuestioningRightsJapan: AdminGuide = {
       note: 'Câu lịch sự để từ chối 任意聴取 ngay. Không vi phạm gì cả.',
     },
   ],
+  keyTerms: [
+    {
+      term: '職務質問',
+      reading: 'しょくむしつもん',
+      meaningVi: 'kiểm tra giấy tờ ngẫu nhiên trên đường',
+      noteVi: 'Cảnh sát có thể chặn hỏi giấy tờ ngẫu nhiên ngoài phố theo 警察官職務執行法 §2. Bạn PHẢI xuất trình 在留カード (luật バーズ法 — người nước ngoài phải mang theo). KHÔNG bắt buộc trả lời câu hỏi khác. Lịch sự + bình tĩnh + đưa thẻ + đợi.',
+    },
+    {
+      term: '任意聴取',
+      reading: 'にんいちょうしゅ',
+      meaningVi: 'mời lên đồn nói chuyện tự nguyện',
+      noteVi: 'Cảnh sát mời lên đồn để hỏi. KHÔNG phải 逮捕 (bắt giữ). Bạn có quyền TỪ CHỐI hoặc rời đi bất kỳ lúc nào (theo luật, nhưng thực tế bị áp lực ở lại). Lời khuyên: nói "今は答えたくありません" hoặc "弁護士に相談したい" trước khi trả lời câu hỏi nghiêm trọng.',
+    },
+    {
+      term: '逮捕',
+      reading: 'たいほ',
+      meaningVi: 'bắt giữ chính thức (mất tự do)',
+      noteVi: 'KHÁC HẲN 任意聴取. Có lệnh bắt (逮捕状) hoặc 現行犯. Sau 逮捕: tạm giữ 48h ở 警察署 → có thể bị 検察官 gửi lên 検察庁 → 勾留 thêm 10-20 ngày. Trong giai đoạn này có quyền: 弁護士 (luật sư), thông dịch, gọi Đại sứ quán.',
+    },
+    {
+      term: '黙秘権',
+      reading: 'もくひけん',
+      meaningVi: 'quyền giữ im lặng (theo 憲法 §38)',
+      noteVi: 'Quyền hiến định. Bạn có quyền KHÔNG trả lời câu hỏi của cảnh sát / 検察 — kể cả khi đã 逮捕. Im lặng KHÔNG được coi là thừa nhận tội. Câu nói: "黙秘します" (tôi giữ im lặng) hoặc "弁護士なしでは話したくありません" (tôi không muốn nói khi chưa có luật sư).',
+    },
+    {
+      term: '当番弁護士',
+      reading: 'とうばんべんごし',
+      meaningVi: 'luật sư trực ban (miễn phí lần đầu)',
+      noteVi: 'Luật sư trực 24h do JFBA tổ chức. Khi bị 逮捕 / 勾留, bạn có thể yêu cầu 1 lần MIỄN PHÍ qua cảnh sát hoặc 弁護士会. Họ đến 警察署 trong 1-2 ngày, tư vấn ngắn. Nếu cần luật sư dài hạn → 法テラス hoặc tự thuê.',
+    },
+    {
+      term: '通訳人',
+      reading: 'つうやくにん',
+      meaningVi: 'thông dịch viên',
+      noteVi: 'Quyền có thông dịch viên (theo 刑事訴訟法 §175). Trong 取り調べ + 裁判 cảnh sát/tòa PHẢI cung cấp thông dịch tiếng Việt nếu yêu cầu. KHÔNG ký bất kỳ giấy tờ nào khi chưa có thông dịch hoặc chưa hiểu rõ. Câu nói: "ベトナム語の通訳をお願いします" (xin thông dịch tiếng Việt).',
+    },
+    {
+      term: '在留カード携帯義務',
+      reading: 'ざいりゅうカードけいたいぎむ',
+      meaningVi: 'nghĩa vụ mang theo thẻ cư trú',
+      noteVi: 'Theo 入管法 §23, người nước ngoài (trừ đặc biệt) PHẢI mang theo 在留カード mọi lúc. Không mang = bị phạt tới 200,000円. Trong 職務質問, cảnh sát thường hỏi thẻ trước tiên. Hộ chiếu KHÔNG thay thế thẻ trong nội địa Nhật.',
+    },
+    {
+      term: '勾留',
+      reading: 'こうりゅう',
+      meaningVi: 'tạm giam (sau 逮捕, do tòa quyết)',
+      noteVi: 'Sau 逮捕 + 検察送致, 検察 xin tòa cho 勾留 10 ngày (có thể gia hạn thêm 10 ngày = 20 ngày tổng). Trong giai đoạn này: ở 拘置所 hoặc 警察署 留置場, không liên lạc tự do với ngoài. Luật sư + Đại sứ quán có thể gặp. Quyền im lặng vẫn áp dụng.',
+    },
+  ],
   officialLinks: [
     { label: '日本弁護士連合会 (JFBA)', url: 'https://www.nichibenren.or.jp/' },
     { label: '法テラス', url: 'https://www.houterasu.or.jp/' },

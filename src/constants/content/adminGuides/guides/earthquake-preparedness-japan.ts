@@ -195,6 +195,50 @@ const earthquakePreparednessJapan: AdminGuide = {
       note: 'Hỏi tại 避難所 khi đến nơi.',
     },
   ],
+  keyTerms: [
+    {
+      term: '緊急地震速報',
+      reading: 'きんきゅうじしんそくほう',
+      meaningVi: 'cảnh báo động đất khẩn cấp (vài giây trước)',
+      noteVi: 'Hệ thống 気象庁 (JMA) tự động gửi cảnh báo trước khi sóng địa chấn lớn đến. Phát qua: TV (NHK), radio, điện thoại (緊急速報メール — không tắt được). Sound: "ピロン ピロン" + tiếng giọng kim. Tính bằng giây tới chục giây — đủ thời gian dừng việc + tránh đồ rơi.',
+    },
+    {
+      term: '震度',
+      reading: 'しんど',
+      meaningVi: 'cường độ rung lắc (cảm nhận ở từng nơi)',
+      noteVi: 'Thang Nhật 0-7 (0,1,2,3,4,5弱,5強,6弱,6強,7). 震度 5弱 trở lên = nguy hiểm. KHÁC マグニチュード (magnitude — đo tổng năng lượng tại tâm chấn). 1 trận động đất có 1 マグニチュード nhưng 震度 khác nhau ở các nơi.',
+    },
+    {
+      term: '津波',
+      reading: 'つなみ',
+      meaningVi: 'sóng thần',
+      noteVi: 'Cảnh báo qua 気象庁 sau động đất biển. 3 cấp: 注意報 (≥0.2m) → 警報 (≥1m) → 大津波警報 (≥3m). Khi nghe → CHẠY LÊN CAO NGAY, không lái xe (đường tắc). Sóng đầu KHÔNG luôn là sóng to nhất — chờ ít nhất 24h sau lệnh "解除".',
+    },
+    {
+      term: '避難所',
+      reading: 'ひなんじょ',
+      meaningVi: 'nơi trú ẩn (trường, công viên, gym khu phố)',
+      noteVi: 'Mỗi 市役所 chỉ định 避難所 cho từng khu — kiểm tra trước trên hazard map của 市. KHÁC 緊急避難場所 (chỗ tạm thoát ngay khi sóng/cháy/sập đến) và 避難所 (chỗ ở dài ngày sau thiên tai). Người nước ngoài được nhận, có thông dịch ở 1 số nơi.',
+    },
+    {
+      term: '罹災証明書',
+      reading: 'りさいしょうめいしょ',
+      meaningVi: 'giấy chứng nhận thiệt hại (sau thiên tai)',
+      noteVi: 'Do 市役所 cấp sau khi thẩm định nhà bị 全壊 / 大規模半壊 / 半壊 / 一部損壊. CẦN để: nhận tiền hỗ trợ 被災者生活再建支援金, miễn thuế, hoãn vay, đòi bảo hiểm. Xin trong vòng 1 tháng sau thiên tai — lưu ảnh thiệt hại trước khi sửa.',
+    },
+    {
+      term: '災害用伝言ダイヤル',
+      reading: 'さいがいよう でんごんダイヤル',
+      meaningVi: 'dial 171 nhắn tin gia đình khi mạng quá tải',
+      noteVi: 'Gọi 171 từ bất kỳ điện thoại Nhật → ghi hoặc nghe tin nhắn từ số nhà của bạn. Khi thiên tai mạng quá tải, gọi thường KHÔNG được; 171 ưu tiên. Web版: web171.jp. Lưu sẵn số nhà người thân trước thiên tai.',
+    },
+    {
+      term: '地震保険',
+      reading: 'じしんほけん',
+      meaningVi: 'bảo hiểm động đất (kèm bảo hiểm hỏa hoạn)',
+      noteVi: 'KHÔNG bán riêng — phải kèm 火災保険. Bồi thường tối đa 50% giá trị nhà. Phí tuỳ vùng (Tokyo cao hơn Hokkaido). Người thuê 賃貸: hỏi 大家 / 不動産 xem 家財保険 có 地震 phần không. Xảy ra thiên tai → giữ ảnh thiệt hại + 罹災証明書 để đòi.',
+    },
+  ],
   officialLinks: [
     { label: '気象庁 (JMA) — 緊急地震速報のしくみ', url: 'https://www.jma.go.jp/jma/kishou/know/jishin/eew/shikumi/shikumi.html' },
     { label: '内閣府（防災担当）— 被災者支援（罹災証明書の交付）', url: 'https://www.bousai.go.jp/taisaku/hisaisyagyousei/' },
