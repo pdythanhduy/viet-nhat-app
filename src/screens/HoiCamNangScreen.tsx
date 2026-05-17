@@ -9,7 +9,7 @@
 // previous turns. Each question is an independent retrieval against the
 // existing searchIndex.
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -19,7 +19,6 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -61,11 +60,31 @@ function getResultColor(type: SearchResultItem['type']) {
   return '#E74C3C';
 }
 
+const TOAST_DURATION_MS = 1500;
+
 export default function HoiCamNangScreen() {
   const navigation = useNavigation<NavigationProp>();
   const [input, setInput] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
+  const [toast, setToast] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView | null>(null);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    },
+    [],
+  );
+
+  const showToast = useCallback((message: string) => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    setToast(message);
+    toastTimerRef.current = setTimeout(() => {
+      setToast(null);
+      toastTimerRef.current = null;
+    }, TOAST_DURATION_MS);
+  }, []);
 
   const hasMessages = turns.length > 0;
 
@@ -132,14 +151,19 @@ export default function HoiCamNangScreen() {
     [navigation],
   );
 
-  const handleCopyPhrase = useCallback(async (jp: string) => {
-    try {
-      await Clipboard.setStringAsync(jp);
-    } catch {
-      // Clipboard can fail on some emulators; ignore silently.
-    }
-    Alert.alert('Đã copy', jp);
-  }, []);
+  const handleCopyPhrase = useCallback(
+    async (jp: string) => {
+      try {
+        await Clipboard.setStringAsync(jp);
+        showToast('Đã copy câu tiếng Nhật');
+      } catch {
+        // Clipboard can fail on some emulators; surface a soft failure so the
+        // user knows the tap was registered but the copy didn't go through.
+        showToast('Không copy được — hãy thử lại');
+      }
+    },
+    [showToast],
+  );
 
   const handleReset = useCallback(() => {
     setTurns([]);
@@ -262,6 +286,17 @@ export default function HoiCamNangScreen() {
             <Ionicons name="arrow-up" size={20} color={Colors.white} />
           </TouchableOpacity>
         </View>
+
+        {toast ? (
+          <View style={styles.toastWrap} pointerEvents="none" accessibilityLiveRegion="polite">
+            <View style={styles.toast}>
+              <Ionicons name="checkmark-circle" size={14} color={Colors.white} />
+              <Text style={styles.toastText} numberOfLines={1}>
+                {toast}
+              </Text>
+            </View>
+          </View>
+        ) : null}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -786,5 +821,33 @@ const styles = StyleSheet.create({
   },
   sendBtnDisabled: {
     backgroundColor: Colors.textMuted,
+  },
+
+  // Lightweight toast — overlaid above the input bar, fades out via state
+  // (no animation, just mount/unmount). Cross-platform; replaces the
+  // previous Alert.alert that interrupted the chat flow on every copy.
+  toastWrap: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 72,
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  toast: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    maxWidth: '90%',
+    backgroundColor: 'rgba(20, 20, 30, 0.92)',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 999,
+  },
+  toastText: {
+    color: Colors.white,
+    fontSize: 13,
+    fontWeight: '600',
+    fontFamily: 'BeVietnamPro_600SemiBold',
   },
 });

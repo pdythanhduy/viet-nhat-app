@@ -21,6 +21,22 @@ import { logSearchPerformed } from '../utils/analytics';
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type SearchRouteProp = RouteProp<RootStackParamList, 'Search'>;
 
+// Empty-state suggestions. Each must return at least one hit from
+// searchAppContent so the user sees real results immediately. Kept short
+// (6 chips) so the empty state stays tidy on small phones; mixes
+// Vietnamese, Japanese, and romaji to hint that all three work.
+// MUST stay in sync with `SEARCH_SUGGESTIONS` in
+// `src/utils/searchSuggestions.test.ts`, which guards every entry against
+// the index drifting away from it.
+const SEARCH_SUGGESTIONS: ReadonlyArray<string> = [
+  'visa',
+  'thẻ cư trú',
+  'bảo hiểm',
+  '住民税',
+  'zairyu',
+  'mất giấy tờ',
+];
+
 function getResultIcon(type: SearchResultItem['type']) {
   if (type === 'guide') return 'document-text-outline';
   if (type === 'daily-life') return 'sunny-outline';
@@ -138,6 +154,21 @@ export default function SearchScreen() {
               <Text style={styles.emptyDesc}>
                 Bạn có thể tìm theo vấn đề, tên giấy tờ, tình huống, romaji hoặc một cụm tiếng Nhật.
               </Text>
+              <Text style={styles.suggestionsLabel}>Gợi ý nhanh</Text>
+              <View style={styles.suggestionsWrap}>
+                {SEARCH_SUGGESTIONS.map((suggestion) => (
+                  <TouchableOpacity
+                    key={suggestion}
+                    style={styles.suggestionChip}
+                    onPress={() => setQuery(suggestion)}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Tìm ${suggestion}`}
+                  >
+                    <Ionicons name="search" size={12} color={Colors.primary} />
+                    <Text style={styles.suggestionText}>{suggestion}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
             </View>
           ) : results.length === 0 ? (
             <View style={styles.emptyState}>
@@ -259,6 +290,39 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: Colors.textSecondary,
     textAlign: 'center',
+  },
+  suggestionsLabel: {
+    marginTop: 20,
+    marginBottom: 10,
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  suggestionsWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    justifyContent: 'center',
+  },
+  suggestionChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 999,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  suggestionText: {
+    fontSize: 12,
+    color: Colors.textPrimary,
+    fontWeight: '600',
+    fontFamily: 'BeVietnamPro_600SemiBold',
   },
   resultsWrap: {
     gap: 10,
