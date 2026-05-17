@@ -96,7 +96,7 @@ export type RootStackParamList = {
   Search: { initialQuery?: string } | undefined;
   HoiCamNang: undefined;
   Settings: undefined;
-  ImportantDates: undefined;
+  ImportantDates: { prefill?: { label: string } } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
   StoryVocabDashboard: undefined;

@@ -179,11 +179,14 @@ function lookupGuide(id: string): AdminGuide | undefined {
 // Vietnamese function/filler words that should not drive retrieval (they
 // match almost every guide and dilute the ranking). The list is short
 // because being too aggressive risks dropping a meaningful keyword.
+// Single-character entries and entries with punctuation are excluded —
+// the tokenizer below strips punctuation and discards tokens shorter
+// than 2 characters before consulting this set.
 const STOP_WORDS = new Set([
-  'la', 'gi', 'co', 'khong', 'phai', 'lam', 'cua', 'cho', 'voi', 've', 've.',
+  'la', 'gi', 'co', 'khong', 'phai', 'lam', 'cua', 'cho', 'voi', 've',
   'sao', 'nao', 'de', 'tu', 'thi', 'rat', 'mot', 'hai', 'ba', 'va', 'hay',
   'duoc', 'roi', 'tai', 'nhe', 'nhu', 'the', 'ay', 'do', 'day', 'kia',
-  'da', 'se', 'tu.', 'a', 'o', 'u',
+  'da', 'se',
 ]);
 
 // Free-text queries from the chat screen are usually full sentences like

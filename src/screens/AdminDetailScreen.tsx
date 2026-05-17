@@ -483,6 +483,24 @@ export default function AdminDetailScreen() {
                   </View>
                 </View>
               ) : null}
+
+              {qa.deadline ? (
+                <TouchableOpacity
+                  style={[styles.summaryReminderCta, { backgroundColor: guide.color }]}
+                  onPress={() =>
+                    navigation.navigate('ImportantDates', {
+                      prefill: { label: guide.title },
+                    })
+                  }
+                  accessibilityRole="button"
+                  accessibilityLabel={`Thêm nhắc nhở cho ${guide.title}`}
+                >
+                  <Ionicons name="notifications-outline" size={14} color={Colors.white} />
+                  <Text style={styles.summaryReminderCtaText}>
+                    Thêm vào Ngày quan trọng
+                  </Text>
+                </TouchableOpacity>
+              ) : null}
             </View>
           );
         })()}
@@ -1299,6 +1317,22 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.textPrimary,
     lineHeight: 18,
+  },
+  summaryReminderCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    marginTop: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 10,
+  },
+  summaryReminderCtaText: {
+    color: Colors.white,
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
   },
   counterPhrasesCard: {
     borderRadius: 14,

@@ -14,9 +14,16 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import {
+  RouteProp,
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import type { IoniconName } from '../types/content';
+import { RootStackParamList } from '../navigation/AppNavigator';
 import {
   ImportantDate,
   loadImportantDates,
@@ -28,6 +35,9 @@ import {
   getNotificationPermissionStatus,
   type NotificationPermissionState,
 } from '../utils/notifications';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'ImportantDates'>;
+type RouteType = RouteProp<RootStackParamList, 'ImportantDates'>;
 
 const PRESETS: { label: string; icon: IoniconName; color: string }[] = [
   { label: 'Thẻ cư trú hết hạn', icon: 'card', color: '#185FA5' },
@@ -157,7 +167,8 @@ function ColumnPicker({
 
 // ------- Main screen -------
 export default function ImportantDatesScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp>();
+  const route = useRoute<RouteType>();
   const [dates, setDates] = useState<ImportantDate[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState(PRESETS[0]);
@@ -200,6 +211,28 @@ export default function ImportantDatesScreen() {
       getNotificationPermissionStatus().then(setPermissionState);
     }, [])
   );
+
+  // When AdminDetailScreen sends us here with a prefill (a guide title),
+  // open the add modal pre-populated with that title under the "Khác"
+  // preset so the user only has to pick a date. Clear the param after
+  // consuming it so navigating away and back doesn't re-trigger the modal.
+  const prefillLabel = route.params?.prefill?.label;
+  useEffect(() => {
+    if (!prefillLabel) return;
+    const khacPreset = PRESETS.find((p) => p.label === 'Khác') ?? PRESETS[0];
+    setEditingId(null);
+    setSelectedPreset(khacPreset);
+    setCustomLabel(prefillLabel);
+    setSelYear(0);
+    setSelMonth(today.getMonth());
+    setSelDay(today.getDate() - 1);
+    setShowModal(true);
+    navigation.setParams({ prefill: undefined });
+    // today is recreated on every render; capturing it here is fine because
+    // this effect only fires when prefillLabel changes (i.e. on a fresh
+    // navigate with a new prefill). selDay/Month/Year setters are stable.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prefillLabel]);
 
   const openAdd = () => {
     setEditingId(null);
