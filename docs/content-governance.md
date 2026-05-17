@@ -2,7 +2,7 @@
 
 Quy tắc cho contributors / future Claude sessions khi viết/sửa nội dung trong `src/constants/content/adminGuides/guides/`.
 
-Sourced from compliance lessons learned across PRs #38–#51 (May 2026). Update when sprint patterns shift.
+Sourced from compliance lessons learned across PRs #38–#53 (May 2026). Update when sprint patterns shift.
 
 ---
 
@@ -219,8 +219,8 @@ These items MUST NOT appear in guide content:
 | #36 | Reverting AI Mail surface exposure (decision log alignment) |
 | #38 | Family/childcare — standard 5-field enhancement |
 | #41 | Tax terminology — Issue #37 keyTerms style benchmark |
-| #46 (D1) | Compliance for visa rejection — softening "tỷ lệ approved cao" |
 | #51 (D2) | Compliance for overstaying — no loophole, defer to 弁護士 |
 | #50 (D3) | Compliance for "trendy" visas — citizenship eligibility honest |
+| #53 (D3+) | Visa employment-crisis + freelance — distinguishing visa-type dependency for 資格外活動許可 |
 
-Last updated: 2026-05-17 (covering content sprint through PR #51).
+Last updated: 2026-05-17 (post PR #53 merge + freelance FAQ accuracy fix).
