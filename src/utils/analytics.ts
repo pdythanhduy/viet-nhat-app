@@ -78,6 +78,12 @@ export type EventMap = {
   // selection so we can see whether the cold-start surface earns its
   // place vs. existing quick-actions.
   home_start_here_pressed: { shortcut_id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs' };
+
+  // Growth G1: native share completion. `completed: false` covers both
+  // user cancellation and any platform-level Share throw. The OS share
+  // sheet decides the destination — we do NOT track which app received
+  // the share (no Zalo/Messenger/SMS attribution).
+  guide_share: { guide_id: string; completed: boolean };
 };
 
 let initialized = false;

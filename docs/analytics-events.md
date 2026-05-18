@@ -99,6 +99,14 @@ deserves UI emphasis; if `search` dominates, keep tuning ranking.
 | `emergency_cta_open` | `source` ∈ `home_quick_action` / `home_start_here` / `search_empty` / `search_no_results` / `home_section_link` | User reaches EmergencyHub via a discovery surface. The bottom-of-Home `tel:` phone-tap path is intentionally NOT tracked (different intent — call vs. browse) |
 | `home_start_here_pressed` | `shortcut_id` ∈ `newcomer` / `visa` / `tax` / `emergency` / `jobs` | User taps a chip in the new "Bắt đầu ở đâu?" Home row (Phase UX1). Forward-compat event; the row itself ships in PR #66 |
 
+### Growth (Phase G1)
+
+| Event | Props | When fires |
+|---|---|---|
+| `guide_share` | `guide_id`, `completed` | User taps the share icon on `AdminDetailScreen` and the OS share sheet returns. `completed: true` when the share went through (regardless of destination — we don't know if it went to Zalo / Messenger / SMS / copy). `completed: false` on user cancel or platform throw |
+
+The destination app is intentionally NOT tracked — the OS owns that information, and forwarding it would expand the privacy surface for no product benefit.
+
 ### Mail Translate funnel
 
 Phase 1 mock: events fire on the simulated flow with sample data. When Phase 2 wires real
