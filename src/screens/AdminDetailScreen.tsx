@@ -42,6 +42,7 @@ import {
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
 import { logGuideOpened, logBookmarkToggled, logHtmlExported } from '../utils/analytics';
+import { shareGuide } from '../utils/shareGuide';
 import { getRelatedGuides } from '../utils/searchIndex';
 import { recordRecentlyViewedGuide } from '../utils/recentlyViewedGuides';
 import type { AdminGuideJurisdiction, AdminGuideRiskLevel, OfficialFormLink } from '../types/content';
@@ -344,6 +345,12 @@ export default function AdminDetailScreen() {
           </TouchableOpacity>
           <TouchableOpacity onPress={copyWholeGuide} style={styles.headerIconBtn}>
             <Ionicons name="copy-outline" size={20} color={Colors.white} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => guide && shareGuide({ guideId: guide.id, title: guide.title, titleJp: guide.titleJp })}
+            style={styles.headerIconBtn}
+          >
+            <Ionicons name="share-social-outline" size={20} color={Colors.white} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleBookmark} style={styles.headerIconBtn}>
             <Ionicons
