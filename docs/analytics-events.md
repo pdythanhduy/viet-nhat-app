@@ -58,6 +58,17 @@ Only screens we want to measure adoption of. Other screens skipped on purpose.
 | `notification_permission_granted` | `kind: 'study' \| 'word' \| 'date'` | OS-prompt grant on first request only (not on already-granted re-checks) |
 | `notification_opened` | `slot: 'morning' \| 'evening' \| 'unknown'` | User taps a daily ritual notification (App.tsx listener) |
 
+### Retention funnel (Phase R1)
+
+| Event | Props | When fires |
+|---|---|---|
+| `guide_save` | `guide_id`, `category` | User taps the bookmark/save icon on `AdminDetailScreen` and the guide goes from unsaved → saved |
+| `guide_unsave` | `guide_id`, `category` | Same icon when the guide goes from saved → unsaved |
+
+These are decision-quality retention signals: which guides earn long-term saves (vs which are one-and-done reads). The pair is preferred over a single `guide_bookmark { added: bool }` event because retention dashboards aggregate cleaner on event-name granularity than on a bool property.
+
+Non-guide bookmarks (phrases, dialogues, daily-life topics) silently no-op — they aren't in the v1.5.0 retention scope.
+
 ### Search funnel (Phase 2A+2B)
 
 The raw query is **never** sent. We forward `q = normalizeText(query).slice(0, 24)`

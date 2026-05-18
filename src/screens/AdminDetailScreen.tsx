@@ -161,7 +161,7 @@ export default function AdminDetailScreen() {
       savedAt: '',
     });
     setBookmarked(added);
-    logBookmarkToggled('guide', guide.id, added).catch(() => {});
+    logBookmarkToggled('guide', guide.id, added, guide.category).catch(() => {});
   };
 
   const formatStepForCopy = (step: (typeof guide.steps)[number]) => {
