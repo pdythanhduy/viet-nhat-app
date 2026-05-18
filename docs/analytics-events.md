@@ -39,7 +39,7 @@ Only screens we want to measure adoption of. Other screens skipped on purpose.
 |---|---|---|
 | `home_view` | — | Auto via navigation listener when route name = `Home` |
 | `daily_ritual_view` | — | DailyRitualScreen `useFocusEffect` |
-| `guide_open` | `guide_id`, `category` | AdminDetailScreen mount |
+| `guide_open` | `guide_id`, `category`, `source` | AdminDetailScreen mount. `source` ∈ `search` / `related` / `featured` / `direct` (added in Phase 2B — measures which discovery surface converted) |
 | `mail_translate_open` | — | User taps the Mail discovery card on Home (intent signal — not refired on back-navigation) |
 
 ### Daily Ritual funnel
@@ -57,6 +57,29 @@ Only screens we want to measure adoption of. Other screens skipped on purpose.
 |---|---|---|
 | `notification_permission_granted` | `kind: 'study' \| 'word' \| 'date'` | OS-prompt grant on first request only (not on already-granted re-checks) |
 | `notification_opened` | `slot: 'morning' \| 'evening' \| 'unknown'` | User taps a daily ritual notification (App.tsx listener) |
+
+### Search funnel (Phase 2A+2B)
+
+The raw query is **never** sent. We forward `q = normalizeText(query).slice(0, 24)`
+— ASCII-only, lowercased, no diacritics. Aggregating across users surfaces popular
+keywords without storing identifying input mid-typing.
+
+| Event | Props | When fires |
+|---|---|---|
+| `search_query` | `q`, `q_length`, `result_count` | User types > 2 chars in SearchScreen input |
+| `search_no_results` | `q`, `q_length` | Same trigger as `search_query` when `result_count === 0` |
+
+Funnel to watch after launch:
+
+1. `search_query` count → discovery interest baseline
+2. `search_no_results` rate → ranking + content gap signal (each failed query is a
+   keyword candidate or a missing guide)
+3. `guide_open` with `source === 'search'` → the conversion event
+
+Cross-reference `guide_open.source` distribution to see whether search, related,
+or featured is the strongest discovery surface. If `featured` dominates, the
++6 priority boost is doing real work; if `related` dominates, related-guides
+deserves UI emphasis; if `search` dominates, keep tuning ranking.
 
 ### Mail Translate funnel
 
@@ -101,6 +124,6 @@ Tells us whether users are interested enough in the mock to justify Phase 2 back
 
 - Specific guide reads beyond ID (no time-on-screen, no scroll depth)
 - Bookmark add/remove
-- Search queries (privacy)
+- **Raw** search queries (we DO forward a 24-char normalized form — see Search funnel above)
 - Quiz answer text or content
-- Any user-typed string
+- Any user-typed string beyond the 24-char normalized search slice

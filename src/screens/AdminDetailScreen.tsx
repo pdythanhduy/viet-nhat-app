@@ -42,6 +42,7 @@ import {
 } from '../utils/adminGuideExport';
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
 import { logGuideOpened, logBookmarkToggled, logHtmlExported } from '../utils/analytics';
+import { getRelatedGuides } from '../utils/searchIndex';
 import type { AdminGuideJurisdiction, AdminGuideRiskLevel, OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -131,7 +132,8 @@ export default function AdminDetailScreen() {
 
   useEffect(() => {
     if (guide) {
-      logGuideOpened(guide.id, guide.title, guide.category).catch(() => {});
+      const source = route.params.source ?? 'direct';
+      logGuideOpened(guide.id, guide.title, guide.category, source).catch(() => {});
     }
   }, [guide?.id]);
 
@@ -350,10 +352,19 @@ export default function AdminDetailScreen() {
     });
   }, [guide, bookmarked, exportingGuide]);
 
-  const relatedGuides = ADMIN_GUIDES
-    .filter((g) => g.category === guide.category && g.id !== guide.id)
-    .sort((a, b) => Number(b.priority === 'high') - Number(a.priority === 'high'))
-    .slice(0, 3);
+  // Phase 2B: cross-category related guides via getRelatedGuides (token
+  // overlap + same-category + priority). Falls back to same-category sort
+  // if the algorithmic lookup returns nothing (very sparse keywords).
+  const relatedGuides = (() => {
+    const algorithmic = getRelatedGuides(guide.id, 4)
+      .map((r) => ADMIN_GUIDES.find((g) => g.id === r.id))
+      .filter((g): g is NonNullable<typeof g> => g !== undefined);
+    if (algorithmic.length > 0) return algorithmic;
+    return ADMIN_GUIDES
+      .filter((g) => g.category === guide.category && g.id !== guide.id)
+      .sort((a, b) => Number(b.priority === 'high') - Number(a.priority === 'high'))
+      .slice(0, 3);
+  })();
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -1109,12 +1120,12 @@ export default function AdminDetailScreen() {
 
         {relatedGuides.length > 0 && (
           <View style={styles.relatedSection}>
-            <Text style={styles.detailSectionTitle}>Xem thêm trong danh mục</Text>
+            <Text style={styles.detailSectionTitle}>Xem thêm liên quan</Text>
             {relatedGuides.map((related) => (
               <TouchableOpacity
                 key={related.id}
                 style={styles.relatedCard}
-                onPress={() => navigation.navigate('AdminDetail', { guideId: related.id })}
+                onPress={() => navigation.navigate('AdminDetail', { guideId: related.id, source: 'related' })}
               >
                 <View style={[styles.relatedIconBg, { backgroundColor: related.color + '18' }]}>
                   <Ionicons name={related.icon} size={20} color={related.color} />

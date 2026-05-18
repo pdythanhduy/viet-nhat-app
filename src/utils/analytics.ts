@@ -26,7 +26,14 @@ export type EventMap = {
   // Screen views (only the screens we actually want to measure adoption of)
   home_view: void;
   daily_ritual_view: void;
-  guide_open: { guide_id: string; category: string };
+  // Phase 2B: `source` distinguishes discovery surface from direct nav.
+  // Lets us measure which surface (search / related / featured) actually
+  // converts to guide opens.
+  guide_open: {
+    guide_id: string;
+    category: string;
+    source: 'search' | 'related' | 'featured' | 'direct';
+  };
   mail_translate_open: void;
 
   // Daily Ritual — the funnel
@@ -123,9 +130,10 @@ export async function logScreenView(screenName: string): Promise<void> {
 export async function logGuideOpened(
   guideId: string,
   _guideTitle: string,
-  category: string
+  category: string,
+  source: EventMap['guide_open']['source'] = 'direct'
 ): Promise<void> {
-  track('guide_open', { guide_id: guideId, category });
+  track('guide_open', { guide_id: guideId, category, source });
 }
 
 export async function logQuizStarted(quizType: string): Promise<void> {

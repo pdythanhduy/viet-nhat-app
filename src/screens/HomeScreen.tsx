@@ -41,6 +41,7 @@ import {
 } from './home/HomeQuickActions';
 import { HomeCategoryGrid } from './home/HomeCategoryGrid';
 import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
+import { HomeFeaturedGuides } from './home/HomeFeaturedGuides';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import {
   buildChecklistProgressItems,
@@ -772,6 +773,11 @@ export default function HomeScreen() {
           <Text style={styles.sectionTitle}>Cho người mới sang Nhật</Text>
           <HomeOnboardingGuides
             onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId })}
+          />
+
+          <Text style={styles.sectionTitle}>Hay được dùng</Text>
+          <HomeFeaturedGuides
+            onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'featured' })}
           />
 
           <View style={styles.sectionTitleRow}>
