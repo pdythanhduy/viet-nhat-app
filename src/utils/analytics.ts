@@ -43,6 +43,13 @@ export type EventMap = {
   mail_image_uploaded: void;
   mail_translated: void;
   mail_summary_viewed: void;
+
+  // Search — Phase 2A preparation. Raw query NEVER sent: we forward only
+  // a normalized + truncated form so aggregating popular searches stays
+  // useful without leaking PII (names, addresses) typed into the box.
+  // `q` is normalizeText(query).slice(0, 24) — ASCII-only, no diacritics.
+  search_query: { q: string; q_length: number; result_count: number };
+  search_no_results: { q: string; q_length: number };
 };
 
 let initialized = false;
@@ -146,7 +153,28 @@ export async function logJLPTQuizCompleted(_level: string, _score: number, _tota
 export async function logWordSaved(_word: string, _meaning: string): Promise<void> {}
 export async function logStoryStarted(_storyId: string, _level: string): Promise<void> {}
 export async function logStoryCompleted(_storyId: string, _level: string): Promise<void> {}
-export async function logSearchPerformed(_query: string, _resultCount: number): Promise<void> {}
+// Phase 2A: forward a normalized + truncated form of the query so we can
+// aggregate popular searches and failed searches without storing raw user
+// input. Mirrors normalizeText() in src/utils/searchIndex.ts (we duplicate
+// the tiny normalizer here to avoid a circular import).
+function normalizeQueryForAnalytics(query: string): string {
+  return query
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[đĐ]/g, 'd')
+    .toLowerCase()
+    .trim()
+    .slice(0, 24);
+}
+
+export async function logSearchPerformed(query: string, resultCount: number): Promise<void> {
+  const q = normalizeQueryForAnalytics(query);
+  if (!q) return;
+  track('search_query', { q, q_length: q.length, result_count: resultCount });
+  if (resultCount === 0) {
+    track('search_no_results', { q, q_length: q.length });
+  }
+}
 export async function logHomeSearchPressed(): Promise<void> {}
 export async function logHomeQuickActionPressed(_actionId: string): Promise<void> {}
 export async function logAdminSituationPressed(_situationId: string): Promise<void> {}
