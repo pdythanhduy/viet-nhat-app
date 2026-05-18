@@ -10,6 +10,16 @@ const first7DaysInJapan: AdminGuide = {
     icon: 'rocket',
     color: '#1F8A70',
     description: 'Checklist thực tế cho người vừa sang Nhật: việc nào cần làm ngay, việc nào làm trong vài ngày đầu, và lỗi nào dễ khiến thủ tục sau này rối hơn.',
+    searchKeywords: [
+      'moi sang nhat',
+      'tuan dau o nhat',
+      'newcomer japan',
+      'first week japan',
+      'checklist tuan dau',
+      'viec lam dau tien o nhat',
+      'da nhap canh',
+      'arrival japan',
+    ],
     heroImage: require('../../../../../assets/content/daily-life/ag_first-7-days_hero.jpg'),
     heroImageCaption: 'Tuần đầu tại Nhật — đăng ký cư trú, mở tài khoản, lấy SIM và sắp xếp nơi ở',
     whoIsThisFor: [

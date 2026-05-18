@@ -10,6 +10,16 @@ const first30DaysWorkStudyJapan: AdminGuide = {
     icon: 'calendar',
     color: '#2E86C1',
     description: 'Checklist chi tiết cho tháng đầu ở Nhật: nhịp công việc hoặc trường lớp, giấy tờ, tiền bạc, đi lại, sức khỏe và những lỗi dễ phát sinh nếu chủ quan.',
+    searchKeywords: [
+      'thang dau o nhat',
+      'first month japan',
+      'first 30 days',
+      'newcomer worker',
+      'newcomer student',
+      'di lam moi o nhat',
+      'di hoc moi o nhat',
+      'checklist thang dau',
+    ],
     heroImage: require('../../../../../assets/content/daily-life/dl_utilities_s1.jpg'),
     heroImageCaption: 'Tháng đầu ở Nhật — đăng ký điện nước gas, SIM và sắp xếp cuộc sống cơ bản',
     whoIsThisFor: [

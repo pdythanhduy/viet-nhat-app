@@ -10,6 +10,14 @@ const first90DaysInJapan: AdminGuide = {
     icon: 'map',
     color: '#6C5CE7',
     description: 'Guide tổng hợp cho 3 tháng đầu ở Nhật: từ giai đoạn sinh tồn, vào nếp, đến lúc tự rà rủi ro về giấy tờ, tiền bạc, công việc, học tập và sức khỏe.',
+    searchKeywords: [
+      '3 thang dau o nhat',
+      'first 90 days',
+      'newcomer survival',
+      'on dinh cuoc song',
+      'checklist 3 thang',
+      'sang nhat duoc 3 thang',
+    ],
     heroImage: require('../../../../../assets/content/daily-life/ag_90days_hero.jpg'),
     heroImageCaption: 'Những việc cần làm trong 90 ngày đầu ở Nhật',
     whoIsThisFor: [

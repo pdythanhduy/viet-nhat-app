@@ -11,6 +11,19 @@ const movingInNotification: AdminGuide = {
     color: '#27AE60',
     description:
       'Đây là thủ tục báo với 市役所/区役所 rằng bạn đã chuyển đến địa chỉ mới ở Nhật. Chưa làm thủ tục này, các việc sau như bảo hiểm, My Number, ngân hàng đều bị vướng.',
+    searchKeywords: [
+      'tennyu todoke',
+      'tenkyo todoke',
+      'dang ky cu tru',
+      'dang ky dia chi',
+      'chuyen den dia chi moi',
+      'tennyu',
+      '転入届',
+      '住民登録',
+      'moving notification',
+      'move in notification',
+      'register address japan',
+    ],
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: '転入届/転居届 do 市役所/区役所 xử lý theo hệ thống 住民基本台帳; với người trung/dài hạn, mang thẻ cư trú đến 市役所/区役所 cũng được coi là đã làm 届出 địa chỉ theo ISA.',
