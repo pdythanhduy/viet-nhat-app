@@ -43,6 +43,7 @@ import {
 import { saveAndShareAdminGuideHtml } from '../utils/adminGuideExportFile';
 import { logGuideOpened, logBookmarkToggled, logHtmlExported } from '../utils/analytics';
 import { getRelatedGuides } from '../utils/searchIndex';
+import { recordRecentlyViewedGuide } from '../utils/recentlyViewedGuides';
 import type { AdminGuideJurisdiction, AdminGuideRiskLevel, OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -134,6 +135,10 @@ export default function AdminDetailScreen() {
     if (guide) {
       const source = route.params.source ?? 'direct';
       logGuideOpened(guide.id, guide.title, guide.category, source).catch(() => {});
+      // Persist for the "Đã xem gần đây" Home surface. Storage write is
+      // intentionally fire-and-forget — a failure here must not block the
+      // guide from rendering.
+      recordRecentlyViewedGuide(guide.id).catch(() => {});
     }
   }, [guide?.id]);
 
