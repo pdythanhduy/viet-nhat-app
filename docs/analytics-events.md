@@ -92,6 +92,13 @@ or featured is the strongest discovery surface. If `featured` dominates, the
 +6 priority boost is doing real work; if `related` dominates, related-guides
 deserves UI emphasis; if `search` dominates, keep tuning ranking.
 
+### Discovery & emergency (Phase A1)
+
+| Event | Props | When fires |
+|---|---|---|
+| `emergency_cta_open` | `source` ∈ `home_quick_action` / `home_start_here` / `search_empty` / `search_no_results` / `home_section_link` | User reaches EmergencyHub via a discovery surface. The bottom-of-Home `tel:` phone-tap path is intentionally NOT tracked (different intent — call vs. browse) |
+| `home_start_here_pressed` | `shortcut_id` ∈ `newcomer` / `visa` / `tax` / `emergency` / `jobs` | User taps a chip in the new "Bắt đầu ở đâu?" Home row (Phase UX1). Forward-compat event; the row itself ships in PR #66 |
+
 ### Mail Translate funnel
 
 Phase 1 mock: events fire on the simulated flow with sample data. When Phase 2 wires real

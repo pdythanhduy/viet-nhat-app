@@ -66,7 +66,11 @@ import {
   loadUserProfilePromptDismissed,
   saveUserProfile,
 } from '../utils/userProfile';
-import { logHomeQuickActionPressed, logHomeSearchPressed } from '../utils/analytics';
+import {
+  logHomeQuickActionPressed,
+  logHomeSearchPressed,
+  logEmergencyCtaOpened,
+} from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -204,6 +208,7 @@ export default function HomeScreen() {
       return;
     }
     if (action.id === 'emergency') {
+      void logEmergencyCtaOpened('home_quick_action');
       navigation.navigate('EmergencyHub');
       return;
     }
@@ -917,7 +922,7 @@ export default function HomeScreen() {
 
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Liên hệ khẩn và hỗ trợ</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('EmergencyHub')}>
+            <TouchableOpacity onPress={() => { void logEmergencyCtaOpened('home_section_link'); navigation.navigate('EmergencyHub'); }}>
               <Text style={styles.sectionLink}>Mở trung tâm khẩn</Text>
             </TouchableOpacity>
           </View>

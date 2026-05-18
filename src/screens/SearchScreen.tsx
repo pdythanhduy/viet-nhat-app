@@ -16,7 +16,7 @@ import { Colors } from '../constants/colors';
 import { RichInline } from '../components/RichText';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { SearchResultItem, searchAppContent, getFeaturedGuides } from '../utils/searchIndex';
-import { logSearchPerformed } from '../utils/analytics';
+import { logSearchPerformed, logEmergencyCtaOpened } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type SearchRouteProp = RouteProp<RootStackParamList, 'Search'>;
@@ -178,7 +178,7 @@ export default function SearchScreen() {
               <FeaturedAndEmergency
                 featured={featured}
                 onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
-                onOpenEmergency={() => navigation.navigate('EmergencyHub')}
+                onOpenEmergency={() => { void logEmergencyCtaOpened('search_empty'); navigation.navigate('EmergencyHub'); }}
               />
             </View>
           ) : results.length === 0 ? (
@@ -193,7 +193,7 @@ export default function SearchScreen() {
               <FeaturedAndEmergency
                 featured={featured}
                 onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
-                onOpenEmergency={() => navigation.navigate('EmergencyHub')}
+                onOpenEmergency={() => { void logEmergencyCtaOpened('search_no_results'); navigation.navigate('EmergencyHub'); }}
               />
             </View>
           ) : (

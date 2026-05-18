@@ -63,6 +63,21 @@ export type EventMap = {
   // No PII — only the guide_id (already public-as-content).
   guide_save: { guide_id: string; category: string };
   guide_unsave: { guide_id: string; category: string };
+
+  // Discovery — Phase A1. Generic "user reached EmergencyHub via a
+  // surface that's not the bottom Emergency contacts list". `source`
+  // tells us WHICH surface earned the open (home quick action, search
+  // no-results CTA, etc.). The pre-existing tel: handler stays
+  // un-tracked because it's a different intent (call a number).
+  emergency_cta_open: {
+    source: 'home_quick_action' | 'home_start_here' | 'search_empty' | 'search_no_results' | 'home_section_link';
+  };
+
+  // Discovery — Phase UX1 forward-compat. Fires when the user taps a
+  // chip in the new "Bắt đầu ở đâu?" Home row. Tracks shortcut
+  // selection so we can see whether the cold-start surface earns its
+  // place vs. existing quick-actions.
+  home_start_here_pressed: { shortcut_id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs' };
 };
 
 let initialized = false;
@@ -213,6 +228,20 @@ export async function logSearchPerformed(query: string, resultCount: number): Pr
   if (resultCount === 0) {
     track('search_no_results', { q, q_length: q.length });
   }
+}
+
+// Phase A1: thin wrappers so call sites don't depend on the raw track()
+// shape and can stay readable. Same pattern as logSearchPerformed.
+export async function logEmergencyCtaOpened(
+  source: EventMap['emergency_cta_open']['source']
+): Promise<void> {
+  track('emergency_cta_open', { source });
+}
+
+export async function logHomeStartHerePressed(
+  shortcutId: EventMap['home_start_here_pressed']['shortcut_id']
+): Promise<void> {
+  track('home_start_here_pressed', { shortcut_id: shortcutId });
 }
 export async function logHomeSearchPressed(): Promise<void> {}
 export async function logHomeQuickActionPressed(_actionId: string): Promise<void> {}
