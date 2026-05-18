@@ -58,7 +58,7 @@ import { logScreenView } from '../utils/analytics';
 // Phase 2B: where did the user come from when opening a guide? Powers the
 // `source` property on the `guide_open` analytics event so we can measure
 // the discovery surfaces (search, related, featured) against direct nav.
-export type GuideOpenSource = 'search' | 'related' | 'featured' | 'direct';
+export type GuideOpenSource = 'search' | 'related' | 'featured' | 'direct' | 'recent_viewed';
 
 export type TabParamList = {
   Home: undefined;

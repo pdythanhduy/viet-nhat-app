@@ -39,7 +39,7 @@ Only screens we want to measure adoption of. Other screens skipped on purpose.
 |---|---|---|
 | `home_view` | — | Auto via navigation listener when route name = `Home` |
 | `daily_ritual_view` | — | DailyRitualScreen `useFocusEffect` |
-| `guide_open` | `guide_id`, `category`, `source` | AdminDetailScreen mount. `source` ∈ `search` / `related` / `featured` / `direct` (added in Phase 2B — measures which discovery surface converted) |
+| `guide_open` | `guide_id`, `category`, `source` | AdminDetailScreen mount. `source` ∈ `search` / `related` / `featured` / `direct` / `recent_viewed` (Phase 2B + retention surface — measures which discovery surface converted) |
 | `mail_translate_open` | — | User taps the Mail discovery card on Home (intent signal — not refired on back-navigation) |
 
 ### Daily Ritual funnel

@@ -32,7 +32,7 @@ export type EventMap = {
   guide_open: {
     guide_id: string;
     category: string;
-    source: 'search' | 'related' | 'featured' | 'direct';
+    source: 'search' | 'related' | 'featured' | 'direct' | 'recent_viewed';
   };
   mail_translate_open: void;
 

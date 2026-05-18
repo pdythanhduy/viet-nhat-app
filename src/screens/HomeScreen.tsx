@@ -42,6 +42,7 @@ import {
 import { HomeCategoryGrid } from './home/HomeCategoryGrid';
 import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
 import { HomeFeaturedGuides } from './home/HomeFeaturedGuides';
+import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import {
   buildChecklistProgressItems,
@@ -51,6 +52,7 @@ import {
 } from './homeScreenData';
 import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';
 import { loadRecentJapaneseCategories, RecentJapaneseCategory } from '../utils/japaneseRecentCategories';
+import { loadRecentlyViewedGuides, type RecentlyViewedGuide } from '../utils/recentlyViewedGuides';
 import { loadBookmarks, Bookmark } from '../utils/bookmarks';
 import { loadAllGuideChecklistProgress } from '../utils/guideChecklistProgress';
 import { loadAllGuideStepProgress } from '../utils/guideStepProgress';
@@ -71,6 +73,7 @@ export default function HomeScreen() {
   const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
+  const [recentlyViewedGuides, setRecentlyViewedGuides] = useState<RecentlyViewedGuide[]>([]);
   const [savedBookmarks, setSavedBookmarks] = useState<Bookmark[]>([]);
   const [pinnedBookmarks, setPinnedBookmarks] = useState<Bookmark[]>([]);
   const [inProgressGuides, setInProgressGuides] = useState<InProgressGuide[]>([]);
@@ -113,6 +116,7 @@ export default function HomeScreen() {
 
         loadRecentDailyLifeTopics().then((items) => setRecentDailyTopicIds(items.map((item) => item.topicId)));
         loadRecentJapaneseCategories().then(setRecentJapaneseCategories);
+        loadRecentlyViewedGuides().then(setRecentlyViewedGuides);
         loadBookmarks().then((items) => {
           setSavedBookmarks(items.slice(0, 6));
           setPinnedBookmarks(items.filter((item) => !!item.pinnedAt).slice(0, 4));
@@ -774,6 +778,16 @@ export default function HomeScreen() {
           <HomeOnboardingGuides
             onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId })}
           />
+
+          {recentlyViewedGuides.length > 0 ? (
+            <>
+              <Text style={styles.sectionTitle}>Đã xem gần đây</Text>
+              <HomeRecentlyViewed
+                entries={recentlyViewedGuides}
+                onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'recent_viewed' })}
+              />
+            </>
+          ) : null}
 
           <Text style={styles.sectionTitle}>Hay được dùng</Text>
           <HomeFeaturedGuides
