@@ -165,12 +165,21 @@ export async function logStoryCompleted(_storyId: string, _level: string): Promi
 // aggregate popular searches and failed searches without storing raw user
 // input. Mirrors normalizeText() in src/utils/searchIndex.ts (we duplicate
 // the tiny normalizer here to avoid a circular import).
-function normalizeQueryForAnalytics(query: string): string {
+//
+// Exported for analytics.test.ts to pin the PII contract: NFD → strip
+// diacritics → đ/Đ → d → lowercase → trim → cap at 24 chars. Any change
+// here should also bump the unit tests.
+export function normalizeQueryForAnalytics(query: string): string {
   return query
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[đĐ]/g, 'd')
     .toLowerCase()
+    // Recompose so JP composed forms like ド (which NFD splits into
+    // ト + U+3099) round-trip to their canonical NFC form. Without this
+    // the analytics payload would carry a decomposed byte sequence that
+    // looks identical visually but compares unequal to user input.
+    .normalize('NFC')
     .trim()
     .slice(0, 24);
 }
