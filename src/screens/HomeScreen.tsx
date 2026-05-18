@@ -44,6 +44,7 @@ import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
 import { HomeFeaturedGuides } from './home/HomeFeaturedGuides';
 import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
 import { HomeSavedGuides } from './home/HomeSavedGuides';
+import { HomeStartHere } from './home/HomeStartHere';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import {
   buildChecklistProgressItems,
@@ -236,6 +237,30 @@ export default function HomeScreen() {
     setShowProfileModal(false);
   };
 
+  // Phase UX1 — "Bắt đầu ở đâu?" shortcuts route to the most-asked
+  // entry points. Reuses existing nav targets so no new routes need to
+  // be added. Each shortcut emits the same `home_quick_action_pressed`
+  // (when wired) so analytics stays consistent.
+  const handleStartHereShortcutPress = (id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs') => {
+    if (id === 'newcomer') {
+      navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan', source: 'direct' });
+      return;
+    }
+    if (id === 'emergency') {
+      navigation.navigate('EmergencyHub');
+      return;
+    }
+    if (id === 'jobs') {
+      navigation.navigate('MainTabs', { screen: 'Jobs' });
+      return;
+    }
+    const queryById: Record<'visa' | 'tax', string> = {
+      visa: 'visa',
+      tax: 'thuế',
+    };
+    navigation.navigate('Search', { initialQuery: queryById[id as 'visa' | 'tax'] });
+  };
+
   const toggleSection = (sectionId: string) => {
     setExpandedSections((prev) => ({ ...prev, [sectionId]: !prev[sectionId] }));
   };
@@ -329,6 +354,13 @@ export default function HomeScreen() {
               See docs/feature-ai-mail-translate-decision-log.md. Mail routes +
               screens stay registered for Phase 2 scaffolding, but no Home/Settings
               entry point is rendered. */}
+
+          {/* Phase UX1 — beginner-friendly entry shortcuts placed right
+              under the search/ask CTAs so a fresh user has a path that
+              doesn't require typing. Old quick-actions row is kept
+              below for users who already know what they need. */}
+          <Text style={styles.sectionTitle}>Bắt đầu ở đâu?</Text>
+          <HomeStartHere onShortcutPress={handleStartHereShortcutPress} />
 
           <HomeQuickActions onActionPress={handleQuickActionPress} />
 
