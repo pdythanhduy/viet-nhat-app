@@ -15,7 +15,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import { RichInline } from '../components/RichText';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { SearchResultItem, searchAppContent } from '../utils/searchIndex';
+import { SearchResultItem, searchAppContent, getFeaturedGuides } from '../utils/searchIndex';
 import { logSearchPerformed } from '../utils/analytics';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -82,9 +82,13 @@ export default function SearchScreen() {
     }
   }, [query, results.length]);
 
+  // Phase 2B: memoize so the empty / no-results states don't recompute
+  // the featured list on every keystroke that produced no hits.
+  const featured = useMemo(() => getFeaturedGuides(6), []);
+
   const handleOpenResult = (item: SearchResultItem) => {
     if (item.type === 'guide') {
-      navigation.navigate('AdminDetail', { guideId: item.id });
+      navigation.navigate('AdminDetail', { guideId: item.id, source: 'search' });
       return;
     }
 
@@ -148,35 +152,49 @@ export default function SearchScreen() {
 
         <ScrollView showsVerticalScrollIndicator={false}>
           {!query.trim() ? (
-            <View style={styles.emptyState}>
-              <Ionicons name="search-circle-outline" size={56} color={Colors.textMuted} />
-              <Text style={styles.emptyTitle}>Gõ thứ bạn đang cần</Text>
-              <Text style={styles.emptyDesc}>
-                Bạn có thể tìm theo vấn đề, tên giấy tờ, tình huống, romaji hoặc một cụm tiếng Nhật.
-              </Text>
-              <Text style={styles.suggestionsLabel}>Gợi ý nhanh</Text>
-              <View style={styles.suggestionsWrap}>
-                {SEARCH_SUGGESTIONS.map((suggestion) => (
-                  <TouchableOpacity
-                    key={suggestion}
-                    style={styles.suggestionChip}
-                    onPress={() => setQuery(suggestion)}
-                    accessibilityRole="button"
-                    accessibilityLabel={`Tìm ${suggestion}`}
-                  >
-                    <Ionicons name="search" size={12} color={Colors.primary} />
-                    <Text style={styles.suggestionText}>{suggestion}</Text>
-                  </TouchableOpacity>
-                ))}
+            <View>
+              <View style={styles.emptyState}>
+                <Ionicons name="search-circle-outline" size={56} color={Colors.textMuted} />
+                <Text style={styles.emptyTitle}>Gõ thứ bạn đang cần</Text>
+                <Text style={styles.emptyDesc}>
+                  Bạn có thể tìm theo vấn đề, tên giấy tờ, tình huống, romaji hoặc một cụm tiếng Nhật.
+                </Text>
+                <Text style={styles.suggestionsLabel}>Gợi ý nhanh</Text>
+                <View style={styles.suggestionsWrap}>
+                  {SEARCH_SUGGESTIONS.map((suggestion) => (
+                    <TouchableOpacity
+                      key={suggestion}
+                      style={styles.suggestionChip}
+                      onPress={() => setQuery(suggestion)}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Tìm ${suggestion}`}
+                    >
+                      <Ionicons name="search" size={12} color={Colors.primary} />
+                      <Text style={styles.suggestionText}>{suggestion}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               </View>
+              <FeaturedAndEmergency
+                featured={featured}
+                onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
+                onOpenEmergency={() => navigation.navigate('EmergencyHub')}
+              />
             </View>
           ) : results.length === 0 ? (
-            <View style={styles.emptyState}>
-              <Ionicons name="file-tray-outline" size={48} color={Colors.textMuted} />
-              <Text style={styles.emptyTitle}>Chưa có kết quả phù hợp</Text>
-              <Text style={styles.emptyDesc}>
-                Hãy thử từ khóa ngắn hơn, bỏ bớt chi tiết hoặc dùng từ gần nghĩa hơn.
-              </Text>
+            <View>
+              <View style={styles.emptyState}>
+                <Ionicons name="file-tray-outline" size={48} color={Colors.textMuted} />
+                <Text style={styles.emptyTitle}>Chưa có kết quả phù hợp</Text>
+                <Text style={styles.emptyDesc}>
+                  Hãy thử từ khóa ngắn hơn, bỏ bớt chi tiết hoặc dùng từ gần nghĩa hơn.
+                </Text>
+              </View>
+              <FeaturedAndEmergency
+                featured={featured}
+                onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
+                onOpenEmergency={() => navigation.navigate('EmergencyHub')}
+              />
             </View>
           ) : (
             <View style={styles.resultsWrap}>
@@ -210,6 +228,81 @@ export default function SearchScreen() {
         </ScrollView>
       </View>
     </SafeAreaView>
+  );
+}
+
+// Phase 2B: rendered below the empty / no-results states. Surfaces 6
+// editorially-flagged guides + an emergency CTA so the user always has
+// somewhere to go when their query failed. Memoized props keep the
+// re-render cost negligible on every keystroke.
+function FeaturedAndEmergency({
+  featured,
+  onOpenGuide,
+  onOpenEmergency,
+}: {
+  featured: SearchResultItem[];
+  onOpenGuide: (guideId: string) => void;
+  onOpenEmergency: () => void;
+}) {
+  if (featured.length === 0) {
+    return (
+      <View style={styles.fallbackWrap}>
+        <TouchableOpacity
+          style={styles.emergencyCard}
+          onPress={onOpenEmergency}
+          accessibilityRole="button"
+          accessibilityLabel="Mở trung tâm khẩn"
+        >
+          <View style={styles.emergencyIconBg}>
+            <Ionicons name="alert-circle" size={20} color={Colors.danger} />
+          </View>
+          <View style={styles.emergencyText}>
+            <Text style={styles.emergencyTitle}>Cần hỗ trợ gấp?</Text>
+            <Text style={styles.emergencySnippet}>Số khẩn cấp, hotline tiếng Việt và quy trình xử lý.</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  return (
+    <View style={styles.fallbackWrap}>
+      <Text style={styles.fallbackLabel}>Hay được tìm</Text>
+      {featured.map((item) => (
+        <TouchableOpacity
+          key={item.id}
+          style={styles.fallbackCard}
+          onPress={() => onOpenGuide(item.id)}
+          accessibilityRole="button"
+          accessibilityLabel={item.title}
+        >
+          <View style={styles.fallbackIconBg}>
+            <Ionicons name="document-text-outline" size={16} color={Colors.primary} />
+          </View>
+          <View style={styles.fallbackText}>
+            <Text style={styles.fallbackCardTitle} numberOfLines={1}>{item.title}</Text>
+            <Text style={styles.fallbackCardSnippet} numberOfLines={1}>{item.snippet}</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+        </TouchableOpacity>
+      ))}
+
+      <TouchableOpacity
+        style={styles.emergencyCard}
+        onPress={onOpenEmergency}
+        accessibilityRole="button"
+        accessibilityLabel="Mở trung tâm khẩn"
+      >
+        <View style={styles.emergencyIconBg}>
+          <Ionicons name="alert-circle" size={20} color={Colors.danger} />
+        </View>
+        <View style={styles.emergencyText}>
+          <Text style={styles.emergencyTitle}>Cần hỗ trợ gấp?</Text>
+          <Text style={styles.emergencySnippet}>Số khẩn cấp, hotline tiếng Việt và quy trình xử lý.</Text>
+        </View>
+        <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
+      </TouchableOpacity>
+    </View>
   );
 }
 
@@ -362,6 +455,84 @@ const styles = StyleSheet.create({
   resultSnippet: {
     fontSize: 12,
     lineHeight: 17,
+    color: Colors.textSecondary,
+  },
+  fallbackWrap: {
+    paddingHorizontal: 4,
+    paddingTop: 8,
+    paddingBottom: 20,
+    gap: 8,
+  },
+  fallbackLabel: {
+    fontSize: 11,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: 4,
+  },
+  fallbackCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  fallbackIconBg: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    backgroundColor: `${Colors.primary}18`,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fallbackText: { flex: 1 },
+  fallbackCardTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+  },
+  fallbackCardSnippet: {
+    fontSize: 11,
+    color: Colors.textSecondary,
+  },
+  emergencyCard: {
+    marginTop: 6,
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: `${Colors.danger}40`,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  emergencyIconBg: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    backgroundColor: `${Colors.danger}18`,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emergencyText: { flex: 1 },
+  emergencyTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+  },
+  emergencySnippet: {
+    fontSize: 11,
     color: Colors.textSecondary,
   },
 });
