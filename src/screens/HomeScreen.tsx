@@ -43,6 +43,7 @@ import { HomeCategoryGrid } from './home/HomeCategoryGrid';
 import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
 import { HomeFeaturedGuides } from './home/HomeFeaturedGuides';
 import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
+import { HomeSavedGuides } from './home/HomeSavedGuides';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import {
   buildChecklistProgressItems,
@@ -74,6 +75,10 @@ export default function HomeScreen() {
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
   const [recentlyViewedGuides, setRecentlyViewedGuides] = useState<RecentlyViewedGuide[]>([]);
+  // Phase R1: guide-only saved bookmarks (full list, unsliced) so the
+  // "Đã lưu" surface still renders even when the most recent 6 mixed
+  // bookmarks are non-guide types (phrases, daily-life, etc.).
+  const [savedGuideBookmarks, setSavedGuideBookmarks] = useState<Bookmark[]>([]);
   const [savedBookmarks, setSavedBookmarks] = useState<Bookmark[]>([]);
   const [pinnedBookmarks, setPinnedBookmarks] = useState<Bookmark[]>([]);
   const [inProgressGuides, setInProgressGuides] = useState<InProgressGuide[]>([]);
@@ -120,6 +125,7 @@ export default function HomeScreen() {
         loadBookmarks().then((items) => {
           setSavedBookmarks(items.slice(0, 6));
           setPinnedBookmarks(items.filter((item) => !!item.pinnedAt).slice(0, 4));
+          setSavedGuideBookmarks(items.filter((b) => b.type === 'guide'));
           setSavedCounts(buildSavedCounts(items));
         });
         loadAllGuideChecklistProgress().then((progressMap) => {
@@ -785,6 +791,16 @@ export default function HomeScreen() {
               <HomeRecentlyViewed
                 entries={recentlyViewedGuides}
                 onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'recent_viewed' })}
+              />
+            </>
+          ) : null}
+
+          {savedGuideBookmarks.length > 0 ? (
+            <>
+              <Text style={styles.sectionTitle}>Đã lưu</Text>
+              <HomeSavedGuides
+                bookmarks={savedGuideBookmarks}
+                onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'direct' })}
               />
             </>
           ) : null}

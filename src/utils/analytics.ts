@@ -57,6 +57,12 @@ export type EventMap = {
   // `q` is normalizeText(query).slice(0, 24) — ASCII-only, no diacritics.
   search_query: { q: string; q_length: number; result_count: number };
   search_no_results: { q: string; q_length: number };
+
+  // Retention R1: explicit save/unsave intent (distinct from `guide_open`).
+  // Tells us which guides earn long-term saves vs which are one-and-done.
+  // No PII — only the guide_id (already public-as-content).
+  guide_save: { guide_id: string; category: string };
+  guide_unsave: { guide_id: string; category: string };
 };
 
 let initialized = false;
@@ -153,9 +159,25 @@ export async function logQuizCompleted(
   }
 }
 
-// No-op legacy wrappers — kept so existing call sites compile. Add to EventMap if you
-// need real data for one of these.
-export async function logBookmarkToggled(_type: string, _id: string, _added: boolean): Promise<void> {}
+// Retention R1: replaces the no-op `logBookmarkToggled` for guide-type
+// bookmarks. Phrase/dialogue/daily-life bookmarks still fall through to
+// silent no-op — they aren't in the v1.5.0 retention scope. The optional
+// `category` lets the guide-detail caller forward `guide.category` so we
+// can slice save patterns by category without re-keying analytics rows
+// against the bundled guide map.
+export async function logBookmarkToggled(
+  type: string,
+  id: string,
+  added: boolean,
+  category: string = ''
+): Promise<void> {
+  if (type !== 'guide') return;
+  if (added) {
+    track('guide_save', { guide_id: id, category });
+  } else {
+    track('guide_unsave', { guide_id: id, category });
+  }
+}
 export async function logHtmlExported(_type: string): Promise<void> {}
 export async function logJLPTQuizCompleted(_level: string, _score: number, _total: number): Promise<void> {}
 export async function logWordSaved(_word: string, _meaning: string): Promise<void> {}
