@@ -417,6 +417,75 @@ export const ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
     'consulate',
     'legalization',
   ],
+
+  // Phase 2C-prep (2026-05-19): batch 1 — guides that had ZERO coverage
+  // from either per-file searchKeywords OR this centralized map. These
+  // 6 entries close the remaining keyword gap before real analytics
+  // data arrives. Numbers each capped at ~10 to avoid over-broadening.
+  'annual-health-checkup-kensin': [
+    'kham suc khoe',
+    'kham dinh ky',
+    'kensin',
+    'kenkou shindan',
+    'kham mien phi',
+    'kham cong ty',
+    '健康診断',
+    '特定健診',
+    'annual health check',
+    'health checkup japan',
+  ],
+  'bicycle-insurance': [
+    'bao hiem xe dap',
+    'xe dap bao hiem',
+    'jitensha hoken',
+    'bicycle insurance',
+    'mandatory bicycle insurance',
+    '自転車保険',
+    'tu nan giao thong xe dap',
+  ],
+  'bicycle-rules-2026': [
+    'luat xe dap',
+    'xe dap nhat',
+    'luat xe dap 2026',
+    'bicycle rules',
+    'blue ticket',
+    'bicycle violation',
+    '自転車ルール',
+    '自転車違反',
+    'di xe dap o nhat',
+  ],
+  'moped-motorcycle-registration': [
+    'dang ky xe may',
+    'xe may o nhat',
+    'gentsuki',
+    'bike registration',
+    'moped registration',
+    '原付登録',
+    '125cc',
+    '50cc',
+    'mua xe may nhat',
+  ],
+  'motorcycle-voluntary-insurance': [
+    'bao hiem xe may',
+    'nin-i hoken',
+    'jibaiseki',
+    'motorcycle insurance',
+    'voluntary motorcycle insurance',
+    '任意保険',
+    '自賠責',
+    'bao hiem xe',
+  ],
+  'postpartum-30-day-timeline': [
+    'sau sinh',
+    'cham soc sau sinh',
+    'newborn 30 days',
+    'postpartum care',
+    'after birth checklist',
+    '産後',
+    '産後ケア',
+    'thu tuc sau sinh',
+    'one month after birth',
+  ],
 };
 
 export function getAdminGuideSearchKeywords(guide: Pick<AdminGuide, 'id' | 'searchKeywords'>) {
