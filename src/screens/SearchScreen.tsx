@@ -1,5 +1,6 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import {
+  AppState,
   ScrollView,
   StyleSheet,
   Text,
@@ -16,7 +17,53 @@ import { Colors } from '../constants/colors';
 import { RichInline } from '../components/RichText';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { SearchResultItem, searchAppContent, getFeaturedGuides } from '../utils/searchIndex';
-import { logSearchPerformed, logEmergencyCtaOpened } from '../utils/analytics';
+import {
+  logSearchPerformed,
+  logEmergencyCtaOpened,
+  logSearchZeroResults,
+  logSearchResultOpened,
+  logSearchAbandoned,
+  logFallbackGuideOpened,
+} from '../utils/analytics';
+import { incrementSearcherSignal } from '../utils/searcherSignal';
+import {
+  cancelAbandon,
+  createAbandonTimerState,
+  markAbandonHandled,
+  scheduleAbandon,
+} from '../utils/abandonTimer';
+
+// =============================================================
+// Phase 2C SearchScreen analytics constants — central, documented.
+// =============================================================
+//
+// Tuning gate: do NOT change either constant before we have AT LEAST
+// 500 `search_abandoned` events across ≥ 14 days of production data.
+// Lower volume means the distribution is anecdote-quality. The
+// retrieval review playbook (docs/retrieval-review-playbook.md) is
+// the canonical place to record the data + propose the tuning.
+
+// 10 seconds since the last keystroke. Long enough for a reader to
+// scan the top result and decide to bail, short enough that the
+// signal stays correlated with the query the user was actually on.
+// Picked to be > the typical "thinking pause" (~3-5s) and < a
+// typical "open another app" sojourn. Documented in
+// docs/analytics-decision-map.md §7b §search-abandon.
+const SEARCH_ABANDON_WINDOW_MS = 10_000;
+
+// 800ms of typing stability before ANY analytics fires. Bundles
+// search_query / search_no_results / search_zero_results /
+// incrementSearcherSignal / abandon-timer-scheduling into a SINGLE
+// emission per stable query. Without this debounce, every keystroke
+// would emit, padding Aptabase volume and hitting the SEARCHER_THRESHOLD
+// in a single typed word. 800ms is the standard search-typeahead
+// debounce window — fast enough to feel responsive when stopping.
+const ANALYTICS_DEBOUNCE_MS = 800;
+
+// Minimum query length for any analytics fire. Mirrors the existing
+// `query.trim().length > 2` guard so the new events share the same
+// floor and don't double-fire on incidental short input.
+const ANALYTICS_MIN_QUERY_LEN = 3;
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type SearchRouteProp = RouteProp<RootStackParamList, 'Search'>;
@@ -76,17 +123,124 @@ export default function SearchScreen() {
 
   const results = useMemo(() => searchAppContent(query), [query]);
 
+  // Phase 2C — anti-spam refs. The ref pattern keeps state mutable
+  // without forcing a render on every keystroke.
+  //
+  //   abandonState:        the timer state-machine (1 per mount)
+  //   debounceTimerRef:    the 800ms analytics-fire timer
+  //   sessionIncrementedRef: searcher-signal increments AT MOST ONCE
+  //                          per SearchScreen visit. Without this,
+  //                          typing 6 chars would hit the threshold
+  //                          of 5 in a single typed word.
+  const abandonState = useRef(createAbandonTimerState());
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sessionIncrementedRef = useRef(false);
+
   useEffect(() => {
-    if (query.trim().length > 2) {
-      logSearchPerformed(query.trim(), results.length).catch(() => {});
+    // Cancel any pending debounce — a new query supersedes the old.
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
     }
+
+    const trimmed = query.trim();
+    if (trimmed.length < ANALYTICS_MIN_QUERY_LEN) {
+      // Too-short query — clear any pending abandon timer so we don't
+      // emit an abandon for a query the user already deleted.
+      cancelAbandon(abandonState.current);
+      return;
+    }
+
+    // Debounce the analytics fire. Every keystroke restarts the
+    // 800ms timer; only typing stability triggers analytics. This
+    // collapses 6 keystrokes of "zairyu" into ONE search_query fire,
+    // ONE search_zero_results fire (if applicable), and AT MOST ONE
+    // searcher-signal increment per SearchScreen session.
+    debounceTimerRef.current = setTimeout(() => {
+      debounceTimerRef.current = null;
+
+      logSearchPerformed(trimmed, results.length).catch(() => {});
+
+      if (results.length === 0) {
+        logSearchZeroResults(trimmed, true).catch(() => {});
+      }
+
+      // Searcher-signal: increments AT MOST ONCE per visit to
+      // SearchScreen, regardless of how many distinct queries the
+      // user types in that visit. Threshold semantics ("user has
+      // searched N times") work at session granularity, not keystroke.
+      if (!sessionIncrementedRef.current) {
+        sessionIncrementedRef.current = true;
+        incrementSearcherSignal().catch(() => {});
+      }
+
+      // Arm the abandon timer AT the stable-query moment. Rapid
+      // refinement (before debounce fires) skips this entirely;
+      // continued refinement after the abandon arms reschedules via
+      // `scheduleAbandon` in the next debounce.
+      scheduleAbandon(
+        abandonState.current,
+        trimmed,
+        SEARCH_ABANDON_WINDOW_MS,
+        (abandonedQuery, msSince) => {
+          logSearchAbandoned(abandonedQuery, results.length, msSince).catch(() => {});
+        }
+      );
+    }, ANALYTICS_DEBOUNCE_MS);
+
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+        debounceTimerRef.current = null;
+      }
+    };
   }, [query, results.length]);
+
+  // Cleanup on unmount: abandon timer + pending debounce.
+  // Both must clear so no event fires from a torn-down screen.
+  useEffect(() => {
+    const state = abandonState.current;
+    return () => {
+      cancelAbandon(state);
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+        debounceTimerRef.current = null;
+      }
+    };
+  }, []);
+
+  // AppState listener — when the user backgrounds the app (or it
+  // goes inactive), cancel the pending debounce AND the abandon
+  // timer. Otherwise: JS setTimeout keeps running in the background,
+  // an abandon event fires while the user is in another app, which
+  // is a misattribution (they didn't abandon — they switched apps).
+  // No auto-resume on return; user must keystroke to re-arm.
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active') {
+        if (debounceTimerRef.current) {
+          clearTimeout(debounceTimerRef.current);
+          debounceTimerRef.current = null;
+        }
+        cancelAbandon(abandonState.current);
+      }
+    });
+    return () => sub.remove();
+  }, []);
 
   // Phase 2B: memoize so the empty / no-results states don't recompute
   // the featured list on every keystroke that produced no hits.
   const featured = useMemo(() => getFeaturedGuides(6), []);
 
-  const handleOpenResult = (item: SearchResultItem) => {
+  const handleOpenResult = (item: SearchResultItem, position: number) => {
+    // Phase 2C: a result open invalidates the abandon timer for the
+    // current query — the user did NOT abandon, they engaged.
+    const trimmed = query.trim();
+    if (trimmed.length >= ANALYTICS_MIN_QUERY_LEN) {
+      markAbandonHandled(abandonState.current, trimmed);
+      logSearchResultOpened(trimmed, position, item.type).catch(() => {});
+    }
+
     if (item.type === 'guide') {
       navigation.navigate('AdminDetail', { guideId: item.id, source: 'search' });
       return;
@@ -189,22 +343,47 @@ export default function SearchScreen() {
                 <Text style={styles.emptyDesc}>
                   Hãy thử từ khóa ngắn hơn, bỏ bớt chi tiết hoặc dùng từ gần nghĩa hơn.
                 </Text>
+                {/* Phase 2C: keyword chip hints in the dead-end state.
+                    Reuses the same SEARCH_SUGGESTIONS catalog as the
+                    empty state — every chip is guaranteed by the
+                    searchSuggestions tests to return at least one hit. */}
+                <Text style={styles.suggestionsLabel}>Thử lại với từ khóa khác</Text>
+                <View style={styles.suggestionsWrap}>
+                  {SEARCH_SUGGESTIONS.map((suggestion) => (
+                    <TouchableOpacity
+                      key={suggestion}
+                      style={styles.suggestionChip}
+                      onPress={() => setQuery(suggestion)}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Tìm ${suggestion}`}
+                    >
+                      <Ionicons name="search" size={12} color={Colors.primary} />
+                      <Text style={styles.suggestionText}>{suggestion}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               </View>
               <FeaturedAndEmergency
                 featured={featured}
-                onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
+                onOpenGuide={(id) => {
+                  // Phase 2C: dead-end recovery fires the dedicated
+                  // event so the analyst can distinguish a fallback
+                  // tap from a regular featured-rail discovery.
+                  void logFallbackGuideOpened(id);
+                  navigation.navigate('AdminDetail', { guideId: id, source: 'featured' });
+                }}
                 onOpenEmergency={() => { void logEmergencyCtaOpened('search_no_results'); navigation.navigate('EmergencyHub'); }}
               />
             </View>
           ) : (
             <View style={styles.resultsWrap}>
-              {results.map((item) => {
+              {results.map((item, index) => {
                 const color = getResultColor(item.type);
                 return (
                   <TouchableOpacity
                     key={`${item.type}-${item.id}`}
                     style={styles.resultCard}
-                    onPress={() => handleOpenResult(item)}
+                    onPress={() => handleOpenResult(item, index)}
                   >
                     <View style={[styles.resultIconBg, { backgroundColor: `${color}18` }]}>
                       <Ionicons name={getResultIcon(item.type)} size={18} color={color} />

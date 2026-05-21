@@ -1,3 +1,43 @@
+// ============================================================
+// Search ranking test suite — pin philosophy
+// ============================================================
+//
+// Read `docs/search-ranking-governance.md` BEFORE adding a pin.
+// This file is the regression net for the ranking algorithm + the
+// keyword map. It is NOT a roadmap for every query we might wish
+// to support.
+//
+// Add a pin when (all required):
+//   1. The query is real or confidently anticipated (NOT synthetic)
+//   2. The expected guide answer is unambiguous (one canonical guide
+//      OR a tight top-3 of canonical guides)
+//   3. The current ranking already produces the expected result.
+//      Pins freeze the current state; they do NOT force a result.
+//   4. A future ranking refactor plausibly threatens this query
+//   5. A one-sentence rationale comment documents WHY the position
+//      is current (what the failure mode would look like)
+//
+// Do NOT add a pin when:
+//   - "Just in case" — pins are not a roadmap
+//   - The keyword would have to be too generic (`'thu tuc'`,
+//     `'visa'`, `'help'`) to make the query land
+//   - The expected guide is not canonical for the intent
+//     (Bucket B in the retrieval playbook — that's a content gap,
+//     not a keyword problem)
+//   - The pin duplicates a sibling pin for a phrasing variant
+//     (consolidate into one pin + one keyword)
+//
+// Anti-pollution rules:
+//   - Every keyword expansion is single-phrase + scoped to one guide
+//   - No keyword shorter than 4 chars unless it's a canonical JP
+//     term (`'国保'`, `'国保'`)
+//   - Cross-check `q.includes(keyword)` collisions before merging:
+//     a new keyword must NOT be a substring of unrelated common
+//     queries
+//
+// When the pin suite grows past ~60 entries, audit per
+// search-ranking-governance.md §3. Diminishing returns = overfit.
+
 import { searchAppContent, getRelatedGuides, getFeaturedGuides } from './searchIndex';
 
 describe('searchAppContent', () => {
@@ -161,6 +201,35 @@ describe('searchAppContent', () => {
     ])('top-N — "%s" → contains %s within %d', (query, expectedId, n) => {
       const r = searchAppContent(query, n);
       expect(r.map((x) => x.id)).toContain(expectedId);
+    });
+  });
+
+  // v1.5.2 — Phase 2C real-world retrieval-quality defenses. These
+  // queries surfaced from the Phase 2C-prep "what would Vietnamese
+  // workers actually type" exercise + the analytics decision-map's
+  // anticipated failed-query patterns. All 8 resolve top-1 today;
+  // 3 of them only because v1.5.2 added controlled keywords:
+  //
+  //   - 'baito tax' / 'thue baito' → kakutei-shinkoku
+  //   - 'kokumin hoken' (colloquial drop of 'kenkou') → health-insurance
+  //   - 'taishoku' / 'taishoku-go' / 'nghi viec' → unemployment-benefits
+  //
+  // Each addition is single-phrase + scoped to one guide.
+  describe('v1.5.2 Phase 2C retrieval-quality defenses', () => {
+    it.each([
+      // Pre-existing keyword coverage — pins lock current top-1
+      ['nenkin refund',  'return-to-vietnam-checklist'],
+      ['shakai hoken',   'health-insurance'],
+      ['visa renewal',   'residence-card'],
+      ['address change', 'address-change'],
+      ['hello work',     'unemployment-benefits'],
+      // v1.5.2 controlled keyword expansions — pins lock the new top-1
+      ['baito tax',      'kakutei-shinkoku'],
+      ['kokumin hoken',  'health-insurance'],
+      ['taishoku',       'unemployment-benefits'],
+    ])('top-1 — "%s" → %s', (query, expectedId) => {
+      const r = searchAppContent(query, 3);
+      expect(r[0]?.id).toBe(expectedId);
     });
   });
 });

@@ -16,6 +16,7 @@ const healthInsurance: AdminGuide = {
       'thẻ bảo hiểm',
       '国民健康保険',
       'kokumin kenkou hoken',
+      'kokumin hoken',
       '国保',
       'kokuho',
       '健康保険',

@@ -260,6 +260,9 @@ export const ADMIN_GUIDE_SEARCH_KEYWORDS: Record<string, string[]> = {
     'hello work',
     'mat viec',
     'job seeker',
+    'taishoku',
+    'taishoku-go',
+    'nghi viec',
   ],
   'return-to-vietnam-checklist': [
     've viet nam',

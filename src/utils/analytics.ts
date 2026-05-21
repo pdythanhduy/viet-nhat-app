@@ -26,13 +26,28 @@ export type EventMap = {
   // Screen views (only the screens we actually want to measure adoption of)
   home_view: void;
   daily_ritual_view: void;
-  // Phase 2B: `source` distinguishes discovery surface from direct nav.
-  // Lets us measure which surface (search / related / featured) actually
-  // converts to guide opens.
+  // Phase 2B + Phase 2C (v1.5.2): `source` distinguishes discovery
+  // surface from direct nav. Bounded enum (never free text). Stays
+  // in lockstep with `GuideOpenSource` in
+  // `src/navigation/AppNavigator.tsx` — the compile-time contract in
+  // `screens/home/HomeQuickActions.tsx` style would be ideal here too
+  // but the natural definition site is the navigator, so we duplicate
+  // the union here for explicitness and rely on `tsc` to catch drift
+  // at every call site that passes `source` into navigation params.
   guide_open: {
     guide_id: string;
     category: string;
-    source: 'search' | 'related' | 'featured' | 'direct' | 'recent_viewed';
+    source:
+      | 'search'
+      | 'related'
+      | 'featured'
+      | 'direct'
+      | 'recent_viewed'
+      | 'start_here'
+      | 'quick_action'
+      | 'saved'
+      | 'external_share'
+      | 'deep_link_placeholder';
   };
   mail_translate_open: void;
 
@@ -56,7 +71,58 @@ export type EventMap = {
   // useful without leaking PII (names, addresses) typed into the box.
   // `q` is normalizeText(query).slice(0, 24) — ASCII-only, no diacritics.
   search_query: { q: string; q_length: number; result_count: number };
+  // Legacy v1.5.0 zero-result counter. Kept firing in v1.5.2 for
+  // back-compat with any external aggregations that already key on
+  // this name. New analysis should prefer `search_zero_results` which
+  // carries the dead-end-defense context (and matches grammatical
+  // plural with this legacy event).
   search_no_results: { q: string; q_length: number };
+
+  // Phase 2C (v1.5.2) — richer zero-result event. Fires alongside the
+  // legacy `search_no_results` on the same trigger. Plural form
+  // mirrors `search_no_results` for grammatical consistency.
+  // `fallback_shown` tells us whether the dead-end defense layer
+  // (featured + emergency CTA) actually rendered — false would mean
+  // a UI regression. PII posture identical to search_query: only the
+  // normalized 24-char form is forwarded.
+  search_zero_results: { q: string; q_length: number; fallback_shown: boolean };
+
+  // Phase 2C (v1.5.2) — search result tap. Paired with `search_query`
+  // to compute conversion rate. `position` is the 0-indexed slot in
+  // the result list (top-1 = 0). `result_type` distinguishes guide /
+  // daily-life / japanese / jobs taps so we can see which content
+  // type search actually surfaces. `q` mirrors the search_query for
+  // join-by-q analysis; same PII contract.
+  search_result_opened: {
+    q: string;
+    q_length: number;
+    position: number;
+    result_type: 'guide' | 'daily-life' | 'jobs' | 'japanese-phrase' | 'japanese-dialogue' | 'japanese-word';
+  };
+
+  // Phase 2C (v1.5.2) — search abandon signal. Fires when the user
+  // typed a query (≥ 3 chars), did NOT open any result, did NOT
+  // refine the query within the abandon window, and sat idle until
+  // the timer fired. Past-participle form matches the outcome
+  // convention used by `notification_opened`, `mail_translated`, etc.
+  // The timer logic and window are documented in
+  // docs/analytics-decision-map.md §search-abandon. Anti-spam: at
+  // most ONE abandon event per resting query. The timer resets on
+  // every keystroke, on app background, and on screen unmount.
+  search_abandoned: { q: string; q_length: number; result_count: number; ms_since_query: number };
+
+  // Phase 2C (v1.5.2) — dead-end recovery. Fires when the user
+  // opened a featured guide FROM the zero-result fallback layer
+  // (as opposed to the Home featured rail or the empty-state featured
+  // rail). Distinct from `guide_open { source: 'featured' }` because
+  // it specifically counts dead-end recoveries.
+  fallback_guide_opened: { guide_id: string };
+
+  // Phase 2C (v1.5.2) — Home layout signal. Fires once per Home
+  // mount AFTER the heuristic has decided which variant to render.
+  // `variant` lets us A/B compare retention metrics across the two
+  // local layouts without any remote-config or experiment service.
+  home_layout_variant: { variant: 'cold_start' | 'searcher'; search_count: number };
 
   // Retention R1: explicit save/unsave intent (distinct from `guide_open`).
   // Tells us which guides earn long-term saves vs which are one-and-done.
@@ -255,8 +321,105 @@ export async function logSearchPerformed(query: string, resultCount: number): Pr
   if (!q) return;
   track('search_query', { q, q_length: q.length, result_count: resultCount });
   if (resultCount === 0) {
+    // Legacy v1.5.0 counter. Kept firing for back-compat. The richer
+    // `search_zero_results` event is fired separately by the screen
+    // (via `logSearchZeroResults`) once it knows whether the fallback
+    // defense layer actually rendered.
     track('search_no_results', { q, q_length: q.length });
   }
+}
+
+// Phase 2C convenience for SearchScreen: fires search_zero_results
+// with the correct `fallback_shown` flag derived from the actual
+// rendered state. Call this AFTER logSearchPerformed when the UI
+// determines that the dead-end defense layer rendered.
+export async function logSearchZeroResults(query: string, fallbackShown: boolean): Promise<void> {
+  const q = normalizeQueryForAnalytics(query);
+  if (!q) return;
+  track('search_zero_results', { q, q_length: q.length, fallback_shown: fallbackShown });
+}
+
+// Phase 2C — fires when the user opens a result FROM a search input.
+// `position` is the 0-indexed list slot. Paired with `search_query`
+// for conversion analysis. Direct guide opens via deep-link / Home
+// /etc. do NOT fire this — they fire `guide_open` with a non-search
+// source instead.
+export async function logSearchResultOpened(
+  query: string,
+  position: number,
+  resultType: EventMap['search_result_opened']['result_type']
+): Promise<void> {
+  const q = normalizeQueryForAnalytics(query);
+  if (!q) return;
+  track('search_result_opened', { q, q_length: q.length, position, result_type: resultType });
+}
+
+// Phase 2C — fires after the abandon-window has elapsed since the
+// user's last query refinement without any result open or further
+// typing. The caller (SearchScreen) owns the timer; this wrapper
+// only forwards the analytics call. See docs/analytics-decision-map.md
+// §search-abandon for the heuristic.
+export async function logSearchAbandoned(
+  query: string,
+  resultCount: number,
+  msSinceQuery: number
+): Promise<void> {
+  const q = normalizeQueryForAnalytics(query);
+  if (!q) return;
+  track('search_abandoned', {
+    q,
+    q_length: q.length,
+    result_count: resultCount,
+    ms_since_query: msSinceQuery,
+  });
+}
+
+// Phase 2C — fires when the user taps a featured guide FROM the
+// zero-result fallback layer. Distinct from a regular featured-rail
+// tap; this is a dead-end recovery, not a discovery.
+export async function logFallbackGuideOpened(guideId: string): Promise<void> {
+  track('fallback_guide_opened', { guide_id: guideId });
+}
+
+// Phase 2C — once-per-session gate for home_layout_variant.
+//
+// `useFocusEffect` in HomeScreen runs every time Home gains focus
+// (Home → AdminDetail → back = 2 focus events). Without this gate,
+// the same variant + count would emit on every back-navigation,
+// padding Aptabase volume without informational gain.
+//
+// Module-level state resets on cold start (= JS engine restart),
+// which is the right cadence: one variant emission per app session.
+// If the variant actually flips MID-session (rare — requires the
+// user to cross SEARCHER_THRESHOLD on the current SearchScreen and
+// then return to Home), the flip is still captured on the next cold
+// start when the heuristic re-reads storage.
+let _homeLayoutVariantFiredThisSession = false;
+
+export function _resetHomeLayoutVariantSessionForTests(): void {
+  _homeLayoutVariantFiredThisSession = false;
+}
+
+// Pure-ish gate helper for tests + logHomeLayoutVariant. Returns
+// true the FIRST time it's called per session; returns false on
+// every subsequent call. Side-effect (the flag flip) is intentional
+// — that's the gate.
+export function _consumeHomeLayoutVariantSessionGate(): boolean {
+  if (_homeLayoutVariantFiredThisSession) return false;
+  _homeLayoutVariantFiredThisSession = true;
+  return true;
+}
+
+// Phase 2C — fires once per app session AFTER the heuristic decided
+// the layout. Lets us compare retention/discovery metrics across the
+// two local variants without remote-config. The session gate ensures
+// Home → AdminDetail → back-to-Home does NOT re-fire.
+export async function logHomeLayoutVariant(
+  variant: EventMap['home_layout_variant']['variant'],
+  searchCount: number
+): Promise<void> {
+  if (!_consumeHomeLayoutVariantSessionGate()) return;
+  track('home_layout_variant', { variant, search_count: searchCount });
 }
 
 // Phase A1: thin wrappers so call sites don't depend on the raw track()

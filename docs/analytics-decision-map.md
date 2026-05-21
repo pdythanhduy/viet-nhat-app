@@ -17,12 +17,16 @@ The goal of this doc is to make analytics auditable. Before adding a new event, 
 | Do users come back after install? | `app_open` + cohort by install date | Week-2 / Week-4 retention |
 | What's the first surface a fresh user lands on? | `home_view` | First-session % seeing Home (vs. deep-link) |
 
-### Discovery (search / featured / related / direct / recent_viewed)
+### Discovery (search / featured / related / direct / recent_viewed / start_here / quick_action / saved)
 
 | Product question | Event(s) | Aggregation |
 | --- | --- | --- |
-| Does smart search ranking convert? | `search_query` → `guide_open { source: 'search' }` funnel | conversion rate per `q` |
-| Which queries fail? Which keywords need a top-up? | `search_no_results { q }` | Top-N over 14 days, classified per [Phase 2C playbook](search-phase2c-data-checklist.md) |
+| Does smart search ranking convert? | `search_query` → `search_result_opened` funnel (preferred); legacy `guide_open { source: 'search' }` still fires | conversion rate per `q`; position distribution from `search_result_opened.position` |
+| Which queries fail? Which keywords need a top-up? | `search_no_results { q }` (legacy) AND `search_zero_results { q, fallback_shown }` | Top-N over 14 days, classified per [retrieval-review-playbook.md](retrieval-review-playbook.md) |
+| Which queries did the user GIVE UP on without engaging? | `search_abandoned { q, result_count, ms_since_query }` | Top-N abandons over 14 days; cross-reference with `result_count` — high-result-count abandons signal ranking failure, zero-result abandons signal coverage gap |
+| Where in the result list did the user actually tap? | `search_result_opened.position` | Histogram of position values; if 90%+ at position 0, search is working; if long-tail, ranking has room |
+| Did the dead-end defense layer rescue zero-result users? | `search_zero_results { fallback_shown: true }` → `fallback_guide_opened` funnel | Recovery rate (= `fallback_guide_opened` count / `search_zero_results` count); compare against pure abandon rate |
+| Which Home surface earned the guide open? | `guide_open { source }` with values `search / related / featured / direct / recent_viewed / start_here / quick_action / saved / external_share / deep_link_placeholder` | Distribution share; `external_share` + `deep_link_placeholder` reserved for future routing (no call site yet) |
 | Is the "Hay được dùng" featured row earning its slot? | `guide_open { source: 'featured' }` | % of guide opens; revisit if < 3% |
 | Does the related-guides surface drive deeper sessions? | `guide_open { source: 'related' }` | Pages per session; absolute count |
 | Do users come back to guides they viewed before? | `guide_open { source: 'recent_viewed' }` | Re-visit rate; days-to-return |
@@ -153,6 +157,36 @@ If you can't answer step 1 in one sentence, the event is engagement bait. Don't 
 
 ---
 
+## 7b. §search-abandon — the heuristic
+
+`search_abandoned` fires when the user typed a query (≥ 3 chars), let it stabilize for `ANALYTICS_DEBOUNCE_MS`, and then did NOT engage with the results before the abandon window elapsed. Engagement = tapping a result OR refining the query. The heuristic lives in `src/utils/abandonTimer.ts` (pure state-machine, fake-timer-tested) and is wired into SearchScreen via a 2-stage timer (debounce → abandon).
+
+**Constants** (both in `SearchScreen.tsx`):
+- `ANALYTICS_DEBOUNCE_MS = 800` — typing stability before any analytics fires
+- `SEARCH_ABANDON_WINDOW_MS = 10_000` — idle time after the analytics fire that counts as abandon
+
+**Tuning gate**: do NOT change either constant before ≥ 500 `search_abandoned` events / ≥ 14 days production data. Lower volume = anecdote-quality distribution.
+
+**Anti-spam guarantees**:
+1. **Per-query single-fire** — the same resting query cannot fire `search_abandoned` twice. Once fired, the `firedFor` sentinel matches that query string; until the next query change (which resets the sentinel), no further event emits.
+2. **Pre-analytics debounce cancels** — every keystroke restarts the 800ms debounce timer BEFORE any analytics fires. Typing "z" → "za" → "zai" → "zair" → "zairy" → "zairyu" over 5 seconds collapses to ONE search_query + ONE abandon arm (for "zairyu"), not six.
+3. **Refinement cancels (post-arm)** — after the abandon timer is armed, every keystroke reschedules it from zero. Rapid refinement after arm still produces at most one abandon for the final resting query.
+4. **Result tap cancels** — `markAbandonHandled` is called on every result open, clearing both the timer and marking the query as engaged.
+5. **Unmount cancels** — navigating away from SearchScreen runs the cleanup effect, which calls `cancelAbandon` AND clears any pending debounce. Walking away does NOT emit; only sitting on the screen idle does.
+6. **App-background cancels** — an `AppState` listener cancels both the debounce and the abandon timer when the app goes inactive or backgrounds. Switching apps for 30 seconds does NOT emit an abandon. No auto-resume on return — the user must keystroke to re-arm.
+7. **Too-short queries cancel** — `query.trim().length < 3` is treated as "user not committed yet"; both timers are canceled. Deleting a long query down to one char does not produce a spurious abandon.
+
+**What `search_abandoned` tells the analyst**:
+- `result_count > 0` → ranking failure or content quality failure (results existed; user found none acceptable)
+- `result_count === 0` → coverage gap (no controlled keyword path exists for this query — Phase 2C playbook bucket A/B)
+- `ms_since_query` near 10_000 → "thought about it then gave up" (good signal); much higher would indicate a stuck timer (bug)
+
+**What `search_abandoned` does NOT tell the analyst** (don't infer):
+- It does not measure user frustration intensity. The window threshold is heuristic, not psychological.
+- It does not separate "abandoned because results were bad" from "abandoned because the user got distracted". Use `result_count` + Phase 2C bucket classification, not the abandon event alone, to decide whether to act on the query.
+
+---
+
 ## 8. Events shipped this loop (R1 + A1)
 
 | Event | PR | Decision-map row |
@@ -163,6 +197,13 @@ If you can't answer step 1 in one sentence, the event is engagement bait. Don't 
 | `home_start_here_pressed` | this PR (A1, forward-compat) | §1 Cold-start — shortcut effectiveness |
 | `home_search_pressed` | v1.5.1 | §1 Discovery — search-CTA intent vs typed query (tap-without-type abandonment) |
 | `home_quick_action_pressed` | v1.5.1 | §1 Cold-start — cannibalization vs `home_start_here_pressed` (the row already specified in §1 was unfired in v1.5.0) |
+| `search_zero_results` | v1.5.2 | §1 Discovery — richer companion of `search_no_results`; carries `fallback_shown` for dead-end defense analysis |
+| `search_result_opened` | v1.5.2 | §1 Discovery — position-aware conversion of search → tap |
+| `search_abandoned` | v1.5.2 | §7b §search-abandon — quantifies give-up rate (distinct from zero-result) |
+| `fallback_guide_opened` | v1.5.2 | §1 Discovery — dead-end recovery rate vs raw abandon |
+| `home_layout_variant` | v1.5.2 | §1 Cold-start — cohorting for the local searcher-signal heuristic |
+
+Existing `guide_open.source` enum was extended with `start_here`, `quick_action`, `saved`, `external_share`, `deep_link_placeholder` in v1.5.2. The first three have call sites today; the last two reserve forward-compat slots per `growth-next-loop-v1.5.1.md`.
 
 Existing events whose `source` enum was extended:
 - `guide_open.source` += `recent_viewed` (R1, Phase 2B addition)
