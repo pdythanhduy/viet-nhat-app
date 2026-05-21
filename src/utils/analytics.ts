@@ -73,17 +73,19 @@ export type EventMap = {
   search_query: { q: string; q_length: number; result_count: number };
   // Legacy v1.5.0 zero-result counter. Kept firing in v1.5.2 for
   // back-compat with any external aggregations that already key on
-  // this name. New analysis should prefer `search_zero_result` which
-  // carries the dead-end-defense context.
+  // this name. New analysis should prefer `search_zero_results` which
+  // carries the dead-end-defense context (and matches grammatical
+  // plural with this legacy event).
   search_no_results: { q: string; q_length: number };
 
   // Phase 2C (v1.5.2) — richer zero-result event. Fires alongside the
-  // legacy `search_no_results` on the same trigger. `fallback_shown`
-  // tells us whether the dead-end defense layer (featured + emergency
-  // CTA) actually rendered — false would mean a UI regression. PII
-  // posture identical to search_query: only the normalized 24-char
-  // form is forwarded.
-  search_zero_result: { q: string; q_length: number; fallback_shown: boolean };
+  // legacy `search_no_results` on the same trigger. Plural form
+  // mirrors `search_no_results` for grammatical consistency.
+  // `fallback_shown` tells us whether the dead-end defense layer
+  // (featured + emergency CTA) actually rendered — false would mean
+  // a UI regression. PII posture identical to search_query: only the
+  // normalized 24-char form is forwarded.
+  search_zero_results: { q: string; q_length: number; fallback_shown: boolean };
 
   // Phase 2C (v1.5.2) — search result tap. Paired with `search_query`
   // to compute conversion rate. `position` is the 0-indexed slot in
@@ -100,12 +102,14 @@ export type EventMap = {
 
   // Phase 2C (v1.5.2) — search abandon signal. Fires when the user
   // typed a query (≥ 3 chars), did NOT open any result, did NOT
-  // refine the query within the abandon window, and navigated away
-  // OR sat idle until the timer fired. The timer logic and window
-  // are documented in docs/analytics-decision-map.md §search-abandon.
-  // Anti-spam: at most ONE abandon event per query. The timer is
-  // reset on every keystroke, so rapid refinement doesn't double-count.
-  search_abandon: { q: string; q_length: number; result_count: number; ms_since_query: number };
+  // refine the query within the abandon window, and sat idle until
+  // the timer fired. Past-participle form matches the outcome
+  // convention used by `notification_opened`, `mail_translated`, etc.
+  // The timer logic and window are documented in
+  // docs/analytics-decision-map.md §search-abandon. Anti-spam: at
+  // most ONE abandon event per resting query. The timer resets on
+  // every keystroke, on app background, and on screen unmount.
+  search_abandoned: { q: string; q_length: number; result_count: number; ms_since_query: number };
 
   // Phase 2C (v1.5.2) — dead-end recovery. Fires when the user
   // opened a featured guide FROM the zero-result fallback layer
@@ -318,21 +322,21 @@ export async function logSearchPerformed(query: string, resultCount: number): Pr
   track('search_query', { q, q_length: q.length, result_count: resultCount });
   if (resultCount === 0) {
     // Legacy v1.5.0 counter. Kept firing for back-compat. The richer
-    // `search_zero_result` event is fired separately by the screen
-    // (via `logSearchZeroResult`) once it knows whether the fallback
+    // `search_zero_results` event is fired separately by the screen
+    // (via `logSearchZeroResults`) once it knows whether the fallback
     // defense layer actually rendered.
     track('search_no_results', { q, q_length: q.length });
   }
 }
 
-// Phase 2C convenience for SearchScreen: fires search_zero_result
+// Phase 2C convenience for SearchScreen: fires search_zero_results
 // with the correct `fallback_shown` flag derived from the actual
 // rendered state. Call this AFTER logSearchPerformed when the UI
 // determines that the dead-end defense layer rendered.
-export async function logSearchZeroResult(query: string, fallbackShown: boolean): Promise<void> {
+export async function logSearchZeroResults(query: string, fallbackShown: boolean): Promise<void> {
   const q = normalizeQueryForAnalytics(query);
   if (!q) return;
-  track('search_zero_result', { q, q_length: q.length, fallback_shown: fallbackShown });
+  track('search_zero_results', { q, q_length: q.length, fallback_shown: fallbackShown });
 }
 
 // Phase 2C — fires when the user opens a result FROM a search input.
@@ -355,14 +359,14 @@ export async function logSearchResultOpened(
 // typing. The caller (SearchScreen) owns the timer; this wrapper
 // only forwards the analytics call. See docs/analytics-decision-map.md
 // §search-abandon for the heuristic.
-export async function logSearchAbandon(
+export async function logSearchAbandoned(
   query: string,
   resultCount: number,
   msSinceQuery: number
 ): Promise<void> {
   const q = normalizeQueryForAnalytics(query);
   if (!q) return;
-  track('search_abandon', {
+  track('search_abandoned', {
     q,
     q_length: q.length,
     result_count: resultCount,
@@ -377,13 +381,44 @@ export async function logFallbackGuideOpened(guideId: string): Promise<void> {
   track('fallback_guide_opened', { guide_id: guideId });
 }
 
-// Phase 2C — fires once per Home mount AFTER the heuristic decided
+// Phase 2C — once-per-session gate for home_layout_variant.
+//
+// `useFocusEffect` in HomeScreen runs every time Home gains focus
+// (Home → AdminDetail → back = 2 focus events). Without this gate,
+// the same variant + count would emit on every back-navigation,
+// padding Aptabase volume without informational gain.
+//
+// Module-level state resets on cold start (= JS engine restart),
+// which is the right cadence: one variant emission per app session.
+// If the variant actually flips MID-session (rare — requires the
+// user to cross SEARCHER_THRESHOLD on the current SearchScreen and
+// then return to Home), the flip is still captured on the next cold
+// start when the heuristic re-reads storage.
+let _homeLayoutVariantFiredThisSession = false;
+
+export function _resetHomeLayoutVariantSessionForTests(): void {
+  _homeLayoutVariantFiredThisSession = false;
+}
+
+// Pure-ish gate helper for tests + logHomeLayoutVariant. Returns
+// true the FIRST time it's called per session; returns false on
+// every subsequent call. Side-effect (the flag flip) is intentional
+// — that's the gate.
+export function _consumeHomeLayoutVariantSessionGate(): boolean {
+  if (_homeLayoutVariantFiredThisSession) return false;
+  _homeLayoutVariantFiredThisSession = true;
+  return true;
+}
+
+// Phase 2C — fires once per app session AFTER the heuristic decided
 // the layout. Lets us compare retention/discovery metrics across the
-// two local variants without remote-config.
+// two local variants without remote-config. The session gate ensures
+// Home → AdminDetail → back-to-Home does NOT re-fire.
 export async function logHomeLayoutVariant(
   variant: EventMap['home_layout_variant']['variant'],
   searchCount: number
 ): Promise<void> {
+  if (!_consumeHomeLayoutVariantSessionGate()) return;
   track('home_layout_variant', { variant, search_count: searchCount });
 }
 

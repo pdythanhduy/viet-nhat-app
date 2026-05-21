@@ -49,7 +49,7 @@ If a proposed change doesn't answer one of those, it doesn't ship in v1.5.2.
 
 | Item | What it solves | Risk |
 | --- | --- | --- |
-| **Search observability** — 4 new events (`search_zero_result`, `search_result_opened`, `search_abandon`, `fallback_guide_opened`) | "Where do searches fail / what do users give up on / what does search actually convert to" | Low. All bounded enum + 24-char normalized `q`. Reuses pinned `normalizeQueryForAnalytics` contract |
+| **Search observability** — 4 new events (`search_zero_results`, `search_result_opened`, `search_abandoned`, `fallback_guide_opened`) | "Where do searches fail / what do users give up on / what does search actually convert to" | Low. All bounded enum + 24-char normalized `q`. Reuses pinned `normalizeQueryForAnalytics` contract |
 | **Guide-open source refinement** — 5 new bounded values in `GuideOpenSource` (`start_here`, `quick_action`, `saved`, `external_share`, `deep_link_placeholder`) | "Which Home surface earned the guide open?" | Low. Backward-compat: legacy `direct` / `featured` / etc. still work. Two new values are future-safe (no call site yet) |
 | **Dead-end defense layer** in SearchScreen | "Zero-result users now see 6 featured guides + emergency CTA + retry-keyword chips + `fallback_guide_opened` fires on recovery" | Low. Builds on existing FeaturedAndEmergency component; surgical add (chips + analytics) |
 | **Searcher-signal heuristic** + Home layout variant | "Users who self-select as typers (5+ searches) get a Home that emphasizes search and hides StartHere chips" | Medium. UX change visible to users. Local-only, deterministic, no remote config, no A/B service. Pure function lives in `searcherSignal.ts` with 11 tests |
@@ -66,7 +66,7 @@ If a proposed change doesn't answer one of those, it doesn't ship in v1.5.2.
 - **Searcher signal is a single AsyncStorage integer**, not a histogram, because the heuristic is binary (`>= 5` flips a layout). Histogram is YAGNI.
 - **Home heuristic decides on focus, not on every render**, so layout doesn't flicker mid-session when the user crosses the threshold; they see the new layout next time they return to Home.
 - **`fallback_guide_opened` is a dedicated event**, not a `source` enum value, because it counts dead-end recoveries (a different question than "where did this open come from").
-- **`search_no_results` kept firing** alongside the new `search_zero_result` for v1.5.0 dashboard back-compat.
+- **`search_no_results` kept firing** alongside the new `search_zero_results` for v1.5.0 dashboard back-compat.
 - **`search_result_opened` fires alongside `guide_open { source: 'search' }`** for the same reason — old dashboards still work; new ones get richer position data.
 - **`external_share` + `deep_link_placeholder` enum slots reserved** with NO call sites — declares them at the schema level so the future deep-link PR is a wiring change, not a schema migration.
 
@@ -150,9 +150,9 @@ After Aptabase dashboards are populated (~2 weeks post-merge):
 | --- | --- | --- | --- |
 | **Search → tap conversion** = `search_result_opened` / `search_query` | ≥ 50% | < 30% | Ranking review per playbook Q4 |
 | **Position-0 conversion share** | ≥ 70% | < 50% | Top-1 results aren't matching intent — investigate via playbook Q3 |
-| **Abandon rate** = `search_abandon` / `search_query` | ≤ 20% | ≥ 40% | Review top abandoned queries (playbook Q3) |
-| **Zero-result rate** = `search_zero_result` / `search_query` | ≤ 15% | ≥ 25% | Coverage gaps (playbook Q2) |
-| **Fallback recovery rate** = `fallback_guide_opened` / `search_zero_result` | ≥ 5% | < 1% | Fallback layer isn't earning its space — review featured guides |
+| **Abandon rate** = `search_abandoned` / `search_query` | ≤ 20% | ≥ 40% | Review top abandoned queries (playbook Q3) |
+| **Zero-result rate** = `search_zero_results` / `search_query` | ≤ 15% | ≥ 25% | Coverage gaps (playbook Q2) |
+| **Fallback recovery rate** = `fallback_guide_opened` / `search_zero_results` | ≥ 5% | < 1% | Fallback layer isn't earning its space — review featured guides |
 | **`home_layout_variant` split (searcher %)** | 10-30% | < 5% (no flips) or > 50% (everyone flips quickly) | Threshold may need calibration |
 | **`guide_open.source` distribution** | `search` + `featured` + `recent_viewed` together ≥ 60% | Long tail of `direct` | Direct opens shouldn't dominate — investigate whether other sources are firing |
 
@@ -166,7 +166,7 @@ This PR is intentionally a foundation, not the final shape. Before queueing addi
 2. **At least one Bucket-A finding shipped** as a controlled-keyword PR (proves the loop works end-to-end)
 3. **At least one Bucket-B finding logged** into the content backlog
 4. **`home_layout_variant` split observed** for ≥ 14 days
-5. **`search_abandon.ms_since_query` distribution checked** for a stuck-timer pattern (none expected — but verifying closes the loop)
+5. **`search_abandoned.ms_since_query` distribution checked** for a stuck-timer pattern (none expected — but verifying closes the loop)
 
 If after 4 weeks ANY of those signals is missing, do NOT scale — first complete the missing review work. The retrieval loop is more important than additional instrumentation.
 

@@ -25,7 +25,7 @@ Without those signals, ranking tuning is a guessing game. Phase 2C closes the ga
 
 ## 2. The four events
 
-### `search_zero_result { q, q_length, fallback_shown }`
+### `search_zero_results { q, q_length, fallback_shown }`
 
 Fires alongside the legacy `search_no_results` whenever the result count is 0. `fallback_shown` is `true` from the SearchScreen path (which always renders the fallback layer) and reserved as `false` for analytics-only call sites that might bypass UI in the future. If `fallback_shown` is observed as `false` in real-world data without a known programmatic caller, that's a regression signal — the UI failed to render the dead-end recovery.
 
@@ -39,7 +39,7 @@ This is the canonical search → engagement conversion event. The existing `guid
 
 PII posture: position and result_type are bounded; `q` carries the same normalized contract as `search_query`.
 
-### `search_abandon { q, q_length, result_count, ms_since_query }`
+### `search_abandoned { q, q_length, result_count, ms_since_query }`
 
 Fires when the abandon window (10 seconds) elapses after the user's last keystroke, with no result open and no further typing. See `analytics-decision-map.md` §7b for the full heuristic. The five anti-spam guarantees:
 
@@ -72,16 +72,16 @@ PII posture: `guide_id` is public-as-content (a slug like `permanent-residency-e
    > 0                 === 0           cleared)
         │               │
         │               ├── search_no_results       (legacy)
-        │               └── search_zero_result       (rich)
+        │               └── search_zero_results       (rich)
         │                       │
         │                       ├── fallback_guide_opened   (recovery)
-        │                       └── search_abandon          (give-up)
+        │                       └── search_abandoned          (give-up)
         │
         ├── search_result_opened       (engagement)
         │       │
         │       └── guide_open { source: 'search' }   (legacy joins)
         │
-        └── search_abandon       (give-up despite results)
+        └── search_abandoned       (give-up despite results)
 ```
 
 The funnel is what makes retrieval auditable. Without Phase 2C, the only signal was the top of the funnel (`search_query`); now every branch has a measurable outcome.
@@ -106,7 +106,7 @@ If a reviewer ever proposes raw query logging "just for one experiment", point t
 | Legacy event | Status | Replacement |
 | --- | --- | --- |
 | `search_query` | KEEPS firing unchanged | None — still the canonical "query fired" event |
-| `search_no_results` | KEEPS firing alongside `search_zero_result` | `search_zero_result` for richer analysis |
+| `search_no_results` | KEEPS firing alongside `search_zero_results` | `search_zero_results` for richer analysis |
 | `guide_open { source: 'search' }` | KEEPS firing unchanged | `search_result_opened` for position-aware conversion analysis |
 
 Aptabase dashboards built against v1.5.0 events will continue to work after v1.5.2 ships. New dashboards should prefer the v1.5.2 events.
@@ -141,8 +141,8 @@ These limits are deliberate. Solving any of them requires either user tracking o
 ## 8. Operational checklist before relying on the new events
 
 1. **Aptabase dashboard configured** for each new event (4 charts: zero-result rate, abandon rate, result-opened conversion, fallback recovery rate). One-time setup, ~30 min.
-2. **`search_zero_result.fallback_shown` watched** — if `false` appears in production data, file a UI regression bug. The SearchScreen always sets `true`.
-3. **`search_abandon.ms_since_query` distribution checked** weekly — values should cluster near 10_000 (the window). A spike at much higher values indicates a stuck timer (bug).
+2. **`search_zero_results.fallback_shown` watched** — if `false` appears in production data, file a UI regression bug. The SearchScreen always sets `true`.
+3. **`search_abandoned.ms_since_query` distribution checked** weekly — values should cluster near 10_000 (the window). A spike at much higher values indicates a stuck timer (bug).
 4. **Compare `search_result_opened` count vs legacy `guide_open { source: 'search' }` count** — they should be roughly equal for guide-type results. A divergence indicates one of the two events isn't firing where expected.
 
 ---

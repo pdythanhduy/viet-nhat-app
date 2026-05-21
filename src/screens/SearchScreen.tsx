@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import {
+  AppState,
   ScrollView,
   StyleSheet,
   Text,
@@ -19,9 +20,9 @@ import { SearchResultItem, searchAppContent, getFeaturedGuides } from '../utils/
 import {
   logSearchPerformed,
   logEmergencyCtaOpened,
-  logSearchZeroResult,
+  logSearchZeroResults,
   logSearchResultOpened,
-  logSearchAbandon,
+  logSearchAbandoned,
   logFallbackGuideOpened,
 } from '../utils/analytics';
 import { incrementSearcherSignal } from '../utils/searcherSignal';
@@ -32,12 +33,32 @@ import {
   scheduleAbandon,
 } from '../utils/abandonTimer';
 
-// Search-abandon window. 10 seconds since the last keystroke is long
-// enough for a reader to scan the top result and decide to bail, but
-// short enough that the signal stays correlated with the query the
-// user was actually on. Documented in
-// docs/analytics-decision-map.md §search-abandon.
+// =============================================================
+// Phase 2C SearchScreen analytics constants — central, documented.
+// =============================================================
+//
+// Tuning gate: do NOT change either constant before we have AT LEAST
+// 500 `search_abandoned` events across ≥ 14 days of production data.
+// Lower volume means the distribution is anecdote-quality. The
+// retrieval review playbook (docs/retrieval-review-playbook.md) is
+// the canonical place to record the data + propose the tuning.
+
+// 10 seconds since the last keystroke. Long enough for a reader to
+// scan the top result and decide to bail, short enough that the
+// signal stays correlated with the query the user was actually on.
+// Picked to be > the typical "thinking pause" (~3-5s) and < a
+// typical "open another app" sojourn. Documented in
+// docs/analytics-decision-map.md §7b §search-abandon.
 const SEARCH_ABANDON_WINDOW_MS = 10_000;
+
+// 800ms of typing stability before ANY analytics fires. Bundles
+// search_query / search_no_results / search_zero_results /
+// incrementSearcherSignal / abandon-timer-scheduling into a SINGLE
+// emission per stable query. Without this debounce, every keystroke
+// would emit, padding Aptabase volume and hitting the SEARCHER_THRESHOLD
+// in a single typed word. 800ms is the standard search-typeahead
+// debounce window — fast enough to feel responsive when stopping.
+const ANALYTICS_DEBOUNCE_MS = 800;
 
 // Minimum query length for any analytics fire. Mirrors the existing
 // `query.trim().length > 2` guard so the new events share the same
@@ -102,12 +123,26 @@ export default function SearchScreen() {
 
   const results = useMemo(() => searchAppContent(query), [query]);
 
-  // Phase 2C: abandon-timer state. One state object per screen mount.
-  // The ref pattern keeps the state mutable without forcing a render
-  // on every keystroke (timer book-keeping is pure side-effect).
+  // Phase 2C — anti-spam refs. The ref pattern keeps state mutable
+  // without forcing a render on every keystroke.
+  //
+  //   abandonState:        the timer state-machine (1 per mount)
+  //   debounceTimerRef:    the 800ms analytics-fire timer
+  //   sessionIncrementedRef: searcher-signal increments AT MOST ONCE
+  //                          per SearchScreen visit. Without this,
+  //                          typing 6 chars would hit the threshold
+  //                          of 5 in a single typed word.
   const abandonState = useRef(createAbandonTimerState());
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sessionIncrementedRef = useRef(false);
 
   useEffect(() => {
+    // Cancel any pending debounce — a new query supersedes the old.
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
+    }
+
     const trimmed = query.trim();
     if (trimmed.length < ANALYTICS_MIN_QUERY_LEN) {
       // Too-short query — clear any pending abandon timer so we don't
@@ -116,39 +151,81 @@ export default function SearchScreen() {
       return;
     }
 
-    logSearchPerformed(trimmed, results.length).catch(() => {});
+    // Debounce the analytics fire. Every keystroke restarts the
+    // 800ms timer; only typing stability triggers analytics. This
+    // collapses 6 keystrokes of "zairyu" into ONE search_query fire,
+    // ONE search_zero_results fire (if applicable), and AT MOST ONE
+    // searcher-signal increment per SearchScreen session.
+    debounceTimerRef.current = setTimeout(() => {
+      debounceTimerRef.current = null;
 
-    // Phase 2C: searcher-signal counter — increments per substantive
-    // search. Drives the Home layout heuristic. Local-only, fire and
-    // forget, errors swallowed (heuristic is a soft signal).
-    incrementSearcherSignal().catch(() => {});
+      logSearchPerformed(trimmed, results.length).catch(() => {});
 
-    // Phase 2C: dead-end recovery — when there are zero results, the
-    // SearchScreen renders the fallback (featured + emergency CTA),
-    // so `fallback_shown` is always `true` in this branch.
-    if (results.length === 0) {
-      logSearchZeroResult(trimmed, true).catch(() => {});
-    }
-
-    // Phase 2C: schedule the abandon timer. Rapid refinement keeps
-    // re-arming it; opening a result calls `markAbandonHandled`.
-    scheduleAbandon(
-      abandonState.current,
-      trimmed,
-      SEARCH_ABANDON_WINDOW_MS,
-      (abandonedQuery, msSince) => {
-        logSearchAbandon(abandonedQuery, results.length, msSince).catch(() => {});
+      if (results.length === 0) {
+        logSearchZeroResults(trimmed, true).catch(() => {});
       }
-    );
+
+      // Searcher-signal: increments AT MOST ONCE per visit to
+      // SearchScreen, regardless of how many distinct queries the
+      // user types in that visit. Threshold semantics ("user has
+      // searched N times") work at session granularity, not keystroke.
+      if (!sessionIncrementedRef.current) {
+        sessionIncrementedRef.current = true;
+        incrementSearcherSignal().catch(() => {});
+      }
+
+      // Arm the abandon timer AT the stable-query moment. Rapid
+      // refinement (before debounce fires) skips this entirely;
+      // continued refinement after the abandon arms reschedules via
+      // `scheduleAbandon` in the next debounce.
+      scheduleAbandon(
+        abandonState.current,
+        trimmed,
+        SEARCH_ABANDON_WINDOW_MS,
+        (abandonedQuery, msSince) => {
+          logSearchAbandoned(abandonedQuery, results.length, msSince).catch(() => {});
+        }
+      );
+    }, ANALYTICS_DEBOUNCE_MS);
+
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+        debounceTimerRef.current = null;
+      }
+    };
   }, [query, results.length]);
 
-  // Cleanup the abandon timer on unmount so an event never fires
-  // from a torn-down screen (user navigated away → not abandon).
+  // Cleanup on unmount: abandon timer + pending debounce.
+  // Both must clear so no event fires from a torn-down screen.
   useEffect(() => {
     const state = abandonState.current;
     return () => {
       cancelAbandon(state);
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+        debounceTimerRef.current = null;
+      }
     };
+  }, []);
+
+  // AppState listener — when the user backgrounds the app (or it
+  // goes inactive), cancel the pending debounce AND the abandon
+  // timer. Otherwise: JS setTimeout keeps running in the background,
+  // an abandon event fires while the user is in another app, which
+  // is a misattribution (they didn't abandon — they switched apps).
+  // No auto-resume on return; user must keystroke to re-arm.
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active') {
+        if (debounceTimerRef.current) {
+          clearTimeout(debounceTimerRef.current);
+          debounceTimerRef.current = null;
+        }
+        cancelAbandon(abandonState.current);
+      }
+    });
+    return () => sub.remove();
   }, []);
 
   // Phase 2B: memoize so the empty / no-results states don't recompute

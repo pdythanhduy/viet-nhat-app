@@ -6,7 +6,11 @@ jest.mock('@aptabase/react-native', () => ({
   trackEvent: jest.fn(),
 }));
 
-import { normalizeQueryForAnalytics } from './analytics';
+import {
+  normalizeQueryForAnalytics,
+  _consumeHomeLayoutVariantSessionGate,
+  _resetHomeLayoutVariantSessionForTests,
+} from './analytics';
 
 describe('normalizeQueryForAnalytics — PII contract', () => {
   // The contract: never forward raw user input. The normalizer must always
@@ -156,5 +160,39 @@ describe('normalizeQueryForAnalytics — PII contract', () => {
       const twice = normalizeQueryForAnalytics(once);
       expect(twice).toBe(once);
     });
+  });
+});
+
+// Phase 2C — home_layout_variant once-per-session gate. The gate is
+// a module-level boolean (resets on cold start / JS engine restart).
+// Tests use `_resetHomeLayoutVariantSessionForTests` between cases
+// to simulate a fresh app session.
+describe('home_layout_variant session gate', () => {
+  beforeEach(() => {
+    _resetHomeLayoutVariantSessionForTests();
+  });
+
+  it('first call returns true (allows the fire)', () => {
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(true);
+  });
+
+  it('second call returns false (blocks the duplicate fire)', () => {
+    _consumeHomeLayoutVariantSessionGate();
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
+  });
+
+  it('subsequent calls keep returning false within the same session', () => {
+    _consumeHomeLayoutVariantSessionGate();
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
+  });
+
+  it('reset restores the gate (simulates a new cold start)', () => {
+    _consumeHomeLayoutVariantSessionGate();
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
+    _resetHomeLayoutVariantSessionForTests();
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(true);
+    expect(_consumeHomeLayoutVariantSessionGate()).toBe(false);
   });
 });

@@ -1,3 +1,43 @@
+// ============================================================
+// Search ranking test suite — pin philosophy
+// ============================================================
+//
+// Read `docs/search-ranking-governance.md` BEFORE adding a pin.
+// This file is the regression net for the ranking algorithm + the
+// keyword map. It is NOT a roadmap for every query we might wish
+// to support.
+//
+// Add a pin when (all required):
+//   1. The query is real or confidently anticipated (NOT synthetic)
+//   2. The expected guide answer is unambiguous (one canonical guide
+//      OR a tight top-3 of canonical guides)
+//   3. The current ranking already produces the expected result.
+//      Pins freeze the current state; they do NOT force a result.
+//   4. A future ranking refactor plausibly threatens this query
+//   5. A one-sentence rationale comment documents WHY the position
+//      is current (what the failure mode would look like)
+//
+// Do NOT add a pin when:
+//   - "Just in case" — pins are not a roadmap
+//   - The keyword would have to be too generic (`'thu tuc'`,
+//     `'visa'`, `'help'`) to make the query land
+//   - The expected guide is not canonical for the intent
+//     (Bucket B in the retrieval playbook — that's a content gap,
+//     not a keyword problem)
+//   - The pin duplicates a sibling pin for a phrasing variant
+//     (consolidate into one pin + one keyword)
+//
+// Anti-pollution rules:
+//   - Every keyword expansion is single-phrase + scoped to one guide
+//   - No keyword shorter than 4 chars unless it's a canonical JP
+//     term (`'国保'`, `'国保'`)
+//   - Cross-check `q.includes(keyword)` collisions before merging:
+//     a new keyword must NOT be a substring of unrelated common
+//     queries
+//
+// When the pin suite grows past ~60 entries, audit per
+// search-ranking-governance.md §3. Diminishing returns = overfit.
+
 import { searchAppContent, getRelatedGuides, getFeaturedGuides } from './searchIndex';
 
 describe('searchAppContent', () => {

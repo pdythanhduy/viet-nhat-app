@@ -16,8 +16,8 @@ Aptabase dashboards required (configure once per the [`aptabase-dashboard-setup.
 | Dashboard | Filter | Aggregation |
 | --- | --- | --- |
 | **Top queries** | `search_query` | Count by `q`, top 50, last 7 days |
-| **Top failed queries** | `search_zero_result` | Count by `q`, top 50, last 7 days |
-| **Top abandoned queries** | `search_abandon` | Count by `q`, top 50, last 7 days. Cross-filter by `result_count` (0 vs > 0) |
+| **Top failed queries** | `search_zero_results` | Count by `q`, top 50, last 7 days |
+| **Top abandoned queries** | `search_abandoned` | Count by `q`, top 50, last 7 days. Cross-filter by `result_count` (0 vs > 0) |
 | **Position distribution** | `search_result_opened` | Histogram of `position` (0..29) |
 | **Result-type distribution** | `search_result_opened` | Count by `result_type` |
 | **Fallback recovery** | `fallback_guide_opened` | Count by `guide_id`, last 7 days |
@@ -91,7 +91,7 @@ Do NOT skip questions. The order matters: early questions filter out noise that 
 
 **Source**: Fallback recovery dashboard.
 
-**Healthy signal**: `fallback_guide_opened` count / `search_zero_result` count ≥ 5% (the user saw zero results AND tapped a fallback guide).
+**Healthy signal**: `fallback_guide_opened` count / `search_zero_results` count ≥ 5% (the user saw zero results AND tapped a fallback guide).
 
 **Warning signal**: Recovery rate < 1% → fallback isn't earning its space. Consider:
 - Are the featured guides actually the right safe defaults?
