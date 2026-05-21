@@ -156,7 +156,11 @@ This plan is what makes v1.5.1 a "foundation" PR — we're laying groundwork for
 
 ### Decision day: 2026-06-04 (target)
 
-Review against `reminder-system-design.md` §8b gates 1-4. If ALL four pass, queue R3 design PR. If any fail, defer 2 more weeks and re-check.
+Review against `reminder-system-design.md` §8b gates 1-4. Gate 1 (DAU) is tiered, not pass/fail:
+- DAU < 100 → R3 internal/beta experiment is allowed (subject to gates 2-12); no production rollout.
+- DAU ≥ 100 → R3 production rollout is allowed.
+
+If gates 2-4 all pass and the DAU tier is at least beta-eligible, queue the R3 design PR with the tier locked. If any of gates 2-4 fail, defer 2 more weeks and re-check.
 
 Other follow-up decisions to record on this day:
 - ASO experiment ship date (gated on Apple App Review backlog, not on data)

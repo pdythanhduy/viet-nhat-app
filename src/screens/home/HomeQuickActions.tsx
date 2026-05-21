@@ -10,6 +10,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../../constants/colors';
+import type { EventMap } from '../../utils/analytics';
 
 export type QuickActionId =
   | 'newcomer'
@@ -19,6 +20,25 @@ export type QuickActionId =
   | 'tax-insurance'
   | 'lost-document'
   | 'emergency';
+
+// Compile-time contract: QuickActionId must stay bidirectionally
+// equal to the analytics event's action_id enum. Adding a quick
+// action here without extending EventMap (or vice versa) makes the
+// type below resolve to `false` and breaks tsc — protects against
+// silent analytics drift when the situations catalog evolves.
+//
+// Uses the standard variance trick for type equality (rather than
+// importing the union into analytics.ts, which would drag UI deps
+// into the otherwise pure analytics module).
+type _QuickActionIdMatchesAnalytics = (<T>() => T extends QuickActionId ? 1 : 2) extends (
+  <T>() => T extends EventMap['home_quick_action_pressed']['action_id'] ? 1 : 2
+)
+  ? true
+  : false;
+// The constant must be assignable to `true`. If the unions drift the
+// type resolves to `false` and this line fails.
+const _quickActionIdContract: _QuickActionIdMatchesAnalytics = true;
+void _quickActionIdContract;
 
 export interface QuickAction {
   id: QuickActionId;

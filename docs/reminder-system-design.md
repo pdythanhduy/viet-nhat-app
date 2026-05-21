@@ -129,7 +129,12 @@ Phase R2 (this repo's current state) ships **data model + storage + tests only**
 
 ### Data gates (require ≥ 2 weeks of post-v1.5.0 production data)
 
-1. **DAU baseline confirmed** — `app_open` shows ≥ 100 DAU sustained for 14 days. Below 100 DAU, retention experiments cannot produce statistically meaningful signal even with a perfect scheduler.
+1. **DAU baseline checked — tiered, not pass/fail.** This is a sizing gate, not a blocker. `app_open` over the last 14 days determines which kind of R3 work is allowed next:
+   - **DAU < 100** — R3 is allowed ONLY as an **internal / beta** experiment. Ship the scheduler behind a feature flag, opt in 5-20 known users (TestFlight + internal Android APK), validate the schedule fires correctly + the anti-spam rules hold + the kill-switch works. NO production rollout. Goal at this tier is qualitative — does the reminder land at the right moment, does the copy feel calm, does the kill-switch reach users fast enough.
+   - **DAU ≥ 100** — Production R3 rollout is allowed (subject to gates 2-12). At this tier the scheduler has enough usage to produce statistically meaningful retention signal within 2 weeks.
+   - **DAU ≥ 500** — Optional: split into two-arm experiment (control vs reminder cohort) to attribute retention lift cleanly. Not required at lower tiers.
+
+   Rationale: 100 DAU is a hard production-data threshold (below it, retention experiments are anecdote-quality), but it should not block beta validation that materially de-risks the eventual rollout. The early-stage app needs to be able to test reminder UX with real users before crossing the threshold; locking it out until DAU ≥ 100 invents a chicken-and-egg problem.
 2. **Recent-viewed lever validated** — `guide_open { source: 'recent_viewed' }` ≥ 5% of total `guide_open`. If `recent_viewed` is dead, a notification-based re-entry surface is unlikely to land.
 3. **Search-driven retention signal exists** — `search_query` count ≥ 1 per DAU on a 7-day moving average. A user base that doesn't search isn't a user base that wants reminders.
 4. **No active retention regression** — Week-2 retention is at or above the launch-week baseline. If retention is falling, reminders will not save it; product-quality work must happen first.
