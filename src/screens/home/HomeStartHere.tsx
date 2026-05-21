@@ -12,6 +12,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../constants/colors';
+import { logEmergencyCtaOpened, logHomeStartHerePressed } from '../../utils/analytics';
 
 type Shortcut = {
   id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs';
@@ -33,6 +34,16 @@ interface HomeStartHereProps {
 }
 
 export function HomeStartHere({ onShortcutPress }: HomeStartHereProps) {
+  const handlePress = (id: Shortcut['id']) => {
+    void logHomeStartHerePressed(id);
+
+    if (id === 'emergency') {
+      void logEmergencyCtaOpened('home_start_here');
+    }
+
+    onShortcutPress(id);
+  };
+
   return (
     <ScrollView
       horizontal
@@ -43,7 +54,7 @@ export function HomeStartHere({ onShortcutPress }: HomeStartHereProps) {
         <TouchableOpacity
           key={s.id}
           style={styles.chip}
-          onPress={() => onShortcutPress(s.id)}
+          onPress={() => handlePress(s.id)}
           accessibilityRole="button"
           accessibilityLabel={s.label}
         >
