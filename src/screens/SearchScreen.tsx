@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -16,7 +16,33 @@ import { Colors } from '../constants/colors';
 import { RichInline } from '../components/RichText';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { SearchResultItem, searchAppContent, getFeaturedGuides } from '../utils/searchIndex';
-import { logSearchPerformed, logEmergencyCtaOpened } from '../utils/analytics';
+import {
+  logSearchPerformed,
+  logEmergencyCtaOpened,
+  logSearchZeroResult,
+  logSearchResultOpened,
+  logSearchAbandon,
+  logFallbackGuideOpened,
+} from '../utils/analytics';
+import { incrementSearcherSignal } from '../utils/searcherSignal';
+import {
+  cancelAbandon,
+  createAbandonTimerState,
+  markAbandonHandled,
+  scheduleAbandon,
+} from '../utils/abandonTimer';
+
+// Search-abandon window. 10 seconds since the last keystroke is long
+// enough for a reader to scan the top result and decide to bail, but
+// short enough that the signal stays correlated with the query the
+// user was actually on. Documented in
+// docs/analytics-decision-map.md §search-abandon.
+const SEARCH_ABANDON_WINDOW_MS = 10_000;
+
+// Minimum query length for any analytics fire. Mirrors the existing
+// `query.trim().length > 2` guard so the new events share the same
+// floor and don't double-fire on incidental short input.
+const ANALYTICS_MIN_QUERY_LEN = 3;
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type SearchRouteProp = RouteProp<RootStackParamList, 'Search'>;
@@ -76,17 +102,68 @@ export default function SearchScreen() {
 
   const results = useMemo(() => searchAppContent(query), [query]);
 
+  // Phase 2C: abandon-timer state. One state object per screen mount.
+  // The ref pattern keeps the state mutable without forcing a render
+  // on every keystroke (timer book-keeping is pure side-effect).
+  const abandonState = useRef(createAbandonTimerState());
+
   useEffect(() => {
-    if (query.trim().length > 2) {
-      logSearchPerformed(query.trim(), results.length).catch(() => {});
+    const trimmed = query.trim();
+    if (trimmed.length < ANALYTICS_MIN_QUERY_LEN) {
+      // Too-short query — clear any pending abandon timer so we don't
+      // emit an abandon for a query the user already deleted.
+      cancelAbandon(abandonState.current);
+      return;
     }
+
+    logSearchPerformed(trimmed, results.length).catch(() => {});
+
+    // Phase 2C: searcher-signal counter — increments per substantive
+    // search. Drives the Home layout heuristic. Local-only, fire and
+    // forget, errors swallowed (heuristic is a soft signal).
+    incrementSearcherSignal().catch(() => {});
+
+    // Phase 2C: dead-end recovery — when there are zero results, the
+    // SearchScreen renders the fallback (featured + emergency CTA),
+    // so `fallback_shown` is always `true` in this branch.
+    if (results.length === 0) {
+      logSearchZeroResult(trimmed, true).catch(() => {});
+    }
+
+    // Phase 2C: schedule the abandon timer. Rapid refinement keeps
+    // re-arming it; opening a result calls `markAbandonHandled`.
+    scheduleAbandon(
+      abandonState.current,
+      trimmed,
+      SEARCH_ABANDON_WINDOW_MS,
+      (abandonedQuery, msSince) => {
+        logSearchAbandon(abandonedQuery, results.length, msSince).catch(() => {});
+      }
+    );
   }, [query, results.length]);
+
+  // Cleanup the abandon timer on unmount so an event never fires
+  // from a torn-down screen (user navigated away → not abandon).
+  useEffect(() => {
+    const state = abandonState.current;
+    return () => {
+      cancelAbandon(state);
+    };
+  }, []);
 
   // Phase 2B: memoize so the empty / no-results states don't recompute
   // the featured list on every keystroke that produced no hits.
   const featured = useMemo(() => getFeaturedGuides(6), []);
 
-  const handleOpenResult = (item: SearchResultItem) => {
+  const handleOpenResult = (item: SearchResultItem, position: number) => {
+    // Phase 2C: a result open invalidates the abandon timer for the
+    // current query — the user did NOT abandon, they engaged.
+    const trimmed = query.trim();
+    if (trimmed.length >= ANALYTICS_MIN_QUERY_LEN) {
+      markAbandonHandled(abandonState.current, trimmed);
+      logSearchResultOpened(trimmed, position, item.type).catch(() => {});
+    }
+
     if (item.type === 'guide') {
       navigation.navigate('AdminDetail', { guideId: item.id, source: 'search' });
       return;
@@ -189,22 +266,47 @@ export default function SearchScreen() {
                 <Text style={styles.emptyDesc}>
                   Hãy thử từ khóa ngắn hơn, bỏ bớt chi tiết hoặc dùng từ gần nghĩa hơn.
                 </Text>
+                {/* Phase 2C: keyword chip hints in the dead-end state.
+                    Reuses the same SEARCH_SUGGESTIONS catalog as the
+                    empty state — every chip is guaranteed by the
+                    searchSuggestions tests to return at least one hit. */}
+                <Text style={styles.suggestionsLabel}>Thử lại với từ khóa khác</Text>
+                <View style={styles.suggestionsWrap}>
+                  {SEARCH_SUGGESTIONS.map((suggestion) => (
+                    <TouchableOpacity
+                      key={suggestion}
+                      style={styles.suggestionChip}
+                      onPress={() => setQuery(suggestion)}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Tìm ${suggestion}`}
+                    >
+                      <Ionicons name="search" size={12} color={Colors.primary} />
+                      <Text style={styles.suggestionText}>{suggestion}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               </View>
               <FeaturedAndEmergency
                 featured={featured}
-                onOpenGuide={(id) => navigation.navigate('AdminDetail', { guideId: id, source: 'featured' })}
+                onOpenGuide={(id) => {
+                  // Phase 2C: dead-end recovery fires the dedicated
+                  // event so the analyst can distinguish a fallback
+                  // tap from a regular featured-rail discovery.
+                  void logFallbackGuideOpened(id);
+                  navigation.navigate('AdminDetail', { guideId: id, source: 'featured' });
+                }}
                 onOpenEmergency={() => { void logEmergencyCtaOpened('search_no_results'); navigation.navigate('EmergencyHub'); }}
               />
             </View>
           ) : (
             <View style={styles.resultsWrap}>
-              {results.map((item) => {
+              {results.map((item, index) => {
                 const color = getResultColor(item.type);
                 return (
                   <TouchableOpacity
                     key={`${item.type}-${item.id}`}
                     style={styles.resultCard}
-                    onPress={() => handleOpenResult(item)}
+                    onPress={() => handleOpenResult(item, index)}
                   >
                     <View style={[styles.resultIconBg, { backgroundColor: `${color}18` }]}>
                       <Ionicons name={getResultIcon(item.type)} size={18} color={color} />

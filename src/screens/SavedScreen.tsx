@@ -270,7 +270,7 @@ export default function SavedScreen() {
                     key={`${item.type}-${item.id}-pinned`}
                     style={styles.guideCard}
                     onPress={() => {
-                      if (item.type === 'guide') navigation.navigate('AdminDetail', { guideId: item.id });
+                      if (item.type === 'guide') navigation.navigate('AdminDetail', { guideId: item.id, source: 'saved' });
                       else if (item.type === 'daily-life') navigation.navigate('DailyLifeDetail', { topicId: item.id });
                       else navigation.navigate('MainTabs', { screen: 'Japanese' });
                     }}
@@ -304,7 +304,7 @@ export default function SavedScreen() {
                 <TouchableOpacity
                   key={b.id}
                   style={styles.guideCard}
-                  onPress={() => navigation.navigate('AdminDetail', { guideId: b.id })}
+                  onPress={() => navigation.navigate('AdminDetail', { guideId: b.id, source: 'saved' })}
                 >
                   <View style={[styles.guideColorBar, { backgroundColor: b.color }]} />
                   <View style={styles.guideInfo}>

@@ -77,8 +77,13 @@ keywords without storing identifying input mid-typing.
 
 | Event | Props | When fires |
 |---|---|---|
-| `search_query` | `q`, `q_length`, `result_count` | User types > 2 chars in SearchScreen input |
-| `search_no_results` | `q`, `q_length` | Same trigger as `search_query` when `result_count === 0` |
+| `search_query` | `q`, `q_length`, `result_count` | User types ≥ 3 chars in SearchScreen input |
+| `search_no_results` | `q`, `q_length` | Same trigger as `search_query` when `result_count === 0`. **Legacy v1.5.0** — kept firing for dashboard back-compat; new analyses use `search_zero_result` |
+| `search_zero_result` | `q`, `q_length`, `fallback_shown` | Phase 2C. Fires alongside `search_no_results` when SearchScreen renders the dead-end defense layer. `fallback_shown = false` from a non-UI caller would flag a regression |
+| `search_result_opened` | `q`, `q_length`, `position`, `result_type` | Phase 2C. User taps a result FROM a search input. `position` is 0-indexed (top-1 = 0). Pairs with `search_query` for conversion analysis |
+| `search_abandon` | `q`, `q_length`, `result_count`, `ms_since_query` | Phase 2C. Fires when the abandon-window (10s) elapses since the user's last keystroke without any result tap or further typing. At most ONE per resting query — see `docs/analytics-decision-map.md` §search-abandon heuristic |
+| `fallback_guide_opened` | `guide_id` | Phase 2C. Fires when the user opens a guide FROM the zero-result fallback layer (distinct from a regular featured-rail tap) |
+| `home_layout_variant` | `variant ∈ cold_start / searcher`, `search_count` | Phase 2C. Fires once per Home mount AFTER the searcher-signal heuristic decides the layout. Lets analytics compare retention across the two local variants without remote-config |
 
 Funnel to watch after launch:
 

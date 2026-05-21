@@ -72,7 +72,9 @@ import {
   logHomeSearchPressed,
   logHomeStartHerePressed,
   logEmergencyCtaOpened,
+  logHomeLayoutVariant,
 } from '../utils/analytics';
+import { getHomeLayoutVariant, getSearcherSignal } from '../utils/searcherSignal';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -101,10 +103,31 @@ export default function HomeScreen() {
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showProfileModal, setShowProfileModal] = useState(false);
+  // Phase 2C — Home layout heuristic. `searcher` mode hides StartHere
+  // chips for users who've already self-selected as typers (≥
+  // SEARCHER_THRESHOLD searches). Local-only, deterministic; the
+  // variant is computed once on focus, then fixed for the render.
+  const [homeLayoutVariant, setHomeLayoutVariant] = useState<'cold_start' | 'searcher'>('cold_start');
 
   useFocusEffect(
     useCallback(() => {
       const loadData = async () => {
+        // Phase 2C — resolve the Home layout variant FIRST so any
+        // analytics joining `home_view` with `home_layout_variant`
+        // sees them in the same focus event. Emits once per Home
+        // mount (or re-focus) for cohorting.
+        try {
+          const searchCount = await getSearcherSignal();
+          const variant = getHomeLayoutVariant(searchCount);
+          setHomeLayoutVariant(variant);
+          void logHomeLayoutVariant(variant, searchCount);
+        } catch {
+          // Heuristic failure → fall back to cold_start (safer
+          // default — exposes the cold-start chips to a user we
+          // know nothing about). No analytics fire in this branch.
+          setHomeLayoutVariant('cold_start');
+        }
+
         const profile = await loadUserProfile();
         setUserProfile(profile);
 
@@ -219,7 +242,7 @@ export default function HomeScreen() {
     // the urgent step-by-step they're actually looking for. Now it
     // jumps straight into the dedicated lost-residence-card guide.
     if (action.id === 'lost-document') {
-      navigation.navigate('AdminDetail', { guideId: 'lost-residence-card' });
+      navigation.navigate('AdminDetail', { guideId: 'lost-residence-card', source: 'quick_action' });
       return;
     }
     // The remaining situations open Search with a pre-filled query so
@@ -253,7 +276,7 @@ export default function HomeScreen() {
   const handleStartHereShortcutPress = (id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs') => {
     void logHomeStartHerePressed(id);
     if (id === 'newcomer') {
-      navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan', source: 'direct' });
+      navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan', source: 'start_here' });
       return;
     }
     if (id === 'emergency') {
@@ -333,9 +356,20 @@ export default function HomeScreen() {
           {/* Phase UX1 — beginner-friendly entry shortcuts placed right
               under the search/ask CTAs so a fresh user has a path that
               doesn't require typing. Old quick-actions row is kept
-              below for users who already know what they need. */}
-          <Text style={styles.sectionTitle}>Bắt đầu ở đâu?</Text>
-          <HomeStartHere onShortcutPress={handleStartHereShortcutPress} />
+              below for users who already know what they need.
+
+              Phase 2C: in `searcher` mode (user has performed
+              SEARCHER_THRESHOLD+ searches) the StartHere row is
+              hidden so the search CTA earns the vertical space it
+              has already proven it deserves. Quick-actions row stays
+              for both variants because situations (mất giấy tờ,
+              gia hạn visa) remain useful as one-tap shortcuts. */}
+          {homeLayoutVariant === 'cold_start' ? (
+            <>
+              <Text style={styles.sectionTitle}>Bắt đầu ở đâu?</Text>
+              <HomeStartHere onShortcutPress={handleStartHereShortcutPress} />
+            </>
+          ) : null}
 
           <HomeQuickActions onActionPress={handleQuickActionPress} />
 
@@ -807,7 +841,7 @@ export default function HomeScreen() {
               <Text style={styles.sectionTitle}>Đã lưu</Text>
               <HomeSavedGuides
                 bookmarks={savedGuideBookmarks}
-                onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'direct' })}
+                onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'saved' })}
               />
             </>
           ) : null}

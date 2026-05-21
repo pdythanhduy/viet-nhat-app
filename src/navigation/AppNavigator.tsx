@@ -55,10 +55,41 @@ import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
 
-// Phase 2B: where did the user come from when opening a guide? Powers the
-// `source` property on the `guide_open` analytics event so we can measure
-// the discovery surfaces (search, related, featured) against direct nav.
-export type GuideOpenSource = 'search' | 'related' | 'featured' | 'direct' | 'recent_viewed';
+// Phase 2B + Phase 2C (v1.5.2): where did the user come from when
+// opening a guide? Powers the `source` property on the `guide_open`
+// analytics event so we can measure the discovery surfaces against
+// direct nav.
+//
+// Backward-compat: existing values preserved as-is. New v1.5.2 values
+// disambiguate Home surfaces that previously logged `'direct'` and
+// reserve forward-compat slots for share / deep-link wiring.
+//
+//   search                — typed query → result tap
+//   related               — sibling-guide row on AdminDetail
+//   featured              — "Hay được dùng" rail (Home + Search empty)
+//   direct                — anything else (legacy catch-all; new code
+//                           prefers a more specific value)
+//   recent_viewed         — "Đã xem gần đây" Home row
+//   start_here            — "Bắt đầu ở đâu?" cold-start chip (v1.5.2)
+//   quick_action          — "Tôi đang cần gì?" situation card (v1.5.2)
+//   saved                 — Home "Đã lưu" row + Saved tab (v1.5.2)
+//   external_share        — opened from a share intent (future-safe;
+//                           no call site until share-back routing
+//                           lands per growth-next-loop-v1.5.1.md)
+//   deep_link_placeholder — opened from a universal / app link
+//                           (future-safe; no call site until §3 of
+//                           growth-next-loop-v1.5.1.md is unblocked)
+export type GuideOpenSource =
+  | 'search'
+  | 'related'
+  | 'featured'
+  | 'direct'
+  | 'recent_viewed'
+  | 'start_here'
+  | 'quick_action'
+  | 'saved'
+  | 'external_share'
+  | 'deep_link_placeholder';
 
 export type TabParamList = {
   Home: undefined;

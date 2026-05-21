@@ -22,6 +22,8 @@ const kakuteiShinkoku: AdminGuide = {
       '副業',
       'fukugyou',
       'side job tax',
+      'baito tax',
+      'thue baito',
       '医療費控除',
       'iryouhi koujo',
       'medical expense deduction',
