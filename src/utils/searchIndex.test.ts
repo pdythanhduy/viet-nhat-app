@@ -109,6 +109,60 @@ describe('searchAppContent', () => {
       expect(r.map((x) => x.id)).toContain(expectedId);
     });
   });
+
+  // v1.5.1 — defensive pins for the real-world queries Vietnamese
+  // residents in Japan actually type. These are the queries v1.5.0
+  // discovery work (Phase 2A + 2B + Phase 2C-prep batch 1) was meant
+  // to handle. Locking them here so future ranking changes can't
+  // silently regress the most common entry vocab.
+  //
+  // Top-1 pins: queries whose intent is unambiguous AND no other
+  // guide has a stronger title prefix on the same phrase. Top-N
+  // pins: queries where another guide legitimately wins top-1 by
+  // title-startsWith but the canonical guide MUST be reachable in
+  // the immediate result window.
+  describe('v1.5.1 VN-in-JP real-world query defenses', () => {
+    it.each([
+      ['thue cu tru',      'juminzei-local-tax'],
+      ['bao hiem y te',    'health-insurance'],
+      ['chuyen nha',       'address-change'],
+    ])('top-1 — "%s" → %s', (query, expectedId) => {
+      const r = searchAppContent(query, 3);
+      expect(r[0]?.id).toBe(expectedId);
+    });
+
+    it.each([
+      // "visa het han" — title startsWith wins for
+      // visa-emergency-medical-disaster-extension (its title
+      // literally starts "Visa hết hạn trong lúc nhập viện..."), so
+      // overstay can't reach top-1 without a title rewrite. Both
+      // guides are valid responses; pin top-3 contains overstay so
+      // the user always sees both.
+      ['visa het han',     'overstaying-illegal-stay-procedures', 3],
+      // "my number" — myna-portal-digital wins top-1 via title
+      // startsWith ("My Number Card số hóa..."). The my-number
+      // application guide is a valid co-result, not a sole winner.
+      ['my number',        'my-number', 3],
+      // "zairyu" alone — JP-word / phrase entries legitimately
+      // outrank guides because the romanized form lives in the
+      // JAPANESE_WORDS dictionary. The residence-card renewal guide
+      // (the most common "zairyu" admin task) reaches top-10 via the
+      // central keyword map ('zairyu kikan koshin'). Top-10 is the
+      // practical scroll window before users refine. NOTE:
+      // residence-card-validity is NOT in top-10 today — Phase 2C
+      // analytics will tell us if "zairyu" alone deserves a more
+      // controlled keyword expansion.
+      ['zairyu',           'residence-card', 10],
+      // "mat the ngoai kieu" — legacy diaspora term for residence
+      // card. Controlled keyword added in v1.5.1 (single keyword on
+      // lost-residence-card only — does not contaminate the broader
+      // residence-card namespace).
+      ['mat the ngoai kieu', 'lost-residence-card', 3],
+    ])('top-N — "%s" → contains %s within %d', (query, expectedId, n) => {
+      const r = searchAppContent(query, n);
+      expect(r.map((x) => x.id)).toContain(expectedId);
+    });
+  });
 });
 
 describe('getRelatedGuides', () => {

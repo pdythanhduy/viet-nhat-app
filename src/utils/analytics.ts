@@ -79,6 +79,29 @@ export type EventMap = {
   // place vs. existing quick-actions.
   home_start_here_pressed: { shortcut_id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs' };
 
+  // v1.5.1 — Home search CTA tap. Distinct from `search_query`:
+  // counts INTENT (user noticed and tapped the Home search CTA) even
+  // when no query is then typed. Pair with `search_query` to measure
+  // search-CTA abandonment (tap without type) — a known mobile UX gap.
+  home_search_pressed: void;
+
+  // v1.5.1 — Home "Tôi đang cần gì?" quick-action tap. `action_id` is
+  // the situation chip pressed. The decision map's cold-start row
+  // already calls out this event by name: "Compare home_start_here_pressed
+  // vs. home_quick_action_pressed counts". Distinct from the
+  // forward-compat home_start_here_pressed because the two rows answer
+  // different intents (cold-start vs. specific situation).
+  home_quick_action_pressed: {
+    action_id:
+      | 'newcomer'
+      | 'visa-renewal'
+      | 'moving'
+      | 'official-mail'
+      | 'tax-insurance'
+      | 'lost-document'
+      | 'emergency';
+  };
+
   // Growth G1: native share completion. `completed: false` covers both
   // user cancellation and any platform-level Share throw. The OS share
   // sheet decides the destination — we do NOT track which app received
@@ -249,6 +272,13 @@ export async function logHomeStartHerePressed(
 ): Promise<void> {
   track('home_start_here_pressed', { shortcut_id: shortcutId });
 }
-export async function logHomeSearchPressed(): Promise<void> {}
-export async function logHomeQuickActionPressed(_actionId: string): Promise<void> {}
+export async function logHomeSearchPressed(): Promise<void> {
+  track('home_search_pressed');
+}
+
+export async function logHomeQuickActionPressed(
+  actionId: EventMap['home_quick_action_pressed']['action_id']
+): Promise<void> {
+  track('home_quick_action_pressed', { action_id: actionId });
+}
 export async function logAdminSituationPressed(_situationId: string): Promise<void> {}

@@ -120,4 +120,104 @@ describe('shouldFire', () => {
     };
     expect(shouldFire(sampleHook, prefs)).toBe(true);
   });
+
+  // Exhaustive truth table over (globalEnabled, perKindEnabled[kind],
+  // hook.enabled). Locks the AND-of-three contract so a future
+  // refactor of `shouldFire` (e.g. snooze, quiet hours) cannot
+  // accidentally loosen the gate.
+  describe('truth table', () => {
+    const cases: ReadonlyArray<[boolean, boolean, boolean, boolean]> = [
+      // global, perKind, hook, expected
+      [false, false, false, false],
+      [false, false, true, false],
+      [false, true, false, false],
+      [false, true, true, false],
+      [true, false, false, false],
+      [true, false, true, false],
+      [true, true, false, false],
+      [true, true, true, true],
+    ];
+    it.each(cases)(
+      'global=%s perKind=%s hook=%s → %s',
+      (globalEnabled, perKind, hookEnabled, expected) => {
+        const prefs = {
+          ...DEFAULT_PREFERENCES,
+          globalEnabled,
+          perKindEnabled: { ...DEFAULT_PREFERENCES.perKindEnabled, 'visa-renewal': perKind },
+        };
+        expect(shouldFire({ ...sampleHook, enabled: hookEnabled }, prefs)).toBe(expected);
+      }
+    );
+  });
+});
+
+describe('reminderHooks schema', () => {
+  it('DEFAULT_PREFERENCES.perKindEnabled covers every ReminderHookKind (exhaustiveness)', () => {
+    const expectedKinds: ReadonlyArray<string> = [
+      'visa-renewal',
+      'tax-season',
+      'moving',
+      'insurance-renewal',
+      'mynumber',
+    ];
+    const actual = Object.keys(DEFAULT_PREFERENCES.perKindEnabled).sort();
+    expect(actual).toEqual([...expectedKinds].sort());
+  });
+
+  it('round-trips a list of mixed-kind hooks preserving every field', async () => {
+    await AsyncStorage.clear();
+    const hooks: ReminderHook[] = [
+      sampleHook,
+      {
+        id: 'h2',
+        kind: 'tax-season',
+        triggerDate: '2027-02-05T00:00:00.000Z',
+        enabled: false,
+        createdAt: '2026-05-18T00:00:00.000Z',
+        label: 'Thuế 2026',
+      },
+      {
+        id: 'h3',
+        kind: 'mynumber',
+        triggerDate: '2026-09-01T00:00:00.000Z',
+        enabled: true,
+        createdAt: '2026-05-18T00:00:00.000Z',
+        guideId: 'my-number',
+        label: 'Lấy thẻ MyNumber',
+      },
+    ];
+    await saveReminderHooks(hooks);
+    const loaded = await loadReminderHooks();
+    expect(loaded).toEqual(hooks);
+  });
+
+  it('round-trips per-kind ALL-true preferences', async () => {
+    await AsyncStorage.clear();
+    const prefs = {
+      globalEnabled: true,
+      perKindEnabled: {
+        'visa-renewal': true,
+        'tax-season': true,
+        'moving': true,
+        'insurance-renewal': true,
+        'mynumber': true,
+      },
+      monthlyCap: 4,
+    };
+    await saveReminderPreferences(prefs);
+    expect(await loadReminderPreferences()).toEqual(prefs);
+  });
+
+  it('treats a monthlyCap lower than the default as the user-chosen value (no auto-raise)', async () => {
+    // The design doc says the user can lower monthlyCap but not raise.
+    // Lowering must survive load — locks the user's preference choice.
+    await AsyncStorage.clear();
+    await saveReminderPreferences({
+      ...DEFAULT_PREFERENCES,
+      globalEnabled: true,
+      monthlyCap: 1,
+    });
+    const loaded = await loadReminderPreferences();
+    expect(loaded.monthlyCap).toBe(1);
+  });
 });

@@ -123,6 +123,49 @@ Phase R2 (this PR) ships the data model + storage + tests. The above UI is Phase
 
 ---
 
+## 8b. R3 scheduling — decision gate
+
+Phase R2 (this repo's current state) ships **data model + storage + tests only**. R3 is the scheduling/UI/permission layer. Before opening an R3 implementation PR, ALL of the following must be true. Each is a hard gate — missing one means R3 is not yet justified.
+
+### Data gates (require ≥ 2 weeks of post-v1.5.0 production data)
+
+1. **DAU baseline checked — tiered, not pass/fail.** This is a sizing gate, not a blocker. `app_open` over the last 14 days determines which kind of R3 work is allowed next:
+   - **DAU < 100** — R3 is allowed ONLY as an **internal / beta** experiment. Ship the scheduler behind a feature flag, opt in 5-20 known users (TestFlight + internal Android APK), validate the schedule fires correctly + the anti-spam rules hold + the kill-switch works. NO production rollout. Goal at this tier is qualitative — does the reminder land at the right moment, does the copy feel calm, does the kill-switch reach users fast enough.
+   - **DAU ≥ 100** — Production R3 rollout is allowed (subject to gates 2-12). At this tier the scheduler has enough usage to produce statistically meaningful retention signal within 2 weeks.
+   - **DAU ≥ 500** — Optional: split into two-arm experiment (control vs reminder cohort) to attribute retention lift cleanly. Not required at lower tiers.
+
+   Rationale: 100 DAU is a hard production-data threshold (below it, retention experiments are anecdote-quality), but it should not block beta validation that materially de-risks the eventual rollout. The early-stage app needs to be able to test reminder UX with real users before crossing the threshold; locking it out until DAU ≥ 100 invents a chicken-and-egg problem.
+2. **Recent-viewed lever validated** — `guide_open { source: 'recent_viewed' }` ≥ 5% of total `guide_open`. If `recent_viewed` is dead, a notification-based re-entry surface is unlikely to land.
+3. **Search-driven retention signal exists** — `search_query` count ≥ 1 per DAU on a 7-day moving average. A user base that doesn't search isn't a user base that wants reminders.
+4. **No active retention regression** — Week-2 retention is at or above the launch-week baseline. If retention is falling, reminders will not save it; product-quality work must happen first.
+
+### Product gates
+
+5. **Reminder UX has been designed, not just specified** — the four UI surfaces in §7 (Settings toggle, AdminDetail "Nhắc tôi" button, ImportantDates inline, one-time onboarding sheet) each have a concrete mockup + copy locked. No mockup → no implementation.
+6. **Permission-flow decision is locked** — §9 Q1 (request permission on first opt-in vs on first app open) has a written answer with rationale. Default answer: first opt-in, prompt copy reviewed for App Store / Play Store compliance.
+7. **Tax-season exception decision is locked** — §9 Q2 has a written answer. Default: drop the "fire-for-all-users without per-kind opt-in" rule; keep tax-season opt-in by default. Surface it in the onboarding sheet so first-year residents see it.
+8. **Telemetry contract for `reminder_set` / `reminder_dismissed`** — analytics events are typed in `EventMap`, documented in `docs/analytics-events.md`, and a privacy-review row added to `docs/analytics-decision-map.md`. No telemetry → no way to measure whether reminders worked.
+
+### Implementation gates
+
+9. **expo-notifications integration smoke-tested** — already a dependency; verify a hello-world notification fires on real iOS + Android before scaling.
+10. **Quiet hours + monthly cap enforced by code, not by doc** — the §3 anti-spam rules currently live ONLY in this document. R3 must add helpers (`isQuietHour`, `wouldExceedMonthlyCap`) with unit tests that fail if the rules drift.
+11. **R3 PR is feature-flagged off by default** — the scheduler is registered but disabled in the default config; first opt-in flips a single AsyncStorage flag. Lets us ship R3 and observe before promoting it.
+12. **Rollback plan documented** — if reminders cause Apple App Review issues or user complaints, the kill-switch is a one-line config flip (no binary rollback).
+
+### Anti-gates (do NOT start R3 if any are true)
+
+- The team has fewer than 2 weeks of post-launch focus available (notification UX bugs compound; rushed = bad).
+- Apple App Review currently has any unresolved feedback on v1.5.x.
+- Aptabase dashboards are not yet configured (gate 1-4 cannot be checked without them).
+- Any monetization, paid-acquisition, or social-content work is in flight (notifications + paid acquisition + social = 3 levers fighting for the same retention budget).
+
+### Decision day
+
+Once data gates 1-4 and product gates 5-8 all pass — pencil in a single decision meeting. Output is either "open R3 PR" with a target ship date, or "defer 4 more weeks" with the specific gate that failed. There is no "soft-yes".
+
+---
+
 ## 9. Open questions for the implementation phase
 
 1. **Permission flow**: should we request notification permission on first opt-in, or on first app open? First opt-in is less intrusive but might catch permission denied at a worse moment.
