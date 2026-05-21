@@ -97,7 +97,9 @@ deserves UI emphasis; if `search` dominates, keep tuning ranking.
 | Event | Props | When fires |
 |---|---|---|
 | `emergency_cta_open` | `source` ∈ `home_quick_action` / `home_start_here` / `search_empty` / `search_no_results` / `home_section_link` | User reaches EmergencyHub via a discovery surface. The bottom-of-Home `tel:` phone-tap path is intentionally NOT tracked (different intent — call vs. browse) |
-| `home_start_here_pressed` | `shortcut_id` ∈ `newcomer` / `visa` / `tax` / `emergency` / `jobs` | User taps a chip in the new "Bắt đầu ở đâu?" Home row (Phase UX1). Forward-compat event; the row itself ships in PR #66 |
+| `home_start_here_pressed` | `shortcut_id` ∈ `newcomer` / `visa` / `tax` / `emergency` / `jobs` | User taps a chip in the "Bắt đầu ở đâu?" Home row. Wired in v1.5.1 — see [`product-state-v1.5.1-prep.md`](product-state-v1.5.1-prep.md) §analytics |
+| `home_search_pressed` | — | User taps the Home search CTA. Fires on tap intent, BEFORE any typing — pair with `search_query` to measure tap-without-type abandonment (v1.5.1) |
+| `home_quick_action_pressed` | `action_id` ∈ `newcomer` / `visa-renewal` / `moving` / `official-mail` / `tax-insurance` / `lost-document` / `emergency` | User taps a card in the "Tôi đang cần gì?" quick-actions grid. Distinct from `home_start_here_pressed` — different row, different intent (specific situation vs cold-start). v1.5.1 |
 
 ### Growth (Phase G1)
 

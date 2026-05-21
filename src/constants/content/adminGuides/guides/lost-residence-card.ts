@@ -25,6 +25,7 @@ const lostResidenceCard: AdminGuide = {
       'bao canh sat mat the',
       'bao trom the cu tru',
       'lost residence card japan',
+      'mat the ngoai kieu',
       'zairyuu card lost',
       'zairyuu card stolen',
       'zairyuu card damaged',

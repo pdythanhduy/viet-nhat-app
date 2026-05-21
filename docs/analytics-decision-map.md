@@ -161,6 +161,8 @@ If you can't answer step 1 in one sentence, the event is engagement bait. Don't 
 | `guide_unsave` | #64 (R1) | §1 Retention — save churn quality signal |
 | `emergency_cta_open` | this PR (A1) | §1 Emergency — surface attribution |
 | `home_start_here_pressed` | this PR (A1, forward-compat) | §1 Cold-start — shortcut effectiveness |
+| `home_search_pressed` | v1.5.1 | §1 Discovery — search-CTA intent vs typed query (tap-without-type abandonment) |
+| `home_quick_action_pressed` | v1.5.1 | §1 Cold-start — cannibalization vs `home_start_here_pressed` (the row already specified in §1 was unfired in v1.5.0) |
 
 Existing events whose `source` enum was extended:
 - `guide_open.source` += `recent_viewed` (R1, Phase 2B addition)

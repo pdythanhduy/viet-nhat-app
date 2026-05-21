@@ -46,6 +46,7 @@ import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
 import { HomeSavedGuides } from './home/HomeSavedGuides';
 import { HomeStartHere } from './home/HomeStartHere';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
+import { getBookmarkMeta } from './home/bookmarkMeta';
 import {
   buildChecklistProgressItems,
   buildCompletedChecklistItems,
@@ -69,6 +70,7 @@ import {
 import {
   logHomeQuickActionPressed,
   logHomeSearchPressed,
+  logHomeStartHerePressed,
   logEmergencyCtaOpened,
 } from '../utils/analytics';
 
@@ -243,15 +245,19 @@ export default function HomeScreen() {
   };
 
   // Phase UX1 — "Bắt đầu ở đâu?" shortcuts route to the most-asked
-  // entry points. Reuses existing nav targets so no new routes need to
-  // be added. Each shortcut emits the same `home_quick_action_pressed`
-  // (when wired) so analytics stays consistent.
+  // entry points. Reuses existing nav targets so no new routes need
+  // to be added. Each shortcut fires `home_start_here_pressed` so the
+  // cold-start surface earns its own attribution; the emergency case
+  // also fires `emergency_cta_open { source: 'home_start_here' }` so
+  // the emergency-reach metric stays surface-attributed.
   const handleStartHereShortcutPress = (id: 'newcomer' | 'visa' | 'tax' | 'emergency' | 'jobs') => {
+    void logHomeStartHerePressed(id);
     if (id === 'newcomer') {
       navigation.navigate('AdminDetail', { guideId: 'first-7-days-in-japan', source: 'direct' });
       return;
     }
     if (id === 'emergency') {
+      void logEmergencyCtaOpened('home_start_here');
       navigation.navigate('EmergencyHub');
       return;
     }
@@ -291,42 +297,6 @@ export default function HomeScreen() {
     }
 
     navigation.navigate('MainTabs', { screen: 'Japanese' });
-  };
-
-  const getBookmarkMeta = (bookmark: Bookmark) => {
-    if (bookmark.type === 'guide') {
-      return {
-        label: 'Thủ tục',
-        title: bookmark.title,
-        icon: 'document-text-outline' as keyof typeof Ionicons.glyphMap,
-        color: bookmark.color,
-      };
-    }
-
-    if (bookmark.type === 'daily-life') {
-      return {
-        label: 'Cuộc sống',
-        title: bookmark.title,
-        icon: 'sunny-outline' as keyof typeof Ionicons.glyphMap,
-        color: bookmark.color,
-      };
-    }
-
-    if (bookmark.type === 'dialogue') {
-      return {
-        label: 'Hội thoại',
-        title: bookmark.situation,
-        icon: 'chatbubbles-outline' as keyof typeof Ionicons.glyphMap,
-        color: Colors.primary,
-      };
-    }
-
-    return {
-      label: 'Tiếng Nhật',
-      title: bookmark.vn,
-      icon: 'language-outline' as keyof typeof Ionicons.glyphMap,
-      color: Colors.primary,
-    };
   };
 
   const priorityItems = [
