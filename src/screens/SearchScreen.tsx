@@ -341,7 +341,7 @@ export default function SearchScreen() {
                 <Ionicons name="file-tray-outline" size={48} color={Colors.textMuted} />
                 <Text style={styles.emptyTitle}>Chưa có kết quả phù hợp</Text>
                 <Text style={styles.emptyDesc}>
-                  Hãy thử từ khóa ngắn hơn, bỏ bớt chi tiết hoặc dùng từ gần nghĩa hơn.
+                  Hãy thử từ khóa ngắn hơn, bỏ dấu tiếng Việt, dùng romaji hoặc gõ trực tiếp tiếng Nhật.
                 </Text>
                 {/* Phase 2C: keyword chip hints in the dead-end state.
                     Reuses the same SEARCH_SUGGESTIONS catalog as the
