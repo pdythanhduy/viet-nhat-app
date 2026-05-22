@@ -7,6 +7,7 @@
 - [`product-state-v1.5.1-prep.md`](product-state-v1.5.1-prep.md) — v1.5.1 foundation snapshot
 - [`product-state-v1.5.0.md`](product-state-v1.5.0.md) — v1.5.0 launch snapshot
 **Companions**:
+- [`observation-season-freeze.md`](observation-season-freeze.md) — index card for the freeze rules in effect 2026-05-22 → 2026-06-12 (read first)
 - [`search-observability-phase-2c.md`](search-observability-phase-2c.md) — the analytics layer this sprint adds
 - [`retrieval-review-playbook.md`](retrieval-review-playbook.md) — the manual weekly process that consumes the events
 - [`reminder-system-design.md`](reminder-system-design.md) §8b (R3 gate still applies)
