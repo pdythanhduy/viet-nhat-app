@@ -149,12 +149,142 @@ These limits are deliberate. Solving any of them requires either user tracking o
 
 ## 9. Rollback plan
 
-Every event in Phase 2C is additive — disabling them leaves the rest of the analytics intact.
+Every event in Phase 2C is additive — disabling them leaves the rest of the analytics intact. This section is the **operational playbook** if something has to come out post-production. Updated 2026-05-22 as part of v1.5.4 retrieval reality check.
 
-- **Soft disable** — comment out the `track(...)` call in the corresponding helper. Event stops firing immediately, no schema change.
-- **Hard disable** — remove the event from `EventMap`. tsc fails at every call site, forcing the call site to be removed too. Use only for permanent removal.
+### 9.1 Disable order — least to most destructive
 
-Existing v1.5.0 events (`search_query`, `search_no_results`, `guide_open`) keep firing regardless. No dashboards built against them break.
+Always start at the top. Stop at the first level that solves the problem.
+
+1. **Stop the dashboard from showing it** (no code change)
+   - Hide the chart in Aptabase, or remove the chart from the weekly report template.
+   - Useful when the event itself is fine but the chart is misleading.
+   - Reversible immediately.
+
+2. **Soft disable the event** (one-line code change)
+   - Comment out the `track(...)` call inside the corresponding helper in `src/utils/analytics.ts`.
+   - Event stops firing immediately on next install. No schema change. No `EventMap` edit.
+   - Existing in-flight events already in Aptabase remain visible historically.
+   - Reversible by re-enabling the line. The TYPE-LEVEL contract stays — call sites continue to compile.
+
+3. **Soft disable the helper** (helper-level change)
+   - Wrap the helper body in an early `return` and add a comment with the reason + revert criteria.
+   - Equivalent effect to (2) but signals "this helper is parked" rather than "this line is hidden".
+   - Choose this when the helper takes more than 5 lines OR when several call sites use it.
+
+4. **Hard disable the event** (last resort — schema-level)
+   - Remove the event from `EventMap` (or from the helper's exported type).
+   - `tsc` fails at every call site → caller must be removed too.
+   - Dashboards that reference the event by name break (see §9.5).
+   - Use ONLY when the event must NEVER be emittable again (e.g. accidental PII surface).
+
+### 9.2 Disabling the searcher-signal heuristic safely
+
+The `home_layout_variant` event is driven by `src/utils/searcherSignal.ts`. To disable WITHOUT removing the surface (i.e., keep the layout machinery, just freeze it):
+
+1. **Lock variant to `cold_start`** — change `getHomeLayoutVariant` to return a constant:
+   ```ts
+   export function getHomeLayoutVariant(_count: number): 'cold_start' | 'searcher' {
+     return 'cold_start';
+   }
+   ```
+   - `home_layout_variant` continues to fire, always with value `cold_start`.
+   - Home renders the cold_start layout for everyone.
+   - Aptabase chart shows 100% cold_start — that IS the signal that the heuristic was frozen.
+   - Reversible: revert to the threshold check.
+
+2. **Lock variant to `searcher`** — same as above with `'searcher'` returned. Use only as an experiment toggle; default should be cold_start.
+
+3. **Full disable** — also bypass the `incrementSearcherSignal` call in SearchScreen by wrapping with a no-op guard. The counter stops growing; layout stays at whichever variant was locked.
+
+**Do NOT** delete the stored counter from AsyncStorage — installed devices keep their state for the future case where the heuristic comes back. Storage keys are forward-compatibility infrastructure, not garbage.
+
+**Do NOT** raise `SEARCHER_THRESHOLD` to `Number.MAX_SAFE_INTEGER` as an alternative to the constant-return approach. It works mechanically, but it's harder to find when re-enabling and it bypasses the unit tests that pin the threshold semantics.
+
+### 9.3 Removing an event safely (post-production)
+
+If an event MUST be removed (PII regression caught, event no longer makes sense, schema cleanup), follow this order. Skipping a step risks dashboard breakage AND missing-data interpretation errors.
+
+1. **Announce the removal** in a release note one cycle before code change. Reviewers need to know dashboards will drop.
+2. **Soft disable first** (§9.1 step 2) and ship that release. Confirm event count goes to zero in Aptabase within 7 days.
+3. **Remove the call sites** in a separate PR. tsc should still pass — the event remains in `EventMap` but no longer fires.
+4. **Remove the helper** from `analytics.ts`. tsc should still pass — no callers remain.
+5. **Remove the entry from `EventMap`**. Now hard. Any silent re-introduction will fail at type-check.
+6. **Document the removal** in `docs/analytics-events.md` (mark as REMOVED with date) — DO NOT delete the historical entry; future reviewers need the audit trail for old dashboards.
+7. **Update dashboards** per §9.5.
+
+Never compress steps 2-5 into one PR. The point of the gap is that downstream consumers (dashboards, the weekly report template, the playbook) get a chance to update before the schema disappears.
+
+### 9.4 Removing the `q` property (or any normalized field)
+
+The 24-char normalized `q` is the most privacy-sensitive field. If we ever need to STOP logging it:
+
+1. Change the helper to omit `q` from the payload but keep the event firing — count is still useful.
+2. Update `analytics-events.md` to show the new payload shape.
+3. Dashboards that grouped by `q` (Charts 1-3 in the Phase 2C dashboard checklist) become count-only after the change date. Document the break point so historical vs current data are not mixed in an average.
+
+Do NOT replace `q` with a different normalized form (e.g. 32-char). The 24-char contract is pinned by 22 unit tests in `analytics.test.ts`. Changing the length silently re-buckets historical aggregates.
+
+### 9.5 Which dashboards break when an event is removed
+
+Reference table — keep updated when removing an event.
+
+| Removed event | Aptabase chart(s) that lose data | Weekly report sections affected |
+| --- | --- | --- |
+| `search_query` | Top queries (Chart 1) + every rate denominator | §1 volume; §2; §10; §11 |
+| `search_zero_results` | Zero-result queries (Chart 2); fallback recovery rate | §1; §3; §7; §11 |
+| `search_abandoned` | Abandoned queries (Chart 3) | §1; §4; §11; §12 |
+| `search_result_opened` | Position distribution (Chart 4); Result-type distribution (Chart 5) | §1; §5; §6; §12 |
+| `fallback_guide_opened` | Fallback recovery (Chart 6); recovery rate calculation | §1; §7 |
+| `home_layout_variant` | Home layout split (Chart 7) | §1; §8 |
+| `guide_open` | Source distribution (Dashboard 4 in the v1.5.0 setup); §9 of the weekly report | §1; §9 |
+| `search_no_results` (legacy) | Legacy "failed queries" dashboard from v1.5.0 setup | none in v1.5.4 template (legacy only) |
+
+Before removing any event, update the corresponding template sections to either delete the field or mark it "removed since YYYY-MM-DD".
+
+### 9.6 Migration strategy — when a field absolutely must rename
+
+The default is **never rename after production**. This subsection exists only to document the exception process, not to encourage renames.
+
+Acceptable reasons to rename:
+- Privacy regression — a field name itself leaks intent (rare).
+- Type incompatibility — the field's type semantics changed (rarer).
+- Internal-tool requirement (Aptabase API enforces a name) — rare.
+
+NOT acceptable reasons:
+- Aesthetic preference.
+- "Better naming".
+- Consistency with a different doc.
+- A reviewer dislikes the name.
+
+When a rename is genuinely required:
+
+1. **Fire BOTH old and new under each call site** for one release. Type the helper to accept both via a generated wrapper.
+2. **Document the migration window** in `analytics-events.md` with explicit start/stop dates.
+3. **Update dashboards to the NEW name** during the dual-fire window.
+4. **Verify the new chart matches the old chart's count within 5%** for at least one full week.
+5. **Disable the old fire** in a subsequent release (soft-disable per §9.1 step 2).
+6. **Keep the OLD name in `EventMap`** for historical type-safety until the next major version cleanup. Don't delete the slot — that breaks the historical audit trail.
+
+### 9.7 Never rename after production — without migration
+
+The reason renames are so dangerous: Aptabase aggregates by event name + property name. A silent rename creates TWO separate buckets in the same dashboard, and a "drop to zero" on the old chart that looks identical to an outage. The reviewer who didn't write the rename PR cannot distinguish "event was renamed" from "event stopped firing" from chart alone.
+
+Hard rule:
+> **Never rename a production analytics event or property without the §9.6 migration window. No exceptions for "small" renames. Field renames are schema breaks — treat them like database migrations.**
+
+If a rename PR appears without §9.6 evidence, decline it.
+
+### 9.8 What pre-production rollback looks like (currently, no production data yet)
+
+Phase 2C events have been live for ~1-2 days at time of this update. There is NOT yet enough data to need any of the above procedures. The current rollback story is simpler:
+
+- Revert the v1.5.2 search-observability PR commits → events disappear → next OTA / next install reverts to v1.5.0/v1.5.1 instrumentation.
+- No data loss because no Aptabase aggregates depend on Phase 2C events yet.
+- No dashboard updates needed because dashboards have not yet been configured.
+
+This window closes the moment the first weekly retrieval report cites a Phase 2C chart. After that, the procedures in §9.1-§9.7 are the canonical path.
+
+Existing v1.5.0 events (`search_query`, `search_no_results`, `guide_open`) keep firing regardless of any Phase 2C rollback. No dashboards built against them break.
 
 ---
 

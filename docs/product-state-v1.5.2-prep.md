@@ -7,6 +7,7 @@
 - [`product-state-v1.5.1-prep.md`](product-state-v1.5.1-prep.md) — v1.5.1 foundation snapshot
 - [`product-state-v1.5.0.md`](product-state-v1.5.0.md) — v1.5.0 launch snapshot
 **Companions**:
+- [`observation-season-freeze.md`](observation-season-freeze.md) — index card for the freeze rules in effect 2026-05-22 → 2026-06-12 (read first)
 - [`search-observability-phase-2c.md`](search-observability-phase-2c.md) — the analytics layer this sprint adds
 - [`retrieval-review-playbook.md`](retrieval-review-playbook.md) — the manual weekly process that consumes the events
 - [`reminder-system-design.md`](reminder-system-design.md) §8b (R3 gate still applies)
@@ -300,3 +301,179 @@ Dashboard config = an operational dependency, not a code dependency.
 - [x] `npm run verify:content` clean
 - [x] No `lastVerified` bumped
 - [x] No tag, no build, no entitlement, no schema change
+
+---
+
+## 14. Observation Season Rules (added 2026-05-22 by v1.5.4 retrieval reality check)
+
+Branch: `chore/v1.5.4-retrieval-reality-check`
+Status: in PR review at time of this section's add.
+
+The period between Phase 2C ship (2026-05-21) and the second
+weekly retrieval report (2026-06-04) is an **Observation Season**.
+During the season, the operating posture changes — not the
+codebase, just the discipline applied to it.
+
+### 14.1 Why an "Observation Season"
+
+Phase 2C events are flowing but have produced no actionable
+signal yet. DAU is in the low-volume regime (Android not built;
+iOS-only v1.5.0). Acting from the dashboard in this window is
+acting from noise. The Observation Season is the explicit
+acknowledgement that "do nothing" is the right action for most
+weeks.
+
+### 14.2 The rules
+
+These rules govern any retrieval-related decision until at least
+**2026-06-12** (earliest v1.5.3 retro per §13). They can be
+relaxed only by an explicit decision in a future product-state
+doc — not by a PR description.
+
+1. **No constant tuning before its data threshold.**
+   - `SEARCH_ABANDON_WINDOW_MS`: held until ≥ 500
+     `search_abandoned` events across ≥ 14 days.
+   - `ANALYTICS_DEBOUNCE_MS`: held until ≥ 500 `search_query`
+     events across ≥ 14 days AND evidence of debounce misbehavior.
+   - `SEARCHER_THRESHOLD`: held until ≥ 14 days of
+     `home_layout_variant` data AND a 2-consecutive-report
+     out-of-band split.
+   - Gates documented at `src/screens/SearchScreen.tsx` L36-50
+     and `docs/no-data-action-policy.md` §4.
+
+2. **No feature PR from a weak signal.**
+   - Weak = single-week pattern, count < 5, DAU < 30, generic /
+     ambiguous query, or "vibes".
+   - Bands defined in `docs/no-data-action-policy.md` §2.
+   - Feature PR vocabulary is strictly limited per
+     `no-data-action-policy.md` §6 (bug / content / keyword pin /
+     ranking test / UX small fix).
+
+3. **No dashboard-driven panic.**
+   - A single metric out of band for ≤ 2 weeks is not a crisis.
+   - The reviewer's response to a surprising chart row is to file
+     it for next week's report (§17 carry-forward), not to
+     open a corrective PR the same day.
+   - Charts can lie (filter misconfiguration, sampling, app
+     version drift). `docs/dashboard-sanity-checks.md` §0 + §7
+     gate trust BEFORE action.
+
+4. **Retrieval review cadence is fixed.**
+   - First data review: 2026-05-29 (refill the existing
+     `docs/reports/retrieval-week-2026-05-22.md`).
+   - Second data review: 2026-06-04 (file
+     `docs/reports/retrieval-week-2026-05-29.md` from the
+     template).
+   - Third data review: 2026-06-11.
+   - Skipping a review = the corresponding report file gets a
+     "skipped, reason X" note, NOT silent omission. Cadence is
+     visible.
+   - Mid-week looking at the dashboard "to check in" is
+     discouraged. Wait for the scheduled review.
+
+5. **Default action = OBSERVE.**
+   - The expected outcome of weeks 1-3 of the Observation Season
+     is an empty `Action candidates` table in every report.
+   - Filing an empty `Action candidates` table is NOT a failure;
+     it is the season's most likely correct output.
+   - The cost of a wrong keyword PR exceeds the cost of waiting
+     one more week. Wait.
+
+6. **Lack of data is NOT negative data.**
+   - "Zero events in this chart row" does NOT mean "users don't
+     want this".
+   - "No reports flag this surface" does NOT mean "the surface
+     is working perfectly".
+   - "No keyword PR opened in 3 weeks" does NOT mean "the index
+     is bad" OR "the index is great" — it means "we are
+     observing".
+   - Treat absent signal as **unknown**, never as **negative**.
+
+7. **Audit independence from dashboard.**
+   - The search-quality audit
+     (`docs/search-quality-audit-checklist.md`) is run
+     independently of dashboard signal. It is the
+     counter-balance to dashboard-driven hypotheses.
+   - Audit findings that don't match dashboard data are MORE
+     informative than findings that match — they reveal blind
+     spots in the data layer.
+
+8. **One PR per finding.**
+   - Even if 3 findings cluster around the same guide, file 3
+     small PRs (or fold to one only when the changes are
+     materially identical).
+   - Three small PRs are easier to revert than one big PR. This
+     is more important during the Observation Season than after.
+
+### 14.3 What ends the Observation Season
+
+The season ends when ANY of the following holds:
+
+- **2026-06-12 has passed AND** ≥ 3 weekly reports are filed AND
+  at least one finding has been classified STRONG per
+  `no-data-action-policy.md` §2.2 AND that finding's PR has
+  merged AND been observed for a follow-up week.
+- The constant-tuning gates (§14.2.1) have all cleared their
+  data thresholds AND a tuning proposal has been written with
+  evidence.
+- A new product-state doc supersedes this one explicitly.
+
+Until then, even if a reviewer feels "we have enough data now",
+the season is in effect. The rules exist precisely to override
+that feeling.
+
+### 14.4 What the Observation Season does NOT prohibit
+
+- Bug fixes (crash, broken route, mis-firing event, typo in
+  shipped string, future `lastVerified`, reserved enum populated)
+  — always act now.
+- Content edits driven by source-verification or correction work
+  (governed separately by content governance, not by retrieval).
+- Documentation work like this PR — operating layer additions are
+  encouraged during the season.
+- Maintenance work (dependency updates, refactors that touch
+  no retrieval logic).
+- Audits — `docs/search-quality-audit-checklist.md` can run any
+  time, and SHOULD run at least monthly during the season.
+
+### 14.5 Quick reference
+
+```
+DURING OBSERVATION SEASON (now → 2026-06-12 min):
+  Default action: OBSERVE
+  Tuning constants: NO (gated to 14d / 500 events)
+  Feature PR from weak signal: NO
+  Same-day reaction to chart: NO (use carry-forward)
+  Cadence-driven review: YES (Mon dates above)
+  Bug fix: YES, always
+  Audit: YES, monthly minimum
+  Documentation: YES, encouraged
+  Treating zero-data as negative: NEVER
+```
+
+### 14.6 Merge criteria for the v1.5.4 PR
+
+- [x] Five new docs land:
+  - [x] `docs/retrieval-metric-failure-modes.md`
+  - [x] `docs/dashboard-sanity-checks.md`
+  - [x] `docs/search-quality-audit-checklist.md`
+  - [x] `docs/search-known-debts.md`
+  - [x] §14 added to this doc (you're reading it)
+- [x] `docs/search-observability-phase-2c.md` §9 expanded with
+      rollback / heuristic-disable / event-removal / rename-policy
+      sub-sections.
+- [x] Code audit completed:
+  - [x] `src/screens/SearchScreen.tsx` — one comment-only
+        clarification (constant tuning gates per
+        `no-data-action-policy.md` §4)
+  - [x] `src/utils/abandonTimer.ts` — no-op audit (no findings)
+  - [x] `src/utils/searcherSignal.ts` — no-op audit (no findings)
+- [x] Zero new analytics events.
+- [x] Zero new dependencies.
+- [x] Zero heuristic changes.
+- [x] Zero constant tunes.
+- [x] `npx tsc --noEmit` clean.
+- [x] `npm run test:ci` green.
+- [x] `npm run verify:content` clean.
+- [x] No `lastVerified` bumped.
+- [x] No tag, no build, no entitlement, no schema change.

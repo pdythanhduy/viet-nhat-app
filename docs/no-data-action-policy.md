@@ -16,7 +16,7 @@ Companions:
 - [`docs/retrieval-review-playbook.md`](retrieval-review-playbook.md) — the 5-question review
 - [`docs/templates/retrieval-weekly-report-template.md`](templates/retrieval-weekly-report-template.md) — the report form
 - [`docs/aptabase-phase2c-dashboard-checklist.md`](aptabase-phase2c-dashboard-checklist.md) — the dashboards
-- [`docs/product-state-v1.5.2-prep.md`](product-state-v1.5.2-prep.md) §7 — the constant-tuning gates
+- [`docs/product-state-v1.5.2-prep.md`](product-state-v1.5.2-prep.md) §13 / §14 — Observation Season Rules and v1.5.3 / v1.5.4 sprint scope
 
 ---
 
