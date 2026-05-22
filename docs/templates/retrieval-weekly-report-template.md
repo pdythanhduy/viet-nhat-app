@@ -326,7 +326,7 @@ considered and rejected, not missed.
 | | (one-week spike, not yet confirmed) |
 | | (Bucket D generic noise) |
 | | (Bucket C — ambiguous intent) |
-| | (constant tuning blocked by `product-state-v1.5.2-prep.md` §7 / `no-data-action-policy.md`) |
+| | (constant tuning blocked by `no-data-action-policy.md` §4) |
 
 ---
 
@@ -349,7 +349,7 @@ is not yet ready to be acted on** — at most it accumulates evidence.
 - [ ] Each STRONG action candidate appears in this week AND last week (or is a clear bug)
 - [ ] No proposed keyword pin would steal traffic from another query (single phrase, scoped to one guide)
 - [ ] No proposed UX change touches ranking, analytics, or the timer constants
-- [ ] No proposed action requires changing `ANALYTICS_DEBOUNCE_MS`, `SEARCH_ABANDON_WINDOW_MS`, or `SEARCHER_THRESHOLD` — those are gated to ≥ 14 days of data per `product-state-v1.5.2-prep.md` §7
+- [ ] No proposed action requires changing `ANALYTICS_DEBOUNCE_MS`, `SEARCH_ABANDON_WINDOW_MS`, or `SEARCHER_THRESHOLD` — those are gated to ≥ 14 days of data per `no-data-action-policy.md` §4
 - [ ] No proposed action lifts `lastVerified` without a real source check
 - [ ] No proposed action adds a new dependency
 - [ ] No proposed action requires backend, auth, push, AI, deep-link infra, or remote config
