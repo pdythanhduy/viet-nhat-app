@@ -37,8 +37,13 @@ import {
 // Phase 2C SearchScreen analytics constants — central, documented.
 // =============================================================
 //
-// Tuning gate: do NOT change either constant before we have AT LEAST
-// 500 `search_abandoned` events across ≥ 14 days of production data.
+// Tuning gate (per docs/no-data-action-policy.md §4):
+//   - SEARCH_ABANDON_WINDOW_MS — needs ≥ 500 `search_abandoned`
+//     events across ≥ 14 days of production data before tuning.
+//   - ANALYTICS_DEBOUNCE_MS    — needs ≥ 500 `search_query` events
+//     across ≥ 14 days AND evidence of debounce misbehavior.
+//   - ANALYTICS_MIN_QUERY_LEN  — NOT data-driven; mirrors the
+//     existing query length floor used elsewhere in the app.
 // Lower volume means the distribution is anecdote-quality. The
 // retrieval review playbook (docs/retrieval-review-playbook.md) is
 // the canonical place to record the data + propose the tuning.
