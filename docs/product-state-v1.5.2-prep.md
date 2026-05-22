@@ -227,3 +227,76 @@ This PR delivers the observability that v1.5.0 + v1.5.1 left as "we'll need this
 2. Run the retrieval playbook weekly for 4 weeks
 3. Ship one Bucket-A keyword PR per cycle if signal warrants
 4. Re-read this doc at week 4; decide v1.5.3 scope from accumulated signal, not from the backlog wishlist
+
+---
+
+## 13. v1.5.3 Signal-to-Action Layer (added 2026-05-22)
+
+Branch: `chore/v1.5.3-signal-to-action-layer`
+Status: in PR review at time of this section's add.
+
+v1.5.3 is **explicitly NOT a feature layer**. It is the operating
+layer that turns the Phase 2C events from §2 into a decision
+workflow that resists overreaction.
+
+### What this PR adds
+
+| Artifact | Purpose |
+| --- | --- |
+| [`docs/templates/retrieval-weekly-report-template.md`](templates/retrieval-weekly-report-template.md) | Blank weekly report form. Anti-overreaction checklist baked in. |
+| [`docs/reports/retrieval-week-2026-05-22.md`](reports/retrieval-week-2026-05-22.md) | First report of the cycle, status PENDING DATA. Data-review target 2026-05-29, decision-review target 2026-06-04. |
+| [`docs/aptabase-phase2c-dashboard-checklist.md`](aptabase-phase2c-dashboard-checklist.md) | 7-chart manual dashboard setup — each chart has purpose / setup / interpretation / false-positive warnings / action threshold / what NOT to do. |
+| [`docs/no-data-action-policy.md`](no-data-action-policy.md) | The "when to act, when to refuse" policy. Defaults to refuse. 2-week consecutive rule for keyword PRs. Constant-tuning gate held to ≥ 14 days. |
+| [`docs/repo-hygiene-after-phase2c.md`](repo-hygiene-after-phase2c.md) | Branch cleanup checklist. No branches deleted in this PR. |
+| SearchScreen zero-result emptyDesc microcopy | Adds explicit hints to try non-diacritic Vietnamese, romaji, and Japanese. One line. No layout / analytics / ranking change. |
+
+### What this PR refuses
+
+Same hard refusals as §1 still apply. Additionally:
+
+- ❌ No tuning of `ANALYTICS_DEBOUNCE_MS`, `SEARCH_ABANDON_WINDOW_MS`, or `SEARCHER_THRESHOLD` — gated to ≥ 14 days of data per `no-data-action-policy.md` §4.
+- ❌ No new dependency.
+- ❌ No new schema / event / enum value.
+- ❌ No `lastVerified` bump.
+- ❌ No SearchScreen redesign / ranking change / analytics-logic change / timer-heuristic change.
+- ❌ No actual branch deletion (the hygiene doc documents it; deletion is a separate action).
+- ❌ No app version bump / tag / EAS build / Android build / iOS build / entitlement change.
+
+### Required human workflow after merge
+
+1. **Configure the Aptabase 7-chart dashboard** per `aptabase-phase2c-dashboard-checklist.md`. Estimated ~30-45 min.
+2. **Wait until 2026-05-29** for the first data review. Refill `docs/reports/retrieval-week-2026-05-22.md` with whatever the dashboards show. If gates in that report's §2 don't hold, append a "still pending" note and carry forward.
+3. **Open `docs/reports/retrieval-week-2026-05-29.md`** from the template on 2026-05-29.
+4. **By 2026-06-04**: two consecutive weekly reports must exist. Any keyword PR requires the same query to be top-N in BOTH. Same date is also the existing R3 gate from `reminder-system-design.md` §8b — those decisions remain independent.
+5. **No retro before 2026-06-12.** Cycles complete, then we review.
+
+### First review dates
+
+| Date | Activity |
+| --- | --- |
+| **2026-05-29** | Data review #1 — refill `retrieval-week-2026-05-22.md` from real Aptabase numbers. |
+| **2026-06-04** | Data review #2 — file `retrieval-week-2026-05-29.md`. Earliest possible decision day for any STRONG-signal action. |
+| **2026-06-11** | Data review #3. |
+| **2026-06-12** | Earliest v1.5.3 retro / scope decision for any v1.5.4 work. |
+
+### Dashboard setup gate
+
+The weekly review cannot run without the Aptabase dashboards configured. Setup is **outside** this PR (manual ops work). Until the 7 charts exist:
+
+- Reports remain in PENDING DATA state.
+- No keyword PR may merge.
+- No constant tune may be proposed.
+
+Dashboard config = an operational dependency, not a code dependency.
+
+### Merge criteria for this PR
+
+- [x] Five new docs land (template, first report, dashboard checklist, no-data policy, hygiene)
+- [x] One copy-only SearchScreen tweak (zero-result emptyDesc)
+- [x] Section 13 added to this doc (you're reading it)
+- [x] Zero new dependencies
+- [x] `npx tsc --noEmit` clean
+- [x] `npm run test:ci` green
+- [x] `npm run verify:content` clean
+- [x] No `lastVerified` bumped
+- [x] No tag, no build, no entitlement, no schema change
