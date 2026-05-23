@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const kokuhoReduction: AdminGuide = {
     id: 'kokuho-reduction',
     category: 'health',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: 'Giảm phí bảo hiểm y tế quốc dân',
     titleJp: '国民健康保険料（税）の軽減・減額申請',
@@ -41,7 +41,7 @@ const kokuhoReduction: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: '国民健康保険 do 国民健康保険法 (Luật BHYT Quốc dân) quản lý cấp quốc gia, nhưng phí + cách giảm thực tế do 市町村 tính riêng. Giảm 均等割軽減 (tự động) theo ngưỡng quốc gia (7割/5割/2割 cho 令和8年度). 非自発的失業者の国保軽減 (giảm khi mất việc không tự nguyện) áp dụng toàn quốc theo mã 離職理由 trên 雇用保険受給資格者証. 減免 hoàn cảnh đặc biệt do từng 市 tự quy định.',
-      sourceVerifiedAt: '2026-05-02',
+      sourceVerifiedAt: '2026-05-23',
       nextReviewAt: '2026-12-31',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -111,7 +111,7 @@ const kokuhoReduction: AdminGuide = {
       },
       {
         question: 'Giảm đặc biệt do thất nghiệp áp dụng bao lâu?',
-        answer: 'Áp dụng từ ngày hôm sau ngày nghỉ việc đến hết năm tài khóa tiếp theo (最長で離職日の翌日から翌翌年度末). Ví dụ nghỉ tháng 8/2025 → giảm áp dụng đến 3/2027. Nhưng phải nộp trong vòng 1 năm kể từ ngày nghỉ.',
+        answer: 'Áp dụng từ ngày hôm sau ngày nghỉ việc đến hết năm tài khóa tiếp theo (離職日の翌日の属する年度の翌年度の末日まで, theo MHLW). Ví dụ nghỉ tháng 8/2025 (令和7年度) → giảm áp dụng đến 3/2027 (令和8年度末). Nhưng phải nộp trong vòng 1 năm kể từ ngày nghỉ.',
       },
       {
         question: 'Du học sinh có được giảm phí không?',

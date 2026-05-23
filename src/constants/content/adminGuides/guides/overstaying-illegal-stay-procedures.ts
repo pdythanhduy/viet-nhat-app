@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const overstayingIllegalStayProcedures: AdminGuide = {
     id: 'overstaying-illegal-stay-procedures',
     category: 'immigration',
-    lastVerified: '2026-05-04',
+    lastVerified: '2026-05-23',
     priority: 'normal',
     title: 'Overstay / Không hợp pháp — cách phát hiện và xử lý ngay',
     titleJp: 'オーバーステイ（不法滞在）への対応と救済手続き',
@@ -40,7 +40,7 @@ const overstayingIllegalStayProcedures: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '不法残留 (overstay) là vi phạm 入管法 §70 — tội hình sự, phạt tới 3 năm tù hoặc 300万円 (hoặc cả hai), kèm 退去強制 + 上陸拒否期間 (cấm tái nhập). 出国命令制度 (入管法 §24-3) áp dụng khi người vi phạm TỰ NGUYỆN ĐẾN báo cáo + thoả mãn các điều kiện cụ thể của 入管法 §24-3 (vd: không có tiền án nặng khác, hợp tác đầy đủ với Nyukan, có khả năng rời nước được) — Nyukan đánh giá từng trường hợp. 在留特別許可 (入管法 §50) là quyền của Bộ trưởng Tư pháp cấp đặc biệt — RẤT HIẾM được áp dụng, không phải "lựa chọn". KHÔNG có "loophole" trong luật. Mọi trường hợp 不法残留 cần tham vấn 弁護士 / 行政書士 CHUYÊN 入管 trước khi đến Nyukan để đảm bảo bảo vệ quyền tốt nhất có thể.',
-      sourceVerifiedAt: '2026-05-04',
+      sourceVerifiedAt: '2026-05-23',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
