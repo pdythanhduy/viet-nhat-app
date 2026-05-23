@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const specialFraudTokushuSagi: AdminGuide = {
     id: 'special-fraud-tokushu-sagi',
     category: 'daily-law',
-    lastVerified: '2026-04-28',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: 'Cảnh báo lừa đảo nhắm vào người nước ngoài',
     titleJp: '特殊詐欺・外国人を狙った詐欺への注意',
@@ -57,7 +57,7 @@ const specialFraudTokushuSagi: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: '特殊詐欺の被害に遭わないために — 警察庁', url: 'https://www.npa.go.jp/bureau/criminal/souni/tokushusagi/' },
+      { label: '特殊詐欺対策ページ SOS47 — 警察庁', url: 'https://www.npa.go.jp/bureau/safetylife/sos47/index.html' },
       { label: '消費者ホットライン188 — 消費者庁', url: 'https://www.caa.go.jp/policies/policy/consumer_policy/information/dial_110/' },
       { label: '外国人在留支援センター（FRESC）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/fresc/fresc01.html' },
     ],

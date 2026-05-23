@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const childcareParentalLeave: AdminGuide = {
     id: 'childcare-parental-leave',
     category: 'daily-law',
-    lastVerified: '2026-04-28',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: 'Nghỉ sinh và nghỉ nuôi con (育児休業)',
     titleJp: '育児休業・産後パパ育休・育児休業給付金',
@@ -47,7 +47,7 @@ const childcareParentalLeave: AdminGuide = {
     faq: [
       {
         question: '育児休業給付金 nhận được bao nhiêu?',
-        answer: '厚生労働省 công bố mức hiện hành: 67% lương trước khi nghỉ trong 180 ngày đầu, 50% từ ngày 181 trở đi. Khi cả cha lẫn mẹ cùng nghỉ trong giai đoạn nhất định, có thể áp dụng chính sách đặc biệt được nâng cao hơn. Kiểm tra bảng tính mới nhất trên trang ハローワーク.',
+        answer: '厚生労働省 công bố mức hiện hành: 67% lương trước khi nghỉ trong 180 ngày đầu, 50% từ ngày 181 trở đi. Từ 2025-04-01 có thêm 出生後休業支援給付金: nếu cả cha và mẹ cùng nghỉ ≥14 ngày trong vòng 8 tuần sau sinh (16 tuần nếu mẹ nghỉ sản), được cộng thêm 13% → tổng ≈ 80% lương gross (xấp xỉ 100% lương ròng take-home), áp dụng tối đa 28 ngày. Kiểm tra bảng tính mới nhất trên trang ハローワーク.',
       },
       {
         question: 'Hợp đồng thời hạn có được nghỉ không?',
@@ -63,9 +63,10 @@ const childcareParentalLeave: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: '育児休業給付について — ハローワーク', url: 'https://www.hellowork.mhlw.go.jp/insurance/insurance_continue.html' },
+      { label: '育児休業給付について — ハローワーク', url: 'https://www.hellowork.mhlw.go.jp/insurance/insurance_childcareleave.html' },
       { label: '育児・介護休業法のあらまし — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/000103504.html' },
-      { label: '産後パパ育休（出生時育児休業）— 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000130583_00002.html' },
+      { label: '産後パパ育休（出生時育児休業）— 厚生労働省', url: 'https://www.mhlw.go.jp/seisakunitsuite/bunya/koyou_roudou/koyoukintou/ryouritsu/ikuji/paternity/' },
+      { label: '育児休業等給付について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000135090_00001.html' },
     ],
     steps: [
       {

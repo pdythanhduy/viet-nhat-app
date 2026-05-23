@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const workplaceAccidentRousai: AdminGuide = {
     id: 'workplace-accident-rousai',
     category: 'health',
-    lastVerified: '2026-04-25',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: 'Tai nạn lao động (労災) — quyền lợi và thủ tục',
     titleJp: '労働災害・労災保険の申請手続き',

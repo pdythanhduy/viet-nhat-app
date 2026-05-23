@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first7DaysInJapan: AdminGuide = {
     id: 'first-7-days-in-japan',
     category: 'daily-law',
-    lastVerified: '2026-04-28',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: '7 ngày đầu mới sang Nhật',
     titleJp: '来日後7日間のやること',

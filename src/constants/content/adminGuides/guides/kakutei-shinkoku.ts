@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const kakuteiShinkoku: AdminGuide = {
     id: 'kakutei-shinkoku',
     category: 'money',
-    lastVerified: '2026-04-29',
+    lastVerified: '2026-05-23',
     priority: 'high',
     title: 'Tự khai thuế 確定申告',
     titleJp: '確定申告（自分で行う場合）',
@@ -42,7 +42,7 @@ const kakuteiShinkoku: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '確定申告 do 国税庁 (NTA) quản lý theo 所得税法. Mọi cư dân Nhật có thu nhập chịu thuế đều có thể/phải nộp. Hạn cố định 16/2–15/3 năm sau cho thu nhập năm trước, KHÔNG được lùi (trừ 災害 / lý do bất khả kháng). 還付申告 (chỉ xin hoàn) có thể nộp từ 01/01. Lãi phạt 延滞税 + 加算税 áp dụng nếu trễ.',
-      sourceVerifiedAt: '2026-04-29',
+      sourceVerifiedAt: '2026-05-23',
       nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
