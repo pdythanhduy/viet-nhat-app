@@ -1,0 +1,86 @@
+v1.5.1 — App Review Notes (paste-ready into App Store Connect)
+=================================================================
+
+Build: 27 (auto-incremented by EAS — verify on submission)
+App version: 1.5.1
+Bundle: com.thanhduy.camnangvietnhat
+ASC App ID: 6762459919
+Predecessor: v1.5.0 build 26 (APPROVED 2026-05-19)
+
+-----------------------------------------------------------------
+PASTE THIS BLOCK INTO ASC → Version → App Review Information → Notes
+-----------------------------------------------------------------
+
+v1.5.1 is a foundation maintenance release on top of v1.5.0 (approved build 26).
+
+Changes from v1.5.0:
+- Analytics wiring fixes (4 events that were no-op in v1.5.0 now fire correctly):
+  home_search_pressed, home_quick_action_pressed, home_start_here_pressed,
+  emergency_cta_open (with source: 'home_start_here')
+- Search regression-pin tests added (8 new pinned queries) — no UI change
+- Content re-verification: 7 admin guides had their official-source URLs
+  re-checked against the latest Japanese government sites (mhlw.go.jp,
+  moj.go.jp, nta.go.jp, npa.go.jp). One stale URL was replaced; one new
+  2025-04-01 government benefit (出生後休業支援給付金) was added to
+  the childcare leave guide's FAQ
+- Internal documentation and design specs (R3 reminder gate, growth
+  roadmap, v1.5.1 release checklist)
+
+What is the same:
+- No new user-visible features added
+- No new permissions requested
+- No new dependencies
+- Bundle identifier unchanged: com.thanhduy.camnangvietnhat
+- Same login flow as v1.5.0 (no login required — app is fully offline-capable)
+- Same demo account: not applicable (no auth)
+
+Privacy:
+- No new data collected
+- The aggregate search keywords sent to Aptabase remain 24-char normalized
+  with no diacritics, no raw queries, no PII
+- Privacy contract pinned by 22-test unit suite (normalizeQueryForAnalytics)
+
+Hidden features (unchanged from v1.5.0, still unreachable from UI):
+- AI Mail Translate
+- My Japan Plan (#35)
+- JLPT module
+- All debug screens
+
+Bundled metadata changes (Path B submission):
+- Subtitle updated: "Visa, thủ tục, đời sống"
+- Vietnamese keyword field updated (no-diacritic, 98 chars)
+- English keyword field updated (96 chars)
+- Japanese keyword field added for the first time (94 chars)
+- 6 new screenshots reflecting the v1.5.0 UX (search, fallback, related
+  guides, Home featured row, Daily Ritual, trust signals)
+- Description and promotional text refreshed to reflect v1.5.0 improvements
+
+The metadata changes are described in detail in our internal record
+docs/reports/aso-submission-2026-05-23.md (not visible to App Review,
+mentioned here for traceability). Every benefit claim maps directly to
+a feature shipped in v1.5.0 build 26.
+
+Contact for App Review questions: pdythanhduy@gmail.com
+
+-----------------------------------------------------------------
+DEMO ACCOUNT
+-----------------------------------------------------------------
+
+Demo account: NOT APPLICABLE — the app does not require login.
+All features are accessible immediately upon launch.
+
+-----------------------------------------------------------------
+TESTING NOTES FOR APP REVIEWER
+-----------------------------------------------------------------
+
+Quick smoke path (no account needed):
+1. Launch app → Home screen renders within 4 seconds
+2. Tap any guide card → opens AdminDetail with steps + related guides
+3. Tap the Search tab → type "visa" or "zairyu" → top result appears
+   immediately (no network roundtrip — search index is local)
+4. Tap "Cần hỗ trợ gấp?" → opens Emergency Hub with hotline numbers
+5. App works fully in airplane mode (test by toggling airplane mode after launch)
+
+The app is Vietnamese-first but every screen has bilingual labels for
+key terms (Japanese + Vietnamese). No knowledge of Japanese is required
+for the App Review smoke test.
