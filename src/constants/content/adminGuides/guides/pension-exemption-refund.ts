@@ -126,6 +126,10 @@ const pensionExemptionRefund: AdminGuide = {
         answer: 'Có thể có. 日本年金機構 cập nhật 31/03/2026 rằng từ 令和6年10月, người làm ngắn giờ ở doanh nghiệp từ 51 người trở lên có thể phải tham gia nếu đồng thời đáp ứng các điều kiện như tuần 20 giờ trở lên, lương tháng từ 8.8万円 trở lên, dự kiến làm trên 2 tháng và không phải sinh viên.',
       },
       {
+        question: 'Nghe nói "bức tường 106万" sắp bị bỏ — sẽ thay đổi thế nào?',
+        answer: 'Đúng, theo 年金制度改正法 (ban hành 2025) hệ thống đang mở rộng dần 厚生年金/社会保険 cho người làm ngắn giờ:\n\n• **Bỏ điều kiện lương 8.8万円/tháng (~"bức tường 106万")** — dự kiến khoảng 10/2026: khi đó chỉ cần làm **từ 20 giờ/tuần** là vào 厚生年金 bất kể mức lương.\n• **Bỏ dần điều kiện quy mô doanh nghiệp** (hiện ≥51 người): theo lộ trình ≥36 người (10/2027) → ≥21 (10/2029) → ≥11 (10/2032) → bỏ hoàn toàn (10/2035).\n\nÝ nghĩa: nhiều người Việt làm part-time / バイト sẽ được vào 厚生年金 (công ty đóng một nửa, lương hưu sau này cao hơn) nhưng lương thực nhận hàng tháng có thể giảm do bị trừ phí. Lưu ý: **bức tường 130万** (扶養 của vợ/chồng) KHÔNG nằm trong cải cách này — vẫn giữ. Mốc tháng cụ thể chốt theo 政令 — xác nhận với 年金事務所 / HR công ty.',
+      },
+      {
         question: 'Không đủ tiền đóng thì để đó có sao không?',
         answer: 'Không nên. 日本年金機構 có các chế độ 免除, 納付猶予, 学生納付特例 và 産前産後免除. Nếu bạn đủ điều kiện mà không xin, việc để 未納 có thể làm mất bảo vệ về 障害年金 hoặc 遺族年金 và làm xấu lịch sử đóng về sau.',
       },
