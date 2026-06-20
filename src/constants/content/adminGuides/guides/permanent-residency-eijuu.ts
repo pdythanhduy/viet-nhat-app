@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const permanentResidencyEijuu: AdminGuide = {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-06-20',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
@@ -35,6 +35,9 @@ const permanentResidencyEijuu: AdminGuide = {
       'HSP',
       '日本人の配偶者',
       'continuous residence 10 years',
+      '永住取消',
+      '永住許可の取消し',
+      'thu hồi vĩnh trú',
     ],
     legalScope: {
       jurisdiction: 'national',
@@ -94,6 +97,7 @@ const permanentResidencyEijuu: AdminGuide = {
       'Có kỳ thuế, 年金 hoặc bảo hiểm nộp trễ nhưng không kiểm tra trước khi nộp.',
       'Nộp giấy chứng nhận Nhật đã quá 3 tháng hoặc giấy nước ngoài không kèm bản dịch tiếng Nhật.',
       'Tưởng đủ số năm cư trú là chắc chắn được cấp; 永住 vẫn là hồ sơ xét tổng thể.',
+      'Tưởng có 永住 rồi là "an toàn vĩnh viễn" — từ 14/06/2026 cố ý không nộp thuế/bảo hiểm/年金 hoặc phạm tội nghiêm trọng có thể bị thu hồi tư cách 永住者 (永住許可の取消し).',
     ],
     faq: [
       {
@@ -107,6 +111,10 @@ const permanentResidencyEijuu: AdminGuide = {
       {
         question: 'Có nên nộp khi hồ sơ thuế hoặc bảo hiểm chưa sạch không?',
         answer: 'Không nên. Với 永住, lịch sử nộp thuế, lương hưu và bảo hiểm là phần bị kiểm tra rất kỹ. Nên rà trước tại municipal office, 税務署 và 年金事務所.',
+      },
+      {
+        question: '⚠️ MỚI 2026: Có 永住 rồi vẫn có thể bị THU HỒI không?',
+        answer: 'Có, theo luật mới. Sửa đổi 入管法 2024 bổ sung quy định 永住許可の取消し (thu hồi vĩnh trú), có hiệu lực từ **14/06/2026**. ISA có thể xem xét thu hồi tư cách 永住者 trong các trường hợp như: **CỐ Ý (故意) không nộp thuế / 住民税 / 国民健康保険 / 年金 dù có khả năng nộp**; hoặc phạm một số tội cố ý nghiêm trọng (vd trộm cắp, lừa đảo). Điểm quan trọng: nhắm vào hành vi **cố tình** — trường hợp thực sự mất khả năng do bệnh tật, thất nghiệp được loại trừ. Trong một số trường hợp ISA có thể chuyển sang tư cách lưu trú khác thay vì trục xuất. Kết luận thực tế: sau khi có 永住 vẫn phải tiếp tục nộp đầy đủ thuế + bảo hiểm + lương hưu đúng hạn. Nếu gặp khó khăn tài chính → xin 免除 / phân kỳ tại cơ quan liên quan, KHÔNG bỏ ngơ. Tình huống cụ thể: hỏi 行政書士 / luật sư chuyên 入管.',
       },
     ],
     counterPhrases: [
@@ -146,7 +154,7 @@ const permanentResidencyEijuu: AdminGuide = {
         term: '永住者',
         reading: 'えいじゅうしゃ',
         meaningVi: 'người vĩnh trú',
-        noteVi: 'KHÁC với 帰化 (kika = nhập quốc tịch). 永住者 vẫn giữ quốc tịch Việt Nam + hộ chiếu VN; chỉ có quyền ở Nhật vô thời hạn + làm bất kỳ công việc nào. Phải đổi 在留カード vật lý mỗi 7 năm (cho người lớn) hoặc 16 tuổi (trẻ em).',
+        noteVi: 'KHÁC với 帰化 (kika = nhập quốc tịch). 永住者 vẫn giữ quốc tịch Việt Nam + hộ chiếu VN; chỉ có quyền ở Nhật vô thời hạn + làm bất kỳ công việc nào. Phải đổi 在留カード vật lý mỗi 7 năm (cho người lớn) hoặc 16 tuổi (trẻ em). ⚠️ Không phải "an toàn vĩnh viễn": từ 14/06/2026 (sửa 入管法) cố ý không nộp thuế/bảo hiểm/年金 hoặc phạm tội nghiêm trọng có thể bị thu hồi 永住 — xem mục 永住許可の取消し.',
       },
       {
         term: '永住許可申請',
@@ -172,10 +180,17 @@ const permanentResidencyEijuu: AdminGuide = {
         meaningVi: 'năng lực tài chính độc lập',
         noteVi: 'Tiêu chí thu nhập. Tham khảo: ~3 triệu yên/năm (cho 1 người độc thân; tăng theo số người phụ thuộc — vợ +50 vạn, mỗi con +30 vạn). Từ 06/2026 ISA dùng My Number kiểm tra thực tế lịch sử thuế / 年金 / bảo hiểm, không chỉ dựa giấy tờ.',
       },
+      {
+        term: '永住許可の取消し',
+        reading: 'えいじゅうきょかのとりけし',
+        meaningVi: 'thu hồi tư cách vĩnh trú (quy định mới, hiệu lực 14/06/2026)',
+        noteVi: 'Sửa đổi 入管法 2024. Từ 14/06/2026 ISA có thể thu hồi 永住者 nếu: CỐ Ý không nộp thuế / 国民健康保険 / 年金 dù có khả năng nộp; hoặc phạm một số tội cố ý nghiêm trọng. Loại trừ trường hợp thực sự mất khả năng do bệnh / thất nghiệp. → Sau khi có 永住 vẫn phải nộp đầy đủ nghĩa vụ công đúng hạn; khó khăn thì xin 免除/分割, không bỏ ngơ. Nguồn: ISA moj.go.jp/isa/05_00045.html.',
+      },
     ],
     officialLinks: [
       { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
       { label: '永住許可に関するガイドライン — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html' },
+      { label: '入管法改正（永住許可制度の適正化）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/05_00045.html' },
     ],
     steps: [
       {

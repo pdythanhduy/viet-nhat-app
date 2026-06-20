@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const taxYearEndAdjustmentFiling: AdminGuide = {
     id: 'tax-year-end-adjustment-filing',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-06-20',
     priority: 'high',
     title: 'Thuế, 年末調整, 確定申告 và 扶養',
     titleJp: '税金・年末調整・確定申告・扶養の基本',
@@ -130,7 +130,7 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
       },
       {
         question: 'Mùa khai năm 2026 có gì mới đáng chú ý?',
-        answer: 'Có. NTA đã công bố các thay đổi áp dụng cho thu nhập năm 2025: sửa đổi 基礎控除, 見直し給与所得控除, thay đổi điều kiện所得 của扶養親族 và tạo mới 特定親族特別控除. Những thay đổi này ảnh hưởng trực tiếp đến 年末調整 từ cuối năm 2025 và 確定申告 mùa 2026.',
+        answer: 'Có. NTA đã công bố các thay đổi (令和7年度税制改正) áp dụng cho thu nhập năm 2025: nâng 基礎控除 (48万→58万) + 給与所得控除 tối thiểu (55万→65万) → sàn miễn thuế 所得税 vĩnh viễn lên 123万円 (給与収入); ngưỡng 合計所得 của 扶養親族・配偶者 nâng 48万→58万; và tạo mới 特定親族特別控除 cho thân nhân 19-22 tuổi. Lưu ý: mốc 160万 chỉ áp dụng band thu nhập thấp nhất (gồm phần cộng thêm tạm thời), không phải ngưỡng chung; và 住民税 KHÔNG được giảm theo (基礎控除 của 住民税 vẫn 43万). Những thay đổi này ảnh hưởng trực tiếp đến 年末調整 từ cuối năm 2025 và 確定申告 mùa 2026.',
       },
       {
         question: 'Ngưỡng 20万円 thu nhập phụ nghĩa là khỏi khai hết mọi thứ đúng không?',
@@ -180,7 +180,7 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
         term: '扶養',
         reading: 'ふよう',
         meaningVi: 'người được bạn nuôi/chu cấp (giảm thuế)',
-        noteVi: 'KHÔNG đơn giản là "có gửi tiền về". Để khai 扶養 phải: thân nhân thực sự (chứng minh bằng giấy quan hệ), thu nhập của họ < 48万円/năm (cho thân nhân ở Nhật), và bạn thật sự chu cấp (chứng minh bằng 送金関係書類). Khai sai → bị truy thu + 加算税.',
+        noteVi: 'KHÔNG đơn giản là "có gửi tiền về". Để khai 扶養 phải: thân nhân thực sự (chứng minh bằng giấy quan hệ), thu nhập của họ thấp dưới ngưỡng 合計所得 (cho thân nhân ở Nhật), và bạn thật sự chu cấp (chứng minh bằng 送金関係書類). ⚠️ Từ thu nhập 2025 (令和7年分) ngưỡng 合計所得 của 扶養親族 đã nâng từ 48万円 lên 58万円 (給与収入 từ 103万 lên 123万) — số cũ 48万 đã lỗi thời. Khai sai → bị truy thu + 加算税.',
       },
       {
         term: '扶養控除等申告書',
@@ -192,13 +192,13 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
         term: '配偶者控除',
         reading: 'はいぐうしゃこうじょ',
         meaningVi: 'khoản trừ thuế cho vợ/chồng',
-        noteVi: 'Áp dụng khi thu nhập vợ/chồng < 48万円/năm + cùng nhà với bạn. Khoản trừ 38万円 (chuẩn) hoặc cao hơn nếu vợ/chồng cao tuổi. Khác 配偶者特別控除 (cho vợ/chồng thu nhập 48-201万円, trừ ít hơn). Lương người Nhật tăng + ngưỡng có thể thay đổi — hãy kiểm tra với 給与担当 hoặc 税務署.',
+        noteVi: 'Áp dụng khi 合計所得 của vợ/chồng ≤ 58万円/năm (令和7年分 trở đi; trước 2025 là 48万) + cùng nhà với bạn. Khoản trừ 38万円 (chuẩn) hoặc cao hơn nếu vợ/chồng cao tuổi. Khác 配偶者特別控除 (cho vợ/chồng 合計所得 trên 58万 đến 133万円, trừ ít hơn). Ngưỡng có thể thay đổi tiếp — hãy kiểm tra với 給与担当 hoặc 税務署.',
       },
       {
         term: '基礎控除',
         reading: 'きそこうじょ',
         meaningVi: 'khoản trừ cơ bản (ai cũng được)',
-        noteVi: 'Khoản trừ thuế áp dụng tự động cho mọi người nộp thuế ở Nhật. Trước 2025: 48万円. Từ thu nhập năm 2025 (khai 2026): sửa lại — tối đa 95万円 ở nhóm thu nhập thấp, giảm dần lên cao. Bạn không cần xin riêng — công ty tự áp khi 年末調整.',
+        noteVi: 'Khoản trừ thuế áp dụng tự động cho mọi người nộp thuế ở Nhật. Trước 2025: 48万円. Từ thu nhập năm 2025 (khai 2026): sửa lại — 基礎控除 cơ bản nâng 48万→58万, cộng 給与所得控除 tối thiểu (55万→65万) tạo sàn miễn thuế vĩnh viễn 123万円 (給与収入). Nhóm thu nhập thấp nhất còn được cộng thêm tạm thời lên tới 95万 (thành mốc hay nghe là 160万) nhưng phần cộng thêm này GIẢM DẦN theo band và sẽ hết hạn — chỉ 123万 là sàn cố định. ⚠️ Đây là thuế thu nhập (所得税); 住民税 có 基礎控除 RIÊNG vẫn giữ 43万 nên đừng tưởng được giảm 住民税 theo. Bạn không cần xin riêng — công ty tự áp khi 年末調整.',
       },
       {
         term: '国外居住親族',
