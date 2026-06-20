@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nisaInvestment: AdminGuide = {
     id: 'nisa-investment',
     category: 'money',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-06-20',
     priority: 'normal',
     title: 'Đầu tư NISA miễn thuế tại Nhật',
     titleJp: '新NISA（少額投資非課税制度）',
@@ -36,6 +36,8 @@ const nisaInvestment: AdminGuide = {
       'người nước ngoài đầu tư Nhật',
       'NISA về nước',
       'NISA rời Nhật',
+      'こどもNISA',
+      'NISA trẻ em',
     ],
     legalScope: {
       jurisdiction: 'national',
@@ -127,6 +129,10 @@ const nisaInvestment: AdminGuide = {
         question: 'Nên chọn つみたて投資枠 hay 成長投資枠?',
         answer: 'Người mới bắt đầu nên ưu tiên つみたて投資枠: đầu tư tự động hàng tháng vào quỹ index đã được 金融庁 phê duyệt, phí thấp, không cần theo dõi liên tục. 成長投資枠 phù hợp hơn khi đã có kinh nghiệm và muốn mua ETF hoặc cổ phiếu đơn lẻ.',
       },
+      {
+        question: 'Nghe nói sắp có NISA cho trẻ em (こどもNISA) — đúng không?',
+        answer: 'Đúng, nhưng CHƯA vận hành. 令和8年度税制改正大綱 (quyết ngày 26/12/2025) đã chốt tạo こどもNISA, **dự kiến bắt đầu từ 01/2027**. Dự kiến: dành cho trẻ **0–17 tuổi**, hạn mức **60万円/năm**, hạn mức giữ miễn thuế **600万円**, tự động chuyển sang NISA người lớn khi đủ 18 tuổi. Đây thay cho ジュニアNISA cũ (đã chấm dứt 2023). Vì chưa mở, ĐỪNG nghe môi giới "đăng ký sớm" — chờ 金融庁 / công ty chứng khoán công bố chính thức gần ngày vận hành.',
+      },
     ],
     counterPhrases: [
       {
@@ -166,6 +172,12 @@ const nisaInvestment: AdminGuide = {
         reading: 'しんニーサ',
         meaningVi: 'NISA mới (chế độ đầu tư miễn thuế từ 01/2024)',
         noteVi: 'Khác với NISA cũ (一般 / つみたて / ジュニア — đã chấm dứt từ 2023). 新NISA miễn thuế VÔ THỜI HẠN (cũ là 5 hoặc 20 năm), hạn mức trọn đời 1,800万円. Hợp nhất 2 ngăn: つみたて + 成長. Người mới sang Nhật chỉ cần biết 新NISA — không cần nghiên cứu chế độ cũ.',
+      },
+      {
+        term: 'こどもNISA',
+        reading: 'こどもニーサ',
+        meaningVi: 'NISA cho trẻ em (dự kiến từ 01/2027)',
+        noteVi: 'Chế độ mới đã chốt trong 令和8年度税制改正大綱 (26/12/2025), dự kiến vận hành 01/2027. Dự kiến: trẻ 0–17 tuổi, 60万円/năm, giữ miễn thuế tối đa 600万円, tự chuyển sang NISA người lớn khi 18 tuổi. Thay cho ジュニアNISA cũ (kết thúc 2023). CHƯA mở — chi tiết cuối cùng theo 金融庁 khi gần ngày vận hành.',
       },
       {
         term: 'つみたて投資枠',

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pensionExemptionRefund: AdminGuide = {
     id: 'pension-exemption-refund',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-06-20',
     priority: 'high',
     title: '年金, miễn giảm và hoàn nenkin khi về nước',
     titleJp: '年金・免除・脱退一時金の基本',
@@ -126,12 +126,16 @@ const pensionExemptionRefund: AdminGuide = {
         answer: 'Có thể có. 日本年金機構 cập nhật 31/03/2026 rằng từ 令和6年10月, người làm ngắn giờ ở doanh nghiệp từ 51 người trở lên có thể phải tham gia nếu đồng thời đáp ứng các điều kiện như tuần 20 giờ trở lên, lương tháng từ 8.8万円 trở lên, dự kiến làm trên 2 tháng và không phải sinh viên.',
       },
       {
+        question: 'Nghe nói "bức tường 106万" sắp bị bỏ — sẽ thay đổi thế nào?',
+        answer: 'Đúng, theo 年金制度改正法 (ban hành 2025) hệ thống đang mở rộng dần 厚生年金/社会保険 cho người làm ngắn giờ:\n\n• **Bỏ điều kiện lương 8.8万円/tháng (~"bức tường 106万")** — dự kiến khoảng 10/2026: khi đó chỉ cần làm **từ 20 giờ/tuần** là vào 厚生年金 bất kể mức lương.\n• **Bỏ dần điều kiện quy mô doanh nghiệp** (hiện ≥51 người): theo lộ trình ≥36 người (10/2027) → ≥21 (10/2029) → ≥11 (10/2032) → bỏ hoàn toàn (10/2035).\n\nÝ nghĩa: nhiều người Việt làm part-time / バイト sẽ được vào 厚生年金 (công ty đóng một nửa, lương hưu sau này cao hơn) nhưng lương thực nhận hàng tháng có thể giảm do bị trừ phí. Lưu ý: **bức tường 130万** (扶養 của vợ/chồng) KHÔNG nằm trong cải cách này — vẫn giữ. Mốc tháng cụ thể chốt theo 政令 — xác nhận với 年金事務所 / HR công ty.',
+      },
+      {
         question: 'Không đủ tiền đóng thì để đó có sao không?',
         answer: 'Không nên. 日本年金機構 có các chế độ 免除, 納付猶予, 学生納付特例 và 産前産後免除. Nếu bạn đủ điều kiện mà không xin, việc để 未納 có thể làm mất bảo vệ về 障害年金 hoặc 遺族年金 và làm xấu lịch sử đóng về sau.',
       },
       {
         question: 'Về nước rồi tôi có lấy lại hết tiền nenkin đã đóng không?',
-        answer: 'Không. 脱退一時金 không phải là "trả lại toàn bộ số tiền đã đóng". Đây là khoản tiền 1 lần theo công thức và trần của hệ thống. 日本年金機構 cũng nhấn mạnh nếu bạn nhận 脱退一時金 thì lịch sử đóng tương ứng bị xóa, nên phải cân nhắc trước khi xin.',
+        answer: 'Không. 脱退一時金 không phải là "trả lại toàn bộ số tiền đã đóng". Đây là khoản tiền 1 lần theo công thức và trần của hệ thống. Trần này đã được nâng từ 5 năm (60 tháng) lên 8 năm (96 tháng) đóng từ 01/04/2026 (年金制度改正法), nên người đóng trên 5 năm nay nhận được nhiều hơn trước. 日本年金機構 cũng nhấn mạnh nếu bạn nhận 脱退一時金 thì lịch sử đóng tương ứng bị xóa, nên phải cân nhắc trước khi xin.',
       },
       {
         question: 'Thời hạn xin 脱退一時金 là bao lâu?',
@@ -193,7 +197,7 @@ const pensionExemptionRefund: AdminGuide = {
         term: '脱退一時金',
         reading: 'だったいいちじきん',
         meaningVi: 'tiền có thể nhận một phần khi rời Nhật (KHÔNG phải hoàn toàn bộ)',
-        noteVi: 'Áp dụng nếu: đã đóng ≥ 6 tháng + mất 住民票 (rời Nhật) + không có 受給権 (chưa đủ điều kiện hưởng lương hưu — < 10 năm). Hoàn TỐI ĐA 5 năm (60 tháng) cho 国民年金 + 厚生年金. Phải xin trong 2 năm sau khi rời Nhật. 厚生年金 bị trừ ~20.42% thuế khi nhận — xin hoàn qua 確定申告 với 納税管理人.',
+        noteVi: 'Áp dụng nếu: đã đóng ≥ 6 tháng + mất 住民票 (rời Nhật) + không có 受給権 (chưa đủ điều kiện hưởng lương hưu — < 10 năm). ⚠️ Trần tính tiền đã NÂNG từ 5 năm (60 tháng) lên 8 năm (96 tháng) theo 年金制度改正法, hiệu lực từ 01/04/2026 → người đóng trên 5 năm nay được hoàn nhiều hơn. Phải xin trong 2 năm sau khi rời Nhật. Lưu ý: nếu giữ 再入国許可 và còn ý định quay lại thì chưa xin được. 厚生年金 bị trừ ~20.42% thuế khi nhận — xin hoàn qua 確定申告 với 納税管理人.',
       },
       {
         term: '免除',

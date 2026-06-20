@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const idecoPersonalPension: AdminGuide = {
   id: 'ideco-personal-pension',
   category: 'money',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-06-20',
   priority: 'normal',
   title: 'iDeCo (lương hưu cá nhân) — lợi ích thuế',
   titleJp: 'iDeCo（個人型確定拠出年金）の活用',
@@ -52,7 +52,7 @@ const idecoPersonalPension: AdminGuide = {
       'Mở tài khoản qua 金融機関 (công ty chứng khoán hoặc ngân hàng) — không qua 市役所. Phổ biến: SBI証券, 楽天証券, マネックス証券, 松井証券, みずほ銀行, ゆうちょ銀行, etc. Mỗi nơi phí + lựa chọn quỹ khác nhau.',
     doNow: [
       'Kiểm tra mình có đủ điều kiện: có 公的年金 đăng ký (国民年金 hoặc 厚生年金) + dưới 65 tuổi (theo cải cách 2022). Người ở visa lao động + đóng 厚生年金 → đủ điều kiện.',
-      'Tính 限度額 đóng/tháng theo công việc: 自営業 ~6.8万円, 会社員 (không 企業年金) ~2.3万円, 会社員 (có 企業年金) ~1.2–2万円, 公務員 ~2万円, 専業主婦 ~2.3万円. Mức cụ thể đang đổi 2024–2026 — kiểm tra trang chính thức.',
+      'Tính 限度額 đóng/tháng theo công việc (hiện hành): 自営業 ~6.8万円, 会社員 (không 企業年金) ~2.3万円, 会社員 (có 企業年金) ~1.2–2万円, 公務員 ~2万円, 専業主婦 ~2.3万円. ⚠️ Sắp nâng từ kỳ đóng 12/2026 (áp dụng 01/2027): 自営業 → 7.5万円, 第2号 gộp 企業年金 → trần 6.2万円 — kiểm tra số cuối tại trang chính thức trước khi đặt mức.',
       'Chọn 金融機関: so sánh phí 口座管理手数料 (phí quản lý hàng tháng — quan trọng vì cumulative dài hạn), số quỹ available, giao diện.',
       'Mở tài khoản online — quy trình ~1–2 tháng (kiểm tra 公的年金 đăng ký, gửi giấy tờ, được phê duyệt).',
       'Sau khi mở: chọn cách phân bổ tiền vào các quỹ (cổ phiếu Nhật / quốc tế, trái phiếu, balanced fund, định kỳ tiền gửi). Mức rủi ro tự bạn chọn.',
@@ -145,6 +145,11 @@ const idecoPersonalPension: AdminGuide = {
       question: 'Tôi nên đóng bao nhiêu/tháng?',
       answer:
         'Quy tắc chung (KHÔNG phải tư vấn cá nhân):\n\n1. **Có quỹ khẩn cấp** 6 tháng chi phí trước.\n2. **Đóng nhỏ ban đầu** (vd 1万円/tháng) để quen quy trình.\n3. **Tăng dần** khi thu nhập tăng + tự tin về dài hạn.\n4. **Đến 限度額** (vd 2.3万円/tháng cho 会社員 không 企業年金) nếu thu nhập đủ + ổn định.\n5. **KHÔNG** đóng quá khả năng — kẹt vốn đến 60 tuổi sẽ stress.\n\nMột nguyên tắc khác: 限度額 × 12 = số/năm × thuế suất biên × số năm = tổng tiết kiệm thuế dự kiến. Tính để biết lợi ích thực.\n\nTốt nhất: dùng simulator của 金融機関 hoặc hỏi 税理士.',
+    },
+    {
+      question: 'iDeCo có gì thay đổi trong 2026–2027?',
+      answer:
+        'Có vài thay đổi đáng chú ý:\n\n• **Nâng hạn mức đóng (dự kiến, từ kỳ đóng 12/2026 → áp dụng đầu tiên 01/2027):** 自営業 (第1号) từ 6.8万 lên **7.5万円/tháng**; 会社員・công chức (第2号) gộp với 企業年金 thành trần **6.2万円/tháng**. → Đây là kế hoạch theo cải cách, CHƯA áp dụng — xác nhận số cuối tại 金融機関 gần ngày.\n• **Nâng tuổi được tham gia:** từ "dưới 65" lên **dưới 70 tuổi** (cùng đợt 12/2026–01/2027).\n• **Quy tắc 5年→10年 (đã có hiệu lực từ 01/01/2026):** khi nhận iDeCo dạng một lần (一時金), khoảng cách để được tính lại 退職所得控除 với 退職金 nới từ 5 lên 10 năm — ảnh hưởng cách tính thuế nếu bạn nhận cả iDeCo lẫn 退職金 gần nhau. Trường hợp cụ thể hỏi 税理士.',
     },
   ],
   counterPhrases: [

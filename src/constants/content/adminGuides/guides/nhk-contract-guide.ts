@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nhkContractGuide: AdminGuide = {
   id: 'nhk-contract-guide',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-06-20',
   priority: 'normal',
   title: 'NHK đến nhà thì xử lý thế nào?',
   titleJp: 'NHKの訪問を受けたとき',
@@ -124,6 +124,11 @@ const nhkContractGuide: AdminGuide = {
       question: 'Tôi có TV nhưng chỉ xem Netflix / YouTube — có cần ký không?',
       answer:
         'Câu hỏi phức tạp. Nếu TV của bạn chỉ kết nối internet (smart TV) và KHÔNG có ăng-ten + KHÔNG có cáp + KHÔNG có chip thu sóng — có thể tranh luận không có nghĩa vụ. Nhưng nhiều smart TV vẫn có chip thu sóng dù không dùng đến. Đây là vùng xám pháp lý — tham khảo NHK hoặc luật sư cho trường hợp cụ thể. KHÔNG bịa câu trả lời với nhân viên — chỉ nói sự thật về thiết bị.',
+    },
+    {
+      question: 'Tôi nghe nói từ 2025 có smartphone là phải đóng NHK — đúng không?',
+      answer:
+        'KHÔNG đúng theo cách hiểu đó. Từ **01/10/2025**, 改正放送法 đưa dịch vụ internet của NHK ("NHK ONE") thành 必須業務 (nghiệp vụ bắt buộc của NHK). Nhưng nghĩa vụ ký 受信契約 internet **chỉ phát sinh khi bạn CHỦ ĐỘNG đăng ký / cài đặt và dùng dịch vụ NHK ONE** (vd đăng nhập để xem). **Chỉ sở hữu smartphone hay có internet KHÔNG tự động tạo nghĩa vụ đóng tiền.** Phí internet bằng phí mặt đất (~1,100円/tháng). Nếu bạn không dùng NHK ONE → không phải ký phần này. Nếu nhân viên nói "có điện thoại là phải đóng" → đó là nói sai, không ký, hỏi 国民生活センター 188.',
     },
     {
       question: 'Nhân viên NHK đến lần thứ 5, đe dọa "sẽ kiện" — phải làm gì?',
