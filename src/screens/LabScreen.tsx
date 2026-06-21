@@ -21,7 +21,10 @@ import {
   Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { Session } from '@supabase/supabase-js';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 import { Colors } from '../constants/colors';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import {
@@ -35,6 +38,7 @@ import { useFeatureFlags } from '../hooks/useFeatureFlags';
 type SyncState = 'idle' | 'syncing' | 'synced' | 'error';
 
 export default function LabScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const flags = useFeatureFlags();
   const [session, setSession] = useState<Session | null>(null);
   const [checkingSession, setCheckingSession] = useState(true);
@@ -127,6 +131,7 @@ export default function LabScreen() {
         <Text style={styles.centerSubText}>
           Các công tắc bên dưới vẫn hoạt động cục bộ trên máy này.
         </Text>
+        <OpenToolButton onPress={() => navigation.navigate('Furigana')} />
         <FlagList flags={flags} onToggle={handleToggle} />
       </View>
     );
@@ -219,8 +224,22 @@ export default function LabScreen() {
         <SyncBadge state={sync} />
       </View>
 
+      <OpenToolButton onPress={() => navigation.navigate('Furigana')} />
       <FlagList flags={flags} onToggle={handleToggle} />
     </ScrollView>
+  );
+}
+
+function OpenToolButton({ onPress }: { onPress: () => void }) {
+  return (
+    <TouchableOpacity style={styles.toolBtn} onPress={onPress} activeOpacity={0.85}>
+      <Ionicons name="newspaper-outline" size={20} color={Colors.primary} />
+      <View style={styles.toolText}>
+        <Text style={styles.toolTitle}>Đọc báo tiếng Nhật (Furigana)</Text>
+        <Text style={styles.toolDesc}>Dán văn bản, hiện hiragana trên kanji.</Text>
+      </View>
+      <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+    </TouchableOpacity>
   );
 }
 
@@ -386,6 +405,25 @@ const styles = StyleSheet.create({
   syncRow: { marginBottom: 12 },
   syncBadge: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   syncText: { fontSize: 12, fontFamily: 'BeVietnamPro_600SemiBold' },
+  toolBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: Colors.accent,
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 16,
+  },
+  toolText: { flex: 1 },
+  toolTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+    lineHeight: 22,
+  },
+  toolDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 18 },
   flagSection: { marginTop: 4 },
   flagSectionTitle: {
     fontSize: 13,

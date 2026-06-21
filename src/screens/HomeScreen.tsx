@@ -81,8 +81,8 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
-  // Example feature-flag consumer — toggled from the private Lab screen.
-  const showDemoBanner = useFeatureFlag('demoBanner');
+  // Experimental: surfaced on Home only when the owner enables the flag in Lab.
+  const showFuriganaReader = useFeatureFlag('furiganaReader');
   const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
@@ -347,18 +347,26 @@ export default function HomeScreen() {
         />
 
         <View style={styles.content}>
-          {showDemoBanner && (
-            <View style={styles.demoBanner}>
-              <Ionicons name="flask" size={18} color={Colors.primary} />
-              <Text style={styles.demoBannerText}>
-                Banner thử nghiệm đang bật (từ Phòng thí nghiệm).
-              </Text>
-            </View>
-          )}
-
           <HomeSearchCta onPress={handleSearchCtaPress} />
 
           <HomeAskCta onPress={() => navigation.navigate('HoiCamNang')} />
+
+          {showFuriganaReader && (
+            <TouchableOpacity
+              style={styles.furiganaCta}
+              onPress={() => navigation.navigate('Furigana')}
+              activeOpacity={0.85}
+            >
+              <Ionicons name="newspaper-outline" size={22} color={Colors.primary} />
+              <View style={styles.furiganaCtaText}>
+                <Text style={styles.furiganaCtaTitle}>Đọc báo tiếng Nhật</Text>
+                <Text style={styles.furiganaCtaDesc}>
+                  Dán văn bản, hiện hiragana trên kanji cho dễ đọc.
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
+            </TouchableOpacity>
+          )}
 
           {/* AI Mail remains internal-only until gates in decision log are cleared.
               See docs/feature-ai-mail-translate-decision-log.md. Mail routes +
@@ -967,21 +975,30 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     paddingHorizontal: 16,
   },
-  demoBanner: {
+  furiganaCta: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    backgroundColor: Colors.accent,
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    gap: 12,
+    backgroundColor: Colors.card,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    padding: 14,
     marginBottom: 12,
   },
-  demoBannerText: {
-    flex: 1,
-    fontSize: 13,
-    color: Colors.primary,
-    fontFamily: 'BeVietnamPro_600SemiBold',
+  furiganaCtaText: { flex: 1 },
+  furiganaCtaTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textPrimary,
+    marginBottom: 2,
+    lineHeight: 22,
+  },
+  furiganaCtaDesc: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
   },
   profileHeroCard: {
     backgroundColor: Colors.white,

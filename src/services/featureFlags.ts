@@ -15,7 +15,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from './supabaseClient';
 
-export type FeatureFlagKey = 'demoBanner' | 'experimentalSearch';
+export type FeatureFlagKey = 'furiganaReader';
 
 export interface FeatureFlagDef {
   key: FeatureFlagKey;
@@ -27,15 +27,10 @@ export interface FeatureFlagDef {
 // The catalog. Add a flag here, then read it anywhere via getFlag(key).
 export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
   {
-    key: 'demoBanner',
-    label: 'Banner thử nghiệm trên Trang chủ',
-    description: 'Hiện một banner mẫu ở đầu Trang chủ để kiểm tra bố cục.',
-    defaultValue: false,
-  },
-  {
-    key: 'experimentalSearch',
-    label: 'Tìm kiếm thử nghiệm',
-    description: 'Bật nhánh tìm kiếm đang phát triển trước khi mở cho mọi người.',
+    key: 'furiganaReader',
+    label: 'Đọc báo tiếng Nhật (Furigana)',
+    description:
+      'Dán văn bản tiếng Nhật, hiển thị hiragana phía trên kanji cho dễ đọc. Bật để hiện công cụ trong app.',
     defaultValue: false,
   },
 ];

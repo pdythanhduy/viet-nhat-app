@@ -36,6 +36,7 @@ import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
 import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
+import FuriganaScreen from '../screens/FuriganaScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
@@ -134,6 +135,7 @@ export type RootStackParamList = {
   HoiCamNang: undefined;
   Settings: undefined;
   Lab: undefined;
+  Furigana: undefined;
   ImportantDates: { prefill?: { label: string } } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
@@ -445,6 +447,11 @@ export default function AppNavigator() {
           name="Lab"
           component={LabScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Phòng thí nghiệm' }}
+        />
+        <Stack.Screen
+          name="Furigana"
+          component={FuriganaScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
         />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />

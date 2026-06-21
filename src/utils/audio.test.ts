@@ -7,6 +7,7 @@ jest.mock('expo-speech', () => ({
     options?.onDone?.();
   }),
   stop: jest.fn(() => Promise.resolve()),
+  maxSpeechInputLength: 300,
 }));
 
 jest.mock('./audioPreferences', () => ({
@@ -22,10 +23,16 @@ import {
   getJapaneseAudioState,
   playJapaneseAudio,
   playJapaneseSequence,
+  splitJapaneseSpeechText,
   stopJapaneseAudio,
 } from './audio';
+import * as Speech from 'expo-speech';
 
 describe('audio helpers', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('starts and completes speech cleanly', async () => {
     await playJapaneseAudio('在留カード', 'test-audio');
     expect(getJapaneseAudioState().speaking).toBe(false);
@@ -44,6 +51,21 @@ describe('audio helpers', () => {
       ],
       'sequence-audio'
     );
+    expect(getJapaneseAudioState().speaking).toBe(false);
+  });
+
+  it('splits long speech text into bounded chunks', () => {
+    const chunks = splitJapaneseSpeechText('あ'.repeat(500), 120);
+
+    expect(chunks.length).toBeGreaterThan(1);
+    expect(chunks.join('')).toBe('あ'.repeat(500));
+    expect(chunks.every((chunk) => chunk.length <= 120)).toBe(true);
+  });
+
+  it('plays long text as multiple speech chunks', async () => {
+    await playJapaneseAudio('あ'.repeat(500), 'long-audio');
+
+    expect(Speech.speak).toHaveBeenCalledTimes(3);
     expect(getJapaneseAudioState().speaking).toBe(false);
   });
 
