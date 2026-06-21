@@ -2,7 +2,7 @@
 // read it with hiragana shown above each kanji. Experimental; reached from
 // the Lab, and from Home when the `furiganaReader` flag is on.
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,8 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -94,6 +96,27 @@ export default function FuriganaScreen() {
   const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
   const insets = useSafeAreaInsets();
   const lookupOpen = selectedTokenIndex !== null;
+  const selectedToken =
+    tokens && selectedTokenIndex !== null ? tokens[selectedTokenIndex] : null;
+
+  const scrollRef = useRef<ScrollView>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    setScrollY(e.nativeEvent.contentOffset.y);
+  };
+
+  const scrollToTop = () => scrollRef.current?.scrollTo({ y: 0, animated: true });
+  const scrollToBottom = () => scrollRef.current?.scrollToEnd({ animated: true });
+
+  // Show the jump buttons only when there's a rendered article worth scrolling,
+  // and hide them while the lookup sheet covers the bottom of the screen.
+  const distanceToBottom = contentHeight - scrollY - viewportHeight;
+  const showScrollFabs = !!tokens && tokens.length > 0 && !lookupOpen;
+  const showJumpTop = showScrollFabs && scrollY > 320;
+  const showJumpBottom = showScrollFabs && distanceToBottom > 320;
 
   useEffect(() => {
     void setAudioModeAsync({
@@ -230,9 +253,14 @@ export default function FuriganaScreen() {
   return (
     <View style={styles.screen}>
     <ScrollView
+      ref={scrollRef}
       style={styles.container}
       contentContainerStyle={[styles.content, lookupOpen && styles.contentLookupOpen]}
       keyboardShouldPersistTaps="handled"
+      onScroll={handleScroll}
+      scrollEventThrottle={32}
+      onLayout={(e) => setViewportHeight(e.nativeEvent.layout.height)}
+      onContentSizeChange={(_w, h) => setContentHeight(h)}
     >
       <View style={styles.header}>
         <Ionicons name="newspaper-outline" size={24} color={Colors.primary} />
@@ -327,7 +355,10 @@ export default function FuriganaScreen() {
         {loading ? (
           <ActivityIndicator color={Colors.white} />
         ) : (
-          <Text style={styles.primaryBtnText}>Hiển thị furigana</Text>
+          <>
+            <Ionicons name="sparkles" size={17} color={Colors.white} />
+            <Text style={styles.primaryBtnText}>Hiển thị furigana</Text>
+          </>
         )}
       </TouchableOpacity>
 
@@ -339,7 +370,10 @@ export default function FuriganaScreen() {
         {translating ? (
           <ActivityIndicator color={Colors.primary} />
         ) : (
-          <Text style={styles.translateBtnText}>Dịch sang tiếng Việt</Text>
+          <>
+            <Ionicons name="language" size={17} color={Colors.primary} />
+            <Text style={styles.translateBtnText}>Dịch sang tiếng Việt</Text>
+          </>
         )}
       </TouchableOpacity>
 
@@ -412,8 +446,35 @@ export default function FuriganaScreen() {
       )}
     </ScrollView>
 
+      {(showJumpTop || showJumpBottom) && (
+        <View style={[styles.fabColumn, { bottom: 20 + insets.bottom }]}>
+          {showJumpTop && (
+            <TouchableOpacity
+              style={styles.fab}
+              onPress={scrollToTop}
+              activeOpacity={0.85}
+              accessibilityLabel="Lên đầu bài"
+            >
+              <Ionicons name="arrow-up" size={22} color={Colors.white} />
+            </TouchableOpacity>
+          )}
+          {showJumpBottom && (
+            <TouchableOpacity
+              style={styles.fab}
+              onPress={scrollToBottom}
+              activeOpacity={0.85}
+              accessibilityLabel="Xuống cuối bài"
+            >
+              <Ionicons name="arrow-down" size={22} color={Colors.white} />
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
+
       {lookupOpen && (
         <WordLookupSheet
+          surface={selectedToken?.surface ?? wordExplanation?.surface ?? null}
+          reading={selectedToken?.reading ?? wordExplanation?.reading ?? null}
           loading={wordLookupLoading}
           explanation={wordExplanation}
           error={wordLookupError}
@@ -426,18 +487,27 @@ export default function FuriganaScreen() {
 }
 
 function WordLookupSheet({
+  surface,
+  reading,
   loading,
   explanation,
   error,
   bottomInset,
   onClose,
 }: {
+  surface: string | null;
+  reading: string | null;
   loading: boolean;
   explanation: SmartWordExplanation | null;
   error: string | null;
   bottomInset: number;
   onClose: () => void;
 }) {
+  // Prefer the explanation's own surface/reading once it arrives, else the
+  // tapped token — so the word shows immediately while the meaning loads.
+  const word = explanation?.surface ?? surface;
+  const wordReading = explanation?.reading ?? reading;
+
   return (
     <View style={[styles.sheet, { paddingBottom: 14 + bottomInset }]}>
       <View style={styles.sheetHandle} />
@@ -453,6 +523,18 @@ function WordLookupSheet({
           <Ionicons name="close" size={22} color={Colors.textMuted} />
         </TouchableOpacity>
       </View>
+
+      {/* Word is shown right away (even while the meaning is still loading). */}
+      {word ? (
+        <View style={styles.sheetWordRow}>
+          <Text style={styles.lookupWord}>
+            {word}
+            {wordReading ? ` (${wordReading})` : ''}
+          </Text>
+          <AudioButton audioId={`furigana:word:${word}`} text={word} size={15} />
+        </View>
+      ) : null}
+
       <ScrollView
         style={styles.sheetBody}
         contentContainerStyle={styles.sheetBodyContent}
@@ -467,17 +549,6 @@ function WordLookupSheet({
           <Text style={styles.smartErrorText}>{error}</Text>
         ) : explanation ? (
           <>
-            <View style={styles.sheetWordRow}>
-              <Text style={styles.lookupWord}>
-                {explanation.surface}
-                {explanation.reading ? ` (${explanation.reading})` : ''}
-              </Text>
-              <AudioButton
-                audioId={`furigana:word:${explanation.surface}`}
-                text={explanation.surface}
-                size={15}
-              />
-            </View>
             <Text style={styles.lookupMetaLabel}>{SmartUiText.meaning}</Text>
             <Text style={styles.lookupText}>{explanation.meaning}</Text>
             <Text style={styles.lookupMetaLabel}>{SmartUiText.sentenceTranslation}</Text>
@@ -596,10 +667,13 @@ const styles = StyleSheet.create({
     fontFamily: 'BeVietnamPro_600SemiBold',
   },
   primaryBtn: {
+    flexDirection: 'row',
+    gap: 8,
     backgroundColor: Colors.primary,
     borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 12,
   },
   btnDisabled: { opacity: 0.5 },
@@ -636,10 +710,13 @@ const styles = StyleSheet.create({
     fontFamily: 'BeVietnamPro_700Bold',
   },
   translateBtn: {
+    flexDirection: 'row',
+    gap: 8,
     backgroundColor: Colors.accent,
     borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 10,
   },
   translateBtnText: {
@@ -845,5 +922,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 10,
     marginBottom: 2,
+  },
+  fabColumn: {
+    position: 'absolute',
+    right: 16,
+    gap: 10,
+    alignItems: 'center',
+  },
+  fab: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: Colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 6,
   },
 });

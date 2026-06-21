@@ -15,6 +15,7 @@ import { addDailyRitualNotificationListener, rescheduleAll } from './src/utils/n
 import { refreshDailyReminderContent } from './src/utils/dailyReminderSync';
 import { initAnalytics, track } from './src/utils/analytics';
 import { loadFlags } from './src/services/featureFlags';
+import { loadProgress as loadN2Progress } from './src/services/n2Progress';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,6 +30,7 @@ export default function App() {
     initAnalytics();
     track('app_open');
     void loadFlags();
+    void loadN2Progress();
     Promise.all([rescheduleAll(), refreshDailyReminderContent()]).catch(() => {});
   }, []);
 

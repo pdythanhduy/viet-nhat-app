@@ -37,6 +37,8 @@ import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
+import N2RecoveryScreen from '../screens/N2RecoveryScreen';
+import N2DayDetailScreen from '../screens/N2DayDetailScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
@@ -136,6 +138,8 @@ export type RootStackParamList = {
   Settings: undefined;
   Lab: undefined;
   Furigana: undefined;
+  N2Recovery: undefined;
+  N2DayDetail: { day: number };
   ImportantDates: { prefill?: { label: string } } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
@@ -452,6 +456,16 @@ export default function AppNavigator() {
           name="Furigana"
           component={FuriganaScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
+        />
+        <Stack.Screen
+          name="N2Recovery"
+          component={N2RecoveryScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'N2 Recovery' }}
+        />
+        <Stack.Screen
+          name="N2DayDetail"
+          component={N2DayDetailScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Bài học' }}
         />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />

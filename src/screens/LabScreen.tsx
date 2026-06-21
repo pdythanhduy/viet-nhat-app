@@ -132,6 +132,12 @@ export default function LabScreen() {
           Các công tắc bên dưới vẫn hoạt động cục bộ trên máy này.
         </Text>
         <OpenToolButton onPress={() => navigation.navigate('Furigana')} />
+      <OpenToolButton
+        onPress={() => navigation.navigate('N2Recovery')}
+        icon="school-outline"
+        title="N2 Recovery — 100 ngày"
+        desc="Lộ trình lấy lại N2 + business, có tiến độ."
+      />
         <FlagList flags={flags} onToggle={handleToggle} />
       </View>
     );
@@ -225,18 +231,34 @@ export default function LabScreen() {
       </View>
 
       <OpenToolButton onPress={() => navigation.navigate('Furigana')} />
+      <OpenToolButton
+        onPress={() => navigation.navigate('N2Recovery')}
+        icon="school-outline"
+        title="N2 Recovery — 100 ngày"
+        desc="Lộ trình lấy lại N2 + business, có tiến độ."
+      />
       <FlagList flags={flags} onToggle={handleToggle} />
     </ScrollView>
   );
 }
 
-function OpenToolButton({ onPress }: { onPress: () => void }) {
+function OpenToolButton({
+  onPress,
+  icon = 'newspaper-outline',
+  title = 'Đọc báo tiếng Nhật (Furigana)',
+  desc = 'Dán văn bản, hiện hiragana trên kanji.',
+}: {
+  onPress: () => void;
+  icon?: keyof typeof Ionicons.glyphMap;
+  title?: string;
+  desc?: string;
+}) {
   return (
     <TouchableOpacity style={styles.toolBtn} onPress={onPress} activeOpacity={0.85}>
-      <Ionicons name="newspaper-outline" size={20} color={Colors.primary} />
+      <Ionicons name={icon} size={20} color={Colors.primary} />
       <View style={styles.toolText}>
-        <Text style={styles.toolTitle}>Đọc báo tiếng Nhật (Furigana)</Text>
-        <Text style={styles.toolDesc}>Dán văn bản, hiện hiragana trên kanji.</Text>
+        <Text style={styles.toolTitle}>{title}</Text>
+        <Text style={styles.toolDesc}>{desc}</Text>
       </View>
       <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
     </TouchableOpacity>
