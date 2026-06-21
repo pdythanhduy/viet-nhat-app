@@ -39,6 +39,7 @@ import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
 import N2DayDetailScreen from '../screens/N2DayDetailScreen';
+import N2DayContentScreen from '../screens/N2DayContentScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
@@ -140,6 +141,7 @@ export type RootStackParamList = {
   Furigana: undefined;
   N2Recovery: undefined;
   N2DayDetail: { day: number };
+  N2DayContent: { day: number };
   ImportantDates: { prefill?: { label: string } } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
@@ -466,6 +468,11 @@ export default function AppNavigator() {
           name="N2DayDetail"
           component={N2DayDetailScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Bài học' }}
+        />
+        <Stack.Screen
+          name="N2DayContent"
+          component={N2DayContentScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Từ vựng + Quiz' }}
         />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />

@@ -133,6 +133,21 @@ export default function N2DayDetailScreen() {
         </View>
       )}
 
+      {info.kind === 'normal' && (
+        <TouchableOpacity
+          style={styles.contentBtn}
+          onPress={() => navigation.navigate('N2DayContent', { day })}
+          activeOpacity={0.85}
+        >
+          <Ionicons name="library-outline" size={18} color={Colors.white} />
+          <View style={styles.contentBtnText}>
+            <Text style={styles.contentBtnTitle}>Mở Từ vựng + Quiz</Text>
+            <Text style={styles.contentBtnSub}>50 từ đầy đủ sắc thái · 20 câu trắc nghiệm</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={18} color={Colors.white} />
+        </TouchableOpacity>
+      )}
+
       <View style={styles.card}>
         <Text style={styles.cardLabel}>
           {info.kind === 'normal' ? 'Ngữ pháp trọng tâm (5 mẫu)' : 'Nội dung'}
@@ -299,6 +314,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cardBody: { fontSize: 15, color: Colors.textPrimary, lineHeight: 22 },
+  contentBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    marginTop: 16,
+  },
+  contentBtnText: { flex: 1 },
+  contentBtnTitle: { color: Colors.white, fontSize: 15, fontFamily: 'BeVietnamPro_700Bold' },
+  contentBtnSub: { color: '#E0E7FF', fontSize: 12, marginTop: 2 },
   grammarRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 8 },
   grammarDot: {
     width: 7,
