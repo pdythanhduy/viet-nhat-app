@@ -32,6 +32,20 @@ type ClaudeResponse = {
   error?: { message?: string };
 };
 
+async function readClaudeResponse(res: Response): Promise<ClaudeResponse> {
+  const body = await res.text();
+  try {
+    return JSON.parse(body) as ClaudeResponse;
+  } catch {
+    const preview = body.trim().replace(/\s+/g, ' ').slice(0, 120);
+    throw new Error(
+      preview
+        ? `Claude API returned a non-JSON response: ${preview}`
+        : 'Claude API returned an empty non-JSON response.'
+    );
+  }
+}
+
 function toAsciiJson(value: unknown): string {
   const s = JSON.stringify(value);
   let out = '';
@@ -67,7 +81,7 @@ async function callClaude(system: string, user: unknown, maxTokens: number): Pro
       signal: controller.signal,
     });
 
-    const json = (await res.json()) as ClaudeResponse;
+    const json = await readClaudeResponse(res);
     if (!res.ok) {
       throw new Error(json.error?.message || `Claude API returned HTTP ${res.status}`);
     }
@@ -85,23 +99,37 @@ async function callClaude(system: string, user: unknown, maxTokens: number): Pro
   }
 }
 
-function extractJson(text: string): unknown {
+function tryParseJson(text: string): { ok: true; value: unknown } | { ok: false } {
   try {
-    return JSON.parse(text);
+    return { ok: true, value: JSON.parse(text) };
   } catch {
-    const arrayStart = text.indexOf('[');
-    const arrayEnd = text.lastIndexOf(']');
-    if (arrayStart >= 0 && arrayEnd > arrayStart) {
-      return JSON.parse(text.slice(arrayStart, arrayEnd + 1));
-    }
-
-    const objectStart = text.indexOf('{');
-    const objectEnd = text.lastIndexOf('}');
-    if (objectStart >= 0 && objectEnd > objectStart) {
-      return JSON.parse(text.slice(objectStart, objectEnd + 1));
-    }
-    throw new Error('Claude did not return JSON.');
+    return { ok: false };
   }
+}
+
+function extractJson(text: string): unknown {
+  const direct = tryParseJson(text);
+  if (direct.ok) return direct.value;
+
+  const candidates: string[] = [];
+  const arrayStart = text.indexOf('[');
+  const arrayEnd = text.lastIndexOf(']');
+  if (arrayStart >= 0 && arrayEnd > arrayStart) {
+    candidates.push(text.slice(arrayStart, arrayEnd + 1));
+  }
+
+  const objectStart = text.indexOf('{');
+  const objectEnd = text.lastIndexOf('}');
+  if (objectStart >= 0 && objectEnd > objectStart) {
+    candidates.push(text.slice(objectStart, objectEnd + 1));
+  }
+
+  for (const candidate of candidates) {
+    const parsed = tryParseJson(candidate);
+    if (parsed.ok) return parsed.value;
+  }
+
+  throw new Error('Claude did not return valid JSON.');
 }
 
 function coerceString(value: unknown): string {
@@ -122,6 +150,53 @@ function normalizeExplainInput(input: ExplainSelectionInput): ExplainSelectionIn
     surface: input.surface.trim(),
     reading: input.reading?.trim() || undefined,
     sentence: input.sentence.trim(),
+  };
+}
+
+function cleanModelText(text: string): string {
+  return text
+    .replace(/```(?:json)?/gi, '')
+    .replace(/```/g, '')
+    .trim();
+}
+
+function coerceWordExplanation(
+  parsed: unknown,
+  input: ExplainSelectionInput
+): SmartWordExplanation | null {
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
+    return null;
+  }
+
+  const record = parsed as Record<string, unknown>;
+  const meaning = coerceString(record.meaning);
+  const sentenceTranslation = coerceString(record.sentenceTranslation);
+  if (!meaning || !sentenceTranslation) {
+    return null;
+  }
+
+  return {
+    surface: coerceString(record.surface) || input.surface,
+    reading: coerceString(record.reading) || input.reading || undefined,
+    meaning,
+    sentenceTranslation,
+    note: coerceString(record.note) || undefined,
+  };
+}
+
+function fallbackWordExplanation(raw: string, input: ExplainSelectionInput): SmartWordExplanation {
+  const cleaned = cleanModelText(raw);
+  if (!cleaned) {
+    throw new Error('Claude returned an empty response.');
+  }
+
+  return {
+    surface: input.surface,
+    reading: input.reading || undefined,
+    meaning: cleaned,
+    sentenceTranslation: input.sentence,
+    note:
+      'Ph\u1ea3n h\u1ed3i kh\u00f4ng \u0111\u00fang JSON; app \u0111ang hi\u1ec3n th\u1ecb n\u1ed9i dung th\u00f4.',
   };
 }
 
@@ -160,22 +235,15 @@ export function splitJapaneseSentences(text: string): string[] {
   const normalized = text.replace(/\r\n/g, '\n').trim();
   if (!normalized) return [];
 
-  const pieces = normalized.match(/[^\n。！？!?]+[。！？!?]?|\n+/g) ?? [normalized];
+  const pieces = normalized.match(/[^\n\u3002\uff01\uff1f!?]+[\u3002\uff01\uff1f!?]?|\n+/g) ?? [normalized];
   return pieces.map((piece) => piece.trim()).filter(Boolean);
 }
 
 export function getSentenceAtOffset(text: string, offset: number): string {
   const boundedOffset = Math.max(0, Math.min(offset, Math.max(0, text.length - 1)));
-  const left = Math.max(
-    text.lastIndexOf('。', boundedOffset - 1),
-    text.lastIndexOf('！', boundedOffset - 1),
-    text.lastIndexOf('？', boundedOffset - 1),
-    text.lastIndexOf('!', boundedOffset - 1),
-    text.lastIndexOf('?', boundedOffset - 1),
-    text.lastIndexOf('\n', boundedOffset - 1)
-  );
-
-  const candidates = ['。', '！', '？', '!', '?', '\n']
+  const marks = ['\u3002', '\uff01', '\uff1f', '!', '?', '\n'];
+  const left = Math.max(...marks.map((mark) => text.lastIndexOf(mark, boundedOffset - 1)));
+  const candidates = marks
     .map((mark) => text.indexOf(mark, boundedOffset))
     .filter((index) => index >= 0);
   const right = candidates.length > 0 ? Math.min(...candidates) + 1 : text.length;
@@ -194,7 +262,7 @@ export async function translateSentencesSmart(text: string): Promise<SmartSenten
   if (sentences.length === 0) return [];
 
   const raw = await callClaude(
-    'You translate Japanese news text for Vietnamese learners. Return only JSON, no markdown. Output an array with objects: {"source": original Japanese sentence, "translation": natural Vietnamese translation}. Keep names, dates, and numbers accurate.',
+    'You translate Japanese news text for Vietnamese learners. Return valid JSON only. Start with [ and end with ]. Do not include prose, markdown, code fences, comments, or explanations. Output an array with objects: {"source": original Japanese sentence, "translation": natural Vietnamese translation}. Keep names, dates, and numbers accurate.',
     { sentences },
     4096
   );
@@ -222,29 +290,18 @@ export async function explainJapaneseSelection(
   if (cached) return cached;
 
   const raw = await callClaude(
-    'You explain Japanese words for Vietnamese learners using the sentence context. Return only JSON, no markdown. Output one object: {"surface": selected word, "reading": kana reading if known, "meaning": Vietnamese meaning in this sentence, "sentenceTranslation": Vietnamese translation of the whole sentence, "note": short grammar/usage note if useful}. If the selected text is punctuation or not meaningful, explain that briefly in Vietnamese.',
+    'You explain Japanese words for Vietnamese learners using the sentence context. Return valid JSON only. Start with { and end with }. Do not include prose, markdown, code fences, comments, or explanations. Output one object: {"surface": selected word, "reading": kana reading if known, "meaning": Vietnamese meaning in this sentence, "sentenceTranslation": Vietnamese translation of the whole sentence, "note": short grammar/usage note if useful}. If the selected text is punctuation or not meaningful, explain that briefly in Vietnamese.',
     compactInput,
     800
   );
-  const parsed = extractJson(raw);
-  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
-    throw new Error('Claude JSON was not an object.');
+  let result: SmartWordExplanation | null = null;
+  try {
+    result = coerceWordExplanation(extractJson(raw), compactInput);
+  } catch {
+    result = null;
   }
+  result ??= fallbackWordExplanation(raw, compactInput);
 
-  const record = parsed as Record<string, unknown>;
-  const meaning = coerceString(record.meaning);
-  const sentenceTranslation = coerceString(record.sentenceTranslation);
-  if (!meaning || !sentenceTranslation) {
-    throw new Error('Claude response missed meaning or sentenceTranslation.');
-  }
-
-  const result = {
-    surface: coerceString(record.surface) || input.surface,
-    reading: coerceString(record.reading) || input.reading || undefined,
-    meaning,
-    sentenceTranslation,
-    note: coerceString(record.note) || undefined,
-  };
   await writeCachedWordExplanation(compactInput, result);
   return result;
 }

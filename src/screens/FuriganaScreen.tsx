@@ -28,6 +28,7 @@ import {
 import { fetchArticleText } from '../services/articleReader';
 import { translateToVietnamese, isTranslateConfigured } from '../services/translate';
 import { isVbeeConfigured, synthesizeVbeeSpeech } from '../services/vbeeTts';
+import type { VbeeSpeechResult } from '../services/vbeeTts';
 import {
   SmartWordExplanation,
   explainJapaneseSelection,
@@ -59,6 +60,35 @@ const SmartUiText = {
   lookupErrorPrefix: 'Kh\u00f4ng tra \u0111\u01b0\u1ee3c t\u1eeb n\u00e0y',
 };
 
+const ReaderUiText = {
+  title: '\u0110\u1ecdc b\u00e1o ti\u1ebfng Nh\u1eadt',
+  subtitle:
+    'D\u00e1n link ho\u1eb7c v\u0103n b\u1ea3n ti\u1ebfng Nh\u1eadt, xem furigana, tra t\u1eeb v\u00e0 nghe b\u1ea3n d\u1ecbch.',
+  urlPlaceholder: 'D\u00e1n link b\u00e0i b\u00e1o (https://...)',
+  fetchArticle: 'L\u1ea5y b\u00e0i',
+  inputPlaceholder: 'D\u00e1n v\u0103n b\u1ea3n ti\u1ebfng Nh\u1eadt \u1edf \u0111\u00e2y...',
+  paste: 'D\u00e1n',
+  sample: 'C\u00e2u m\u1eabu',
+  clear: 'X\u00f3a',
+  render: 'Hi\u1ec3n th\u1ecb furigana',
+  translate: 'D\u1ecbch sang ti\u1ebfng Vi\u1ec7t',
+  translationLabel: 'B\u1ea3n d\u1ecbch ti\u1ebfng Vi\u1ec7t',
+  resultLabel: 'K\u1ebft qu\u1ea3',
+  tokenUnit: 't\u1eeb',
+  smartHint:
+    'B\u1ea5m t\u1eeb \u0111\u1ec3 tra ngh\u0129a + d\u1ecbch c\u00e2u. C\u00f3 cache, b\u1ea5m l\u1ea1i kh\u00f4ng t\u1ed1n token.',
+  yahooMissing:
+    'Ch\u01b0a c\u00f3 Yahoo AppID. Th\u00eam EXPO_PUBLIC_YAHOO_APPID v\u00e0o .env r\u1ed3i kh\u1edfi \u0111\u1ed9ng l\u1ea1i app.',
+  translateMissing:
+    'Ph\u1ea7n d\u1ecbch c\u1ea7n Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY). Furigana v\u1eabn d\u00f9ng \u0111\u01b0\u1ee3c b\u00ecnh th\u01b0\u1eddng.',
+  translateErrorPrefix: 'Kh\u00f4ng d\u1ecbch \u0111\u01b0\u1ee3c',
+  furiganaErrorPrefix: 'Kh\u00f4ng l\u1ea5y \u0111\u01b0\u1ee3c furigana',
+  jumpTop: 'L\u00ean \u0111\u1ea7u b\u00e0i',
+  jumpBottom: 'Xu\u1ed1ng cu\u1ed1i b\u00e0i',
+};
+
+type PreparedVbeeAudio = VbeeSpeechResult & { text: string };
+
 function getTokenText(tokens: FuriganaToken[]): string {
   return tokens.map((token) => token.surface).join('');
 }
@@ -69,6 +99,26 @@ function getTokenOffset(tokens: FuriganaToken[], index: number): number {
 
 function isLookupableToken(token: FuriganaToken): boolean {
   return token.surface.trim().length > 0 && /[A-Za-z0-9\u3040-\u30ff\u3400-\u9fff\uff66-\uff9f]/.test(token.surface);
+}
+
+function getTranslateErrorMessage(message: string): string {
+  return message === 'not-configured'
+    ? SmartUiText.notConfigured
+    : `${ReaderUiText.translateErrorPrefix}: ${message}`;
+}
+
+function getFuriganaErrorMessage(message: string): string {
+  return message === 'not-configured'
+    ? ReaderUiText.yahooMissing
+    : `${ReaderUiText.furiganaErrorPrefix}: ${message}`;
+}
+
+function getVbeeReadErrorMessage(message: string): string {
+  return message === 'not-configured'
+    ? VbeeUiText.notConfigured
+    : message === 'empty-text'
+    ? VbeeUiText.emptyTranslation
+    : `${VbeeUiText.readErrorPrefix}: ${message}`;
 }
 
 export default function FuriganaScreen() {
@@ -84,7 +134,9 @@ export default function FuriganaScreen() {
   const [translating, setTranslating] = useState(false);
   const [translateError, setTranslateError] = useState<string | null>(null);
   const [vbeeLoading, setVbeeLoading] = useState(false);
+  const [vbeePreparing, setVbeePreparing] = useState(false);
   const [vbeeError, setVbeeError] = useState<string | null>(null);
+  const [vbeeAudio, setVbeeAudio] = useState<PreparedVbeeAudio | null>(null);
   const [selectedTokenIndex, setSelectedTokenIndex] = useState<number | null>(null);
   const [wordExplanation, setWordExplanation] = useState<SmartWordExplanation | null>(null);
   const [wordLookupLoading, setWordLookupLoading] = useState(false);
@@ -100,6 +152,7 @@ export default function FuriganaScreen() {
     tokens && selectedTokenIndex !== null ? tokens[selectedTokenIndex] : null;
 
   const scrollRef = useRef<ScrollView>(null);
+  const vbeePrepareToken = useRef(0);
   const [scrollY, setScrollY] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
@@ -132,13 +185,21 @@ export default function FuriganaScreen() {
     setWordLookupError(null);
   };
 
+  const resetVbeeAudio = () => {
+    vbeePrepareToken.current += 1;
+    setVbeeAudio(null);
+    setVbeePreparing(false);
+    setVbeeLoading(false);
+    setVbeeError(null);
+  };
+
   const handleInputChange = (text: string) => {
     setInput(text);
     setTokens(null);
     setError(null);
     setTranslation(null);
     setTranslateError(null);
-    setVbeeError(null);
+    resetVbeeAudio();
     resetSmartState();
   };
 
@@ -160,43 +221,85 @@ export default function FuriganaScreen() {
     }
   };
 
+  const playPreparedVbeeAudio = () => {
+    void vbeePlayer
+      .seekTo(0)
+      .catch(() => undefined)
+      .finally(() => vbeePlayer.play());
+  };
+
+  const prepareVbeeTranslationAudio = async (
+    text: string,
+    { showError = false }: { showError?: boolean } = {}
+  ): Promise<PreparedVbeeAudio | null> => {
+    const normalized = text.trim();
+    if (!normalized) {
+      throw new Error('empty-text');
+    }
+    if (vbeeAudio?.text === normalized) {
+      return vbeeAudio;
+    }
+
+    const token = ++vbeePrepareToken.current;
+    setVbeePreparing(true);
+    try {
+      const result = await synthesizeVbeeSpeech(normalized);
+      if (token !== vbeePrepareToken.current) return null;
+
+      const prepared = { ...result, text: normalized };
+      setVbeeAudio(prepared);
+      vbeePlayer.replace({ uri: result.audioUrl });
+      return prepared;
+    } catch (e) {
+      if (token === vbeePrepareToken.current && showError) {
+        const msg = e instanceof Error ? e.message : String(e);
+        setVbeeError(getVbeeReadErrorMessage(msg));
+      }
+      throw e;
+    } finally {
+      if (token === vbeePrepareToken.current) {
+        setVbeePreparing(false);
+      }
+    }
+  };
+
   const handleTranslate = async () => {
     setTranslateError(null);
-    setVbeeError(null);
+    resetVbeeAudio();
     setTranslation(null);
     setTranslating(true);
     try {
       const result = await translateToVietnamese(input);
       setTranslation(result);
+      if (vbeeConfigured) {
+        void prepareVbeeTranslationAudio(result).catch(() => undefined);
+      }
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      setTranslateError(
-        msg === 'not-configured'
-          ? 'Chưa cấu hình Anthropic API key. Thêm EXPO_PUBLIC_ANTHROPIC_API_KEY vào .env rồi khởi động lại app.'
-          : `Không dịch được: ${msg}`
-      );
+      setTranslateError(getTranslateErrorMessage(msg));
     } finally {
       setTranslating(false);
     }
   };
 
   const handleReadTranslation = async () => {
-    if (!translation?.trim()) return;
+    const audioText = translation?.trim();
+    if (!audioText) return;
+    if (vbeeAudio?.text === audioText) {
+      playPreparedVbeeAudio();
+      return;
+    }
+
     setVbeeError(null);
     setVbeeLoading(true);
     try {
-      const result = await synthesizeVbeeSpeech(translation);
-      vbeePlayer.replace({ uri: result.audioUrl });
-      vbeePlayer.play();
+      const result = await prepareVbeeTranslationAudio(audioText, { showError: true });
+      if (result) {
+        playPreparedVbeeAudio();
+      }
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      setVbeeError(
-        msg === 'not-configured'
-          ? VbeeUiText.notConfigured
-          : msg === 'empty-text'
-          ? VbeeUiText.emptyTranslation
-          : `${VbeeUiText.readErrorPrefix}: ${msg}`
-      );
+      setVbeeError(getVbeeReadErrorMessage(msg));
     } finally {
       setVbeeLoading(false);
     }
@@ -240,11 +343,7 @@ export default function FuriganaScreen() {
       setTokens(result);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      setError(
-        msg === 'not-configured'
-          ? 'Chưa cấu hình Yahoo AppID. Thêm EXPO_PUBLIC_YAHOO_APPID vào .env rồi khởi động lại app.'
-          : `Không lấy được furigana: ${msg}`
-      );
+      setError(getFuriganaErrorMessage(msg));
     } finally {
       setLoading(false);
     }
@@ -263,18 +362,15 @@ export default function FuriganaScreen() {
       onContentSizeChange={(_w, h) => setContentHeight(h)}
     >
       <View style={styles.header}>
-        <Ionicons name="newspaper-outline" size={24} color={Colors.primary} />
-        <Text style={styles.title}>Đọc báo tiếng Nhật</Text>
+        <Ionicons name="newspaper-outline" size={21} color={Colors.primary} />
+        <Text style={styles.title}>{ReaderUiText.title}</Text>
       </View>
-      <Text style={styles.subtitle}>
-        Dán link bài báo hoặc dán đoạn tiếng Nhật, rồi xem hiragana trên kanji và dịch
-        sang tiếng Việt.
-      </Text>
+      {!tokens && <Text style={styles.subtitle}>{ReaderUiText.subtitle}</Text>}
 
       <View style={styles.urlRow}>
         <TextInput
           style={styles.urlInput}
-          placeholder="Dán link bài báo (https://…)"
+          placeholder={ReaderUiText.urlPlaceholder}
           placeholderTextColor={Colors.textMuted}
           autoCapitalize="none"
           keyboardType="url"
@@ -289,7 +385,7 @@ export default function FuriganaScreen() {
           {fetchingArticle ? (
             <ActivityIndicator color={Colors.white} size="small" />
           ) : (
-            <Text style={styles.urlBtnText}>Lấy bài</Text>
+            <Text style={styles.urlBtnText}>{ReaderUiText.fetchArticle}</Text>
           )}
         </TouchableOpacity>
       </View>
@@ -297,16 +393,13 @@ export default function FuriganaScreen() {
       {!configured && (
         <View style={styles.warnBox}>
           <Ionicons name="warning-outline" size={16} color={Colors.warning} />
-          <Text style={styles.warnText}>
-            Chưa có Yahoo AppID — công cụ chưa gọi được API. Thêm
-            EXPO_PUBLIC_YAHOO_APPID vào .env rồi mở lại app.
-          </Text>
+          <Text style={styles.warnText}>{ReaderUiText.yahooMissing}</Text>
         </View>
       )}
 
       <TextInput
-        style={styles.input}
-        placeholder="Dán văn bản tiếng Nhật ở đây…"
+        style={[styles.input, tokens && styles.inputCompact]}
+        placeholder={ReaderUiText.inputPlaceholder}
         placeholderTextColor={Colors.textMuted}
         multiline
         value={input}
@@ -317,14 +410,14 @@ export default function FuriganaScreen() {
       <View style={styles.actionRow}>
         <TouchableOpacity style={styles.secondaryBtn} onPress={() => void handlePaste()}>
           <Ionicons name="clipboard-outline" size={16} color={Colors.primary} />
-          <Text style={styles.secondaryBtnText}>Dán</Text>
+          <Text style={styles.secondaryBtnText}>{ReaderUiText.paste}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.secondaryBtn}
           onPress={() => handleInputChange(SAMPLE)}
         >
           <Ionicons name="sparkles-outline" size={16} color={Colors.primary} />
-          <Text style={styles.secondaryBtnText}>Câu mẫu</Text>
+          <Text style={styles.secondaryBtnText}>{ReaderUiText.sample}</Text>
         </TouchableOpacity>
         {input.trim().length > 0 && (
           <AudioButton
@@ -342,7 +435,7 @@ export default function FuriganaScreen() {
             }}
           >
             <Ionicons name="close-circle-outline" size={16} color={Colors.textMuted} />
-            <Text style={[styles.secondaryBtnText, { color: Colors.textMuted }]}>Xóa</Text>
+            <Text style={[styles.secondaryBtnText, { color: Colors.textMuted }]}>{ReaderUiText.clear}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -356,8 +449,8 @@ export default function FuriganaScreen() {
           <ActivityIndicator color={Colors.white} />
         ) : (
           <>
-            <Ionicons name="sparkles" size={17} color={Colors.white} />
-            <Text style={styles.primaryBtnText}>Hiển thị furigana</Text>
+            <Ionicons name="sparkles" size={16} color={Colors.white} />
+            <Text style={styles.primaryBtnText}>{ReaderUiText.render}</Text>
           </>
         )}
       </TouchableOpacity>
@@ -371,17 +464,14 @@ export default function FuriganaScreen() {
           <ActivityIndicator color={Colors.primary} />
         ) : (
           <>
-            <Ionicons name="language" size={17} color={Colors.primary} />
-            <Text style={styles.translateBtnText}>Dịch sang tiếng Việt</Text>
+            <Ionicons name="language" size={16} color={Colors.primary} />
+            <Text style={styles.translateBtnText}>{ReaderUiText.translate}</Text>
           </>
         )}
       </TouchableOpacity>
 
       {!translateConfigured && (
-        <Text style={styles.hintText}>
-          Phần dịch cần Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY). Furigana vẫn
-          dùng được bình thường.
-        </Text>
+        <Text style={styles.hintText}>{ReaderUiText.translateMissing}</Text>
       )}
 
       {translateError && (
@@ -393,15 +483,15 @@ export default function FuriganaScreen() {
 
       {translation && (
         <View style={styles.translationBox}>
-          <Text style={styles.resultLabel}>Bản dịch tiếng Việt</Text>
+          <Text style={styles.resultLabel}>{ReaderUiText.translationLabel}</Text>
           <Text style={styles.translationText}>{translation}</Text>
           <View style={styles.translationActions}>
             <TouchableOpacity
-              style={[styles.vbeeBtn, vbeeLoading && styles.btnDisabled]}
+              style={[styles.vbeeBtn, (vbeeLoading || vbeePreparing) && styles.btnDisabled]}
               onPress={() => void handleReadTranslation()}
-              disabled={vbeeLoading}
+              disabled={vbeeLoading || vbeePreparing}
             >
-              {vbeeLoading ? (
+              {vbeeLoading || vbeePreparing ? (
                 <ActivityIndicator color={Colors.primary} size="small" />
               ) : (
                 <>
@@ -433,10 +523,13 @@ export default function FuriganaScreen() {
 
       {tokens && tokens.length > 0 && (
         <View style={styles.resultBox}>
-          <Text style={styles.resultLabel}>Kết quả</Text>
-          <Text style={styles.smartHint}>
-            Bấm vào từ để tra nghĩa và dịch câu. Kết quả được lưu cache, bấm lại không tốn token.
-          </Text>
+          <View style={styles.resultHeaderRow}>
+            <Text style={[styles.resultLabel, styles.resultLabelInline]}>{ReaderUiText.resultLabel}</Text>
+            <Text style={styles.resultMeta}>
+              {tokens.filter(isLookupableToken).length} {ReaderUiText.tokenUnit}
+            </Text>
+          </View>
+          <Text style={styles.smartHint}>{ReaderUiText.smartHint}</Text>
           <RubyText
             tokens={tokens}
             selectedTokenIndex={selectedTokenIndex}
@@ -453,9 +546,9 @@ export default function FuriganaScreen() {
               style={styles.fab}
               onPress={scrollToTop}
               activeOpacity={0.85}
-              accessibilityLabel="Lên đầu bài"
+              accessibilityLabel={ReaderUiText.jumpTop}
             >
-              <Ionicons name="arrow-up" size={22} color={Colors.white} />
+              <Ionicons name="arrow-up" size={20} color={Colors.white} />
             </TouchableOpacity>
           )}
           {showJumpBottom && (
@@ -463,9 +556,9 @@ export default function FuriganaScreen() {
               style={styles.fab}
               onPress={scrollToBottom}
               activeOpacity={0.85}
-              accessibilityLabel="Xuống cuối bài"
+              accessibilityLabel={ReaderUiText.jumpBottom}
             >
-              <Ionicons name="arrow-down" size={22} color={Colors.white} />
+              <Ionicons name="arrow-down" size={20} color={Colors.white} />
             </TouchableOpacity>
           )}
         </View>
@@ -509,18 +602,18 @@ function WordLookupSheet({
   const wordReading = explanation?.reading ?? reading;
 
   return (
-    <View style={[styles.sheet, { paddingBottom: 14 + bottomInset }]}>
+    <View style={[styles.sheet, { paddingBottom: 10 + bottomInset }]}>
       <View style={styles.sheetHandle} />
       <View style={styles.sheetHeader}>
         <View style={styles.sheetTitleRow}>
-          <Ionicons name="book-outline" size={16} color={Colors.primary} />
+          <Ionicons name="book-outline" size={15} color={Colors.primary} />
           <Text style={styles.sheetTitle}>{SmartUiText.lookupTitle}</Text>
         </View>
         <TouchableOpacity
           onPress={onClose}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Ionicons name="close" size={22} color={Colors.textMuted} />
+          <Ionicons name="close" size={20} color={Colors.textMuted} />
         </TouchableOpacity>
       </View>
 
@@ -614,21 +707,21 @@ function RubyText({
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: Colors.background },
   container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: 16, paddingBottom: 48 },
+  content: { padding: 12, paddingBottom: 36 },
   // Extra room so the last lines can scroll above the floating lookup sheet.
-  contentLookupOpen: { paddingBottom: 340 },
-  header: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 },
+  contentLookupOpen: { paddingBottom: 280 },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 7, marginBottom: 6 },
   title: {
-    fontSize: 22,
+    fontSize: 19,
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 12,
     color: Colors.textSecondary,
-    lineHeight: 20,
-    marginBottom: 14,
+    lineHeight: 17,
+    marginBottom: 10,
   },
   warnBox: {
     flexDirection: 'row',
@@ -636,33 +729,37 @@ const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: '#FEF3C7',
     borderRadius: 10,
-    padding: 10,
-    marginBottom: 12,
+    padding: 9,
+    marginBottom: 10,
   },
-  warnText: { flex: 1, fontSize: 12, color: '#92400E', lineHeight: 18 },
+  warnText: { flex: 1, fontSize: 11, color: '#92400E', lineHeight: 16 },
   input: {
     backgroundColor: Colors.card,
     borderWidth: 1,
     borderColor: Colors.border,
-    borderRadius: 12,
-    padding: 14,
-    fontSize: 16,
+    borderRadius: 10,
+    padding: 11,
+    fontSize: 14,
     color: Colors.textPrimary,
-    minHeight: 120,
+    minHeight: 96,
     fontFamily: 'BeVietnamPro_400Regular',
   },
-  actionRow: { flexDirection: 'row', gap: 8, marginTop: 10, flexWrap: 'wrap' },
+  inputCompact: {
+    minHeight: 54,
+    maxHeight: 72,
+  },
+  actionRow: { flexDirection: 'row', gap: 7, marginTop: 8, flexWrap: 'wrap' },
   secondaryBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
     backgroundColor: Colors.accent,
     borderRadius: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
   },
   secondaryBtnText: {
-    fontSize: 13,
+    fontSize: 12,
     color: Colors.primary,
     fontFamily: 'BeVietnamPro_600SemiBold',
   },
@@ -670,84 +767,84 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     backgroundColor: Colors.primary,
-    borderRadius: 10,
-    paddingVertical: 14,
+    borderRadius: 9,
+    paddingVertical: 11,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 12,
+    marginTop: 10,
   },
   btnDisabled: { opacity: 0.5 },
   primaryBtnText: {
     color: Colors.white,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
   },
-  urlRow: { flexDirection: 'row', gap: 8, marginBottom: 12 },
+  urlRow: { flexDirection: 'row', gap: 7, marginBottom: 10 },
   urlInput: {
     flex: 1,
     backgroundColor: Colors.card,
     borderWidth: 1,
     borderColor: Colors.border,
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: 14,
+    borderRadius: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    fontSize: 13,
     color: Colors.textPrimary,
     fontFamily: 'BeVietnamPro_400Regular',
   },
   urlBtn: {
     backgroundColor: Colors.primary,
-    borderRadius: 10,
-    paddingHorizontal: 16,
+    borderRadius: 9,
+    paddingHorizontal: 13,
     justifyContent: 'center',
     alignItems: 'center',
-    minWidth: 72,
+    minWidth: 64,
   },
   urlBtnText: {
     color: Colors.white,
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   translateBtn: {
     flexDirection: 'row',
     gap: 8,
     backgroundColor: Colors.accent,
-    borderRadius: 10,
-    paddingVertical: 14,
+    borderRadius: 9,
+    paddingVertical: 11,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 8,
   },
   translateBtnText: {
     color: Colors.primary,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
   },
   hintText: {
-    fontSize: 12,
+    fontSize: 11,
     color: Colors.textMuted,
-    lineHeight: 18,
-    marginTop: 8,
+    lineHeight: 16,
+    marginTop: 7,
   },
   translationBox: {
     backgroundColor: '#EEF7F1',
-    borderRadius: 12,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#CDEAD9',
-    padding: 14,
-    marginTop: 16,
+    padding: 12,
+    marginTop: 12,
   },
   translationText: {
-    fontSize: 15,
-    lineHeight: 23,
+    fontSize: 14,
+    lineHeight: 20,
     color: Colors.textPrimary,
   },
   translationActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 10,
   },
   vbeeBtn: {
     flexDirection: 'row',
@@ -758,72 +855,85 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#CDEAD9',
     borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: 36,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    minHeight: 34,
   },
   vbeeBtnText: {
     color: Colors.primary,
-    fontSize: 13,
+    fontSize: 12,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   vbeeHint: {
-    fontSize: 12,
+    fontSize: 11,
     color: Colors.textMuted,
-    lineHeight: 18,
-    marginTop: 8,
+    lineHeight: 16,
+    marginTop: 7,
   },
   errorBox: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 8,
     backgroundColor: '#FEF2F2',
-    borderRadius: 10,
-    padding: 12,
-    marginTop: 14,
+    borderRadius: 9,
+    padding: 10,
+    marginTop: 11,
   },
-  errorText: { flex: 1, fontSize: 13, color: '#B91C1C', lineHeight: 19 },
+  errorText: { flex: 1, fontSize: 12, color: '#B91C1C', lineHeight: 17 },
   resultBox: {
     backgroundColor: Colors.card,
-    borderRadius: 12,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: Colors.border,
-    padding: 14,
-    marginTop: 16,
+    padding: 12,
+    marginTop: 12,
   },
   resultLabel: {
-    fontSize: 12,
+    fontSize: 11,
     fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textMuted,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: 10,
+    letterSpacing: 0.3,
+    marginBottom: 8,
   },
-  smartHint: {
-    fontSize: 12,
+  resultHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+    marginBottom: 6,
+  },
+  resultMeta: {
+    fontSize: 11,
     color: Colors.textMuted,
-    lineHeight: 18,
-    marginBottom: 10,
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  resultLabelInline: { marginBottom: 0 },
+  smartHint: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    lineHeight: 16,
+    marginBottom: 8,
   },
   smartErrorText: {
     color: '#B91C1C',
-    fontSize: 13,
-    lineHeight: 19,
-    marginTop: 10,
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 8,
   },
   wordLookupBox: {
     backgroundColor: '#F8FAFC',
     borderWidth: 1,
     borderColor: Colors.border,
-    borderRadius: 10,
-    padding: 12,
-    marginTop: 14,
+    borderRadius: 9,
+    padding: 10,
+    marginTop: 11,
   },
   wordLookupTitle: {
-    fontSize: 13,
+    fontSize: 12,
     color: Colors.primary,
     fontFamily: 'BeVietnamPro_700Bold',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   lookupLoadingRow: {
     flexDirection: 'row',
@@ -831,46 +941,46 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   lookupLoadingText: {
-    fontSize: 13,
+    fontSize: 12,
     color: Colors.textSecondary,
   },
   lookupMetaLabel: {
-    fontSize: 11,
+    fontSize: 10,
     color: Colors.textMuted,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginTop: 8,
-    marginBottom: 3,
+    letterSpacing: 0.3,
+    marginTop: 7,
+    marginBottom: 2,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   lookupWord: {
-    fontSize: 18,
-    lineHeight: 25,
+    fontSize: 16,
+    lineHeight: 22,
     color: Colors.textPrimary,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   lookupText: {
-    fontSize: 14,
-    lineHeight: 21,
+    fontSize: 13,
+    lineHeight: 19,
     color: Colors.textPrimary,
   },
   rubyWrap: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end' },
-  rubyToken: { alignItems: 'center', marginBottom: 6 },
+  rubyToken: { alignItems: 'center', marginBottom: 4 },
   rubyTokenTouchable: {
-    borderRadius: 6,
+    borderRadius: 5,
     paddingHorizontal: 2,
   },
   rubyTokenSelected: {
     backgroundColor: '#E0F2FE',
   },
   rubyReading: {
-    fontSize: 10,
-    lineHeight: 13,
+    fontSize: 9,
+    lineHeight: 11,
     color: Colors.primary,
   },
   rubySurface: {
-    fontSize: 19,
-    lineHeight: 26,
+    fontSize: 17,
+    lineHeight: 23,
     color: Colors.textPrimary,
   },
   lineBreak: { width: '100%', height: 0 },
@@ -880,59 +990,59 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    maxHeight: '58%',
+    maxHeight: '50%',
     backgroundColor: Colors.card,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
+    borderTopLeftRadius: 14,
+    borderTopRightRadius: 14,
     borderTopWidth: 1,
     borderColor: Colors.border,
-    paddingHorizontal: 16,
-    paddingTop: 8,
+    paddingHorizontal: 12,
+    paddingTop: 7,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.12,
-    shadowRadius: 12,
+    shadowRadius: 10,
     elevation: 16,
   },
   sheetHandle: {
     alignSelf: 'center',
-    width: 40,
+    width: 36,
     height: 4,
     borderRadius: 2,
     backgroundColor: Colors.border,
-    marginBottom: 8,
+    marginBottom: 6,
   },
   sheetHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 6,
+    marginBottom: 4,
   },
-  sheetTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  sheetTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   sheetTitle: {
-    fontSize: 15,
+    fontSize: 13,
     color: Colors.primary,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   sheetBody: { flexGrow: 0 },
-  sheetBodyContent: { paddingBottom: 6 },
+  sheetBodyContent: { paddingBottom: 4 },
   sheetWordRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 10,
-    marginBottom: 2,
+    gap: 8,
+    marginBottom: 0,
   },
   fabColumn: {
     position: 'absolute',
-    right: 16,
-    gap: 10,
+    right: 12,
+    gap: 8,
     alignItems: 'center',
   },
   fab: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center',

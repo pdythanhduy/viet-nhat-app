@@ -1,5 +1,8 @@
 import {
+  clearVbeeSpeechCache,
+  getConfiguredVbeeJapaneseVoiceCode,
   getVbeeApiBaseUrl,
+  getVbeeJapaneseVoiceCode,
   getVbeeVoiceCode,
   isVbeeConfigured,
   synthesizeVbeeSpeech,
@@ -24,6 +27,8 @@ const originalEnv = {
   apiKey: process.env.EXPO_PUBLIC_VBEE_API_KEY,
   voiceCode: process.env.EXPO_PUBLIC_VBEE_VOICE_CODE,
   voiceId: process.env.EXPO_PUBLIC_VBEE_VOICE_ID,
+  jaVoiceCode: process.env.EXPO_PUBLIC_VBEE_JA_VOICE_CODE,
+  jaVoiceId: process.env.EXPO_PUBLIC_VBEE_JA_VOICE_ID,
   callbackUrl: process.env.EXPO_PUBLIC_VBEE_CALLBACK_URL,
 };
 const originalFetch = globalThis.fetch;
@@ -40,6 +45,8 @@ function restoreEnv() {
     ['apiKey', 'EXPO_PUBLIC_VBEE_API_KEY'],
     ['voiceCode', 'EXPO_PUBLIC_VBEE_VOICE_CODE'],
     ['voiceId', 'EXPO_PUBLIC_VBEE_VOICE_ID'],
+    ['jaVoiceCode', 'EXPO_PUBLIC_VBEE_JA_VOICE_CODE'],
+    ['jaVoiceId', 'EXPO_PUBLIC_VBEE_JA_VOICE_ID'],
     ['callbackUrl', 'EXPO_PUBLIC_VBEE_CALLBACK_URL'],
   ];
 
@@ -61,6 +68,9 @@ describe('vbeeTts', () => {
     process.env.EXPO_PUBLIC_VBEE_VOICE_CODE = 'test-voice';
     process.env.EXPO_PUBLIC_VBEE_CALLBACK_URL = 'https://example.com/callback';
     delete process.env.EXPO_PUBLIC_VBEE_VOICE_ID;
+    delete process.env.EXPO_PUBLIC_VBEE_JA_VOICE_CODE;
+    delete process.env.EXPO_PUBLIC_VBEE_JA_VOICE_ID;
+    clearVbeeSpeechCache();
     fetchMock.mockReset();
     setMockFetch();
   });
@@ -79,6 +89,18 @@ describe('vbeeTts', () => {
     expect(getVbeeApiBaseUrl()).toBe('https://vbee.vn/api/v1');
     expect(getVbeeVoiceCode()).toBe('hn_female_ngochuyen_full_48k-fhg');
     expect(isVbeeConfigured()).toBe(false);
+  });
+
+  it('prefers the Japanese voice env when present', () => {
+    process.env.EXPO_PUBLIC_VBEE_JA_VOICE_CODE = 'ja-test-voice';
+
+    expect(getConfiguredVbeeJapaneseVoiceCode()).toBe('ja-test-voice');
+    expect(getVbeeJapaneseVoiceCode()).toBe('ja-test-voice');
+  });
+
+  it('keeps Japanese voice strict config separate from the default voice', () => {
+    expect(getConfiguredVbeeJapaneseVoiceCode()).toBeUndefined();
+    expect(getVbeeJapaneseVoiceCode()).toBe('test-voice');
   });
 
   it('submits Vietnamese text to Vbee and polls for the audio link', async () => {
@@ -130,6 +152,29 @@ describe('vbeeTts', () => {
     expect(pollInit?.headers).toEqual({ Authorization: 'Bearer test-token' });
   });
 
+  it('can submit text with an explicit voice code override', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        status: 1,
+        result: { request_id: 'req-ja', status: 'SUCCESS', audio_link: 'https://vbee.vn/s/ja.mp3' },
+      }),
+    });
+
+    await expect(
+      synthesizeVbeeSpeech('にどね', { voiceCode: 'ja-test-voice' })
+    ).resolves.toEqual({
+      requestId: 'req-ja',
+      audioUrl: 'https://vbee.vn/s/ja.mp3',
+    });
+
+    const [, submitInit] = fetchMock.mock.calls[0];
+    const submitPayload = JSON.parse(String(submitInit?.body)) as VbeeRequestPayload;
+    expect(submitPayload.voice_code).toBe('ja-test-voice');
+    expect(submitPayload.input_text).toBe('にどね');
+  });
+
   it('returns immediate audio when Vbee completes during submission', async () => {
     fetchMock.mockResolvedValueOnce({
       ok: true,
@@ -144,6 +189,42 @@ describe('vbeeTts', () => {
       requestId: 'req-123',
       audioUrl: 'https://vbee.vn/s/audio.mp3',
     });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('reuses an in-memory result for repeated text and voice', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        status: 1,
+        result: { request_id: 'req-cache', status: 'SUCCESS', audio_link: 'https://vbee.vn/s/cache.mp3' },
+      }),
+    });
+
+    const first = await synthesizeVbeeSpeech('Xin chao');
+    const second = await synthesizeVbeeSpeech('Xin chao');
+
+    expect(first).toEqual(second);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('dedupes concurrent requests for the same text and voice', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        status: 1,
+        result: { request_id: 'req-shared', status: 'SUCCESS', audio_link: 'https://vbee.vn/s/shared.mp3' },
+      }),
+    });
+
+    const [first, second] = await Promise.all([
+      synthesizeVbeeSpeech('Doc chung mot cau'),
+      synthesizeVbeeSpeech('Doc chung mot cau'),
+    ]);
+
+    expect(first).toEqual(second);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 

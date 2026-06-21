@@ -96,7 +96,19 @@ function retrievalConfidence(
     topTitle.includes(nQuery);
 
   if (titleHit) return 'high';
-  if (topResults.length >= 2) return 'medium';
+
+  const signalTokens = querySignalTokens(query);
+  const matchedSignalTokens = signalTokens.filter((token) =>
+    topResults.some((item) => searchableResultText(item).includes(token))
+  );
+
+  if (
+    topResults.length >= 2 &&
+    matchedSignalTokens.length > 0 &&
+    (signalTokens.length === 1 || matchedSignalTokens.length >= 2)
+  ) {
+    return 'medium';
+  }
   return 'low';
 }
 
@@ -188,6 +200,24 @@ const STOP_WORDS = new Set([
   'duoc', 'roi', 'tai', 'nhe', 'nhu', 'the', 'ay', 'do', 'day', 'kia',
   'da', 'se',
 ]);
+
+function querySignalTokens(query: string): string[] {
+  return normalize(query)
+    .split(/[^\p{L}\p{N}#]+/u)
+    .filter((t) => t.length >= 2 && !STOP_WORDS.has(t) && /\D/u.test(t));
+}
+
+function searchableResultText(item: SearchResultItem): string {
+  return normalize(
+    [
+      item.title,
+      item.subtitle,
+      item.snippet,
+      item.searchText,
+      item.queryHint ?? '',
+    ].join(' ')
+  );
+}
 
 // Free-text queries from the chat screen are usually full sentences like
 // "Mất thẻ cư trú phải làm gì?" — far too long for searchAppContent's

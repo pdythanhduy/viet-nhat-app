@@ -2,19 +2,31 @@ const DEFAULT_API_BASE_URL = 'https://vbee.vn/api/v1';
 const DEFAULT_VOICE_CODE = 'hn_female_ngochuyen_full_48k-fhg';
 const DEFAULT_CALLBACK_URL = 'https://example.com/vbee-callback';
 const REQUEST_TIMEOUT_MS = 30000;
-const POLL_INTERVAL_MS = 1500;
+const POLL_INTERVAL_MS = 800;
 const MAX_POLL_ATTEMPTS = 40;
+const MAX_SPEECH_CACHE_ENTRIES = 80;
 
 type VbeeTtsRequestOptions = {
   pollIntervalMs?: number;
   maxPollAttempts?: number;
   requestTimeoutMs?: number;
+  voiceCode?: string;
 };
 
 export type VbeeSpeechResult = {
   audioUrl: string;
   requestId: string;
 };
+
+type VbeeSpeechCacheInput = {
+  appId: string;
+  baseUrl: string;
+  callbackUrl: string;
+  text: string;
+  voiceCode: string;
+};
+
+const speechCache = new Map<string, Promise<VbeeSpeechResult>>();
 
 type VbeeApiResponse = {
   status?: number | boolean | string;
@@ -64,6 +76,17 @@ export function getVbeeVoiceCode(): string {
   );
 }
 
+export function getConfiguredVbeeJapaneseVoiceCode(): string | undefined {
+  return (
+    cleanEnv(process.env.EXPO_PUBLIC_VBEE_JA_VOICE_CODE) ??
+    cleanEnv(process.env.EXPO_PUBLIC_VBEE_JA_VOICE_ID)
+  );
+}
+
+export function getVbeeJapaneseVoiceCode(): string {
+  return getConfiguredVbeeJapaneseVoiceCode() ?? getVbeeVoiceCode();
+}
+
 export function getVbeeCallbackUrl(): string {
   return cleanEnv(process.env.EXPO_PUBLIC_VBEE_CALLBACK_URL) ?? DEFAULT_CALLBACK_URL;
 }
@@ -84,6 +107,36 @@ function toAsciiJson(value: unknown): string {
 
 function buildUrl(path: string): string {
   return `${getVbeeApiBaseUrl()}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
+function getSpeechCacheKey(input: VbeeSpeechCacheInput): string {
+  return JSON.stringify([
+    input.baseUrl,
+    input.appId,
+    input.callbackUrl,
+    input.voiceCode,
+    input.text,
+  ]);
+}
+
+function getCachedSpeech(cacheKey: string): Promise<VbeeSpeechResult> | undefined {
+  const cached = speechCache.get(cacheKey);
+  if (!cached) return undefined;
+  speechCache.delete(cacheKey);
+  speechCache.set(cacheKey, cached);
+  return cached;
+}
+
+function rememberSpeech(cacheKey: string, promise: Promise<VbeeSpeechResult>): void {
+  if (!speechCache.has(cacheKey) && speechCache.size >= MAX_SPEECH_CACHE_ENTRIES) {
+    const oldestKey = speechCache.keys().next().value;
+    if (oldestKey) speechCache.delete(oldestKey);
+  }
+  speechCache.set(cacheKey, promise);
+}
+
+export function clearVbeeSpeechCache(): void {
+  speechCache.clear();
 }
 
 function sleep(ms: number): Promise<void> {
@@ -154,6 +207,55 @@ export async function synthesizeVbeeSpeech(
   }
 
   const requestTimeoutMs = options.requestTimeoutMs ?? REQUEST_TIMEOUT_MS;
+  const voiceCode = cleanEnv(options.voiceCode) ?? getVbeeVoiceCode();
+  const baseUrl = getVbeeApiBaseUrl();
+  const callbackUrl = getVbeeCallbackUrl();
+  const cacheKey = getSpeechCacheKey({
+    appId,
+    baseUrl,
+    callbackUrl,
+    text: trimmed,
+    voiceCode,
+  });
+  const cached = getCachedSpeech(cacheKey);
+  if (cached) return cached;
+
+  const promise = synthesizeVbeeSpeechUncached({
+    apiKey,
+    appId,
+    callbackUrl,
+    maxPollAttempts: options.maxPollAttempts ?? MAX_POLL_ATTEMPTS,
+    pollIntervalMs: options.pollIntervalMs ?? POLL_INTERVAL_MS,
+    requestTimeoutMs,
+    text: trimmed,
+    voiceCode,
+  }).catch((error) => {
+    speechCache.delete(cacheKey);
+    throw error;
+  });
+  rememberSpeech(cacheKey, promise);
+  return promise;
+}
+
+async function synthesizeVbeeSpeechUncached({
+  apiKey,
+  appId,
+  callbackUrl,
+  maxPollAttempts,
+  pollIntervalMs,
+  requestTimeoutMs,
+  text,
+  voiceCode,
+}: {
+  apiKey: string;
+  appId: string;
+  callbackUrl: string;
+  maxPollAttempts: number;
+  pollIntervalMs: number;
+  requestTimeoutMs: number;
+  text: string;
+  voiceCode: string;
+}): Promise<VbeeSpeechResult> {
   const submitResponse = await fetchVbeeJson(
     buildUrl('/tts'),
     {
@@ -164,9 +266,9 @@ export async function synthesizeVbeeSpeech(
       },
       body: toAsciiJson({
         app_id: appId,
-        input_text: trimmed,
-        voice_code: getVbeeVoiceCode(),
-        callback_url: getVbeeCallbackUrl(),
+        input_text: text,
+        voice_code: voiceCode,
+        callback_url: callbackUrl,
       }),
     },
     requestTimeoutMs
@@ -181,10 +283,10 @@ export async function synthesizeVbeeSpeech(
     throw new Error('Vbee did not return a request id.');
   }
 
-  const maxPollAttempts = options.maxPollAttempts ?? MAX_POLL_ATTEMPTS;
-  const pollIntervalMs = options.pollIntervalMs ?? POLL_INTERVAL_MS;
   for (let attempt = 0; attempt < maxPollAttempts; attempt++) {
-    await sleep(pollIntervalMs);
+    if (attempt > 0) {
+      await sleep(pollIntervalMs);
+    }
     const pollResponse = await fetchVbeeJson(
       buildUrl(`/tts/${encodeURIComponent(requestId)}`),
       {

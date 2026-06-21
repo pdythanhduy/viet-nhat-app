@@ -27,8 +27,14 @@ export interface N2QuizItem {
   a: number; // index of the correct option
 }
 
+export interface N2ReviewItem {
+  term: string; // word / pattern being reviewed
+  note: string; // the key reminder (Vietnamese)
+}
+
 export interface N2DayContent {
   day: number;
+  review?: N2ReviewItem[]; // SRS recap of earlier days (optional)
   vocab: N2VocabCard[];
   quiz: N2QuizItem[];
 }

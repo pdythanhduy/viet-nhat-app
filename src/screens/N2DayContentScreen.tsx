@@ -3,11 +3,11 @@
 // are AI-generated (cached). Reached from the Day detail screen.
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRoute, RouteProp } from '@react-navigation/native';
+import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
 import { Colors } from '../constants/colors';
-import AudioButton from '../components/AudioButton';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import { getN2Day } from '../constants/n2RecoveryCurriculum';
 import {
@@ -22,6 +22,12 @@ import {
   hasSeed,
   isDayContentConfigured,
 } from '../services/n2DayContent';
+import {
+  getConfiguredVbeeJapaneseVoiceCode,
+  isVbeeConfigured,
+  synthesizeVbeeSpeech,
+} from '../services/vbeeTts';
+import { playJapaneseAudio } from '../utils/audio';
 
 type Route = RouteProp<RootStackParamList, 'N2DayContent'>;
 
@@ -32,6 +38,21 @@ const TAG_STYLE: Record<ExTag, { bg: string; color: string }> = {
   N: { bg: '#FEF9C3', color: '#854D0E' },
 };
 
+const VbeeAudioText = {
+  notConfiguredTitle: 'Chưa cấu hình Vbee',
+  notConfiguredMessage:
+    'Thêm EXPO_PUBLIC_VBEE_APP_ID và EXPO_PUBLIC_VBEE_API_KEY vào .env rồi khởi động lại Expo.',
+  missingJapaneseVoice:
+    'Chưa có voice tiếng Nhật của Vbee. App đang dùng giọng Nhật của thiết bị.',
+  errorPrefix: 'Không đọc được bằng Vbee',
+};
+
+function getVocabAudioText(jp: string): string {
+  const reading = jp.match(/（([ぁ-ゖァ-ヺー・]+)）/)?.[1]?.trim();
+  if (reading) return reading;
+  return jp.replace(/（.*?）/g, '').trim();
+}
+
 export default function N2DayContentScreen() {
   const route = useRoute<Route>();
   const day = route.params.day;
@@ -40,7 +61,19 @@ export default function N2DayContentScreen() {
   const [content, setContent] = useState<N2DayContent | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [vbeeError, setVbeeError] = useState<string | null>(null);
+  const [vbeeLoadingId, setVbeeLoadingId] = useState<string | null>(null);
   const configured = isDayContentConfigured();
+  const vbeeConfigured = isVbeeConfigured();
+  const vbeeJapaneseVoiceCode = getConfiguredVbeeJapaneseVoiceCode();
+  const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
+
+  useEffect(() => {
+    void setAudioModeAsync({
+      playsInSilentMode: true,
+      interruptionMode: 'duckOthers',
+    }).catch(() => undefined);
+  }, []);
 
   // Load seed/cache automatically; only hit the API on an explicit tap.
   useEffect(() => {
@@ -79,6 +112,39 @@ export default function N2DayContentScreen() {
     }
   };
 
+  const handleReadWithVbee = async (audioId: string, text: string) => {
+    if (!text.trim()) return;
+    if (!vbeeConfigured) {
+      Alert.alert(VbeeAudioText.notConfiguredTitle, VbeeAudioText.notConfiguredMessage);
+      return;
+    }
+
+    if (!vbeeJapaneseVoiceCode) {
+      setVbeeError(VbeeAudioText.missingJapaneseVoice);
+      await playJapaneseAudio(text, audioId);
+      return;
+    }
+
+    setVbeeError(null);
+    setVbeeLoadingId(audioId);
+    try {
+      const result = await synthesizeVbeeSpeech(text, {
+        voiceCode: vbeeJapaneseVoiceCode,
+      });
+      vbeePlayer.replace({ uri: result.audioUrl });
+      vbeePlayer.play();
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      setVbeeError(
+        msg === 'not-configured'
+          ? VbeeAudioText.notConfiguredMessage
+          : `${VbeeAudioText.errorPrefix}: ${msg}`
+      );
+    } finally {
+      setVbeeLoadingId((current) => (current === audioId ? null : current));
+    }
+  };
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.cover}>
@@ -86,6 +152,13 @@ export default function N2DayContentScreen() {
         <Text style={styles.coverTheme}>{info?.theme ?? ''}</Text>
         <Text style={styles.coverSub}>Từ vựng 50 + Quiz 20</Text>
       </View>
+
+      {vbeeError && (
+        <View style={styles.errBox}>
+          <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
+          <Text style={styles.errText}>{vbeeError}</Text>
+        </View>
+      )}
 
       {!content ? (
         <View style={styles.genWrap}>
@@ -123,10 +196,36 @@ export default function N2DayContentScreen() {
         </View>
       ) : (
         <>
+          {content.review?.length ? (
+            <>
+              <Text style={styles.sectionTitle}>MỤC 1 — REVIEW</Text>
+              <View style={styles.reviewCard}>
+                {content.review.map((item, index) => (
+                  <View
+                    key={`${item.term}:${index}`}
+                    style={[
+                      styles.reviewRow,
+                      index === content.review!.length - 1 && styles.reviewRowLast,
+                    ]}
+                  >
+                    <Text style={styles.reviewTerm}>{item.term}</Text>
+                    <Text style={styles.reviewNote}>{item.note}</Text>
+                  </View>
+                ))}
+              </View>
+            </>
+          ) : null}
+
           <Text style={styles.sectionTitle}>MỤC 2 — TỪ VỰNG ({content.vocab.length} từ)</Text>
           <Text style={styles.sectionNote}>［n］= accent ｜ ★ = tần suất ｜ B/D/N = ngữ cảnh ví dụ</Text>
           {content.vocab.map((v) => (
-            <VocabCard key={v.id} day={day} card={v} />
+            <VocabCard
+              key={v.id}
+              day={day}
+              card={v}
+              loadingAudioId={vbeeLoadingId}
+              onRead={handleReadWithVbee}
+            />
           ))}
 
           {content.quiz.length > 0 && (
@@ -160,14 +259,31 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
-function VocabCard({ day, card }: { day: number; card: N2VocabCard }) {
+function VocabCard({
+  day,
+  card,
+  loadingAudioId,
+  onRead,
+}: {
+  day: number;
+  card: N2VocabCard;
+  loadingAudioId: string | null;
+  onRead: (audioId: string, text: string) => void;
+}) {
+  const wordAudioId = `n2c:${day}:${card.id}`;
   return (
     <View style={styles.card}>
       <View style={styles.cardHeadRow}>
         <Text style={styles.cardHead}>
           {card.jp} <Text style={styles.cardAcc}>{card.acc}</Text>
         </Text>
-        <AudioButton audioId={`n2c:${day}:${card.id}`} text={card.jp.replace(/（.*?）/g, '')} size={14} />
+        <VbeeAudioButton
+          audioId={wordAudioId}
+          text={getVocabAudioText(card.jp)}
+          loadingAudioId={loadingAudioId}
+          size={14}
+          onRead={onRead}
+        />
       </View>
       {!!card.meta && <Text style={styles.cardMeta}>{card.meta}</Text>}
       <Row label="Nghĩa:" value={card.mean} />
@@ -208,12 +324,50 @@ function VocabCard({ day, card }: { day: number; card: N2VocabCard }) {
                 </Text>
               </View>
               <Text style={styles.exJp}>{sentence}</Text>
-              <AudioButton audioId={`n2c:${day}:${card.id}:ex${i}`} text={sentence} size={13} />
+              <VbeeAudioButton
+                audioId={`n2c:${day}:${card.id}:ex${i}`}
+                text={sentence}
+                loadingAudioId={loadingAudioId}
+                size={13}
+                onRead={onRead}
+              />
             </View>
           ))}
         </View>
       )}
     </View>
+  );
+}
+
+function VbeeAudioButton({
+  audioId,
+  text,
+  loadingAudioId,
+  size,
+  onRead,
+}: {
+  audioId: string;
+  text: string;
+  loadingAudioId: string | null;
+  size: number;
+  onRead: (audioId: string, text: string) => void;
+}) {
+  const loading = loadingAudioId === audioId;
+  return (
+    <TouchableOpacity
+      style={styles.audioBtn}
+      onPress={() => onRead(audioId, text)}
+      disabled={loading}
+      activeOpacity={0.85}
+      accessibilityRole="button"
+      accessibilityLabel="Đọc bằng Vbee"
+    >
+      {loading ? (
+        <ActivityIndicator size="small" color={Colors.primary} />
+      ) : (
+        <Ionicons name="volume-high" size={size} color={Colors.primary} />
+      )}
+    </TouchableOpacity>
   );
 }
 
@@ -303,6 +457,36 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   sectionNote: { fontSize: 12, color: Colors.textMuted, marginBottom: 12 },
+  reviewCard: {
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: 10,
+    backgroundColor: Colors.card,
+    marginBottom: 12,
+    overflow: 'hidden',
+  },
+  reviewRow: {
+    flexDirection: 'row',
+    gap: 10,
+    paddingVertical: 9,
+    paddingHorizontal: 11,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  reviewRowLast: { borderBottomWidth: 0 },
+  reviewTerm: {
+    width: '34%',
+    fontSize: 13,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.primary,
+    lineHeight: 19,
+  },
+  reviewNote: {
+    flex: 1,
+    fontSize: 13,
+    color: Colors.textPrimary,
+    lineHeight: 19,
+  },
   card: {
     borderWidth: 1,
     borderColor: Colors.border,
@@ -315,6 +499,14 @@ const styles = StyleSheet.create({
   cardHead: { flex: 1, fontSize: 16, fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, lineHeight: 24 },
   cardAcc: { color: Colors.primary, fontFamily: 'BeVietnamPro_700Bold' },
   cardMeta: { fontSize: 12, color: Colors.textMuted, marginTop: 2, marginBottom: 6 },
+  audioBtn: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.accent,
+  },
   row: { fontSize: 13.5, color: Colors.textPrimary, lineHeight: 21, marginTop: 3 },
   rowLab: { fontFamily: 'BeVietnamPro_700Bold', color: '#475569' },
   misBox: { backgroundColor: '#FEF2F2', borderLeftWidth: 3, borderLeftColor: '#F87171', padding: 7, borderRadius: 5, marginTop: 6 },

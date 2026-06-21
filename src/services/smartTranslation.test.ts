@@ -30,7 +30,7 @@ import {
 type MockFetchResponse = {
   ok: boolean;
   status: number;
-  json: () => Promise<unknown>;
+  text: () => Promise<string>;
 };
 
 const originalApiKey = process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
@@ -82,17 +82,18 @@ describe('smartTranslation', () => {
     fetchMock.mockResolvedValueOnce({
       ok: true,
       status: 200,
-      json: async () => ({
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify([
-              { source: '今日は雨です。', translation: 'Hôm nay trời mưa.' },
-              { source: '明日は晴れます。', translation: 'Ngày mai trời nắng.' },
-            ]),
-          },
-        ],
-      }),
+      text: async () =>
+        JSON.stringify({
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify([
+                { source: '今日は雨です。', translation: 'Hôm nay trời mưa.' },
+                { source: '明日は晴れます。', translation: 'Ngày mai trời nắng.' },
+              ]),
+            },
+          ],
+        }),
     });
 
     await expect(translateSentencesSmart('今日は雨です。明日は晴れます。')).resolves.toEqual([
@@ -118,20 +119,21 @@ describe('smartTranslation', () => {
     fetchMock.mockResolvedValueOnce({
       ok: true,
       status: 200,
-      json: async () => ({
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              surface: '雨',
-              reading: 'あめ',
-              meaning: 'mưa',
-              sentenceTranslation: 'Hôm nay trời mưa.',
-              note: 'Danh từ.',
-            }),
-          },
-        ],
-      }),
+      text: async () =>
+        JSON.stringify({
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({
+                surface: '雨',
+                reading: 'あめ',
+                meaning: 'mưa',
+                sentenceTranslation: 'Hôm nay trời mưa.',
+                note: 'Danh từ.',
+              }),
+            },
+          ],
+        }),
     });
 
     await expect(
@@ -153,19 +155,20 @@ describe('smartTranslation', () => {
     fetchMock.mockResolvedValueOnce({
       ok: true,
       status: 200,
-      json: async () => ({
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              surface: '雨',
-              reading: 'あめ',
-              meaning: 'mưa',
-              sentenceTranslation: 'Hôm nay trời mưa.',
-            }),
-          },
-        ],
-      }),
+      text: async () =>
+        JSON.stringify({
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({
+                surface: '雨',
+                reading: 'あめ',
+                meaning: 'mưa',
+                sentenceTranslation: 'Hôm nay trời mưa.',
+              }),
+            },
+          ],
+        }),
     });
 
     const input = {
@@ -186,6 +189,48 @@ describe('smartTranslation', () => {
     });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('falls back to raw Claude text for non-JSON word lookup responses', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      text: async () =>
+        JSON.stringify({
+          content: [
+            {
+              type: 'text',
+              text: '雨: nghĩa là mưa trong câu này.',
+            },
+          ],
+        }),
+    });
+
+    await expect(
+      explainJapaneseSelection({
+        surface: '雨',
+        reading: 'あめ',
+        sentence: '今日は雨です。',
+      })
+    ).resolves.toMatchObject({
+      surface: '雨',
+      reading: 'あめ',
+      meaning: '雨: nghĩa là mưa trong câu này.',
+      sentenceTranslation: '今日は雨です。',
+      note: 'Phản hồi không đúng JSON; app đang hiển thị nội dung thô.',
+    });
+  });
+
+  it('throws a readable error when Claude API returns a non-JSON body', async () => {
+    fetchMock.mockResolvedValueOnce({
+      ok: false,
+      status: 502,
+      text: async () => 'html bad gateway',
+    });
+
+    await expect(translateSentencesSmart('今日は雨です。')).rejects.toThrow(
+      'Claude API returned a non-JSON response: html bad gateway'
+    );
   });
 
   it('throws not-configured without Anthropic key', async () => {
