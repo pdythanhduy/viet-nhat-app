@@ -14,6 +14,7 @@ import { navigate } from './src/navigation/navigationRef';
 import { addDailyRitualNotificationListener, rescheduleAll } from './src/utils/notifications';
 import { refreshDailyReminderContent } from './src/utils/dailyReminderSync';
 import { initAnalytics, track } from './src/utils/analytics';
+import { loadFlags } from './src/services/featureFlags';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,6 +28,7 @@ export default function App() {
   React.useEffect(() => {
     initAnalytics();
     track('app_open');
+    void loadFlags();
     Promise.all([rescheduleAll(), refreshDailyReminderContent()]).catch(() => {});
   }, []);
 

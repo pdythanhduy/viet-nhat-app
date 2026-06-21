@@ -47,6 +47,19 @@ export default function SettingsScreen() {
     wordReminderEnabled: false,
   });
   const [hasJapaneseVoice, setHasJapaneseVoice] = useState<boolean | null>(null);
+  // Hidden owner gesture: tap the version number 7× to open the private Lab.
+  const [versionTaps, setVersionTaps] = useState(0);
+
+  const handleVersionTap = () => {
+    setVersionTaps((prev) => {
+      const next = prev + 1;
+      if (next >= 7) {
+        navigation.navigate('Lab');
+        return 0;
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     loadUserProfile().then(setUserProfile);
@@ -348,10 +361,14 @@ export default function SettingsScreen() {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Thông tin ứng dụng</Text>
-        <View style={styles.infoRow}>
+        <TouchableOpacity
+          style={styles.infoRow}
+          activeOpacity={1}
+          onPress={handleVersionTap}
+        >
           <Text style={styles.infoLabel}>Phiên bản</Text>
           <Text style={styles.infoValue}>1.2.0</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Nền tảng</Text>
           <Text style={styles.infoValue}>{Platform.OS === 'ios' ? 'iOS' : 'Android'}</Text>

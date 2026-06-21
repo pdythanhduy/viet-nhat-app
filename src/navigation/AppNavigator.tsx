@@ -35,6 +35,7 @@ import DailyRitualScreen from '../screens/DailyRitualScreen';
 import JapaneseKanaScreen from '../screens/JapaneseKanaScreen';
 import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import LabScreen from '../screens/LabScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ImportantDatesScreen from '../screens/ImportantDatesScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
@@ -132,6 +133,7 @@ export type RootStackParamList = {
   Search: { initialQuery?: string } | undefined;
   HoiCamNang: undefined;
   Settings: undefined;
+  Lab: undefined;
   ImportantDates: { prefill?: { label: string } } | undefined;
   StoryHub: undefined;
   StoryReading: { storyId: string };
@@ -438,6 +440,11 @@ export default function AppNavigator() {
           name="Settings"
           component={SettingsScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Cài đặt' }}
+        />
+        <Stack.Screen
+          name="Lab"
+          component={LabScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Phòng thí nghiệm' }}
         />
         <Stack.Screen name="ImportantDates" component={ImportantDatesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="StoryHub" component={StoryHubScreen} options={{ headerShown: false }} />

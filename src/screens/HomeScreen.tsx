@@ -17,6 +17,7 @@ import { ADMIN_GUIDES } from '../constants/content/adminGuides';
 import { DAILY_LIFE_TOPICS } from '../constants/content/dailyLife';
 import { loadImportantDates, getDaysUntil } from '../utils/notifications';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { useFeatureFlag } from '../hooks/useFeatureFlags';
 import ProfileSetupModal from '../components/ProfileSetupModal';
 import type { UserProfile } from '../types/profile';
 import {
@@ -80,6 +81,8 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  // Example feature-flag consumer — toggled from the private Lab screen.
+  const showDemoBanner = useFeatureFlag('demoBanner');
   const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
@@ -344,6 +347,15 @@ export default function HomeScreen() {
         />
 
         <View style={styles.content}>
+          {showDemoBanner && (
+            <View style={styles.demoBanner}>
+              <Ionicons name="flask" size={18} color={Colors.primary} />
+              <Text style={styles.demoBannerText}>
+                Banner thử nghiệm đang bật (từ Phòng thí nghiệm).
+              </Text>
+            </View>
+          )}
+
           <HomeSearchCta onPress={handleSearchCtaPress} />
 
           <HomeAskCta onPress={() => navigation.navigate('HoiCamNang')} />
@@ -954,6 +966,22 @@ const styles = StyleSheet.create({
     marginTop: -16,
     paddingTop: 18,
     paddingHorizontal: 16,
+  },
+  demoBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: Colors.accent,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 12,
+  },
+  demoBannerText: {
+    flex: 1,
+    fontSize: 13,
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_600SemiBold',
   },
   profileHeroCard: {
     backgroundColor: Colors.white,
