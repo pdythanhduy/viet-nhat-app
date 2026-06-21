@@ -2,12 +2,20 @@
 // grammar patterns from the curriculum, with a "mark done" toggle (synced).
 // Stage 1: static plan only; generated lesson content comes later.
 
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
+import AudioButton from '../components/AudioButton';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import {
   N2_TOTAL_DAYS,
@@ -16,6 +24,12 @@ import {
 } from '../constants/n2RecoveryCurriculum';
 import { useN2Progress } from '../hooks/useN2Progress';
 import { isDayDone, pushRemote, toggleDay } from '../services/n2Progress';
+import {
+  N2Lesson,
+  generateN2Lesson,
+  hasCachedLesson,
+  isLessonConfigured,
+} from '../services/n2Lesson';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 type Route = RouteProp<RootStackParamList, 'N2DayDetail'>;
@@ -28,6 +42,31 @@ export default function N2DayDetailScreen() {
   // Re-render when progress changes.
   useN2Progress();
   const done = isDayDone(day);
+
+  const [lesson, setLesson] = useState<N2Lesson | null>(null);
+  const [lessonLoading, setLessonLoading] = useState(false);
+  const [lessonError, setLessonError] = useState<string | null>(null);
+  const lessonConfigured = isLessonConfigured();
+
+  // Reset when switching days; auto-load a cached lesson without an API call.
+  useEffect(() => {
+    let active = true;
+    setLesson(null);
+    setLessonError(null);
+    (async () => {
+      if (await hasCachedLesson(day)) {
+        try {
+          const l = await generateN2Lesson(day);
+          if (active) setLesson(l);
+        } catch {
+          // cached load failed — user can tap generate
+        }
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [day]);
 
   const info = getN2Day(day);
   const phase = info ? getN2Phase(info.phase) : undefined;
@@ -44,6 +83,25 @@ export default function N2DayDetailScreen() {
     await toggleDay(day);
     void pushRemote();
   };
+
+  const handleGenerate = async () => {
+    setLessonError(null);
+    setLessonLoading(true);
+    try {
+      setLesson(await generateN2Lesson(day));
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      setLessonError(
+        msg === 'not-configured'
+          ? 'Chưa cấu hình Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY).'
+          : `Không tạo được bài học: ${msg}`
+      );
+    } finally {
+      setLessonLoading(false);
+    }
+  };
+
+  const showLessonUi = info.kind === 'normal';
 
   const kindLabel =
     info.kind === 'review' ? 'Ngày ôn tập' : info.kind === 'test' ? 'Ngày kiểm tra' : null;
@@ -87,13 +145,74 @@ export default function N2DayDetailScreen() {
         ))}
       </View>
 
-      <View style={styles.noteBox}>
-        <Ionicons name="sparkles-outline" size={15} color={Colors.textMuted} />
-        <Text style={styles.noteText}>
-          Giai đoạn 2 sẽ thêm giải thích chi tiết + ví dụ + 50 từ vựng cho ngày này (sinh
-          bằng AI, lưu cache).
-        </Text>
-      </View>
+      {showLessonUi && (
+        <View style={styles.lessonSection}>
+          <Text style={styles.lessonSectionTitle}>Bài học chi tiết</Text>
+
+          {lesson ? (
+            lesson.grammar.map((item, gi) => (
+              <View key={gi} style={styles.lessonCard}>
+                <Text style={styles.lessonPattern}>{item.pattern}</Text>
+                {!!item.meaning && (
+                  <>
+                    <Text style={styles.lessonMeta}>Nghĩa</Text>
+                    <Text style={styles.lessonBody}>{item.meaning}</Text>
+                  </>
+                )}
+                {!!item.usage && (
+                  <>
+                    <Text style={styles.lessonMeta}>Cách dùng</Text>
+                    <Text style={styles.lessonBody}>{item.usage}</Text>
+                  </>
+                )}
+                {item.examples.map((ex, ei) => (
+                  <View key={ei} style={styles.exampleBox}>
+                    <View style={styles.exampleJpRow}>
+                      <Text style={styles.exampleJp}>{ex.jp}</Text>
+                      <AudioButton
+                        audioId={`n2:${day}:${gi}:${ei}`}
+                        text={ex.jp}
+                        size={14}
+                      />
+                    </View>
+                    <Text style={styles.exampleVn}>{ex.vn}</Text>
+                  </View>
+                ))}
+              </View>
+            ))
+          ) : (
+            <>
+              <TouchableOpacity
+                style={[styles.genBtn, (lessonLoading || !lessonConfigured) && styles.genBtnDisabled]}
+                onPress={() => void handleGenerate()}
+                disabled={lessonLoading || !lessonConfigured}
+                activeOpacity={0.85}
+              >
+                {lessonLoading ? (
+                  <ActivityIndicator color={Colors.white} />
+                ) : (
+                  <>
+                    <Ionicons name="sparkles" size={16} color={Colors.white} />
+                    <Text style={styles.genBtnText}>Tạo bài học chi tiết (AI)</Text>
+                  </>
+                )}
+              </TouchableOpacity>
+              <Text style={styles.genHint}>
+                {lessonConfigured
+                  ? 'Claude giải thích 5 mẫu ngữ pháp + ví dụ. Lưu cache, mở lại không tốn token.'
+                  : 'Cần Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY) để tạo bài học.'}
+              </Text>
+            </>
+          )}
+
+          {lessonError && (
+            <View style={styles.errBox}>
+              <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
+              <Text style={styles.errText}>{lessonError}</Text>
+            </View>
+          )}
+        </View>
+      )}
 
       <TouchableOpacity
         style={[styles.doneBtn, done && styles.doneBtnActive]}
@@ -216,4 +335,74 @@ const styles = StyleSheet.create({
   navBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, padding: 8 },
   navBtnDisabled: { opacity: 0.35 },
   navBtnText: { fontSize: 14, color: Colors.primary, fontFamily: 'BeVietnamPro_600SemiBold' },
+  lessonSection: { marginTop: 20 },
+  lessonSectionTitle: {
+    fontSize: 12,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: 10,
+  },
+  genBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    paddingVertical: 14,
+  },
+  genBtnDisabled: { opacity: 0.5 },
+  genBtnText: { color: Colors.white, fontSize: 15, fontFamily: 'BeVietnamPro_700Bold' },
+  genHint: { fontSize: 12, color: Colors.textMuted, lineHeight: 18, marginTop: 8 },
+  lessonCard: {
+    backgroundColor: Colors.card,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    padding: 14,
+    marginBottom: 12,
+  },
+  lessonPattern: {
+    fontSize: 19,
+    fontFamily: 'BeVietnamPro_800ExtraBold',
+    color: Colors.primary,
+    marginBottom: 6,
+    lineHeight: 27,
+  },
+  lessonMeta: {
+    fontSize: 11,
+    color: Colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginTop: 8,
+    marginBottom: 2,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  lessonBody: { fontSize: 14, color: Colors.textPrimary, lineHeight: 21 },
+  exampleBox: {
+    backgroundColor: Colors.background,
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 10,
+  },
+  exampleJpRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  exampleJp: { flex: 1, fontSize: 16, color: Colors.textPrimary, lineHeight: 24 },
+  exampleVn: { fontSize: 13, color: Colors.textSecondary, lineHeight: 20, marginTop: 4 },
+  errBox: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: '#FEF2F2',
+    borderRadius: 10,
+    padding: 12,
+    marginTop: 12,
+  },
+  errText: { flex: 1, fontSize: 13, color: '#B91C1C', lineHeight: 19 },
 });
