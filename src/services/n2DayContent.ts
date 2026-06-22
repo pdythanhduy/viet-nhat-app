@@ -9,6 +9,7 @@ import { getAnthropicApiKey } from './translate';
 import { getN2Day } from '../constants/n2RecoveryCurriculum';
 import { N2_DAY1_CONTENT } from '../constants/n2/day1Content';
 import { N2_DAY2_CONTENT } from '../constants/n2/day2Content';
+import { N2_DAY3_CONTENT } from '../constants/n2/day3Content';
 import {
   ExTag,
   N2DayContent,
@@ -29,6 +30,7 @@ export function isDayContentConfigured(): boolean {
 const SEEDS: Record<number, N2DayContent> = {
   1: N2_DAY1_CONTENT,
   2: N2_DAY2_CONTENT,
+  3: N2_DAY3_CONTENT,
 };
 
 export function hasSeed(day: number): boolean {
