@@ -6,6 +6,7 @@ const MODEL = 'claude-haiku-4-5';
 const ANTHROPIC_VERSION = '2023-06-01';
 const REQUEST_TIMEOUT_MS = 30000;
 const WORD_CACHE_PREFIX = 'smart_translation_word_v2:';
+const SENTENCE_STUDY_CACHE_PREFIX = 'smart_translation_sentence_v2:';
 
 export type SmartSentenceTranslation = {
   source: string;
@@ -18,6 +19,21 @@ export type SmartWordExplanation = {
   meaning: string;
   sentenceTranslation: string;
   note?: string;
+};
+
+export type SmartSentenceVocabularyItem = {
+  surface: string;
+  reading?: string;
+  meaning: string;
+};
+
+export type SmartSentenceStudyExplanation = {
+  source: string;
+  translation: string;
+  summary: string;
+  grammarNote: string;
+  learningTip?: string;
+  vocabulary: SmartSentenceVocabularyItem[];
 };
 
 export type ExplainSelectionInput = {
@@ -204,6 +220,158 @@ function wordCacheKey(input: ExplainSelectionInput): string {
   return `${WORD_CACHE_PREFIX}${stableHash(JSON.stringify(normalizeExplainInput(input)))}`;
 }
 
+type SentenceStudyInput = {
+  source: string;
+  translation: string;
+};
+
+function normalizeSentenceStudyInput(input: SentenceStudyInput): SentenceStudyInput {
+  return {
+    source: input.source.trim(),
+    translation: input.translation.trim(),
+  };
+}
+
+function sentenceStudyCacheKey(input: SentenceStudyInput): string {
+  return `${SENTENCE_STUDY_CACHE_PREFIX}${stableHash(
+    JSON.stringify(normalizeSentenceStudyInput(input))
+  )}`;
+}
+
+function coerceSentenceStudyExplanation(
+  parsed: unknown,
+  input: SentenceStudyInput
+): SmartSentenceStudyExplanation | null {
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
+    return null;
+  }
+
+  const record = parsed as Record<string, unknown>;
+  const summary = coerceString(record.summary);
+  const grammarNote = coerceString(record.grammarNote);
+  // Only bail if there's essentially nothing usable; a missing grammarNote
+  // alone shouldn't drop us into the raw-text fallback.
+  if (!summary && !grammarNote) {
+    return null;
+  }
+
+  const vocabulary: SmartSentenceVocabularyItem[] = Array.isArray(record.vocabulary)
+    ? record.vocabulary.flatMap((item) => {
+        if (!item || typeof item !== 'object' || Array.isArray(item)) return [];
+        const entry = item as Record<string, unknown>;
+        const surface = coerceString(entry.surface);
+        const meaning = coerceString(entry.meaning);
+        if (!surface || !meaning) return [];
+        return [
+          {
+            surface,
+            reading: coerceString(entry.reading) || undefined,
+            meaning,
+          },
+        ];
+      })
+    : [];
+
+  return {
+    source: coerceString(record.source) || input.source,
+    translation: coerceString(record.translation) || input.translation,
+    summary: summary || coerceString(record.translation) || input.translation,
+    grammarNote: grammarNote || '—',
+    learningTip: coerceString(record.learningTip) || undefined,
+    vocabulary,
+  };
+}
+
+// Pull a JSON string value by key even from malformed JSON, so a slightly
+// broken response still renders clean fields instead of dumping the raw text
+// (which would show "source"/"summary"/\u2026 keys in the UI).
+function extractJsonStringField(raw: string, key: string): string {
+  const match = raw.match(new RegExp(`"${key}"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"`));
+  if (!match) return '';
+  try {
+    return (JSON.parse(`"${match[1]}"`) as string).trim();
+  } catch {
+    return match[1].trim();
+  }
+}
+
+function fallbackSentenceStudyExplanation(
+  raw: string,
+  input: SentenceStudyInput
+): SmartSentenceStudyExplanation {
+  // Best-effort: recover the intended fields from a near-JSON response.
+  const summary = extractJsonStringField(raw, 'summary');
+  const grammarNote = extractJsonStringField(raw, 'grammarNote');
+  const learningTip = extractJsonStringField(raw, 'learningTip');
+  const translation = extractJsonStringField(raw, 'translation') || input.translation;
+
+  if (summary || grammarNote) {
+    return {
+      source: input.source,
+      translation,
+      summary: summary || translation,
+      grammarNote: grammarNote || '\u2014',
+      learningTip: learningTip || undefined,
+      vocabulary: [],
+    };
+  }
+
+  // No extractable fields. If the model answered in plain prose (not JSON),
+  // that prose IS a usable explanation \u2014 show it. Only suppress the raw text
+  // when it looks like broken JSON (which would leak "source"/"summary" keys).
+  const cleaned = cleanModelText(raw);
+  const looksLikeJson = /[{}]|"\s*(?:source|summary|translation|grammarNote|vocabulary)\s*"/.test(
+    cleaned
+  );
+  if (cleaned && !looksLikeJson) {
+    return {
+      source: input.source,
+      translation: input.translation,
+      summary: cleaned,
+      grammarNote: '\u2014',
+      learningTip: undefined,
+      vocabulary: [],
+    };
+  }
+
+  // Broken/empty JSON \u2014 show a clean message, never the raw keys.
+  return {
+    source: input.source,
+    translation: input.translation,
+    summary: input.translation || 'Ch\u01b0a t\u1ea1o \u0111\u01b0\u1ee3c gi\u1ea3i th\u00edch cho c\u00e2u n\u00e0y.',
+    grammarNote: 'B\u1ea5m \u201cGi\u1ea3i th\u00edch\u201d l\u1ea1i \u0111\u1ec3 th\u1eed t\u1ea1o l\u1ea1i n\u1ed9i dung.',
+    learningTip: undefined,
+    vocabulary: [],
+  };
+}
+
+async function readCachedSentenceStudy(
+  input: SentenceStudyInput
+): Promise<SmartSentenceStudyExplanation | null> {
+  try {
+    const raw = await AsyncStorage.getItem(sentenceStudyCacheKey(input));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as SmartSentenceStudyExplanation;
+    if (parsed.source && parsed.translation && parsed.summary && parsed.grammarNote) {
+      return parsed;
+    }
+  } catch {
+    // Cache failures should never block study mode.
+  }
+  return null;
+}
+
+async function writeCachedSentenceStudy(
+  input: SentenceStudyInput,
+  result: SmartSentenceStudyExplanation
+): Promise<void> {
+  try {
+    await AsyncStorage.setItem(sentenceStudyCacheKey(input), JSON.stringify(result));
+  } catch {
+    // Best-effort cache.
+  }
+}
+
 async function readCachedWordExplanation(
   input: ExplainSelectionInput
 ): Promise<SmartWordExplanation | null> {
@@ -303,5 +471,30 @@ export async function explainJapaneseSelection(
   result ??= fallbackWordExplanation(raw, compactInput);
 
   await writeCachedWordExplanation(compactInput, result);
+  return result;
+}
+
+export async function explainJapaneseSentenceForStudy(
+  input: SentenceStudyInput
+): Promise<SmartSentenceStudyExplanation> {
+  const compactInput = normalizeSentenceStudyInput(input);
+  const cached = await readCachedSentenceStudy(compactInput);
+  if (cached) return cached;
+
+  const raw = await callClaude(
+    'You are a Japanese teacher for Vietnamese learners. Return valid JSON only. Start with { and end with }. Do not include prose, markdown, code fences, comments, or explanations. Output one object with keys: {"source": original Japanese sentence, "translation": Vietnamese translation, "summary": short Vietnamese meaning in context, "grammarNote": short explanation of the grammar or structure, "learningTip": optional study tip in Vietnamese, "vocabulary": array of up to 5 objects with keys {"surface": word or phrase, "reading": kana reading if helpful, "meaning": Vietnamese meaning}}. Keep the answer concise, practical, and educational.',
+    compactInput,
+    2000
+  );
+
+  let result: SmartSentenceStudyExplanation | null = null;
+  try {
+    result = coerceSentenceStudyExplanation(extractJson(raw), compactInput);
+  } catch {
+    result = null;
+  }
+  result ??= fallbackSentenceStudyExplanation(raw, compactInput);
+
+  await writeCachedSentenceStudy(compactInput, result);
   return result;
 }

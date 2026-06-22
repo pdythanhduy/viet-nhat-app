@@ -1,4 +1,4 @@
-// N2 Recovery — rich Day content: Vocabulary (50 cards) + Quiz (20).
+﻿// N2 Recovery — rich Day content: Vocabulary (50 cards) + Quiz (20).
 // Matches the owner's Day-1 reference layout. Day 1 = curated seed; other days
 // are AI-generated (cached). Reached from the Day detail screen.
 
@@ -23,11 +23,11 @@ import {
   isDayContentConfigured,
 } from '../services/n2DayContent';
 import {
-  getConfiguredVbeeJapaneseVoiceCode,
   isVbeeConfigured,
   synthesizeVbeeSpeech,
+  getVbeeJapaneseVoiceCode,
 } from '../services/vbeeTts';
-import { playJapaneseAudio } from '../utils/audio';
+import { getN2VocabSpeechText } from '../utils/n2SpeechText';
 
 type Route = RouteProp<RootStackParamList, 'N2DayContent'>;
 
@@ -42,16 +42,8 @@ const VbeeAudioText = {
   notConfiguredTitle: 'Chưa cấu hình Vbee',
   notConfiguredMessage:
     'Thêm EXPO_PUBLIC_VBEE_APP_ID và EXPO_PUBLIC_VBEE_API_KEY vào .env rồi khởi động lại Expo.',
-  missingJapaneseVoice:
-    'Chưa có voice tiếng Nhật của Vbee. App đang dùng giọng Nhật của thiết bị.',
   errorPrefix: 'Không đọc được bằng Vbee',
 };
-
-function getVocabAudioText(jp: string): string {
-  const reading = jp.match(/（([ぁ-ゖァ-ヺー・]+)）/)?.[1]?.trim();
-  if (reading) return reading;
-  return jp.replace(/（.*?）/g, '').trim();
-}
 
 export default function N2DayContentScreen() {
   const route = useRoute<Route>();
@@ -65,7 +57,6 @@ export default function N2DayContentScreen() {
   const [vbeeLoadingId, setVbeeLoadingId] = useState<string | null>(null);
   const configured = isDayContentConfigured();
   const vbeeConfigured = isVbeeConfigured();
-  const vbeeJapaneseVoiceCode = getConfiguredVbeeJapaneseVoiceCode();
   const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
 
   useEffect(() => {
@@ -113,23 +104,18 @@ export default function N2DayContentScreen() {
   };
 
   const handleReadWithVbee = async (audioId: string, text: string) => {
-    if (!text.trim()) return;
+    const speechText = getN2VocabSpeechText(text);
+    if (!speechText) return;
     if (!vbeeConfigured) {
       Alert.alert(VbeeAudioText.notConfiguredTitle, VbeeAudioText.notConfiguredMessage);
-      return;
-    }
-
-    if (!vbeeJapaneseVoiceCode) {
-      setVbeeError(VbeeAudioText.missingJapaneseVoice);
-      await playJapaneseAudio(text, audioId);
       return;
     }
 
     setVbeeError(null);
     setVbeeLoadingId(audioId);
     try {
-      const result = await synthesizeVbeeSpeech(text, {
-        voiceCode: vbeeJapaneseVoiceCode,
+      const result = await synthesizeVbeeSpeech(speechText, {
+        voiceCode: getVbeeJapaneseVoiceCode(),
       });
       vbeePlayer.replace({ uri: result.audioUrl });
       vbeePlayer.play();
@@ -279,7 +265,7 @@ function VocabCard({
         </Text>
         <VbeeAudioButton
           audioId={wordAudioId}
-          text={getVocabAudioText(card.jp)}
+          text={getN2VocabSpeechText(card.jp)}
           loadingAudioId={loadingAudioId}
           size={14}
           onRead={onRead}

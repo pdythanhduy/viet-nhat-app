@@ -1,4 +1,4 @@
-// Furigana reader — paste Japanese (e.g. a news article), tap render, and
+﻿// Furigana reader — paste Japanese (e.g. a news article), tap render, and
 // read it with hiragana shown above each kanji. Experimental; reached from
 // the Lab, and from Home when the `furiganaReader` flag is on.
 
@@ -26,13 +26,19 @@ import {
   isFuriganaConfigured,
 } from '../services/furigana';
 import { fetchArticleText } from '../services/articleReader';
-import { translateToVietnamese, isTranslateConfigured } from '../services/translate';
+import {
+  translateJapaneseSentencesToVietnamese,
+  isTranslateConfigured,
+  type VietnameseSentenceTranslation,
+} from '../services/translate';
 import { isVbeeConfigured, synthesizeVbeeSpeech } from '../services/vbeeTts';
 import type { VbeeSpeechResult } from '../services/vbeeTts';
 import {
   SmartWordExplanation,
   explainJapaneseSelection,
   getSentenceAtOffset,
+  explainJapaneseSentenceForStudy,
+  type SmartSentenceStudyExplanation,
 } from '../services/smartTranslation';
 
 const SAMPLE =
@@ -72,9 +78,10 @@ const ReaderUiText = {
   clear: 'X\u00f3a',
   render: 'Hi\u1ec3n th\u1ecb furigana',
   translate: 'D\u1ecbch sang ti\u1ebfng Vi\u1ec7t',
-  translationLabel: 'B\u1ea3n d\u1ecbch ti\u1ebfng Vi\u1ec7t',
+  translationLabel: 'B\u1ea3n d\u1ecbch t\u1eebng c\u00e2u',
   resultLabel: 'K\u1ebft qu\u1ea3',
   tokenUnit: 't\u1eeb',
+  sentenceUnit: 'c\u00e2u',
   smartHint:
     'B\u1ea5m t\u1eeb \u0111\u1ec3 tra ngh\u0129a + d\u1ecbch c\u00e2u. C\u00f3 cache, b\u1ea5m l\u1ea1i kh\u00f4ng t\u1ed1n token.',
   yahooMissing:
@@ -130,7 +137,10 @@ export default function FuriganaScreen() {
   const [url, setUrl] = useState('');
   const [fetchingArticle, setFetchingArticle] = useState(false);
 
-  const [translation, setTranslation] = useState<string | null>(null);
+  const [translationLines, setTranslationLines] = useState<VietnameseSentenceTranslation[] | null>(
+    null
+  );
+  const [showVietnameseTranslation, setShowVietnameseTranslation] = useState(true);
   const [translating, setTranslating] = useState(false);
   const [translateError, setTranslateError] = useState<string | null>(null);
   const [vbeeLoading, setVbeeLoading] = useState(false);
@@ -141,6 +151,12 @@ export default function FuriganaScreen() {
   const [wordExplanation, setWordExplanation] = useState<SmartWordExplanation | null>(null);
   const [wordLookupLoading, setWordLookupLoading] = useState(false);
   const [wordLookupError, setWordLookupError] = useState<string | null>(null);
+  const [expandedStudyIndex, setExpandedStudyIndex] = useState<number | null>(null);
+  const [studyLoadingIndex, setStudyLoadingIndex] = useState<number | null>(null);
+  const [studyExplanationByIndex, setStudyExplanationByIndex] = useState<
+    Record<number, SmartSentenceStudyExplanation | undefined>
+  >({});
+  const [studyErrorByIndex, setStudyErrorByIndex] = useState<Record<number, string | undefined>>({});
 
   const configured = isFuriganaConfigured();
   const translateConfigured = isTranslateConfigured();
@@ -168,8 +184,19 @@ export default function FuriganaScreen() {
   // and hide them while the lookup sheet covers the bottom of the screen.
   const distanceToBottom = contentHeight - scrollY - viewportHeight;
   const showScrollFabs = !!tokens && tokens.length > 0 && !lookupOpen;
-  const showJumpTop = showScrollFabs && scrollY > 320;
-  const showJumpBottom = showScrollFabs && distanceToBottom > 320;
+  const [showJumpTopFab, setShowJumpTopFab] = useState(false);
+  const [showJumpBottomFab, setShowJumpBottomFab] = useState(false);
+
+  useEffect(() => {
+    if (!showScrollFabs) {
+      setShowJumpTopFab(false);
+      setShowJumpBottomFab(false);
+      return;
+    }
+
+    setShowJumpTopFab((prev) => (prev ? scrollY > 220 : scrollY > 320));
+    setShowJumpBottomFab((prev) => (prev ? distanceToBottom > 220 : distanceToBottom > 320));
+  }, [distanceToBottom, scrollY, showScrollFabs]);
 
   useEffect(() => {
     void setAudioModeAsync({
@@ -197,10 +224,15 @@ export default function FuriganaScreen() {
     setInput(text);
     setTokens(null);
     setError(null);
-    setTranslation(null);
+    setTranslationLines(null);
+    setShowVietnameseTranslation(true);
     setTranslateError(null);
     resetVbeeAudio();
     resetSmartState();
+    setExpandedStudyIndex(null);
+    setStudyLoadingIndex(null);
+    setStudyExplanationByIndex({});
+    setStudyErrorByIndex({});
   };
 
   const handlePaste = async () => {
@@ -266,13 +298,21 @@ export default function FuriganaScreen() {
   const handleTranslate = async () => {
     setTranslateError(null);
     resetVbeeAudio();
-    setTranslation(null);
+    setTranslationLines(null);
+    setShowVietnameseTranslation(true);
+    setExpandedStudyIndex(null);
+    setStudyLoadingIndex(null);
+    setStudyExplanationByIndex({});
+    setStudyErrorByIndex({});
     setTranslating(true);
     try {
-      const result = await translateToVietnamese(input);
-      setTranslation(result);
+      const result = await translateJapaneseSentencesToVietnamese(input);
+      setTranslationLines(result);
       if (vbeeConfigured) {
-        void prepareVbeeTranslationAudio(result).catch(() => undefined);
+        const translatedText = result.map((line) => line.translation).join('\n').trim();
+        if (translatedText) {
+          void prepareVbeeTranslationAudio(translatedText).catch(() => undefined);
+        }
       }
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -283,7 +323,7 @@ export default function FuriganaScreen() {
   };
 
   const handleReadTranslation = async () => {
-    const audioText = translation?.trim();
+    const audioText = translationLines?.map((line) => line.translation).join('\n').trim();
     if (!audioText) return;
     if (vbeeAudio?.text === audioText) {
       playPreparedVbeeAudio();
@@ -330,6 +370,31 @@ export default function FuriganaScreen() {
       );
     } finally {
       setWordLookupLoading(false);
+    }
+  };
+
+  const handleStudySentence = async (index: number) => {
+    const line = translationLines?.[index];
+    if (!line) return;
+    setStudyErrorByIndex((prev) => ({ ...prev, [index]: undefined }));
+    setExpandedStudyIndex(index);
+    if (studyExplanationByIndex[index]) return;
+
+    setStudyLoadingIndex(index);
+    try {
+      const result = await explainJapaneseSentenceForStudy(line);
+      setStudyExplanationByIndex((prev) => ({ ...prev, [index]: result }));
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      setStudyErrorByIndex((prev) => ({
+        ...prev,
+        [index]:
+          msg === 'not-configured'
+            ? SmartUiText.notConfigured
+            : `${SmartUiText.lookupErrorPrefix}: ${msg}`,
+      }));
+    } finally {
+      setStudyLoadingIndex((prev) => (prev === index ? null : prev));
     }
   };
 
@@ -481,10 +546,32 @@ export default function FuriganaScreen() {
         </View>
       )}
 
-      {translation && (
+      {translationLines && translationLines.length > 0 && (
         <View style={styles.translationBox}>
-          <Text style={styles.resultLabel}>{ReaderUiText.translationLabel}</Text>
-          <Text style={styles.translationText}>{translation}</Text>
+          <View style={styles.translationHeaderRow}>
+            <View style={styles.resultHeaderRow}>
+              <Text style={[styles.resultLabel, styles.resultLabelInline]}>
+                {ReaderUiText.translationLabel}
+              </Text>
+              <Text style={styles.resultMeta}>
+                {translationLines.length} {ReaderUiText.sentenceUnit}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.toggleBtn}
+              onPress={() => setShowVietnameseTranslation((prev) => !prev)}
+            >
+              <Ionicons
+                name={showVietnameseTranslation ? 'eye-off-outline' : 'eye-outline'}
+                size={15}
+                color={Colors.primary}
+              />
+              <Text style={styles.toggleBtnText}>
+                {showVietnameseTranslation ? 'Ẩn tiếng Việt' : 'Hiện tiếng Việt'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
           <View style={styles.translationActions}>
             <TouchableOpacity
               style={[styles.vbeeBtn, (vbeeLoading || vbeePreparing) && styles.btnDisabled]}
@@ -501,9 +588,71 @@ export default function FuriganaScreen() {
               )}
             </TouchableOpacity>
           </View>
-          {!vbeeConfigured && (
-            <Text style={styles.vbeeHint}>{VbeeUiText.configHint}</Text>
-          )}
+
+          <View style={styles.translationList}>
+            {translationLines.map((line, index) => {
+              const explanation = studyExplanationByIndex[index] ?? null;
+              const studyError = studyErrorByIndex[index] ?? null;
+              const isExpanded = expandedStudyIndex === index;
+              const isLoading = studyLoadingIndex === index;
+              return (
+                <View key={`${line.source}-${index}`} style={styles.translationCard}>
+                  <Text style={styles.translationSentenceSource}>{line.source}</Text>
+                  {showVietnameseTranslation ? (
+                    <Text style={styles.translationSentenceTarget}>{line.translation}</Text>
+                  ) : (
+                    <View style={styles.translationHiddenRow}>
+                      <Text style={styles.translationHiddenText}>Bản dịch đang ẩn</Text>
+                    </View>
+                  )}
+                  <View style={styles.translationCardActions}>
+                    <TouchableOpacity
+                      style={[
+                        styles.studyBtn,
+                        (isLoading || isExpanded) && styles.studyBtnActive,
+                      ]}
+                      onPress={() => void handleStudySentence(index)}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <ActivityIndicator color={Colors.primary} size="small" />
+                      ) : (
+                        <>
+                          <Ionicons name="school-outline" size={15} color={Colors.primary} />
+                          <Text style={styles.studyBtnText}>Giải thích</Text>
+                        </>
+                      )}
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.minorBtn}
+                      onPress={() =>
+                        setExpandedStudyIndex((prev) => (prev === index ? null : index))
+                      }
+                    >
+                      <Ionicons
+                        name={isExpanded ? 'chevron-up-outline' : 'chevron-down-outline'}
+                        size={15}
+                        color={Colors.textSecondary}
+                      />
+                      <Text style={styles.minorBtnText}>
+                        {isExpanded ? 'Thu gọn' : 'Mở rộng'}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+
+                  {isExpanded && (
+                    <SentenceStudyCard
+                      explanation={explanation}
+                      loading={isLoading}
+                      error={studyError}
+                    />
+                  )}
+                </View>
+              );
+            })}
+          </View>
+
+          {!vbeeConfigured && <Text style={styles.vbeeHint}>{VbeeUiText.configHint}</Text>}
         </View>
       )}
 
@@ -539,9 +688,9 @@ export default function FuriganaScreen() {
       )}
     </ScrollView>
 
-      {(showJumpTop || showJumpBottom) && (
+      {(showJumpTopFab || showJumpBottomFab) && (
         <View style={[styles.fabColumn, { bottom: 20 + insets.bottom }]}>
-          {showJumpTop && (
+          {showJumpTopFab && (
             <TouchableOpacity
               style={styles.fab}
               onPress={scrollToTop}
@@ -551,7 +700,7 @@ export default function FuriganaScreen() {
               <Ionicons name="arrow-up" size={20} color={Colors.white} />
             </TouchableOpacity>
           )}
-          {showJumpBottom && (
+          {showJumpBottomFab && (
             <TouchableOpacity
               style={styles.fab}
               onPress={scrollToBottom}
@@ -655,6 +804,71 @@ function WordLookupSheet({
           </>
         ) : null}
       </ScrollView>
+    </View>
+  );
+}
+
+function SentenceStudyCard({
+  explanation,
+  loading,
+  error,
+}: {
+  explanation: SmartSentenceStudyExplanation | null;
+  loading: boolean;
+  error: string | null;
+}) {
+  return (
+    <View style={styles.studyPanel}>
+      <View style={styles.studyPanelHeader}>
+        <Ionicons name="bulb-outline" size={15} color={Colors.primary} />
+        <Text style={styles.studyPanelTitle}>Giải thích học nhanh</Text>
+      </View>
+
+      {loading ? (
+        <View style={styles.lookupLoadingRow}>
+          <ActivityIndicator color={Colors.primary} size="small" />
+          <Text style={styles.lookupLoadingText}>Đang tạo giải thích...</Text>
+        </View>
+      ) : error ? (
+        <Text style={styles.smartErrorText}>{error}</Text>
+      ) : explanation ? (
+        <View style={styles.studySections}>
+          <View style={styles.studySummaryBox}>
+            <Text style={styles.studySummaryText}>{explanation.summary}</Text>
+          </View>
+
+          <View style={styles.studySection}>
+            <Text style={styles.studySectionLabel}>Ngữ pháp</Text>
+            <Text style={styles.studySectionText}>{explanation.grammarNote}</Text>
+          </View>
+
+          {explanation.learningTip ? (
+            <View style={styles.studySection}>
+              <Text style={styles.studySectionLabel}>Mẹo học</Text>
+              <Text style={styles.studySectionText}>{explanation.learningTip}</Text>
+            </View>
+          ) : null}
+
+          {explanation.vocabulary.length > 0 ? (
+            <View style={styles.studySection}>
+              <Text style={styles.studySectionLabel}>Từ khóa</Text>
+              <View style={styles.vocabWrap}>
+                {explanation.vocabulary.map((item, index) => (
+                  <View key={`${item.surface}-${index}`} style={styles.vocabChip}>
+                    <Text style={styles.vocabChipWord}>
+                      {item.surface}
+                      {item.reading ? ` (${item.reading})` : ''}
+                    </Text>
+                    <Text style={styles.vocabChipMeaning}>{item.meaning}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          ) : null}
+        </View>
+      ) : (
+        <Text style={styles.studyEmptyText}>Chưa có nội dung giải thích.</Text>
+      )}
     </View>
   );
 }
@@ -829,22 +1043,209 @@ const styles = StyleSheet.create({
     marginTop: 7,
   },
   translationBox: {
-    backgroundColor: '#EEF7F1',
+    backgroundColor: Colors.card,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#CDEAD9',
+    borderColor: Colors.border,
     padding: 12,
     marginTop: 12,
   },
-  translationText: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: Colors.textPrimary,
+  translationHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+    marginBottom: 8,
+  },
+  toggleBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    backgroundColor: Colors.accent,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+  toggleBtnText: {
+    color: Colors.primary,
+    fontSize: 12,
+    fontFamily: 'BeVietnamPro_700Bold',
   },
   translationActions: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
+  },
+  translationList: {
+    marginTop: 10,
+    gap: 10,
+  },
+  translationCard: {
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.primary,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 1,
+  },
+  translationSentenceSource: {
+    fontSize: 16,
+    lineHeight: 25,
+    color: Colors.textPrimary,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  translationSentenceTarget: {
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#334155',
+    marginTop: 8,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#EEF2F6',
+  },
+  translationHiddenRow: {
+    marginTop: 6,
+    backgroundColor: '#E0F2FE',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    alignSelf: 'flex-start',
+  },
+  translationHiddenText: {
+    fontSize: 12,
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  translationCardActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 10,
+    flexWrap: 'wrap',
+  },
+  studyBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: Colors.card,
+    borderWidth: 1,
+    borderColor: '#CDEAD9',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    minHeight: 34,
+  },
+  studyBtnActive: {
+    borderColor: Colors.primary,
+    backgroundColor: '#EFF6FF',
+  },
+  studyBtnText: {
+    color: Colors.primary,
+    fontSize: 12,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  minorBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+  },
+  minorBtnText: {
+    color: Colors.textSecondary,
+    fontSize: 12,
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  studyPanel: {
+    marginTop: 12,
+    padding: 12,
+    backgroundColor: '#FAFAFE',
+    borderWidth: 1,
+    borderColor: '#E7E5F4',
+    borderRadius: 12,
+  },
+  studyPanelHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 10,
+  },
+  studyPanelTitle: {
+    fontSize: 13,
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  studySections: {
+    gap: 12,
+  },
+  studySummaryBox: {
+    backgroundColor: '#E0F2FE',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  studySummaryText: {
+    fontSize: 14,
+    lineHeight: 21,
+    color: '#0C4A6E',
+    fontFamily: 'BeVietnamPro_600SemiBold',
+  },
+  studySection: {
+    gap: 5,
+  },
+  studySectionLabel: {
+    fontSize: 11,
+    color: Colors.primary,
+    letterSpacing: 0.3,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  studySectionText: {
+    fontSize: 13,
+    lineHeight: 19,
+    color: Colors.textPrimary,
+  },
+  studySectionTextMuted: {
+    fontSize: 13,
+    lineHeight: 19,
+    color: Colors.textSecondary,
+  },
+  vocabWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+  },
+  vocabChip: {
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: '#DDD6FE',
+    borderRadius: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    maxWidth: '100%',
+  },
+  vocabChipWord: {
+    fontSize: 13,
+    color: Colors.primary,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  vocabChipMeaning: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: Colors.textSecondary,
+    marginTop: 2,
+  },
+  studyEmptyText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: Colors.textMuted,
   },
   vbeeBtn: {
     flexDirection: 'row',
@@ -945,24 +1346,23 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
   },
   lookupMetaLabel: {
-    fontSize: 10,
-    color: Colors.textMuted,
-    textTransform: 'uppercase',
+    fontSize: 11,
+    color: Colors.primary,
     letterSpacing: 0.3,
-    marginTop: 7,
-    marginBottom: 2,
+    marginTop: 10,
+    marginBottom: 3,
     fontFamily: 'BeVietnamPro_700Bold',
   },
   lookupWord: {
-    fontSize: 16,
-    lineHeight: 22,
+    fontSize: 18,
+    lineHeight: 25,
     color: Colors.textPrimary,
-    fontFamily: 'BeVietnamPro_700Bold',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
   },
   lookupText: {
-    fontSize: 13,
-    lineHeight: 19,
-    color: Colors.textPrimary,
+    fontSize: 14,
+    lineHeight: 21,
+    color: '#334155',
   },
   rubyWrap: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end' },
   rubyToken: { alignItems: 'center', marginBottom: 4 },

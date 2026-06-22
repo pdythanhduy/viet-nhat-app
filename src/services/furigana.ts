@@ -42,6 +42,19 @@ interface YahooWord {
   subword?: YahooWord[];
 }
 
+function expandYahooWord(word: YahooWord): FuriganaToken[] {
+  if (word.subword && word.subword.length > 0) {
+    return word.subword.flatMap((child) => expandYahooWord(child));
+  }
+
+  return [
+    {
+      surface: word.surface,
+      reading: needsReading(word.surface, word.furigana),
+    },
+  ];
+}
+
 // Serialize to JSON with every non-ASCII char escaped as \uXXXX, so the
 // request body is pure ASCII. React Native on iOS mis-encodes a raw UTF-8
 // JSON body here (Yahoo then reads `q` as empty → -32602 "Invalid params");
@@ -183,10 +196,7 @@ async function fetchChunk(q: string, appId: string): Promise<FuriganaToken[]> {
       throw new Error(json.error.message || 'Yahoo API báo lỗi.');
     }
     const words = json.result?.word ?? [];
-    return words.map((w) => ({
-      surface: w.surface,
-      reading: needsReading(w.surface, w.furigana),
-    }));
+    return words.flatMap((w) => expandYahooWord(w));
   } finally {
     clearTimeout(timer);
   }

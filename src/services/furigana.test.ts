@@ -128,4 +128,30 @@ describe('fetchFurigana', () => {
     }
     expect(sentQueries.join('')).toBe(input);
   });
+
+  it('flattens nested subword furigana tokens', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => '',
+      json: async () => ({
+        result: {
+          word: [
+            {
+              surface: '\u8aad\u66f8',
+              subword: [
+                { surface: '\u8aad', furigana: '\u3068\u3046' },
+                { surface: '\u66f8', furigana: '\u3057\u3087' },
+              ],
+            },
+          ],
+        },
+      }),
+    });
+
+    await expect(fetchFurigana('\u8aad\u66f8')).resolves.toEqual([
+      { surface: '\u8aad', reading: '\u3068\u3046' },
+      { surface: '\u66f8', reading: '\u3057\u3087' },
+    ]);
+  });
 });

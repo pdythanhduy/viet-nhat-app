@@ -1,28 +1,20 @@
-// Translation service — Japanese → Vietnamese via the Claude API.
-//
-// Model: claude-haiku-4-5 (cheapest capable tier; ~2-3 JPY per article).
-// Called over raw HTTP against the Messages API, matching how the rest of
-// this app talks to its backends (services/contentLoader/remote.ts,
-// services/furigana.ts) rather than pulling in the Node-oriented SDK.
-//
-// The API key is read from EXPO_PUBLIC_ANTHROPIC_API_KEY. Create + fund a key
-// at https://console.anthropic.com. As with the Yahoo key, this ships in the
-// bundle — acceptable for the experimental, flag-gated owner tool; move to a
-// Supabase Edge Function proxy before any public release.
+import { splitJapaneseSentences } from '../utils/translationSentences';
 
 const ENDPOINT = 'https://api.anthropic.com/v1/messages';
 const MODEL = 'claude-haiku-4-5';
 const ANTHROPIC_VERSION = '2023-06-01';
 const REQUEST_TIMEOUT_MS = 30000;
 
-const SYSTEM_PROMPT =
-  'Bạn là trợ lý dịch báo và văn bản tiếng Nhật sang tiếng Việt cho người Việt sống ở Nhật. ' +
-  'Dịch tự nhiên, dễ hiểu, giữ đúng nghĩa và sắc thái. Giữ nguyên số liệu, tên riêng, ngày tháng. ' +
-  'Chỉ trả về bản dịch tiếng Việt, không thêm lời dẫn hay giải thích.';
+const SINGLE_TEXT_SYSTEM_PROMPT =
+  'Translate Japanese text into natural Vietnamese for Vietnamese learners living in Japan. ' +
+  'Keep names, dates, and numbers accurate. Return only the translated text, with no markdown or explanation.';
 
-// Serialize to JSON with all non-ASCII escaped as \uXXXX — see furigana.ts:
-// React Native on iOS mis-encodes a raw UTF-8 request body, so we send pure
-// ASCII (valid JSON; the server decodes the escapes back).
+const SENTENCE_JSON_SYSTEM_PROMPT =
+  'Translate Japanese sentences into natural Vietnamese for Vietnamese learners living in Japan. ' +
+  'Return valid JSON only, with no markdown or explanation. Output an array of objects with keys ' +
+  '{"source": original Japanese sentence, "translation": Vietnamese translation}. ' +
+  'Keep the order of the input sentences. Preserve names, dates, and numbers accurately.';
+
 function toAsciiJson(value: unknown): string {
   const s = JSON.stringify(value);
   let out = '';
@@ -41,23 +33,43 @@ export function isTranslateConfigured(): boolean {
   return Boolean(getAnthropicApiKey());
 }
 
-interface ClaudeResponse {
+type ClaudeResponse = {
   content?: Array<{ type: string; text?: string }>;
   stop_reason?: string;
   error?: { message?: string };
+};
+
+export type VietnameseSentenceTranslation = {
+  source: string;
+  translation: string;
+};
+
+function extractClaudeText(json: ClaudeResponse): string {
+  if (json.stop_reason === 'refusal') {
+    throw new Error('Translation request was refused.');
+  }
+
+  const out = (json.content ?? [])
+    .filter((block) => block.type === 'text' && block.text)
+    .map((block) => block.text)
+    .join('')
+    .trim();
+
+  if (!out) {
+    throw new Error('No translation returned.');
+  }
+  return out;
 }
 
-/**
- * Translate Japanese text to Vietnamese. Throws on configuration or
- * network/API errors so the screen can show a clear message.
- */
-export async function translateToVietnamese(text: string): Promise<string> {
+async function callClaude(
+  system: string,
+  userContent: unknown,
+  maxTokens: number
+): Promise<string> {
   const apiKey = getAnthropicApiKey();
   if (!apiKey) {
     throw new Error('not-configured');
   }
-  const trimmed = text.trim();
-  if (!trimmed) return '';
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -71,30 +83,94 @@ export async function translateToVietnamese(text: string): Promise<string> {
       },
       body: toAsciiJson({
         model: MODEL,
-        max_tokens: 4096,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: trimmed }],
+        max_tokens: maxTokens,
+        system,
+        messages: [{ role: 'user', content: JSON.stringify(userContent) }],
       }),
       signal: controller.signal,
     });
 
     const json = (await res.json()) as ClaudeResponse;
     if (!res.ok) {
-      throw new Error(json.error?.message || `Claude API trả lỗi HTTP ${res.status}`);
+      throw new Error(json.error?.message || `Claude API returned HTTP ${res.status}`);
     }
-    if (json.stop_reason === 'refusal') {
-      throw new Error('Yêu cầu bị từ chối vì lý do an toàn.');
-    }
-    const out = (json.content ?? [])
-      .filter((b) => b.type === 'text' && b.text)
-      .map((b) => b.text)
-      .join('')
-      .trim();
-    if (!out) {
-      throw new Error('Không nhận được bản dịch.');
-    }
-    return out;
+    return extractClaudeText(json);
   } finally {
     clearTimeout(timer);
+  }
+}
+
+function parseSentenceArray(raw: string, fallbackSources: string[]): VietnameseSentenceTranslation[] {
+  const parsed = JSON.parse(raw) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error('Claude JSON was not an array.');
+  }
+
+  return parsed
+    .map((item, index): VietnameseSentenceTranslation => {
+      const record = item as Record<string, unknown>;
+      const source =
+        typeof record.source === 'string' && record.source.trim()
+          ? record.source.trim()
+          : fallbackSources[index] ?? '';
+      const translation =
+        typeof record.translation === 'string' && record.translation.trim()
+          ? record.translation.trim()
+          : '';
+      return { source, translation };
+    })
+    .filter((item) => item.source && item.translation);
+}
+
+async function translateSentencesIndividually(
+  sentences: string[]
+): Promise<VietnameseSentenceTranslation[]> {
+  const results = await Promise.all(
+    sentences.map(async (source) => ({
+      source,
+      translation: (await translateToVietnamese(source)).trim(),
+    }))
+  );
+
+  return results.filter((item) => item.source && item.translation);
+}
+
+export async function translateToVietnamese(text: string): Promise<string> {
+  const trimmed = text.trim();
+  if (!trimmed) return '';
+  return callClaude(SINGLE_TEXT_SYSTEM_PROMPT, trimmed, 4096);
+}
+
+export async function translateJapaneseSentencesToVietnamese(
+  text: string
+): Promise<VietnameseSentenceTranslation[]> {
+  const sentences = splitJapaneseSentences(text).slice(0, 80);
+  if (sentences.length === 0) return [];
+
+  try {
+    const raw = await callClaude(SENTENCE_JSON_SYSTEM_PROMPT, { sentences }, 4096);
+    const parsed = parseSentenceArray(raw, sentences);
+    if (parsed.length === sentences.length) {
+      return parsed;
+    }
+
+    const translatedBySource = new Map(parsed.map((item) => [item.source, item.translation]));
+    const missing = sentences.filter((sentence) => !translatedBySource.has(sentence));
+    if (missing.length === 0) {
+      return sentences
+        .map((source) => ({ source, translation: translatedBySource.get(source) ?? '' }))
+        .filter((item) => item.translation);
+    }
+
+    const fallbackTranslated = await translateSentencesIndividually(missing);
+    for (const item of fallbackTranslated) {
+      translatedBySource.set(item.source, item.translation);
+    }
+
+    return sentences
+      .map((source) => ({ source, translation: translatedBySource.get(source) ?? '' }))
+      .filter((item) => item.translation);
+  } catch {
+    return translateSentencesIndividually(sentences);
   }
 }
