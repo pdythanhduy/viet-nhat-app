@@ -25,14 +25,14 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     title: 'JLPT Recovery N5',
     subtitle: 'Nền tảng sơ cấp, câu ngắn, giải thích rõ nghĩa',
     courseLabel: 'N5 Recovery',
-    dayCount: 60,
+    dayCount: 30,
     promptVersion: 'v1',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
-    vocabCardsPerBatch: 18,
+    vocabCardsPerBatch: 13,
     quizCount: 12,
-    lessonItemCount: 3,
+    lessonItemCount: 4,
     reviewCount: 6,
     explanationTone: 'very simple',
   },
@@ -106,11 +106,6 @@ export function getJlptRecoveryLevelConfig(level: JlptLevel): JlptRecoveryLevelC
   return JLPT_RECOVERY_LEVEL_CONFIGS[level];
 }
 
-// Levels that actually have a day-by-day curriculum wired up today. The engine
-// is level-agnostic, but only these levels have content to browse — the rest
-// are shown as "coming soon" in the picker until their curriculum is authored.
-export const JLPT_RECOVERY_AVAILABLE_LEVELS: readonly JlptLevel[] = ['N2'];
-
-export function isJlptRecoveryLevelAvailable(level: JlptLevel): boolean {
-  return JLPT_RECOVERY_AVAILABLE_LEVELS.includes(level);
-}
+// A level is browsable once its curriculum is wired into the registry; see
+// `hasRecoveryCurriculum` in constants/jlptRecoveryCurriculum.ts (single source
+// of truth). Levels without a curriculum show as "coming soon" in the picker.

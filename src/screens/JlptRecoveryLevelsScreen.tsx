@@ -13,11 +13,8 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Colors } from '../constants/colors';
 import type { RootStackParamList } from '../navigation/AppNavigator';
-import {
-  JLPT_RECOVERY_LEVELS,
-  getJlptRecoveryLevelConfig,
-  isJlptRecoveryLevelAvailable,
-} from '../constants/jlptRecovery';
+import { JLPT_RECOVERY_LEVELS, getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
+import { hasRecoveryCurriculum } from '../constants/jlptRecoveryCurriculum';
 import type { JlptLevel } from '../services/jlptRecoveryTypes';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
@@ -26,9 +23,11 @@ export default function JlptRecoveryLevelsScreen() {
   const navigation = useNavigation<Nav>();
 
   const openLevel = (level: JlptLevel) => {
-    if (!isJlptRecoveryLevelAvailable(level)) return;
-    // Only N2 is available today and it has its own course screen.
+    if (!hasRecoveryCurriculum(level)) return;
+    // N2 keeps its own dedicated, progress-synced course screen; other levels
+    // use the generic engine-backed screens.
     if (level === 'N2') navigation.navigate('N2Recovery');
+    else navigation.navigate('JlptRecovery', { level });
   };
 
   return (
@@ -44,7 +43,7 @@ export default function JlptRecoveryLevelsScreen() {
 
       {JLPT_RECOVERY_LEVELS.map((level) => {
         const config = getJlptRecoveryLevelConfig(level);
-        const available = isJlptRecoveryLevelAvailable(level);
+        const available = hasRecoveryCurriculum(level);
         return (
           <TouchableOpacity
             key={level}

@@ -54,3 +54,29 @@ export interface RecoveryLesson {
   day: number;
   grammar: RecoveryGrammarItem[];
 }
+
+export type RecoveryDayKind = 'normal' | 'review' | 'test';
+
+export interface RecoveryCurriculumPhase {
+  id: number;
+  jp: string;
+  vi: string;
+  dayFrom: number;
+  dayTo: number;
+  focus?: string;
+}
+
+export interface RecoveryCurriculumDay {
+  day: number;
+  phase: number;
+  theme: string;
+  vocabTopic: string; // '—' for review/test days
+  grammar: string[];
+  kind: RecoveryDayKind;
+}
+
+export interface RecoveryCurriculum {
+  level: JlptLevel;
+  phases: readonly RecoveryCurriculumPhase[];
+  days: readonly RecoveryCurriculumDay[];
+}
