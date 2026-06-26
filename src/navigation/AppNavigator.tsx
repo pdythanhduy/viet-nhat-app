@@ -38,6 +38,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
+import JlptRecoveryLevelsScreen from '../screens/JlptRecoveryLevelsScreen';
 import N2DayDetailScreen from '../screens/N2DayDetailScreen';
 import N2DayContentScreen from '../screens/N2DayContentScreen';
 import SavedScreen from '../screens/SavedScreen';
@@ -59,7 +60,6 @@ import MailResultScreen from '../screens/MailResultScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
-import type { JlptLevel } from '../services/jlptRecoveryTypes';
 
 // Phase 2B + Phase 2C (v1.5.2): where did the user come from when
 // opening a guide? Powers the `source` property on the `guide_open`
@@ -140,9 +140,7 @@ export type RootStackParamList = {
   Settings: undefined;
   Lab: undefined;
   Furigana: undefined;
-  JlptRecovery: { level: JlptLevel };
-  JlptRecoveryDayDetail: { level: JlptLevel; day: number };
-  JlptRecoveryDayContent: { level: JlptLevel; day: number };
+  JlptRecoveryLevels: undefined;
   N2Recovery: undefined;
   N2DayDetail: { day: number };
   N2DayContent: { day: number };
@@ -462,6 +460,11 @@ export default function AppNavigator() {
           name="Furigana"
           component={FuriganaScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
+        />
+        <Stack.Screen
+          name="JlptRecoveryLevels"
+          component={JlptRecoveryLevelsScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery' }}
         />
         <Stack.Screen
           name="N2Recovery"

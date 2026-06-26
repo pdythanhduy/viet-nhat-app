@@ -105,3 +105,12 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
 export function getJlptRecoveryLevelConfig(level: JlptLevel): JlptRecoveryLevelConfig {
   return JLPT_RECOVERY_LEVEL_CONFIGS[level];
 }
+
+// Levels that actually have a day-by-day curriculum wired up today. The engine
+// is level-agnostic, but only these levels have content to browse — the rest
+// are shown as "coming soon" in the picker until their curriculum is authored.
+export const JLPT_RECOVERY_AVAILABLE_LEVELS: readonly JlptLevel[] = ['N2'];
+
+export function isJlptRecoveryLevelAvailable(level: JlptLevel): boolean {
+  return JLPT_RECOVERY_AVAILABLE_LEVELS.includes(level);
+}
