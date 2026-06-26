@@ -1,7 +1,8 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { ActivityIndicator, Alert } from 'react-native';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 
 import { Colors } from '../constants/colors';
 import {
@@ -10,6 +11,11 @@ import {
   stopJapaneseAudio,
   subscribeJapaneseAudio,
 } from '../utils/audio';
+import {
+  getVbeeJapaneseVoiceCode,
+  isVbeeConfigured,
+  synthesizeVbeeSpeech,
+} from '../services/vbeeTts';
 
 interface AudioButtonProps {
   audioId: string;
@@ -18,6 +24,32 @@ interface AudioButtonProps {
   color?: string;
   backgroundColor?: string;
   size?: number;
+  mode?: 'auto' | 'system' | 'vbee';
+}
+
+// Vbee players are per-button (each AudioButton owns its own useAudioPlayer),
+// so without coordination several buttons can play at once. Keep a single
+// "active" Vbee player and pause any previous one when a new button starts —
+// mirroring the single-playback behavior of the shared system-audio path.
+type VbeeCoordPlayer = { pause: () => void };
+let activeVbeePlayer: VbeeCoordPlayer | null = null;
+
+function claimVbeePlayback(player: VbeeCoordPlayer): void {
+  if (activeVbeePlayer && activeVbeePlayer !== player) {
+    // The previous player may already be released (its button unmounted), in
+    // which case calling pause() throws a native FunctionCallException. Ignore
+    // it — we only want to stop it if it's still alive.
+    try {
+      activeVbeePlayer.pause();
+    } catch {
+      // released/invalid player — nothing to stop.
+    }
+  }
+  activeVbeePlayer = player;
+}
+
+function releaseVbeePlayback(player: VbeeCoordPlayer): void {
+  if (activeVbeePlayer === player) activeVbeePlayer = null;
 }
 
 const AudioButtonText = {
@@ -34,19 +66,87 @@ export default function AudioButton({
   color = Colors.primary,
   backgroundColor = Colors.accent,
   size = 16,
+  mode = 'auto',
 }: AudioButtonProps) {
-  const [isPlaying, setIsPlaying] = React.useState(() => {
+  const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
+  const vbeeStatus = useAudioPlayerStatus(vbeePlayer);
+  const vbeeEnabled = mode === 'vbee' || (mode === 'auto' && isVbeeConfigured());
+  const [systemPlaying, setSystemPlaying] = React.useState(() => {
     const state = getJapaneseAudioState();
     return state.speaking && state.activeId === audioId;
   });
+  const [vbeeLoading, setVbeeLoading] = React.useState(false);
+  // The text that the currently loaded Vbee audio was synthesized from, so we
+  // can resume/replay it without spending another Vbee request.
+  const synthesizedTextRef = React.useRef<string | null>(null);
 
   React.useEffect(() => {
+    if (vbeeEnabled) return;
     return subscribeJapaneseAudio((state) => {
-      setIsPlaying(state.speaking && state.activeId === audioId);
+      setSystemPlaying(state.speaking && state.activeId === audioId);
     });
-  }, [audioId]);
+  }, [audioId, vbeeEnabled]);
+
+  // Drop the module-level "active player" reference when this button unmounts,
+  // so a later button never tries to pause an already-released native player.
+  React.useEffect(() => {
+    return () => releaseVbeePlayback(vbeePlayer);
+  }, [vbeePlayer]);
+
+  const isPlaying = vbeeEnabled ? vbeeStatus.playing : systemPlaying;
 
   const handlePress = async () => {
+    if (vbeeLoading) return;
+
+    if (vbeeEnabled) {
+      if (vbeeStatus.playing) {
+        vbeePlayer.pause();
+        return;
+      }
+
+      // Same audio already loaded — resume (or replay if finished) without
+      // hitting the Vbee API again.
+      if (vbeeStatus.isLoaded && synthesizedTextRef.current === text) {
+        if (vbeeStatus.didJustFinish) {
+          await vbeePlayer.seekTo(0);
+        }
+        claimVbeePlayback(vbeePlayer);
+        vbeePlayer.play();
+        return;
+      }
+
+      setVbeeLoading(true);
+      try {
+        const result = await synthesizeVbeeSpeech(text, {
+          voiceCode: getVbeeJapaneseVoiceCode(),
+        });
+        synthesizedTextRef.current = text;
+        vbeePlayer.replace({ uri: result.audioUrl });
+        claimVbeePlayback(vbeePlayer);
+        vbeePlayer.play();
+      } catch (e) {
+        const message = e instanceof Error ? e.message : String(e);
+        if (message === 'not-configured') {
+          const result = await playJapaneseAudio(text, audioId);
+          if (result?.ok === false && result.reason === 'speech-error') {
+            Alert.alert(AudioButtonText.speechErrorTitle, result.message);
+            return;
+          }
+          if (result?.ok === false && result.reason === 'missing-ja-voice') {
+            Alert.alert(
+              AudioButtonText.missingVoiceTitle,
+              AudioButtonText.missingVoiceMessage
+            );
+          }
+          return;
+        }
+        Alert.alert(AudioButtonText.speechErrorTitle, message);
+      } finally {
+        setVbeeLoading(false);
+      }
+      return;
+    }
+
     if (isPlaying) {
       await stopJapaneseAudio();
       return;
@@ -66,11 +166,16 @@ export default function AudioButton({
     <TouchableOpacity
       style={[styles.button, label ? styles.buttonWithLabel : null, { backgroundColor }]}
       onPress={() => void handlePress()}
+      disabled={vbeeLoading}
       activeOpacity={0.85}
       accessibilityRole="button"
       accessibilityLabel={label}
     >
-      <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={size} color={color} />
+      {vbeeLoading ? (
+        <ActivityIndicator size="small" color={color} />
+      ) : (
+        <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={size} color={color} />
+      )}
       {label ? <Text style={[styles.label, { color }]}>{label}</Text> : null}
     </TouchableOpacity>
   );

@@ -20,4 +20,5 @@ export const StorageKeys = {
   wordBookmarks: 'word_bookmarks_v1',
   storyStreak: 'story_streak_v1',
   japaneseStreak: 'japanese_streak_v1',
+  furiganaReaderSession: 'furigana_reader_session_v1',
 } as const;

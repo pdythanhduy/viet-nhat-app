@@ -238,12 +238,13 @@ async function fetchChunkResilient(q: string, appId: string): Promise<FuriganaTo
  * wholesale just because one chunk hiccuped.
  */
 export async function fetchFurigana(text: string): Promise<FuriganaToken[]> {
-  const appId = getYahooAppId();
-  if (!appId) {
-    throw new Error('not-configured');
-  }
   const trimmed = text.trim();
   if (!trimmed) return [];
+
+  const appId = getYahooAppId();
+  if (!appId) {
+    return [{ surface: trimmed, reading: null }];
+  }
 
   const normalized = normalizeForYahoo(trimmed);
   if (!normalized) return [{ surface: trimmed, reading: null }];
@@ -274,6 +275,8 @@ export async function fetchFurigana(text: string): Promise<FuriganaToken[]> {
   }
 
   // Every chunk failed (and none were fatal) — surface the error.
-  if (succeeded === 0 && lastErr) throw lastErr;
-  return out;
+  if (succeeded === 0 && lastErr) {
+    return [{ surface: trimmed, reading: null }];
+  }
+  return out.length > 0 ? out : [{ surface: trimmed, reading: null }];
 }

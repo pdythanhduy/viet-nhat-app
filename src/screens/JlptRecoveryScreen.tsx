@@ -1,57 +1,70 @@
-// N2 Recovery — course home: progress dashboard + Phase/Day browser.
-// Private (reached from the Lab). Stage 1: browse + mark days done (synced).
+// JLPT Recovery — course home for a single level (generic, engine-backed).
+// Progress dashboard + Phase/Day browser. Used for every level that has a
+// curriculum except N2, which keeps its own dedicated screen.
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Colors } from '../constants/colors';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import { getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
 import {
-  N2_PHASES,
-  N2_TOTAL_DAYS,
-  N2Day,
-  getN2DaysOfPhase,
-} from '../constants/n2RecoveryCurriculum';
-import { useN2Progress } from '../hooks/useN2Progress';
-import { getCurrentDay, pullRemote } from '../services/n2Progress';
+  getRecoveryCurriculum,
+  getRecoveryDaysOfPhase,
+} from '../constants/jlptRecoveryCurriculum';
+import { useJlptRecoveryProgress } from '../hooks/useJlptRecoveryProgress';
+import { getCurrentDay } from '../services/jlptRecoveryProgress';
+import type { RecoveryDayKind } from '../services/jlptRecoveryTypes';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
+type Route = RouteProp<RootStackParamList, 'JlptRecovery'>;
 
-function kindBadge(kind: N2Day['kind']): { label: string; color: string; bg: string } | null {
+function kindBadge(kind: RecoveryDayKind): { label: string; color: string; bg: string } | null {
   if (kind === 'review') return { label: 'Ôn tập', color: '#92400E', bg: '#FEF3C7' };
   if (kind === 'test') return { label: 'Kiểm tra', color: '#B91C1C', bg: '#FEE2E2' };
   return null;
 }
 
-export default function N2RecoveryScreen() {
+export default function JlptRecoveryScreen() {
   const navigation = useNavigation<Nav>();
-  const progress = useN2Progress();
+  const route = useRoute<Route>();
+  const level = route.params.level;
+
+  const config = getJlptRecoveryLevelConfig(level);
+  const curriculum = getRecoveryCurriculum(level);
+  const totalDays = curriculum?.days.length ?? 0;
+
+  const progress = useJlptRecoveryProgress(level);
   const doneSet = useMemo(() => new Set(progress.completedDays), [progress.completedDays]);
 
-  const currentDay = getCurrentDay();
+  const currentDay = getCurrentDay(level);
   const completed = progress.completedDays.length;
-  const percent = Math.round((completed / N2_TOTAL_DAYS) * 100);
+  const percent = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
 
-  // Expand the phase that contains the current day by default.
-  const currentPhase = N2_PHASES.find((p) => currentDay >= p.dayFrom && currentDay <= p.dayTo);
+  const currentPhase = curriculum?.phases.find(
+    (p) => currentDay >= p.dayFrom && currentDay <= p.dayTo
+  );
   const [expanded, setExpanded] = useState<number | null>(currentPhase?.id ?? 1);
 
-  // Pull the owner's synced progress on mount (no-op if not signed in).
-  useEffect(() => {
-    void pullRemote();
-  }, []);
+  if (!curriculum) {
+    return (
+      <View style={styles.centerWrap}>
+        <Text style={styles.notFound}>Chưa có nội dung cho cấp độ {level}.</Text>
+      </View>
+    );
+  }
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
         <Ionicons name="school-outline" size={24} color={Colors.primary} />
-        <Text style={styles.title}>JLPT Recovery N2 — 100 ngày</Text>
+        <Text style={styles.title}>
+          {config.title} — {totalDays} ngày
+        </Text>
       </View>
-      <Text style={styles.subtitle}>
-        Lấy lại N2 + giao tiếp + business. Không luyện thi — học 読む・聞く・話す・書く.
-      </Text>
+      <Text style={styles.subtitle}>{config.subtitle}</Text>
 
       {/* Dashboard */}
       <View style={styles.dashboard}>
@@ -64,7 +77,7 @@ export default function N2RecoveryScreen() {
           <View style={styles.dashItem}>
             <Text style={styles.dashNumber}>
               {completed}
-              <Text style={styles.dashNumberSmall}>/{N2_TOTAL_DAYS}</Text>
+              <Text style={styles.dashNumberSmall}>/{totalDays}</Text>
             </Text>
             <Text style={styles.dashLabel}>Đã hoàn thành</Text>
           </View>
@@ -79,7 +92,7 @@ export default function N2RecoveryScreen() {
         </View>
         <TouchableOpacity
           style={styles.continueBtn}
-          onPress={() => navigation.navigate('N2DayDetail', { day: currentDay })}
+          onPress={() => navigation.navigate('JlptRecoveryDayDetail', { level, day: currentDay })}
           activeOpacity={0.85}
         >
           <Ionicons name="play" size={16} color={Colors.white} />
@@ -88,8 +101,8 @@ export default function N2RecoveryScreen() {
       </View>
 
       {/* Phase accordion */}
-      {N2_PHASES.map((phase) => {
-        const days = getN2DaysOfPhase(phase.id);
+      {curriculum.phases.map((phase) => {
+        const days = getRecoveryDaysOfPhase(level, phase.id);
         const doneInPhase = days.filter((x) => doneSet.has(x.day)).length;
         const isOpen = expanded === phase.id;
         return (
@@ -122,7 +135,9 @@ export default function N2RecoveryScreen() {
                     <TouchableOpacity
                       key={dy.day}
                       style={styles.dayRow}
-                      onPress={() => navigation.navigate('N2DayDetail', { day: dy.day })}
+                      onPress={() =>
+                        navigation.navigate('JlptRecoveryDayDetail', { level, day: dy.day })
+                      }
                       activeOpacity={0.7}
                     >
                       <View style={[styles.dayNumBox, done && styles.dayNumBoxDone]}>
@@ -163,12 +178,15 @@ export default function N2RecoveryScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background },
   content: { padding: 16, paddingBottom: 40 },
+  centerWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
+  notFound: { fontSize: 14, color: Colors.textSecondary },
   header: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 },
   title: {
     fontSize: 21,
     fontWeight: '700',
     fontFamily: 'BeVietnamPro_700Bold',
     color: Colors.textPrimary,
+    flex: 1,
   },
   subtitle: { fontSize: 13, color: Colors.textSecondary, lineHeight: 20, marginBottom: 14 },
   dashboard: {

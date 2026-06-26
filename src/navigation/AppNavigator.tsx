@@ -38,6 +38,10 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
+import JlptRecoveryLevelsScreen from '../screens/JlptRecoveryLevelsScreen';
+import JlptRecoveryScreen from '../screens/JlptRecoveryScreen';
+import JlptRecoveryDayDetailScreen from '../screens/JlptRecoveryDayDetailScreen';
+import JlptRecoveryDayContentScreen from '../screens/JlptRecoveryDayContentScreen';
 import N2DayDetailScreen from '../screens/N2DayDetailScreen';
 import N2DayContentScreen from '../screens/N2DayContentScreen';
 import SavedScreen from '../screens/SavedScreen';
@@ -59,6 +63,7 @@ import MailResultScreen from '../screens/MailResultScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
+import type { JlptLevel } from '../services/jlptRecoveryTypes';
 
 // Phase 2B + Phase 2C (v1.5.2): where did the user come from when
 // opening a guide? Powers the `source` property on the `guide_open`
@@ -139,6 +144,10 @@ export type RootStackParamList = {
   Settings: undefined;
   Lab: undefined;
   Furigana: undefined;
+  JlptRecoveryLevels: undefined;
+  JlptRecovery: { level: JlptLevel };
+  JlptRecoveryDayDetail: { level: JlptLevel; day: number };
+  JlptRecoveryDayContent: { level: JlptLevel; day: number };
   N2Recovery: undefined;
   N2DayDetail: { day: number };
   N2DayContent: { day: number };
@@ -460,9 +469,29 @@ export default function AppNavigator() {
           options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
         />
         <Stack.Screen
+          name="JlptRecoveryLevels"
+          component={JlptRecoveryLevelsScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery' }}
+        />
+        <Stack.Screen
+          name="JlptRecovery"
+          component={JlptRecoveryScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery' }}
+        />
+        <Stack.Screen
+          name="JlptRecoveryDayDetail"
+          component={JlptRecoveryDayDetailScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Bài học' }}
+        />
+        <Stack.Screen
+          name="JlptRecoveryDayContent"
+          component={JlptRecoveryDayContentScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Từ vựng + Quiz' }}
+        />
+        <Stack.Screen
           name="N2Recovery"
           component={N2RecoveryScreen}
-          options={{ ...primaryHeaderOptions, headerTitle: 'N2 Recovery' }}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery N2' }}
         />
         <Stack.Screen
           name="N2DayDetail"
