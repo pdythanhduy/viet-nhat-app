@@ -28,7 +28,11 @@
       "Bash(gh pr *)",
       "PowerShell(gh *)",
       "Bash(node scripts/split-daily-life.js)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(git check-ignore *)",
+      "Bash(echo \"tsc: $?\")"
     ]
   }
 }
