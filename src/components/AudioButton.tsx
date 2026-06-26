@@ -31,11 +31,25 @@ interface AudioButtonProps {
 // so without coordination several buttons can play at once. Keep a single
 // "active" Vbee player and pause any previous one when a new button starts —
 // mirroring the single-playback behavior of the shared system-audio path.
-let activeVbeePlayer: { pause: () => void } | null = null;
+type VbeeCoordPlayer = { pause: () => void };
+let activeVbeePlayer: VbeeCoordPlayer | null = null;
 
-function claimVbeePlayback(player: { pause: () => void }): void {
-  if (activeVbeePlayer && activeVbeePlayer !== player) activeVbeePlayer.pause();
+function claimVbeePlayback(player: VbeeCoordPlayer): void {
+  if (activeVbeePlayer && activeVbeePlayer !== player) {
+    // The previous player may already be released (its button unmounted), in
+    // which case calling pause() throws a native FunctionCallException. Ignore
+    // it — we only want to stop it if it's still alive.
+    try {
+      activeVbeePlayer.pause();
+    } catch {
+      // released/invalid player — nothing to stop.
+    }
+  }
   activeVbeePlayer = player;
+}
+
+function releaseVbeePlayback(player: VbeeCoordPlayer): void {
+  if (activeVbeePlayer === player) activeVbeePlayer = null;
 }
 
 const AudioButtonText = {
@@ -72,6 +86,12 @@ export default function AudioButton({
       setSystemPlaying(state.speaking && state.activeId === audioId);
     });
   }, [audioId, vbeeEnabled]);
+
+  // Drop the module-level "active player" reference when this button unmounts,
+  // so a later button never tries to pause an already-released native player.
+  React.useEffect(() => {
+    return () => releaseVbeePlayback(vbeePlayer);
+  }, [vbeePlayer]);
 
   const isPlaying = vbeeEnabled ? vbeeStatus.playing : systemPlaying;
 
