@@ -27,6 +27,17 @@ interface AudioButtonProps {
   mode?: 'auto' | 'system' | 'vbee';
 }
 
+// Vbee players are per-button (each AudioButton owns its own useAudioPlayer),
+// so without coordination several buttons can play at once. Keep a single
+// "active" Vbee player and pause any previous one when a new button starts —
+// mirroring the single-playback behavior of the shared system-audio path.
+let activeVbeePlayer: { pause: () => void } | null = null;
+
+function claimVbeePlayback(player: { pause: () => void }): void {
+  if (activeVbeePlayer && activeVbeePlayer !== player) activeVbeePlayer.pause();
+  activeVbeePlayer = player;
+}
+
 const AudioButtonText = {
   missingVoiceTitle: 'Thi\u1ebft b\u1ecb ch\u01b0a c\u00f3 gi\u1ecdng Nh\u1eadt',
   missingVoiceMessage:
@@ -79,6 +90,7 @@ export default function AudioButton({
         if (vbeeStatus.didJustFinish) {
           await vbeePlayer.seekTo(0);
         }
+        claimVbeePlayback(vbeePlayer);
         vbeePlayer.play();
         return;
       }
@@ -90,6 +102,7 @@ export default function AudioButton({
         });
         synthesizedTextRef.current = text;
         vbeePlayer.replace({ uri: result.audioUrl });
+        claimVbeePlayback(vbeePlayer);
         vbeePlayer.play();
       } catch (e) {
         const message = e instanceof Error ? e.message : String(e);

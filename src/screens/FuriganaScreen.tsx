@@ -120,9 +120,9 @@ function getTranslateErrorMessage(message: string): string {
 }
 
 function getFuriganaErrorMessage(message: string): string {
-  return message === 'not-configured'
-    ? ReaderUiText.yahooMissing
-    : `${ReaderUiText.furiganaErrorPrefix}: ${message}`;
+  // fetchFurigana no longer throws 'not-configured' (it falls back to plain
+  // text without readings), so this only handles unexpected failures.
+  return `${ReaderUiText.furiganaErrorPrefix}: ${message}`;
 }
 
 function getVbeeReadErrorMessage(message: string): string {
@@ -236,12 +236,17 @@ export default function FuriganaScreen() {
       return;
     }
 
-    void saveFuriganaReaderSession({
-      input,
-      tokens: tokens ?? [],
-      translationLines: translationLines ?? [],
-      savedAt: Date.now(),
-    });
+    // Debounce so typing doesn't write to AsyncStorage on every keystroke.
+    const timer = setTimeout(() => {
+      void saveFuriganaReaderSession({
+        input,
+        tokens: tokens ?? [],
+        translationLines: translationLines ?? [],
+        savedAt: Date.now(),
+      });
+    }, 600);
+
+    return () => clearTimeout(timer);
   }, [input, sessionHydrating, tokens, translationLines]);
 
   const resetSmartState = () => {
