@@ -8,8 +8,8 @@ import {
 describe('jlptRecoveryCurriculum registry', () => {
   it('marks only the levels with wired-up curricula as available', () => {
     expect(hasRecoveryCurriculum('N5')).toBe(true);
+    expect(hasRecoveryCurriculum('N4')).toBe(true);
     expect(hasRecoveryCurriculum('N2')).toBe(true);
-    expect(hasRecoveryCurriculum('N4')).toBe(false);
     expect(hasRecoveryCurriculum('N3')).toBe(false);
     expect(hasRecoveryCurriculum('N1')).toBe(false);
   });
@@ -54,6 +54,47 @@ describe('jlptRecoveryCurriculum registry', () => {
       expect(fromPhases).toHaveLength(n5.days.length);
       for (const phase of n5.phases) {
         for (const day of getRecoveryDaysOfPhase('N5', phase.id)) {
+          expect(day.day).toBeGreaterThanOrEqual(phase.dayFrom);
+          expect(day.day).toBeLessThanOrEqual(phase.dayTo);
+        }
+      }
+    });
+  });
+
+  describe('N4 curriculum', () => {
+    const n4 = getRecoveryCurriculum('N4')!;
+
+    it('has 40 contiguous days numbered 1..40', () => {
+      expect(n4.days).toHaveLength(40);
+      expect(n4.days.map((d) => d.day)).toEqual(Array.from({ length: 40 }, (_, i) => i + 1));
+    });
+
+    it('marks the expected review/test days', () => {
+      const reviews = n4.days.filter((d) => d.kind === 'review').map((d) => d.day);
+      const tests = n4.days.filter((d) => d.kind === 'test').map((d) => d.day);
+      expect(reviews).toEqual([8, 16, 26, 34, 39]);
+      expect(tests).toEqual([40]);
+    });
+
+    it('gives every normal day a vocab topic and at least one grammar pattern', () => {
+      for (const day of n4.days.filter((d) => d.kind === 'normal')) {
+        expect(day.vocabTopic).not.toBe('—');
+        expect(day.vocabTopic.length).toBeGreaterThan(0);
+        expect(day.grammar.length).toBeGreaterThanOrEqual(1);
+      }
+    });
+
+    it('uses the "—" vocab placeholder on review/test days', () => {
+      for (const day of n4.days.filter((d) => d.kind !== 'normal')) {
+        expect(day.vocabTopic).toBe('—');
+      }
+    });
+
+    it('partitions every day into exactly one phase', () => {
+      const fromPhases = n4.phases.flatMap((p) => getRecoveryDaysOfPhase('N4', p.id));
+      expect(fromPhases).toHaveLength(n4.days.length);
+      for (const phase of n4.phases) {
+        for (const day of getRecoveryDaysOfPhase('N4', phase.id)) {
           expect(day.day).toBeGreaterThanOrEqual(phase.dayFrom);
           expect(day.day).toBeLessThanOrEqual(phase.dayTo);
         }

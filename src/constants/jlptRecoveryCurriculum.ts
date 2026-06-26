@@ -11,10 +11,12 @@ import type {
   RecoveryCurriculumPhase,
 } from '../services/jlptRecoveryTypes';
 import { N2_DAYS, N2_PHASES } from './n2RecoveryCurriculum';
+import { N4_DAYS, N4_PHASES } from './n4RecoveryCurriculum';
 import { N5_DAYS, N5_PHASES } from './n5RecoveryCurriculum';
 
 const CURRICULA: Partial<Record<JlptLevel, RecoveryCurriculum>> = {
   N2: { level: 'N2', phases: N2_PHASES, days: N2_DAYS },
+  N4: { level: 'N4', phases: N4_PHASES, days: N4_DAYS },
   N5: { level: 'N5', phases: N5_PHASES, days: N5_DAYS },
 };
 
