@@ -40,6 +40,11 @@ import {
   explainJapaneseSentenceForStudy,
   type SmartSentenceStudyExplanation,
 } from '../services/smartTranslation';
+import {
+  clearFuriganaReaderSession,
+  loadFuriganaReaderSession,
+  saveFuriganaReaderSession,
+} from '../services/furiganaSession';
 
 const SAMPLE =
   '日本政府は来年から外国人労働者の受け入れを拡大する方針を発表しました。';
@@ -172,6 +177,7 @@ export default function FuriganaScreen() {
   const [scrollY, setScrollY] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
+  const [sessionHydrating, setSessionHydrating] = useState(true);
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     setScrollY(e.nativeEvent.contentOffset.y);
@@ -205,6 +211,39 @@ export default function FuriganaScreen() {
     }).catch(() => undefined);
   }, []);
 
+  useEffect(() => {
+    let alive = true;
+    void (async () => {
+      const session = await loadFuriganaReaderSession();
+      if (!alive) return;
+      if (session) {
+        setInput(session.input);
+        setTokens(session.tokens.length > 0 ? session.tokens : null);
+        setTranslationLines(session.translationLines.length > 0 ? session.translationLines : null);
+      }
+      setSessionHydrating(false);
+    })();
+
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (sessionHydrating) return;
+    if (!input.trim()) {
+      void clearFuriganaReaderSession();
+      return;
+    }
+
+    void saveFuriganaReaderSession({
+      input,
+      tokens: tokens ?? [],
+      translationLines: translationLines ?? [],
+      savedAt: Date.now(),
+    });
+  }, [input, sessionHydrating, tokens, translationLines]);
+
   const resetSmartState = () => {
     setSelectedTokenIndex(null);
     setWordExplanation(null);
@@ -233,6 +272,7 @@ export default function FuriganaScreen() {
     setStudyLoadingIndex(null);
     setStudyExplanationByIndex({});
     setStudyErrorByIndex({});
+    setVbeeError(null);
   };
 
   const handlePaste = async () => {
@@ -484,14 +524,6 @@ export default function FuriganaScreen() {
           <Ionicons name="sparkles-outline" size={16} color={Colors.primary} />
           <Text style={styles.secondaryBtnText}>{ReaderUiText.sample}</Text>
         </TouchableOpacity>
-        {input.trim().length > 0 && (
-          <AudioButton
-            audioId="furigana:input"
-            text={input}
-            size={15}
-            label={VbeeUiText.readJapanese}
-          />
-        )}
         {input.length > 0 && (
           <TouchableOpacity
             style={styles.secondaryBtn}
@@ -500,7 +532,9 @@ export default function FuriganaScreen() {
             }}
           >
             <Ionicons name="close-circle-outline" size={16} color={Colors.textMuted} />
-            <Text style={[styles.secondaryBtnText, { color: Colors.textMuted }]}>{ReaderUiText.clear}</Text>
+            <Text style={[styles.secondaryBtnText, { color: Colors.textMuted }]}>
+              {ReaderUiText.clear}
+            </Text>
           </TouchableOpacity>
         )}
       </View>
@@ -683,6 +717,17 @@ export default function FuriganaScreen() {
             tokens={tokens}
             selectedTokenIndex={selectedTokenIndex}
             onTokenPress={(token, index) => void handleTokenLookup(token, index)}
+          />
+        </View>
+      )}
+
+      {input.trim().length > 0 && (
+        <View style={styles.readRow}>
+          <AudioButton
+            audioId="furigana:input"
+            text={input}
+            size={15}
+            label={VbeeUiText.readJapanese}
           />
         </View>
       )}
@@ -1270,6 +1315,10 @@ const styles = StyleSheet.create({
     color: Colors.textMuted,
     lineHeight: 16,
     marginTop: 7,
+  },
+  readRow: {
+    marginTop: 12,
+    alignItems: 'flex-start',
   },
   errorBox: {
     flexDirection: 'row',

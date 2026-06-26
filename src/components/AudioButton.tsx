@@ -1,7 +1,8 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { ActivityIndicator, Alert } from 'react-native';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 
 import { Colors } from '../constants/colors';
 import {
@@ -10,6 +11,11 @@ import {
   stopJapaneseAudio,
   subscribeJapaneseAudio,
 } from '../utils/audio';
+import {
+  getVbeeJapaneseVoiceCode,
+  isVbeeConfigured,
+  synthesizeVbeeSpeech,
+} from '../services/vbeeTts';
 
 interface AudioButtonProps {
   audioId: string;
@@ -18,6 +24,7 @@ interface AudioButtonProps {
   color?: string;
   backgroundColor?: string;
   size?: number;
+  mode?: 'auto' | 'system' | 'vbee';
 }
 
 const AudioButtonText = {
@@ -34,19 +41,79 @@ export default function AudioButton({
   color = Colors.primary,
   backgroundColor = Colors.accent,
   size = 16,
+  mode = 'auto',
 }: AudioButtonProps) {
-  const [isPlaying, setIsPlaying] = React.useState(() => {
+  const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
+  const vbeeStatus = useAudioPlayerStatus(vbeePlayer);
+  const vbeeEnabled = mode === 'vbee' || (mode === 'auto' && isVbeeConfigured());
+  const [systemPlaying, setSystemPlaying] = React.useState(() => {
     const state = getJapaneseAudioState();
     return state.speaking && state.activeId === audioId;
   });
+  const [vbeeLoading, setVbeeLoading] = React.useState(false);
+  // The text that the currently loaded Vbee audio was synthesized from, so we
+  // can resume/replay it without spending another Vbee request.
+  const synthesizedTextRef = React.useRef<string | null>(null);
 
   React.useEffect(() => {
+    if (vbeeEnabled) return;
     return subscribeJapaneseAudio((state) => {
-      setIsPlaying(state.speaking && state.activeId === audioId);
+      setSystemPlaying(state.speaking && state.activeId === audioId);
     });
-  }, [audioId]);
+  }, [audioId, vbeeEnabled]);
+
+  const isPlaying = vbeeEnabled ? vbeeStatus.playing : systemPlaying;
 
   const handlePress = async () => {
+    if (vbeeLoading) return;
+
+    if (vbeeEnabled) {
+      if (vbeeStatus.playing) {
+        vbeePlayer.pause();
+        return;
+      }
+
+      // Same audio already loaded — resume (or replay if finished) without
+      // hitting the Vbee API again.
+      if (vbeeStatus.isLoaded && synthesizedTextRef.current === text) {
+        if (vbeeStatus.didJustFinish) {
+          await vbeePlayer.seekTo(0);
+        }
+        vbeePlayer.play();
+        return;
+      }
+
+      setVbeeLoading(true);
+      try {
+        const result = await synthesizeVbeeSpeech(text, {
+          voiceCode: getVbeeJapaneseVoiceCode(),
+        });
+        synthesizedTextRef.current = text;
+        vbeePlayer.replace({ uri: result.audioUrl });
+        vbeePlayer.play();
+      } catch (e) {
+        const message = e instanceof Error ? e.message : String(e);
+        if (message === 'not-configured') {
+          const result = await playJapaneseAudio(text, audioId);
+          if (result?.ok === false && result.reason === 'speech-error') {
+            Alert.alert(AudioButtonText.speechErrorTitle, result.message);
+            return;
+          }
+          if (result?.ok === false && result.reason === 'missing-ja-voice') {
+            Alert.alert(
+              AudioButtonText.missingVoiceTitle,
+              AudioButtonText.missingVoiceMessage
+            );
+          }
+          return;
+        }
+        Alert.alert(AudioButtonText.speechErrorTitle, message);
+      } finally {
+        setVbeeLoading(false);
+      }
+      return;
+    }
+
     if (isPlaying) {
       await stopJapaneseAudio();
       return;
@@ -66,11 +133,16 @@ export default function AudioButton({
     <TouchableOpacity
       style={[styles.button, label ? styles.buttonWithLabel : null, { backgroundColor }]}
       onPress={() => void handlePress()}
+      disabled={vbeeLoading}
       activeOpacity={0.85}
       accessibilityRole="button"
       accessibilityLabel={label}
     >
-      <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={size} color={color} />
+      {vbeeLoading ? (
+        <ActivityIndicator size="small" color={color} />
+      ) : (
+        <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={size} color={color} />
+      )}
       {label ? <Text style={[styles.label, { color }]}>{label}</Text> : null}
     </TouchableOpacity>
   );

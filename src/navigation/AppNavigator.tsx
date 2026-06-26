@@ -59,6 +59,7 @@ import MailResultScreen from '../screens/MailResultScreen';
 import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
+import type { JlptLevel } from '../services/jlptRecoveryTypes';
 
 // Phase 2B + Phase 2C (v1.5.2): where did the user come from when
 // opening a guide? Powers the `source` property on the `guide_open`
@@ -139,6 +140,9 @@ export type RootStackParamList = {
   Settings: undefined;
   Lab: undefined;
   Furigana: undefined;
+  JlptRecovery: { level: JlptLevel };
+  JlptRecoveryDayDetail: { level: JlptLevel; day: number };
+  JlptRecoveryDayContent: { level: JlptLevel; day: number };
   N2Recovery: undefined;
   N2DayDetail: { day: number };
   N2DayContent: { day: number };
