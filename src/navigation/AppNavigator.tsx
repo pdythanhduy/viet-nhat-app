@@ -491,7 +491,7 @@ export default function AppNavigator() {
         <Stack.Screen
           name="N2Recovery"
           component={N2RecoveryScreen}
-          options={{ ...primaryHeaderOptions, headerTitle: 'N2 Recovery' }}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery N2' }}
         />
         <Stack.Screen
           name="N2DayDetail"

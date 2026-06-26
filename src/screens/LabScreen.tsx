@@ -135,7 +135,7 @@ export default function LabScreen() {
       <OpenToolButton
         onPress={() => navigation.navigate('N2Recovery')}
         icon="school-outline"
-        title="N2 Recovery — 100 ngày"
+        title="JLPT Recovery N2 — 100 ngày"
         desc="Lộ trình lấy lại N2 + business, có tiến độ."
       />
       <OpenToolButton
@@ -240,7 +240,7 @@ export default function LabScreen() {
       <OpenToolButton
         onPress={() => navigation.navigate('N2Recovery')}
         icon="school-outline"
-        title="N2 Recovery — 100 ngày"
+        title="JLPT Recovery N2 — 100 ngày"
         desc="Lộ trình lấy lại N2 + business, có tiến độ."
       />
       <OpenToolButton

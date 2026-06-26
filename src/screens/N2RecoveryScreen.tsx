@@ -47,7 +47,7 @@ export default function N2RecoveryScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
         <Ionicons name="school-outline" size={24} color={Colors.primary} />
-        <Text style={styles.title}>N2 Recovery — 100 ngày</Text>
+        <Text style={styles.title}>JLPT Recovery N2 — 100 ngày</Text>
       </View>
       <Text style={styles.subtitle}>
         Lấy lại N2 + giao tiếp + business. Không luyện thi — học 読む・聞く・話す・書く.
