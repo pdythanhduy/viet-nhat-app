@@ -101,6 +101,11 @@ const statusOfResidenceChange: AdminGuide = {
       { label: 'Giấy tờ của công ty, trường hoặc cơ quan tiếp nhận mới', required: true },
       { label: 'Tài liệu chứng minh năng lực học vấn hoặc nghề nghiệp khi cần', required: false },
     ],
+    tips: [
+      'Xin đổi tư cách **trước khi bắt đầu hoạt động mới** — không sau. Làm việc trước khi có tư cách phù hợp là vi phạm 入管法 ngay cả khi hồ sơ đang chờ xét. Trong thời gian chờ kết quả, tiếp tục hoạt động trong phạm vi tư cách CŨ.',
+      'Sinh viên tốt nghiệp tháng 3/4 cần nộp hồ sơ đổi tư cách **trước cuối tháng 1 hoặc đầu tháng 2** để ISA xét kịp trước ngày đi làm 1/4. Nếu muộn hơn, có thể cần xin tư cách 特定活動 (就活・内定) tạm thời.',
+      'Chuẩn bị **理由書 (thư giải trình)** ngay cả khi không bắt buộc. ISA thường đánh giá cao khi người nộp giải thích rõ công việc mới phù hợp tư cách xin đổi như thế nào. 1 trang rõ ràng bằng tiếng Nhật tốt hơn nhiều hồ sơ dày nhưng không có giải trình.',
+    ],
     commonMistakes: [
       'Nhầm giữa đổi tư cách lưu trú và gia hạn thời hạn lưu trú.',
       'Nhận việc hoặc bắt đầu công việc mới khi hồ sơ chưa rõ tình trạng pháp lý.',
@@ -127,6 +132,23 @@ const statusOfResidenceChange: AdminGuide = {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
         answer:
           'Không. ISA nêu hệ thống online không thể dùng để nộp vào đúng ngày hết hạn lưu trú; nếu sát hạn như vậy, cần xử lý tại cục xuất nhập cảnh có thẩm quyền.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Tốt nghiệp đại học Nhật, nhận offer tháng 4 — đổi visa khi nào?',
+        situation: 'Tôi học tại đại học Nhật, visa du học hết hạn tháng 3/2027. Nhận offer việc kỹ thuật bắt đầu tháng 4/2027. Tôi cần làm gì và khi nào?',
+        answer: '**Timeline chuẩn**:\n\n• **Tháng 12/2026**: Nộp hồ sơ đổi tư cách từ 留学 sang 技術・人文知識・国際業務 (hoặc diện phù hợp) tại ISA. Cần: hợp đồng lao động / 内定通知書, giấy tốt nghiệp dự kiến (見込証明書), bảng điểm, lý do giải trình.\n\n• **Tháng 1–3/2027**: ISA xét hồ sơ. Nếu visa 留学 hết hạn trong lúc chờ mà đã nộp hợp lệ → 特例期間 cho phép ở lại hợp pháp.\n\n• **Trước 4/2027**: Nhận thẻ mới, bắt đầu làm việc hợp lệ.\n\nNếu lỡ nộp muộn hoặc chưa có 内定 kịp: hỏi ISA về 特定活動 (就活・内定中) để có thêm thời gian.',
+      },
+      {
+        title: 'Kết hôn với người Nhật, muốn đổi sang 日本人の配偶者等',
+        situation: 'Tôi có visa kỹ thuật. Vừa kết hôn với người Nhật và đã đăng ký 婚姻届. Có nên đổi sang visa vợ/chồng người Nhật không?',
+        answer: 'Không bắt buộc phải đổi — visa 技術・人文 vẫn có hiệu lực và tiếp tục làm việc hoàn toàn hợp pháp.\n\n**Khi nào nên đổi sang 日本人の配偶者等**:\n• Bạn muốn linh hoạt hơn về loại công việc (visa vợ/chồng không giới hạn ngành nghề, chỉ giới hạn giờ làm nếu không có việc toàn thời)\n• Bạn đang muốn đổi ngành nghề sang diện 技術 không cover\n• Công ty mới không đủ điều kiện bảo lãnh visa kỹ thuật\n\n**Nếu đổi**: cần 婚姻届受理証明書, hộ tịch chứng minh hôn nhân, 戸籍謄本 của vợ/chồng Nhật, giấy tờ thu nhập. Nộp tại ISA.',
+      },
+      {
+        title: 'Đang làm IT, muốn mở công ty riêng — phải đổi tư cách gì?',
+        situation: 'Tôi có visa 技術・人文 đang đi làm. Muốn mở công ty riêng và tự kinh doanh. Visa hiện tại có ổn không?',
+        answer: 'Visa 技術・人文 **không cho phép tự kinh doanh / là chủ công ty**. Bạn cần đổi sang **経営・管理** (Kinh doanh và Quản lý).\n\nĐiều kiện 経営・管理:\n• Tư bản đầu tư ≥ 500万円 HOẶC thuê ≥ 2 nhân viên toàn thời\n• Có văn phòng thực tế ở Nhật (hợp đồng thuê văn phòng)\n• Hoạt động kinh doanh hợp pháp và ổn định\n\nQuy trình: đăng ký công ty (法人登記) → chuẩn bị hồ sơ kinh doanh → nộp ISA.\n\nLưu ý: trong thời gian chờ, **không ngừng công việc làm thuê** nếu vẫn cần thu nhập — ISA không có quy định cấm làm song song khi đang xét hồ sơ đổi tư cách. Hỏi 行政書士 chuyên 経営・管理 để tối ưu hồ sơ.',
       },
     ],
     counterPhrases: [

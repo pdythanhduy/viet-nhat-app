@@ -108,6 +108,11 @@ const pensionExemptionRefund: AdminGuide = {
       { label: 'Nếu sắp về nước: ngày rời Nhật, địa chỉ ngoài Nhật và tài khoản nhận 脱退一時金', required: false },
       { label: 'Nếu muốn hoàn thuế của 脱退一時金 厚生年金: hồ sơ 納税管理人 và giấy tờ thuế liên quan', required: false },
     ],
+    tips: [
+      'Xin miễn / hoãn **ngay khi thu nhập giảm** — không phải cuối năm. 免除 bảo vệ bạn khỏi mất 障害年金/遺族年金 ngay từ tháng xin, không hồi tố. Thủ tục xin online qua マイナポータル nếu đã có My Number Card.',
+      '学生納付特例 không phải "miễn hoàn toàn" mà là "hoãn" — sau khi có việc làm bạn có thể **truy đóng (追納)** trong 10 năm để tính đủ kỳ hưởng lương hưu. Không cần truy đóng hết nhưng nên tính xem có đáng không.',
+      'Trước khi về nước vĩnh viễn: xin 脱退一時金 **sau khi** xuất cảnh (không trước). Thời hạn 2 năm từ ngày đủ điều kiện sau rời Nhật. Giữ ねんきん手帳 và 基礎年金番号 để xin — mất thì rất khó xin lại từ nước ngoài.',
+    ],
     commonMistakes: [
       'Nghĩ 年金 chỉ là khoản bị trừ vô ích và bỏ mặc không xử lý khi khó khăn.',
       'Không phân biệt 国民年金 với 厚生年金, dẫn tới xin sai chỗ hoặc tưởng công ty đang lo hết.',
@@ -144,6 +149,23 @@ const pensionExemptionRefund: AdminGuide = {
       {
         question: 'Du học sinh có phải đóng không và có cách nào giảm không?',
         answer: 'Du học sinh trong độ tuổi vẫn có thể thuộc 国民年金. Nếu học tại trường thuộc diện áp dụng, bạn nên xin 学生納付特例. Nhật Bản năm 2026 còn đẩy mạnh việc xin online qua liên kết マイナポータル và ねんきんネット cho người đủ điều kiện tiếp tục học.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Du học sinh — có phải đóng 年金 không và làm sao giảm?',
+        situation: 'Tôi đang học đại học ở Nhật, 22 tuổi, visa du học. Nhận được thư 国民年金 yêu cầu đóng. Tôi không đi làm và không có thu nhập. Phải làm gì?',
+        answer: 'Bạn thuộc diện **学生納付特例** — được hoãn đóng (không phải miễn) trong thời gian học, bất kể thu nhập.\n\nCách xin: đến 市役所/年金事務所 hoặc xin online qua マイナポータル (nếu có My Number Card). Cần mang:\n• Thẻ sinh viên (学生証) còn hiệu lực\n• My Number Card hoặc thông báo My Number\n\n**Quan trọng**: Xin ngay — nếu để trống (未納) mà không xin 特例, bạn mất quyền bảo hiểm 障害年金/遺族年金 trong các tháng đó. Xin 特例 thì các tháng đó được tính là "đã xử lý" và vẫn được bảo vệ.',
+      },
+      {
+        title: 'Vừa nghỉ việc, không còn 厚生年金 — bước tiếp theo?',
+        situation: 'Tôi nghỉ việc tháng trước. Công ty có làm 厚生年金 cho tôi. Giờ không có việc, bảo hiểm và 年金 của tôi sẽ thế nào?',
+        answer: '厚生年金 mất hiệu lực đúng ngày nghỉ việc. Bạn có 2 việc cần làm trong **14 ngày**:\n\n**1. Đăng ký 国民年金** tại 市役所 (hoặc 年金事務所 nếu trước đây chưa có 国民年金号码). Mang: thẻ cư trú + thẻ công ty cũ cấp (健康保険 資格喪失証明書).\n\n**2. Xin miễn / hoãn ngay** nếu không có thu nhập: chọn 全額免除 hoặc 4分の3/半額 tùy thu nhập năm trước. Nếu bị sa thải (非自発的失業) có thể xin theo diện đặc biệt giảm đáng kể hơn.\n\nXin miễn TRƯỚC khi có thu nhập mới — không thể xin hồi tố.',
+      },
+      {
+        title: 'Về Việt Nam lâu dài — nhận 脱退一時金 được bao nhiêu?',
+        situation: 'Tôi đóng 年金 ở Nhật được 7 năm (84 tháng), sắp về nước. Xin 脱退一時金 được bao nhiêu? Làm thế nào?',
+        answer: 'Với 84 tháng đóng (vượt qua mốc 8 năm = 96 tháng là tối đa tính từ 01/04/2026), bạn nhận theo công thức:\n**Lương đóng bình quân × 1/2 × số tháng đóng (tối đa 96 tháng)**\n\nVí dụ: nếu đóng trung bình 16,980 yên/tháng → ~710,000 yên (trước thuế khấu trừ ~20%).\n\n**Quy trình**: Xuất cảnh Nhật → đợi xử lý địa chỉ → gửi hồ sơ từ Việt Nam đến 日本年金機構 (địa chỉ ghi trong hướng dẫn) trong vòng **2 năm** sau khi đủ điều kiện. Cần:\n• Passport (bản photocopy)\n• Bankbook của tài khoản ngân hàng ở Việt Nam (chuyển khoản quốc tế)\n• 基礎年金番号通知書 hoặc ねんきん手帳\n• 脱退一時金請求書 (tải từ 日本年金機構)',
       },
     ],
     counterPhrases: [
