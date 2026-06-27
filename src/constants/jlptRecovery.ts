@@ -26,7 +26,7 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     subtitle: 'Nền tảng sơ cấp, câu ngắn, giải thích rõ nghĩa',
     courseLabel: 'N5 Recovery',
     dayCount: 30,
-    promptVersion: 'v1',
+    promptVersion: 'v2',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
@@ -42,7 +42,7 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     subtitle: 'Sơ trung cấp, giữ nhịp học đều và ngắn',
     courseLabel: 'N4 Recovery',
     dayCount: 40,
-    promptVersion: 'v1',
+    promptVersion: 'v2',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
@@ -58,7 +58,7 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     subtitle: 'Trung cấp, tăng chiều sâu ngữ pháp và ngữ cảnh',
     courseLabel: 'N3 Recovery',
     dayCount: 60,
-    promptVersion: 'v1',
+    promptVersion: 'v2',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
@@ -74,7 +74,7 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     subtitle: 'Lấy lại N2 + giao tiếp + business, có chiều sâu sắc thái',
     courseLabel: 'N2 Recovery',
     dayCount: 100,
-    promptVersion: 'v1',
+    promptVersion: 'v2',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
@@ -90,7 +90,7 @@ export const JLPT_RECOVERY_LEVEL_CONFIGS: Record<JlptLevel, JlptRecoveryLevelCon
     subtitle: 'Nâng cao, ưu tiên nuance và văn phong thật',
     courseLabel: 'N1 Recovery',
     dayCount: 80,
-    promptVersion: 'v1',
+    promptVersion: 'v2',
     contentSchemaVersion: 1,
     lessonSchemaVersion: 1,
     vocabBatchCount: 2,
@@ -109,3 +109,10 @@ export function getJlptRecoveryLevelConfig(level: JlptLevel): JlptRecoveryLevelC
 // A level is browsable once its curriculum is wired into the registry; see
 // `hasRecoveryCurriculum` in constants/jlptRecoveryCurriculum.ts (single source
 // of truth). Levels without a curriculum show as "coming soon" in the picker.
+
+// Monetization: N5 is the free sample; N4–N1 require the "Pro" unlock.
+export const JLPT_FREE_LEVELS: readonly JlptLevel[] = ['N5'];
+
+export function isJlptLevelFree(level: JlptLevel): boolean {
+  return JLPT_FREE_LEVELS.includes(level);
+}

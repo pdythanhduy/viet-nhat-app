@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { ensureJlptSession } from '../services/anonAuth';
 import {
   getJlptPro,
   isJlptEntitlementLoaded,
@@ -19,7 +20,9 @@ export function useJlptEntitlement(): JlptEntitlement {
   useEffect(() => {
     const unsub = subscribeJlptPro(setIsPro);
     if (!isJlptEntitlementLoaded()) {
-      void loadJlptPro().finally(() => setLoading(false));
+      void ensureJlptSession()
+        .then(() => loadJlptPro())
+        .finally(() => setLoading(false));
     } else {
       setLoading(false);
     }
