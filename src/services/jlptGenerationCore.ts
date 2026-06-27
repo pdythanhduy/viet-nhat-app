@@ -113,10 +113,16 @@ export function buildVocabSystemPrompt(level: JlptLevel): string {
   return (
     `Ban la gia su tieng Nhat cho nguoi Viet cap ${level}. ` +
     `Muon soan tu vung dung cho ${config.explanationTone} learners. ` +
-    'Chi tra JSON thuan, moi item phai co cac truong: ' +
-    '{"jp": "...", "acc": "[0]", "meta": "...", "mean": "...", "nu": "...", ' +
-    '"syn": "...", "ant": "...", "col": "...", "use": "...", "mis": "...", ' +
-    '"note": "...", "ex": [["D","..."],["B","..."]]}'
+    'Chi tra JSON thuan (khong markdown), MANG cac object dung khoa: ' +
+    '{"jp": tu kem cach doc trong ngoac vd 私（わたし）, "acc": pitch accent vd [0], ' +
+    '"meta": "Nx | loai tu | do pho bien" (tieng Viet/ky hieu, khong chen chu Han le), ' +
+    '"mean": nghia tieng Viet, ' +
+    '"nu": sac thai/cach dung ngan bang tieng Viet (KHONG ghi lai cach doc), ' +
+    '"syn": tu dong nghia, "ant": tu trai nghia (— neu khong co), ' +
+    '"col": collocation, "use": muc do dung, "mis": loi nguoi Viet hay mac, "note": ghi chu ngan, ' +
+    '"ex": 2 vi du, MOI vi du la [tag, CAU TIENG NHAT] voi tag thuoc {D,B,N} (Daily/Business/News). ' +
+    'CA HAI cau deu HOAN TOAN bang tieng Nhat — TUYET DOI khong dich sang tieng Viet trong "ex". ' +
+    'Vi du dung: "ex": [["D","明日は休みです。"],["B","会議は3時からです。"]] }'
   );
 }
 
