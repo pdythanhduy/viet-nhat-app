@@ -15,6 +15,7 @@
     "verify:precommit": "npm run typecheck && npm run verify:content",
     "jlpt:generate": "tsx scripts/generate-jlpt-content.ts",
     "jlpt:bundle": "tsx scripts/bundle-jlpt-content.ts",
+    "jlpt:upload": "tsx scripts/upload-jlpt-content.ts",
     "bjt:audit-batch": "node scripts/bjt-audit-batch.js",
     "bjt:audit-mock-v2": "node scripts/bjt-audit-mock-v2.js",
     "bjt:audit-runtime": "node scripts/bjt-audit-runtime.js",
