@@ -2,6 +2,7 @@ import { getAnthropicApiKey } from './translate';
 import { readCache, stableHash, writeCache } from './jlptRecoveryCache';
 import { getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
 import { generateRecoveryLesson } from './jlptGenerationCore';
+import { hasBundledLesson, loadPregeneratedDay } from './jlptContentSource';
 import type { JlptLevel, RecoveryLesson } from './jlptRecoveryTypes';
 
 export interface RecoveryLessonSource {
@@ -26,6 +27,19 @@ export async function getRecoveryLesson(source: RecoveryLessonSource): Promise<R
   const cached = await readCache<RecoveryLesson>(key, config.lessonSchemaVersion);
   if (cached?.data?.grammar?.length) return cached.data;
 
+  // Prefer pre-generated lesson (bundle for N5, Supabase for paid levels).
+  const pre = await loadPregeneratedDay(source.level, source.day);
+  if (pre?.lesson?.length) {
+    const lesson: RecoveryLesson = {
+      level: source.level,
+      day: source.day,
+      grammar: pre.lesson,
+    };
+    await writeCache(key, lesson, config.lessonSchemaVersion);
+    return lesson;
+  }
+
+  // Fallback: on-device generation (transitional — removed with the client key).
   const apiKey = getAnthropicApiKey();
   if (!apiKey) throw new Error('not-configured');
 
@@ -44,6 +58,7 @@ export async function getRecoveryLesson(source: RecoveryLessonSource): Promise<R
 
 export async function hasCachedRecoveryLesson(source: RecoveryLessonSource): Promise<boolean> {
   const config = getJlptRecoveryLevelConfig(source.level);
+  if (hasBundledLesson(source.level, source.day)) return true;
   try {
     const cached = await readCache<RecoveryLesson>(
       cacheKey(source.level, source.day, source.patterns, config.promptVersion),
