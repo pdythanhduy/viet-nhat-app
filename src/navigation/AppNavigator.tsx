@@ -39,6 +39,7 @@ import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
 import JlptRecoveryLevelsScreen from '../screens/JlptRecoveryLevelsScreen';
+import JlptPaywallScreen from '../screens/JlptPaywallScreen';
 import JlptRecoveryScreen from '../screens/JlptRecoveryScreen';
 import JlptRecoveryDayDetailScreen from '../screens/JlptRecoveryDayDetailScreen';
 import JlptRecoveryDayContentScreen from '../screens/JlptRecoveryDayContentScreen';
@@ -145,6 +146,7 @@ export type RootStackParamList = {
   Lab: undefined;
   Furigana: undefined;
   JlptRecoveryLevels: undefined;
+  JlptPaywall: undefined;
   JlptRecovery: { level: JlptLevel };
   JlptRecoveryDayDetail: { level: JlptLevel; day: number };
   JlptRecoveryDayContent: { level: JlptLevel; day: number };
@@ -472,6 +474,11 @@ export default function AppNavigator() {
           name="JlptRecoveryLevels"
           component={JlptRecoveryLevelsScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Recovery' }}
+        />
+        <Stack.Screen
+          name="JlptPaywall"
+          component={JlptPaywallScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'JLPT Pro' }}
         />
         <Stack.Screen
           name="JlptRecovery"
