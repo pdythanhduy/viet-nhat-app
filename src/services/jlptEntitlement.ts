@@ -40,10 +40,9 @@ async function currentUserId(): Promise<string | undefined> {
   }
 }
 
-async function readServerPro(): Promise<boolean> {
+async function readServerPro(userId?: string): Promise<boolean> {
   if (!supabase) return false;
   try {
-    const userId = await currentUserId();
     if (!userId) return false;
     const { data, error } = await supabase
       .from('entitlements')
@@ -59,11 +58,12 @@ async function readServerPro(): Promise<boolean> {
 /** Read Pro from both the store (RevenueCat) and the server (Supabase). Returns
  * false when not configured / not signed in / no entitlement / error. */
 export async function loadJlptPro(): Promise<boolean> {
-  loaded = true;
   // Link RevenueCat to the Supabase user so purchases attach to the right row.
-  await configureJlptPurchases(await currentUserId());
-  const [server, store] = await Promise.all([readServerPro(), syncJlptProFromStore()]);
+  const userId = await currentUserId();
+  await configureJlptPurchases(userId);
+  const [server, store] = await Promise.all([readServerPro(userId), syncJlptProFromStore()]);
   cached = server || store;
+  loaded = true;
   broadcast();
   return cached;
 }

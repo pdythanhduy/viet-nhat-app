@@ -346,11 +346,12 @@ function VbeeAudioButton({
   onRead,
 }: {
   audioId: string;
-  text: string;
+  text: string | null;
   loadingAudioId: string | null;
   size: number;
   onRead: (audioId: string, text: string) => void;
 }) {
+  if (!text) return null;
   const loading = loadingAudioId === audioId;
   return (
     <TouchableOpacity

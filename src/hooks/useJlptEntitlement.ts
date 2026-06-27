@@ -18,15 +18,17 @@ export function useJlptEntitlement(): JlptEntitlement {
   const [loading, setLoading] = useState<boolean>(!isJlptEntitlementLoaded());
 
   useEffect(() => {
+    let mounted = true;
     const unsub = subscribeJlptPro(setIsPro);
     if (!isJlptEntitlementLoaded()) {
       void ensureJlptSession()
         .then(() => loadJlptPro())
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
+        .finally(() => { if (mounted) setLoading(false); });
     }
-    return unsub;
+    return () => {
+      mounted = false;
+      unsub();
+    };
   }, []);
 
   return { isPro, loading };
