@@ -86,6 +86,11 @@ const residenceCardValidity: AdminGuide = {
       { label: 'Thẻ cư trú hiện tại', required: true },
       { label: 'Giấy tờ người đại diện', required: false, note: 'Có thể cần nếu người đại diện nộp thay.' },
     ],
+    tips: [
+      'Đặt nhắc nhở **3 tháng trước ngày hết hạn** ghi trên thẻ (góc dưới bên phải mặt trước). Nếu đợi sát hạn và ISA đông, bạn có thể không kịp.',
+      'Ảnh thẻ phải chụp **trong vòng 3 tháng**. Nếu ảnh cũ hơn, chụp lại tại cửa hàng ảnh (コンビニ có thể in ảnh đúng kích thước với giá rẻ hơn).',
+      'Sau khi nhận thẻ mới, kiểm tra kỹ **tất cả thông tin in trên thẻ** tại quầy trước khi về — họ tên, ngày sinh, quốc tịch, tư cách, hạn. Nếu sai, yêu cầu sửa ngay tại chỗ.',
+    ],
     commonMistakes: [
       'Nhầm "gia hạn thẻ vật lý" với "gia hạn visa/lưu trú" — hai thủ tục khác hẳn nhau.',
       'Đợi thẻ hết hạn rồi mới đi → khó đi đâu khi không có thẻ hợp lệ.',
@@ -109,6 +114,23 @@ const residenceCardValidity: AdminGuide = {
       {
         question: '特定在留カード từ 14/06/2026 có bắt buộc không?',
         answer: 'Không. Thẻ cư trú hiện hành vẫn có hiệu lực sau khi mẫu mới bắt đầu. 特定在留カード là lựa chọn thêm — chỉ xin nếu bạn đang làm 1 trong các thủ tục đủ điều kiện (gia hạn / đổi tư cách / cấp lại / khai báo địa chỉ) và muốn gộp My Number.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Thẻ hết hạn nhưng visa vẫn còn — cần làm gì?',
+        situation: 'Visa của tôi hết hạn tháng 12/2026, nhưng thẻ cư trú (在留カード) ghi hạn tháng 9/2026. Tôi cần làm hai thủ tục khác nhau à?',
+        answer: 'Đúng — đây là **hai thủ tục độc lập**:\n\n• **Gia hạn hiệu lực thẻ vật lý** (在留カード有効期間更新): làm tại ISA khi thẻ sắp hết hạn ghi trên thẻ. Không thay đổi visa.\n\n• **Gia hạn tư cách lưu trú** (在留期間更新許可申請): làm tại ISA trước khi visa/lưu trú hết hạn. Đây mới là thủ tục "gia hạn visa" mà nhiều người nói.\n\nTrường hợp của bạn: làm thủ tục gia hạn thẻ vật lý trước tháng 9/2026, sau đó làm gia hạn lưu trú trước tháng 12/2026.',
+      },
+      {
+        title: 'Mất thẻ cư trú, xin lại có cần ảnh mới không?',
+        situation: 'Tôi bị mất thẻ cư trú và phải đến ISA xin cấp lại. Cần chuẩn bị gì?',
+        answer: 'Mang đến ISA: **hộ chiếu**, **ảnh 4×3cm** (chụp trong 3 tháng gần nhất), **đơn 紛失等の届出書 hoặc 在留カード再交付申請書** (tải từ trang ISA hoặc xin tại quầy), và **tờ khai lý do mất** (có thể cần thông báo mất của cảnh sát 紛失届の控え trong một số trường hợp). Phí: **1.300 yên** (tem hoặc cash — hỏi ISA khu vực của bạn). Báo mất trong vòng **14 ngày** để tránh phạt.',
+      },
+      {
+        title: '特定在留カード — có nên đổi không?',
+        situation: 'Tôi nghe nói từ 2026 có thẻ 特定在留カード mới. Có bắt buộc phải đổi không? Lợi ích gì?',
+        answer: '**Không bắt buộc.** Thẻ cư trú hiện hành vẫn hợp lệ đến hết hạn ghi trên thẻ. 特定在留カード là mẫu thẻ mới tích hợp My Number vào thẻ cư trú. Có thể xin đổi khi đang làm các thủ tục đủ điều kiện (gia hạn, đổi tư cách, cấp lại, khai báo địa chỉ). Lợi ích: gộp 2 thẻ thành 1, thuận tiện hơn khi dùng dịch vụ công. Nếu bạn đang gia hạn thẻ vật lý trong thời gian tới, hỏi quầy ISA xem có thể chuyển sang 特定在留カード cùng lúc không.',
       },
     ],
     counterPhrases: [

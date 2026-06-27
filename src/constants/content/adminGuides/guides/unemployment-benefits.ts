@@ -73,6 +73,11 @@ const unemploymentBenefits: AdminGuide = {
         tip: 'Mỗi kỳ báo cáo cần chứng minh đã tìm việc ít nhất 2 lần (ứng tuyển, dự hội thảo tìm việc, v.v.). Ghi chép lại để tránh bị gián đoạn trợ cấp.',
       },
     ],
+    tips: [
+      '**Đến ハローワーク ngay tuần đầu** sau khi nghỉ việc — thời điểm nộp 離職票 quyết định ngày bắt đầu tính "thời gian chờ" (待期期間 7 ngày). Trì hoãn 2 tuần = mất 2 tuần trợ cấp tiềm năng.',
+      'Trước khi ký 離職票 xác nhận với công ty, kiểm tra **lý do nghỉ** ghi trên tờ đó. Nếu ghi 自己都合 (tự xin nghỉ) nhưng thực tế bị ép hoặc hết hợp đồng, hãy yêu cầu sửa sang 会社都合 — ảnh hưởng lớn đến thời gian và mức trợ cấp.',
+      'Trong thời gian nhận trợ cấp, báo cáo **trung thực mọi thu nhập** (kể cả baito 1 ngày, tiền bán đồ...) tại ハローワーク mỗi 4 tuần. Khai thiếu là vi phạm pháp luật, phải hoàn lại toàn bộ trợ cấp đã nhận.',
+    ],
     commonMistakes: [
       'Không đến ハローワーク sớm — mỗi ngày trì hoãn là mất 1 ngày trợ cấp có thể nhận.',
       'Không kiểm tra lý do nghỉ trên 離職票 trước khi ký xác nhận — lý do sai ảnh hưởng lớn đến quyền lợi.',
@@ -96,6 +101,23 @@ const unemploymentBenefits: AdminGuide = {
       {
         question: 'Tìm được việc mới trước khi hết trợ cấp thì sao?',
         answer: 'Nếu tìm được việc sớm, bạn có thể nhận 就職促進給付 (trợ cấp khuyến khích đi làm sớm) thay vì toàn bộ trợ cấp còn lại — đôi khi số tiền còn cao hơn. Hỏi ハローワーク để biết mức cụ thể.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Hết hợp đồng ngắn hạn, không bị sa thải — có được nhận không?',
+        situation: 'Tôi làm hợp đồng có thời hạn, công ty không gia hạn nữa. Tôi không tự xin nghỉ. Được tính là 会社都合 không?',
+        answer: 'Hợp đồng không được gia hạn (雇い止め) **thường được xếp vào 会社都合** (không phải lỗi của người lao động), đặc biệt nếu:\n• Bạn đã làm từ 1 năm trở lên, hoặc\n• Bạn đã được gia hạn ít nhất 1 lần trước đó\n\nQuyền lợi: chỉ cần đóng 雇用保険 **6 tháng** (thay vì 12 tháng), không có thời gian chờ 3 tháng như 自己都合. Kiểm tra lại lý do ghi trên 離職票 — nếu sai, yêu cầu công ty chỉnh hoặc tranh luận tại ハローワーク.',
+      },
+      {
+        title: 'Visa sắp hết trong lúc đang nhận trợ cấp',
+        situation: 'Tôi đang nhận 失業給付. Visa kỹ thuật hết hạn còn 2 tháng. Có mất quyền nhận không?',
+        answer: '**Có rủi ro** — 失業給付 yêu cầu tư cách lưu trú còn hiệu lực trong suốt thời gian nhận. Nếu visa hết hạn mà chưa gia hạn, ハローワーク có thể dừng trợ cấp.\n\nViệc cần làm **ngay**:\n1. Nộp gia hạn tư cách lưu trú (在留期間更新許可申請) tại ISA — nộp sớm để có 特例期間 (ở tạm hợp lệ trong lúc chờ)\n2. Thông báo cho ハローワーク biết bạn đang trong quá trình gia hạn\n\nLưu ý: 在留資格「技術・人文知識・国際業務」cho phép "đang tìm việc trong ngành" — không vi phạm tư cách lưu trú nếu bạn đang tích cực tìm việc cùng ngành.',
+      },
+      {
+        title: 'Có thể học thêm / thi bằng trong lúc nhận trợ cấp không?',
+        situation: 'Tôi đang nhận 失業給付 và muốn tham gia khóa học tiếng Nhật buổi tối để nâng cấp kỹ năng. Có bị cắt trợ cấp không?',
+        answer: 'Học nâng cao kỹ năng **không bị cắt trợ cấp**, miễn là:\n• Học ngoài giờ không ảnh hưởng đến khả năng đi làm ngay (bạn vẫn "sẵn sàng và đang tích cực tìm việc")\n• Không nhận học bổng hoặc lương từ khóa học\n\nThực ra, ハローワーク còn có **教育訓練給付** — hỗ trợ học phí một số khóa đào tạo nâng cao. Hỏi ハローワーク xem khóa học của bạn có đủ điều kiện không — có thể được hoàn lại 20–70% học phí.',
       },
     ],
   };
