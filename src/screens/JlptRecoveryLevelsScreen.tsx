@@ -2,7 +2,7 @@
 // require the "Pro" unlock. N2 keeps its own dedicated, progress-synced screen.
 
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -28,11 +28,7 @@ export default function JlptRecoveryLevelsScreen() {
     if (!hasRecoveryCurriculum(level)) return;
     const unlocked = isJlptLevelFree(level) || isPro;
     if (!unlocked) {
-      // TODO(P5): navigate to a real paywall screen.
-      Alert.alert(
-        'Mở khóa JLPT Pro',
-        'Mua một lần để học toàn bộ N4 · N3 · N2 · N1. Tính năng thanh toán sắp ra mắt.',
-      );
+      navigation.navigate('JlptPaywall');
       return;
     }
     // N2 keeps its own dedicated, progress-synced course screen.
