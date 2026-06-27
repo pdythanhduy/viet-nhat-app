@@ -12,3 +12,8 @@ web-build/
 .env
 .env.local
 .DS_Store
+
+# Offline-generated JLPT content (regenerable via `npm run jlpt:generate`).
+# Free N5 gets bundled as TS; paid N4–N1 are uploaded to Supabase — the raw
+# JSON output itself is not committed.
+content/jlpt/
