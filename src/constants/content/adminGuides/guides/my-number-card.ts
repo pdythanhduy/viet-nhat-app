@@ -91,6 +91,11 @@ const myNumberCard: AdminGuide = {
       { label: '在留カード', required: true, note: 'Cần khi đến 役所 nhận thẻ' },
       { label: 'Hộ chiếu hoặc thẻ bảo hiểm y tế (1 trong 2)', required: true, note: 'Cần khi đến nhận thẻ' },
     ],
+    tips: [
+      'Sau khi nhận thẻ, **ghi ngay PIN ra giấy cất riêng** (không chụp ảnh bằng điện thoại). Nếu quên PIN ① (署名用) phải đến 市役所 mở khoá — mất cả buổi. PIN ①②③④ là 4 mã riêng biệt, đừng dùng cùng một số.',
+      '**Bật マイナ保険証** (liên kết thẻ với bảo hiểm y tế) tại マイナポータル ngay sau khi nhận thẻ. Từ 12/2025, đây là cách dùng bảo hiểm chính tại bệnh viện. 資格確認書 chỉ là phương án dự phòng.',
+      'Chuyển nhà phải đến 市役所 **cập nhật địa chỉ trên chip của thẻ** (không chỉ đăng ký 住民票). Chip lưu địa chỉ cũ → dùng dịch vụ công online sẽ bị lỗi. Cần mang thẻ để cán bộ cập nhật bằng máy tại quầy.',
+    ],
     commonMistakes: [
       'Ảnh sai: nền có hoa văn, mặt quá nhỏ, ảnh cũ > 6 tháng. Dùng app マイナポータル chụp thẳng cho dễ.',
       'Chuyển nhà giữa chừng mà không báo → thư 交付通知書 (ghi 転送不要) không tới, thẻ bị huỷ sau ~3 tháng.',
@@ -113,6 +118,23 @@ const myNumberCard: AdminGuide = {
         question: 'PIN 署名用 (6–16 ký tự) dùng để làm gì?',
         answer:
           'Dùng khi đăng nhập e-Tax, Mynaportal và ký điện tử tài liệu hành chính quan trọng. Đây là PIN quan trọng nhất — ghi lại và cất riêng biệt với thẻ.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Nhập sai PIN quá nhiều lần, thẻ bị khoá — làm sao?',
+        situation: 'Tôi nhập sai PIN ① (署名用) 5 lần liền. Thẻ báo lỗi và không dùng được nữa. Phải làm gì?',
+        answer: 'Thẻ bị **ロック (khoá)** — không tự mở lại được, phải đến 市役所/区役所 trực tiếp để cán bộ mở khoá bằng máy chuyên dụng.\n\nMang theo: thẻ My Number Card + hộ chiếu (hoặc thẻ cư trú). Không mất phí mở khoá. Sau khi mở, bạn được đặt lại PIN mới tại quầy.\n\n**Phân biệt loại khoá**:\n• PIN ① (署名用, 6–16 ký tự): khoá sau 5 lần sai\n• PIN ②③④ (利用者証明用/住民基本台帳/券面事項入力補助, 4 chữ số): khoá sau 3 lần sai\n\nNếu không nhớ mình đã nhập sai mấy lần — cứ đến 市役所 là an toàn nhất.',
+      },
+      {
+        title: 'Mất My Number Card — có ảnh hưởng bảo hiểm y tế không?',
+        situation: 'Tôi làm mất My Number Card. Tôi đang dùng マイナ保険証 tại bệnh viện. Bây giờ đi khám được không?',
+        answer: 'Cần làm **ngay khi phát hiện mất**:\n\n**1. Khóa thẻ từ xa**: Gọi 個人番号カードコールセンター 0120-95-0178 (24h) hoặc qua マイナポータル để khoá chức năng thẻ. Ngăn người khác dùng ký điện tử.\n\n**2. Đi khám bệnh trong thời gian mất thẻ**: Dùng **資格確認書** (giấy xác nhận tư cách bảo hiểm do bảo hiểm cấp) hoặc hỏi bệnh viện cách xử lý — nhiều nơi có hệ thống tra cứu 被保険者番号 thay thế.\n\n**3. Xin cấp lại**: Đến 市役所 (mang thẻ cư trú + hộ chiếu) để xin thẻ mới. Cần chụp ảnh lại. Phí cấp lại: 1,000 yên (mất) hoặc miễn phí (hỏng).',
+      },
+      {
+        title: 'Không có thẻ — dịch vụ công nào bị ảnh hưởng?',
+        situation: 'Visa của tôi còn 1 năm nên chưa xin My Number Card. Có bị ảnh hưởng gì không?',
+        answer: 'Không có My Number Card, bạn vẫn dùng được đa số dịch vụ công bằng cách đến quầy trực tiếp. Nhưng bị ảnh hưởng ở:\n\n• **Bảo hiểm y tế**: Từ 12/2025, không có マイナ保険証 → nhận 資格確認書 từ bảo hiểm, dùng thay thẻ cũ tại bệnh viện. Không bị từ chối khám nhưng thêm bước.\n• **Khai thuế online (e-Tax)**: Phải dùng ID・パスワード方式 (xin tại 税務署) thay vì My Number Card.\n• **Gia hạn visa online**: Hệ thống ISA yêu cầu My Number Card cho một số thủ tục online.\n\nNếu định ở Nhật từ 3 năm trở lên, xin My Number Card từ sớm sẽ tiết kiệm nhiều thời gian về sau.',
       },
     ],
     counterPhrases: [

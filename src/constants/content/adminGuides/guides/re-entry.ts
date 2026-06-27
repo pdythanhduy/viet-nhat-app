@@ -89,6 +89,11 @@ const reEntry: AdminGuide = {
       { label: 'Kế hoạch hoặc vé quay lại Nhật', required: false, note: 'Dùng để tự kiểm tra có quay lại kịp hạn hay không.' },
       { label: 'Đơn 再入国許可申請書', required: false, note: 'Chỉ cần nếu xin 再入国許可 chính thức tại ISA.' },
     ],
+    tips: [
+      'Khi qua cổng xuất cảnh bằng みなし再入国: **đánh dấu "出国する" vào ô ý định quay lại** trên tờ 再入国EDカード (màu xanh lá) — nếu quên đánh dấu, みなし có thể bị coi là mất hiệu lực. Giữ stub thẻ đã đóng dấu làm bằng chứng.',
+      'Kiểm tra **3 thứ trước khi đặt vé máy bay**: ngày hết hạn visa, ngày hết hạn みなし再入国 (= ngày hết visa hoặc 1 năm từ ngày xuất cảnh — lấy ngày nào đến trước), và ngày hết hạn hộ chiếu. Có 永住 thì みなし có thể lên đến 2 năm.',
+      'Nếu chuyến đi có thể kéo dài không chắc (ốm, công tác, gia đình), xin **再入国許可 chính thức** tại ISA trước khi đi (phí ~3,000 yên đơn/6,000 yên bội) — thời hạn đến 5 năm (永住者 lên 6 năm), linh hoạt hơn nhiều.',
+    ],
     commonMistakes: [
       'Không đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） khi xuất cảnh bằng みなし再入国.',
       'Nghĩ みなし再入国 luôn dùng được dù rời Nhật quá lâu.',
@@ -112,6 +117,23 @@ const reEntry: AdminGuide = {
       {
         question: 'Nếu mất hộ chiếu hoặc thẻ cư trú khi đang ở ngoài Nhật thì sao?',
         answer: 'ISA có thủ tục xin chứng minh thời hạn 再入国許可 thông qua người đại diện ở Nhật trong một số trường hợp. Liên hệ cơ quan Nhật ở nước ngoài và ISA, không tự suy đoán rằng chỉ cần hộ chiếu mới là quay lại được.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Về Việt Nam 2 tháng — みなし hay xin phép chính thức?',
+        situation: 'Tôi có visa kỹ thuật còn hạn 1 năm. Muốn về Việt Nam 2 tháng thăm gia đình rồi quay lại. Cần xin phép gì không?',
+        answer: '2 tháng nằm trong giới hạn **みなし再入国** (1 năm tính từ ngày xuất cảnh hoặc đến khi visa hết — lấy mốc sớm hơn).\n\nBạn không cần xin phép trước tại ISA. Chỉ cần:\n1. Khi check-in/qua cổng tự động xuất cảnh: đánh dấu **"出国する"** trên 再入国EDカード màu xanh lá (thường được phát hoặc có tại cổng)\n2. Giữ thẻ cư trú khi xuất cảnh — đây là giấy chứng minh bạn có tư cách 再入国\n3. Quay lại **trước khi visa và/hoặc 1 năm từ ngày đi — lấy mốc nào sớm hơn**\n\nNếu 2 tháng sau bạn quyết định ở lại lâu hơn và vượt mốc: みなし mất hiệu lực, cần xin thị thực mới từ Việt Nam.',
+      },
+      {
+        title: '永住者 — về lâu bao lâu mới cần xin phép?',
+        situation: 'Tôi có 永住. Muốn về Việt Nam lâu hơn bình thường, có thể 1 năm. みなし đủ không?',
+        answer: '永住者 có đặc quyền hơn:\n• みなし再入国: **2 năm** (thay vì 1 năm)\n• 再入国許可 chính thức: tối đa **6 năm** (thay vì 5 năm)\n\nNếu chuyến đi có thể kéo dài gần 2 năm hoặc không chắc, hãy xin **再入国許可 chính thức tại ISA** trước khi đi (phí 6,000 yên bội nhập).\n\n**Quan trọng với 永住者**: Ở ngoài Nhật quá 5 năm liên tục (ngay cả có 再入国許可) có thể ảnh hưởng đến hồ sơ 永住 trong một số trường hợp. Tư vấn 行政書士 nếu dự kiến ở dài hạn.',
+      },
+      {
+        title: 'Quên đánh dấu "出国する" trên EDカード — giờ phải làm gì?',
+        situation: 'Tôi vừa về Việt Nam và mới nhớ ra không đánh dấu ý định quay lại trên tờ EDカード khi xuất cảnh. Có bị mất tư cách 再入国 không?',
+        answer: 'Đây là tình huống nghiêm trọng cần giải quyết sớm.\n\nVề lý thuyết: không đánh dấu có thể được coi là **tự nguyện từ bỏ tư cách lưu trú**. Nhưng thực tế ISA xử lý từng trường hợp — có lịch sử ghi nhận ISA cho phép quay lại với điều kiện giải thích.\n\n**Việc cần làm ngay từ Việt Nam**:\n1. Liên hệ Đại sứ quán Nhật tại Hà Nội hoặc TP.HCM để trình bày tình huống\n2. Chuẩn bị giải thích bằng văn bản + bằng chứng nhầm lẫn vô ý (vé máy bay, lý do đi, v.v.)\n3. Có thể cần xin thị thực mới và giải trình với ISA khi nhập cảnh\n\nKhuyến nghị: Hỏi 行政書士 chuyên 入管 sớm nhất có thể.',
       },
     ],
     counterPhrases: [
