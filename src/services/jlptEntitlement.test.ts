@@ -1,3 +1,15 @@
+jest.mock('react-native-purchases', () => ({
+  __esModule: true,
+  default: {
+    configure: jest.fn(),
+    logIn: jest.fn(async () => ({})),
+    getCustomerInfo: jest.fn(async () => ({ entitlements: { active: {} } })),
+    getOfferings: jest.fn(async () => ({ current: null, all: {} })),
+    purchasePackage: jest.fn(),
+    restorePurchases: jest.fn(async () => ({ entitlements: { active: {} } })),
+  },
+}));
+
 const mockGetUser = jest.fn();
 const mockMaybeSingle = jest.fn();
 
