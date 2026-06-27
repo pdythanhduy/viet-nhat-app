@@ -5,12 +5,35 @@
 -- the per-user "Pro" entitlement that gates them.
 --
 -- Security model:
---   • jlpt_content  — anyone (incl. anonymous-auth users) may read N5; paid
---     levels only when the user has a Pro entitlement. Rows are written ONLY by
---     the service role (the upload script / a webhook) — no client write policy.
 --   • entitlements  — a user may read their OWN row, but CANNOT write it. Pro is
 --     granted exclusively by the service role (RevenueCat webhook / Edge Fn),
 --     so a client can never grant itself Pro.
+--   • jlpt_content  — anyone (incl. anonymous-auth users) may read N5; paid
+--     levels only when the user has a Pro entitlement. Rows are written ONLY by
+--     the service role (the upload script / a webhook) — no client write policy.
+--
+-- NOTE: entitlements is created FIRST because the jlpt_content read policy
+-- references it.
+
+-- ── Entitlements ───────────────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS public.entitlements (
+  user_id    UUID        PRIMARY KEY REFERENCES auth.users (id) ON DELETE CASCADE,
+  has_pro    BOOLEAN     NOT NULL DEFAULT FALSE,
+  source     TEXT,                               -- e.g. 'revenuecat', 'manual'
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+ALTER TABLE public.entitlements ENABLE ROW LEVEL SECURITY;
+
+-- Read: a user may read only their own entitlement row.
+DROP POLICY IF EXISTS "read own entitlement" ON public.entitlements;
+CREATE POLICY "read own entitlement"
+  ON public.entitlements
+  FOR SELECT
+  TO authenticated
+  USING (auth.uid() = user_id);
+-- No write policy for clients → Pro is granted ONLY via the service role
+-- (RevenueCat webhook / Edge Function), never by the app itself.
 
 -- ── Content ────────────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.jlpt_content (
@@ -38,23 +61,3 @@ CREATE POLICY "read jlpt content"
     )
   );
 -- No INSERT/UPDATE/DELETE policy → only the service role can write content.
-
--- ── Entitlements ───────────────────────────────────────────────────────────
-CREATE TABLE IF NOT EXISTS public.entitlements (
-  user_id    UUID        PRIMARY KEY REFERENCES auth.users (id) ON DELETE CASCADE,
-  has_pro    BOOLEAN     NOT NULL DEFAULT FALSE,
-  source     TEXT,                               -- e.g. 'revenuecat', 'manual'
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-ALTER TABLE public.entitlements ENABLE ROW LEVEL SECURITY;
-
--- Read: a user may read only their own entitlement row.
-DROP POLICY IF EXISTS "read own entitlement" ON public.entitlements;
-CREATE POLICY "read own entitlement"
-  ON public.entitlements
-  FOR SELECT
-  TO authenticated
-  USING (auth.uid() = user_id);
--- No write policy for clients → Pro is granted ONLY via the service role
--- (RevenueCat webhook / Edge Function), never by the app itself.
