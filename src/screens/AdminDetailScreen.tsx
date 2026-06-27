@@ -114,6 +114,9 @@ export default function AdminDetailScreen() {
 
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
+  const [expandedScenarioIndex, setExpandedScenarioIndex] = useState<number | null>(null);
+  const [overviewOpen, setOverviewOpen] = useState(true);
+  const [mistakesOpen, setMistakesOpen] = useState(true);
   const [bookmarked, setBookmarked] = useState(false);
   const [checkedChecklistItems, setCheckedChecklistItems] = useState<Set<string>>(new Set());
   const [exportingGuide, setExportingGuide] = useState(false);
@@ -715,21 +718,32 @@ export default function AdminDetailScreen() {
 
         {(guide.whoIsThisFor || guide.whenToDo || guide.whereToDo || guide.estimatedTime || guide.fees) && (
           <View style={styles.detailSection}>
-            <Text style={styles.detailSectionTitle}>Tổng quan cần biết</Text>
-            {guide.whoIsThisFor && (
-              <InfoList title="Ai cần làm" items={guide.whoIsThisFor} color={guide.color} />
-            )}
-            {guide.whenToDo && (
-              <InfoList title="Khi nào làm" items={guide.whenToDo} color={guide.color} />
-            )}
-            {guide.whereToDo && (
-              <InfoList title="Làm ở đâu" items={guide.whereToDo} color={guide.color} />
-            )}
-            {guide.estimatedTime && (
-              <InfoText title="Thời gian xử lý" text={guide.estimatedTime} color={guide.color} />
-            )}
-            {guide.fees && (
-              <InfoList title="Chi phí" items={guide.fees} color={guide.color} />
+            <TouchableOpacity
+              style={styles.collapsibleSectionHeader}
+              onPress={() => setOverviewOpen((o) => !o)}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.detailSectionTitle}>Tổng quan cần biết</Text>
+              <Ionicons name={overviewOpen ? 'chevron-up' : 'chevron-down'} size={18} color={Colors.textMuted} />
+            </TouchableOpacity>
+            {overviewOpen && (
+              <>
+                {guide.whoIsThisFor && (
+                  <InfoList title="Ai cần làm" items={guide.whoIsThisFor} color={guide.color} />
+                )}
+                {guide.whenToDo && (
+                  <InfoList title="Khi nào làm" items={guide.whenToDo} color={guide.color} />
+                )}
+                {guide.whereToDo && (
+                  <InfoList title="Làm ở đâu" items={guide.whereToDo} color={guide.color} />
+                )}
+                {guide.estimatedTime && (
+                  <InfoText title="Thời gian xử lý" text={guide.estimatedTime} color={guide.color} />
+                )}
+                {guide.fees && (
+                  <InfoList title="Chi phí" items={guide.fees} color={guide.color} />
+                )}
+              </>
             )}
           </View>
         )}
@@ -963,10 +977,34 @@ export default function AdminDetailScreen() {
           </View>
         )}
 
+        {guide.tips && guide.tips.length > 0 && (
+          <View style={[styles.detailSection, styles.tipsSection]}>
+            <View style={styles.tipsSectionHeader}>
+              <Ionicons name="bulb-outline" size={16} color="#D97706" />
+              <Text style={styles.tipsSectionTitle}>Mẹo hay</Text>
+            </View>
+            {guide.tips.map((tip, i) => (
+              <View key={i} style={styles.tipItem}>
+                <View style={styles.tipBullet}>
+                  <Text style={styles.tipBulletText}>{i + 1}</Text>
+                </View>
+                <RichInline text={tip} style={styles.tipItemText} />
+              </View>
+            ))}
+          </View>
+        )}
+
         {guide.commonMistakes && guide.commonMistakes.length > 0 && (
           <View style={styles.detailSection}>
-            <Text style={styles.detailSectionTitle}>Lỗi thường gặp</Text>
-            {guide.commonMistakes.map((mistake) => (
+            <TouchableOpacity
+              style={styles.collapsibleSectionHeader}
+              onPress={() => setMistakesOpen((o) => !o)}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.detailSectionTitle}>Lỗi thường gặp</Text>
+              <Ionicons name={mistakesOpen ? 'chevron-up' : 'chevron-down'} size={18} color={Colors.textMuted} />
+            </TouchableOpacity>
+            {mistakesOpen && guide.commonMistakes.map((mistake) => (
               <View key={mistake} style={styles.mistakeItem}>
                 <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
                 <RichInline text={mistake} style={styles.mistakeText} />
@@ -1002,6 +1040,55 @@ export default function AdminDetailScreen() {
                       containerStyle={styles.faqAnswerContainer}
                       accentColor={guide.color}
                     />
+                  )}
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        )}
+
+        {guide.scenarios && guide.scenarios.length > 0 && (
+          <View style={styles.detailSection}>
+            <View style={styles.scenariosHeader}>
+              <Ionicons name="people-outline" size={16} color={guide.color} />
+              <Text style={[styles.detailSectionTitle, { marginBottom: 0 }]}>Tình huống thực tế</Text>
+            </View>
+            <Text style={styles.scenariosSubtitle}>
+              Các tình huống người dùng hay gặp — không phải quy định chung mà là câu trả lời cụ thể.
+            </Text>
+            {guide.scenarios.map((sc, index) => {
+              const open = expandedScenarioIndex === index;
+              return (
+                <TouchableOpacity
+                  key={index}
+                  style={[styles.scenarioItem, open && { borderColor: guide.color + '50' }]}
+                  onPress={() => setExpandedScenarioIndex(open ? null : index)}
+                  activeOpacity={0.8}
+                >
+                  <View style={styles.scenarioHeader}>
+                    <View style={[styles.scenarioNumBadge, { backgroundColor: guide.color + '18' }]}>
+                      <Text style={[styles.scenarioNum, { color: guide.color }]}>{index + 1}</Text>
+                    </View>
+                    <Text style={styles.scenarioTitle}>{sc.title}</Text>
+                    <Ionicons
+                      name={open ? 'chevron-up' : 'chevron-down'}
+                      size={16}
+                      color={Colors.textMuted}
+                    />
+                  </View>
+                  {open && (
+                    <View style={styles.scenarioBody}>
+                      <View style={[styles.scenarioSituationBox, { backgroundColor: guide.color + '0A', borderColor: guide.color + '25' }]}>
+                        <Text style={styles.scenarioSituationLabel}>Tình huống</Text>
+                        <RichInline text={sc.situation} style={styles.scenarioSituation} />
+                      </View>
+                      <RichText
+                        text={sc.answer}
+                        textStyle={styles.scenarioAnswer}
+                        containerStyle={styles.scenarioAnswerWrap}
+                        accentColor={guide.color}
+                      />
+                    </View>
                   )}
                 </TouchableOpacity>
               );
@@ -2210,5 +2297,136 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
+  },
+  collapsibleSectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  tipsSection: {
+    backgroundColor: '#FFFBEB',
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#FDE68A',
+    padding: 14,
+  },
+  tipsSectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 10,
+  },
+  tipsSectionTitle: {
+    fontSize: 15,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: '#92400E',
+  },
+  tipItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginBottom: 10,
+  },
+  tipBullet: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: '#D97706',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+    marginTop: 1,
+  },
+  tipBulletText: {
+    fontSize: 11,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.white,
+  },
+  tipItemText: {
+    flex: 1,
+    fontSize: 13,
+    color: '#78350F',
+    lineHeight: 20,
+  },
+  scenariosHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 4,
+  },
+  scenariosSubtitle: {
+    fontSize: 12,
+    color: Colors.textSecondary,
+    lineHeight: 18,
+    marginBottom: 12,
+  },
+  scenarioItem: {
+    backgroundColor: Colors.card,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    marginBottom: 10,
+    overflow: 'hidden',
+  },
+  scenarioHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    padding: 12,
+  },
+  scenarioNumBadge: {
+    width: 26,
+    height: 26,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+  scenarioNum: {
+    fontSize: 13,
+    fontFamily: 'BeVietnamPro_700Bold',
+  },
+  scenarioTitle: {
+    flex: 1,
+    fontSize: 14,
+    fontFamily: 'BeVietnamPro_600SemiBold',
+    color: Colors.textPrimary,
+    lineHeight: 20,
+  },
+  scenarioBody: {
+    paddingHorizontal: 12,
+    paddingBottom: 14,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+    paddingTop: 10,
+  },
+  scenarioSituationBox: {
+    borderRadius: 10,
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10,
+  },
+  scenarioSituationLabel: {
+    fontSize: 10,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: Colors.textMuted,
+    letterSpacing: 0.5,
+    marginBottom: 4,
+    textTransform: 'uppercase',
+  },
+  scenarioSituation: {
+    fontSize: 13,
+    color: Colors.textSecondary,
+    lineHeight: 19,
+    fontStyle: 'italic',
+  },
+  scenarioAnswerWrap: {
+    marginTop: 2,
+  },
+  scenarioAnswer: {
+    fontSize: 14,
+    color: Colors.textPrimary,
+    lineHeight: 21,
   },
 });
