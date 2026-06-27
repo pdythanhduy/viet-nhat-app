@@ -110,6 +110,11 @@ const kakuteiShinkoku: AdminGuide = {
       { label: '特定口座年間取引報告書 (nếu có cổ phiếu/FX)', required: false },
       { label: 'Biên lai ふるさと納税 (nếu > 5 địa phương trong năm)', required: false },
     ],
+    tips: [
+      'Dùng **e-Tax** (etax.nta.go.jp) thay vì xếp hàng tại 税務署. Tạo hồ sơ online, nhập 源泉徴収票, nhận ngay ước tính hoàn thuế — toàn bộ dưới 1 tiếng nếu đã có giấy tờ đầy đủ.',
+      'Nếu năm nay tổng chi phí y tế (khám, thuốc, viện phí...) **vượt 100,000 yên hoặc 5% thu nhập**, khai 医療費控除 để hoàn thuế thêm. Giữ toàn bộ hoá đơn từ đầu năm.',
+      '源泉徴収票 là giấy công ty phát cuối năm — **không vứt**. Là tài liệu bắt buộc để khai thuế. Nếu mất, xin lại phòng nhân sự công ty hoặc xin 源泉徴収票不交付の届出書 từ 税務署.',
+    ],
     commonMistakes: [
       '年末調整 xong rồi mà không cần khai thêm — đúng với người một việc làm, nhưng sai nếu có thu nhập phụ > 200,000 yên.',
       'Quên khai thu nhập freelance hoặc YouTube/SNS mà nghĩ là nhỏ — 国税庁 có thể truy soát qua thông tin ngân hàng.',
@@ -128,6 +133,23 @@ const kakuteiShinkoku: AdminGuide = {
       {
         question: 'Khai nhầm thì sửa được không?',
         answer: 'Được — nộp 更正の請求 (xin hoàn lại thuế thừa) trong vòng 5 năm, hoặc 修正申告 (khai bổ sung còn thiếu) bất cứ lúc nào. Tốt hơn là tự sửa trước khi bị 税務署 phát hiện.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Vừa đi làm vừa có baito thêm — có phải khai không?',
+        situation: 'Tôi làm công ty chính (xã hội bảo hiểm đầy đủ, công ty làm 年末調整). Ngoài ra tôi có baito thêm mỗi tháng khoảng 15,000–20,000 yên. Năm này baito khoảng 200,000 yên. Có phải tự khai không?',
+        answer: 'Ranh giới là **200,000 yên** thu nhập phụ trong năm.\n\n• **Dưới 200,000 yên**: miễn khai 確定申告 (nhưng vẫn phải khai 住民税 nếu địa phương yêu cầu — hỏi 市役所).\n• **Đúng hoặc vượt 200,000 yên**: **bắt buộc** khai 確定申告 phần thu nhập baito. Nộp giữa 16/2–15/3 năm sau.\n\nTrường hợp của bạn là sát ranh giới — tính chính xác tổng thu nhập baito trong năm. Nếu vượt 200,000 yên dù chỉ 1 yên, cần khai.',
+      },
+      {
+        title: 'Freelance / YouTube — phải khai những gì?',
+        situation: 'Tôi vừa đi làm công ty vừa có thu nhập từ YouTube (6 tháng đầu năm ~300,000 yên). Cần khai những gì?',
+        answer: 'Thu nhập YouTube/SNS là **雑所得 (miscellaneous income)**. Vì vượt 200,000 yên, bạn phải khai 確定申告.\n\nCần chuẩn bị:\n• 源泉徴収票 từ công ty chính\n• Bảng kê thu nhập YouTube (AdSense payment history)\n• Các chi phí phát sinh liên quan (thiết bị, phần mềm, điện...) — có thể trừ vào thu nhập để giảm thuế\n\nDùng e-Tax, chọn phần **雑所得**, nhập tổng thu nhập và chi phí. Tiền chênh lệch sau trừ chi phí mới là thu nhập chịu thuế.',
+      },
+      {
+        title: 'Về Việt Nam giữa năm — có cần khai thuế Nhật không?',
+        situation: 'Tôi làm Nhật đến tháng 6 rồi về Việt Nam. Cuối năm có cần khai 確定申告 ở Nhật không?',
+        answer: 'Có. Bạn phải khai thuế cho **phần thu nhập nhận được trong khi còn ở Nhật** (1/1 đến ngày về nước).\n\n**Quan trọng**: Trước khi rời Nhật, bạn phải làm thủ tục **出国前の申告 (khai thuế trước khi xuất cảnh)** nếu không có 納税管理人 (người đại diện thuế ở Nhật). Nộp tại 税務署 nơi bạn cư trú. Nếu bỏ qua, có thể bị truy thu sau khi về nước.',
       },
     ],
     counterPhrases: [

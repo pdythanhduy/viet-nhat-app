@@ -105,6 +105,11 @@ const residenceCard: AdminGuide = {
       { label: 'Giấy tờ của người bảo lãnh', required: false, note: 'Có thể cần với 家族滞在 hoặc tư cách phụ thuộc gia đình.' },
       { label: 'Lý do giải trình', required: false, note: 'Nên chuẩn bị nếu có đổi việc, nghỉ học, nợ thuế/bảo hiểm, thu nhập thấp hoặc hồ sơ bất thường.' },
     ],
+    tips: [
+      'Nộp hồ sơ **ít nhất 3 tháng trước ngày hết hạn visa** — không phải vì bắt buộc nhưng nếu ISA yêu cầu bổ sung giấy tờ (追加書類), bạn có đủ thời gian xử lý mà không bị quá hạn.',
+      'Sau khi nộp hồ sơ và được nhận, bạn có thể tiếp tục ở Nhật và đi làm trong **特例期間** (tối đa 2 tháng sau ngày hết hạn visa gốc hoặc đến khi có kết quả). Thẻ cư trú + giấy biên nhận nộp hồ sơ là bằng chứng tình trạng hợp pháp.',
+      'Chuẩn bị **lý do giải trình (理由書)** nếu có bất kỳ điểm bất thường nào trong hồ sơ: đổi việc, nghỉ học tạm, nợ thuế/bảo hiểm một kỳ, thu nhập thấp năm qua, hoặc công việc thực tế lệch tư cách lưu trú. ISA đánh giá cao sự minh bạch hơn là hồ sơ "có lỗ hổng nhưng không giải thích".',
+    ],
     commonMistakes: [
       'Nhầm lẫn giữa gia hạn thời hạn lưu trú và gia hạn hiệu lực thẻ cư trú.',
       'Đổi việc nhưng quên khai báo với ISA trong trường hợp cần khai báo.',
@@ -137,6 +142,23 @@ const residenceCard: AdminGuide = {
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
         answer: 'Không nên để đến ngày cuối. ISA nêu hệ thống online không thể dùng để nộp vào đúng ngày hết hạn lưu trú; khi đó cần xử lý tại cục xuất nhập cảnh có thẩm quyền.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Đổi công ty giữa năm — có cần làm gì trước khi gia hạn visa?',
+        situation: 'Tôi vừa đổi sang công ty mới vẫn cùng ngành IT. Visa hết hạn còn 4 tháng. Có cần làm thêm thủ tục gì không?',
+        answer: '**Khai báo đổi việc với ISA trước** (trong vòng 14 ngày sau khi đổi) — đây là bắt buộc theo 在留カード制度. Khai báo online qua Myna Portal hoặc đến ISA trực tiếp. Sau đó khi gia hạn visa, chuẩn bị:\n\n• Giấy tờ từ công ty mới (在職証明書 hoặc hợp đồng lao động)\n• Giấy tờ thuế/bảo hiểm\n• Nếu công ty cũ không phát 源泉徴収票 kịp, xin tạm 在職証明書 hoặc 退職証明書 từ công ty cũ\n\nCùng ngành IT với tư cách 技術・人文・国際業務 thường được xét thuận lợi, nhưng ISA vẫn kiểm tra tính nhất quán giữa công việc và tư cách lưu trú.',
+      },
+      {
+        title: 'Nhận kết quả "cấp phép" nhưng thẻ cũ vẫn đang dùng — phải làm gì tiếp?',
+        situation: 'ISA gửi về phong bì kết quả. Mở ra thấy giấy "許可" (cấp phép). Giờ phải làm gì để nhận thẻ mới?',
+        answer: 'Trong phong bì có **在留資格認定証明書 hoặc 指定書** — mang theo cùng:\n• Hộ chiếu\n• Thẻ cư trú hiện tại\n• Phí 6.000 yên (hoặc 5.500 yên nếu đã nộp online)\n\nĐến **ISA để nhận thẻ mới trong thời hạn ghi trên giấy thông báo** (thường 2–4 tuần). Thẻ cũ sẽ bị thu lại. Sau khi nhận thẻ mới, kiểm tra kỹ tất cả thông tin trước khi về.',
+      },
+      {
+        title: 'Bị yêu cầu bổ sung giấy tờ — phải xử lý thế nào?',
+        situation: 'ISA gửi thư yêu cầu 追加資料 (bổ sung giấy tờ). Deadline 2 tuần nữa. Tôi lo không kịp.',
+        answer: '**Ưu tiên 1**: Đọc kỹ thư — ISA liệt kê chính xác tài liệu cần bổ sung. Không gửi thừa, không gửi thiếu.\n\n**Ưu tiên 2**: Nếu không thể có đủ trong thời hạn (ví dụ giấy tờ từ công ty mất thời gian), **liên hệ ISA ngay** để xin gia hạn deadline — họ thường linh hoạt nếu bạn chủ động báo trước.\n\n**Ưu tiên 3**: Nếu yêu cầu không rõ, đến quầy ISA hỏi trực tiếp (mang theo số hồ sơ). Không để thư bổ sung bị bỏ qua — không trả lời đúng hạn có thể dẫn đến từ chối hồ sơ.',
       },
     ],
     counterPhrases: [
