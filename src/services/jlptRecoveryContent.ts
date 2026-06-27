@@ -2,6 +2,7 @@ import { getAnthropicApiKey } from './translate';
 import { readCache, stableHash, writeCache } from './jlptRecoveryCache';
 import { getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
 import { generateRecoveryDayContent } from './jlptGenerationCore';
+import { hasBundledDay, loadPregeneratedDay } from './jlptContentSource';
 import type { JlptLevel, RecoveryDayContent } from './jlptRecoveryTypes';
 
 export interface RecoveryDayInfo {
@@ -38,6 +39,20 @@ export async function getRecoveryDayContent(source: RecoveryContentSource): Prom
   const cached = await readCache<RecoveryDayContent>(key, config.contentSchemaVersion);
   if (cached?.data?.vocab?.length) return cached.data;
 
+  // Prefer pre-generated content (bundle for N5, Supabase for paid levels).
+  const pre = await loadPregeneratedDay(source.level, source.day);
+  if (pre?.vocab?.length) {
+    const content: RecoveryDayContent = {
+      level: source.level,
+      day: source.day,
+      vocab: pre.vocab,
+      quiz: pre.quiz,
+    };
+    await writeCache(key, content, config.contentSchemaVersion);
+    return content;
+  }
+
+  // Fallback: on-device generation (transitional — removed with the client key).
   const apiKey = getAnthropicApiKey();
   if (!apiKey) throw new Error('not-configured');
 
@@ -58,6 +73,7 @@ export async function getRecoveryDayContent(source: RecoveryContentSource): Prom
 export async function hasReadyRecoveryDayContent(source: RecoveryContentSource): Promise<boolean> {
   const config = getJlptRecoveryLevelConfig(source.level);
   if (source.seeds?.[source.day]) return true;
+  if (hasBundledDay(source.level, source.day)) return true;
   try {
     const cached = await readCache<RecoveryDayContent>(
       cacheKey(source.level, source.day, config.promptVersion),

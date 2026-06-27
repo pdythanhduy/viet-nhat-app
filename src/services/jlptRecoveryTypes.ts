@@ -55,6 +55,14 @@ export interface RecoveryLesson {
   grammar: RecoveryGrammarItem[];
 }
 
+// One day's pre-generated content (bundled for the free level, or served from
+// Supabase for paid levels). `lesson` is the grammar lesson's `grammar` array.
+export interface RecoveryPregeneratedDay {
+  vocab: RecoveryVocabCard[];
+  quiz: RecoveryQuizItem[];
+  lesson?: RecoveryGrammarItem[];
+}
+
 export type RecoveryDayKind = 'normal' | 'review' | 'test';
 
 export interface RecoveryCurriculumPhase {
