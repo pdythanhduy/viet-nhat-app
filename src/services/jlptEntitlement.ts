@@ -1,11 +1,13 @@
 // JLPT "Pro" entitlement (unlocks paid levels N4–N1).
 //
-// The READ here is only for UI gating — the real security boundary is Supabase
-// RLS on `jlpt_content` (paid rows are unreadable without a Pro entitlement
-// row). Pro is granted ONLY server-side (RevenueCat webhook / Edge Function via
-// the service role); the client can never write it.
+// The Pro flag for UI gating is the OR of two sources:
+//   • RevenueCat (store) — the client-side truth, instant after purchase/restore.
+//   • Supabase entitlements row — written server-side by the RevenueCat webhook;
+//     this is also what Supabase RLS uses to actually serve paid content.
+// The real content boundary is RLS; this flag only drives the picker/paywall UI.
 
 import { supabase } from './supabaseClient';
+import { configureJlptPurchases, syncJlptProFromStore } from './jlptPurchase';
 
 let cached = false;
 let loaded = false;
@@ -28,28 +30,40 @@ export function subscribeJlptPro(cb: (isPro: boolean) => void): () => void {
   return () => listeners.delete(cb);
 }
 
-/** Read the signed-in user's entitlement from Supabase. Returns false when not
- * configured / not signed in / no row / error. */
+async function currentUserId(): Promise<string | undefined> {
+  if (!supabase) return undefined;
+  try {
+    const { data } = await supabase.auth.getUser();
+    return data.user?.id ?? undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+async function readServerPro(): Promise<boolean> {
+  if (!supabase) return false;
+  try {
+    const userId = await currentUserId();
+    if (!userId) return false;
+    const { data, error } = await supabase
+      .from('entitlements')
+      .select('has_pro')
+      .eq('user_id', userId)
+      .maybeSingle();
+    return !error && Boolean((data as { has_pro?: boolean } | null)?.has_pro);
+  } catch {
+    return false;
+  }
+}
+
+/** Read Pro from both the store (RevenueCat) and the server (Supabase). Returns
+ * false when not configured / not signed in / no entitlement / error. */
 export async function loadJlptPro(): Promise<boolean> {
   loaded = true;
-  let next = false;
-  if (supabase) {
-    try {
-      const { data: userData } = await supabase.auth.getUser();
-      const userId = userData.user?.id;
-      if (userId) {
-        const { data, error } = await supabase
-          .from('entitlements')
-          .select('has_pro')
-          .eq('user_id', userId)
-          .maybeSingle();
-        next = !error && Boolean((data as { has_pro?: boolean } | null)?.has_pro);
-      }
-    } catch {
-      next = false;
-    }
-  }
-  cached = next;
+  // Link RevenueCat to the Supabase user so purchases attach to the right row.
+  await configureJlptPurchases(await currentUserId());
+  const [server, store] = await Promise.all([readServerPro(), syncJlptProFromStore()]);
+  cached = server || store;
   broadcast();
   return cached;
 }
