@@ -255,7 +255,9 @@ export async function generateRecoveryDayContent(
   const vocab: RecoveryVocabCard[] = [];
   for (let batch = 0; batch < config.vocabBatchCount; batch++) {
     const raw = await callClaude(
-      opts,
+      // Larger batches (e.g. N3 27/batch) overflow 8000 tokens and truncate the
+      // JSON; give generous headroom + a longer timeout (Haiku supports 64K out).
+      { ...opts, timeoutMs: opts.timeoutMs ?? 180000 },
       buildVocabSystemPrompt(params.level),
       {
         level: params.level,
@@ -265,7 +267,7 @@ export async function generateRecoveryDayContent(
         count: config.vocabCardsPerBatch,
         avoid: vocab.map((v) => v.jp),
       },
-      8000,
+      16000,
     );
     vocab.push(...parseVocabBatch(raw, vocab.length));
   }
