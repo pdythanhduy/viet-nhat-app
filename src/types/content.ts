@@ -94,6 +94,8 @@ export interface AdminGuideQuickAction {
   bring: string[];
   ifLate: string;
   officialSourceLabels: string[];
+  /** 1-indexed months when this guide's deadline is active (e.g. [2,3] = Feb–Mar) */
+  deadlineMonths?: number[];
 }
 
 export interface CounterPhrase {

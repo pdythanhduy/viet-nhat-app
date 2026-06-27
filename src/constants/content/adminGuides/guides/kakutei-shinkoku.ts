@@ -76,6 +76,7 @@ const kakuteiShinkoku: AdminGuide = {
       ],
       ifLate: 'Quá 15/3 → 期限後申告 (khai trễ). Bị 無申告加算税 ~15–20% + 延滞税 ~7.3%/năm. Tự đến 税務署 (tự申告) trước khi bị phát hiện → có thể được giảm 加算税 xuống 5%. KHÔNG bỏ ngơ — 税務署 đối chiếu được qua マイナンバー + 源泉徴収票 công ty đã nộp.',
       officialSourceLabels: ['国税庁 — Trang khai thuế chính thức (e-Tax)'],
+      deadlineMonths: [1, 2, 3],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_kakutei_hero.jpg'),
     heroImageCaption: '確定申告 - tự khai thuế đúng hạn khi có thu nhập phụ, freelance hoặc cần hoàn thuế',

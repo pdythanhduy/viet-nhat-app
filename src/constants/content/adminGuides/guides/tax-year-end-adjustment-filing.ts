@@ -74,6 +74,7 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
       ],
       ifLate: 'Lỡ hạn 年末調整 → tự làm 確定申告 từ 16/02 (KHÔNG mất quyền 控除). Quá 15/03 確定申告: 無申告加算税 15–20% + 延滞税 ~7.3%/năm; tự申告 trước khi 税務署 phát hiện → giảm 加算税 xuống 5%. Khai sai 扶養 国外 mà bị bác → bị truy thu phần thuế đáng lẽ phải nộp + 過少申告加算税 10%.',
       officialSourceLabels: ['年末調整のしかた — 国税庁'],
+      deadlineMonths: [11, 12],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_tax-filing_hero.jpg'),
     heroImageCaption: 'Thuế cuối năm - phân biệt 年末調整, 確定申告 và hồ sơ 扶養',
