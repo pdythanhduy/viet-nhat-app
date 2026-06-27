@@ -75,6 +75,14 @@ Cũ nhất (2026-05-02, 57 ngày): `sole-proprietor-kojin-jigyo`, `payslip-readi
 
 ---
 
+## Resolution (2026-06-28, sau khi verify)
+- **§2.1 Thuế 令和8年**: ✅ ĐÃ thêm ghi chú **hedged** vào `tax-year-end-adjustment-filing` (bức tường ~178万, 基礎控除 CPI-adjusted, chi tiết band chờ 国税庁 mùa thu 2026). KHÔNG chốt con số nội bộ vì nguồn mâu thuẫn (62万 nền vs 104万 band thấp nhất; 給与所得控除 65→74万). Thêm nguồn 財務省 大綱.
+- **§2.2 Phí visa 10万/30万**: ✅ XÁC NHẬN còn là 改正案 (閣議決定 03/2026) → app giữ phí 2025 thật là ĐÚNG, không sửa.
+- **§2.3 Vĩnh trú 5→10 năm**: ⛔ KHÔNG thêm — chỉ 1 blog 行政書士 nêu; visa-information.jp không xác nhận. Phần đã ban hành (取消制度 2024 + siết đóng hạn) app đã có.
+- **§2.4 Nợ 国保/年金 → visa (2027-06)**: ✅ ĐÃ thêm cảnh báo vào `health-insurance` (khung "dự kiến"). Nên thêm tương tự cho guide pension.
+
+---
+
 ## Nguồn (2026)
 - 財務省 — 令和8年度税制改正の大綱 (2025-12-26): https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/20251226taikou.pdf
 - 三菱UFJ銀行 — 年収の壁 2026 (160→178万, 基礎控除 62万): https://www.bk.mufg.jp/column/others/b0110.html
