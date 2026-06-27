@@ -100,6 +100,7 @@ const healthInsurance: AdminGuide = {
       'Bỏ qua hóa đơn bảo hiểm vì không hiểu tiếng Nhật.',
       'Nhầm thẻ bảo hiểm cũ với hệ thống マイナ保険証/資格確認書 hiện nay.',
       'Chuyển nhà nhưng không cập nhật bảo hiểm tại địa phương mới.',
+      'Để nợ tiền 国保 / 国民年金: theo kế hoạch của chính phủ, **dự kiến từ 06/2027** tình trạng nợ sẽ bị phản ánh vào xét **gia hạn / đổi tư cách lưu trú** (áp dụng người ở Nhật trên 90 ngày; hệ thống đang chuẩn bị từ 2026). Đóng đúng hạn, giữ biên lai; nếu khó khăn thì xin **減免 / 免除** thay vì để nợ.',
     ],
     faq: [
       {

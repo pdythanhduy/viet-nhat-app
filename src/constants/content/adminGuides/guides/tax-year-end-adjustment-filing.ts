@@ -198,7 +198,7 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
         term: '基礎控除',
         reading: 'きそこうじょ',
         meaningVi: 'khoản trừ cơ bản (ai cũng được)',
-        noteVi: 'Khoản trừ thuế áp dụng tự động cho mọi người nộp thuế ở Nhật. Trước 2025: 48万円. Từ thu nhập năm 2025 (khai 2026): sửa lại — 基礎控除 cơ bản nâng 48万→58万, cộng 給与所得控除 tối thiểu (55万→65万) tạo sàn miễn thuế vĩnh viễn 123万円 (給与収入). Nhóm thu nhập thấp nhất còn được cộng thêm tạm thời lên tới 95万 (thành mốc hay nghe là 160万) nhưng phần cộng thêm này GIẢM DẦN theo band và sẽ hết hạn — chỉ 123万 là sàn cố định. ⚠️ Đây là thuế thu nhập (所得税); 住民税 có 基礎控除 RIÊNG vẫn giữ 43万 nên đừng tưởng được giảm 住民税 theo. Bạn không cần xin riêng — công ty tự áp khi 年末調整.',
+        noteVi: 'Khoản trừ thuế áp dụng tự động cho mọi người nộp thuế ở Nhật. Trước 2025: 48万円. Từ thu nhập năm 2025 (khai 2026): sửa lại — 基礎控除 cơ bản nâng 48万→58万, cộng 給与所得控除 tối thiểu (55万→65万) tạo sàn miễn thuế vĩnh viễn 123万円 (給与収入). Nhóm thu nhập thấp nhất còn được cộng thêm tạm thời lên tới 95万 (thành mốc hay nghe là 160万) nhưng phần cộng thêm này GIẢM DẦN theo band và sẽ hết hạn — chỉ 123万 là sàn cố định. **令和8年/2026**: từ thu nhập năm 2026 (年末調整 cuối 2026), bức tường miễn 所得税 cho người làm công tiếp tục được nâng — nhóm thu nhập thấp lên ~178万 (từ 160万 của 2025), 基礎控除 điều chỉnh tăng theo CPI; cơ chế band/cộng-thêm-giảm-dần như trên vẫn áp dụng. Con số chi tiết từng band sẽ có ở hướng dẫn 年末調整 令和8年分 của 国税庁 (công bố ~mùa thu 2026) — kiểm tra trước khi khai. ⚠️ Đây là thuế thu nhập (所得税); 住民税 có 基礎控除 RIÊNG vẫn giữ 43万 nên đừng tưởng được giảm 住民税 theo. Bạn không cần xin riêng — công ty tự áp khi 年末調整.',
       },
       {
         term: '国外居住親族',
@@ -231,6 +231,7 @@ const taxYearEndAdjustmentFiling: AdminGuide = {
       { label: '基礎控除 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1199.htm' },
       { label: '特定親族特別控除 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1177.htm' },
       { label: '令和7年度税制改正による所得税の基礎控除の見直し等について — 国税庁', url: 'https://www.nta.go.jp/users/gensen/2025kiso/' },
+      { label: '令和8年度税制改正の大綱（基礎控除のCPI連動・年収の壁）— 財務省', url: 'https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/20251226taikou.pdf' },
     ],
     steps: [
       {
