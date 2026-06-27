@@ -72,6 +72,7 @@ const kokuhoReduction: AdminGuide = {
       ],
       ifLate: 'Quá 1 năm sau ngày nghỉ việc → mất quyền 非自発的失業者軽減. Vẫn có thể xin 一般軽減 (theo thu nhập) — đến 市役所 hỏi. Đã đóng phí cao rồi mới biết được giảm: theo quy định thông thường KHÔNG hoàn lại phần đã đóng, chỉ áp dụng từ tháng nộp đơn — nên nộp càng sớm càng tốt.',
       officialSourceLabels: ['国民健康保険の保険料・保険税について — 厚生労働省'],
+      deadlineMonths: [4, 5, 6],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_kokuho-reduction_hero.jpg'),
     heroImageCaption: 'Xin giảm phí 国民健康保険 khi thu nhập thấp',

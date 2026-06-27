@@ -71,6 +71,7 @@ const juminzeiLocalTax: AdminGuide = {
       ],
       ifLate: 'Quá hạn 1 đợt → bị tính 延滞金 (~7.3%/năm; bắt đầu sau 1 tháng từ hạn). Tiếp tục chậm → gửi 督促状 → 差押 (siết tài khoản/lương). Cách xử lý: đến 市役所 ngay, xin 分割払い (chia nhỏ kỳ) hoặc 猶予 (hoãn). KHÔNG bỏ ngơ — sẽ ảnh hưởng visa/vĩnh trú sau này.',
       officialSourceLabels: ['住民税について — 財務省'],
+      deadlineMonths: [5, 6],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_juminzei_hero.jpg'),
     heroImageCaption: '住民税 — thuế cư dân địa phương tính theo thu nhập năm trước',

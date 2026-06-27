@@ -44,6 +44,13 @@ import type { AdminGuide, AdminGuideCategory } from '../types/content';
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type CategoryFilter = 'all' | AdminGuideCategory;
 
+function isDeadlineThisMonth(guide: AdminGuide): boolean {
+  const months = guide.quickAction?.deadlineMonths;
+  if (!months || months.length === 0) return false;
+  const currentMonth = new Date().getMonth() + 1; // 1-indexed
+  return months.includes(currentMonth);
+}
+
 // Situation chips that sit at the top of AdminScreen. Each one is the
 // shortest path from "I'm in this real-life mess" to the right starting
 // guide. We pre-fill the existing search + category state for fuzzy cases
@@ -711,6 +718,12 @@ export default function AdminScreen() {
                   </View>
                 )}
                 <View style={styles.stepsInfo}>
+                {isDeadlineThisMonth(guide) && (
+                  <View style={styles.deadlineBadge}>
+                    <Ionicons name="time-outline" size={11} color="#B45309" />
+                    <Text style={styles.deadlineText}>Deadline tháng này</Text>
+                  </View>
+                )}
                 {guide.priority === 'high' && (
                   <View style={styles.priorityBadge}>
                     <Ionicons name="alert-circle" size={11} color={Colors.danger} />
@@ -1228,6 +1241,21 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
     color: Colors.danger,
+  },
+  deadlineBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
+    backgroundColor: '#FEF3C7',
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginRight: 4,
+  },
+  deadlineText: {
+    fontSize: 10,
+    fontFamily: 'BeVietnamPro_700Bold',
+    color: '#B45309',
   },
   stepsText: {
     fontSize: 11,
