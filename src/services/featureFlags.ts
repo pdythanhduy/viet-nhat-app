@@ -15,7 +15,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from './supabaseClient';
 
-export type FeatureFlagKey = 'furiganaReader' | 'n2RecoveryHome';
+export type FeatureFlagKey = 'furiganaReader' | 'n2RecoveryHome' | 'jlptRecoveryHome';
 
 export interface FeatureFlagDef {
   key: FeatureFlagKey;
@@ -35,9 +35,16 @@ export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
   },
   {
     key: 'n2RecoveryHome',
-    label: 'N2 Recovery — 100 ngày',
+    label: 'JLPT Recovery N2 — 100 ngày',
     description:
       'Lộ trình lấy lại N2, giao tiếp và business Japanese. Bật để hiện nút học N2 ngoài màn hình chính.',
+    defaultValue: false,
+  },
+  {
+    key: 'jlptRecoveryHome',
+    label: 'JLPT Recovery — chọn cấp',
+    description:
+      'Hiện nút chọn cấp JLPT Recovery trên Home để vào N5 / N4 / N3 / N2 / N1 nhanh hơn.',
     defaultValue: false,
   },
 ];

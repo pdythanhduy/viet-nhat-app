@@ -135,8 +135,14 @@ export default function LabScreen() {
       <OpenToolButton
         onPress={() => navigation.navigate('N2Recovery')}
         icon="school-outline"
-        title="N2 Recovery — 100 ngày"
+        title="JLPT Recovery N2 — 100 ngày"
         desc="Lộ trình lấy lại N2 + business, có tiến độ."
+      />
+      <OpenToolButton
+        onPress={() => navigation.navigate('JlptRecoveryLevels')}
+        icon="library-outline"
+        title="JLPT Recovery — chọn cấp độ"
+        desc="N5–N1 (hiện có N2). Lộ trình lấy lại năng lực theo cấp."
       />
         <FlagList flags={flags} onToggle={handleToggle} />
       </View>
@@ -234,8 +240,14 @@ export default function LabScreen() {
       <OpenToolButton
         onPress={() => navigation.navigate('N2Recovery')}
         icon="school-outline"
-        title="N2 Recovery — 100 ngày"
+        title="JLPT Recovery N2 — 100 ngày"
         desc="Lộ trình lấy lại N2 + business, có tiến độ."
+      />
+      <OpenToolButton
+        onPress={() => navigation.navigate('JlptRecoveryLevels')}
+        icon="library-outline"
+        title="JLPT Recovery — chọn cấp độ"
+        desc="N5–N1 (hiện có N2). Lộ trình lấy lại năng lực theo cấp."
       />
       <FlagList flags={flags} onToggle={handleToggle} />
     </ScrollView>

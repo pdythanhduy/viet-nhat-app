@@ -71,6 +71,7 @@ const juminzeiLocalTax: AdminGuide = {
       ],
       ifLate: 'Quá hạn 1 đợt → bị tính 延滞金 (~7.3%/năm; bắt đầu sau 1 tháng từ hạn). Tiếp tục chậm → gửi 督促状 → 差押 (siết tài khoản/lương). Cách xử lý: đến 市役所 ngay, xin 分割払い (chia nhỏ kỳ) hoặc 猶予 (hoãn). KHÔNG bỏ ngơ — sẽ ảnh hưởng visa/vĩnh trú sau này.',
       officialSourceLabels: ['住民税について — 財務省'],
+      deadlineMonths: [5, 6],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_juminzei_hero.jpg'),
     heroImageCaption: '住民税 — thuế cư dân địa phương tính theo thu nhập năm trước',
@@ -98,6 +99,11 @@ const juminzeiLocalTax: AdminGuide = {
       { label: '離職票 hoặc 雇用保険受給資格者証', required: false, note: 'Mang theo nếu xin giảm/miễn do thất nghiệp hoặc thu nhập giảm.' },
       { label: 'Thẻ cư trú', required: false, note: 'Mang theo khi hỏi trực tiếp tại 市役所/区役所.' },
     ],
+    tips: [
+      'Nhận được 決定通知書 vào tháng 5–6 hàng năm — **đọc kỹ số tiền và kỳ nộp** (4 kỳ nếu 普通徴収, hàng tháng nếu 特別徴収 qua lương). Nếu không hiểu, mang đến quầy thuế 市役所 hỏi trực tiếp.',
+      'Nếu năm nay thu nhập giảm mạnh (thất nghiệp, bệnh, nghỉ phép dài...) hãy hỏi 市役所 về **phân kỳ (分割払い)** hoặc **hoãn nộp** — nhiều địa phương có cơ chế hỗ trợ nhưng phải chủ động xin, không tự động được giảm.',
+      'Chuẩn bị về nước dài hạn? Hỏi 市役所 về việc chỉ định **納税管理人** (người đại diện nộp thuế tại Nhật thay bạn) để tránh bị ghi nợ xấu hoặc truy thu sau khi xuất cảnh.',
+    ],
     commonMistakes: [
       'Nghĩ năm đầu không có 住民税 thì các năm sau cũng không có.',
       'Nghỉ việc nhưng không hỏi phần 住民税 còn lại sẽ thu thế nào.',
@@ -117,6 +123,23 @@ const juminzeiLocalTax: AdminGuide = {
       {
         question: 'Có xin giảm/miễn 住民税 được không?',
         answer: 'Có thể, tuỳ địa phương và hoàn cảnh (thất nghiệp, thu nhập giảm mạnh, khó khăn tài chính). Điều kiện + hạn nộp khác nhau theo 市役所 — hỏi quầy 市民税課 càng sớm càng tốt.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Năm đầu sang Nhật, tháng 6 lương thực nhận tự nhiên giảm',
+        situation: 'Tôi sang Nhật tháng 4/2025, đi làm bình thường. Tháng 6/2026 lương nhận được ít hơn hẳn. Không ai báo trước. Tại sao?',
+        answer: '**Bình thường** — đây là 住民税 năm thứ 2 bắt đầu bị trừ. Cơ chế:\n\n• 住民税 tính trên **thu nhập năm trước** (年の所得)\n• Năm đầu ở Nhật: chưa có thu nhập từ 1/1 → không có 住民税 → lương "sạch"\n• Từ **tháng 6 năm thứ 2**: 住民税 của năm trước bắt đầu được trừ qua lương (特別徴収), chia đều 12 tháng (6/2026–5/2027)\n\nBạn có thể xem số tiền trên 決定通知書 (thư từ 市役所 gửi về tháng 5–6). Nếu không nhận được thư, hỏi công ty hoặc 市役所.',
+      },
+      {
+        title: 'Nghỉ việc giữa năm — 住民税 còn lại tính thế nào?',
+        situation: 'Tôi nghỉ việc tháng 8. Công ty đang trừ 住民税 hàng tháng qua lương. Sau khi nghỉ việc thì sao?',
+        answer: '住民税 còn lại (từ tháng 9 đến tháng 5 năm sau) có 2 cách xử lý:\n\n**Cách 1**: Nếu nghỉ việc trước tháng 12, công ty thường **trừ gộp toàn bộ phần còn lại vào lương tháng cuối** (一括徴収). Hỏi công ty trước khi nghỉ.\n\n**Cách 2**: Nếu không trừ gộp, 市役所 sẽ gửi **hoá đơn 普通徴収** về nhà — bạn tự nộp theo kỳ. Để ý thư từ 市役所 sau khi nghỉ việc, không bỏ qua.\n\nDù cách nào, **nghĩa vụ nộp không mất đi** — chỉ thay đổi cách thu.',
+      },
+      {
+        title: 'Đăng ký cư trú muộn — có bị truy thu 住民税 từ đầu không?',
+        situation: 'Tôi sang Nhật 3 năm nhưng mới đăng ký 住民票 gần đây. Có bị truy thu 住民税 từ khi sang không?',
+        answer: 'Về lý thuyết, nghĩa vụ 住民税 gắn với **thực tế cư trú** (住所の実態), không phải ngày đăng ký 住民票. Nếu bạn thực tế sống tại Nhật từ trước, về nguyên tắc thuế có thể hồi tố.\n\nThực tế: 市役所 thường chỉ truy thu từ **năm bạn đăng ký** (do khó xác nhận cư trú thực tế ngược lại). Nhưng nếu có hồ sơ ISA hoặc giấy tờ khác chứng minh bạn đã sống ở Nhật lâu hơn, rủi ro truy thu tăng lên.\n\nKhuyến nghị: đăng ký 住民票 **ngay khi đến Nhật** để tránh phức tạp pháp lý sau này.',
       },
     ],
     counterPhrases: [

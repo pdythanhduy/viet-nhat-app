@@ -67,6 +67,12 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface GuideScenario {
+  title: string;
+  situation: string;
+  answer: string;
+}
+
 export type AdminGuideJurisdiction = 'national' | 'prefecture' | 'municipality' | 'mixed';
 export type AdminGuideRiskLevel = 'low' | 'medium' | 'high';
 
@@ -88,6 +94,8 @@ export interface AdminGuideQuickAction {
   bring: string[];
   ifLate: string;
   officialSourceLabels: string[];
+  /** 1-indexed months when this guide's deadline is active (e.g. [2,3] = Feb–Mar) */
+  deadlineMonths?: number[];
 }
 
 export interface CounterPhrase {
@@ -126,6 +134,8 @@ export interface AdminGuide {
   fees?: string[];
   documentsChecklist?: ChecklistItem[];
   commonMistakes?: string[];
+  tips?: string[];
+  scenarios?: GuideScenario[];
   faq?: FAQItem[];
   counterPhrases?: CounterPhrase[];
   keyTerms?: AdminGuideKeyTerm[];

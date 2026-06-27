@@ -84,6 +84,7 @@ export default function HomeScreen() {
   // Experimental: surfaced on Home only when the owner enables the flag in Lab.
   const showFuriganaReader = useFeatureFlag('furiganaReader');
   const showN2RecoveryHome = useFeatureFlag('n2RecoveryHome');
+  const showJlptRecoveryHome = useFeatureFlag('jlptRecoveryHome');
   const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
@@ -377,9 +378,26 @@ export default function HomeScreen() {
             >
               <Ionicons name="school-outline" size={22} color={Colors.primary} />
               <View style={styles.furiganaCtaText}>
-                <Text style={styles.furiganaCtaTitle}>N2 Recovery — 100 ngày</Text>
+                <Text style={styles.furiganaCtaTitle}>JLPT Recovery N2 — 100 ngày</Text>
                 <Text style={styles.furiganaCtaDesc}>
                   Lấy lại N2, giao tiếp và business Japanese theo từng ngày.
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
+            </TouchableOpacity>
+          )}
+
+          {showJlptRecoveryHome && (
+            <TouchableOpacity
+              style={styles.furiganaCta}
+              onPress={() => navigation.navigate('JlptRecoveryLevels')}
+              activeOpacity={0.85}
+            >
+              <Ionicons name="library-outline" size={22} color={Colors.primary} />
+              <View style={styles.furiganaCtaText}>
+                <Text style={styles.furiganaCtaTitle}>JLPT Recovery - chọn cấp độ</Text>
+                <Text style={styles.furiganaCtaDesc}>
+                  Mở N5 / N4 / N3 / N2 / N1 rồi vào bài học theo ngày.
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />

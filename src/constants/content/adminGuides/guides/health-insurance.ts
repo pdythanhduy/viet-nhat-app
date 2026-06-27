@@ -101,6 +101,28 @@ const healthInsurance: AdminGuide = {
       'Nhầm thẻ bảo hiểm cũ với hệ thống マイナ保険証/資格確認書 hiện nay.',
       'Chuyển nhà nhưng không cập nhật bảo hiểm tại địa phương mới.',
     ],
+    tips: [
+      'Đăng ký thanh toán tự động (口座振替) ngay khi làm thủ tục — tránh quên hóa đơn hàng tháng và tránh bị ghi nợ trễ.',
+      'Nếu thu nhập năm trước thấp (vừa sang Nhật, nghỉ việc, sinh viên...) hãy hỏi 市役所 về giảm/miễn phí bảo hiểm ngay khi đăng ký — có thể giảm đến 7/10 phí.',
+      'Giữ 資格確認書 hoặc bật マイナ保険証 trên My Number Card trước khi đi khám để tránh phải tự thanh toán 100% rồi xin hoàn lại sau.',
+    ],
+    scenarios: [
+      {
+        title: 'Vừa nghỉ việc, bảo hiểm công ty mất ngay hôm đó',
+        situation: 'Tôi nghỉ việc ngày 20/6. Công ty báo 社会保険 hết hiệu lực ngay ngày đó. Giờ tôi phải làm gì và trong bao lâu?',
+        answer: 'Bảo hiểm công ty (社会保険) hết hiệu lực đúng ngày nghỉ việc. Bạn có **14 ngày** kể từ ngày nghỉ để đến 市役所/区役所 đăng ký 国民健康保険 (trễ vẫn đăng ký được nhưng phí bị truy thu từ ngày nghỉ việc). Mang theo: thẻ cư trú + giấy xác nhận mất bảo hiểm công ty (健康保険資格喪失証明書 — xin công ty cấp trước khi nghỉ). Nếu chưa có giấy này, hỏi 市役所 xem họ chấp nhận giấy thay thế gì.',
+      },
+      {
+        title: 'Đang ở Osaka nhưng nơi làm ở Tokyo',
+        situation: 'Tôi đăng ký cư trú ở Osaka nhưng làm việc ở Tokyo và về nhà cuối tuần. Đăng ký bảo hiểm ở đâu?',
+        answer: '国民健康保険 đăng ký theo **nơi đăng ký cư trú (住民票)**, không phải nơi làm việc. Bạn đăng ký tại 市役所/区役所 ở Osaka. Nếu cần khám bệnh khi đang ở Tokyo, dùng thẻ bảo hiểm vẫn được tại bất kỳ bệnh viện nào trên toàn quốc — 国民健康保険 có giá trị toàn quốc.',
+      },
+      {
+        title: 'Visa du học, không có việc làm — có bắt buộc đóng bảo hiểm không?',
+        situation: 'Tôi đang học ở trường tiếng Nhật, visa du học, không đi làm. Có bắt buộc đóng 国民健康保険 không? Phí bao nhiêu?',
+        answer: 'Có, **bắt buộc** nếu bạn đăng ký cư trú từ 3 tháng trở lên. Sinh viên không đi làm thường có thu nhập 0 — hãy đến 市役所 xin giảm phí theo thu nhập (軽減申請). Với thu nhập 0, phí có thể giảm 70% hoặc hơn tùy địa phương. Không đăng ký không có nghĩa là không phải đóng — khi làm thủ tục muộn bạn vẫn bị truy thu từ ngày đến Nhật.',
+      },
+    ],
     faq: [
       {
         question: 'Không có My Number Card thì đi khám bằng gì?',

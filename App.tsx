@@ -16,6 +16,7 @@ import { refreshDailyReminderContent } from './src/utils/dailyReminderSync';
 import { initAnalytics, track } from './src/utils/analytics';
 import { loadFlags } from './src/services/featureFlags';
 import { loadProgress as loadN2Progress } from './src/services/n2Progress';
+import { migrateN2CacheKeys } from './src/services/n2DayContent';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,6 +32,7 @@ export default function App() {
     track('app_open');
     void loadFlags();
     void loadN2Progress();
+    void migrateN2CacheKeys();
     Promise.all([rescheduleAll(), refreshDailyReminderContent()]).catch(() => {});
   }, []);
 
