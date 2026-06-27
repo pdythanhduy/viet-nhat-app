@@ -67,6 +67,12 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface GuideScenario {
+  title: string;
+  situation: string;
+  answer: string;
+}
+
 export type AdminGuideJurisdiction = 'national' | 'prefecture' | 'municipality' | 'mixed';
 export type AdminGuideRiskLevel = 'low' | 'medium' | 'high';
 
@@ -126,6 +132,8 @@ export interface AdminGuide {
   fees?: string[];
   documentsChecklist?: ChecklistItem[];
   commonMistakes?: string[];
+  tips?: string[];
+  scenarios?: GuideScenario[];
   faq?: FAQItem[];
   counterPhrases?: CounterPhrase[];
   keyTerms?: AdminGuideKeyTerm[];

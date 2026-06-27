@@ -91,6 +91,11 @@ const permanentResidencyEijuu: AdminGuide = {
       { label: '身元保証書 và giấy tờ người bảo lãnh', required: true, note: 'Thường là người Nhật, 永住者 hoặc 特別永住者 cư trú tại Nhật.' },
       { label: '永住許可申請セルフチェックシート', required: false, note: 'ISA khuyến nghị dùng và nộp kèm để tự kiểm tra trước khi nộp.' },
     ],
+    tips: [
+      'Chuẩn bị hồ sơ **trước 6 tháng** so với ngày dự kiến nộp — đủ thời gian xin các giấy chứng nhận thuế, 年金, bảo hiểm và bổ sung nếu thiếu.',
+      'Check điểm 高度専門職 tại trang tính điểm chính thức của ISA **trước khi nộp** — điểm tính theo thời điểm nộp, không phải thời điểm đủ điều kiện ban đầu. Nghề nghiệp, bằng cấp, thu nhập đều ảnh hưởng.',
+      'Sau khi có 永住, vẫn phải tiếp tục nộp thuế + 国民健康保険 + 年金 đúng hạn. Từ 14/06/2026 cố tình bỏ đóng có thể là lý do thu hồi tư cách 永住者. Nếu gặp khó khăn tài chính → xin miễn giảm tại cơ quan liên quan, không bỏ ngơ.',
+    ],
     commonMistakes: [
       'Nộp 永住 nhưng quên gia hạn tư cách lưu trú hiện tại khi sắp hết hạn.',
       'Chuẩn bị giấy tờ theo kinh nghiệm người khác mà không dùng checklist đúng diện của mình.',
@@ -115,6 +120,23 @@ const permanentResidencyEijuu: AdminGuide = {
       {
         question: '⚠️ MỚI 2026: Có 永住 rồi vẫn có thể bị THU HỒI không?',
         answer: 'Có, theo luật mới. Sửa đổi 入管法 2024 bổ sung quy định 永住許可の取消し (thu hồi vĩnh trú), có hiệu lực từ **14/06/2026**. ISA có thể xem xét thu hồi tư cách 永住者 trong các trường hợp như: **CỐ Ý (故意) không nộp thuế / 住民税 / 国民健康保険 / 年金 dù có khả năng nộp**; hoặc phạm một số tội cố ý nghiêm trọng (vd trộm cắp, lừa đảo). Điểm quan trọng: nhắm vào hành vi **cố tình** — trường hợp thực sự mất khả năng do bệnh tật, thất nghiệp được loại trừ. Trong một số trường hợp ISA có thể chuyển sang tư cách lưu trú khác thay vì trục xuất. Kết luận thực tế: sau khi có 永住 vẫn phải tiếp tục nộp đầy đủ thuế + bảo hiểm + lương hưu đúng hạn. Nếu gặp khó khăn tài chính → xin 免除 / phân kỳ tại cơ quan liên quan, KHÔNG bỏ ngơ. Tình huống cụ thể: hỏi 行政書士 / luật sư chuyên 入管.',
+      },
+    ],
+    scenarios: [
+      {
+        title: 'Đang giữ visa 3 năm — có nộp 永住 được không?',
+        situation: 'Tôi ở Nhật 10 năm, visa kỹ thuật 3 năm, không có tiền án tiền sự, thuế và lương hưu đều ổn. Nhưng nghe nói phải có visa 5 năm mới được nộp永住. Đúng không?',
+        answer: 'Đúng. Từ **02/2026**, một trong các điều kiện mới là phải đang giữ **tư cách lưu trú 5 năm (在留期間5年)** tại thời điểm nộp đơn 永住. Trường hợp của bạn cần làm **thủ tục gia hạn lên 5 năm trước** (申請先: ISA). Sau khi có thẻ 5 năm mới đủ điều kiện nộp 永住. Nếu sắp hết hạn thẻ 3 năm, hãy nộp gia hạn ngay — không nên chờ đủ điều kiện rồi mới gia hạn vì có thể bị "trống thẻ".',
+      },
+      {
+        title: 'Tự kinh doanh — hồ sơ thuế cần chuẩn bị gì thêm?',
+        situation: 'Tôi kinh doanh tự do (個人事業主) đã 6 năm. Hồ sơ thuế, nă金, bảo hiểm đều đúng hạn. Có gì khác với người đi làm không?',
+        answer: 'Người tự kinh doanh (個人事業主) cần chuẩn bị thêm: **確定申告書 (bản nộp + bản xác nhận của 税務署)** 3–5 năm gần nhất, **納税証明書 (その1・その2)** từ 税務署, và **事業の概要** (tóm tắt ngành nghề, doanh thu). Điểm ISA chú ý là **tính ổn định thu nhập** — nếu thu nhập dao động lớn hoặc có năm âm, nên chuẩn bị thêm tài liệu giải thích. Không cần giấy tờ công ty như người đi làm, nhưng hồ sơ thuế phải cực kỳ sạch.',
+      },
+      {
+        title: 'Đang xét 永住 bị từ chối, muốn nộp lại',
+        situation: 'Tôi bị từ chối 永住 vì "không đủ tín nhiệm (素行不良)". Có thể nộp lại không và sau bao lâu?',
+        answer: 'Không có quy định cứng về thời gian chờ sau khi bị từ chối — pháp lý cho phép nộp lại ngay. Nhưng thực tế, nếu lý do từ chối chưa được khắc phục, nộp ngay sẽ lại bị từ chối. Bước quan trọng: **yêu cầu ISA giải thích lý do từ chối** (không có quyền chính thức nhưng họ thường cung cấp thông tin cơ bản), sau đó xác định chính xác vấn đề. Nếu là 素行 (nộp thuế trễ, vi phạm giao thông nhiều lần...): cần ít nhất **1–2 năm lịch sử tốt** sau khi sửa trước khi nộp lại. Hỏi 行政書士 chuyên 永住 để phân tích hồ sơ cụ thể.',
       },
     ],
     counterPhrases: [
