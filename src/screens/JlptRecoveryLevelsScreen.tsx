@@ -22,10 +22,12 @@ type Nav = NativeStackNavigationProp<RootStackParamList>;
 
 export default function JlptRecoveryLevelsScreen() {
   const navigation = useNavigation<Nav>();
-  const { isPro } = useJlptEntitlement();
+  const { isPro, loading } = useJlptEntitlement();
 
   const openLevel = (level: JlptLevel) => {
     if (!hasRecoveryCurriculum(level)) return;
+    // Wait for entitlement to load before gating — avoids sending Pro users to paywall.
+    if (loading) return;
     const unlocked = isJlptLevelFree(level) || isPro;
     if (!unlocked) {
       navigation.navigate('JlptPaywall');

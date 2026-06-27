@@ -1,11 +1,11 @@
-// Feature flags  Eowner-controlled toggles for experimental features.
+// Feature flags — owner-controlled toggles for experimental features.
 //
 // Flags live in three places, in priority order when reading:
-//   1. In-memory cache (this module)  Ewhat the app reads at runtime.
-//   2. AsyncStorage ('lab.featureFlags.v1')  Esurvives app restarts,
+//   1. In-memory cache (this module) — what the app reads at runtime.
+//   2. AsyncStorage ('lab.featureFlags.v1') — survives app restarts,
 //      works fully offline.
 //   3. Supabase table `lab_feature_flags` (one row per owner, RLS-scoped)
-//       Esyncs the owner's toggles across their devices.
+//      — syncs the owner's toggles across their devices.
 //
 // The Lab screen is the only place that pushes to Supabase. Everything
 // else just reads via `getFlag()` / the `useFeatureFlags` hook. A flag a
@@ -30,21 +30,21 @@ export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
     key: 'furiganaReader',
     label: 'Đọc báo tiếng Nhật (Furigana)',
     description:
-      'Dán văn bản tiếng Nhật, hiển thềEhiragana phía trên kanji cho dềEđọc. Bật đềEhiện công cụ trong app.',
+      'Dán văn bản tiếng Nhật, hiển thị hiragana phía trên kanji cho dễ đọc. Bật để hiện công cụ trong app.',
     defaultValue: false,
   },
   {
     key: 'n2RecoveryHome',
-    label: 'JLPT Recovery N2  E100 ngày',
+    label: 'JLPT Recovery N2 — 100 ngày',
     description:
-      'LềEtrình lấy lại N2, giao tiếp và business Japanese. Bật đềEhiện nút học N2 ngoài màn hình chính.',
+      'Lộ trình lấy lại N2, giao tiếp và business Japanese. Bật để hiện nút học N2 ngoài màn hình chính.',
     defaultValue: false,
   },
   {
     key: 'jlptRecoveryHome',
-    label: 'JLPT Recovery  Echọn cấp',
+    label: 'JLPT Recovery — chọn cấp',
     description:
-      'Hiện nút chọn cấp JLPT Recovery trên Home đã vào N5 / N4 / N3 / N2 / N1 nhanh hỨn.',
+      'Hiện nút chọn cấp JLPT Recovery trên Home để vào N5 / N4 / N3 / N2 / N1 nhanh hơn.',
     defaultValue: false,
   },
 ];
@@ -60,7 +60,7 @@ function defaults(): FeatureFlagState {
   return out;
 }
 
-// Keep only known keys and coerce to boolean  Eguards against stale keys
+// Keep only known keys and coerce to boolean — guards against stale keys
 // left in storage / remote after a flag is renamed or removed.
 function sanitize(raw: unknown): FeatureFlagState {
   const out = defaults();
@@ -124,7 +124,8 @@ async function persistLocal(): Promise<void> {
 }
 
 /**
- * Set a flag locally (persists + broadcasts). Does NOT push to Supabase  E * the Lab screen calls `pushRemote` after toggling so sync only happens for
+ * Set a flag locally (persists + broadcasts). Does NOT push to Supabase —
+ * the Lab screen calls `pushRemote` after toggling so sync only happens for
  * a logged-in owner.
  */
 export async function setFlagLocal(key: FeatureFlagKey, value: boolean): Promise<void> {
@@ -174,5 +175,3 @@ export async function pushRemote(): Promise<{ ok: boolean; error?: string }> {
   if (error) return { ok: false, error: error.message };
   return { ok: true };
 }
-
-

@@ -2,7 +2,7 @@
 // Progress dashboard + Phase/Day browser. Used for every level that has a
 // curriculum except N2, which keeps its own dedicated screen.
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -15,7 +15,6 @@ import {
   getRecoveryDaysOfPhase,
 } from '../constants/jlptRecoveryCurriculum';
 import { useJlptRecoveryProgress } from '../hooks/useJlptRecoveryProgress';
-import { getCurrentDay } from '../services/jlptRecoveryProgress';
 import type { RecoveryDayKind } from '../services/jlptRecoveryTypes';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
@@ -39,14 +38,30 @@ export default function JlptRecoveryScreen() {
   const progress = useJlptRecoveryProgress(level);
   const doneSet = useMemo(() => new Set(progress.completedDays), [progress.completedDays]);
 
-  const currentDay = getCurrentDay(level);
+  // Derive currentDay reactively from progress state (not the module-level store).
+  const currentDay = useMemo(() => {
+    if (totalDays === 0) return 1;
+    for (let day = 1; day <= totalDays; day++) {
+      if (!doneSet.has(day)) return day;
+    }
+    return totalDays;
+  }, [doneSet, totalDays]);
+
   const completed = progress.completedDays.length;
   const percent = totalDays > 0 ? Math.round((completed / totalDays) * 100) : 0;
 
   const currentPhase = curriculum?.phases.find(
     (p) => currentDay >= p.dayFrom && currentDay <= p.dayTo
   );
-  const [expanded, setExpanded] = useState<number | null>(currentPhase?.id ?? 1);
+  const [expanded, setExpanded] = useState<number | null>(null);
+  const expandedSetByUser = useRef(false);
+
+  // Sync expanded to currentPhase once progress loads from AsyncStorage.
+  useEffect(() => {
+    if (!expandedSetByUser.current && currentPhase) {
+      setExpanded(currentPhase.id);
+    }
+  }, [currentPhase]);
 
   if (!curriculum) {
     return (
@@ -109,7 +124,7 @@ export default function JlptRecoveryScreen() {
           <View key={phase.id} style={styles.phaseCard}>
             <TouchableOpacity
               style={styles.phaseHeader}
-              onPress={() => setExpanded(isOpen ? null : phase.id)}
+              onPress={() => { expandedSetByUser.current = true; setExpanded(isOpen ? null : phase.id); }}
               activeOpacity={0.8}
             >
               <View style={styles.phaseHeaderLeft}>
