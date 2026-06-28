@@ -44,8 +44,9 @@ export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
     key: 'jlptRecoveryHome',
     label: 'JLPT Recovery — chọn cấp',
     description:
-      'Hiện nút chọn cấp JLPT Recovery trên Home để vào N5 / N4 / N3 / N2 / N1 nhanh hơn.',
-    defaultValue: false,
+      'Hiện nút chọn cấp JLPT Recovery trên Home để vào N5 / N4 / N3 / N2 / N1. ' +
+      'Mặc định BẬT cho mọi người (tính năng public; tắt = kill-switch).',
+    defaultValue: true,
   },
 ];
 
