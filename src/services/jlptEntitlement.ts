@@ -40,13 +40,18 @@ async function currentUserId(): Promise<string | undefined> {
   }
 }
 
-// Lab owner signed in with email/password → is_anonymous is false.
-// They get full Pro access without a purchase.
+// The owner's Lab accounts. Signing into the Lab with one of these unlocks all
+// levels without a purchase (they also hold a server-side Pro entitlement row,
+// so RLS serves the content). A non-owner email signup does NOT match here, so
+// it stays gated like any public user.
+const OWNER_EMAILS = new Set(['thanhduy8vn@gmail.com', 'pdyttd8vn@gmail.com']);
+
 async function isLabOwner(): Promise<boolean> {
   if (!supabase) return false;
   try {
     const { data } = await supabase.auth.getUser();
-    return data.user?.is_anonymous === false;
+    const email = data.user?.email?.toLowerCase();
+    return Boolean(email && OWNER_EMAILS.has(email));
   } catch {
     return false;
   }
