@@ -40,6 +40,18 @@ async function currentUserId(): Promise<string | undefined> {
   }
 }
 
+// Lab owner signed in with email/password → is_anonymous is false.
+// They get full Pro access without a purchase.
+async function isLabOwner(): Promise<boolean> {
+  if (!supabase) return false;
+  try {
+    const { data } = await supabase.auth.getUser();
+    return data.user?.is_anonymous === false;
+  } catch {
+    return false;
+  }
+}
+
 async function readServerPro(userId?: string): Promise<boolean> {
   if (!supabase) return false;
   try {
@@ -58,9 +70,17 @@ async function readServerPro(userId?: string): Promise<boolean> {
 /** Read Pro from both the store (RevenueCat) and the server (Supabase). Returns
  * false when not configured / not signed in / no entitlement / error. */
 export async function loadJlptPro(): Promise<boolean> {
-  // Link RevenueCat to the Supabase user so purchases attach to the right row.
   const userId = await currentUserId();
   await configureJlptPurchases(userId);
+
+  // Lab owner (non-anonymous login) bypasses paywall entirely.
+  if (await isLabOwner()) {
+    cached = true;
+    loaded = true;
+    broadcast();
+    return true;
+  }
+
   const [server, store] = await Promise.all([readServerPro(userId), syncJlptProFromStore()]);
   cached = server || store;
   loaded = true;

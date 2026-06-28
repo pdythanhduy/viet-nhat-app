@@ -49,9 +49,16 @@ describe('jlptEntitlement', () => {
   });
 
   it('is false when the entitlement row says has_pro=false', async () => {
-    mockGetUser.mockResolvedValue({ data: { user: { id: 'u1' } } });
+    mockGetUser.mockResolvedValue({ data: { user: { id: 'u1', is_anonymous: true } } });
     mockMaybeSingle.mockResolvedValue({ data: { has_pro: false }, error: null });
     expect(await loadJlptPro()).toBe(false);
+  });
+
+  it('is true for the Lab owner (non-anonymous login) without an entitlement row', async () => {
+    mockGetUser.mockResolvedValue({ data: { user: { id: 'owner', is_anonymous: false } } });
+    mockMaybeSingle.mockResolvedValue({ data: null, error: null });
+    expect(await loadJlptPro()).toBe(true);
+    expect(getJlptPro()).toBe(true);
   });
 
   it('is false when there is no entitlement row', async () => {
