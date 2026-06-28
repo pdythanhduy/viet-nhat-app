@@ -12,8 +12,6 @@ import type { RootStackParamList } from '../navigation/AppNavigator';
 import { getRecoveryCurriculumDay } from '../constants/jlptRecoveryCurriculum';
 import {
   getRecoveryDayContent,
-  hasReadyRecoveryDayContent,
-  isRecoveryContentConfigured,
   type RecoveryContentSource,
 } from '../services/jlptRecoveryContent';
 import type {
@@ -64,7 +62,6 @@ export default function JlptRecoveryDayContentScreen() {
   const [error, setError] = useState<string | null>(null);
   const [vbeeError, setVbeeError] = useState<string | null>(null);
   const [vbeeLoadingId, setVbeeLoadingId] = useState<string | null>(null);
-  const configured = isRecoveryContentConfigured();
   const vbeeConfigured = isVbeeConfigured();
   const vbeePlayer = useAudioPlayer(null, { updateInterval: 1000 });
 
@@ -75,19 +72,26 @@ export default function JlptRecoveryDayContentScreen() {
     }).catch(() => undefined);
   }, []);
 
-  // Load cache automatically; only hit the API on an explicit tap.
+  // Content is pre-generated (bundled N5 / Supabase N4–N1). Load it automatically.
   useEffect(() => {
     let active = true;
     setContent(null);
     setError(null);
+    setLoading(true);
     (async () => {
-      if (await hasReadyRecoveryDayContent(source)) {
-        try {
-          const c = await getRecoveryDayContent(source);
-          if (active) setContent(c);
-        } catch {
-          // fall through to the generate button
-        }
+      try {
+        const c = await getRecoveryDayContent(source);
+        if (active) setContent(c);
+      } catch (e) {
+        if (!active) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        setError(
+          msg === 'no-content'
+            ? 'Nội dung ngày này chưa sẵn sàng. Vui lòng kiểm tra kết nối mạng và thử lại.'
+            : `Không tải được nội dung: ${msg}`
+        );
+      } finally {
+        if (active) setLoading(false);
       }
     })();
     return () => {
@@ -95,23 +99,6 @@ export default function JlptRecoveryDayContentScreen() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [level, day]);
-
-  const handleGenerate = async () => {
-    setError(null);
-    setLoading(true);
-    try {
-      setContent(await getRecoveryDayContent(source));
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      setError(
-        msg === 'not-configured'
-          ? 'Chưa cấu hình Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY).'
-          : `Không tạo được nội dung: ${msg}`
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleReadWithVbee = async (audioId: string, text: string) => {
     const speechText = getN2VocabSpeechText(text);
@@ -163,33 +150,15 @@ export default function JlptRecoveryDayContentScreen() {
           {loading ? (
             <>
               <ActivityIndicator color={Colors.primary} />
-              <Text style={styles.genLoadingText}>
-                Đang soạn từ vựng + quiz… (có thể mất 1–2 phút, sinh xong sẽ lưu cache)
-              </Text>
+              <Text style={styles.genLoadingText}>Đang tải từ vựng + quiz…</Text>
             </>
           ) : (
-            <>
-              <TouchableOpacity
-                style={[styles.genBtn, !configured && styles.btnDisabled]}
-                onPress={() => void handleGenerate()}
-                disabled={!configured}
-                activeOpacity={0.85}
-              >
-                <Ionicons name="sparkles" size={16} color={Colors.white} />
-                <Text style={styles.genBtnText}>Tạo Vocabulary + Quiz (AI)</Text>
-              </TouchableOpacity>
-              <Text style={styles.genHint}>
-                {configured
-                  ? 'Claude soạn từ vựng (đầy đủ sắc thái, lỗi người Việt, ví dụ) + quiz. Lưu cache, mở lại không tốn token.'
-                  : 'Cần Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY).'}
-              </Text>
-            </>
-          )}
-          {error && (
-            <View style={styles.errBox}>
-              <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
-              <Text style={styles.errText}>{error}</Text>
-            </View>
+            error && (
+              <View style={styles.errBox}>
+                <Ionicons name="alert-circle-outline" size={16} color={Colors.warning} />
+                <Text style={styles.errText}>{error}</Text>
+              </View>
+            )
           )}
         </View>
       ) : (
@@ -237,9 +206,7 @@ export default function JlptRecoveryDayContentScreen() {
             </>
           )}
 
-          <Text style={styles.footNote}>
-            Nội dung do AI sinh, đã lưu cache. Bấm lại không tốn token.
-          </Text>
+          <Text style={styles.footNote}>Đã lưu để mở lại nhanh, không cần mạng.</Text>
         </>
       )}
     </ScrollView>

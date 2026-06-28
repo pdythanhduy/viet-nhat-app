@@ -1,7 +1,5 @@
-import { getAnthropicApiKey } from './translate';
 import { readCache, stableHash, writeCache } from './jlptRecoveryCache';
 import { getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
-import { generateRecoveryLesson } from './jlptGenerationCore';
 import { hasBundledLesson, loadPregeneratedDay } from './jlptContentSource';
 import type { JlptLevel, RecoveryLesson } from './jlptRecoveryTypes';
 
@@ -12,8 +10,9 @@ export interface RecoveryLessonSource {
   patterns: string[];
 }
 
+// Lessons are pre-generated (bundled N5 / Supabase N4–N1). No on-device path.
 export function isRecoveryLessonConfigured(): boolean {
-  return Boolean(getAnthropicApiKey());
+  return true;
 }
 
 function cacheKey(level: JlptLevel, day: number, patterns: string[], promptVersion: string): string {
@@ -27,7 +26,7 @@ export async function getRecoveryLesson(source: RecoveryLessonSource): Promise<R
   const cached = await readCache<RecoveryLesson>(key, config.lessonSchemaVersion);
   if (cached?.data?.grammar?.length) return cached.data;
 
-  // Prefer pre-generated lesson (bundle for N5, Supabase for paid levels).
+  // Pre-generated lesson: bundle for free N5, Supabase for paid N4–N1.
   const pre = await loadPregeneratedDay(source.level, source.day);
   if (pre?.lesson?.length) {
     const lesson: RecoveryLesson = {
@@ -39,21 +38,8 @@ export async function getRecoveryLesson(source: RecoveryLessonSource): Promise<R
     return lesson;
   }
 
-  // Fallback: on-device generation (transitional — removed with the client key).
-  const apiKey = getAnthropicApiKey();
-  if (!apiKey) throw new Error('not-configured');
-
-  const lesson = await generateRecoveryLesson(
-    { apiKey },
-    {
-      level: source.level,
-      day: source.day,
-      theme: source.theme,
-      patterns: source.patterns,
-    },
-  );
-  await writeCache(key, lesson, config.lessonSchemaVersion);
-  return lesson;
+  // No pre-generated lesson for this day.
+  throw new Error('no-content');
 }
 
 export async function hasCachedRecoveryLesson(source: RecoveryLessonSource): Promise<boolean> {

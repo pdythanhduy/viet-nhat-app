@@ -1,9 +1,7 @@
 import { splitJapaneseSentences } from '../utils/translationSentences';
+import { callAnthropicProxy, isAnthropicProxyConfigured } from './anthropicProxy';
 
-const ENDPOINT = 'https://api.anthropic.com/v1/messages';
 const MODEL = 'claude-haiku-4-5';
-const ANTHROPIC_VERSION = '2023-06-01';
-const REQUEST_TIMEOUT_MS = 30000;
 
 const SINGLE_TEXT_SYSTEM_PROMPT =
   'Translate Japanese text into natural Vietnamese for Vietnamese learners living in Japan. ' +
@@ -15,22 +13,8 @@ const SENTENCE_JSON_SYSTEM_PROMPT =
   '{"source": original Japanese sentence, "translation": Vietnamese translation}. ' +
   'Keep the order of the input sentences. Preserve names, dates, and numbers accurately.';
 
-function toAsciiJson(value: unknown): string {
-  const s = JSON.stringify(value);
-  let out = '';
-  for (let i = 0; i < s.length; i++) {
-    const code = s.charCodeAt(i);
-    out += code < 128 ? s[i] : '\\u' + code.toString(16).padStart(4, '0');
-  }
-  return out;
-}
-
-export function getAnthropicApiKey(): string | undefined {
-  return process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-}
-
 export function isTranslateConfigured(): boolean {
-  return Boolean(getAnthropicApiKey());
+  return isAnthropicProxyConfigured();
 }
 
 type ClaudeResponse = {
@@ -66,38 +50,13 @@ async function callClaude(
   userContent: unknown,
   maxTokens: number
 ): Promise<string> {
-  const apiKey = getAnthropicApiKey();
-  if (!apiKey) {
-    throw new Error('not-configured');
-  }
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': ANTHROPIC_VERSION,
-        'content-type': 'application/json',
-      },
-      body: toAsciiJson({
-        model: MODEL,
-        max_tokens: maxTokens,
-        system,
-        messages: [{ role: 'user', content: JSON.stringify(userContent) }],
-      }),
-      signal: controller.signal,
-    });
-
-    const json = (await res.json()) as ClaudeResponse;
-    if (!res.ok) {
-      throw new Error(json.error?.message || `Claude API returned HTTP ${res.status}`);
-    }
-    return extractClaudeText(json);
-  } finally {
-    clearTimeout(timer);
-  }
+  const json = await callAnthropicProxy({
+    model: MODEL,
+    max_tokens: maxTokens,
+    system,
+    messages: [{ role: 'user', content: JSON.stringify(userContent) }],
+  });
+  return extractClaudeText(json);
 }
 
 function parseSentenceArray(raw: string, fallbackSources: string[]): VietnameseSentenceTranslation[] {

@@ -1,7 +1,5 @@
-import { getAnthropicApiKey } from './translate';
 import { readCache, stableHash, writeCache } from './jlptRecoveryCache';
 import { getJlptRecoveryLevelConfig } from '../constants/jlptRecovery';
-import { generateRecoveryDayContent } from './jlptGenerationCore';
 import { hasBundledDay, loadPregeneratedDay } from './jlptContentSource';
 import type { JlptLevel, RecoveryDayContent } from './jlptRecoveryTypes';
 
@@ -18,8 +16,10 @@ export interface RecoveryContentSource {
   seeds?: Record<number, RecoveryDayContent>;
 }
 
+// Content is always pre-generated (bundled N5 / Supabase N4–N1). Kept for the
+// screens' API; there is no on-device generation path anymore.
 export function isRecoveryContentConfigured(): boolean {
-  return Boolean(getAnthropicApiKey());
+  return true;
 }
 
 function cacheKey(level: JlptLevel, day: number, promptVersion: string): string {
@@ -39,7 +39,7 @@ export async function getRecoveryDayContent(source: RecoveryContentSource): Prom
   const cached = await readCache<RecoveryDayContent>(key, config.contentSchemaVersion);
   if (cached?.data?.vocab?.length) return cached.data;
 
-  // Prefer pre-generated content (bundle for N5, Supabase for paid levels).
+  // Pre-generated content: bundle for free N5, Supabase for paid N4–N1.
   const pre = await loadPregeneratedDay(source.level, source.day);
   if (pre?.vocab?.length) {
     const content: RecoveryDayContent = {
@@ -52,22 +52,8 @@ export async function getRecoveryDayContent(source: RecoveryContentSource): Prom
     return content;
   }
 
-  // Fallback: on-device generation (transitional — removed with the client key).
-  const apiKey = getAnthropicApiKey();
-  if (!apiKey) throw new Error('not-configured');
-
-  const content = await generateRecoveryDayContent(
-    { apiKey },
-    {
-      level: source.level,
-      day: source.day,
-      theme: dayInfo.theme,
-      vocabTopic: dayInfo.vocabTopic,
-    },
-  );
-
-  await writeCache(key, content, config.contentSchemaVersion);
-  return content;
+  // No pre-generated content for this day (not uploaded / not entitled / offline).
+  throw new Error('no-content');
 }
 
 export async function hasReadyRecoveryDayContent(source: RecoveryContentSource): Promise<boolean> {

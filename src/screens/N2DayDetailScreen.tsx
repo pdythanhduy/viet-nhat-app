@@ -24,12 +24,7 @@ import {
 } from '../constants/n2RecoveryCurriculum';
 import { useN2Progress } from '../hooks/useN2Progress';
 import { isDayDone, pushRemote, toggleDay } from '../services/n2Progress';
-import {
-  N2Lesson,
-  generateN2Lesson,
-  hasCachedLesson,
-  isLessonConfigured,
-} from '../services/n2Lesson';
+import { N2Lesson, generateN2Lesson } from '../services/n2Lesson';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 type Route = RouteProp<RootStackParamList, 'N2DayDetail'>;
@@ -46,21 +41,25 @@ export default function N2DayDetailScreen() {
   const [lesson, setLesson] = useState<N2Lesson | null>(null);
   const [lessonLoading, setLessonLoading] = useState(false);
   const [lessonError, setLessonError] = useState<string | null>(null);
-  const lessonConfigured = isLessonConfigured();
 
-  // Reset when switching days; auto-load a cached lesson without an API call.
+  // Lessons are pre-generated (Supabase). Load automatically for normal days.
   useEffect(() => {
     let active = true;
     setLesson(null);
     setLessonError(null);
+    const current = getN2Day(day);
+    if (!current || current.kind !== 'normal') return;
+    setLessonLoading(true);
     (async () => {
-      if (await hasCachedLesson(day)) {
-        try {
-          const l = await generateN2Lesson(day);
-          if (active) setLesson(l);
-        } catch {
-          // cached load failed — user can tap generate
-        }
+      try {
+        const l = await generateN2Lesson(day);
+        if (active) setLesson(l);
+      } catch (e) {
+        if (!active) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        if (msg !== 'no-content') setLessonError(`Không tải được bài học: ${msg}`);
+      } finally {
+        if (active) setLessonLoading(false);
       }
     })();
     return () => {
@@ -82,23 +81,6 @@ export default function N2DayDetailScreen() {
   const handleToggle = async () => {
     await toggleDay(day);
     void pushRemote();
-  };
-
-  const handleGenerate = async () => {
-    setLessonError(null);
-    setLessonLoading(true);
-    try {
-      setLesson(await generateN2Lesson(day));
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      setLessonError(
-        msg === 'not-configured'
-          ? 'Chưa cấu hình Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY).'
-          : `Không tạo được bài học: ${msg}`
-      );
-    } finally {
-      setLessonLoading(false);
-    }
   };
 
   const showLessonUi = info.kind === 'normal';
@@ -196,28 +178,12 @@ export default function N2DayDetailScreen() {
               </View>
             ))
           ) : (
-            <>
-              <TouchableOpacity
-                style={[styles.genBtn, (lessonLoading || !lessonConfigured) && styles.genBtnDisabled]}
-                onPress={() => void handleGenerate()}
-                disabled={lessonLoading || !lessonConfigured}
-                activeOpacity={0.85}
-              >
-                {lessonLoading ? (
-                  <ActivityIndicator color={Colors.white} />
-                ) : (
-                  <>
-                    <Ionicons name="sparkles" size={16} color={Colors.white} />
-                    <Text style={styles.genBtnText}>Tạo bài học chi tiết (AI)</Text>
-                  </>
-                )}
-              </TouchableOpacity>
-              <Text style={styles.genHint}>
-                {lessonConfigured
-                  ? 'Claude giải thích 5 mẫu ngữ pháp + ví dụ. Lưu cache, mở lại không tốn token.'
-                  : 'Cần Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY) để tạo bài học.'}
-              </Text>
-            </>
+            lessonLoading && (
+              <View style={styles.lessonLoadingWrap}>
+                <ActivityIndicator color={Colors.primary} />
+                <Text style={styles.genHint}>Đang tải bài học…</Text>
+              </View>
+            )
           )}
 
           {lessonError && (
@@ -372,17 +338,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     marginBottom: 10,
   },
-  genBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    backgroundColor: Colors.primary,
-    borderRadius: 12,
-    paddingVertical: 14,
-  },
-  genBtnDisabled: { opacity: 0.5 },
-  genBtnText: { color: Colors.white, fontSize: 15, fontFamily: 'BeVietnamPro_700Bold' },
+  lessonLoadingWrap: { alignItems: 'center', gap: 8, paddingVertical: 16 },
   genHint: { fontSize: 12, color: Colors.textMuted, lineHeight: 18, marginTop: 8 },
   lessonCard: {
     backgroundColor: Colors.card,

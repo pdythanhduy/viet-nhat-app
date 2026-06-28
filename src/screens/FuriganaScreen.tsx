@@ -67,7 +67,7 @@ const SmartUiText = {
   sentenceTranslation: 'D\u1ecbch c\u00e2u',
   note: 'Ghi ch\u00fa',
   notConfigured:
-    'Ch\u01b0a c\u1ea5u h\u00ecnh Anthropic API key. Th\u00eam EXPO_PUBLIC_ANTHROPIC_API_KEY v\u00e0o .env r\u1ed3i kh\u1edfi \u0111\u1ed9ng l\u1ea1i app.',
+    'C\u1ea7n \u0111\u0103ng nh\u1eadp t\u00e0i kho\u1ea3n ch\u1ee7 (Lab) \u0111\u1ec3 d\u00f9ng t\u00ednh n\u0103ng d\u1ecbch.',
   lookupErrorPrefix: 'Kh\u00f4ng tra \u0111\u01b0\u1ee3c t\u1eeb n\u00e0y',
 };
 
@@ -92,7 +92,7 @@ const ReaderUiText = {
   yahooMissing:
     'Ch\u01b0a c\u00f3 Yahoo AppID. Th\u00eam EXPO_PUBLIC_YAHOO_APPID v\u00e0o .env r\u1ed3i kh\u1edfi \u0111\u1ed9ng l\u1ea1i app.',
   translateMissing:
-    'Ph\u1ea7n d\u1ecbch c\u1ea7n Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY). Furigana v\u1eabn d\u00f9ng \u0111\u01b0\u1ee3c b\u00ecnh th\u01b0\u1eddng.',
+    'Ph\u1ea7n d\u1ecbch c\u1ea7n \u0111\u0103ng nh\u1eadp t\u00e0i kho\u1ea3n ch\u1ee7 (Lab). Furigana v\u1eabn d\u00f9ng \u0111\u01b0\u1ee3c b\u00ecnh th\u01b0\u1eddng.',
   translateErrorPrefix: 'Kh\u00f4ng d\u1ecbch \u0111\u01b0\u1ee3c',
   furiganaErrorPrefix: 'Kh\u00f4ng l\u1ea5y \u0111\u01b0\u1ee3c furigana',
   jumpTop: 'L\u00ean \u0111\u1ea7u b\u00e0i',

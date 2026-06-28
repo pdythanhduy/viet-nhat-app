@@ -1,3 +1,7 @@
+// smartTranslation.ts now calls Claude through the anthropic-proxy Edge
+// Function. We mock that seam (callAnthropicProxy), which returns a parsed
+// Claude Messages response, so these tests cover parsing/caching, not transport.
+
 const mockAsyncStorage = new Map<string, string>();
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
@@ -19,6 +23,12 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   },
 }));
 
+const mockProxy = jest.fn();
+jest.mock('./anthropicProxy', () => ({
+  callAnthropicProxy: (...args: unknown[]) => mockProxy(...args),
+  isAnthropicProxyConfigured: () => true,
+}));
+
 import {
   explainJapaneseSelection,
   getArticleExcerpt,
@@ -27,39 +37,14 @@ import {
   translateSentencesSmart,
 } from './smartTranslation';
 
-type MockFetchResponse = {
-  ok: boolean;
-  status: number;
-  text: () => Promise<string>;
-};
-
-const originalApiKey = process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-const originalFetch = globalThis.fetch;
-const fetchMock = jest.fn<Promise<MockFetchResponse>, [string, RequestInit | undefined]>();
-
-function setMockFetch() {
-  (globalThis as unknown as { fetch: typeof fetchMock }).fetch = fetchMock;
-}
-
-function restoreEnv() {
-  if (originalApiKey === undefined) {
-    delete process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-  } else {
-    process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY = originalApiKey;
-  }
+function claudeText(text: string) {
+  return { content: [{ type: 'text', text }] };
 }
 
 describe('smartTranslation', () => {
   beforeEach(() => {
-    process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY = 'test-key';
     mockAsyncStorage.clear();
-    fetchMock.mockReset();
-    setMockFetch();
-  });
-
-  afterEach(() => {
-    restoreEnv();
-    (globalThis as unknown as { fetch: typeof originalFetch }).fetch = originalFetch;
+    mockProxy.mockReset();
   });
 
   it('splits Japanese text into sentence-like chunks', () => {
@@ -79,69 +64,39 @@ describe('smartTranslation', () => {
   });
 
   it('translates all sentences through Claude JSON', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
-        JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify([
-                { source: '今日は雨です。', translation: 'Hôm nay trời mưa.' },
-                { source: '明日は晴れます。', translation: 'Ngày mai trời nắng.' },
-              ]),
-            },
-          ],
-        }),
-    });
+    mockProxy.mockResolvedValueOnce(
+      claudeText(
+        JSON.stringify([
+          { source: '今日は雨です。', translation: 'Hôm nay trời mưa.' },
+          { source: '明日は晴れます。', translation: 'Ngày mai trời nắng.' },
+        ])
+      )
+    );
 
     await expect(translateSentencesSmart('今日は雨です。明日は晴れます。')).resolves.toEqual([
       { source: '今日は雨です。', translation: 'Hôm nay trời mưa.' },
       { source: '明日は晴れます。', translation: 'Ngày mai trời nắng.' },
     ]);
 
-    const [url, init] = fetchMock.mock.calls[0];
-    const body = JSON.parse(String(init?.body)) as {
-      messages: Array<{ content: string }>;
-    };
-
-    expect(url).toBe('https://api.anthropic.com/v1/messages');
-    expect(init?.headers).toMatchObject({
-      'x-api-key': 'test-key',
-      'anthropic-version': '2023-06-01',
-    });
-    expect(String(init?.body)).toContain('\\u4eca\\u65e5');
-    expect(body.messages[0].content).toContain('今日は雨です。');
+    const payload = mockProxy.mock.calls[0][0] as { messages: Array<{ content: string }> };
+    expect(payload.messages[0].content).toContain('今日は雨です。');
   });
 
   it('explains a selected token using sentence context', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
+    mockProxy.mockResolvedValueOnce(
+      claudeText(
         JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                surface: '雨',
-                reading: 'あめ',
-                meaning: 'mưa',
-                sentenceTranslation: 'Hôm nay trời mưa.',
-                note: 'Danh từ.',
-              }),
-            },
-          ],
-        }),
-    });
+          surface: '雨',
+          reading: 'あめ',
+          meaning: 'mưa',
+          sentenceTranslation: 'Hôm nay trời mưa.',
+          note: 'Danh từ.',
+        })
+      )
+    );
 
     await expect(
-      explainJapaneseSelection({
-        surface: '雨',
-        reading: 'あめ',
-        sentence: '今日は雨です。',
-      })
+      explainJapaneseSelection({ surface: '雨', reading: 'あめ', sentence: '今日は雨です。' })
     ).resolves.toEqual({
       surface: '雨',
       reading: 'あめ',
@@ -151,25 +106,17 @@ describe('smartTranslation', () => {
     });
   });
 
-  it('caches word explanations by selected word and sentence', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
+  it('caches word explanations and does not send extra context', async () => {
+    mockProxy.mockResolvedValueOnce(
+      claudeText(
         JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                surface: '雨',
-                reading: 'あめ',
-                meaning: 'mưa',
-                sentenceTranslation: 'Hôm nay trời mưa.',
-              }),
-            },
-          ],
-        }),
-    });
+          surface: '雨',
+          reading: 'あめ',
+          meaning: 'mưa',
+          sentenceTranslation: 'Hôm nay trời mưa.',
+        })
+      )
+    );
 
     const input = {
       surface: '雨',
@@ -179,39 +126,25 @@ describe('smartTranslation', () => {
     };
 
     await explainJapaneseSelection(input);
-    const [, init] = fetchMock.mock.calls[0];
-    expect(String(init?.body)).not.toContain('articleExcerpt');
-    expect(String(init?.body)).not.toContain('余分');
+    const payload = mockProxy.mock.calls[0][0] as { messages: Array<{ content: string }> };
+    expect(payload.messages[0].content).not.toContain('articleExcerpt');
+    expect(payload.messages[0].content).not.toContain('余分');
+
     await expect(explainJapaneseSelection(input)).resolves.toMatchObject({
       surface: '雨',
       meaning: 'mưa',
       sentenceTranslation: 'Hôm nay trời mưa.',
     });
 
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    // Second call served from cache → proxy only hit once.
+    expect(mockProxy).toHaveBeenCalledTimes(1);
   });
 
   it('falls back to raw Claude text for non-JSON word lookup responses', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
-        JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: '雨: nghĩa là mưa trong câu này.',
-            },
-          ],
-        }),
-    });
+    mockProxy.mockResolvedValueOnce(claudeText('雨: nghĩa là mưa trong câu này.'));
 
     await expect(
-      explainJapaneseSelection({
-        surface: '雨',
-        reading: 'あめ',
-        sentence: '今日は雨です。',
-      })
+      explainJapaneseSelection({ surface: '雨', reading: 'あめ', sentence: '今日は雨です。' })
     ).resolves.toMatchObject({
       surface: '雨',
       reading: 'あめ',
@@ -221,22 +154,8 @@ describe('smartTranslation', () => {
     });
   });
 
-  it('throws a readable error when Claude API returns a non-JSON body', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: false,
-      status: 502,
-      text: async () => 'html bad gateway',
-    });
-
-    await expect(translateSentencesSmart('今日は雨です。')).rejects.toThrow(
-      'Claude API returned a non-JSON response: html bad gateway'
-    );
-  });
-
-  it('throws not-configured without Anthropic key', async () => {
-    delete process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-
+  it('propagates proxy errors (e.g. forbidden / not configured)', async () => {
+    mockProxy.mockRejectedValueOnce(new Error('not-configured'));
     await expect(translateSentencesSmart('今日は雨です。')).rejects.toThrow('not-configured');
-    expect(fetchMock).not.toHaveBeenCalled();
   });
 });

@@ -19,67 +19,40 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   },
 }));
 
+const mockProxy = jest.fn();
+jest.mock('./anthropicProxy', () => ({
+  callAnthropicProxy: (...args: unknown[]) => mockProxy(...args),
+  isAnthropicProxyConfigured: () => true,
+}));
+
 import { explainJapaneseSentenceForStudy } from './smartTranslation';
 
-type MockFetchResponse = {
-  ok: boolean;
-  status: number;
-  text: () => Promise<string>;
-};
-
-const originalApiKey = process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-const originalFetch = globalThis.fetch;
-const fetchMock = jest.fn<Promise<MockFetchResponse>, [string, RequestInit | undefined]>();
-
-function setMockFetch() {
-  (globalThis as unknown as { fetch: typeof fetchMock }).fetch = fetchMock;
-}
-
-function restoreEnv() {
-  if (originalApiKey === undefined) {
-    delete process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-  } else {
-    process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY = originalApiKey;
-  }
+function claudeText(text: string) {
+  return { content: [{ type: 'text', text }] };
 }
 
 describe('sentenceStudy', () => {
   beforeEach(() => {
-    process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY = 'test-key';
     mockAsyncStorage.clear();
-    fetchMock.mockReset();
-    setMockFetch();
-  });
-
-  afterEach(() => {
-    restoreEnv();
-    (globalThis as unknown as { fetch: typeof originalFetch }).fetch = originalFetch;
+    mockProxy.mockReset();
   });
 
   it('returns structured study help for a sentence', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
+    mockProxy.mockResolvedValueOnce(
+      claudeText(
         JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                source: '今日は雨です。',
-                translation: 'Hôm nay trời mưa.',
-                summary: 'Câu này nói thời tiết hôm nay.',
-                grammarNote: 'です là mẫu câu khẳng định lịch sự.',
-                learningTip: 'Chú ý 今日は + danh từ + です.',
-                vocabulary: [
-                  { surface: '今日', reading: 'きょう', meaning: 'hôm nay' },
-                  { surface: '雨', reading: 'あめ', meaning: 'mưa' },
-                ],
-              }),
-            },
+          source: '今日は雨です。',
+          translation: 'Hôm nay trời mưa.',
+          summary: 'Câu này nói thời tiết hôm nay.',
+          grammarNote: 'です là mẫu câu khẳng định lịch sự.',
+          learningTip: 'Chú ý 今日は + danh từ + です.',
+          vocabulary: [
+            { surface: '今日', reading: 'きょう', meaning: 'hôm nay' },
+            { surface: '雨', reading: 'あめ', meaning: 'mưa' },
           ],
-        }),
-    });
+        })
+      )
+    );
 
     await expect(
       explainJapaneseSentenceForStudy({
@@ -100,14 +73,7 @@ describe('sentenceStudy', () => {
   });
 
   it('falls back to raw text when the model response is not JSON', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
-        JSON.stringify({
-          content: [{ type: 'text', text: 'Cau nay nhan manh mau です.' }],
-        }),
-    });
+    mockProxy.mockResolvedValueOnce(claudeText('Cau nay nhan manh mau です.'));
 
     await expect(
       explainJapaneseSentenceForStudy({
@@ -123,25 +89,17 @@ describe('sentenceStudy', () => {
   });
 
   it('caches study explanations by sentence and translation', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-      text: async () =>
+    mockProxy.mockResolvedValueOnce(
+      claudeText(
         JSON.stringify({
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                source: '今日は雨です。',
-                translation: 'Hôm nay trời mưa.',
-                summary: 'Câu này nói thời tiết hôm nay.',
-                grammarNote: 'です là mẫu câu khẳng định lịch sự.',
-                vocabulary: [],
-              }),
-            },
-          ],
-        }),
-    });
+          source: '今日は雨です。',
+          translation: 'Hôm nay trời mưa.',
+          summary: 'Câu này nói thời tiết hôm nay.',
+          grammarNote: 'です là mẫu câu khẳng định lịch sự.',
+          vocabulary: [],
+        })
+      )
+    );
 
     const input = {
       source: '今日は雨です。',
@@ -157,6 +115,6 @@ describe('sentenceStudy', () => {
       translation: 'Hôm nay trời mưa.',
     });
 
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(mockProxy).toHaveBeenCalledTimes(1);
   });
 });

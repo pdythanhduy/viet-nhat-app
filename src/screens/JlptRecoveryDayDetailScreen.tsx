@@ -24,11 +24,7 @@ import {
 } from '../constants/jlptRecoveryCurriculum';
 import { useJlptRecoveryProgress } from '../hooks/useJlptRecoveryProgress';
 import { isDayDone, toggleDay } from '../services/jlptRecoveryProgress';
-import {
-  getRecoveryLesson,
-  hasCachedRecoveryLesson,
-  isRecoveryLessonConfigured,
-} from '../services/jlptRecoveryLesson';
+import { getRecoveryLesson } from '../services/jlptRecoveryLesson';
 import type { RecoveryLesson } from '../services/jlptRecoveryTypes';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
@@ -48,12 +44,11 @@ export default function JlptRecoveryDayDetailScreen() {
   const [lesson, setLesson] = useState<RecoveryLesson | null>(null);
   const [lessonLoading, setLessonLoading] = useState(false);
   const [lessonError, setLessonError] = useState<string | null>(null);
-  const lessonConfigured = isRecoveryLessonConfigured();
 
   const info = getRecoveryCurriculumDay(level, day);
   const phase = info ? getRecoveryCurriculumPhase(level, info.phase) : undefined;
 
-  // Reset when switching days; auto-load a cached lesson without an API call.
+  // Lessons are pre-generated (bundled N5 / Supabase N4–N1). Load automatically.
   useEffect(() => {
     let active = true;
     setLesson(null);
@@ -61,14 +56,18 @@ export default function JlptRecoveryDayDetailScreen() {
     const current = getRecoveryCurriculumDay(level, day);
     if (!current || current.kind !== 'normal') return;
     const source = { level, day, theme: current.theme, patterns: current.grammar };
+    setLessonLoading(true);
     (async () => {
-      if (await hasCachedRecoveryLesson(source)) {
-        try {
-          const l = await getRecoveryLesson(source);
-          if (active) setLesson(l);
-        } catch {
-          // cached load failed — user can tap generate
-        }
+      try {
+        const l = await getRecoveryLesson(source);
+        if (active) setLesson(l);
+      } catch (e) {
+        if (!active) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        // 'no-content' just means there's no detailed lesson for this day — stay quiet.
+        if (msg !== 'no-content') setLessonError(`Không tải được bài học: ${msg}`);
+      } finally {
+        if (active) setLessonLoading(false);
       }
     })();
     return () => {
@@ -86,25 +85,6 @@ export default function JlptRecoveryDayDetailScreen() {
 
   const handleToggle = async () => {
     await toggleDay(level, day);
-  };
-
-  const handleGenerate = async () => {
-    setLessonError(null);
-    setLessonLoading(true);
-    try {
-      setLesson(
-        await getRecoveryLesson({ level, day, theme: info.theme, patterns: info.grammar })
-      );
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      setLessonError(
-        msg === 'not-configured'
-          ? 'Chưa cấu hình Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY).'
-          : `Không tạo được bài học: ${msg}`
-      );
-    } finally {
-      setLessonLoading(false);
-    }
   };
 
   const showLessonUi = info.kind === 'normal';
@@ -203,28 +183,12 @@ export default function JlptRecoveryDayDetailScreen() {
               </View>
             ))
           ) : (
-            <>
-              <TouchableOpacity
-                style={[styles.genBtn, (lessonLoading || !lessonConfigured) && styles.genBtnDisabled]}
-                onPress={() => void handleGenerate()}
-                disabled={lessonLoading || !lessonConfigured}
-                activeOpacity={0.85}
-              >
-                {lessonLoading ? (
-                  <ActivityIndicator color={Colors.white} />
-                ) : (
-                  <>
-                    <Ionicons name="sparkles" size={16} color={Colors.white} />
-                    <Text style={styles.genBtnText}>Tạo bài học chi tiết (AI)</Text>
-                  </>
-                )}
-              </TouchableOpacity>
-              <Text style={styles.genHint}>
-                {lessonConfigured
-                  ? 'Claude giải thích các mẫu ngữ pháp + ví dụ. Lưu cache, mở lại không tốn token.'
-                  : 'Cần Anthropic API key (EXPO_PUBLIC_ANTHROPIC_API_KEY) để tạo bài học.'}
-              </Text>
-            </>
+            lessonLoading && (
+              <View style={styles.lessonLoadingWrap}>
+                <ActivityIndicator color={Colors.primary} />
+                <Text style={styles.genHint}>Đang tải bài học…</Text>
+              </View>
+            )
           )}
 
           {lessonError && (
@@ -369,17 +333,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     marginBottom: 10,
   },
-  genBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    backgroundColor: Colors.primary,
-    borderRadius: 12,
-    paddingVertical: 14,
-  },
-  genBtnDisabled: { opacity: 0.5 },
-  genBtnText: { color: Colors.white, fontSize: 15, fontFamily: 'BeVietnamPro_700Bold' },
+  lessonLoadingWrap: { alignItems: 'center', gap: 8, paddingVertical: 16 },
   genHint: { fontSize: 12, color: Colors.textMuted, lineHeight: 18, marginTop: 8 },
   lessonCard: {
     backgroundColor: Colors.card,
