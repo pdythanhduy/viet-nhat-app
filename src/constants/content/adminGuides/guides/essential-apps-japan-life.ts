@@ -34,7 +34,7 @@ const essentialAppsJapanLife: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      'KHÔNG có quy định luật bắt buộc dùng app cụ thể nào. Một số dịch vụ chính phủ (マイナポータル, e-Tax) là chính thức MOJ/総務省/国税庁. PayPay, LINE và phần lớn payment apps là tư nhân. App Store / Google Play điều kiện theo Apple / Google. Phí điện thoại + data — tự thuê.',
+      'KHÔNG có quy định luật bắt buộc dùng app cụ thể nào. Một số dịch vụ chính phủ (マイナポータル, e-Tax) là chính thức MOJ/総務省/国税庁. PayPay, LINE và phần lớn payment apps là tư nhân. Kho ứng dụng điện thoại có điều kiện riêng. Phí điện thoại + data — tự thuê.',
     sourceVerifiedAt: '2026-05-14',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
@@ -48,7 +48,7 @@ const essentialAppsJapanLife: AdminGuide = {
     deadline:
       'Không có deadline cứng — nhưng tuần đầu khi đến Nhật nên cài: **LINE** (giao tiếp), **Google Maps + Yahoo 乗換** (đi lại), **Yahoo Tenki + Safety Tips** (thiên tai). Sau khi mở 銀行 + SIM Nhật: **PayPay** (thanh toán). Sau My Number Card: **マイナポータル**.',
     office:
-      '**App Store (iOS)** + **Google Play (Android)**: download app miễn phí. **SIM card cửa hàng** (ahamo, IIJmio, 楽天モバイル...): cần để xác thực số điện thoại. **銀行**: cần tài khoản Nhật để link payment app. **市役所**: cấp My Number Card cho マイナポータル.',
+      '**Kho ứng dụng điện thoại**: download app miễn phí. **SIM card cửa hàng** (ahamo, IIJmio, 楽天モバイル...): cần để xác thực số điện thoại. **銀行**: cần tài khoản Nhật để link payment app. **市役所**: cấp My Number Card cho マイナポータル.',
     doNow: [
       'Cài **LINE** (Free): bắt buộc giao tiếp xã hội / công việc ở Nhật. Đăng ký bằng số điện thoại Nhật.',
       'Cài **Google Maps** (Free): chỉ đường — sử dụng được ngay.',
@@ -86,7 +86,7 @@ const essentialAppsJapanLife: AdminGuide = {
     '**Mùa thiên tai (5–10)**: Cập nhật Safety Tips + Yahoo Tenki settings.',
   ],
   whereToDo: [
-    '**App Store** (iPhone) hoặc **Google Play** (Android) — download miễn phí.',
+    '**Kho ứng dụng điện thoại** — download miễn phí.',
     '**Cài đặt cơ bản**:\n• Ngôn ngữ điện thoại: có thể giữ tiếng Việt — đa số app có tiếng Anh/Việt.\n• Đăng ký Apple ID / Google account với địa chỉ Nhật để mua trong-app.\n• Kích hoạt Face ID / Touch ID / mật khẩu mạnh.',
     '**Tài khoản**:\n• Số điện thoại Nhật cho LINE, PayPay, ngân hàng.\n• Email — Gmail / Yahoo Japan đều OK.\n• Tài khoản ngân hàng Nhật cho payment app.',
     '**Hỗ trợ**:\n• 携帯ショップ (cellphone shop) — tư vấn cài đặt (đôi khi có phí).\n• Bạn / cộng đồng người Việt — chia sẻ kinh nghiệm.\n• YouTube tutorials tiếng Việt: search "App Nhật cần thiết".',
@@ -209,7 +209,7 @@ const essentialAppsJapanLife: AdminGuide = {
       step: 2,
       title: 'Cài 5 app cốt lõi tuần đầu (KHÔNG cần SIM Nhật)',
       description:
-        '**Có thể cài với SIM VN + Wi-Fi**:\n\n**1. LINE** (Free):\n• Tải về từ App Store / Google Play.\n• Đăng ký với SIM Nhật KHI CÓ (không phải SIM VN — không xác thực được).\n• Trong khi chờ: dùng LINE trên SIM VN trước, đổi số sau.\n• Setup: ảnh đại diện + tên + sticker.\n\n**2. Google Maps** (Free):\n• Đã cài sẵn trên Android, App Store cho iPhone.\n• Search địa chỉ Nhật bằng tiếng Anh hoặc kanji.\n• Tính năng: offline maps (download khi có Wi-Fi).\n• Tính giờ tàu / bus / đi bộ.\n\n**3. Google Translate / Lens** (Free):\n• Translate: dịch text + thoại + ảnh.\n• Lens: chụp ảnh dịch instant — menu, biển báo, nhãn.\n• Download offline pack tiếng Nhật cho dùng không có internet.\n\n**4. Yahoo乗換案内** (Free):\n• Tra giờ tàu / bus.\n• Real-time delay (nếu có sự cố).\n• Mua vé qua app (một số tuyến).\n• Setup: cho phép vị trí.\n\n**5. Yahoo天気** (Free):\n• Cảnh báo thời tiết + 緊急地震速報.\n• Setup: 設定 → vị trí + bật notification.\n• Bật cảnh báo: mưa lớn, bão, động đất, nóng cực.\n\n**6. Safety Tips** (Free, 観光庁監修):\n• Bắt buộc cho người nước ngoài.\n• 設定 → 言語 → tiếng Việt.\n• 警戒レベル cảnh báo + hướng dẫn 避難.\n\n**Bonus — không cần ngay nhưng tốt cài**:\n\n• **DeepL** (Free): dịch chính xác hơn cho văn bản dài.\n• **NHK World** (Free): tin tức tiếng Anh + một số tiếng Việt.\n• **YouTube** (Free): học tiếng Nhật + giải trí.',
+        '**Có thể cài với SIM VN + Wi-Fi**:\n\n**1. LINE** (Free):\n• Tải về từ kho ứng dụng điện thoại.\n• Đăng ký với SIM Nhật KHI CÓ (không phải SIM VN — không xác thực được).\n• Trong khi chờ: dùng LINE trên SIM VN trước, đổi số sau.\n• Setup: ảnh đại diện + tên + sticker.\n\n**2. Google Maps** (Free):\n• Đã cài sẵn trên Android, App Store cho iPhone.\n• Search địa chỉ Nhật bằng tiếng Anh hoặc kanji.\n• Tính năng: offline maps (download khi có Wi-Fi).\n• Tính giờ tàu / bus / đi bộ.\n\n**3. Google Translate / Lens** (Free):\n• Translate: dịch text + thoại + ảnh.\n• Lens: chụp ảnh dịch instant — menu, biển báo, nhãn.\n• Download offline pack tiếng Nhật cho dùng không có internet.\n\n**4. Yahoo乗換案内** (Free):\n• Tra giờ tàu / bus.\n• Real-time delay (nếu có sự cố).\n• Mua vé qua app (một số tuyến).\n• Setup: cho phép vị trí.\n\n**5. Yahoo天気** (Free):\n• Cảnh báo thời tiết + 緊急地震速報.\n• Setup: 設定 → vị trí + bật notification.\n• Bật cảnh báo: mưa lớn, bão, động đất, nóng cực.\n\n**6. Safety Tips** (Free, 観光庁監修):\n• Bắt buộc cho người nước ngoài.\n• 設定 → 言語 → tiếng Việt.\n• 警戒レベル cảnh báo + hướng dẫn 避難.\n\n**Bonus — không cần ngay nhưng tốt cài**:\n\n• **DeepL** (Free): dịch chính xác hơn cho văn bản dài.\n• **NHK World** (Free): tin tức tiếng Anh + một số tiếng Việt.\n• **YouTube** (Free): học tiếng Nhật + giải trí.',
       documents: [],
       tip: 'Tuần đầu, đừng cố cài hết. 5 app cơ bản đủ tồn tại. Cài thêm sau khi quen.',
     },

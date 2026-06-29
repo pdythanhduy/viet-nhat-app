@@ -70,6 +70,22 @@ export async function syncJlptProFromStore(): Promise<boolean> {
   }
 }
 
+/** Localized price string for the Pro unlock (e.g. "¥1,500", "₫249,000"),
+ * read from the store offering. Returns null when not configured / no offering /
+ * native module missing — callers should hide the price rather than guess. */
+export async function getJlptProPrice(): Promise<string | null> {
+  if (!isJlptPurchaseConfigured() || !configured) return null;
+  try {
+    const offerings = await Purchases.getOfferings();
+    const pkg =
+      offerings.current?.availablePackages?.[0] ??
+      offerings.all['default']?.availablePackages?.[0];
+    return pkg?.product?.priceString ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function purchaseJlptPro(): Promise<PurchaseResult> {
   if (!isJlptPurchaseConfigured()) return { ok: false, reason: 'not-configured' };
   try {

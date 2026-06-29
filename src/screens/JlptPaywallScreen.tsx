@@ -5,8 +5,8 @@
 // notice. On a successful purchase we optimistically flip the local Pro flag;
 // the server entitlement (RLS) remains the real gate.
 
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert, ActivityIndicator, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -15,6 +15,7 @@ import { Colors } from '../constants/colors';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import { setJlptProLocal } from '../services/jlptEntitlement';
 import {
+  getJlptProPrice,
   isJlptPurchaseConfigured,
   purchaseJlptPro,
   restoreJlptPurchases,
@@ -36,7 +37,19 @@ const COMING_SOON_MSG = 'Tính năng thanh toán đang được hoàn thiện. C
 export default function JlptPaywallScreen() {
   const navigation = useNavigation<Nav>();
   const [busy, setBusy] = useState<'buy' | 'restore' | null>(null);
+  const [price, setPrice] = useState<string | null>(null);
   const configured = isJlptPurchaseConfigured();
+
+  useEffect(() => {
+    if (!configured) return;
+    let alive = true;
+    void getJlptProPrice().then((p) => {
+      if (alive) setPrice(p);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [configured]);
 
   const handleBuy = async () => {
     if (!configured) {
@@ -108,10 +121,16 @@ export default function JlptPaywallScreen() {
         ) : (
           <>
             <Ionicons name="lock-open" size={18} color={Colors.white} />
-            <Text style={styles.buyBtnText}>Mở khóa Pro — mua một lần</Text>
+            <Text style={styles.buyBtnText}>
+              {price ? `Mở khóa Pro — ${price}` : 'Mở khóa Pro — mua một lần'}
+            </Text>
           </>
         )}
       </TouchableOpacity>
+
+      {price ? (
+        <Text style={styles.priceNote}>Thanh toán một lần · không thuê bao</Text>
+      ) : null}
 
       <TouchableOpacity
         style={styles.restoreBtn}
@@ -124,7 +143,7 @@ export default function JlptPaywallScreen() {
       </TouchableOpacity>
 
       <Text style={styles.footNote}>
-        Thanh toán an toàn qua App Store / Google Play. N5 luôn miễn phí.
+        Thanh toán an toàn qua {Platform.OS === 'android' ? 'Google Play' : 'App Store'}. N5 luôn miễn phí.
       </Text>
     </ScrollView>
   );
@@ -178,6 +197,12 @@ const styles = StyleSheet.create({
   },
   btnBusy: { opacity: 0.7 },
   buyBtnText: { color: Colors.white, fontSize: 16, fontFamily: 'BeVietnamPro_700Bold' },
+  priceNote: {
+    fontSize: 12,
+    color: Colors.textMuted,
+    textAlign: 'center',
+    marginTop: 8,
+  },
   restoreBtn: { alignItems: 'center', paddingVertical: 14 },
   restoreText: { fontSize: 14, color: Colors.primary, fontFamily: 'BeVietnamPro_600SemiBold' },
   footNote: {

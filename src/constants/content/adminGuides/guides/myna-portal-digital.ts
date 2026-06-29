@@ -141,7 +141,7 @@ const mynaPortalDigital: AdminGuide = {
         term: 'マイナポータル',
         reading: 'マイナポータル',
         meaningVi: 'cổng thông tin online cá nhân Nhật',
-        noteVi: 'Trang web + app chính thức từ デジタル庁. Cần マイナンバーカード + smartphone có NFC để dùng. Xem được: lịch sử thuế / 年金 / khám bệnh / 児童手当 / tài khoản ngân hàng liên kết. URL: myna.go.jp. App: tải miễn phí từ App Store / Google Play.',
+        noteVi: 'Trang web + app chính thức từ デジタル庁. Cần マイナンバーカード + smartphone có NFC để dùng. Xem được: lịch sử thuế / 年金 / khám bệnh / 児童手当 / tài khoản ngân hàng liên kết. URL: myna.go.jp. App: tải miễn phí từ kho ứng dụng điện thoại.',
       },
       {
         term: '電子申請',
@@ -179,7 +179,7 @@ const mynaPortalDigital: AdminGuide = {
       {
         step: 1,
         title: 'Tải app マイナポータル và đăng ký tài khoản',
-        description: 'Tải app "マイナポータル" từ App Store hoặc Google Play. Mở app, chọn "利用者登録" và đặt thẻ My Number lên mặt lưng điện thoại khi được yêu cầu. Nhập PIN 4 chữ số đã đặt khi làm thẻ.',
+        description: 'Tải app "マイナポータル" từ kho ứng dụng điện thoại. Mở app, chọn "利用者登録" và đặt thẻ My Number lên mặt lưng điện thoại khi được yêu cầu. Nhập PIN 4 chữ số đã đặt khi làm thẻ.',
         documents: [
           'My Number Card (thẻ nhựa)',
           'PIN 4 chữ số của thẻ',
