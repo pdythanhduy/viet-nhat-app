@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const inheritanceWillJapanForeigners: AdminGuide = {
   id: 'inheritance-will-japan-foreigners',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Di chúc + thừa kế ở Nhật cho người nước ngoài',
   titleJp: '在日外国人の相続・遺言ガイド',
@@ -223,7 +223,7 @@ const inheritanceWillJapanForeigners: AdminGuide = {
   ],
   officialLinks: [
     { label: '法務省 (MOJ) — 相続', url: 'https://www.moj.go.jp/' },
-    { label: '法務省 — 自筆証書遺言保管制度', url: 'https://www.moj.go.jp/MINJI/minji05_00184.html' },
+    { label: '法務省 — 自筆証書遺言保管制度', url: 'https://www.moj.go.jp/MINJI/02.html' },
     { label: '法テラス — 法律支援', url: 'https://www.houterasu.or.jp/' },
   ],
   steps: [

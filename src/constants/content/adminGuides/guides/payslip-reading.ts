@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const payslipReading: AdminGuide = {
     id: 'payslip-reading',
     category: 'money',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: 'Cách đọc bảng lương Nhật',
     titleJp: '給与明細の見方',
@@ -211,7 +211,7 @@ const payslipReading: AdminGuide = {
     ],
     officialLinks: [
       { label: '賃金の支払いに関するルール — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/index.html' },
-      { label: '時間外労働の割増賃金率 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/menu.html' },
+      { label: '時間外労働の割増賃金率 — 厚生労働省', url: 'https://www.check-roudou.mhlw.go.jp/study/roudousya_jikangai.html' },
       { label: '協会けんぽ 保険料率 — 全国健康保険協会', url: 'https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/' },
     ],
     steps: [

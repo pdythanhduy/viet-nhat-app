@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const businessManagerVisa2025: AdminGuide = {
     id: 'business-manager-visa-2025',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Visa kinh doanh/quản lý: tiêu chuẩn mới',
     titleJp: '経営・管理の許可基準改正',
@@ -221,7 +221,7 @@ const businessManagerVisa2025: AdminGuide = {
     officialLinks: [
       { label: '経営・管理 許可基準改正 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/10_00237.html?hl=ja' },
       { label: '在留資格「経営・管理」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/businessmanager.html' },
-      { label: '経営・管理 お知らせ PDF — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/content/001448361.pdf' },
+      { label: '外国人経営者の在留資格基準の明確化 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan43.html' },
     ],
     steps: [
       {

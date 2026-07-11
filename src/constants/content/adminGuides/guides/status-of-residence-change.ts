@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const statusOfResidenceChange: AdminGuide = {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -45,13 +45,14 @@ const statusOfResidenceChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
-      sourceVerifiedAt: '2026-05-07',
+      sourceVerifiedAt: '2026-07-11',
       nextReviewAt: '2026-09-01',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn muốn bắt đầu công việc/hoạt động mới trước khi có kết quả đổi tư cách.',
         'Hồ sơ có yếu tố tốt nghiệp, nghỉ học, đổi ngành, ly hôn, thu nhập thấp hoặc công ty mới chưa rõ điều kiện.',
         'Bạn sắp hết hạn lưu trú hiện tại trong lúc chờ đổi tư cách.',
+        'Đổi sang 技術・人文知識・国際業務 (技人国) với công việc chủ yếu dùng ngôn ngữ (phiên dịch, lễ tân, sales quốc tế...): từ hồ sơ nộp 2026-04-15, ISA có thể yêu cầu thêm tài liệu chứng minh năng lực tiếng Nhật tương đương CEFR B2 (vd JLPT N2+, tốt nghiệp trường Nhật, hoặc cư trú lâu năm) — chuẩn bị trước khi nộp.',
       ],
     },
     quickAction: {
@@ -243,7 +244,7 @@ const statusOfResidenceChange: AdminGuide = {
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
       { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/onlineshinsei.html' },
       { label: 'Thông báo sửa phí thủ tục từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
-      { label: '在留資格一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/qaq5.html' },
+      { label: '在留資格一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/qaq5.html' },
     ],
     steps: [
       {

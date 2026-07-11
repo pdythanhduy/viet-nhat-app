@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first90DaysInJapan: AdminGuide = {
     id: 'first-90-days-in-japan',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: '90 ngày đầu ở Nhật',
     titleJp: '来日後90日間の生活立ち上げチェック',
@@ -71,7 +71,7 @@ const first90DaysInJapan: AdminGuide = {
     ],
     officialLinks: [
       { label: '出入国在留管理庁', url: 'https://www.moj.go.jp/isa/' },
-      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuminkenkou/index.html' },
+      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html' },
       { label: 'Check-Roudou', url: 'https://www.check-roudou.mhlw.go.jp/' },
       { label: 'マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/' },
     ],

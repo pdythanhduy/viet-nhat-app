@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const studyInJapanStudentGuide: AdminGuide = {
   id: 'study-in-japan-student-guide',
   category: 'visa',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Du học Nhật — visa 留学, trường tiếng + chuyên môn, học bổng, アルバイト',
   titleJp: '留学ガイド — 在留資格「留学」 + 学校選択 + 奨学金',
@@ -229,7 +229,7 @@ const studyInJapanStudentGuide: AdminGuide = {
     { label: '文部科学省 (MEXT) — Study in Japan', url: 'https://www.studyinjapan.go.jp/' },
     { label: 'JASSO (Japan Student Services Organization)', url: 'https://www.jasso.go.jp/' },
     { label: 'MEXT 国費外国人留学生', url: 'https://www.mext.go.jp/a_menu/koutou/ryugaku/' },
-    { label: '法務省告示日本語教育機関 (danh sách 日本語学校 đủ điều kiện visa)', url: 'https://www.moj.go.jp/isa/policies/policies/2024-2025-japanese-edu.html' },
+    { label: '法務省告示日本語教育機関 (danh sách 日本語学校 đủ điều kiện visa)', url: 'https://www.moj.go.jp/isa/applications/resources/nyuukokukanri07_00217.html' },
   ],
   steps: [
     {

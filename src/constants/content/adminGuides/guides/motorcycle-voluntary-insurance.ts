@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const motorcycleVoluntaryInsurance: AdminGuide = {
     id: 'motorcycle-voluntary-insurance',
     category: 'traffic',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: 'Bảo hiểm xe máy tự nguyện (任意保険)',
     titleJp: 'バイク・原付の任意保険・ファミリーバイク特約',
@@ -59,7 +59,7 @@ const motorcycleVoluntaryInsurance: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: '損害保険料率算出機構 — thông tin 自賠責保険', url: 'https://www.giroj.or.jp/ratemaking/compulsory_automobile/' },
+      { label: '損害保険料率算出機構 — thông tin 自賠責保険', url: 'https://www.giroj.or.jp/ratemaking/cali/' },
       { label: '一般社団法人 日本損害保険協会 — so sánh bảo hiểm', url: 'https://www.sonpo.or.jp/' },
     ],
     steps: [

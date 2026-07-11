@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const jobChangeNotification: AdminGuide = {
     id: 'job-change-notification',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: 'Thông báo đổi việc / nghỉ việc',
     titleJp: '契約機関に関する届出',
@@ -85,7 +85,7 @@ const jobChangeNotification: AdminGuide = {
     ],
     officialLinks: [
       { label: '契約機関に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00015.html' },
-      { label: '電子届出システム — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/onlineshinsei.html' },
+      { label: '電子届出システム — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/online/i-ens_index.html' },
     ],
     steps: [
       {

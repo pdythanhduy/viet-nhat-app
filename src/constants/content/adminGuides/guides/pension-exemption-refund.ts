@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pensionExemptionRefund: AdminGuide = {
     id: 'pension-exemption-refund',
     category: 'money',
-    lastVerified: '2026-06-20',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: '年金, miễn giảm và hoàn nenkin khi về nước',
     titleJp: '年金・免除・脱退一時金の基本',
@@ -120,6 +120,7 @@ const pensionExemptionRefund: AdminGuide = {
       'Người thất nghiệp không xin miễn / 納付猶予 sớm, để mất khoảng thời gian có thể được bảo vệ.',
       'Xin 脱退一時金 mà không hiểu rằng sau khi nhận, lịch sử đóng tương ứng sẽ mất và có thể làm mất cơ hội hưởng lương hưu sau này.',
       'Tưởng cứ về nước là tự động được hoàn lại toàn bộ tiền 年金 đã đóng.',
+      'Để nợ 国民年金 kéo dài: theo kế hoạch của chính phủ, **dự kiến từ 06/2027** tình trạng nợ 年金/国保 sẽ bị phản ánh vào xét **gia hạn / đổi tư cách lưu trú** (hệ thống đang chuẩn bị từ 2026). Đóng đúng hạn, giữ biên lai; nếu khó khăn thì xin 免除/納付猶予 thay vì để nợ.',
     ],
     faq: [
       {

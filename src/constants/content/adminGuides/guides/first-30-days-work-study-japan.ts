@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first30DaysWorkStudyJapan: AdminGuide = {
     id: 'first-30-days-work-study-japan',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: '30 ngày đầu đi làm / đi học ở Nhật',
     titleJp: '来日後30日間の仕事・学校チェック',
@@ -73,7 +73,7 @@ const first30DaysWorkStudyJapan: AdminGuide = {
     ],
     officialLinks: [
       { label: '住居地の届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
-      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuminkenkou/index.html' },
+      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html' },
       { label: 'Check-Roudou', url: 'https://www.check-roudou.mhlw.go.jp/' },
     ],
     steps: [

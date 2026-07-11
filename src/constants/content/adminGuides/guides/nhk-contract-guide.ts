@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nhkContractGuide: AdminGuide = {
   id: 'nhk-contract-guide',
   category: 'daily-law',
-  lastVerified: '2026-06-20',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'NHK đến nhà thì xử lý thế nào?',
   titleJp: 'NHKの訪問を受けたとき',
@@ -199,8 +199,8 @@ const nhkContractGuide: AdminGuide = {
   officialLinks: [
     { label: 'NHK', url: 'https://www.nhk.or.jp/' },
     { label: '国民生活センター', url: 'https://www.kokusen.go.jp/' },
-    { label: '国民生活センター — NHK受信料に関する紛争（ADR事例）', url: 'https://www.kokusen.go.jp/adr/hunsou/data/adr-20140522_019.html' },
-    { label: '最高裁判所 — NHK受信契約事件判決（平成26(受)1440・1441）', url: 'https://www.courts.go.jp/app/files/hanrei_jp/281/087281_hanrei.pdf' },
+    { label: '国民生活センター — NHK受信料に関する紛争（ADR事例）', url: 'https://www.kokusen.go.jp/category/jirei.html' },
+    { label: '最高裁判所 — NHK受信契約事件判決（平成26(受)1440・1441）', url: 'https://www.courts.go.jp/hanrei/index.html' },
   ],
   steps: [
     {

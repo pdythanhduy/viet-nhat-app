@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const laborRightsDispute: AdminGuide = {
     id: 'labor-rights-dispute',
     category: 'daily-law',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: 'Quyền lao động và tranh chấp với công ty',
     titleJp: '労働相談・労働審判・未払い賃金請求',
@@ -62,11 +62,11 @@ const laborRightsDispute: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: '労働基準監督署 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/kantoku/index.html' },
+      { label: '労働基準監督署 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/kijyungaiyou/kijyungaiyou06.html' },
       { label: '総合労働相談コーナー — 厚生労働省', url: 'https://www.mhlw.go.jp/general/seido/chihou/kaiketu/soudan.html' },
       { label: '労働条件相談ほっとライン (0120-811-610)', url: 'https://www.check-roudou.mhlw.go.jp/soudan/' },
-      { label: '未払い賃金立替払制度 — 労働者健康安全機構', url: 'https://www.johas.go.jp/sangyouhoken/tabid/1150/Default.aspx' },
-      { label: '労働審判手続 — 裁判所', url: 'https://www.courts.go.jp/saiban/syurui/syurui_minzi/minzi_02_02_12/index.html' },
+      { label: '未払い賃金立替払制度 — 労働者健康安全機構', url: 'https://www.johas.go.jp/financial/unpaid-wage-payment/unpaid-wage-overview/' },
+      { label: '労働審判手続 — 裁判所', url: 'https://www.courts.go.jp/saiban/syurui/syurui_minzi/roudousinpan/index.html' },
     ],
     steps: [
       {

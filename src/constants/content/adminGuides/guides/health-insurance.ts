@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const healthInsurance: AdminGuide = {
     id: 'health-insurance',
     category: 'health',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-06-28',
     priority: 'high',
     title: 'Đăng ký bảo hiểm y tế',
     titleJp: '国民健康保険加入',
@@ -45,7 +45,7 @@ const healthInsurance: AdminGuide = {
       appliesFrom: '2025-12-02',
       jurisdiction: 'national',
       jurisdictionNote: 'Chế độ bảo hiểm y tế là toàn quốc, nhưng thủ tục 国民健康保険 và cấp 資格確認書 do 市役所/区役所/bên bảo hiểm nơi bạn tham gia xử lý.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-06-28',
       nextReviewAt: '2026-09-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -204,7 +204,7 @@ const healthInsurance: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: 'Bảo hiểm y tế quốc gia — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html' },
+      { label: 'Bảo hiểm y tế quốc gia — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html' },
       { label: 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/web_magazine/closeup/31.html' },
       { label: '資格確認書 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_45470.html' },
       { label: 'Use of health insurance card in My Number Card — デジタル庁', url: 'https://www.digital.go.jp/en/policies/mynumber/insurance-card' },

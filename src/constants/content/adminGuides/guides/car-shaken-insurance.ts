@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const carShakenInsurance: AdminGuide = {
     id: 'car-shaken-insurance',
     category: 'license',
-    lastVerified: '2026-05-03',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Đăng kiểm xe (車検) và bảo hiểm ô tô',
     titleJp: '自動車車検・自賠責保険・任意保険',
@@ -87,7 +87,7 @@ const carShakenInsurance: AdminGuide = {
       { label: '継続検査（車検） — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/inspection/index.html' },
       { label: '車検の必要書類 — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/inspection/document/index.html' },
       { label: '手数料や諸経費 — 国土交通省', url: 'https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/price/index.html' },
-      { label: '自賠責保険とは — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/anzen/04relief/jibaiseki.html' },
+      { label: '自賠責保険とは — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/jibaiseki/about/overview/index.html' },
       { label: 'くるまの保険について — 日本損害保険協会', url: 'https://soudanguide.sonpo.or.jp/car/about.html' },
     ],
     steps: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaFeeIncrease20252026: AdminGuide = {
   id: 'visa-fee-increase-2025-2026',
   category: 'immigration',
-  lastVerified: '2026-05-17',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Phí visa Nhật tăng từ 2025-04-01 — bảng giá mới + cách tiết kiệm',
   titleJp: '在留関係手続の手数料改定（2025年4月1日〜）',
@@ -40,8 +40,8 @@ const visaFeeIncrease20252026: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Phí thủ tục theo 出入国管理及び難民認定法 + 法務省令. Cập nhật 2025-04-01 là đợt tăng đầu tiên kể từ 2006. Phí khác nhau giữa 書面 (giấy) vs オンライン申請 — chính phủ ưu tiên online để giảm tải. Trẻ em + một số người được miễn / giảm. Đây là TÀI LIỆU THAM KHẢO — phí có thể thay đổi tiếp, kiểm tra trang ISA chính thức trước mỗi lần nộp.',
-    sourceVerifiedAt: '2026-05-14',
-    nextReviewAt: '2026-09-01',
+    sourceVerifiedAt: '2026-07-11',
+    nextReviewAt: '2026-09-15',
     riskLevel: 'low',
     whenToAskExpert: [
       'Hồ sơ phức tạp với phí lớn (永住, 帰化) → tham vấn luật sư hoặc 行政書士 trước khi nộp.',
@@ -327,7 +327,7 @@ const visaFeeIncrease20252026: AdminGuide = {
       step: 5,
       title: 'Phòng ngừa + tiết kiệm dài hạn',
       description:
-        '**Tiết kiệm phí qua thời gian**:\n\n• **Online申請**: -500 yên/lần. Cộng dồn 10 năm × 2 lần/năm = 10,000 yên.\n• **Gia hạn dài hạn** (5 năm thay 1 năm): nộp 1 lần thay 5 lần = tiết kiệm 24,000 yên.\n• **永住** sau khi đủ điều kiện: 10,000 yên 1 lần — không cần gia hạn nữa.\n• **帰化** (nhập tịch): 申請 MIỄN PHÍ. Nhưng phí làm giấy tờ + tham vấn luật sư cao.\n\n**Lập kế hoạch dài hạn**:\n\n• **3 năm đầu**: visa 1 năm — gia hạn hằng năm.\n• **3-5 năm**: visa 3 năm — bớt thủ tục.\n• **5+ năm**: cân nhắc 永住 (nếu đủ điều kiện income + thuế + 年金).\n• **10+ năm sống ổn định**: cân nhắc 帰化 nếu muốn quốc tịch Nhật.\n\n**Phòng tránh phí phụ**:\n\n• KHÔNG để overstay → phí 在留特別許可 + 弁護士.\n• KHÔNG nộp hồ sơ thiếu → reject → phí lại từ đầu.\n• KHÔNG nộp visa sai loại → đổi visa thêm phí.\n• Tham vấn luật sư / 行政書士 cho hồ sơ phức tạp (永住, 帰化, business visa) — phí dịch vụ 50,000–200,000 yên nhưng tăng cơ hội thành công.\n\n**Kết hợp thủ tục**:\n\n• Gia hạn + 再入国 cùng lúc → 1 trip 入管.\n• Cả gia đình cùng lúc → tiết kiệm thời gian.\n\n**Xem trước phí**:\n\n• Trang ISA cập nhật phí định kỳ.\n• Đăng ký newsletter ISA (English available).\n• Theo dõi cộng đồng VN (FB groups, VYSA) cho cập nhật.\n\n**Cập nhật 2026**:\n\n• Phí 2025-04-01 vẫn áp dụng đến 2026.\n• KHÔNG thay đổi tiếp dự kiến đến 2027 (trừ khi có chính sách mới).\n• Theo dõi trang ISA quarterly.\n\n**Hỗ trợ chi phí**:\n\n• Người thu nhập thấp: 法テラス có thể tư vấn miễn phí (民事法律扶助) cho vụ visa phức tạp.\n• 国際交流協会 / 多文化共生 trung tâm: hỗ trợ điền form miễn phí.\n• Cộng đồng VN: hỗ trợ lẫn nhau.\n\n**Kết**: phí visa Nhật vẫn rẻ so với quốc tế. Đầu tư đúng = visa ổn định lâu dài.',
+        '**Tiết kiệm phí qua thời gian**:\n\n• **Online申請**: -500 yên/lần. Cộng dồn 10 năm × 2 lần/năm = 10,000 yên.\n• **Gia hạn dài hạn** (5 năm thay 1 năm): nộp 1 lần thay 5 lần = tiết kiệm 24,000 yên.\n• **永住** sau khi đủ điều kiện: 10,000 yên 1 lần — không cần gia hạn nữa.\n• **帰化** (nhập tịch): 申請 MIỄN PHÍ. Nhưng phí làm giấy tờ + tham vấn luật sư cao.\n\n**Lập kế hoạch dài hạn**:\n\n• **3 năm đầu**: visa 1 năm — gia hạn hằng năm.\n• **3-5 năm**: visa 3 năm — bớt thủ tục.\n• **5+ năm**: cân nhắc 永住 (nếu đủ điều kiện income + thuế + 年金).\n• **10+ năm sống ổn định**: cân nhắc 帰化 nếu muốn quốc tịch Nhật.\n\n**Phòng tránh phí phụ**:\n\n• KHÔNG để overstay → phí 在留特別許可 + 弁護士.\n• KHÔNG nộp hồ sơ thiếu → reject → phí lại từ đầu.\n• KHÔNG nộp visa sai loại → đổi visa thêm phí.\n• Tham vấn luật sư / 行政書士 cho hồ sơ phức tạp (永住, 帰化, business visa) — phí dịch vụ 50,000–200,000 yên nhưng tăng cơ hội thành công.\n\n**Kết hợp thủ tục**:\n\n• Gia hạn + 再入国 cùng lúc → 1 trip 入管.\n• Cả gia đình cùng lúc → tiết kiệm thời gian.\n\n**Xem trước phí**:\n\n• Trang ISA cập nhật phí định kỳ.\n• Đăng ký newsletter ISA (English available).\n• Theo dõi cộng đồng VN (FB groups, VYSA) cho cập nhật.\n\n**Cập nhật 2026** (⚠️ có thay đổi mới, khác phạm vi phí 在留 ở trên):\n\n• **Phí 査証 (visa dán vào hộ chiếu để nhập cảnh — do MOFA/Đại sứ quán cấp, KHÔNG phải phí thủ tục 在留 tại ISA nêu trên)** đã tăng từ hồ sơ nộp **2026-07-01**: 1 lần nhập cảnh 3,000 → 15,000 yên; nhiều lần 6,000 → 30,000 yên. Áp dụng khi xin visa tại Đại sứ quán/Lãnh sự quán Nhật ở nước ngoài trước khi sang Nhật.\n• **Phí 在留資格変更 / 永住許可 (thuộc phạm vi guide này)**: có 政令 dự thảo công bố 2026-07-03 nâng trần lên 10万円 (đổi/gia hạn tư cách) và 30万円 (vĩnh trú), dự kiến hiệu lực **2026-10-01** — CHƯA chính thức tại thời điểm cập nhật, cần xác nhận lại trang ISA trước khi nộp gần mốc này.\n• Theo dõi trang ISA + MOFA thường xuyên do có nhiều thay đổi đang diễn ra trong 2026.\n\n**Hỗ trợ chi phí**:\n\n• Người thu nhập thấp: 法テラス có thể tư vấn miễn phí (民事法律扶助) cho vụ visa phức tạp.\n• 国際交流協会 / 多文化共生 trung tâm: hỗ trợ điền form miễn phí.\n• Cộng đồng VN: hỗ trợ lẫn nhau.\n\n**Kết**: phí visa Nhật vẫn rẻ so với quốc tế. Đầu tư đúng = visa ổn định lâu dài.',
       documents: [],
       tip: 'Lưu mọi receipt 入管 — hữu ích cho 確定申告 (一部 phí có thể là 経費 nếu cá nhân kinh doanh) + chứng minh tuân thủ pháp luật khi xin 永住 / 帰化.',
     },

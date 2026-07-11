@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const remittance: AdminGuide = {
     id: 'remittance',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Chuyển tiền về Việt Nam',
     titleJp: 'ベトナムへの海外送金',
@@ -206,7 +206,7 @@ const remittance: AdminGuide = {
       { label: 'SBI Remit — Gửi tiền về Việt Nam', url: 'https://www.remit.co.jp/en/kaigaisoukin/sendremittance/remittancearea/vietnam/' },
       { label: 'Wise Japan', url: 'https://wise.com/jp' },
       { label: 'Seven Bank — Chuyển tiền quốc tế', url: 'https://www.sevenbank.co.jp/soukin' },
-      { label: 'Danh sách業者 đăng ký — 金融庁', url: 'https://www.fsa.go.jp/menkyo/kinsho/shikin_idou/index.html' },
+      { label: 'Danh sách業者 đăng ký — 金融庁', url: 'https://www.fsa.go.jp/menkyo/menkyo.html' },
     ],
     steps: [
       {

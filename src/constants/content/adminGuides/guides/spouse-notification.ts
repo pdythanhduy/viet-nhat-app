@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const spouseNotification: AdminGuide = {
     id: 'spouse-notification',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Thông báo ly hôn / vợ chồng mất',
     titleJp: '配偶者に関する届出',
@@ -190,7 +190,7 @@ const spouseNotification: AdminGuide = {
     ],
     officialLinks: [
       { label: '配偶者に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00016.html' },
-      { label: '在留資格「定住者」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/teiju.html' },
+      { label: '在留資格「定住者」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/longtermresident.html' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
     ],
     steps: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const trafficAccidentResponse: AdminGuide = {
     id: 'traffic-accident-response',
     category: 'traffic',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Khi gặp tai nạn giao thông',
     titleJp: '交通事故に遭ったとき',
@@ -281,9 +281,9 @@ const trafficAccidentResponse: AdminGuide = {
       { label: '交通事故対応等 — 日本損害保険協会 (SONPO)', url: 'https://soudanguide.sonpo.or.jp/car/q025.html' },
       { label: '交通事故証明書 — 自動車安全運転センター', url: 'https://www.jsdc.or.jp/certificate/tabid/112/Default.aspx' },
       { label: '交通事故紛争処理センター — tư vấn miễn phí 過失割合', url: 'https://www.jcstad.or.jp/' },
-      { label: '当番弁護士 — 日本弁護士連合会', url: 'https://www.nichibenren.or.jp/legal_advice/sodan/touban.html' },
+      { label: '当番弁護士 — 日本弁護士連合会', url: 'https://www.nichibenren.or.jp/activity/criminal/keijibengo/kokusen_touban/touban_ichiran.html' },
       { label: '法テラス — 0570-078374 hỗ trợ pháp lý', url: 'https://www.houterasu.or.jp/' },
-      { label: '自転車保険義務化都道府県一覧 — 国土交通省', url: 'https://www.mlit.go.jp/jidosha/anzen/bicycle/insurance.html' },
+      { label: '自転車保険義務化都道府県一覧 — 国土交通省', url: 'https://www.mlit.go.jp/road/bicycleuse/promotion/index.html' },
     ],
     steps: [
       {

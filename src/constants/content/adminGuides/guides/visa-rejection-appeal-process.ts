@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaRejectionAppealProcess: AdminGuide = {
     id: 'visa-rejection-appeal-process',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Visa bị từ chối và cách kháng cáo / nộp lại',
     titleJp: '在留許可申請が不許可になった場合の対処法',
@@ -227,7 +227,7 @@ const visaRejectionAppealProcess: AdminGuide = {
       { label: 'ISA — Nếu bị từ chối, cách tìm hiểu chi tiết', url: 'https://www.moj.go.jp/isa/applications/procedures/' },
       { label: 'Danh sách ISA offices theo khu vực', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
-      { label: '在留資格一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/qaq5.html' },
+      { label: '在留資格一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/qaq5.html' },
     ],
     steps: [
       {

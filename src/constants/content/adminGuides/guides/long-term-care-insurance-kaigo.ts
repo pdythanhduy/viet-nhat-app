@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const longTermCareInsuranceKaigo: AdminGuide = {
   id: 'long-term-care-insurance-kaigo',
   category: 'health',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Bảo hiểm chăm sóc dài hạn — 介護保険 (Kaigo Hoken)',
   titleJp: '介護保険制度 — 加入・申請・利用',
@@ -200,7 +200,7 @@ const longTermCareInsuranceKaigo: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '厚生労働省 (MHLW) — 介護保険制度', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000213177.html' },
+    { label: '厚生労働省 (MHLW) — 介護保険制度', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/gaiyo/index.html' },
     { label: 'WAM NET — 介護サービス情報公表', url: 'https://www.wam.go.jp/' },
   ],
   steps: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const embassyConsulateVietnamJapan: AdminGuide = {
   id: 'embassy-consulate-vietnam-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Đại sứ quán / lãnh sự quán Việt Nam tại Nhật',
   titleJp: '在日ベトナム大使館・領事館の利用',
@@ -34,7 +34,7 @@ const embassyConsulateVietnamJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Đại sứ quán Việt Nam tại Tokyo + Tổng lãnh sự quán tại Osaka + Fukuoka đại diện cho Bộ Ngoại giao Việt Nam tại Nhật. Phân vùng phụ trách dựa trên 都道府県 (xem trên trang chính thức từng cơ quan). Quyền lãnh sự dựa trên Vienna Convention on Consular Relations 1963. Thủ tục + phí có thể thay đổi — luôn kiểm tra trang chính thức trước khi đến.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-07-11',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [
@@ -65,7 +65,7 @@ const embassyConsulateVietnamJapan: AdminGuide = {
     ],
     ifLate:
       'Hộ chiếu đã hết hạn: vẫn xin cấp mới được — KHÔNG bị phạt. Nhưng visa Nhật của bạn nếu gắn với hộ chiếu hết hạn → liên hệ 入管 sau khi có hộ chiếu mới để cập nhật. Nếu visa cũng sắp hết: làm gia hạn 入管 song song.',
-    officialSourceLabels: ['Đại sứ quán Việt Nam tại Tokyo', 'Tổng lãnh sự quán Việt Nam tại Osaka'],
+    officialSourceLabels: ['Đại sứ quán Việt Nam tại Tokyo', 'Tổng lãnh sự quán Việt Nam tại Osaka', 'Tổng lãnh sự quán Việt Nam tại Fukuoka'],
   },
   whoIsThisFor: [
     'Người Việt sống / làm việc / học tập tại Nhật cần dịch vụ lãnh sự.',
@@ -190,6 +190,7 @@ const embassyConsulateVietnamJapan: AdminGuide = {
   officialLinks: [
     { label: 'Đại sứ quán Việt Nam tại Tokyo', url: 'https://vnembassy-jp.org/' },
     { label: 'Tổng lãnh sự quán Việt Nam tại Osaka', url: 'https://vnconsulate-osaka.org/' },
+    { label: 'Tổng lãnh sự quán Việt Nam tại Fukuoka', url: 'https://vnconsulate-fukuoka.org/' },
   ],
   steps: [
     {

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const ginouJisshuToTokuteiGinou: AdminGuide = {
     id: 'ginou-jisshu-to-tokutei-ginou',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-07-11',
     priority: 'normal',
     title: 'Chuyển từ 技能実習 sang 特定技能',
     titleJp: '技能実習から特定技能への移行手続き',
@@ -214,7 +214,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
       { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
       { label: '技能実習から特定技能への移行 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/10_00025.html' },
       { label: '在留資格「特定技能」— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/specifiedskilledworker.html' },
-      { label: '登録支援機関一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/policies/ssw/seido/touroku_list.html' },
+      { label: '登録支援機関一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/nyuukokukanri07_00205.html' },
     ],
     steps: [
       {

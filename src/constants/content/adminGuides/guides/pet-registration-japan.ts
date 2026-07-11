@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const petRegistrationJapan: AdminGuide = {
   id: 'pet-registration-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Nuôi thú cưng ở Nhật — đăng ký chó, microchip, tiêm phòng, quy tắc chung cư',
   titleJp: 'ペットの登録・予防接種・マイクロチップ',
@@ -226,7 +226,7 @@ const petRegistrationJapan: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '厚生労働省 — 狂犬病', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/kousyuu/index.html' },
+    { label: '厚生労働省 — 狂犬病', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou18/kyokenbyou.html' },
     { label: '環境省 — 動物愛護管理法', url: 'https://www.env.go.jp/nature/dobutsu/aigo/' },
     { label: '農林水産省 動物検疫所 (AQS)', url: 'https://www.maff.go.jp/aqs/' },
     { label: '環境省 — マイクロチップ登録', url: 'https://reg.mc.env.go.jp/' },

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const first7DaysInJapan: AdminGuide = {
     id: 'first-7-days-in-japan',
     category: 'daily-law',
-    lastVerified: '2026-05-23',
+    lastVerified: '2026-07-11',
     priority: 'high',
     title: '7 ngày đầu mới sang Nhật',
     titleJp: '来日後7日間のやること',
@@ -113,7 +113,7 @@ const first7DaysInJapan: AdminGuide = {
     ],
     officialLinks: [
       { label: '住居地の届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
-      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuminkenkou/index.html' },
+      { label: '国民健康保険 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html' },
       { label: 'マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/' },
     ],
     steps: [

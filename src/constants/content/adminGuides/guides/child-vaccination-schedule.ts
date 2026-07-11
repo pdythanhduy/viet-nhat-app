@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const childVaccinationSchedule: AdminGuide = {
   id: 'child-vaccination-schedule',
   category: 'health',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-07-11',
   priority: 'normal',
   title: 'Tiêm chủng cho trẻ em ở Nhật — lịch + miễn phí + 母子手帳',
   titleJp: '子どもの予防接種スケジュール',
@@ -225,9 +225,9 @@ const childVaccinationSchedule: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '厚生労働省 — 予防接種情報', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou/kekkaku-kansenshou/yobou-sesshu/index.html' },
+    { label: '厚生労働省 — 予防接種情報', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/index.html' },
     { label: '国立感染症研究所 — VPD info', url: 'https://www.niid.go.jp/' },
-    { label: '日本小児科学会 — 予防接種スケジュール', url: 'https://www.jpeds.or.jp/modules/activity/index.php?content_id=8' },
+    { label: '日本小児科学会 — 予防接種スケジュール', url: 'https://www.jpeds.or.jp/modules/general/index.php?content_id=26' },
     { label: 'Know-VPD! 予防接種', url: 'https://www.know-vpd.jp/' },
   ],
   steps: [
