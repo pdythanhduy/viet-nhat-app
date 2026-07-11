@@ -25,7 +25,13 @@ function apiKey(): string {
   return Platform.OS === 'android' ? ANDROID_KEY : IOS_KEY;
 }
 
-export type PurchaseReason = 'not-configured' | 'cancelled' | 'no-offering' | 'pending' | string;
+export type PurchaseReason =
+  | 'not-configured'
+  | 'cancelled'
+  | 'no-offering'
+  | 'pending'
+  | 'timeout'
+  | string;
 
 export interface PurchaseResult {
   ok: boolean;
@@ -59,6 +65,47 @@ function hasPro(info: CustomerInfo): boolean {
   return Boolean(info.entitlements.active[ENTITLEMENT_ID]);
 }
 
+const STORE_TIMEOUT_MS = 20_000;
+
+/** Races a store call against a timeout so a slow sandbox/network can't leave
+ * the buy/restore button spinning forever. Rejects with a `timeout` Error. */
+function withTimeout<T>(promise: Promise<T>, ms = STORE_TIMEOUT_MS): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('timeout')), ms);
+    promise.then(
+      (v) => {
+        clearTimeout(timer);
+        resolve(v);
+      },
+      (e) => {
+        clearTimeout(timer);
+        reject(e);
+      },
+    );
+  });
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/** RevenueCat's CustomerInfo can lag a beat behind a just-completed purchase
+ * (more common in the App Review sandbox). Poll getCustomerInfo a few times
+ * before concluding the entitlement really isn't there yet. */
+async function waitForPro(initial: CustomerInfo): Promise<boolean> {
+  if (hasPro(initial)) return true;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await sleep(700);
+    try {
+      const info = await withTimeout(Purchases.getCustomerInfo());
+      if (hasPro(info)) return true;
+    } catch {
+      // keep retrying — a transient failure here shouldn't short-circuit the loop
+    }
+  }
+  return false;
+}
+
 /** Read the current Pro entitlement from the store (RevenueCat). Returns false
  * when not configured / native module missing / error. */
 export async function syncJlptProFromStore(): Promise<boolean> {
@@ -89,18 +136,24 @@ export async function getJlptProPrice(): Promise<string | null> {
 export async function purchaseJlptPro(): Promise<PurchaseResult> {
   if (!isJlptPurchaseConfigured()) return { ok: false, reason: 'not-configured' };
   try {
-    const offerings = await Purchases.getOfferings();
+    const offerings = await withTimeout(Purchases.getOfferings());
     const pkg =
       offerings.current?.availablePackages?.[0] ??
       offerings.all['default']?.availablePackages?.[0];
     if (!pkg) return { ok: false, reason: 'no-offering' };
 
+    // Not timeout-wrapped: this is the actual StoreKit purchase sheet, which
+    // can legitimately take a while for the user to interact with.
     const { customerInfo } = await Purchases.purchasePackage(pkg);
-    const pro = hasPro(customerInfo);
+    // The transaction has already gone through at this point (no exception
+    // thrown) — never report this as a plain failure. If the entitlement
+    // isn't visible yet, poll briefly before falling back to 'pending'.
+    const pro = await waitForPro(customerInfo);
     return { ok: pro, reason: pro ? undefined : 'pending' };
   } catch (e) {
     const err = e as { userCancelled?: boolean; message?: string };
     if (err?.userCancelled) return { ok: false, reason: 'cancelled' };
+    if (err?.message === 'timeout') return { ok: false, reason: 'timeout' };
     return { ok: false, reason: err?.message ?? 'error' };
   }
 }
@@ -108,9 +161,10 @@ export async function purchaseJlptPro(): Promise<PurchaseResult> {
 export async function restoreJlptPurchases(): Promise<PurchaseResult> {
   if (!isJlptPurchaseConfigured()) return { ok: false, reason: 'not-configured' };
   try {
-    return { ok: hasPro(await Purchases.restorePurchases()) };
+    return { ok: hasPro(await withTimeout(Purchases.restorePurchases())) };
   } catch (e) {
     const err = e as { message?: string };
+    if (err?.message === 'timeout') return { ok: false, reason: 'timeout' };
     return { ok: false, reason: err?.message ?? 'error' };
   }
 }

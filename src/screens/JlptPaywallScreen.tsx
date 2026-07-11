@@ -63,6 +63,13 @@ export default function JlptPaywallScreen() {
         setJlptProLocal(true);
         Alert.alert('Đã mở khóa', 'Cảm ơn bạn! N4–N1 đã được mở khóa.');
         navigation.goBack();
+      } else if (result.reason === 'pending' || result.reason === 'timeout') {
+        // The store transaction may have already gone through — never tell
+        // the user to just "try again" here, that risks a second charge.
+        Alert.alert(
+          'Đang xử lý giao dịch',
+          'Nếu bạn đã thanh toán, vui lòng đợi một chút rồi bấm "Khôi phục mua hàng".',
+        );
       } else if (result.reason !== 'cancelled') {
         Alert.alert('Chưa mua được', 'Vui lòng thử lại sau.');
       }
@@ -83,6 +90,10 @@ export default function JlptPaywallScreen() {
         setJlptProLocal(true);
         Alert.alert('Đã khôi phục', 'Gói Pro của bạn đã được khôi phục.');
         navigation.goBack();
+      } else if (result.reason) {
+        // A reason means something actually broke (network/timeout/native
+        // error) — don't tell the user "nothing to restore", that's misleading.
+        Alert.alert('Có lỗi khi khôi phục', 'Vui lòng thử lại sau.');
       } else {
         Alert.alert('Không tìm thấy', 'Không có giao dịch nào để khôi phục.');
       }
