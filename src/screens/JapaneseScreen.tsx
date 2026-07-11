@@ -448,6 +448,10 @@ export default function JapaneseScreen() {
             <Ionicons name="grid-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Bảng chữ</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('SentenceTranslate')}>
+            <Ionicons name="language-outline" size={16} color={Colors.white} />
+            <Text style={styles.quickBtnText}>Dịch câu</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('JapaneseQuiz', {})}>
             <Ionicons name="help-circle-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Trắc nghiệm</Text>

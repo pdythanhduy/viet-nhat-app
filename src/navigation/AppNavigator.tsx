@@ -37,6 +37,7 @@ import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
+import SentenceTranslateScreen from '../screens/SentenceTranslateScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
 import JlptRecoveryLevelsScreen from '../screens/JlptRecoveryLevelsScreen';
 import JlptPaywallScreen from '../screens/JlptPaywallScreen';
@@ -145,6 +146,7 @@ export type RootStackParamList = {
   Settings: undefined;
   Lab: undefined;
   Furigana: undefined;
+  SentenceTranslate: undefined;
   JlptRecoveryLevels: undefined;
   JlptPaywall: undefined;
   JlptRecovery: { level: JlptLevel };
@@ -469,6 +471,11 @@ export default function AppNavigator() {
           name="Furigana"
           component={FuriganaScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
+        />
+        <Stack.Screen
+          name="SentenceTranslate"
+          component={SentenceTranslateScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Dịch câu' }}
         />
         <Stack.Screen
           name="JlptRecoveryLevels"

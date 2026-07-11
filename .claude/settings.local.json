@@ -32,7 +32,10 @@
       "Bash(git stash *)",
       "Bash(git checkout *)",
       "Bash(git check-ignore *)",
-      "Bash(echo \"tsc: $?\")"
+      "Bash(echo \"tsc: $?\")",
+      "WebFetch(domain:solution-supporter.jp)",
+      "WebFetch(domain:visa-information.jp)",
+      "Bash(npx supabase *)"
     ]
   }
 }
