@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japaneseLanguageSupportChildren: AdminGuide = {
   id: 'japanese-language-support-children',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Hỗ trợ tiếng Nhật cho con (日本語指導)',
   titleJp: '外国人の子どもへの日本語指導',
@@ -32,8 +32,8 @@ const japaneseLanguageSupportChildren: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '文部科学省 (MEXT) có chính sách 日本語指導が必要な児童生徒 trên toàn quốc. Triển khai cụ thể (số giờ, hình thức, giáo viên) tùy 都道府県 + 市町村 + trường. Trẻ em là đối tượng được hỗ trợ — KHÔNG bắt buộc, nhưng được khuyến khích. Lớp ngoài trường (日本語教室 cộng đồng) do 国際交流協会 / NPO / 多文化共生センター vận hành — coverage rất khác nhau theo khu.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Con bị từ chối 日本語指導 vì trường không có chương trình — yêu cầu 教育委員会 (市役所) hỗ trợ tìm trường khác hoặc 巡回指導.',

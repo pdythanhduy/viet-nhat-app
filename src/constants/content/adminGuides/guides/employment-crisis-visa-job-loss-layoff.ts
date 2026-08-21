@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const employmentCrisisVisaJobLossLayoff: AdminGuide = {
     id: 'employment-crisis-visa-job-loss-layoff',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Bị đuổi việc / công ty phá sản — visa sẽ thế nào?',
     titleJp: '解雇・会社倒産と就労ビザの対応',
@@ -50,7 +50,7 @@ const employmentCrisisVisaJobLossLayoff: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Khi work visa holder bị mất hợp đồng (sa thải / công ty phá sản / hết hợp đồng) → bắt buộc nộp 契約機関に関する届出 cho 出入国在留管理庁 trong 14 ngày theo 入管法 §19-16-2. Không báo = vi phạm + ảnh hưởng tư cách lưu trú. 特定活動 (求職活動) là tư cách Bộ Tư pháp cấp tùy quyết định — KHÔNG phải quyền tự động sau sa thải; Nyukan đánh giá từng case dựa trên: lý do sa thải (会社都合 / 自己都合), nỗ lực tìm việc, tài chính, lịch sử lưu trú. Bảo hiểm thất nghiệp (雇用保険) do 厚生労働省 / ハローワーク xử lý — KHÁC tư cách lưu trú, là hai cơ quan riêng biệt.',
-      sourceVerifiedAt: '2026-05-17',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -138,6 +138,10 @@ const employmentCrisisVisaJobLossLayoff: AdminGuide = {
         question: 'Nếu 6 tháng rồi vẫn không tìm được việc thì sao?',
         answer: '特定活動 sẽ hết. Bạn phải rời Nhật. Tuy nhiên, có thể xin gia hạn 特定活動 nếu có lý do chính đáng (ví dụ: đang interview, offer sắp tới). ISA sẽ xem xét từng trường hợp.',
       },
+      {
+        question: 'Nghe nói ISA tăng cường kiểm tra — có ảnh hưởng gì đến người vừa mất việc không?',
+        answer: 'Nội các Nhật quyết định 2026-07-28 (hiệu lực 2026-07-31) bổ sung 226 nhân sự cho ISA (176 điều tra + 50 cưỡng chế), tập trung Tokyo, nhằm giảm tồn đọng các vụ 退去強制 và siết chặt kiểm tra hồ sơ lưu trú/lao động không phép. Điều này KHÔNG thay đổi quyền lợi của người bị sa thải hợp pháp, nhưng có nghĩa là báo cáo 契約機関に関する届出 trong 14 ngày và xin 特定活動 đúng quy trình càng quan trọng hơn — trì hoãn hoặc làm việc chưa xin 資格外活動許可 trong lúc chờ dễ bị phát hiện hơn trước. Xem thêm guide [[overstaying-illegal-stay-procedures]].',
+      },
     ],
     counterPhrases: [
       {
@@ -218,7 +222,7 @@ const employmentCrisisVisaJobLossLayoff: AdminGuide = {
         term: '雇用保険 / 失業手当',
         reading: 'こようほけん / しつぎょうてあて',
         meaningVi: 'bảo hiểm thất nghiệp / trợ cấp thất nghiệp',
-        noteVi: 'Đóng tự động qua công ty (0.6% lương). Điều kiện hưởng: đã đóng ≥12 tháng trong 2 năm cuối (≥6 tháng cho 会社都合). Mức: ~50-80% lương cũ. 会社都合: chờ 7 ngày → bắt đầu nhận. 自己都合: chờ 2-3 tháng. Tham khảo guide [[overstaying-illegal-stay-procedures]] để tránh nhầm visa & bảo hiểm xã hội.',
+        noteVi: 'Đóng tự động qua công ty — phần người lao động là 0.5% lương theo tỷ lệ 令和8年度 (2026-04-01→2027-03-31, giảm từ 0.55% năm trước, MHLW). Điều kiện hưởng: đã đóng ≥12 tháng trong 2 năm cuối (≥6 tháng cho 会社都合). Mức: ~50-80% lương cũ. 会社都合: chờ 7 ngày → bắt đầu nhận. 自己都合: chờ 2-3 tháng. Tham khảo guide [[overstaying-illegal-stay-procedures]] để tránh nhầm visa & bảo hiểm xã hội.',
       },
       {
         term: '整理解雇',

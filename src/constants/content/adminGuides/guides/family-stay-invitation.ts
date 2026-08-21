@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const familyStayInvitation: AdminGuide = {
     id: 'family-stay-invitation',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Bảo lãnh vợ/chồng/con sang Nhật',
     titleJp: '家族滞在・在留資格認定証明書',
@@ -45,7 +45,7 @@ const familyStayInvitation: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Diện 家族滞在 dài hạn thường đi theo 2 lớp: COE do ISA xử lý tại Nhật và visa do cơ quan lãnh sự Nhật ở nước ngoài xử lý.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

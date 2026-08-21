@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const driversLicense: AdminGuide = {
     id: 'drivers-license',
     category: 'license',
-    lastVerified: '2026-05-07',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Đổi bằng lái xe',
     titleJp: '外国免許切替（外免切替）',
@@ -27,7 +27,7 @@ const driversLicense: AdminGuide = {
       appliesFrom: '2025-10-01',
       jurisdiction: 'mixed',
       jurisdictionNote: 'Sửa đổi thủ tục là toàn quốc, nhưng lịch hẹn, cách nộp và hướng dẫn chi tiết do từng trung tâm cấp phép lái xe/tỉnh thành công bố.',
-      sourceVerifiedAt: '2026-05-07',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -117,7 +117,7 @@ const driversLicense: AdminGuide = {
       {
         step: 2,
         title: 'Lấy bản dịch bằng lái & giấy tờ',
-        description: 'Cần bản dịch tiếng Nhật của bằng lái do cơ quan được chấp nhận như JAF hoặc đại sứ quán/lãnh sự quán. JAF đã chuyển sang đăng ký dịch online; từ 01/04/2026 phí dịch là 6,000 yên/bản.',
+        description: 'Cần bản dịch tiếng Nhật của bằng lái do cơ quan được chấp nhận như JAF hoặc đại sứ quán/lãnh sự quán. JAF đã chuyển sang đăng ký dịch online; phí dịch cho mục đích 外免切替 đã tăng 2 lần trong năm 2026: từ 4,000 yên lên 6,000 yên (không thuế) kể từ 01/04/2026, rồi lên 6,600 yên (đã gồm thuế) kể từ 01/07/2026. Bản dịch dùng để lái xe bằng bằng nước ngoài (không đổi bằng) vẫn giữ 6,000 yên không thuế.',
         documents: [
           'Bằng lái xe Việt Nam — bản gốc',
           'Bản dịch tiếng Nhật của bằng lái — do ĐSQ Việt Nam hoặc JAF cấp',

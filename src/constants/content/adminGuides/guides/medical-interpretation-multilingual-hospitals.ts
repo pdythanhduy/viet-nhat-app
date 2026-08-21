@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const medicalInterpretationMultilingualHospitals: AdminGuide = {
   id: 'medical-interpretation-multilingual-hospitals',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bệnh viện có phiên dịch + hỗ trợ đa ngôn ngữ',
   titleJp: '多言語対応の病院・医療通訳サービス',
@@ -31,8 +31,8 @@ const medicalInterpretationMultilingualHospitals: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '厚生労働省 có chính sách "外国人患者受入医療機関認証制度 (JMIP)" cho bệnh viện đạt tiêu chuẩn đón tiếp người nước ngoài. Mỗi 都道府県 có chương trình hỗ trợ riêng. AMDA International Medical Information Center là NPO chính (1991), có thông dịch y tế qua điện thoại bằng nhiều ngôn ngữ. Coverage tiếng Việt cụ thể tùy khu vực — không phải mọi tỉnh đều có.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'low',
     whenToAskExpert: [
       'Bệnh nghiêm trọng / phức tạp — yêu cầu thông dịch viên y tế chuyên môn (không phải gia đình / bạn bè).',
@@ -98,7 +98,7 @@ const medicalInterpretationMultilingualHospitals: AdminGuide = {
     'Phí thay đổi — kiểm tra với bệnh viện / dịch vụ cụ thể.',
   ],
   documentsChecklist: [
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Để dùng bảo hiểm.' },
+    { label: 'マイナ保険証 / 資格確認書', required: true, note: 'Để dùng bảo hiểm. Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026).' },
     { label: '在留カード', required: true, note: 'Một số bệnh viện hỏi xác minh danh tính.' },
     { label: 'Sổ ghi triệu chứng tiếng Việt', required: false, note: 'Viết trước + tự dịch sang Nhật bằng app — đỡ stress khi giao tiếp.' },
     { label: 'Smartphone với app dịch', required: true, note: 'DeepL, VoiceTra (do NICT — chính phủ Nhật phát hành), Google Translate.' },

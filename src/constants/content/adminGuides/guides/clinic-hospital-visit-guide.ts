@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const clinicHospitalVisitGuide: AdminGuide = {
   id: 'clinic-hospital-visit-guide',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Cách đi khám bệnh ở Nhật',
   titleJp: '日本で病院・クリニックに行くとき',
@@ -32,8 +32,8 @@ const clinicHospitalVisitGuide: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       'Quy trình khám bệnh và việc dùng bảo hiểm y tế (健康保険 / 国民健康保険) được hệ thống y tế Nhật điều phối qua MHLW. Phí, giờ làm và yêu cầu giấy giới thiệu (紹介状) khác nhau theo phòng khám / bệnh viện và khu vực.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Triệu chứng nặng / kéo dài / nghi ngờ cấp cứu — không tự xử lý ở nhà.',
@@ -52,7 +52,7 @@ const clinicHospitalVisitGuide: AdminGuide = {
       'Đến quầy 受付, nói "初めてです" hoặc "再診です", điền form triệu chứng (問診票).',
     ],
     bring: [
-      'Thẻ bảo hiểm — 保険証 cũ còn hạn, hoặc マイナンバーカード đã liên kết với bảo hiểm, hoặc 資格確認書 (giấy xác nhận tư cách). Bất kỳ thẻ nào hợp lệ là được.',
+      'Thẻ bảo hiểm — マイナ保険証 (マイナンバーカード đã liên kết bảo hiểm) hoặc 資格確認書 là 2 lựa chọn chính thức từ 01/08/2026 (biện pháp tạm thời cho 保険証 giấy hết hạn đã chấm dứt — xem guide myna-health-insurance-card-2026 nếu chưa chuyển đổi). 保険証 giấy cũ chỉ còn dùng được nếu hạn in trên thẻ vẫn chưa tới.',
       '在留カード hoặc giấy tờ tùy thân khác',
       'Tiền mặt 5,000–10,000円 hoặc thẻ (một số クリニック không nhận thẻ)',
       'お薬手帳 (sổ thuốc) — nếu đang uống thuốc thường xuyên',
@@ -87,13 +87,13 @@ const clinicHospitalVisitGuide: AdminGuide = {
   estimatedTime:
     'クリニック thường mất 1–2 giờ tổng (chờ + khám + nhận toa thuốc + ra 薬局). 病院 lớn có thể mất 3–4 giờ. Đi sáng sớm thường bớt chờ.',
   fees: [
-    'Có thẻ bảo hiểm hợp lệ (保険証, マイナンバーカード đã liên kết, hoặc 資格確認書): bệnh nhân thường trả khoảng 30% chi phí. Một lần khám thường khoảng 1,000–4,000円 (chưa kể thuốc).',
+    'Có thẻ bảo hiểm hợp lệ (マイナ保険証, 資格確認書, hoặc 保険証 giấy còn hạn — từ 01/08/2026 phần lớn thẻ giấy đã hết hạn): bệnh nhân thường trả khoảng 30% chi phí. Một lần khám thường khoảng 1,000–4,000円 (chưa kể thuốc).',
     'Không có bảo hiểm: trả 100% — có thể từ 5,000円 đến vài chục nghìn yên tùy xét nghiệm.',
     'Đi 病院 lớn không có 紹介状: nhiều nơi tính thêm phụ phí 選定療養費 — kiểm tra với từng bệnh viện trước khi đi.',
     'Phí có thể thay đổi — hỏi trực tiếp phòng khám / bệnh viện hoặc xem trang chính thức của họ.',
   ],
   documentsChecklist: [
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ. Thiếu = trả 100%. Mới sang chưa có thẻ chính thức, có thể xin giấy tạm tại 市役所.' },
+    { label: 'マイナ保険証 / 資格確認書 / 保険証 giấy còn hạn', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ. Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026). Thiếu = trả 100%. Mới sang chưa có thẻ chính thức, có thể xin giấy tạm tại 市役所.' },
     { label: '在留カード', required: false, note: 'Một số phòng khám hỏi giấy tờ tùy thân. Mang theo cho chắc.' },
     { label: 'Tiền mặt 5,000–10,000円', required: true, note: 'Một số クリニック chỉ nhận tiền mặt.' },
     { label: 'お薬手帳', required: false, note: 'Nếu đang uống thuốc thường xuyên — bác sĩ xem để tránh tương tác thuốc.' },
@@ -213,7 +213,7 @@ const clinicHospitalVisitGuide: AdminGuide = {
       step: 3,
       title: 'Chuẩn bị giấy tờ và đến quầy 受付',
       description:
-        'Mang đầy đủ:\n\n• Thẻ bảo hiểm — 保険証 (cũ còn hạn), マイナンバーカード (đã liên kết bảo hiểm), hoặc 資格確認書\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nĐến quầy 受付 (tiếp nhận), nói "初めてです" (lần đầu) hoặc "再診です" (tái khám). Nhân viên đưa 問診票 (form triệu chứng) — điền tay tại chỗ. Mục cơ bản: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / thuốc đang uống / dị ứng / bệnh mạn tính.',
+        'Mang đầy đủ:\n\n• Thẻ bảo hiểm — マイナ保険証 (マイナンバーカード đã liên kết bảo hiểm) hoặc 資格確認書 (từ 01/08/2026 là 2 lựa chọn chính; 保険証 giấy cũ hầu như đã hết hạn)\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nĐến quầy 受付 (tiếp nhận), nói "初めてです" (lần đầu) hoặc "再診です" (tái khám). Nhân viên đưa 問診票 (form triệu chứng) — điền tay tại chỗ. Mục cơ bản: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / thuốc đang uống / dị ứng / bệnh mạn tính.',
       documents: [
         '保険証 / マイナンバーカード / 資格確認書',
         '在留カード',

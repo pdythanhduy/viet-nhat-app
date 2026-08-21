@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const mentalHealthStressSupport: AdminGuide = {
   id: 'mental-health-stress-support',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Sức khỏe tâm thần — stress, lo âu, hotline hỗ trợ',
   titleJp: 'メンタルヘルス — ストレス・不安・相談窓口',
@@ -37,8 +37,8 @@ const mentalHealthStressSupport: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '厚生労働省 phụ trách chính sách sức khỏe tâm thần quốc gia. Hotline tư vấn tâm lý có nhiều cấp: quốc gia (いのちの電話, よりそいホットライン), cấp 都道府県 (精神保健福祉センター), cấp 市町村 (保健所). Bệnh viện 精神科 / 心療内科 có 健康保険 chi trả 70%. **Đây là tài liệu tham khảo** — không thay thế tư vấn bác sĩ / 心理士. Trường hợp khẩn cấp tính mạng → gọi 119 hoặc hotline ngay.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'high',
     whenToAskExpert: [
       'Triệu chứng kéo dài >2 tuần (mất ngủ, mất hứng thú, ăn không ngon, mệt mỏi không lý do) — cần bác sĩ 精神科 / 心療内科 đánh giá.',
@@ -103,7 +103,7 @@ const mentalHealthStressSupport: AdminGuide = {
     'Phí tham khảo — kiểm tra với bệnh viện cụ thể.',
   ],
   documentsChecklist: [
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Để dùng bảo hiểm khi khám bệnh viện. Thiếu = trả 100%.' },
+    { label: 'マイナ保険証 / 資格確認書', required: true, note: 'Để dùng bảo hiểm khi khám bệnh viện. Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026). Thiếu = trả 100%.' },
     { label: '在留カード', required: true, note: 'Một số bệnh viện hỏi.' },
     { label: 'Tiền mặt 5,000–10,000円', required: true, note: 'Lần khám đầu thường 3,000–5,000円 + thuốc.' },
     { label: 'Sổ ghi triệu chứng', required: false, note: 'Ngày bắt đầu, mức độ, hoàn cảnh, có gì làm tốt hơn / xấu đi. Giúp bác sĩ chẩn đoán.' },

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const postOfficeMailForwarding: AdminGuide = {
   id: 'post-office-mail-forwarding',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bưu điện, chuyển tiếp thư và gửi hàng ở Nhật',
   titleJp: '郵便局・転送届・荷物を送るとき',
@@ -39,9 +39,9 @@ const postOfficeMailForwarding: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '日本郵便 (Japan Post) là công ty cổ phần — không phải cơ quan chính phủ, nhưng do 総務省 quản lý theo 郵便法. Quy định gửi quốc tế tuân thủ tiêu chuẩn UPU (Universal Postal Union) + luật hải quan từng nước. 転送届 là dịch vụ Japan Post miễn phí 1 năm. Phí + đồ cấm thay đổi — kiểm tra trang Japan Post trước khi gửi.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+      '日本郵便 (Japan Post) là công ty cổ phần — không phải cơ quan chính phủ, nhưng do 総務省 quản lý theo 郵便法. Quy định gửi quốc tế tuân thủ tiêu chuẩn UPU (Universal Postal Union) + luật hải quan từng nước. Theo quy định UPU, từ 03/2024 Japan Post bắt buộc khai hải quan điện tử (EAD) qua 国際郵便マイページサービス cho kiện có hàng hóa — không còn nhận tờ khai viết tay. 転送届 là dịch vụ Japan Post miễn phí 1 năm. Phí + đồ cấm thay đổi — kiểm tra trang Japan Post trước khi gửi.',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Gửi đồ giá trị cao / dễ vỡ / nhạy cảm hải quan (thực phẩm, thuốc, mỹ phẩm, electronics) — hỏi nhân viên bưu điện trước, hoặc xem trang Japan Post 国際郵便.',
@@ -57,9 +57,9 @@ const postOfficeMailForwarding: AdminGuide = {
     doNow: [
       '**Khi chuyển nhà**: làm 転送届 1–2 tuần trước. Online qua e転居 (cần xác minh My Number / 在留カード) hoặc giấy tại bưu điện. Miễn phí 1 năm.',
       '**Nhận 不在票**: đọc giấy → có 4 cách hẹn lại: gọi điện thoại trên giấy, web (URL trên giấy), QR code quét app, mang giấy + 身分証 đến bưu điện.',
-      '**Gửi thư trong Nhật**: tem 84円 cho thư <25g. Bỏ vào hộp đỏ của 郵便局 hoặc đến quầy.',
+      '**Gửi thư trong Nhật**: tem 110円 đồng giá cho thư đến 50g (từ 10/2024 gộp 2 mức cũ 84円/94円 thành 1 mức). Bỏ vào hộp đỏ của 郵便局 hoặc đến quầy.',
       '**Gửi hàng nội địa**: ゆうパック (Yu-pack) ở quầy bưu điện hoặc コンビニ — cân + đo, dán nhãn, trả tiền.',
-      '**Gửi hàng quốc tế (về VN)**: EMS (nhanh, đắt), 航空便 (rẻ hơn EMS, vẫn nhanh), 船便 (rẻ nhất, 1–3 tháng). Cần khai hải quan (税関告知書) — ghi đúng nội dung.',
+      '**Gửi hàng quốc tế có hàng hóa (về VN)**: EMS (nhanh, đắt), 航空便 (rẻ hơn EMS, vẫn nhanh), 船便 (rẻ nhất, 1–3 tháng). Từ 03/2024, KHÔNG còn viết tay 税関告知書 — phải tạo nhãn + khai hải quan điện tử qua 国際郵便マイページサービス (online) trước khi ra quầy.',
     ],
     bring: [
       '転送届 / 不在票 / hàng cần gửi',
@@ -98,7 +98,7 @@ const postOfficeMailForwarding: AdminGuide = {
   estimatedTime:
     '転送届 online (e転居): 10–15 phút. Tại bưu điện: 5–10 phút. Hẹn 再配達: 2–5 phút. Gửi thư: 2 phút. Gửi ゆうパック nội địa: 5–10 phút. Gửi quốc tế: 15–30 phút (cần khai hải quan).',
   fees: [
-    'Thư trong Nhật: 84円 cho <25g, 94円 cho 25–50g (giá có thể thay đổi — kiểm tra trang Japan Post).',
+    'Thư trong Nhật: 110円 đồng giá đến 50g (từ 10/2024 — 2 mức cũ 84円/94円 đã gộp làm 1; giá có thể thay đổi tiếp — kiểm tra trang Japan Post).',
     'ゆうパック nội địa: ~700–2,000円 tùy kích thước + khoảng cách.',
     'EMS quốc tế (về VN): ~2,000–10,000円 tùy cân + thời gian. Đến trong 3–7 ngày.',
     '航空便 quốc tế (về VN): ~1,000–5,000円. Đến trong 1–2 tuần.',
@@ -144,6 +144,11 @@ const postOfficeMailForwarding: AdminGuide = {
       question: 'Hàng tôi gửi quốc tế chưa đến sau 1 tháng — phải làm gì?',
       answer:
         'Kiểm tra theo thứ tự:\n\n1. **Tracking** trên trang Japan Post hoặc 17track.net → xem trạng thái hiện tại.\n2. **Tracking dừng ở "出国" (đã xuất cảnh)** → hỏi hải quan VN hoặc Vietnam Post.\n3. **Tracking dừng ở "通関中" (đang xử lý hải quan)** → có thể bị giữ vì giấy tờ thiếu / nội dung nhạy cảm.\n4. **Hết thời gian dự kiến** → quay lại bưu điện đã gửi để claim. Mang biên lai. Phải claim trong 6 tháng kể từ ngày gửi (theo quy định Japan Post).\n5. Nếu mua bảo hiểm thêm → có thể được bồi thường giá trị khai báo.',
+    },
+    {
+      question: 'Tôi gửi hàng về VN nhưng bưu điện nói không nhận tờ khai viết tay — phải làm sao?',
+      answer:
+        'Đúng — từ 03/2024, Japan Post KHÔNG còn nhận 税関告知書 viết tay cho kiện hàng có hàng hóa (áp dụng mọi quốc gia, gồm cả VN). Bắt buộc tạo nhãn gửi + khai hải quan điện tử (EAD) qua **国際郵便マイページサービス** (trang / app Japan Post, có thể dùng tiếng Anh) TRƯỚC khi ra quầy:\n\n1. Vào trang 国際郵便マイページサービス → tạo tài khoản.\n2. Chọn loại nội dung: quà tặng cá nhân hay hàng thương mại.\n3. Điền địa chỉ người nhận (theo mã bưu chính VN mới từ 01/07/2025), nội dung, giá trị, HS code cơ bản (hệ thống có gợi ý).\n4. Với kiện có hàng hóa gửi về VN: điền thêm mã số định danh cá nhân (12 số) hoặc mã số thuế của người nhận — thiếu có thể làm chậm thông quan ở VN.\n5. In nhãn tại nhà hoặc tại bưu điện (một số quầy có máy hỗ trợ nếu bạn chưa quen thao tác online).\n\nThư/bưu thiếp không kèm hàng hóa thường không cần EAD.',
     },
     {
       question: 'Tôi nhận SMS từ "Japan Post" yêu cầu nhấn link để xác nhận giao hàng — có thật không?',
@@ -234,7 +239,7 @@ const postOfficeMailForwarding: AdminGuide = {
       step: 3,
       title: 'Gửi thư + hàng nội địa Nhật',
       description:
-        '**Thư <25g**: dán tem 84円, bỏ vào hộp đỏ ngoài đường (郵便ポスト) hoặc đưa quầy bưu điện.\n\n**Thư 25–50g**: tem 94円. Trên 50g → tính theo cân.\n\n**Thư đặc biệt**:\n• 速達 (chuyển phát nhanh): +260円 trở lên.\n• 書留 (thư đảm bảo): +480円 trở lên — có tracking + bồi thường.\n• 内容証明郵便 (thư chứng minh nội dung): cho hợp đồng quan trọng (cooling-off, hủy NHK, etc.) — ~1,300円.\n\n**Hàng nội địa**: ゆうパック.\n• Tại bưu điện: cân + đo, dán nhãn, trả tiền.\n• Tại コンビニ (Lawson, 7-Eleven): có hộp + nhãn — tự dán + trả tại quầy.\n• Phí: 700–2,000円 tùy kích thước + khoảng cách.\n• Có tracking + bồi thường.\n\n**Lưu biên lai** — cần để theo dõi + claim nếu mất.',
+        '**Thư đến 50g**: dán tem 110円 (đồng giá — từ 10/2024 Japan Post gộp 2 mức cũ 84円/94円 thành 1 mức 110円), bỏ vào hộp đỏ ngoài đường (郵便ポスト) hoặc đưa quầy bưu điện. Trên 50g → tính theo cân.\n\n**Thư đặc biệt**:\n• 速達 (chuyển phát nhanh): +260円 trở lên.\n• 書留 (thư đảm bảo): +480円 trở lên — có tracking + bồi thường.\n• 内容証明郵便 (thư chứng minh nội dung): cho hợp đồng quan trọng (cooling-off, hủy NHK, etc.) — ~1,300円.\n\n**Hàng nội địa**: ゆうパック.\n• Tại bưu điện: cân + đo, dán nhãn, trả tiền.\n• Tại コンビニ (Lawson, 7-Eleven): có hộp + nhãn — tự dán + trả tại quầy.\n• Phí: 700–2,000円 tùy kích thước + khoảng cách.\n• Có tracking + bồi thường.\n\n**Lưu biên lai** — cần để theo dõi + claim nếu mất.',
       documents: [
         'Hàng cần gửi',
         'Địa chỉ người nhận tiếng Nhật',
@@ -246,11 +251,12 @@ const postOfficeMailForwarding: AdminGuide = {
       step: 4,
       title: 'Gửi hàng quốc tế — về Việt Nam',
       description:
-        '3 lựa chọn theo tốc độ + giá:\n\n**EMS** (Express Mail Service):\n• 3–7 ngày đến VN.\n• Phí cao nhất.\n• Có tracking + bảo hiểm cơ bản (có thể thêm).\n• Đến tận nhà người nhận.\n\n**航空便** (air mail):\n• 1–2 tuần đến VN.\n• Phí trung bình.\n• Có tracking nếu chọn 書留.\n\n**船便** (sea mail):\n• 1–3 tháng đến VN.\n• Phí rẻ nhất.\n• Phù hợp đồ nặng + không gấp (vd sách, đồ trang trí).\n\n**Tại quầy bưu điện**:\n1. Cân + đo hàng.\n2. Điền 税関告知書 (khai hải quan): nội dung + giá trị + lý do gửi (gift / commercial).\n3. Điền địa chỉ người nhận tiếng Anh + số điện thoại VN.\n4. Trả phí.\n5. Nhận biên lai có 追跡番号 (tracking).\n\n**KHAI BÁO TRUNG THỰC**:\n• Nội dung: chính xác (vd "Used clothes" thay vì "Gift" mơ hồ).\n• Giá trị: thực tế. KHÔNG khai sai / khai dưới giá trị thật để né thuế — có thể bị hải quan giữ + người nhận VN bị phạt.\n• Mức thuế nhập khẩu / VAT của VN tùy loại hàng + giá trị + hải quan đánh giá — không có công thức chung. Hỏi hải quan VN hoặc Vietnam Post nếu cần biết trước.',
+        '3 lựa chọn theo tốc độ + giá:\n\n**EMS** (Express Mail Service):\n• 3–7 ngày đến VN.\n• Phí cao nhất.\n• Có tracking + bảo hiểm cơ bản (có thể thêm).\n• Đến tận nhà người nhận.\n\n**航空便** (air mail):\n• 1–2 tuần đến VN.\n• Phí trung bình.\n• Có tracking nếu chọn 書留.\n\n**船便** (sea mail):\n• 1–3 tháng đến VN.\n• Phí rẻ nhất.\n• Phù hợp đồ nặng + không gấp (vd sách, đồ trang trí).\n\n**QUAN TRỌNG — từ 03/2024, không còn viết tay 税関告知書 cho hàng có hàng hóa**: phải tạo nhãn gửi + khai hải quan điện tử (EAD) qua **国際郵便マイページサービス** (trang / app Japan Post) TRƯỚC khi ra quầy — chọn loại nội dung (quà tặng / hàng thương mại), điền HS code, giá trị, rồi in nhãn. Quầy bưu điện không còn nhận form khai tay cho kiện có đồ vật.\n\n**Tại quầy bưu điện**:\n1. Cân + đo hàng.\n2. Đưa nhãn + 税関告知書 đã tạo online (hoặc để nhân viên hỗ trợ tạo nếu chưa quen — một số bưu điện có máy hỗ trợ).\n3. Điền địa chỉ người nhận tiếng Anh + số điện thoại VN.\n4. Trả phí.\n5. Nhận biên lai có 追跡番号 (tracking).\n\n**Địa chỉ Việt Nam — LƯU Ý mới**: từ 01/07/2025, Việt Nam đổi hệ thống địa chỉ + mã bưu chính mới. Ghi SAI địa chỉ / mã bưu chính theo hệ thống cũ → hàng có thể bị trả lại vì "không xác định được người nhận". Xác nhận địa chỉ mới với người nhận ở VN trước khi gửi. Với kiện có hàng hóa, Nhật Bản còn yêu cầu điền **mã số định danh cá nhân (12 số) hoặc mã số thuế** của người nhận VN vào mục khai hải quan — thiếu thông tin này có thể làm chậm thông quan.\n\n**KHAI BÁO TRUNG THỰC**:\n• Nội dung: chính xác (vd "Used clothes" thay vì "Gift" mơ hồ).\n• Giá trị: thực tế. KHÔNG khai sai / khai dưới giá trị thật để né thuế — có thể bị hải quan giữ + người nhận VN bị phạt.\n• Mức thuế nhập khẩu / VAT của VN tùy loại hàng + giá trị + hải quan đánh giá — không có công thức chung. Hỏi hải quan VN hoặc Vietnam Post nếu cần biết trước.',
       documents: [
         'Hàng đã đóng gói chắc chắn',
-        'Địa chỉ người nhận tiếng Anh + ZIP code',
+        'Địa chỉ người nhận tiếng Anh + mã bưu chính VN mới (từ 01/07/2025) + ZIP code',
         'Số điện thoại VN của người nhận',
+        'Mã số định danh cá nhân (12 số) hoặc mã số thuế của người nhận VN (cho kiện có hàng hóa)',
         'Giá trị + nội dung hàng',
         '在留カード hoặc hộ chiếu',
       ],

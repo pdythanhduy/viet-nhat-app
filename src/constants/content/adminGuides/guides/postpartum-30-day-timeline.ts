@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const postpartum30DayTimeline: AdminGuide = {
     id: 'postpartum-30-day-timeline',
     category: 'health',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Timeline 0-30 ngày sau sinh',
     titleJp: '出産後30日までの手続きタイムライン',
@@ -31,6 +31,7 @@ const postpartum30DayTimeline: AdminGuide = {
     fees: [
       'Bản thân checklist không tạo ra phí, nhưng các thủ tục bên trong có thể kéo theo phí sao y, chuyển phát, hộ chiếu, dịch thuật hoặc phần viện phí chênh lệch.',
       'Các hỗ trợ sau sinh và y tế trẻ em có thể giảm đáng kể chi phí, nhưng phần lớn không tự động kích hoạt nếu gia đình không nộp hồ sơ đúng chỗ.',
+      'MỚI (05/2026): luật sửa 健康保険法 hướng tới miễn phí chi phí sinh thường (出産費用無償化) đã được thông qua nhưng dự kiến chỉ thi hành khoảng năm tài khóa 2027–2028 — sinh trong 2026 vẫn dùng 出産育児一時金 500,000円 như hiện hành.',
     ],
     documentsChecklist: [
       { label: 'Nhận giấy chứng sinh / bộ giấy tờ sinh từ bệnh viện', required: true, note: 'Kiểm tra ngay tên, ngày sinh, giờ sinh và giới tính của em bé có đúng không.' },
@@ -66,6 +67,7 @@ const postpartum30DayTimeline: AdminGuide = {
       { label: '出生届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-1.html' },
       { label: '児童手当制度のご案内 — こども家庭庁', url: 'https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai/' },
       { label: '出産育児一時金 — 協会けんぽ', url: 'https://www.kyoukaikenpo.or.jp/benefit/childbirth/002/index.html' },
+      { label: '妊娠・出産に係る費用の負担軽減について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/newpage_00014.html' },
       { label: '在留資格取得許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-10.html' },
       { label: '母子健康手帳 — 厚生労働省', url: 'https://www.bosei-navi.mhlw.go.jp/glossary/life01.html' },
     ],
@@ -121,7 +123,7 @@ const postpartum30DayTimeline: AdminGuide = {
       {
         step: 5,
         title: 'Trong 2-3 tuần đầu: bảo hiểm, y tế trẻ em, lịch khám',
-        description: 'Ngoài tiền trợ cấp, việc thêm em bé vào bảo hiểm và xin hỗ trợ y tế trẻ em của địa phương mới là phần ảnh hưởng trực tiếp tới chi phí khám chữa bệnh sau sinh. Đồng thời phải chốt lịch tái khám cho mẹ và khám định kỳ cho em bé.',
+        description: 'Ngoài tiền trợ cấp, việc thêm em bé vào bảo hiểm và xin hỗ trợ y tế trẻ em của địa phương mới là phần ảnh hưởng trực tiếp tới chi phí khám chữa bệnh sau sinh. Đồng thời phải chốt lịch tái khám cho mẹ và khám định kỳ cho em bé. Nhiều 市区町村 còn có 産後ケア事業 (lưu trú / đi về trong ngày / nhân viên đến nhà hỗ trợ mẹ) — từ 04/2026 nhiều nơi đã mở rộng điều kiện sang diện phổ cập thay vì chỉ ưu tiên mẹ có vấn đề sức khỏe, hỏi city hall nếu cần hỗ trợ.',
         documents: [
           'Giấy tờ bảo hiểm của cha mẹ',
           'Thông tin cư trú của em bé',

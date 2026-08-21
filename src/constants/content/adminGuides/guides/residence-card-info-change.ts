@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const residenceCardInfoChange: AdminGuide = {
     id: 'residence-card-info-change',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Đổi thông tin trên thẻ cư trú',
     titleJp: '住居地以外の記載事項変更届出',
@@ -40,7 +40,7 @@ const residenceCardInfoChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đổi thông tin ngoài địa chỉ trên thẻ cư trú là thủ tục ISA; đổi địa chỉ cư trú vẫn làm tại 市役所/区役所.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -102,6 +102,10 @@ const residenceCardInfoChange: AdminGuide = {
       {
         question: 'Nếu giấy tờ chứng minh là tiếng Việt thì sao?',
         answer: 'Có thể cần bản dịch tiếng Nhật tùy hồ sơ và yêu cầu của ISA. Nên chuẩn bị bản dịch và giữ bản gốc để đối chiếu.',
+      },
+      {
+        question: 'Đổi thông tin trên thẻ thì có được cấp luôn 特定在留カード (thẻ tích hợp My Number) không?',
+        answer: 'Có thể xin kèm — theo ISA, nộp 住居地以外の記載事項変更届出 là một trong các thủ tục đủ điều kiện để xin 特定在留カード kể từ 14/06/2026. Đây KHÔNG phải bắt buộc, chỉ là lựa chọn thêm; hỏi tại quầy ISA khi nộp. Việc cấp 特定在留カード thường mất thêm thời gian xử lý (khoảng 2 tuần trở lên) so với thẻ 在留カード thường. Chi tiết ở guide [[specific-residence-card-my-number-2026]].',
       },
     ],
     counterPhrases: [

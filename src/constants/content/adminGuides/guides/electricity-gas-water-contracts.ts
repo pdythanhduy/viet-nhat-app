@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const electricityGasWaterContracts: AdminGuide = {
   id: 'electricity-gas-water-contracts',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Hợp đồng điện, gas, nước ở Nhật',
   titleJp: '日本で電気・ガス・水道を使うとき',
@@ -44,7 +44,7 @@ const electricityGasWaterContracts: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '電気 do 経済産業省 (METI) quản lý chung — đã 自由化 từ 2016, có nhiều công ty bán điện cạnh tranh. ガス cũng tương tự (自由化 từ 2017 cho 都市ガス). 水道 thường do 市区町村 (水道局) quản lý — không 自由化, chỉ có 1 đơn vị cung cấp theo khu. Phí + thủ tục cụ thể tùy công ty + tùy khu.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [

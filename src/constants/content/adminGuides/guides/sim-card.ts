@@ -8,7 +8,7 @@ const simCard: AdminGuide = {
     titleJp: 'SIMカード契約',
     icon: 'phone-portrait',
     color: '#D35400',
-    description: 'Hướng dẫn đăng ký SIM/eSIM tại Nhật. Trong 2026, xác minh danh tính online (eKYC) ngày càng chặt — nên kiểm tra trước yêu cầu giấy tờ từng nhà mạng để tránh bị từ chối.',
+    description: 'Hướng dẫn đăng ký SIM/eSIM tại Nhật. Từ 01/04/2026, luật 携帯電話不正利用防止法 (sửa đổi) đã có hiệu lực — siết chặt xác minh danh tính (eKYC): cách cũ (gửi ảnh chụp/bản photo giấy tờ không có ảnh qua đường bưu điện) gần như bị bỏ, chuyển sang đọc chip IC (公的個人認証/JPKI) trên My Number Card hoặc 在留カード qua NFC điện thoại; SIM chỉ dùng data (データSIM) cũng BẮT BUỘC xác minh danh tính như SIM thường — quy định áp dụng cho mọi nhà mạng (MNO/MVNO/đại lý/cho thuê điện thoại).',
     searchKeywords: [
       'sim',
       'esim',

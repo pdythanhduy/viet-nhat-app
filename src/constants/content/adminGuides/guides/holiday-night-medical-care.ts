@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const holidayNightMedicalCare: AdminGuide = {
   id: 'holiday-night-medical-care',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Khám bệnh đêm / cuối tuần / ngày lễ',
   titleJp: '夜間・休日・祝日の診療',
@@ -32,8 +32,8 @@ const holidayNightMedicalCare: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '救急車 119 do 総務省消防庁 quản lý quốc gia. 救急外来 do bệnh viện vận hành. 夜間休日診療所 / 急病センター do 自治体 (都道府県 / 市町村) vận hành — coverage + giờ + phí khác nhau theo khu. #7119 (tư vấn y tế người lớn) và #8000 (tư vấn y tế trẻ em — 子ども医療電話相談) không phải toàn quốc — kiểm tra theo 都道府県 mình. Đây là tài liệu tham khảo — gọi 119 ngay nếu nguy hiểm tính mạng, KHÔNG đợi đọc.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Triệu chứng nguy hiểm tính mạng (mất ý thức, khó thở dữ dội, đau ngực, co giật, chảy máu nhiều) — gọi 119 NGAY, không đợi.',
@@ -55,7 +55,7 @@ const holidayNightMedicalCare: AdminGuide = {
       'Mang đầy đủ: 保険証 / マイナンバーカード / 資格確認書, 在留カード, tiền mặt 5,000–15,000円 (救急外来 đắt), お薬手帳.',
     ],
     bring: [
-      '保険証 / マイナンバーカード / 資格確認書',
+      'マイナ保険証 / 資格確認書 (保険証 giấy cũ hầu như đã hết hạn từ 01/08/2026)',
       '在留カード',
       'Tiền mặt 5,000–15,000円 (救急外来 thường đắt hơn ngày thường)',
       'お薬手帳 (sổ thuốc) + danh sách thuốc đang dùng',
@@ -92,7 +92,7 @@ const holidayNightMedicalCare: AdminGuide = {
   estimatedTime:
     '夜間休日診療所: 30 phút – 2 giờ tùy đông. 救急外来: 1–4 giờ (đông cấp cứu). 119 救急車: tới trong 5–10 phút (thành phố), đến bệnh viện 30–60 phút. #7119 tư vấn: 5–15 phút.',
   fees: [
-    '**119 救急車**: hiện đang miễn phí toàn quốc. Một số tỉnh (Mie 三重県 từ 2024) đã thí điểm thu phí ~7,700円 cho trường hợp gọi 救急車 không thực sự cấp cứu — kiểm tra với 都道府県.',
+    '**119 救急車**: hiện đang miễn phí toàn quốc. Một số tỉnh/thành đã áp dụng thu phí selection fee (~7,700円–13,000円) cho trường hợp gọi 救急車 mà không thực sự cấp cứu khi đến bệnh viện lớn không có giấy giới thiệu — bắt đầu từ Mie 三重県 (2024), nay đã mở rộng ra toàn tỉnh Ibaraki 茨城県 và một số thành phố như Nagasaki 長崎市 (từ 07/2026) — kiểm tra với 都道府県/市 nơi mình sống.',
     '**夜間休日診療所** với 保険証: thường 1,500–4,000円 lần đầu (đã 30%).',
     '**救急外来** với 保険証: thường 5,000–15,000円 lần đầu (đã 30%) — đắt hơn ngày thường vì 時間外加算 / 休日加算 / 深夜加算.',
     '**24時間 クリニック** với 保険証: thường 3,000–10,000円 (đắt hơn ngày thường 50–100%).',
@@ -101,7 +101,7 @@ const holidayNightMedicalCare: AdminGuide = {
     '**Phí thay đổi** — kiểm tra với cơ sở y tế cụ thể.',
   ],
   documentsChecklist: [
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Thiếu = trả 100% — đắt gấp ~3 lần.' },
+    { label: 'マイナ保険証 / 資格確認書 / 保険証 giấy còn hạn', required: true, note: 'Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026). Thiếu = trả 100% — đắt gấp ~3 lần.' },
     { label: '在留カード', required: false, note: 'Một số bệnh viện hỏi.' },
     { label: 'Tiền mặt 5,000–15,000円', required: true, note: '救急外来 thường đắt hơn ngày thường. ATM bệnh viện không phải lúc nào cũng có.' },
     { label: 'お薬手帳 + danh sách thuốc', required: false, note: 'Quan trọng — bác sĩ cấp cứu cần biết để tránh tương tác thuốc.' },
@@ -110,7 +110,7 @@ const holidayNightMedicalCare: AdminGuide = {
   ],
   commonMistakes: [
     'Chần chừ vì sợ đắt → bệnh xấu đi → 救急車 vẫn phải gọi + phí cao hơn nhiều.',
-    'Tin "救急車 chắc chắn miễn phí" — Mie 三重県 đã thu phí cho non-emergency từ 2024. Tỉnh khác đang xem xét. Kiểm tra với 都道府県.',
+    'Tin "救急車 chắc chắn miễn phí" — Mie 三重県 đã thu phí cho non-emergency từ 2024, nay 茨城県 (toàn tỉnh) và Nagasaki 長崎市 (từ 07/2026) cũng áp dụng. Tỉnh/thành khác đang xem xét. Kiểm tra với 都道府県/市.',
     'Đến 救急外来 cho bệnh nhẹ → đắt + chờ lâu + chiếm chỗ người cấp cứu thật. Đi 夜間休日診療所 phù hợp hơn.',
     'Không gọi #7119 trước → tốn công đến nơi sai cấp / không cần thiết.',
     'Không biết khu mình có #7119 / #8000 hay không — search Google trước khi cần.',

@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const vietnameseCommunityJapan: AdminGuide = {
   id: 'vietnamese-community-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Cộng đồng người Việt tại Nhật',
   titleJp: '在日ベトナム人コミュニティ',
   icon: 'people-circle-outline',
   color: '#DA4453',
   description:
-    'Cộng đồng người Việt ở Nhật ngày càng đông (~50万人 theo 入管 2024). Tập trung ở Aichi, Tokyo, Kanagawa, Osaka, Saitama, Hyogo, Hiroshima, Fukuoka. Có nhiều nguồn kết nối: Facebook nhóm theo 都道府県, đoàn thể chính thức (Đại sứ quán, Hội Thanh niên, Hội Sinh viên), chùa Việt, sự kiện văn hóa. CẢNH BÁO: cộng đồng cũng có nhiều lừa đảo (đa cấp, "đầu tư" online, hợp đồng giả) — kết nối có chọn lọc, không tin lời ngon ngọt từ người lạ.',
+    'Cộng đồng người Việt ở Nhật ngày càng đông — 660,483 người tính đến 30/06/2025 theo 出入国在留管理庁 (đứng thứ 2 sau Trung Quốc trong tổng ~396万 người nước ngoài ở Nhật). Tập trung ở Aichi, Tokyo, Kanagawa, Osaka, Saitama, Hyogo, Hiroshima, Fukuoka. Có nhiều nguồn kết nối: Facebook nhóm theo 都道府県, đoàn thể chính thức (Đại sứ quán, Hội Thanh niên, Hội Sinh viên), chùa Việt, sự kiện văn hóa. CẢNH BÁO: cộng đồng cũng có nhiều lừa đảo (đa cấp, "đầu tư" online, hợp đồng giả) — kết nối có chọn lọc, không tin lời ngon ngọt từ người lạ.',
   searchKeywords: [
     'cộng đồng người Việt',
     'người Việt ở Nhật',
@@ -32,8 +32,8 @@ const vietnameseCommunityJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Cộng đồng người Việt ở Nhật là cộng đồng không chính thức + tổ chức xã hội — KHÔNG có cơ quan chính phủ duy nhất quản lý. Đại sứ quán Việt Nam tại Tokyo + Tổng lãnh sự quán Osaka, Fukuoka là cơ quan đại diện chính thức. Hội Thanh niên / Sinh viên Việt Nam tại Nhật và các tổ chức cộng đồng là tự nguyện. Lừa đảo trong cộng đồng (đa cấp, hợp đồng lao động giả) thuộc quy định 警察 + 国民生活センター. Đây là tài liệu tham khảo — không khuyến nghị nhóm Facebook cụ thể (vì có thể đổi / có rủi ro).',
-    sourceVerifiedAt: '2026-05-10',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Bị lừa đảo (đa cấp, đầu tư giả, hợp đồng giả) — báo 警察 110 + 国民生活センター 188 NGAY.',

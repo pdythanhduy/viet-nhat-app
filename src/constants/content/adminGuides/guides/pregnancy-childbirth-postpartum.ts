@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pregnancyChildbirthPostpartum: AdminGuide = {
     id: 'pregnancy-childbirth-postpartum',
     category: 'health',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Mang thai, sinh con và sau sinh ở Nhật',
     titleJp: '妊娠・出産・産後の手続き',
@@ -44,8 +44,8 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
       jurisdiction: 'mixed',
       jurisdictionNote:
         '母子保健法 (Mother and Child Health Act) + 戸籍法 (Family Registration Act, 出生届) do MHLW / 法務省 quản lý cấp quốc gia. 出産育児一時金 500,000円 (từ 04/2023, sinh tại cơ sở thuộc 産科医療補償制度) chi trả qua bảo hiểm y tế (協会けんぽ / 国保 / 健保組合). 在留資格取得許可申請 do 出入国在留管理庁 xử lý — bắt buộc nếu em bé là người nước ngoài ở Nhật quá 60 ngày, nộp trong 30 ngày kể từ ngày sinh. Trợ cấp địa phương (khám thai, khám sơ sinh) thay đổi theo 市町村 — phải hỏi city hall.',
-      sourceVerifiedAt: '2026-05-16',
-      nextReviewAt: '2026-11-30',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-12-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Em bé sinh ra mà cha và mẹ đều là người nước ngoài + định ở Nhật dài hạn → tư vấn ISA về 在留資格取得 và hành chính sứ quán cho hộ chiếu.',
@@ -118,6 +118,12 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
         meaningVi: 'xin tư cách lưu trú (cho em bé sinh ra là người nước ngoài)',
         noteVi: 'Bắt buộc nếu em bé ở Nhật quá 60 ngày sau sinh. Nộp tại ISA trong 30 ngày kể từ ngày sinh. Quá hạn → em bé thành 不法在留, phải xin 在留特別許可 (khó hơn nhiều).',
       },
+      {
+        term: '産後ケア事業',
+        reading: 'さんごケアじぎょう',
+        meaningVi: 'dịch vụ hỗ trợ chăm sóc sau sinh của địa phương',
+        noteVi: 'Do 市区町村 tổ chức: lưu trú ngắn ngày tại cơ sở (宿泊型), đi về trong ngày (デイサービス型), hoặc nhân viên đến nhà (訪問型) — hỗ trợ mẹ nghỉ ngơi + hướng dẫn chăm con. Nhiều địa phương (vd Amagasaki, Osaka) đã mở rộng điều kiện từ 04/2026 sang diện phổ cập (trước đây chỉ ưu tiên mẹ có vấn đề sức khỏe/lo âu nuôi con) theo khung 児童福祉法/子ども・子育て支援法 sửa đổi. Điều kiện + chi phí cụ thể khác nhau theo từng 市区町村 — hỏi trực tiếp phòng phụ trách sản phụ khoa/trẻ em tại city hall.',
+      },
     ],
     counterPhrases: [
       {
@@ -171,6 +177,7 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
     estimatedTime: 'Có nhiều mốc chồng lên nhau. Thực tế gia đình thường phải xử lý trong 2 nhóm thời gian: trước sinh vài tuần để chốt bệnh viện, bảo hiểm, nghỉ việc; và sau sinh 14 đến 30 ngày để làm khai sinh, trợ cấp và cư trú cho em bé.',
     fees: [
       'Theo MHLW và 協会けんぽ, 出産育児一時金 hiện nguyên tắc là 500,000 yên mỗi bé khi sinh từ 22 tuần trở lên tại cơ sở thuộc産科医療補償制度; một số trường hợp là 488,000 yên.',
+      'MỚI (05/2026): Quốc hội đã thông qua luật sửa 健康保険法 (29/05/2026) hướng tới 出産費用無償化 (miễn phí chi phí sinh thường tiêu chuẩn qua khung bảo hiểm y tế thống nhất toàn quốc). Luật quy định thi hành "trong vòng 2 năm kể từ ngày công bố" — MHLW và các bên liên quan ước tính thực tế sẽ bắt đầu từ khoảng năm tài khóa 2027–2028, KHÔNG áp dụng ngay trong 2026. Người đang mang thai / sinh trong 2026 vẫn dùng cơ chế 出産育児一時金 500,000円 như hiện tại; 帝王切開 và phí phòng riêng vẫn tự trả ngoài phạm vi miễn phí dự kiến.',
       'Chi phí sinh thực tế có thể cao hơn hoặc thấp hơn khoản trợ cấp này. Nếu cao hơn, gia đình phải trả phần chênh; nếu thấp hơn, có thể nhận lại phần dư tùy chế độ thanh toán.',
       '帝王切開 và một số can thiệp y tế là phần có thể áp dụng bảo hiểm y tế; trong trường hợp chi phí bảo hiểm cao, có thể liên quan đến高額療養費.',
       'Các hỗ trợ như khám thai, khám sơ sinh, trợ cấp địa phương, phí giấy tờ, dịch thuật hoặc hộ chiếu cho em bé tùy thành phố và quốc tịch nên không có một mức chung toàn quốc.',
@@ -212,6 +219,10 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
         question: 'Cha mẹ có thể sang chăm con gái sau sinh bằng diện ở dài hạn không?',
         answer: 'Trong đa số trường hợp là không. Phương án thực tế thường là visa thăm thân ngắn hạn. Ngoại lệ ở dài hạn chỉ rất hẹp và gắn với 高度専門職/J-Skip theo diện 特定活動, đúng như guide riêng về cha mẹ đã giải thích.',
       },
+      {
+        question: 'Nghe nói sắp miễn phí chi phí sinh con (出産費用無償化) — có áp dụng ngay không?',
+        answer: 'Chưa áp dụng trong 2026. Quốc hội đã thông qua luật sửa 健康保険法 ngày 29/05/2026 để hướng tới miễn phí chi phí sinh thường tiêu chuẩn, nhưng luật quy định thi hành trong vòng 2 năm kể từ ngày công bố — MHLW và giới chuyên môn ước tính thực tế bắt đầu khoảng năm tài khóa 2027–2028. Người sinh con trong 2026 vẫn dùng 出産育児一時金 500,000円 như hiện hành; theo dõi thêm khi gần ngày dự sinh nếu muốn biết chính sách đã áp dụng chưa.',
+      },
     ],
     officialLinks: [
       { label: '母子健康手帳 — 厚生労働省', url: 'https://www.bosei-navi.mhlw.go.jp/glossary/life01.html' },
@@ -221,6 +232,7 @@ const pregnancyChildbirthPostpartum: AdminGuide = {
       { label: '児童手当制度のご案内 — こども家庭庁', url: 'https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai/' },
       { label: '在留資格取得許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-10.html' },
       { label: '出生届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-1.html' },
+      { label: '妊娠・出産に係る費用の負担軽減について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/newpage_00014.html' },
     ],
     steps: [
       {

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const dentistVisitJapan: AdminGuide = {
   id: 'dentist-visit-japan',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Đi nha khoa ở Nhật',
   titleJp: '日本で歯医者に行くとき',
@@ -28,8 +28,8 @@ const dentistVisitJapan: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       'Phần lớn điều trị nha khoa cần thiết (sâu răng, viêm nướu, nhổ răng, trám) thuộc phạm vi bảo hiểm y tế công (健康保険 / 国民健康保険). Điều trị thẩm mỹ và một số vật liệu cao cấp (sứ, kim loại quý) là 自費診療 — không bảo hiểm. Quy định cụ thể tùy phòng nha và khu vực.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Điều trị phức tạp (cấy ghép インプラント, niềng răng 矯正, nhổ răng khôn 親知らず có vấn đề) — hỏi 2–3 phòng nha trước khi quyết.',
@@ -47,7 +47,7 @@ const dentistVisitJapan: AdminGuide = {
       'Đến quầy受付, nói "予約しています" + tên + giờ hẹn. Điền 問診票.',
     ],
     bring: [
-      'Thẻ bảo hiểm — 保険証, マイナンバーカード (đã liên kết), hoặc 資格確認書. Bắt buộc nếu muốn dùng bảo hiểm.',
+      'Thẻ bảo hiểm — マイナ保険証 (マイナンバーカード đã liên kết) hoặc 資格確認書 là 2 lựa chọn chính từ 01/08/2026 (保険証 giấy cũ hầu như đã hết hạn — xem guide myna-health-insurance-card-2026). Bắt buộc có 1 trong 3 loại nếu muốn dùng bảo hiểm.',
       '在留カード hoặc giấy tờ tùy thân',
       'Tiền mặt 5,000–10,000円 hoặc thẻ',
       'お薬手帳 nếu đang uống thuốc thường xuyên',
@@ -84,7 +84,7 @@ const dentistVisitJapan: AdminGuide = {
   estimatedTime:
     'Lần đầu thường 30–60 phút (chụp X-quang, lập kế hoạch điều trị). Mỗi lần điều trị tiếp theo 15–45 phút. Một liệu trình hoàn chỉnh (sâu răng nhiều, lấy tủy, bọc răng) có thể cần 4–8 lần hẹn.',
   fees: [
-    'Có thẻ bảo hiểm hợp lệ (保険証, マイナンバーカード đã liên kết, hoặc 資格確認書): bệnh nhân thường trả khoảng 30% chi phí. Số tiền dưới đây chỉ là tham khảo — phí thực tế thay đổi tùy phòng nha và khu vực.',
+    'Có thẻ bảo hiểm hợp lệ (マイナ保険証, 資格確認書, hoặc 保険証 giấy còn hạn — từ 01/08/2026 phần lớn thẻ giấy đã hết hạn): bệnh nhân thường trả khoảng 30% chi phí. Số tiền dưới đây chỉ là tham khảo — phí thực tế thay đổi tùy phòng nha và khu vực.',
     'Lần khám đầu tiên + chụp X-quang: thường khoảng 2,000–5,000円 với bảo hiểm.',
     'Trám răng đơn giản với vật liệu thường (CR / cement): thường khoảng 1,500–4,000円/răng với bảo hiểm.',
     'Lấy tủy 根管治療: thường khoảng 5,000–15,000円 cả liệu trình với bảo hiểm — chia nhiều lần hẹn.',
@@ -93,7 +93,7 @@ const dentistVisitJapan: AdminGuide = {
     'LUÔN hỏi 見積書 (báo giá) trước khi đồng ý điều trị đắt tiền hoặc 自費.',
   ],
   documentsChecklist: [
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ chứng minh tư cách bảo hiểm hợp lệ. Thiếu = trả 100%, đắt hơn nhiều.' },
+    { label: 'マイナ保険証 / 資格確認書 / 保険証 giấy còn hạn', required: true, note: 'Bất kỳ thẻ chứng minh tư cách bảo hiểm hợp lệ. Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書. Thiếu = trả 100%, đắt hơn nhiều.' },
     { label: '在留カード', required: false, note: 'Một số phòng nha hỏi giấy tờ tùy thân lần đầu.' },
     { label: 'Tiền mặt 5,000–10,000円 hoặc thẻ', required: true, note: 'Một số 歯科 nhỏ chỉ nhận tiền mặt.' },
     { label: 'お薬手帳', required: false, note: 'Quan trọng — bác sĩ kiểm tra trước khi gây tê / kê thuốc.' },
@@ -205,7 +205,7 @@ const dentistVisitJapan: AdminGuide = {
       step: 3,
       title: 'Đến phòng nha — quầy 受付 và 問診票',
       description:
-        'Đến trước giờ hẹn 5–10 phút. Mang đầy đủ:\n\n• Thẻ bảo hiểm — 保険証, マイナンバーカード (đã liên kết), hoặc 資格確認書\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nTại quầy 受付:\n• Nói "予約しています、〇〇です" (tôi có hẹn, tên ...)\n• Đưa thẻ bảo hiểm + giấy tờ tùy thân\n• Nhận 問診票 — điền tay tại chỗ\n\n問診票 hỏi: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / dị ứng thuốc / bệnh nền / thuốc đang uống / có thai không. Nếu không hiểu, hỏi nhân viên.',
+        'Đến trước giờ hẹn 5–10 phút. Mang đầy đủ:\n\n• Thẻ bảo hiểm — マイナ保険証 (マイナンバーカード đã liên kết) hoặc 資格確認書 (từ 01/08/2026 là 2 lựa chọn chính; 保険証 giấy cũ hầu như đã hết hạn)\n• 在留カード\n• Tiền mặt 5,000–10,000円\n• お薬手帳 (nếu có)\n\nTại quầy 受付:\n• Nói "予約しています、〇〇です" (tôi có hẹn, tên ...)\n• Đưa thẻ bảo hiểm + giấy tờ tùy thân\n• Nhận 問診票 — điền tay tại chỗ\n\n問診票 hỏi: tên / ngày sinh / địa chỉ / triệu chứng / khi nào bắt đầu / dị ứng thuốc / bệnh nền / thuốc đang uống / có thai không. Nếu không hiểu, hỏi nhân viên.',
       documents: [
         '保険証 / マイナンバーカード / 資格確認書',
         '在留カード',

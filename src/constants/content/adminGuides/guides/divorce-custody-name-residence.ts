@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const divorceCustodyNameResidence: AdminGuide = {
     id: 'divorce-custody-name-residence',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Ly hôn, nuôi con và giấy tờ cư trú',
     titleJp: '離婚・親権・氏名変更・在留手続き',
@@ -44,7 +44,7 @@ const divorceCustodyNameResidence: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: '離婚 do 民法 + 戸籍法 + 家事事件手続法 quản lý toàn quốc. SỬA ĐỔI LỚN có hiệu lực 01/04/2026: 民法 cho phép 共同親権 (cả hai cha mẹ giữ 親権) sau ly hôn — trước đó chỉ một bên. ISA quản lý visa-related notification theo 入管法 §19-16. 家庭裁判所 (Family Court) xét tranh chấp 親権 / 養育費 / 面会交流 + 子の氏の変更許可. Quyết định cá nhân phụ thuộc tổng thể hoàn cảnh + lợi ích trẻ + đánh giá tòa — KHÔNG có công thức. Người nước ngoài còn phải xem luật của nước mang quốc tịch (Việt Nam: Luật Hôn nhân Gia đình 2014) — vấn đề song pháp lý phức tạp, cần 弁護士 chuyên 国際家事.',
-      sourceVerifiedAt: '2026-05-16',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-31',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -228,10 +228,10 @@ const divorceCustodyNameResidence: AdminGuide = {
     officialLinks: [
       { label: '離婚届 — 法務省', url: 'https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-3.html' },
       { label: '離婚を考えている方へ — 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00011.html' },
-      { label: '親権者 — 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00015.html' },
-      { label: '子どもに関する事項（子育ての計画）— 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00014.html' },
-      { label: '養育費 — 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00016' },
-      { label: '親子交流（面会交流）— 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00017.html' },
+      { label: '親権者 — 法務省', url: 'https://www.moj.go.jp/MINJI/parents_007.html' },
+      { label: '子どもに関する事項（子育ての計画）— 法務省', url: 'https://www.moj.go.jp/MINJI/parents_006.html' },
+      { label: '養育費 — 法務省', url: 'https://www.moj.go.jp/MINJI/parents_010.html' },
+      { label: '親子交流（面会交流）— 法務省', url: 'https://www.moj.go.jp/MINJI/parents_009.html' },
       { label: '民法等の一部を改正する法律〔令和8年4月1日施行〕— 法務省', url: 'https://www.moj.go.jp/MINJI/minji07_00357.html' },
       { label: '子の氏の変更許可 — 裁判所', url: 'https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_07/index.html' },
       { label: '配偶者に関する届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00016.html' },

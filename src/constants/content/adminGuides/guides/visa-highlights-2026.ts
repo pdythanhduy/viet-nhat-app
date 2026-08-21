@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaHighlights2026: AdminGuide = {
     id: 'visa-highlights-2026',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     title: 'Các diện visa đáng chú ý 2026',
     titleJp: '2026年の注目ビザ・在留資格',
     icon: 'sparkles',
@@ -39,8 +39,8 @@ const visaHighlights2026: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Visa và tư cách lưu trú do MOFA (Bộ Ngoại giao) + 出入国在留管理庁 (ISA / Bộ Tư pháp) phối hợp quản lý theo 入管法. MOFA cấp visa sticker (tại Đại sứ quán/Lãnh sự ở nước ngoài); ISA cấp tư cách lưu trú khi nhập cảnh + cấp COE (在留資格認定証明書) trong nước. Điều kiện + quốc gia áp dụng + mức thu nhập + thời gian lưu trú KHÁC nhau theo từng diện và CÓ THỂ thay đổi — phải xác nhận thông tin mới nhất trên trang MOFA + ISA tại thời điểm nộp hồ sơ. Digital Nomad: hiện áp dụng cho ~50+ quốc tịch chỉ định (Việt Nam KHÔNG nằm trong danh sách tại thời điểm 2026-05). J-Find / J-Skip: yêu cầu thu nhập / học vấn cụ thể — không phù hợp cho mọi đối tượng.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-12-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-10-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Đang phân vân giữa nhiều diện visa (vd J-Skip vs HSP thường vs work visa) → tham vấn 行政書士 chuyên 入管 để so sánh điều kiện cụ thể với hồ sơ cá nhân.',
@@ -49,6 +49,7 @@ const visaHighlights2026: AdminGuide = {
         'Start-up visa: yêu cầu được municipality cụ thể hỗ trợ — không phải mọi 市 / 都道府県 đều có chương trình. Hỏi trực tiếp municipality mục tiêu trước khi lên kế hoạch.',
         'Trường hợp đang ở Nhật + muốn đổi từ tư cách hiện tại sang J-Skip / J-Find / Digital Nomad → xem guide visa-status-change-detailed-scenarios; có thể không đơn giản.',
         'Nghe quảng cáo "visa mới năm 2026 ai cũng được" trên mạng xã hội / từ broker → CẢNH GIÁC, kiểm tra MOFA trực tiếp hoặc hỏi 行政書士. Đa số "visa siêu dễ" là thông tin sai hoặc lừa đảo.',
+        'Đang nhắm tới J-Skip hoặc 高度専門職 và định nộp hồ sơ cuối 2026 trở đi → Bộ Tư pháp đang cân nhắc siết tiêu chuẩn thu nhập/điểm của 高度専門職 (xem FAQ), nên xác nhận số liệu mới nhất trước khi nộp.',
       ],
     },
     quickAction: {
@@ -131,6 +132,10 @@ const visaHighlights2026: AdminGuide = {
         question: 'Digital Nomad visa cần điều kiện gì và có dành cho người Việt không?',
         answer: 'Điều kiện chính: thu nhập năm từ **¥10,000,000 (10 triệu yên)** trở lên từ nguồn ngoài Nhật Bản, bảo hiểm y tế/tai nạn tối thiểu ¥10M, và hộ chiếu từ một trong **50+ quốc gia** được chỉ định. Hiện **Việt Nam không nằm trong danh sách** này, nên người mang hộ chiếu Việt Nam chưa đủ điều kiện. Visa áp dụng từ tháng 3/2024, thời hạn 6 tháng, không gia hạn, không cho phép làm việc cho công ty Nhật.',
       },
+      {
+        question: '⚠️ MỚI 08/2026: J-Skip / 高度専門職 sắp bị siết điều kiện — ảnh hưởng gì?',
+        answer: 'ĐANG Ở GIAI ĐOẠN ĐỀ XUẤT, CHƯA CHÍNH THỨC. Báo Nikkei (28/07/2026, 14/08/2026) đưa tin Bộ Tư pháp cân nhắc nâng ngưỡng thu nhập và xem lại một số hạng mục điểm của 高度専門職, dự kiến sửa quy định cấp bộ (省令) trong năm tài khóa 2026 (trước cuối 03/2027). Tính đến 21/08/2026 chưa có số liệu/ngày hiệu lực chính thức và chưa rõ có áp dụng cho riêng J-Skip (vốn đã có ngưỡng thu nhập cố định ~2.000万/4.000万 yên) hay chỉ nhóm 高度専門職 tính điểm thông thường. Nếu bạn định nộp hồ sơ theo diện này cuối 2026 trở đi, nên xác nhận số liệu mới nhất tại ISA trước khi nộp.',
+      },
     ],
     counterPhrases: [
       {
@@ -163,7 +168,7 @@ const visaHighlights2026: AdminGuide = {
         term: 'J-Skip',
         reading: 'ジェイ・スキップ',
         meaningVi: 'Special Highly Skilled Professional (特別高度人材)',
-        noteVi: 'Tên thông dụng của diện 特別高度人材 (mở rộng của Highly Skilled Professional thường). Điều kiện: học vấn cao + lương cao (~¥20M+/năm tham khảo, MOFA xác nhận). Cấp 5 năm + path nhanh tới vĩnh trú. KHÔNG phải "visa siêu dễ" — chỉ phù hợp với người có hồ sơ rất mạnh. Phải có COE.',
+        noteVi: 'Tên thông dụng của diện 特別高度人材 (mở rộng của Highly Skilled Professional thường). Điều kiện: học vấn cao + lương cao (~¥20M+/năm tham khảo, MOFA xác nhận). Cấp 5 năm + path nhanh tới vĩnh trú. KHÔNG phải "visa siêu dễ" — chỉ phù hợp với người có hồ sơ rất mạnh. Phải có COE. Lưu ý 08/2026: Bộ Tư pháp đang cân nhắc siết chung tiêu chuẩn 高度専門職 (xem FAQ) — dự thảo, chưa chính thức.',
       },
       {
         term: 'J-Find',

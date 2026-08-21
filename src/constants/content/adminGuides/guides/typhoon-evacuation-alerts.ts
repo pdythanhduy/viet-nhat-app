@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const typhoonEvacuationAlerts: AdminGuide = {
   id: 'typhoon-evacuation-alerts',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Hướng dẫn khi bão / 警戒レベル ở Nhật',
   titleJp: '日本で台風・警戒レベルが出たとき',
   icon: 'rainy-outline',
   color: '#2980B9',
   description:
-    'Bão (台風) và mưa lớn (大雨) ở Nhật khác động đất ở chỗ có vài ngày để chuẩn bị. Hệ thống 警戒レベル 1–5 do 内閣府 thiết lập từ 5/2019, sửa 5/2021 (đổi 避難勧告 → 避難指示): cấp 3 = chuẩn bị di tản, cấp 4 = di tản NGAY, cấp 5 = nguy hiểm tính mạng đang xảy ra, có thể đã quá muộn ra ngoài an toàn — ở chỗ cao nhất trong nhà. Người Việt thường xem TV nhưng không hiểu — guide này giải nghĩa từng cấp.',
+    'Bão (台風) và mưa lớn (大雨) ở Nhật khác động đất ở chỗ có vài ngày để chuẩn bị. Hệ thống 警戒レベル 1–5 do 内閣府 thiết lập từ 5/2019, sửa 5/2021 (đổi 避難勧告 → 避難指示): cấp 3 = chuẩn bị di tản, cấp 4 = di tản NGAY, cấp 5 = nguy hiểm tính mạng đang xảy ra, có thể đã quá muộn ra ngoài an toàn — ở chỗ cao nhất trong nhà. Từ 29/05/2026, 気象庁 đổi TÊN các loại cảnh báo để gắn thẳng số cấp vào tên (vd 大雨警報 → 「レベル3大雨警報」, 土砂災害警戒情報 → 「レベル4土砂災害危険警報」) cho dễ hiểu hơn — bản chất 5 cấp hành động KHÔNG đổi. Người Việt thường xem TV nhưng không hiểu — guide này giải nghĩa từng cấp.',
   searchKeywords: [
     'bão',
     'mưa lớn',
@@ -35,13 +35,16 @@ const typhoonEvacuationAlerts: AdminGuide = {
     'trước bão',
     'sau bão',
     '罹災証明書',
+    'レベル3大雨警報',
+    'レベル4土砂災害危険警報',
+    '新たな防災気象情報',
   ],
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      'Hệ thống 警戒レベル 1–5 do 内閣府 thống nhất quốc gia từ 5/2019 (sửa 2021 đổi 避難勧告 → 避難指示). 気象庁 phát 警報 / 注意報. 避難指示 (lệnh di tản) do 市区町村 phát theo tình hình thực tế. 避難所 do 市区町村 chỉ định — vị trí khác nhau theo khu.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+      'Hệ thống 警戒レベル 1–5 do 内閣府 thống nhất quốc gia từ 5/2019 (sửa 2021 đổi 避難勧告 → 避難指示). 気象庁 phát 警報 / 注意報 — từ 29/05/2026 đổi tên gọi để gắn thẳng số cấp vào tên thông báo (vd 「レベル3大雨警報」, 「レベル4土砂災害危険警報」, 「〇〇川レベル5氾濫特別警報」), đồng thời bỏ 洪水注意報・警報 riêng (gộp vào hệ thống mới); 5 cấp hành động + ngưỡng 避難指示 (cấp 4) / 緊急安全確保 (cấp 5) KHÔNG đổi. 避難指示 (lệnh di tản) do 市区町村 phát theo tình hình thực tế. 避難所 do 市区町村 chỉ định — vị trí khác nhau theo khu.',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Sống ở khu có lịch sử lũ lụt / lở đất — kiểm tra hazard map kỹ trước mùa bão (tham khảo guide hazard-map-flood-tsunami-volcano).',
@@ -129,7 +132,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
     {
       question: '警戒レベル 1–5 nghĩa là gì?',
       answer:
-        'Cấp 1 (chú ý): theo dõi tin tức. Cấp 2 (注意): kiểm tra hành động di tản. Cấp 3 (高齢者等避難): người già / tàn tật / có thai bắt đầu di tản, người khác chuẩn bị. Cấp 4 (避難指示): TẤT CẢ phải di tản NGAY. Cấp 5 (緊急安全確保): nguy hiểm tính mạng, đã quá muộn ra ngoài, ở chỗ cao nhất trong nhà. Đây là hệ thống thống nhất quốc gia từ 5/2019, sửa 2021.',
+        'Cấp 1 (chú ý): theo dõi tin tức. Cấp 2 (注意): kiểm tra hành động di tản. Cấp 3 (高齢者等避難): người già / tàn tật / có thai bắt đầu di tản, người khác chuẩn bị. Cấp 4 (避難指示): TẤT CẢ phải di tản NGAY. Cấp 5 (緊急安全確保): nguy hiểm tính mạng, đã quá muộn ra ngoài, ở chỗ cao nhất trong nhà. Đây là hệ thống thống nhất quốc gia từ 5/2019, sửa 2021.\n\n**Cập nhật 29/05/2026**: 気象庁 đổi cách đặt tên cảnh báo — số cấp giờ nằm ngay trong tên (vd nghe TV sẽ thấy 「レベル3大雨警報」thay vì chỉ 「大雨警報」, hay 「レベル4土砂災害危険警報」thay 「土砂災害警戒情報」). Chỉ đổi TÊN gọi cho dễ hiểu — 5 cấp hành động + mức nguy hiểm KHÔNG đổi.',
     },
     {
       question: 'Tôi sống ở chung cư tầng 5 — có cần di tản khi cấp 4 không?',
@@ -207,7 +210,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
       term: '警戒レベル',
       reading: 'けいかいレベル',
       meaningVi: 'cấp cảnh báo thiên tai (5 cấp)',
-      noteVi: 'Hệ thống quốc gia 5 cấp do 内閣府 thống nhất 2019: Lv1 (chú ý) → Lv2 (chuẩn bị) → Lv3 (高齢者等避難 — người già nên đi) → Lv4 (避難指示 — TẤT CẢ phải đi) → Lv5 (緊急安全確保 — đã muộn, lo an toàn tại chỗ). Đừng đợi Lv4 nếu thuộc nhóm rủi ro.',
+      noteVi: 'Hệ thống quốc gia 5 cấp do 内閣府 thống nhất 2019: Lv1 (chú ý) → Lv2 (chuẩn bị) → Lv3 (高齢者等避難 — người già nên đi) → Lv4 (避難指示 — TẤT CẢ phải đi) → Lv5 (緊急安全確保 — đã muộn, lo an toàn tại chỗ). Từ 29/05/2026, 気象庁 gắn số cấp thẳng vào tên cảnh báo trên TV/app (vd 「レベル3大雨警報」「レベル4土砂災害危険警報」) — chỉ đổi tên, không đổi ngưỡng hành động. Đừng đợi Lv4 nếu thuộc nhóm rủi ro.',
     },
     {
       term: '避難指示',
@@ -231,7 +234,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
       term: '土砂災害警戒情報',
       reading: 'どしゃさいがいけいかいじょうほう',
       meaningVi: 'cảnh báo lở đất / sạt lở',
-      noteVi: 'Phát khi mưa lớn trên đất đã ngậm nước. Nếu nhà bạn gần đồi / vách / sông nhỏ → đi 避難所 NGAY khi nghe. Dấu hiệu cảnh báo thực địa: nước chảy ngầu lạ, đá rơi, đất nứt, tiếng "ゴゴゴ" từ đồi. Không quay lại lấy đồ.',
+      noteVi: 'Phát khi mưa lớn trên đất đã ngậm nước. Nếu nhà bạn gần đồi / vách / sông nhỏ → đi 避難所 NGAY khi nghe. Từ 29/05/2026 tên đổi thành 「レベル4土砂災害危険警報」(tách khỏi khung 大雨警報 cũ, thành cảnh báo độc lập cấp 4) — cùng mức nguy hiểm, chỉ đổi tên. Dấu hiệu cảnh báo thực địa: nước chảy ngầu lạ, đá rơi, đất nứt, tiếng "ゴゴゴ" từ đồi. Không quay lại lấy đồ.',
     },
     {
       term: '罹災証明書',
@@ -242,6 +245,7 @@ const typhoonEvacuationAlerts: AdminGuide = {
   ],
   officialLinks: [
     { label: '気象庁 (JMA)', url: 'https://www.jma.go.jp/' },
+    { label: '気象庁 — 新たな防災気象情報について（令和8年～）', url: 'https://www.jma.go.jp/jma/kishou/know/bosai/keiho-update2026/index.html' },
     { label: '内閣府（防災担当）— 避難情報に関するガイドライン（警戒レベル）', url: 'https://www.bousai.go.jp/oukyu/hinanjouhou/r3_hinanjouhou_guideline/' },
     { label: '内閣府（防災担当）— 被災者支援（罹災証明書の交付）', url: 'https://www.bousai.go.jp/taisaku/hisaisyagyousei/' },
     { label: '観光庁監修 — 災害時情報提供アプリ「Safety tips」', url: 'https://www.mlit.go.jp/kankocho/seisaku_seido/kihonkeikaku/jizoku_kankochi/anzenkakuho/inbound/tool.html' },

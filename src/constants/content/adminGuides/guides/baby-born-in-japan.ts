@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const babyBornInJapan: AdminGuide = {
     id: 'baby-born-in-japan',
     category: 'immigration',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Con sinh ở Nhật: quốc tịch, hộ chiếu, cư trú',
     titleJp: '日本で生まれた子どもの国籍・旅券・在留',
@@ -13,7 +13,7 @@ const babyBornInJapan: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Sau sinh có nhiều cơ quan: municipal office cho 出生届/cư trú, ISA cho 在留資格取得, cơ quan lãnh sự theo quốc tịch cha/mẹ cho khai sinh/hộ chiếu.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

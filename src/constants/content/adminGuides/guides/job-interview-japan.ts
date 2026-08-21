@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const jobInterviewJapan: AdminGuide = {
   id: 'job-interview-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Phỏng vấn xin việc ở Nhật (面接)',
   titleJp: '日本での就職・転職面接',
@@ -33,8 +33,8 @@ const jobInterviewJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '厚生労働省 có hướng dẫn 公正な採用選考 (tuyển dụng công bằng) cấm hỏi câu hỏi liên quan đến quê quán / tôn giáo / chính trị / tình trạng hôn nhân (đa số tình huống). Câu hỏi visa + tiếng Nhật được phép cho công ty xét tư cách lao động. Đây là tài liệu tham khảo về thông lệ — không phải tư vấn pháp lý.',
-    sourceVerifiedAt: '2026-05-10',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Bị hỏi câu hỏi không phù hợp (về tôn giáo, kế hoạch sinh con, etc.) — báo Hellowork hoặc 労働局.',

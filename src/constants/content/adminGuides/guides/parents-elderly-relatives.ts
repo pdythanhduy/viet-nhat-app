@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const parentsElderlyRelatives: AdminGuide = {
     id: 'parents-elderly-relatives',
     category: 'visa',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Bảo lãnh cha mẹ / người thân lớn tuổi',
     titleJp: '親の呼び寄せ・高齢親族の在留',
@@ -13,8 +13,8 @@ const parentsElderlyRelatives: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Ở dài hạn theo ngoại lệ cha mẹ của 高度専門職 do ISA xét; thăm thân ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xét theo hồ sơ visa ngắn hạn.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-12-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-10-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Gia đình muốn cha mẹ ở Nhật lâu dài nhưng bạn không thuộc 高度専門職 hoặc special highly skilled professional.',

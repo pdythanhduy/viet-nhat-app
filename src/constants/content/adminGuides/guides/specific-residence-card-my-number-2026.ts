@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const specificResidenceCardMyNumber2026: AdminGuide = {
   id: 'specific-residence-card-my-number-2026',
   category: 'immigration',
-  lastVerified: '2026-05-17',
+  lastVerified: '2026-08-21',
   priority: 'normal',
-  title: 'Thẻ cư trú hợp nhất My Number Card — 特定在留カード (từ 14/06/2026)',
+  title: 'Thẻ cư trú hợp nhất My Number Card — 特定在留カード (đang cấp từ 14/06/2026)',
   titleJp: '特定在留カード — 在留カードとマイナンバーカードの一体化',
   icon: 'card-outline',
   color: '#2980B9',
   description:
-    'Từ **14/06/2026**, ISA bắt đầu cấp **特定在留カード** — thẻ cư trú hợp nhất với chức năng **My Number Card** cho người nước ngoài thuộc nhóm điều kiện. Đây KHÔNG phải đổi bắt buộc ngay cho mọi người: thẻ 在留カード hiện hành tiếp tục có hiệu lực đến hạn. Người muốn xin chỉ làm khi gia hạn / đổi tư cách / cấp lại / đổi thông tin / khai báo tại 市役所 thuộc nhóm hướng dẫn. **Đây là tài liệu định hướng theo nguồn ISA tại thời điểm 2026-05-14** — chính sách đang trong giai đoạn vận hành, kiểm tra trang ISA + 市役所 trước khi nộp.',
+    'Từ **14/06/2026**, ISA Đã bắt đầu cấp **特定在留カード** — thẻ cư trú hợp nhất với chức năng **My Number Card** cho người nước ngoài thuộc nhóm điều kiện (đăng ký tại 住民基本台帳: trung/dài hạn + đặc biệt vĩnh trú). Đây KHÔNG phải đổi bắt buộc cho mọi người: thẻ 在留カード hiện hành tiếp tục có hiệu lực đến hạn. Người muốn xin chỉ làm khi gia hạn / đổi tư cách / cấp lại / đổi thông tin / một số khai báo tại 市役所 thuộc nhóm hướng dẫn — hiện chỉ nhận hồ sơ trực tiếp tại quầy, KHÔNG nộp online. **Đây là tài liệu định hướng theo nguồn ISA tại thời điểm 2026-08-21** — chính sách vẫn đang trong giai đoạn vận hành, kiểm tra trang ISA + 市役所 trước khi nộp.',
   searchKeywords: [
     '特定在留カード',
     'tokutei zairyu card',
@@ -27,9 +27,9 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      'ISA (出入国在留管理庁) quản — luật 出入国管理及び難民認定法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: ISA cấp 特定在留カード, 市役所 cấp My Number functions cho thẻ. Cải cách 2026 đang trong giai đoạn vận hành — quy định chi tiết theo nguồn ISA: 特定在留カード等交付申請 (https://www.moj.go.jp/isa/tokutei.html). Chính sách có thể cập nhật.',
-    sourceVerifiedAt: '2026-05-14',
-    nextReviewAt: '2026-09-01',
+      'ISA (出入国在留管理庁) quản — luật 出入国管理及び難民認定法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: ISA cấp 特定在留カード, 市役所/J-LIS cấp My Number functions cho thẻ. Đã vận hành thực tế từ 14/06/2026 (nhận hồ sơ từ 15/06/2026) — quy định chi tiết theo nguồn ISA: 特定在留カード等交付申請 (https://www.moj.go.jp/isa/tokutei.html). Chính sách vẫn đang trong giai đoạn vận hành, có thể cập nhật thêm (đặc biệt cho nhóm trẻ em / người chưa có My Number Card).',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2026-11-15',
     riskLevel: 'high',
     whenToAskExpert: [
       'Bạn nghe thông tin mạng xã hội hoặc môi giới nói "phải đổi 特定在留カード ngay" hoặc "không đổi sẽ bị deport" — KIỂM TRA với ISA trực tiếp.',
@@ -40,15 +40,15 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
   },
   quickAction: {
     deadline:
-      'KHÔNG có deadline đổi bắt buộc. Theo công bố ISA: thẻ 在留カード hiện hành **tiếp tục có hiệu lực đến hạn của thẻ** (không phải hủy ngay 14/06/2026). Người xin 特定在留カード chỉ làm khi có thủ tục đủ điều kiện (gia hạn / đổi tư cách / cấp lại / đổi thông tin / một số khai báo 市役所).',
+      'KHÔNG có deadline đổi bắt buộc. Theo công bố ISA: thẻ 在留カード hiện hành **tiếp tục có hiệu lực đến hạn của thẻ** (không bị hủy vì mốc 14/06/2026 đã qua). Người muốn xin 特定在留カード chỉ làm khi có thủ tục đủ điều kiện (gia hạn / đổi tư cách / cấp lại / đổi thông tin / một số khai báo 市役所) — hiện chỉ nộp trực tiếp tại quầy.',
     office:
-      '**ISA (出入国在留管理庁)** xét + cấp 特定在留カード (cùng quy trình gia hạn / đổi tư cách hiện hành — nộp tại 入管 hoặc 在留申請オンライン nếu thuộc đối tượng). **市役所/区役所** cấp My Number functions sau khi nhận thẻ. **KHÔNG có cửa sổ riêng** chỉ cho 特定在留カード — đi qua thủ tục gia hạn / đổi như thường.',
+      '**ISA (出入国在留管理庁)** xét + cấp 特定在留カード (đi kèm thủ tục gia hạn / đổi tư cách chính hiện hành — nộp trực tiếp tại 入管; phần chọn 特定在留カード hiện KHÔNG làm được qua 在留申請オンライン, dù thủ tục chính có thể nộp online). **市役所/区役所** (qua hệ thống J-LIS) cấp My Number functions sau khi nhận thẻ. **KHÔNG có cửa sổ riêng** chỉ cho 特定在留カード — đi qua thủ tục gia hạn / đổi như thường.',
     doNow: [
-      'Trước 14/06/2026: KHÔNG cần làm gì gấp. Đợi mốc rồi quyết định.',
-      'Sau 14/06/2026: KIỂM TRA trang ISA chính thức (https://www.moj.go.jp/isa/tokutei.html) để xem nhóm thủ tục được xin 特定在留カード.',
-      'Khi đến hạn gia hạn / đổi tư cách → hỏi ISA xem có thể đồng thời xin 特定在留カード hay không.',
-      'KHÔNG vội đổi nếu thẻ 在留カード hiện tại còn hạn dài — đợi đến chu kỳ gia hạn tự nhiên.',
-      'Tham vấn 行政書士 chuyên 入管 nếu tình huống cá nhân phức tạp (visa đặc biệt, chưa có My Number Card, đổi tên).',
+      'Mốc 14/06/2026 đã qua — ISA đang cấp 特定在留カード thực tế. KIỂM TRA trang ISA chính thức (https://www.moj.go.jp/isa/tokutei.html) để xem nhóm thủ tục được xin kèm.',
+      'Khi đến hạn gia hạn / đổi tư cách / cấp lại → hỏi trực tiếp tại quầy ISA xem có thể đồng thời xin 特定在留カード hay không (không chọn được qua online).',
+      'KHÔNG vội đổi nếu thẻ 在留カード hiện tại còn hạn dài — đợi đến chu kỳ gia hạn tự nhiên để tránh phí phát sinh + thời gian chờ thêm ~2 tuần.',
+      'Nếu cần thẻ gấp cho việc khác (vd sắp đi công tác/du lịch) — cân nhắc xin thẻ 在留カード thường trước, để 特定在留カード cho lần thủ tục sau (特定在留カード xử lý lâu hơn thẻ thường).',
+      'Tham vấn 行政書士 chuyên 入管 nếu tình huống cá nhân phức tạp (visa đặc biệt, chưa có My Number Card, đổi tên, trẻ em).',
     ],
     bring: [
       '在留カード hiện hành',
@@ -71,12 +71,11 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
     'KHÔNG dành cho: tư vấn pháp lý cá nhân khẩn cấp. Visa từ chối / case khó → 行政書士 chuyên 入管 hoặc 弁護士.',
   ],
   whenToDo: [
-    '**14/06/2026**: ISA bắt đầu cấp 特定在留カード — đây là mốc bắt đầu, KHÔNG phải mốc bắt buộc.',
-    'Trước 14/06/2026: KHÔNG cần làm gì gấp. Chỉ theo dõi cập nhật ISA.',
-    'Sau 14/06/2026: chỉ làm khi có thủ tục đủ điều kiện (gia hạn / đổi tư cách / cấp lại / etc.).',
-    'Khi 在留カード hiện hành sắp hết hạn (3 tháng trước) → kiểm tra với ISA xem có xin 特定在留カード kèm theo được không.',
-    'Khi xin 永住 / 高度専門職 / đổi loại visa → kiểm tra quy trình mới có cấp 特定在留カード hay không.',
-    'KHÔNG có deadline cuối cùng — chính sách giai đoạn chuyển tiếp dài.',
+    '**14/06/2026**: ISA đã bắt đầu cấp 特定在留カード — đây là mốc bắt đầu vận hành thực tế, KHÔNG phải mốc bắt buộc đổi thẻ.',
+    'Chỉ làm khi có thủ tục đủ điều kiện (gia hạn / đổi tư cách / cấp lại / đổi thông tin / một số khai báo 市役所).',
+    'Khi 在留カード hiện hành sắp hết hạn (3 tháng trước) → hỏi trực tiếp tại ISA xem có xin 特定在留カード kèm theo được không.',
+    'Khi xin 永住 / 高度専門職 / đổi loại visa → hỏi ISA xem thủ tục có cấp 特定在留カード hay không.',
+    'KHÔNG có deadline cuối cùng để đổi — chính sách giai đoạn chuyển tiếp vẫn đang diễn ra, cả 2 loại thẻ (在留カード thường + 特定在留カード) cùng tồn tại.',
   ],
   whereToDo: [
     '**ISA (出入国在留管理庁)** — 入管 cấp 都道府県 hoặc 在留申請オンライン:\n• 東京入管 (cho Tokyo + vùng).\n• 大阪入管 + 福岡入管 + Nagoya入管 + etc.\n• Hệ thống online mới từ 05/01/2026: 在留申請オンライン (nếu đối tượng được dùng).',
@@ -85,14 +84,14 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
     '**Trang chính thức**:\n• 特定在留カード等交付申請 — ISA: https://www.moj.go.jp/isa/tokutei.html\n• 在留カードとは？— ISA.\n• 新しい在留申請オンラインシステム — ISA: https://www.moj.go.jp/isa/11_00064.html',
   ],
   estimatedTime:
-    'KHÔNG có một mốc chung. Khi xin kèm gia hạn / đổi tư cách: theo thời gian chuẩn của thủ tục đó (2–4 tuần đến 3 tháng tùy thủ tục). Sau khi nhận thẻ: kích hoạt My Number functions tại 市役所 ~30 phút.',
+    'KHÔNG có một mốc chung cho thủ tục chính (gia hạn / đổi tư cách theo thời gian chuẩn của thủ tục đó). RIÊNG phần cấp 特定在留カード: theo ISA, cần thêm khoảng 2 TUẦN trở lên để xử lý — KHÔNG cấp ngay trong ngày tại quầy như thẻ 在留カード thường. Sau khi nhận thẻ: kích hoạt My Number functions tại 市役所 ~30 phút–1 giờ.',
   fees: [
-    'KHÔNG có "phí 特定在留カード riêng" công bố tại 2026-05-14.',
-    'Theo ISA, cấp 特定在留カード đi cùng thủ tục cấp thẻ thông thường: 在留期間更新 6,000円 (giấy) / 5,500円 (online), 在留資格変更 6,000円 (giấy) / 5,500円 (online) — đã tăng từ 01/04/2025 (xem guide `visa-fee-increase-2025-2026`).',
-    'Có thể có phí cụ thể cho việc tích hợp My Number Card — kiểm tra ISA tại ngày nộp.',
-    'My Number Card riêng (nếu chưa có): MIỄN PHÍ tại 市役所.',
-    'Cấp lại thẻ khi mất: ~1,000–2,000円 (theo quy định hiện hành cho 在留カード).',
-    'Phí cụ thể — tham khảo trang ISA + 市役所 tại ngày nộp.',
+    'Theo ISA (trang tokutei.html, xác nhận tại 2026-08-21): lần xin 特定在留カード ĐẦU TIÊN cùng một thủ tục đủ điều kiện sau 14/06/2026 thường MIỄN PHÍ (đi kèm phí của thủ tục chính — vd 在留期間更新 6,000円 giấy / 5,500円 online).',
+    'Từ lần sau (đổi lại / cấp lại thêm 特定在留カード ngoài phí thủ tục chính): phí tại 入管 khoảng 1,900円 (2,600円 nếu nhận qua bưu điện), cộng phí phía J-LIS/市役所 khoảng 600–800円 cho phần chức năng My Number — một số trường hợp chỉ phải trả một trong hai loại phí. Số chính xác tùy loại thủ tục — hỏi tại quầy trước khi nộp.',
+    'My Number Card riêng (nếu chưa có, không đổi sang 特定在留カード): vẫn MIỄN PHÍ tại 市役所.',
+    'Cấp lại 在留カード thường khi mất: ~1,000–2,000円 (theo quy định hiện hành).',
+    'LƯU Ý: phí thủ tục cư trú (在留期間更新, 在留資格変更) đang có một nghị định dự thảo thay đổi sang mức theo bậc, dự kiến hiệu lực ~2026-10-01 nhưng CHƯA công bố chính thức tại 2026-08-21 — xem guide [[visa-fee-increase-2025-2026]].',
+    'Phí cụ thể — luôn tham khảo trang ISA (https://www.moj.go.jp/isa/tokutei.html) + 市役所 tại ngày nộp vì có thể điều chỉnh.',
   ],
   documentsChecklist: [
     { label: '在留カード hiện hành', required: true, note: 'Bản gốc + bản sao.' },
@@ -116,7 +115,7 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
     {
       question: '特定在留カード là gì? Khác với 在留カード hiện tại thế nào?',
       answer:
-        '**特定在留カード** là thẻ cư trú có thêm **chức năng My Number Card** — nói cách khác, là sự hợp nhất 在留カード + マイナンバーカード thành 1 thẻ duy nhất.\n\n**ISA bắt đầu cấp từ 14/06/2026** cho người nước ngoài thuộc nhóm hướng dẫn.\n\n**So với 在留カード hiện hành**:\n\n• **在留カード hiện hành**:\n —Chỉ chức năng cư trú.\n —Cần My Number Card riêng (làm tại 市役所) cho dịch vụ chính phủ điện tử.\n —2 thẻ trong ví.\n\n• **特定在留カード mới**:\n —1 thẻ cho cả 2 chức năng.\n —Có thể đăng nhập マイナポータル qua chip NFC.\n —Dùng cho e-Tax, 健康保険証 tích hợp, v.v.\n —Tiện hơn — bớt 1 thẻ.\n\n**Theo ISA, KHÔNG bắt buộc đổi**:\n\n• Thẻ 在留カード hiện hành tiếp tục có hiệu lực đến hạn.\n• Người xin 特定在留カード chỉ làm khi có thủ tục đủ điều kiện (gia hạn, đổi tư cách, cấp lại, đổi thông tin, một số khai báo tại 市役所).\n• KHÔNG có cửa sổ riêng cho 特定在留カード — đi qua thủ tục gia hạn / đổi như thường.\n\n**Nguồn chính thức**: https://www.moj.go.jp/isa/tokutei.html — cập nhật trước khi nộp.',
+        '**特定在留カード** là thẻ cư trú có thêm **chức năng My Number Card** — nói cách khác, là sự hợp nhất 在留カード + マイナンバーカード thành 1 thẻ duy nhất.\n\n**ISA đã bắt đầu cấp từ 14/06/2026** (nhận hồ sơ từ 15/06/2026) cho người nước ngoài thuộc nhóm hướng dẫn — người có đăng ký trong 住民基本台帳 (trung/dài hạn hoặc đặc biệt vĩnh trú).\n\n**So với 在留カード hiện hành**:\n\n• **在留カード hiện hành**:\n —Chỉ chức năng cư trú.\n —Cần My Number Card riêng (làm tại 市役所) cho dịch vụ chính phủ điện tử.\n —2 thẻ trong ví.\n\n• **特定在留カード mới**:\n —1 thẻ cho cả 2 chức năng.\n —Có thể đăng nhập マイナポータル qua chip NFC.\n —Dùng cho e-Tax, 健康保険証 tích hợp, v.v.\n —Tiện hơn — bớt 1 thẻ.\n\n**Theo ISA, KHÔNG bắt buộc đổi**:\n\n• Thẻ 在留カード hiện hành tiếp tục có hiệu lực đến hạn.\n• Người xin 特定在留カード chỉ làm khi có thủ tục đủ điều kiện (gia hạn, đổi tư cách, cấp lại, đổi thông tin, một số khai báo tại 市役所) — hiện chỉ nộp trực tiếp tại quầy, KHÔNG chọn được qua 在留申請オンライン.\n• KHÔNG có cửa sổ riêng cho 特定在留カード — đi qua thủ tục gia hạn / đổi như thường.\n• Lần xin đầu tiên đi kèm thủ tục đủ điều kiện thường MIỄN PHÍ; các lần sau có thể phát sinh phí (~1,900円 tại 入管 + ~600–800円 phía J-LIS/市役所) — hỏi tại quầy.\n\n**Nguồn chính thức**: https://www.moj.go.jp/isa/tokutei.html — cập nhật trước khi nộp.',
     },
     {
       question: 'Tôi đã có My Number Card riêng + 在留カード riêng. Có phải đổi sang 特定在留カード không?',

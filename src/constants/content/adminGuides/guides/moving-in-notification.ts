@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const movingInNotification: AdminGuide = {
     id: 'moving-in-notification',
     category: 'daily-law',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Đăng ký cư trú khi mới chuyển đến',
     titleJp: '転入届・住民登録',
@@ -27,7 +27,7 @@ const movingInNotification: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: '転入届/転居届 do 市役所/区役所 xử lý theo hệ thống 住民基本台帳; với người trung/dài hạn, mang thẻ cư trú đến 市役所/区役所 cũng được coi là đã làm 届出 địa chỉ theo ISA.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const essentialAppsJapanLife: AdminGuide = {
   id: 'essential-apps-japan-life',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'App cần thiết khi sống ở Nhật — survival, payment, transport, communication',
   titleJp: '日本生活に必須のスマホアプリ',
@@ -35,12 +35,12 @@ const essentialAppsJapanLife: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'KHÔNG có quy định luật bắt buộc dùng app cụ thể nào. Một số dịch vụ chính phủ (マイナポータル, e-Tax) là chính thức MOJ/総務省/国税庁. PayPay, LINE và phần lớn payment apps là tư nhân. Kho ứng dụng điện thoại có điều kiện riêng. Phí điện thoại + data — tự thuê.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Vấn đề liên kết My Number Card với 健康保険証 / app banking → chuyên viên 役所 hoặc 銀行.',
-      'Bị hack tài khoản PayPay / LINE Pay → 警察 + công ty app + ngân hàng đóng băng ngay.',
+      'Bị hack tài khoản PayPay / app ngân hàng → 警察 + công ty app + ngân hàng đóng băng ngay.',
       'App ngân hàng từ chối đăng ký người nước ngoài → đổi ngân hàng (ゆうちょ / 楽天 / 住信SBI dễ hơn cho người nước ngoài).',
     ],
   },
@@ -128,7 +128,7 @@ const essentialAppsJapanLife: AdminGuide = {
     {
       question: 'PayPay vs LINE Pay vs Suica — chọn cái nào?',
       answer:
-        '**PayPay** (普及率 cao nhất):\n• QR code thanh toán ở 90% cửa hàng (combini, ăn uống, đại siêu thị, drugstore).\n• Đăng ký miễn phí với SIM Nhật + email.\n• Top-up từ ngân hàng / convenience store / ATM.\n• Chuyển tiền giữa bạn bè (送金).\n• **Khuyến nghị #1** cho người mới.\n\n**LINE Pay**:\n• Tích hợp với LINE.\n• Coverage ít hơn PayPay (~50% cửa hàng).\n• Tiện cho chuyển tiền giữa bạn LINE.\n• Đăng ký phức tạp hơn.\n• **Khuyến nghị #2** sau PayPay.\n\n**Suica (IC Card)** — KHÔNG phải app payment QR:\n• Thẻ vật lý hoặc Mobile Suica trên iPhone / Android Felica.\n• Dùng cho tàu / bus / convenience store / 自販機.\n• Top-up tại ga / convenience store.\n• Mobile Suica với Apple Pay / Google Pay tiện.\n• **Bắt buộc cho người đi tàu hằng ngày**.\n\n**ICOCA / PASMO / Kitaca / Manaca**: IC card khác của các 都道府県 — tương đương Suica.\n\n**au PAY / d払い / メルペイ / 楽天ペイ**: ít phổ biến hơn, dùng cho khuyến mãi đặc biệt.\n\n**Khuyến nghị thực tế cho người Việt**:\n\n1. **PayPay** (cài đầu tiên) — đủ cho thanh toán cửa hàng hằng ngày.\n2. **Mobile Suica / PASMO** (iPhone / Felica Android) — cho tàu + bus.\n3. **LINE Pay** (sau khi quen) — cho chuyển tiền bạn LINE.\n4. **App ngân hàng** — quản lý tài khoản gốc.\n\n**Cảnh báo**:\n• KHÔNG để PayPay balance lớn — chuyển sang ngân hàng thường xuyên.\n• Bật 2-step authentication.\n• KHÔNG share QR / số thẻ.',
+        '**Lưu ý quan trọng (cập nhật 2026)**: **LINE Pay đã NGỪNG hoạt động từ 30/4/2025** — công ty LINE Pay chính thức giải thể/sáp nhập vào LINE Yahoo từ 31/3/2026. KHÔNG còn đăng ký/dùng LINE Pay được nữa — mọi chức năng thanh toán đã chuyển sang **PayPay**. Nếu vẫn thấy hướng dẫn cũ nhắc "LINE Pay" — đó là thông tin lỗi thời, dùng PayPay thay thế.\n\n**PayPay** (普及率 cao nhất, lựa chọn payment app #1):\n• QR code thanh toán ở 90%+ cửa hàng (combini, ăn uống, đại siêu thị, drugstore).\n• Đăng ký miễn phí với SIM Nhật + email.\n• Top-up từ ngân hàng / convenience store / ATM.\n• Chuyển tiền giữa bạn bè (送金).\n• **Khuyến nghị #1 — gần như bắt buộc** cho người mới.\n\n**LINE + PayPay liên kết (mới từ mùa hè 2026)**:\n• LINE Yahoo + PayPay bắt đầu liên kết tài khoản từ khoảng mùa hè 2026: gửi tiền / chia tiền (割り勘) ngay trong khung chat LINE bằng số dư PayPay, cộng dồn tích hợp điểm LINEポイント ↔ PayPayポイント (điểm LINE cũ tự động chuyển thành PayPay Point không hạn dùng).\n• Đây KHÔNG phải là LINE Pay quay lại — chỉ là tính năng gửi tiền qua LINE dùng ví PayPay.\n\n**Suica (IC Card)** — KHÔNG phải app payment QR:\n• Thẻ vật lý hoặc Mobile Suica trên iPhone / Android Felica.\n• Dùng cho tàu / bus / convenience store / 自販機.\n• Top-up tại ga / convenience store.\n• Mobile Suica với Apple Pay / Google Pay tiện.\n• **Bắt buộc cho người đi tàu hằng ngày**.\n\n**ICOCA / PASMO / Kitaca / Manaca**: IC card khác của các 都道府県 — tương đương Suica.\n\n**au PAY / d払い / メルペイ / 楽天ペイ**: ít phổ biến hơn, dùng cho khuyến mãi đặc biệt.\n\n**Khuyến nghị thực tế cho người Việt**:\n\n1. **PayPay** (cài đầu tiên) — đủ cho thanh toán cửa hàng hằng ngày + chuyển tiền.\n2. **Mobile Suica / PASMO** (iPhone / Felica Android) — cho tàu + bus.\n3. **App ngân hàng** — quản lý tài khoản gốc.\n\n**Cảnh báo**:\n• KHÔNG để PayPay balance lớn — chuyển sang ngân hàng thường xuyên.\n• Bật 2-step authentication.\n• KHÔNG share QR / số thẻ.',
     },
     {
       question: 'Bị động đất / bão — app nào cảnh báo?',
@@ -192,7 +192,7 @@ const essentialAppsJapanLife: AdminGuide = {
   ],
   officialLinks: [
     { label: '総務省 (MIC) — 携帯電話 + デジタル', url: 'https://www.soumu.go.jp/' },
-    { label: 'マイナポータル', url: 'https://kojinbango-card.go.jp/' },
+    { label: 'マイナポータル', url: 'https://myna.go.jp/' },
     { label: '国税庁 — e-Tax', url: 'https://www.nta.go.jp/' },
     { label: '観光庁監修 — 災害時情報提供アプリ「Safety tips」', url: 'https://www.mlit.go.jp/kankocho/seisaku_seido/kihonkeikaku/jizoku_kankochi/anzenkakuho/inbound/tool.html' },
   ],

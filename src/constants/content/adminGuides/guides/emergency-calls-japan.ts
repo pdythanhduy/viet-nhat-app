@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const emergencyCallsJapan: AdminGuide = {
   id: 'emergency-calls-japan',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Gọi cấp cứu, cảnh sát ở Nhật',
   titleJp: '日本で緊急電話をかけるとき',
@@ -31,8 +31,8 @@ const emergencyCallsJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '119 (cấp cứu / cứu hỏa) do 総務省消防庁 quản lý toàn quốc. 110 (cảnh sát) do 警察庁 / 都道府県警察 quản lý toàn quốc. Các số tư vấn #7119 (y tế) và #9110 (cảnh sát không khẩn cấp) tùy khu vực — không phải tỉnh nào cũng có.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Sự cố nghiêm trọng (tai nạn lao động, cháy lớn, hành hung) — sau khi gọi 119/110, liên hệ FRESC hoặc luật sư để bảo vệ quyền.',
@@ -93,7 +93,7 @@ const emergencyCallsJapan: AdminGuide = {
   documentsChecklist: [
     { label: 'Điện thoại (gọi được)', required: true, note: 'Sạc pin tối thiểu, biết vị trí điện thoại trong nhà.' },
     { label: '在留カード', required: true, note: 'Xe cứu thương / cảnh sát hỏi danh tính khi đến.' },
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ. Cần khi nhập viện. Để gần cửa ra để dễ mang theo.' },
+    { label: 'マイナ保険証 / 資格確認書', required: true, note: 'Bất kỳ thẻ nào chứng minh tư cách bảo hiểm hợp lệ — từ 01/08/2026 chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026). Cần khi nhập viện. Để gần cửa ra để dễ mang theo.' },
     { label: 'Tiền mặt 1–3 vạn', required: false, note: 'Phòng khi viện ban đêm không nhận thẻ.' },
     { label: 'お薬手帳', required: false, note: 'Quan trọng nếu người bệnh có bệnh mạn tính / đang dùng nhiều thuốc.' },
   ],

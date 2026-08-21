@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const homeInternetWifiContracts: AdminGuide = {
   id: 'home-internet-wifi-contracts',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Internet, Wi-Fi nhà ở Nhật',
   titleJp: '日本で自宅のインターネットを契約するとき',
@@ -41,7 +41,7 @@ const homeInternetWifiContracts: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '通信契約 do 総務省 (MIC) quản lý chung. 電気通信事業法 quy định cách công ty viễn thông ký hợp đồng + khi nào cooling-off được áp dụng. 国民生活センター tiếp nhận khiếu nại consumer. Phí cụ thể + 解約金 thay đổi theo công ty + thời điểm — kiểm tra trang công ty trước khi ký.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japaneseSchoolSystemChildren: AdminGuide = {
   id: 'japanese-school-system-children',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Hệ thống trường học Nhật Bản cho con',
   titleJp: '日本の学校制度 — 外国人の子ども',
@@ -37,8 +37,8 @@ const japaneseSchoolSystemChildren: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '文部科学省 (MEXT) ban hành quy định chung về 学校教育法 trên toàn quốc. Mỗi 市区町村 (教育委員会) phụ trách phân bổ trường công + cấp 就学通知書. Quy trình + giấy tờ cụ thể tùy 市区町村. Trẻ em nước ngoài có quyền học trường công nhưng không bắt buộc — phải chủ động đăng ký với 市役所.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Con không nói được tiếng Nhật và bạn lo lắng việc học — hỏi 教育委員会 về 日本語指導 (xem guide japanese-language-support-children).',

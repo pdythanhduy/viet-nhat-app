@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const shortStayRelativeVisit: AdminGuide = {
     id: 'short-stay-relative-visit',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Visa du lịch / thăm thân ngắn hạn',
     titleJp: '短期滞在（親族・知人訪問 / 観光）',
@@ -42,7 +42,7 @@ const shortStayRelativeVisit: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Visa ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xử lý theo nơi cư trú của người xin; người mời tại Nhật chỉ chuẩn bị giấy mời/bảo lãnh nếu cần.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [

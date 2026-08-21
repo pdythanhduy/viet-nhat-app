@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const highlySkilledProfessional: AdminGuide = {
     id: 'highly-skilled-professional',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Visa 高度専門職 — Highly Skilled Professional',
     titleJp: '高度専門職ビザ・ポイント制度',
@@ -49,13 +49,14 @@ const highlySkilledProfessional: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '高度専門職 là tư cách lưu trú do ISA xét toàn quốc theo hệ thống điểm; công ty/trường chỉ cung cấp tài liệu chứng minh, không quyết định kết quả.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-12-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-10-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn đổi công ty, đổi nội dung hoạt động hoặc chuyển giữa 高度専門職1号イ/ロ/ハ.',
         'Điểm số sát 70/80, có bằng cấp hoặc kinh nghiệm nước ngoài khó chứng minh.',
         'Bạn muốn dùng 高度専門職 để rút ngắn 永住 hoặc mời cha mẹ/người giúp việc đi cùng.',
+        'Thu nhập hoặc điểm số của bạn sát ngưỡng hiện hành và bạn định nộp hồ sơ cuối 2026/đầu 2027 — Bộ Tư pháp đang cân nhắc siết tiêu chuẩn công nhận 高度専門職 (xem FAQ), nên xác nhận quy định mới nhất trước khi nộp.',
       ],
     },
     quickAction: {
@@ -119,6 +120,10 @@ const highlySkilledProfessional: AdminGuide = {
       {
         question: 'Đổi công ty khi đang 高度専門職1号 có chỉ cần báo cáo không?',
         answer: 'Không nên xử lý như visa lao động thường. ISA nêu việc thay đổi nội dung hoạt động hoặc cơ quan thuộc 高度専門職1号 có thể cần 在留資格変更許可申請, nên kiểm tra trước khi chuyển.',
+      },
+      {
+        question: '⚠️ MỚI 08/2026: Nghe nói tiêu chuẩn 高度専門職 sắp bị siết chặt — có ảnh hưởng ngay không?',
+        answer: 'ĐANG Ở GIAI ĐOẠN ĐỀ XUẤT, CHƯA CHÍNH THỨC. Theo báo Nikkei ngày 28/07/2026 và 14/08/2026, Bộ Tư pháp đang cân nhắc siết chuẩn công nhận 高度専門職: nâng ngưỡng thu nhập tối thiểu (chưa công bố số cụ thể) và xem lại một số hạng mục cộng điểm, dự kiến sửa 省令 (quy định cấp bộ) trong năm tài khóa 2026 (trước cuối 03/2027). Tính đến 21/08/2026, CHƯA có bản dự thảo chính thức và CHƯA mở lấy ý kiến công khai (パブリックコメント); bảng điểm 70/80 hiện tại vẫn giữ nguyên. Dự thảo tổng rà soát tiêu chuẩn 永住 công bố 04/08/2026 (guide xin vĩnh trú) vẫn ghi ưu đãi rút ngắn 永住 cho 高度専門職 (3 năm ở 70 điểm, 1 năm ở 80 điểm) là KHÔNG đổi. Nếu hồ sơ hoặc thu nhập của bạn sát ngưỡng hiện hành, nên hỏi ISA/行政書士 và theo dõi tin chính thức trước khi nộp cuối 2026 trở đi.',
       },
     ],
     counterPhrases: [

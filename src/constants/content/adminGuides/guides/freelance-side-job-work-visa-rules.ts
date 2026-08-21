@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const freelanceSideJobWorkVisaRules: AdminGuide = {
     id: 'freelance-side-job-work-visa-rules',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Freelance, side job, YouTube monetize — được không trên work visa?',
     titleJp: 'フリーランス・副業・YouTubeの就労ビザでの可否',
@@ -54,7 +54,7 @@ const freelanceSideJobWorkVisaRules: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Hoạt động ngoài phạm vi 在留資格 (work visa chính) BẮT BUỘC phải có 資格外活動許可 từ 出入国在留管理庁 theo 入管法 §19. Áp dụng cho mọi loại: arubaito / part-time / 副業 / 業務委託 / 個人事業 / YouTube monetize / Etsy bán hàng. 在留資格 dạng "技術・人文知識・国際業務" và tương tự CHỈ cho phép hoạt động đúng nội dung visa đó — mọi thứ khác cần phép riêng. Tax obligations là CƠ QUAN RIÊNG (税務署 / 厚生労働省) — KHÁC Nyukan, không liên thông tự động. Có 資格外活動 hợp lệ ≠ tự động OK về thuế; ngược lại đăng ký thuế đầy đủ ≠ tự động OK về visa. Cả hai phải đúng SONG SONG.',
-      sourceVerifiedAt: '2026-05-17',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -140,6 +140,10 @@ const freelanceSideJobWorkVisaRules: AdminGuide = {
       {
         question: 'Nếu bị phát hiện không xin phép mà làm freelance thì sao?',
         answer: 'Hậu quả tiềm năng (Nyukan quyết định từng case): (1) Phạt 不法就労 theo 入管法 §70 — tới 3 năm tù hoặc ¥300万, (2) Từ chối gia hạn / đổi tư cách lưu trú, (3) 退去強制 + 上陸拒否期間 5-10 năm trong trường hợp nghiêm trọng. Công ty/người trả tiền cũng có thể bị phạt 不法就労助長. Tham vấn 弁護士 ngay nếu bị Nyukan liên hệ.',
+      },
+      {
+        question: 'ISA có đang siết chặt kiểm tra freelance/side job không phép không?',
+        answer: 'Có xu hướng đó. Nội các quyết định 2026-07-28 (hiệu lực 2026-07-31) bổ sung 226 nhân sự cho ISA (176 điều tra + 50 cưỡng chế) để giảm tồn đọng các vụ vi phạm cư trú/lao động, trong đó có kiểm tra hoạt động 不法就労 (bao gồm freelance/業務委託 không có 資格外活動許可). Đây là lý do càng nên chủ động xin phép đúng quy trình thay vì chờ bị phát hiện. Xem thêm guide [[overstaying-illegal-stay-procedures]].',
       },
     ],
     counterPhrases: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const annualHealthCheckupKensin: AdminGuide = {
     id: 'annual-health-checkup-kensin',
     category: 'health',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Khám sức khỏe định kỳ miễn phí (健康診断)',
     titleJp: '定期健康診断・特定健診・事業者健診',
@@ -67,6 +67,7 @@ const annualHealthCheckupKensin: AdminGuide = {
     officialLinks: [
       { label: '健康診断を実施しましょう — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_05927.html' },
       { label: '労働安全衛生法のあらまし — 厚生労働省', url: 'https://www.check-roudou.mhlw.go.jp/law/anzen.html' },
+      { label: '労働安全衛生規則等の一部を改正する省令の施行等について（基発0428第9号）— 厚生労働省', url: 'https://www.mhlw.go.jp/content/001700009.pdf' },
     ],
     steps: [
       {
@@ -81,7 +82,7 @@ const annualHealthCheckupKensin: AdminGuide = {
         title: 'Tham gia khám và đọc kết quả',
         description: 'Sau khi khám, nhận phiếu kết quả (健診結果) — thường bằng tiếng Nhật. Các chỉ số quan trọng cần biết:\n\n• 血圧 (huyết áp): bình thường < 130/85 mmHg. Nếu ≥ 140/90 → trao đổi bác sĩ.\n• BMI và 腹囲 (vòng eo): nam > 85 cm / nữ > 90 cm là nguy cơ.\n• 血糖 (đường huyết lúc đói): bình thường < 100 mg/dL; HbA1c < 5.6%.\n• LDL (cholesterol xấu): bình thường < 120 mg/dL.\n• γ-GTP và GOT/GPT: chỉ số gan — thường tăng nếu uống nhiều rượu.\n• 尿酸 (acid uric): > 7.0 mg/dL → nguy cơ gout.\n\nKết quả có ký hiệu A–E hoặc ○/△/×: A hoặc ○ = bình thường; D hoặc × = cần tái khám.',
         documents: [],
-        tip: 'Giữ tất cả phiếu kết quả khám theo từng năm — bác sĩ sẽ dùng để so sánh xu hướng. Nếu chỉ số thay đổi đột ngột dù vẫn trong ngưỡng bình thường, đó cũng là tín hiệu cần chú ý.',
+        tip: 'Giữ tất cả phiếu kết quả khám theo từng năm — bác sĩ sẽ dùng để so sánh xu hướng. Nếu chỉ số thay đổi đột ngột dù vẫn trong ngưỡng bình thường, đó cũng là tín hiệu cần chú ý. LƯU Ý: theo thông báo 基発0428第9号 (28/04/2026) của 厚生労働省, từ 01/04/2027 phiếu 定期健康診断 sẽ đổi tên viết tắt chỉ số gan GOT/GPT/γ-GTP thành AST/ALT/γ-GT, đồng thời thêm xét nghiệm mới 血清クレアチニン (creatinine máu, tầm soát sớm bệnh thận mạn 慢性腎臓病/CKD) — lần sửa đổi hạng mục khám đầu tiên sau ~20 năm. Chưa áp dụng trong năm 2026.',
       },
       {
         step: 3,

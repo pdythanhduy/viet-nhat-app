@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaStatusChangeDetailedScenarios: AdminGuide = {
     id: 'visa-status-change-detailed-scenarios',
     category: 'immigration',
-    lastVerified: '2026-05-04',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Đổi tư cách lưu trú — các tình huống chi tiết',
     titleJp: '在留資格変更許可申請 — 状況別の詳細ガイド',
@@ -40,8 +40,8 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đổi tư cách lưu trú (在留資格変更許可申請) thuộc thẩm quyền 出入国在留管理庁 theo 入管法 §20. Điều kiện cấp tư cách mới + tài liệu yêu cầu + thời gian xét thay đổi theo loại tư cách + tình huống cá nhân + thay đổi chính sách của Nyukan tại thời điểm. KHÔNG có "mức lương tối thiểu" cố định cho work visa; KHÔNG có gì đảm bảo được duyệt — kết quả phụ thuộc đánh giá tổng thể của Nyukan. Phí dự kiến tăng đáng kể từ năm tài khóa 2026 — xác nhận thông tin mới nhất tại trang ISA trước khi nộp.',
-      sourceVerifiedAt: '2026-05-04',
-      nextReviewAt: '2026-12-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-09-25',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Sponsor company nhỏ / mới thành lập / có vấn đề tài chính → tham vấn 行政書士 chuyên 入管 về khả năng + cách trình bày hồ sơ.',
@@ -93,10 +93,11 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       'Trực tiếp, bưu điện hoặc trực tuyến (nếu áp dụng với loại visa).',
       'Công ty, trường hoặc người bảo lãnh có thể hỗ trợ chuẩn bị hồ sơ, nhưng người nộp phải nộp chính.',
     ],
-    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí: ~¥4,000-¥10,000 (2026 có tăng phí dự kiến).',
+    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí hiện tại: ¥6,000 (nộp giấy) / ¥5,500 (online); dự kiến đổi sang mức theo bậc từ 1/10/2026 (xem mục Phí).',
     fees: [
-      'Phí cơ bản: ~¥4,000 (2025), dự kiến tăng lên ~¥30,000-¥40,000 vào năm tài chính 2026 (từ 4/2026).',
+      'Phí cơ bản hiện tại (từ 4/2025): ¥6,000 khi nộp giấy, ¥5,500 khi nộp online.',
       'Phí không hoàn lại nếu bị từ chối.',
+      'Nghị định (政令) SỬA phí công bố dạng dự thảo 3/7/2026, lấy ý kiến đến 2/8/2026: dự kiến đổi tư cách/gia hạn sẽ tính theo bậc THỜI HẠN CÒN LẠI xin, khoảng ¥10,000 (≤3 tháng) đến ¥75,000 (5 năm trở lên); riêng vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; hiệu lực dự kiến vẫn là 1/10/2026 nhưng có thể thay đổi.',
       'Kiểm tra phí chính thức tại ISA trước khi nộp vì có thể thay đổi theo thời gian.',
     ],
     commonMistakes: [
@@ -109,7 +110,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     faq: [
       {
         question: 'Phí có tăng năm 2026 thực sự không?',
-        answer: 'Có. Theo thông báo ISA (tháng 1/2026), phí thủ tục sẽ tăng đáng kể từ năm tài chính 2026 (4/2026 trở đi). Dự kiến phí đổi tư cách sẽ từ ~¥30,000-¥40,000 (tăng từ ~¥4,000-¥10,000). Hãy kiểm tra chính thức tại ISA trước khi nộp.',
+        answer: 'Có, nhưng mức cụ thể KHÁC với đồn đoán ban đầu. Luật sửa 入管法 (thông qua 29/5/2026, công bố 5/6/2026, 令和8年法律第32号) chỉ quy định TRẦN tối đa cho phép (10万円/30万円) — đây KHÔNG phải mức phí thực tế. Nghị định (政令) dự thảo công bố 3/7/2026 (lấy ý kiến đến 2/8/2026) quy định mức THẤP HƠN nhiều: đổi/gia hạn tư cách theo bậc thời hạn còn lại xin — khoảng ¥10,000 đến ¥75,000; vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; mốc hiệu lực dự kiến vẫn là 1/10/2026. Phí hiện tại (trước khi đổi) là ¥6,000 (giấy) / ¥5,500 (online). Hãy kiểm tra chính thức tại ISA trước khi nộp.',
       },
       {
         question: 'Nộp đơn trước khi hết hạn tư cách hiện tại được không?',
@@ -211,7 +212,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: 'ISA — Đổi tư cách lưu trú', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
+      { label: 'ISA — Đổi tư cách lưu trú', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
       { label: 'ISA — Thông báo sửa phí 2026', url: 'https://www.moj.go.jp/isa/01_00518.html' },
       { label: 'OTIT — Từ 技能実習 sang 特定技能', url: 'https://www.otit.go.jp/' },
     ],
@@ -233,7 +234,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       {
         step: 3,
         title: 'Chuẩn bị giấy tờ cá nhân và nộp đơn',
-        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí:**\n- Hiện tại ~¥4,000-¥10,000 (2026 dự kiến tăng lên ~¥30,000-¥40,000)\n- Nộp tại lúc nộp đơn hoặc khi nhận kết quả tùy ISA',
+        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí:**\n- Hiện tại ¥6,000 (nộp giấy) / ¥5,500 (online)\n- Theo nghị định (政令) dự thảo (chưa chính thức tại 21/8/2026, dự kiến hiệu lực 1/10/2026): đổi sang mức theo bậc thời hạn còn lại xin, khoảng ¥10,000–¥75,000\n- Nộp tại lúc nộp đơn hoặc khi nhận kết quả tùy ISA',
         documents: ['Đơn xin (in từ ISA website)', 'Ảnh thẻ', 'Hộ chiếu', 'Thẻ cư trú', 'Tài liệu từ bước 2', 'Lý do giải trình (nếu cần)'],
         tip: 'Kiểm tra website ISA nơi bạn sẽ nộp để xác nhận loại tài liệu cần thiết — có thể khác nhau giữa các cục.',
       },

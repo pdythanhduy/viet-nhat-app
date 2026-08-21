@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const freeJapaneseClassesLocal: AdminGuide = {
   id: 'free-japanese-classes-local',
   category: 'daily-law',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Lớp tiếng Nhật miễn phí / giá rẻ ở địa phương',
   titleJp: '地域の日本語教室 — 無料・低価格',
@@ -33,8 +33,8 @@ const freeJapaneseClassesLocal: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '国際交流協会 (Prefectural International Exchange Association) cấp 都道府県 + 多文化共生センター cấp 市町村 thường có lớp tiếng Nhật. NPO + tôn giáo (chùa, nhà thờ) tự tổ chức. 文部科学省 (MEXT) có chính sách 日本語教育 nhưng triển khai cụ thể tùy địa phương. Coverage + lịch + phí khác nhau theo khu — kiểm tra với tổ chức cụ thể.',
-    sourceVerifiedAt: '2026-05-10',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Du học sinh cần visa 留学 — phải vào 日本語学校 chính thức (đắt + có quy trình visa). KHÔNG thay thế bằng lớp cộng đồng.',

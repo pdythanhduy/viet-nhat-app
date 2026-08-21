@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const myNumberCard: AdminGuide = {
     id: 'my-number-card',
     category: 'daily-law',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Đăng ký và nhận My Number Card',
     titleJp: 'マイナンバーカード申請・受取',
@@ -38,7 +38,7 @@ const myNumberCard: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do 市役所/区役所 nơi đăng ký cư trú xử lý.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -79,7 +79,7 @@ const myNumberCard: AdminGuide = {
       'Làm sớm — từ nộp đơn đến nhận thẻ thường ~1 tháng. Nếu cần gấp cho 確定申告 hoặc bảo hiểm, đừng để sát hạn.',
     ],
     whereToDo: [
-      'Nộp đơn: online qua điện thoại tại apply.jpki.go.jp (nhanh nhất, 10 phút) hoặc tại quầy 役所.',
+      'Nộp đơn: online qua điện thoại tại net.kojinbango-card.go.jp (nhanh nhất, 10 phút) hoặc tại quầy 役所.',
       'Nhận thẻ: tại 役所 (市区町村) theo ngày ghi trong 交付通知書 gửi về nhà.',
     ],
     estimatedTime: 'Nộp đơn: 10–15 phút qua điện thoại. Chờ thư 交付通知書: thường khoảng 1 tháng, có thể lâu hơn tùy địa phương/hồ sơ. Đến 役所 nhận thẻ: 20–40 phút.',
@@ -216,7 +216,7 @@ const myNumberCard: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: 'Nộp đơn online (スマートフォン・PC)', url: 'https://apply.jpki.go.jp/' },
+      { label: 'Nộp đơn online (スマートフォン・PC)', url: 'https://net.kojinbango-card.go.jp/' },
       { label: 'Hướng dẫn chính thức マイナンバーカード申請', url: 'https://www.kojinbango-card.go.jp/en-kofushinse/' },
       { label: '更新手続きについて — マイナンバーカード総合サイト', url: 'https://www.kojinbango-card.go.jp/card/renewal/' },
       { label: 'マイナンバーカードを作って、便利に生活しましょう！— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/mynumbercard.html' },
@@ -235,7 +235,7 @@ const myNumberCard: AdminGuide = {
         step: 2,
         title: 'Nộp đơn qua điện thoại (10 phút)',
         description:
-          'Bước nộp đơn cụ thể:\n\n① Tìm 申請書ID — dãy 23 chữ số in trên tờ giấy 個人番号通知書 (gửi về nhà khi đăng ký 住民票 lần đầu). Không có → đến 役所 lấy tờ mới.\n\n② Mở app マイナポータル hoặc vào apply.jpki.go.jp.\n\n③ Chọn マイナンバーカードを申請する → nhập địa chỉ email → bấm link xác nhận trong email.\n\n④ Nhập 申請書ID (23 chữ số).\n\n⑤ Upload ảnh (hoặc chụp thẳng trong app).\n\n⑥ Xác nhận thông tin: họ tên, ngày sinh, địa chỉ — phải khớp với 在留カード.\n\n⑦ Bấm 申請する → nhận email xác nhận là đã nộp xong.',
+          'Bước nộp đơn cụ thể:\n\n① Tìm 申請書ID — dãy 23 chữ số in trên tờ giấy 個人番号通知書 (gửi về nhà khi đăng ký 住民票 lần đầu). Không có → đến 役所 lấy tờ mới.\n\n② Mở app マイナポータル hoặc vào net.kojinbango-card.go.jp.\n\n③ Chọn マイナンバーカードを申請する → nhập địa chỉ email → bấm link xác nhận trong email.\n\n④ Nhập 申請書ID (23 chữ số).\n\n⑤ Upload ảnh (hoặc chụp thẳng trong app).\n\n⑥ Xác nhận thông tin: họ tên, ngày sinh, địa chỉ — phải khớp với 在留カード.\n\n⑦ Bấm 申請する → nhận email xác nhận là đã nộp xong.',
         documents: ['申請書ID (23 chữ số từ 個人番号通知書)', 'Ảnh chân dung', 'Địa chỉ email'],
         tip: 'Thông tin điền phải khớp chính xác với 在留カード. Tên, địa chỉ sai một ký tự sẽ bị từ chối và phải nộp lại từ đầu.',
         image: require('../../../../../assets/content/daily-life/ag_mynumber-card_s2.jpg'),
@@ -245,7 +245,7 @@ const myNumberCard: AdminGuide = {
         step: 3,
         title: 'Chờ thư 交付通知書 gửi về nhà',
         description:
-          '市役所/区役所 gửi 交付通知書 (giấy báo đến lấy) khi thẻ đã sẵn sàng. Trang chính thức nêu thời gian thường khoảng 1 tháng từ lúc nộp đến khi 市役所/区役所 gửi thông báo, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đông hồ sơ.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — quá hạn có thể phải hỏi 市役所/区役所 để xử lý lại.\n\nTra trạng thái đơn: vào apply.jpki.go.jp → dùng email đã đăng ký.',
+          '市役所/区役所 gửi 交付通知書 (giấy báo đến lấy) khi thẻ đã sẵn sàng. Trang chính thức nêu thời gian thường khoảng 1 tháng từ lúc nộp đến khi 市役所/区役所 gửi thông báo, nhưng có thể lâu hơn nếu ảnh/hồ sơ lỗi hoặc địa phương đông hồ sơ.\n\nĐiều quan trọng:\n• Phong bì ghi 転送不要 — nếu bạn chuyển nhà giữa chừng, thư sẽ bị trả về chứ không chuyển tiếp.\n• Nếu chuyển nhà sau khi đã nộp đơn: đổi địa chỉ tại 役所 trước, rồi thông báo lại với bộ phận マイナンバーカード để gửi thư đúng địa chỉ mới.\n• Thư có ghi hạn đến lấy — quá hạn có thể phải hỏi 市役所/区役所 để xử lý lại.\n\nTra trạng thái đơn: vào status.kojinbango-card.go.jp → dùng 申請書ID 23 chữ số + ngày sinh.',
         documents: [],
         tip: 'Nếu sau 2 tháng chưa nhận thư, tra trạng thái online trước khi đến 役所 hỏi — thường có cập nhật trên hệ thống.',
       },

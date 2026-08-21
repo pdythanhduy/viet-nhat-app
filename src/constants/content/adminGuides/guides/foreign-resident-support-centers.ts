@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const foreignResidentSupportCenters: AdminGuide = {
   id: 'foreign-resident-support-centers',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Trung tâm hỗ trợ người nước ngoài (多文化共生)',
   titleJp: '外国人住民支援センター — 多文化共生',
@@ -35,7 +35,7 @@ const foreignResidentSupportCenters: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       'FRESC (Foreign Residents Support Center) thuộc 出入国在留管理庁 — cấp quốc gia, có nhiều ngôn ngữ. 多文化共生センター + 国際交流協会 do từng 都道府県 / 市町村 vận hành — coverage + ngôn ngữ + giờ làm việc rất khác nhau theo khu. Một số NPO + tổ chức tôn giáo cũng có hỗ trợ — không thuộc chính phủ. Đa số dịch vụ MIỄN PHÍ — nhưng nội dung tư vấn cụ thể (luật sư / bác sĩ / kế toán) có thể tính phí riêng.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [

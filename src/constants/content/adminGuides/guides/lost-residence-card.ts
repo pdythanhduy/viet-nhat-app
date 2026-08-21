@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const lostResidenceCard: AdminGuide = {
     id: 'lost-residence-card',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Mất thẻ cư trú — xin cấp lại',
     titleJp: '在留カードの再交付申請（紛失・盗難・滅失）',
@@ -51,7 +51,7 @@ const lostResidenceCard: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留カード再交付申請 do ISA (出入国在留管理庁) xử lý toàn quốc. Nếu mất kèm các giấy tờ khác (hộ chiếu, My Number Card), mỗi loại phải xử lý riêng.',
-      sourceVerifiedAt: '2026-05-09',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -98,8 +98,9 @@ const lostResidenceCard: AdminGuide = {
     ],
     estimatedTime: 'Theo ISA, hồ sơ đầy đủ thường được xử lý trong ngày — bạn có thể nhận thẻ mới ngay tại quầy. Nếu hồ sơ thiếu giấy tờ, có thể phải đến lại lần 2.',
     fees: [
-      'Theo trang ISA, thủ tục 再交付申請 do mất / trộm / hư hỏng KHÔNG có phí (miễn phí).',
+      'Theo trang ISA, thủ tục 再交付申請 do mất / trộm / hư hỏng KHÔNG có phí (miễn phí) khi cấp lại 在留カード dạng thường.',
       'Tuy nhiên nếu nguyên nhân là sơ suất rõ rệt của bản thân, ISA có thể yêu cầu giải trình. Phí có thể thay đổi — kiểm tra link chính thức trước khi đi.',
+      'Từ 14/06/2026, nếu bạn chọn nhận **特定在留カード** (thẻ tích hợp My Number) thay vì thẻ thường khi cấp lại, có thể phát sinh phí riêng cho phần tích hợp My Number (theo ISA công bố: khoảng 1,900円 tại 入管, cộng thêm phần J-LIS khoảng 600–800円 nếu áp dụng) — hỏi rõ tại quầy trước khi chọn. Xem chi tiết ở guide [[specific-residence-card-my-number-2026]].',
     ],
     documentsChecklist: [
       { label: 'Hộ chiếu (gốc, còn hiệu lực)', required: true },
@@ -136,6 +137,10 @@ const lostResidenceCard: AdminGuide = {
       {
         question: 'Tôi tìm lại được thẻ sau khi đã làm thẻ mới — phải làm gì?',
         answer: 'Mang thẻ cũ tìm lại được đến 入国管理局 trả lại — họ sẽ thu hồi. Không tự ý cắt/vứt thẻ cũ vì có thể bị xem là vi phạm.',
+      },
+      {
+        question: 'Khi xin cấp lại, tôi có thể nhận luôn 特定在留カード (thẻ tích hợp My Number) không?',
+        answer: 'Có thể. Theo ISA, việc xin cấp lại thẻ do mất/trộm/hỏng là một trong các thủ tục đủ điều kiện để xin 特定在留カード kể từ 14/06/2026 — KHÔNG bắt buộc, chỉ là lựa chọn thêm khi bạn đến quầy. Xử lý 特定在留カード thường mất thêm thời gian (khoảng 2 tuần trở lên, không cấp ngay trong ngày như thẻ thường) và hiện chỉ nhận hồ sơ trực tiếp tại quầy (chưa hỗ trợ nộp online cho phần này). Nếu bạn cần thẻ ngay để dùng cho việc khác, cân nhắc xin thẻ 在留カード thường trước, để dành việc đổi sang 特定在留カード cho lần gia hạn sau. Chi tiết ở guide [[specific-residence-card-my-number-2026]].',
       },
     ],
     counterPhrases: [

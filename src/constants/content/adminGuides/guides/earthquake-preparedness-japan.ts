@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const earthquakePreparednessJapan: AdminGuide = {
   id: 'earthquake-preparedness-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Hướng dẫn khi động đất ở Nhật',
   titleJp: '日本で地震が起きたとき',
@@ -38,7 +38,7 @@ const earthquakePreparednessJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '気象庁 phát 緊急地震速報 toàn quốc. 内閣府防災 và 消防庁 ban hành hướng dẫn phòng chống thiên tai chuẩn quốc gia. 避難所 (nơi tạm lánh) và 避難場所 (điểm tập trung) do từng 市区町村 chỉ định — vị trí khác nhau theo khu, kiểm tra bản đồ phòng tai trước khi cần.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

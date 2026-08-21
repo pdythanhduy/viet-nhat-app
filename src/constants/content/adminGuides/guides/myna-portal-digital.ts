@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const mynaPortalDigital: AdminGuide = {
     id: 'myna-portal-digital',
     category: 'daily-law',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'My Number Card số hóa — マイナポータル',
     titleJp: 'マイナンバーカード・マイナ保険証・マイナポータル',
@@ -36,8 +36,8 @@ const mynaPortalDigital: AdminGuide = {
       appliesFrom: '2025-12-02',
       jurisdiction: 'national',
       jurisdictionNote: 'マイナ保険証 là hệ thống toàn quốc, nhưng cấp 資格確認書 và cập nhật bảo hiểm vẫn phụ thuộc bên bảo hiểm/municipal office/công ty.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-02-01',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn đổi việc, đổi bảo hiểm hoặc chuyển địa phương nhưng マイナ保険証 chưa phản ánh bảo hiểm mới.',

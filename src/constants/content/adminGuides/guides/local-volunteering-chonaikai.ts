@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const localVolunteeringChonaikai: AdminGuide = {
   id: 'local-volunteering-chonaikai',
   category: 'daily-law',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Tình nguyện + 町内会 — hoạt động cộng đồng địa phương',
   titleJp: '町内会・自治会・地域ボランティア',
@@ -33,8 +33,8 @@ const localVolunteeringChonaikai: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '町内会 / 自治会 KHÔNG do luật bắt buộc — là tổ chức tự nguyện. Mỗi khu có 規約 (quy tắc) riêng. Phí + hoạt động khác nhau theo 都道府県 / 市町村 / 町. Một số chung cư / nhà thuê tự yêu cầu join 町内会 khi ký hợp đồng — đây là yêu cầu của chủ nhà / 不動産, không phải luật. NPO volunteer cũng tự nguyện, đa dạng. Đây là tài liệu tham khảo về thông lệ — không phải tư vấn pháp lý.',
-    sourceVerifiedAt: '2026-05-10',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Chủ nhà ép tham gia + đóng phí cao bất thường — kiểm tra với 国民生活センター 188 hoặc luật sư về quyền tenant.',

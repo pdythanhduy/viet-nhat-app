@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const tokuteiKatsudo46JobHunt: AdminGuide = {
     id: 'tokutei-katsudo-46-job-hunt',
     category: 'visa',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Visa tìm việc sau tốt nghiệp tại Nhật (特定活動)',
     titleJp: '卒業後の継続就職活動のための特定活動',
@@ -44,7 +44,7 @@ const tokuteiKatsudo46JobHunt: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '継続就職活動のための特定活動 do ISA xét; trường đã tốt nghiệp chỉ cấp 推薦状 và hỗ trợ chứng minh quá trình tìm việc.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

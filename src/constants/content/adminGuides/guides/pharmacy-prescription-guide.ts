@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pharmacyPrescriptionGuide: AdminGuide = {
   id: 'pharmacy-prescription-guide',
   category: 'health',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Nhà thuốc + toa thuốc + cách nhận thuốc ở Nhật',
   titleJp: '薬局・処方箋・お薬の受け取り方',
@@ -35,8 +35,8 @@ const pharmacyPrescriptionGuide: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '薬局 do 厚生労働省 quản lý qua 薬事法 (薬機法). 処方箋 phải kê bởi bác sĩ có giấy phép, có hạn 4 ngày kể từ ngày kê (theo 医師法 + 薬剤師法). 一般用医薬品 (OTC) chia 第1類 / 第2類 / 第3類 — yêu cầu khác nhau khi mua. お薬手帳 do 日本薬剤師会 promote, miễn phí. Đây là tài liệu tham khảo — không thay thế tư vấn 薬剤師 / bác sĩ cá nhân.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'low',
     whenToAskExpert: [
       'Tác dụng phụ thuốc nặng (phát ban, khó thở, sưng môi/lưỡi) — gọi 119 NGAY hoặc quay lại bác sĩ.',
@@ -103,7 +103,7 @@ const pharmacyPrescriptionGuide: AdminGuide = {
   ],
   documentsChecklist: [
     { label: '処方箋 (gốc)', required: true, note: 'KHÔNG photocopy. Có hạn 4 ngày — quá thì phải đi khám lại.' },
-    { label: '保険証 / マイナンバーカード / 資格確認書', required: true, note: 'Để dùng bảo hiểm. Thiếu = trả 100%.' },
+    { label: 'マイナ保険証 / 資格確認書', required: true, note: 'Để dùng bảo hiểm. Từ 01/08/2026, đa số 保険証 giấy đã hết hạn — chủ yếu dùng マイナ保険証 hoặc 資格確認書 (xem guide myna-health-insurance-card-2026). Thiếu = trả 100%.' },
     { label: 'お薬手帳', required: false, note: 'Sổ thuốc — 薬剤師 dán nhãn thuốc. Mang theo lần sau giúp tránh tương tác.' },
     { label: 'Tiền mặt 1,000–5,000円', required: true, note: 'Một số 薬局 có nhận thẻ. Lần đầu thường mang tiền mặt cho chắc.' },
     { label: 'Danh sách dị ứng + thuốc đang dùng', required: false, note: 'Nếu chưa có お薬手帳 — tự liệt kê vào giấy.' },

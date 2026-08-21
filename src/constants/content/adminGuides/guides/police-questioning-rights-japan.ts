@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const policeQuestioningRightsJapan: AdminGuide = {
   id: 'police-questioning-rights-japan',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Khi cảnh sát hỏi / triệu tập / bắt giữ — quyền của bạn',
   titleJp: '警察に呼ばれた・取り調べを受けたとき',
@@ -36,8 +36,8 @@ const policeQuestioningRightsJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Quyền cơ bản của người bị nghi vấn (黙秘権, 弁護士接見権, v.v.) do 刑事訴訟法 (Bộ luật Tố tụng hình sự) quy định toàn quốc. 警察庁 + 都道府県警察 thực thi. Quyền liên hệ Đại sứ quán dựa trên Vienna Convention on Consular Relations 1963. Đây là TÀI LIỆU THAM KHẢO — không phải tư vấn pháp lý cá nhân. Trường hợp cụ thể cần luật sư.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'high',
     whenToAskExpert: [
       'Bị giữ tại 警察署 quá vài giờ — yêu cầu liên hệ luật sư + Đại sứ quán Việt Nam ngay.',

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const residenceCard: AdminGuide = {
     id: 'residence-card',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Gia hạn visa / thời hạn lưu trú',
     titleJp: '在留期間更新許可申請',
@@ -43,8 +43,8 @@ const residenceCard: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Thủ tục 在留期間更新許可申請 do ISA xử lý toàn quốc; giấy tờ phụ thuộc tư cách lưu trú, nơi cư trú/làm việc/học tập và tình trạng hồ sơ.',
-      sourceVerifiedAt: '2026-05-07',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-09-25',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn sắp hết hạn lưu trú nhưng đã đổi việc, nghỉ học, nợ thuế/bảo hiểm hoặc hoạt động thực tế khác với tư cách đang có.',
@@ -93,6 +93,7 @@ const residenceCard: AdminGuide = {
       'Nếu được cấp phép: 6.000 yên khi làm thủ tục thường, hoặc 5.500 yên nếu là online application theo mức ISA áp dụng từ 01/04/2025.',
       'Không nên dựa vào mức phí cũ 4.000 yên hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả.',
       'Thông thường phí được nộp khi nhận kết quả được cấp phép, không phải lúc nộp hồ sơ.',
+      'LƯU Ý: Chính phủ đang lấy ý kiến một nghị định (政令) mới quy định phí theo BẬC (khoảng 1万–7.5万円 tùy thời hạn còn lại của tư cách lưu trú, thay cho mức cố định 6.000/5.500 yên hiện tại), dự kiến hiệu lực từ 2026-10-01 nhưng tại 2026-08-21 vẫn CHƯA công bố chính thức trên 官報. Nếu bạn nộp hồ sơ gần mốc 10/2026, kiểm tra kỹ mức phí mới nhất tại ISA. Xem chi tiết ở guide [[visa-fee-increase-2025-2026]].',
     ],
     documentsChecklist: [
       { label: 'Đơn xin gia hạn thời hạn lưu trú', required: true, note: 'Tải đúng mẫu theo tư cách lưu trú từ trang ISA.' },
@@ -142,6 +143,10 @@ const residenceCard: AdminGuide = {
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
         answer: 'Không nên để đến ngày cuối. ISA nêu hệ thống online không thể dùng để nộp vào đúng ngày hết hạn lưu trú; khi đó cần xử lý tại cục xuất nhập cảnh có thẩm quyền.',
+      },
+      {
+        question: 'Gia hạn visa xong, thẻ mới có phải là 特定在留カード (tích hợp My Number) không?',
+        answer: 'Không tự động. Kể từ 14/06/2026, gia hạn thời hạn lưu trú là một trong các thủ tục đủ điều kiện để BẠN chọn xin 特定在留カード thay cho thẻ 在留カード thường — nhưng đây là lựa chọn thêm, không bắt buộc, và hiện phải yêu cầu trực tiếp tại quầy ISA (chưa hỗ trợ chọn qua hệ thống 在留申請オンライン). Việc cấp 特定在留カード có thể mất thêm thời gian xử lý so với thẻ thường. Xem chi tiết ở guide [[specific-residence-card-my-number-2026]].',
       },
     ],
     scenarios: [

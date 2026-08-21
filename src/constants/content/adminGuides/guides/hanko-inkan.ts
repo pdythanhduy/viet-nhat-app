@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const hankoInkan: AdminGuide = {
     id: 'hanko-inkan',
     category: 'daily-law',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Con dấu cá nhân (Hanko / Inkan)',
     titleJp: '印鑑・はんこの作り方と使い方',
@@ -15,7 +15,7 @@ const hankoInkan: AdminGuide = {
       jurisdiction: 'municipality',
       jurisdictionNote:
         '印鑑登録 là thủ tục theo municipal office nơi bạn có住民登録; điều kiện về tên, kích thước, chất liệu và dấu được/không được đăng ký khác nhau theo địa phương. Việc ngân hàng, chủ nhà hoặc công ty yêu cầu dấu hay chữ ký là quy trình của từng bên nhận hồ sơ.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
       whenToAskExpert: [

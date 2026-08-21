@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japaneseResumeRirekisho: AdminGuide = {
   id: 'japanese-resume-rirekisho',
   category: 'daily-law',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Cách viết CV Nhật (履歴書 + 職務経歴書)',
   titleJp: '履歴書・職務経歴書の書き方',
@@ -34,8 +34,8 @@ const japaneseResumeRirekisho: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '履歴書 form chuẩn theo JIS Z8303 (Japanese Industrial Standards) — toàn quốc. 厚生労働省 có hướng dẫn về 公正な採用選考 (tuyển dụng công bằng) khuyến nghị form chuẩn từ ~2020 (bỏ ảnh, bỏ 性別, bỏ 通勤時間 trong một số trường hợp). Tuy nhiên đa số công ty vẫn dùng form truyền thống. Đây là tài liệu tham khảo về thông lệ — không phải tư vấn cá nhân.',
-    sourceVerifiedAt: '2026-05-10',
-    nextReviewAt: '2026-12-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2027-02-01',
     riskLevel: 'low',
     whenToAskExpert: [
       'Xin việc visa cụ thể (高度専門職, 経営・管理) — cần luật sư / 行政書士 review CV cùng visa.',

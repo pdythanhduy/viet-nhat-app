@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const marriageProceduresJapan: AdminGuide = {
     id: 'marriage-procedures-japan',
     category: 'immigration',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Thủ tục kết hôn tại Nhật',
     titleJp: '婚姻届・在日外国人の結婚手続き',
@@ -13,7 +13,7 @@ const marriageProceduresJapan: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: '婚姻届 tại Nhật do municipal office xử lý theo 民法/戸籍法; ghi nhận phía Việt Nam do cơ quan lãnh sự Việt Nam hoặc cơ quan hộ tịch Việt Nam; đổi tư cách lưu trú sau kết hôn là thủ tục ISA riêng.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [

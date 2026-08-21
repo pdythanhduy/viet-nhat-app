@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const hazardMapFloodTsunamiVolcano: AdminGuide = {
   id: 'hazard-map-flood-tsunami-volcano',
   category: 'daily-law',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bản đồ phòng tai (ハザードマップ) — lũ / sóng thần / núi lửa',
   titleJp: 'ハザードマップで自分の地域のリスクを確認',
@@ -37,7 +37,7 @@ const hazardMapFloodTsunamiVolcano: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '国土交通省 và 内閣府防災 phát hành 重ねるハザードマップ tổng hợp toàn quốc. Mỗi 市区町村 phát hành 防災マップ chi tiết khu mình — bản đồ + 避難所 list. Phát miễn phí ở 市役所 / 区役所 và trên trang web. 火山 do 気象庁 monitor.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [

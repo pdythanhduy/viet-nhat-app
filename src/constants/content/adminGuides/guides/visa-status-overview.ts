@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaStatusOverview: AdminGuide = {
     id: 'visa-status-overview',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Các loại visa / tư cách lưu trú',
     titleJp: '在留資格の種類',
@@ -36,11 +36,13 @@ const visaStatusOverview: AdminGuide = {
       'specified skilled worker',
       'technical intern',
       'visa types Japan',
+      '特定在留カード',
+      'tokutei zairyuu kaado',
     ],
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Tư cách lưu trú do ISA quản lý toàn quốc; guide này chỉ định hướng phạm vi hoạt động, không thay cho quyết định hồ sơ cá nhân.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -109,6 +111,10 @@ const visaStatusOverview: AdminGuide = {
         question: 'Không chắc mình được làm gì thì xem ở đâu?',
         answer: 'Xem thẻ cư trú, trang ISA và hỏi cục xuất nhập cảnh hoặc chuyên gia. Đừng chỉ dựa vào tên chức vụ trên hợp đồng.',
       },
+      {
+        question: 'Từ 2026 thẻ cư trú của tôi trông khác trước, có phải đổi gấp không?',
+        answer: 'Không cần gấp. Từ 14/06/2026, ISA đổi sang mẫu thẻ cư trú thế hệ mới (áp dụng cho thẻ cấp mới từ ngày này) và mở thêm lựa chọn KHÔNG bắt buộc là 特定在留カード — thẻ cư trú tích hợp chức năng マイナンバーカード. Một số chi tiết như loại giấy phép và ngày cấp chuyển vào chip IC thay vì in trên mặt thẻ, nhưng mục 在留資格, ngày hết hạn 在留期間 và 就労制限の有無 vẫn in trên mặt thẻ như hướng dẫn trong bài. Thẻ cũ còn hạn vẫn dùng bình thường đến ngày hết hạn — không bắt buộc đổi ngay.',
+      },
     ],
     counterPhrases: [
       {
@@ -171,6 +177,7 @@ const visaStatusOverview: AdminGuide = {
     officialLinks: [
       { label: 'Tư cách lưu trú — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/index.html' },
       { label: 'Bảng tư cách lưu trú — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/qaq5.html' },
+      { label: '特定在留カード等について — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/tokutei.html' },
     ],
     steps: [
       {

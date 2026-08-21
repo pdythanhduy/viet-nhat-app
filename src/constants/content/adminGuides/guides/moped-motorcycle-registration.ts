@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const mopedMotorcycleRegistration: AdminGuide = {
     id: 'moped-motorcycle-registration',
     category: 'traffic',
-    lastVerified: '2026-05-07',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Đăng ký xe máy / xe tay ga tại Nhật',
     titleJp: '原付・新基準原付・原付二種・軽二輪の登録手続き',
@@ -14,8 +14,8 @@ const mopedMotorcycleRegistration: AdminGuide = {
       appliesFrom: '2025-04-01',
       jurisdiction: 'mixed',
       jurisdictionNote: 'Phân loại bằng lái và quy tắc chạy xe do NPA/police quản lý; tiêu chuẩn xe và 自賠責 do MLIT/GIROJ liên quan; đăng ký biển số xe ≤125cc thường do municipal office xử lý, còn 126cc trở lên do 運輸支局/自動車検査登録事務所.',
-      sourceVerifiedAt: '2026-05-07',
-      nextReviewAt: '2026-11-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-11-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn định mua xe 125cc nhưng không rõ xe đó là 新基準原付 tối đa 4.0kW hay 原付二種 thông thường.',
@@ -131,7 +131,7 @@ const mopedMotorcycleRegistration: AdminGuide = {
       {
         step: 3,
         title: 'Mua bảo hiểm bắt buộc 自賠責保険',
-        description: '自賠責保険 (bảo hiểm trách nhiệm dân sự bắt buộc) là điều kiện phải có trước khi đi xe trên đường; không có là vi phạm luật, có thể bị phạt nặng và đình chỉ bằng.\n\nMua ở đâu: tại đại lý xe khi mua xe mới, tại một số cửa hàng tiện lợi/online cho xe 250cc trở xuống, hoặc qua công ty/đại lý bảo hiểm.\n\nMức phí MLIT hiện hành cho hợp đồng bắt đầu từ 01/04/2024 đến 31/10/2026, khu vực không phải Okinawa/đảo xa: 原動機付自転車 125cc trở xuống là 6,910 yên/1 năm hoặc 8,560 yên/2 năm; 軽二輪 125cc超–250cc以下 là 7,100 yên/1 năm hoặc 8,920 yên/2 năm. Từ hợp đồng bắt đầu 01/11/2026, GIROJ đã công bố bảng 基準料率 mới nên phải kiểm tra lại trước khi mua.\n\n自賠責 chủ yếu bồi thường thiệt hại thân thể cho nạn nhân, không đủ cho thiệt hại tài sản hoặc phần vượt trần. Nên mua thêm 任意保険 để bảo vệ toàn diện hơn.',
+        description: '自賠責保険 (bảo hiểm trách nhiệm dân sự bắt buộc) là điều kiện phải có trước khi đi xe trên đường; không có là vi phạm luật, có thể bị phạt nặng và đình chỉ bằng.\n\nMua ở đâu: tại đại lý xe khi mua xe mới, tại một số cửa hàng tiện lợi/online cho xe 250cc trở xuống, hoặc qua công ty/đại lý bảo hiểm.\n\nMức phí MLIT/GIROJ áp dụng cho hợp đồng bắt đầu từ 01/04/2024 đến 31/10/2026, khu vực không phải Okinawa/đảo xa: 原動機付自転車 125cc trở xuống là 6,910 yên/1 năm hoặc 8,560 yên/2 năm; 軽二輪 125cc超–250cc以下 là 7,100 yên/1 năm hoặc 8,920 yên/2 năm. GIROJ đã nộp hồ sơ điều chỉnh 基準料率 lên Cục Dịch vụ Tài chính ngày 30/04/2026 (thông qua 21/05/2026) — lần đầu tăng phí 自賠責 sau 13 năm, bình quân +6.2%: cho hợp đồng bắt đầu từ 01/11/2026, 原動機付自転車 125cc trở xuống tăng lên 7,730 yên/1 năm hoặc 9,630 yên/2 năm; 軽二輪 125cc超–250cc以下 tăng lên 7,800 yên/1 năm hoặc 9,780 yên/2 năm. Nên xác nhận lại số chính xác trên bảng GIROJ trước khi mua vì có thể khác theo khu vực (Okinawa/đảo xa áp dụng bảng riêng).\n\n自賠責 chủ yếu bồi thường thiệt hại thân thể cho nạn nhân, không đủ cho thiệt hại tài sản hoặc phần vượt trần. Nên mua thêm 任意保険 để bảo vệ toàn diện hơn.',
         documents: [
           'Thông tin xe: số khung (車体番号), dung tích (排気量), output nếu là xe điện/新基準原付, ナンバー',
         ],
