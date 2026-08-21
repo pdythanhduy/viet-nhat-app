@@ -10,7 +10,7 @@ const ikuseiShuroSystemGuide: AdminGuide = {
   icon: 'construct-outline',
   color: '#D35400',
   description:
-    '**育成就労** (Ikusei Shuro — "Training & Employment") là chế độ cư trú MỚI thay thế **技能実習** (Technical Intern Training), được Quốc hội Nhật thông qua 2024 và **bắt đầu vận hành đầy đủ 01/04/2027**. Mục tiêu: chuyển hệ thống "thực tập kỹ năng để chuyển giao công nghệ" → hệ thống "đào tạo + lao động kết hợp" hướng tới chuyển sang **特定技能** sau 3 năm. Có cải tiến: cho phép **転籍** (đổi nơi làm việc trong cùng ngành), tăng bảo vệ lao động, yêu cầu tiếng Nhật. Các mốc 2026 (tiền vận hành): 15/04/2026 — nhận hồ sơ **監理支援機関**; 01/09/2026 — nhận hồ sơ **育成就労計画**. Đây là **tài liệu định hướng theo nguồn ISA tại thời điểm 2026-05-14** — kiểm tra ISA + 行政書士 trước khi quyết định.',
+    '**育成就労** (Ikusei Shuro — "Training & Employment") là chế độ cư trú MỚI thay thế **技能実習** (Technical Intern Training), được Quốc hội Nhật thông qua 2024 và **bắt đầu vận hành đầy đủ 01/04/2027**. Mục tiêu: chuyển hệ thống "thực tập kỹ năng để chuyển giao công nghệ" → hệ thống "đào tạo + lao động kết hợp" hướng tới chuyển sang **特定技能** sau 3 năm. Có cải tiến: cho phép **転籍** (đổi nơi làm việc trong cùng ngành), tăng bảo vệ lao động, yêu cầu tiếng Nhật. Các mốc 2026 (tiền vận hành): từ **15/04/2026** — OTIT Đã bắt đầu nhận hồ sơ **監理支援機関** (khuyến nghị nộp trước **30/09/2026** nếu muốn hoạt động ngay từ 01/04/2027 — hồ sơ toàn quốc dồn về cùng lúc nên xét có thể kéo dài); từ **01/09/2026** — ISA bắt đầu nhận hồ sơ **育成就労計画**. Đây là **tài liệu định hướng theo nguồn ISA/OTIT tại thời điểm 2026-08-21** — kiểm tra ISA + 行政書士 trước khi quyết định.',
   searchKeywords: [
     '育成就労',
     'ikusei shuro',

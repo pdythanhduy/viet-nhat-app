@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const electricBikeMopedRules: AdminGuide = {
     id: 'electric-bike-moped-rules',
     category: 'traffic',
-    lastVerified: '2026-05-07',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Xe đạp điện, e-bike và moped',
     titleJp: '電動アシスト自転車・モペット・ペダル付き電動バイク',
@@ -27,7 +27,7 @@ const electricBikeMopedRules: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Tiêu chuẩn 電動アシスト自転車 và phân loại moped do quy định giao thông/xe cơ giới cấp quốc gia; biển số, thuế xe nhỏ và bãi đỗ có thể phụ thuộc municipal office; xử lý vi phạm do police địa phương thực hiện.',
-      sourceVerifiedAt: '2026-05-07',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-11-01',
       riskLevel: 'high',
       whenToAskExpert: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const myNumber: AdminGuide = {
     id: 'my-number',
     category: 'health',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Đăng ký thẻ My Number',
     titleJp: 'マイナンバーカード申請',
@@ -43,7 +43,7 @@ const myNumber: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'My Number là hệ thống toàn quốc, nhưng cấp/nhận/cập nhật thẻ được xử lý tại municipal office nơi đăng ký cư trú; người nước ngoài cần quản lý hạn thẻ theo hạn lưu trú.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-01',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -197,7 +197,7 @@ const myNumber: AdminGuide = {
         term: 'マイナ保険証',
         reading: 'マイナほけんしょう',
         meaningVi: 'My Number Card kiêm thẻ bảo hiểm y tế',
-        noteVi: 'Đăng ký liên kết 健康保険 với マイナンバーカード → dùng thẻ này thay thẻ 健康保険証 khi đi bệnh viện. Từ 12/2024 Nhật bắt đầu ngừng cấp 健康保険証 giấy mới — chuyển dần sang マイナ保険証. Hỏi 市役所 / công ty / bệnh viện về tiến độ.',
+        noteVi: 'Đăng ký liên kết 健康保険 với マイナンバーカード → dùng thẻ này thay thẻ 健康保険証 khi đi bệnh viện. Từ 12/2024 Nhật ngừng cấp 健康保険証 giấy mới, và từ 01/08/2026 biện pháp tạm thời cho thẻ giấy hết hạn cũng đã chấm dứt — nay bắt buộc có マイナ保険証 hoặc 資格確認書 (giấy thay thế) mới được tính bảo hiểm bình thường khi khám bệnh. Xem guide myna-health-insurance-card-2026 để biết chi tiết.',
       },
     ],
     officialLinks: [

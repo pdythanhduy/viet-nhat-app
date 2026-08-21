@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const mynaHealthInsuranceCard2026: AdminGuide = {
   id: 'myna-health-insurance-card-2026',
   category: 'health',
-  lastVerified: '2026-05-16',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'マイナ保険証 — Bảo hiểm y tế tích hợp My Number (chuyển đổi 2024–2026)',
   titleJp: 'マイナ保険証 — 健康保険証の一体化',
   icon: 'medical-outline',
   color: '#00897B',
   description:
-    'Thời kỳ chuyển tiếp **đã kết thúc 01/12/2025**. Hiện tại (2026), thẻ 健康保険証 vật lý cũ **đã hết hiệu lực** (trừ một số thẻ có hạn ghi sau 12/2025). Hệ thống chính thức là **マイナ保険証** (chức năng bảo hiểm y tế tích hợp trên My Number Card) hoặc **資格確認書** (giấy thay thế cho người không thể dùng My Number Card). Mốc lịch sử: **02/12/2024** ngừng cấp thẻ vật lý mới; **01/12/2025** thẻ vật lý cũ hết hiệu lực. Đây là **tài liệu định hướng theo nguồn 厚労省 + マイナポータル** — kiểm tra với bảo hiểm + bệnh viện trước khi đi khám.',
+    'Thời kỳ chuyển tiếp chính thức **đã kết thúc 01/12/2025** (ngừng cấp thẻ vật lý mới từ 02/12/2024, thẻ cũ hết hiệu lực từ 01/12/2025). Sau đó 厚労省 vẫn cho áp dụng thêm **biện pháp tạm thời**: ai mang thẻ giấy hết hạn mà bệnh viện vẫn tra cứu xác nhận được bảo hiểm qua hệ thống online thì vẫn được tính đồng chi trả bình thường. Biện pháp tạm thời này gia hạn tới 31/07/2026 và **đã CHÍNH THỨC CHẤM DỨT từ 01/08/2026** — hiện tại (2026) bắt buộc phải có **マイナ保険証** (chức năng bảo hiểm y tế tích hợp trên My Number Card) hoặc **資格確認書** (giấy thay thế cho người không dùng được My Number Card), nếu không sẽ bị xử lý như quên thẻ bảo hiểm (có thể phải trả 100% rồi xin hoàn lại). Đây là **tài liệu định hướng theo nguồn 厚労省 + マイナポータル** — kiểm tra với bảo hiểm + bệnh viện trước khi đi khám.',
   searchKeywords: [
     'マイナ保険証',
     'myna hoken sho',
@@ -29,9 +29,9 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) đăng ký マイナ保険証 + cấp 資格確認書 cho người không dùng được. Mốc đã qua: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 thẻ cũ hết hiệu lực (trừ thẻ có hạn ghi sau). Ngoại lệ cho trẻ em / người cao tuổi / hoàn cảnh đặc biệt — đa số được cấp 資格確認書 tự động — kiểm tra 厚労省.',
-    sourceVerifiedAt: '2026-05-14',
-    nextReviewAt: '2026-09-01',
+      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) đăng ký マイナ保険証 + cấp 資格確認書 cho người không dùng được. Mốc đã qua: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 thẻ cũ hết hiệu lực; biện pháp tạm thời cho thẻ hết hạn (xác minh online) gia hạn tới 31/07/2026 rồi CHẤM DỨT từ 01/08/2026 — nay bắt buộc có マイナ保険証 hoặc 資格確認書 thật sự. Từ 08/2026, 後期高齢者医療制度 (75 tuổi+) cũng đổi cách cấp 資格確認書 theo tuổi: 85 tuổi trở lên tiếp tục được cấp tự động; 84 tuổi trở xuống tùy tình trạng đăng ký マイナ保険証 mà chỉ nhận 資格情報のお知らせ (giấy thông báo, không thay thế đầy đủ) — cần chủ động xin 資格確認書 tại 市役所/広域連合 nếu chưa có. Kiểm tra 厚労省.',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2026-10-15',
     riskLevel: 'high',
     whenToAskExpert: [
       'Bạn / gia đình chưa có My Number Card mà thẻ bảo hiểm vật lý sắp hết hạn → có nguy cơ tạm thời không có bảo hiểm. Hỏi 市役所 + 保険者 ngay.',
@@ -43,7 +43,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   },
   quickAction: {
     deadline:
-      '**Đã qua thời kỳ chuyển tiếp**: thẻ vật lý cũ đã hết hiệu lực từ 01/12/2025 (trừ thẻ có hạn ghi sau). Hiện tại bắt buộc dùng **マイナ保険証** hoặc **資格確認書**. NẾU bạn vẫn chưa kích hoạt: làm NGAY — đang đi viện không có thẻ hợp lệ phải tự trả 100% rồi xin hoàn (償還払い). KHÔNG có deadline cấp 資格確認書 — nhiều 保険者 đã tự động cấp cho người chưa kích hoạt マイナ保険証.',
+      '**Đã qua thời kỳ chuyển tiếp VÀ đã qua cả biện pháp tạm thời gia hạn**: thẻ vật lý cũ hết hiệu lực từ 01/12/2025, và biện pháp tạm thời cho phép xác minh online với thẻ hết hạn cũng đã CHẤM DỨT từ 01/08/2026. Hiện tại bắt buộc dùng **マイナ保険証** hoặc **資格確認書** thật sự. NẾU bạn vẫn chưa kích hoạt: làm NGAY — đang đi viện không có thẻ hợp lệ phải tự trả 100% rồi xin hoàn (償還払い). KHÔNG có deadline cấp 資格確認書 — nhiều 保険者 đã tự động cấp cho người chưa kích hoạt マイナ保険証 (riêng 後期高齢者医療制度 75+ từ 08/2026 chỉ tự động cấp cho 85 tuổi trở lên — 84 tuổi trở xuống cần chủ động hỏi).',
     office:
       '**保険者** (bảo hiểm của bạn) là người cấp giấy + xử lý đăng ký:\n• 協会けんぽ / 健保組合 (nhân viên công ty) — qua phòng nhân sự công ty.\n• 国民健康保険 (国保 — tự kinh doanh / thất nghiệp / 60+) — qua **市役所/区役所** phòng 国保課.\n• 後期高齢者医療制度 (75+) — qua 市役所.\n• 共済組合 (nhân viên公務員) — qua tổ chức công.\n**マイナポータル** kích hoạt 健康保険証 利用申込 (qua app sau khi có My Number Card).',
     doNow: [
@@ -76,6 +76,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   ],
   whenToDo: [
     '**NGAY BÂY GIỜ** nếu bạn chưa kích hoạt マイナ保険証 và chưa có 資格確認書: thẻ vật lý cũ đã hết hiệu lực từ 01/12/2025 → rủi ro phải tự trả 100% khi đi viện.',
+    '**Mốc mới nhất (01/08/2026)**: biện pháp tạm thời cho thẻ vật lý hết hạn (xác minh online tại quầy) đã CHẤM DỨT hoàn toàn — không còn được du di, phải có マイナ保険証 hoặc 資格確認書 thật sự.',
     '**Mốc đã qua**: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 đa số thẻ vật lý hết hiệu lực (một số có hạn ghi sau vẫn dùng được đến hạn ghi).',
     '**Khi đổi việc** / 退職 / 入社: đăng ký lại với 保険者 mới — マイナ保険証 link tự động sau xác nhận (5–10 ngày).',
     '**Khi đổi 市町村** (cho 国保): chuyển 住民票 + đăng ký 国保 mới.',
@@ -135,6 +136,11 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
       question: '資格確認書 là gì? Khi nào cần?',
       answer:
         '**資格確認書** (Shikaku Kakuninsho) là **giấy thay thế** thẻ bảo hiểm vật lý cho người KHÔNG dùng được マイナ保険証.\n\n**Khi nào cần 資格確認書**:\n\n• **Chưa có My Number Card**:\n  - Mới sinh con.\n  - Người không xin My Number Card.\n  - Đang chờ cấp lại My Number Card.\n\n• **Không muốn dùng My Number Card cho bảo hiểm**:\n  - Lý do bảo mật cá nhân.\n  - Bất tiện khi dùng app.\n\n• **My Number Card hết hạn / khóa / mất**:\n  - Chờ cấp lại.\n  - Phục hồi PIN.\n\n• **Trẻ em / người cao tuổi không quen công nghệ**:\n  - Có My Number Card nhưng không thực tế dùng.\n\n• **Người khuyết tật không thể dùng 顔認証**:\n  - Khuôn mặt khó nhận diện.\n  - Không tự ký PIN.\n\n**Cách xin**:\n\n• **社保** (nhân viên công ty): qua phòng nhân sự công ty → công ty xin 保険者.\n• **国保** (国民健康保険): **市役所/区役所** phòng 国保課. Mang 在留カード + 健康保険証 vật lý hiện tại.\n• **後期高齢**: **市役所**.\n\n**Phí**: MIỄN PHÍ.\n\n**Hạn sử dụng**:\n\n• Tối đa **5 năm** (mỗi 保険者 có quy định cụ thể).\n• Khi hết hạn → xin lại.\n• Khi đổi việc → xin lại với 保険者 mới.\n\n**Dùng**:\n\n• Tại quầy 受付 — đưa 資格確認書 thay thẻ vật lý.\n• Có thông tin tương tự thẻ vật lý cũ: tên, số bảo hiểm, hạn.\n\n**Cảnh báo**:\n\n• Một số 保険者 tự động cấp khi thẻ hết hạn + người không kích hoạt マイナ保険証.\n• Tin chính thức từ 保険者 qua mail — KHÔNG nhấn link SMS / email lạ.',
+    },
+    {
+      question: 'Người 75 tuổi trở lên (後期高齢者医療制度) có gì thay đổi từ 08/2026 không?',
+      answer:
+        'Có — cách cấp 資格確認書 cho nhóm 後期高齢者医療制度 (75 tuổi+) đổi từ **01/08/2026**:\n\n• **85 tuổi trở lên**: tiếp tục được 都道府県後期高齢者医療広域連合 TỰ ĐỘNG cấp 資格確認書 — không cần xin, giống như trước giờ.\n• **84 tuổi trở xuống**: KHÔNG còn tự động cấp đồng loạt cho tất cả. Tùy tình trạng đã/chưa dùng マイナ保険証 và quy định từng 広域連合 (khác theo 都道府県), có thể chỉ nhận được **資格情報のお知らせ** (giấy thông báo — KHÔNG thay thế đầy đủ chức năng thẻ bảo hiểm) thay vì 資格確認書 đầy đủ.\n\nNếu gia đình có người 75 tuổi trở lên (đặc biệt 84 tuổi trở xuống) không chắc đã có 資格確認書 hợp lệ hay chưa — hỏi trực tiếp 市役所 hoặc 都道府県後期高齢者医療広域連合 để xin cấp. Đừng chờ đến lúc đi viện mới phát hiện thiếu giấy — người cao tuổi thường ít dùng マイナポータル nên dễ bị sót nhóm này.',
     },
     {
       question: 'Mất My Number Card / quên PIN → đi viện cần làm gì?',

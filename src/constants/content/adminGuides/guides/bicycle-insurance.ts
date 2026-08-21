@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const bicycleInsurance: AdminGuide = {
     id: 'bicycle-insurance',
     category: 'traffic',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Bảo hiểm xe đạp tại Nhật',
     titleJp: '自転車保険・個人賠償責任保険（義務化対応）',

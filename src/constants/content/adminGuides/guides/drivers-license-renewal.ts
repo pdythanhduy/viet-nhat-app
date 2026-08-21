@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const driversLicenseRenewal: AdminGuide = {
     id: 'drivers-license-renewal',
     category: 'license',
-    lastVerified: '2026-05-03',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Gia hạn bằng lái Nhật',
     titleJp: '運転免許証の更新',
