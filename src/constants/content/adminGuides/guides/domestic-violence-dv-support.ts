@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const domesticViolenceDvSupport: AdminGuide = {
   id: 'domestic-violence-dv-support',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bạo lực gia đình (DV) — hotline, nơi tạm lánh, bảo hộ visa',
   titleJp: 'DV（配偶者暴力）相談・シェルター・在留資格保護',
@@ -46,7 +46,7 @@ const domesticViolenceDvSupport: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '配偶者からの暴力の防止及び被害者の保護等に関する法律 (DV防止法) là luật toàn quốc, áp dụng cho người vợ/chồng/đối tác cùng sống không phân biệt quốc tịch / hôn nhân chính thức. 配偶者暴力相談支援センター do 都道府県 + 市区町村 vận hành. Lệnh bảo vệ (保護命令) do 地方裁判所 cấp. Visa cho người nước ngoài bị DV — 出入国在留管理庁 có quy trình riêng (在留資格変更 hoặc gia hạn 配偶者 visa khi đang ly thân vì DV). Đây là TÀI LIỆU THAM KHẢO — không thay tư vấn cá nhân từ trung tâm hỗ trợ + luật sư.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'high',
     whenToAskExpert: [

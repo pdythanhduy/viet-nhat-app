@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const garbageSortingRules: AdminGuide = {
     id: 'garbage-sorting-rules',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Phân loại rác đúng cách tại Nhật',
     titleJp: 'ごみの分け方・出し方',
@@ -44,7 +44,7 @@ const garbageSortingRules: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'Quản lý theo 廃棄物処理法 cấp quốc gia, NHƯNG quy tắc chi tiết (loại, ngày, túi, điểm bỏ) hoàn toàn do 市町村 quy định riêng. Khu A và khu B kề nhau có thể có quy tắc khác. Phải lấy ゴミカレンダー (lịch rác) của ĐÚNG 市区町村 nơi cư trú. 不法投棄 (vứt rác trái phép) phạt tới 1,000万円 hoặc 5 năm tù theo 廃棄物処理法 §16.',
-      sourceVerifiedAt: '2026-05-16',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2027-04-01',
       riskLevel: 'low',
       whenToAskExpert: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const consumerRightsCoolingOff: AdminGuide = {
   id: 'consumer-rights-cooling-off',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Quyền tiêu dùng + Cooling-off + Hotline 188',
   titleJp: 'クーリング・オフ・消費者ホットライン 188',
@@ -35,7 +35,7 @@ const consumerRightsCoolingOff: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '消費者契約法 + 特定商取引法 — quản lý cấp quốc gia bởi 消費者庁 (CAA) — Consumer Affairs Agency. Cooling-off period quy định theo luật cho từng loại hợp đồng. Hotline 188 là 国民生活センター — trung tâm phân phối cuộc gọi đến 消費生活センター cấp 都道府県 / 市町村 gần nhất. Cooling-off có ngoại lệ phức tạp — không phải mọi trường hợp đều áp dụng.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

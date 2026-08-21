@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nurseryKindergartenGuide: AdminGuide = {
     id: 'nursery-kindergarten-guide',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Nhà trẻ, mẫu giáo và chỗ gửi trẻ ở Nhật',
     titleJp: '保育園・幼稚園・こども園の選び方と申込み',
@@ -48,7 +48,7 @@ const nurseryKindergartenGuide: AdminGuide = {
       jurisdiction: 'mixed',
       jurisdictionNote:
         '子ども・子育て支援法 (Child and Childcare Support Act) + 児童福祉法 §39 do こども家庭庁 quản lý cấp quốc gia. 認可保育所 do 市町村 vận hành thực tế qua 利用調整 (xếp hạng điểm 保育の必要性) — không phải "ai nộp trước được nhận trước". 幼稚園 thuộc 学校教育法 (文部科学省). 幼児教育・保育の無償化 (miễn học phí 3–5 tuổi từ 10/2019) áp dụng cho cơ sở thuộc 制度 — KHÔNG đồng nghĩa miễn 100% chi phí (tiền ăn, đồng phục, 延長保育 vẫn còn). こども誰でも通園制度 triển khai toàn quốc từ 年度2026 — chế độ mới, không thay thế hoikuen dài hạn.',
-      sourceVerifiedAt: '2026-05-16',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-31',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -209,7 +209,7 @@ const nurseryKindergartenGuide: AdminGuide = {
       },
       {
         question: 'こども誰でも通園制度 năm 2026 có thay thế hoikuen không?',
-        answer: 'Không. こども家庭庁 nêu đây là chế độ mới triển khai toàn quốc từ năm tài khóa 2026 cho phép mọi gia đình sử dụng một lượng giờ nhất định mà không cần điều kiện đi làm. Nó không phải bản thay thế cho hoikuen dài hạn cả ngày theo hệ thống利用調整 thông thường.',
+        answer: 'Không. Chế độ này đã bắt đầu triển khai trên toàn quốc từ tháng 4/2026 (năm tài khóa 2026, xác nhận qua こども家庭庁, tính đến 08/2026 các 市町村 vẫn đang tiếp tục mở rộng), cho phép mọi gia đình sử dụng một lượng giờ nhất định mỗi tháng mà không cần điều kiện đi làm. Nó không phải bản thay thế cho hoikuen dài hạn cả ngày theo hệ thống利用調整 thông thường — số giờ + cơ sở tham gia còn tùy 市町村, nên hỏi trực tiếp 市役所 nơi cư trú.',
       },
     ],
     officialLinks: [

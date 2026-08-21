@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const discriminationHumanRightsSupport: AdminGuide = {
   id: 'discrimination-human-rights-support',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bị phân biệt đối xử / quấy rối — hotline tiếng Việt + bảo vệ pháp lý',
   titleJp: '人権相談・差別・ハラスメント',
@@ -45,7 +45,7 @@ const discriminationHumanRightsSupport: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '法務省人権擁護局 + 全国 50+ 法務局 + 311 支局 vận hành theo 人権擁護施策推進法. Không có "luật chống phân biệt" toàn diện như EU/Mỹ — Nhật dùng kết hợp 憲法 14条 (bình đẳng), 労働基準法 (lao động), 障害者差別解消法 (khuyết tật), 男女雇用機会均等法 (giới tính), ヘイトスピーチ解消法 (hate speech 2016). Chế tài: hòa giải / 勧告 / publicize — KHÔNG phạt tiền trực tiếp. Vụ nghiêm trọng → kiện dân sự đòi 慰謝料 / kiện hình sự nếu là 暴行・脅迫. Đây là TÀI LIỆU THAM KHẢO — không phải tư vấn pháp lý cá nhân.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

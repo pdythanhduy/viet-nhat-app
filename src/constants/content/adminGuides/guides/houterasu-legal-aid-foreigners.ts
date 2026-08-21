@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const houterasuLegalAidForeigners: AdminGuide = {
   id: 'houterasu-legal-aid-foreigners',
   category: 'daily-law',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: '法テラス — tư vấn pháp lý + ứng phí luật sư cho người thu nhập thấp',
   titleJp: '法テラス（日本司法支援センター）',
@@ -40,7 +40,7 @@ const houterasuLegalAidForeigners: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '法テラス được lập theo 総合法律支援法 (Comprehensive Legal Support Act) năm 2004. Là cơ quan công, áp dụng toàn quốc với mạng lưới văn phòng ở mọi 都道府県. Dịch vụ 民事法律扶助 (legal aid) có điều kiện thu nhập + tài sản. Dịch vụ 国選弁護人 (luật sư do tòa chỉ định cho hình sự) không có điều kiện thu nhập, áp dụng khi đã 起訴 hoặc 逮捕. Đây là TÀI LIỆU THAM KHẢO — quyền lợi cụ thể tùy trường hợp + thay đổi theo năm.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [
@@ -105,6 +105,7 @@ const houterasuLegalAidForeigners: AdminGuide = {
     'Tư vấn 法テラス theo 民事法律扶助: **MIỄN PHÍ** cho người đủ điều kiện thu nhập (tối đa 3 lần/vụ, 30 phút/lần).',
     'Tư vấn 法テラス NGOÀI 民事法律扶助 (thu nhập cao): có phí — kiểm tra với văn phòng địa phương.',
     'Ứng phí luật sư 民事法律扶助: 法テラス trả trước cho luật sư. Bạn trả góp 5,000–10,000 yên/tháng không tính lãi sau khi vụ xong. Có miễn trả nếu thắng kiện không thu được tiền + thu nhập vẫn thấp.',
+    'Từ 01/04/2026: người đang nhận 生活保護 có thể nộp đơn xin miễn hoàn trả (償還免除) phí đã ứng qua Internet trên toàn quốc — không cần đến trực tiếp văn phòng 法テラス.',
     '当番弁護士 (luật sư trực 1 lần khi bị bắt): MIỄN PHÍ. Sau đó cần luật sư riêng = phí.',
     '国選弁護人 (luật sư chỉ định cho hình sự): MIỄN PHÍ trong giai đoạn 起訴 nếu thu nhập thấp.',
     'Phí thay đổi — kiểm tra trang chính thức trước khi đặt.',
@@ -214,7 +215,7 @@ const houterasuLegalAidForeigners: AdminGuide = {
   ],
   officialLinks: [
     { label: '法テラス trang chính', url: 'https://www.houterasu.or.jp/' },
-    { label: '法テラス multilingual info', url: 'https://www.houterasu.or.jp/multilingual/' },
+    { label: '法テラス multilingual info', url: 'https://www.houterasu.or.jp/site/foreign-nationals/' },
     { label: '日本弁護士連合会 (JFBA)', url: 'https://www.nichibenren.or.jp/' },
   ],
   steps: [
