@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const taxOnRemittanceToVietnam: AdminGuide = {
   id: 'tax-on-remittance-to-vietnam',
   category: 'money',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Gửi tiền về Việt Nam — thuế và quy định',
   titleJp: 'ベトナムへの送金 — 税金とルール',
@@ -36,8 +36,8 @@ const taxOnRemittanceToVietnam: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '**Phía Nhật**: 外国為替及び外国貿易法 + 国税通則法. Ngưỡng báo cáo 100万円/giao dịch (国外送金等調書) do 国税庁 thu thập. Một số trường hợp ngưỡng thấp hơn cho mục đích AML (Anti-Money Laundering). **Phía Việt Nam**: pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước + Luật thuế thu nhập cá nhân. Hai bên hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác nhau ở 2 nước. **Hiệp định tránh đánh thuế hai lần Nhật–Việt** (ký 1995-10, có thể có nghị định thư sửa đổi sau đó — kiểm tra ngày hiệu lực bản hiện hành với 国税庁 hoặc 税理士) áp dụng cho thuế thu nhập, nhưng chi tiết phức tạp. Đây KHÔNG phải tư vấn thuế cá nhân — hỏi 税理士 chuyên về quốc tế hoặc luật sư.',
-    sourceVerifiedAt: '2026-05-09',
+      '**Phía Nhật**: 外国為替及び外国貿易法 + 国税通則法. Ngưỡng báo cáo 100万円/giao dịch (国外送金等調書) do 国税庁 thu thập. Một số trường hợp ngưỡng thấp hơn cho mục đích AML (Anti-Money Laundering). **資金決済法 sửa đổi** có hiệu lực trong năm 2026 tăng cường quy định chống rửa tiền cho dịch vụ 資金移動業 (chuyển tiền quốc tế) + tài sản mã hóa — dịch vụ gửi tiền có thể yêu cầu thêm bước xác minh so với trước; kiểm tra thông báo cập nhật của dịch vụ bạn dùng (Wise / SBI Remit / etc.) trước khi gửi số lớn. **Phía Việt Nam**: pháp lệnh ngoại hối + Nghị định ngân hàng nhà nước + Luật thuế thu nhập cá nhân. Hai bên hệ thống KHÔNG đồng bộ — cùng số tiền có thể có yêu cầu khác nhau ở 2 nước. **Hiệp định tránh đánh thuế hai lần Nhật–Việt** (ký 1995-10, có thể có nghị định thư sửa đổi sau đó — kiểm tra ngày hiệu lực bản hiện hành với 国税庁 hoặc 税理士) áp dụng cho thuế thu nhập, nhưng chi tiết phức tạp. Đây KHÔNG phải tư vấn thuế cá nhân — hỏi 税理士 chuyên về quốc tế hoặc luật sư.',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'high',
     whenToAskExpert: [

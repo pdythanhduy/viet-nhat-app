@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const fireEarthquakeInsuranceHome: AdminGuide = {
   id: 'fire-earthquake-insurance-home',
   category: 'money',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Bảo hiểm hỏa hoạn + động đất cho nhà thuê / nhà ở',
   titleJp: '火災保険・地震保険 — 賃貸・持ち家',
@@ -33,7 +33,7 @@ const fireEarthquakeInsuranceHome: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Luật 火災保険 + 地震保険 do 金融庁 (FSA) quản lý + 損害保険料率算出機構 (GIROJ) tính phí. 失火責任法 (1899) quy định: người vô ý gây cháy KHÔNG phải bồi thường hàng xóm trừ khi 重大過失 — nên hàng xóm có thể bị cháy mà không được đòi bồi thường, do đó tự mua 火災保険 là cần thiết. 地震保険 không phải bảo hiểm tư mà là 国 + bảo hiểm hợp tác — có 限度額.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

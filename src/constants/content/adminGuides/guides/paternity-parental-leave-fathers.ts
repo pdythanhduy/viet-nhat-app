@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const paternityParentalLeaveFathers: AdminGuide = {
   id: 'paternity-parental-leave-fathers',
   category: 'money',
-  lastVerified: '2026-05-10',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Nghỉ chăm con cho bố (育児休業 cho nam giới)',
   titleJp: '男性の育児休業 — 産後パパ育休',
@@ -31,7 +31,7 @@ const paternityParentalLeaveFathers: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       '育児・介護休業法 toàn quốc — áp dụng cho mọi 雇用契約 (full-time + part-time + 派遣 nếu đủ điều kiện). 厚生労働省 quản lý. 育児休業給付金 do 雇用保険 chi trả qua ハローワーク. Cải cách 2022 (産後パパ育休) + 2025 (出生後休業支援給付金) — chính sách đang phát triển. Mức tiền + điều kiện CỤ THỂ thay đổi 2025–2026, kiểm tra với 雇用保険 hoặc 社会保険労務士. Đây là tài liệu tham khảo — không phải tư vấn pháp lý cá nhân.',
-    sourceVerifiedAt: '2026-05-10',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

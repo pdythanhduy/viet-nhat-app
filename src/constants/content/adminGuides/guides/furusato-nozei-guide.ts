@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const furusatoNozeiGuide: AdminGuide = {
   id: 'furusato-nozei-guide',
   category: 'money',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Furusato Nouzei (ふるさと納税)',
   titleJp: 'ふるさと納税の仕組みと申込',
@@ -34,7 +34,7 @@ const furusatoNozeiGuide: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'ふるさと納税 do 総務省 quản lý cấp quốc gia, áp dụng cho mọi người có 住民票 + nộp 住民税 / 所得税 tại Nhật. 国税庁 + 市町村 xử lý phần khấu trừ thuế. Quy tắc 自己負担 2,000円 + 控除限度額 (tùy thu nhập + gia cảnh) tương đối ổn định trong nhiều năm. Một số 自治体 có 制限 cho 返礼品 (giá trị tối đa 30% giá trị quyên góp theo quy định 総務省). Phí + ngưỡng có thể đổi — kiểm tra trang chính thức hàng năm.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [
@@ -83,7 +83,7 @@ const furusatoNozeiGuide: AdminGuide = {
     'Tháng 5–6 năm sau: kiểm tra thông báo 住民税 — phần khấu trừ ふるさと納税.',
   ],
   whereToDo: [
-    'Online qua nền tảng: 楽天ふるさと納税 (tích điểm Rakuten), さとふる, ふるなび, ふるさとチョイス, au PAY ふるさと納税, etc.',
+    'Online qua nền tảng: 楽天ふるさと納税, さとふる, ふるなび, ふるさとチョイス, au PAY ふるさと納税, etc. (từ 10/2025 các nền tảng không còn tặng điểm riêng cho ふるさと納税 — chọn theo danh mục 返礼品).',
     'Trang chính thức 自治体: ít phổ biến cho người mới — không có catalog đẹp.',
     'KHÔNG cần đến 市役所 trực tiếp — toàn bộ online.',
   ],
@@ -242,12 +242,12 @@ const furusatoNozeiGuide: AdminGuide = {
       step: 2,
       title: 'Chọn nền tảng + 自治体 + 返礼品',
       description:
-        'Nền tảng phổ biến + đặc trưng:\n\n• **楽天ふるさと納税**: tích điểm Rakuten cao (vd 5–10x trong sự kiện 楽天マラソン). Nhiều 自治体.\n• **さとふる**: giao diện sạch, lọc nhanh. Nhiều ưu đãi.\n• **ふるなび**: có thưởng Amazon Gift cho lần đầu.\n• **ふるさとチョイス**: nhiều 自治体 nhất, độc quyền với một số.\n• **au PAY ふるさと納税**: tích điểm au.\n\nChọn 自治体 + 返礼品:\n• Lọc theo: loại hàng (gạo, thịt, hải sản, hoa quả, sake, đồ điện), giá quyên (5,000–100,000円+), 自治体, hạn vận chuyển.\n• Đọc review.\n• Chú ý: "regular" 返礼品 = giao 1 lần. "定期便" = giao nhiều tháng (vd thịt bò 6 tháng).\n\nKhông quyên cho 自治体 mình đang sống — 返礼品 từ 自治体 mình ở thường KHÔNG được nhận.',
+        '**Lưu ý quan trọng (từ 1/10/2025)**: theo quy định mới của 総務省 (告示 sửa 6/2024, có hiệu lực 1/10/2025), nền tảng trung gian (楽天, さとふる, ふるなび, au PAY, ふるさとチョイス...) KHÔNG còn được tặng điểm/point riêng của nền tảng (楽天ポイント, ふるなびコイン, au PAY ポイント, Amazon Gift...) cho việc quyên góp ふるさと納税 nữa — đây là thay đổi lớn so với trước, khi nhiều người chọn nền tảng chỉ vì tích điểm. 返礼品 (quà từ 自治体, ≤30% giá trị quyên) KHÔNG bị ảnh hưởng — vẫn nhận bình thường.\n\nNền tảng phổ biến + đặc trưng (nay chọn theo trải nghiệm/danh mục quà, KHÔNG còn theo điểm thưởng):\n\n• **楽天ふるさと納税**: giao diện quen thuộc nếu đã dùng Rakuten, nhiều 自治体.\n• **さとふる**: giao diện sạch, lọc nhanh. Nhiều ưu đãi.\n• **ふるなび**: danh mục đa dạng, nhiều review.\n• **ふるさとチョイス**: nhiều 自治体 nhất, độc quyền với một số.\n• **au PAY ふるさと納税**: quen thuộc nếu đã dùng au PAY.\n\nChọn 自治体 + 返礼品:\n• Lọc theo: loại hàng (gạo, thịt, hải sản, hoa quả, sake, đồ điện), giá quyên (5,000–100,000円+), 自治体, hạn vận chuyển.\n• Đọc review.\n• Chú ý: "regular" 返礼品 = giao 1 lần. "定期便" = giao nhiều tháng (vd thịt bò 6 tháng).\n\nKhông quyên cho 自治体 mình đang sống — 返礼品 từ 自治体 mình ở thường KHÔNG được nhận.',
       documents: [
         'Thẻ tín dụng',
         'Email + địa chỉ giao',
       ],
-      tip: 'Đăng ký 楽天 trước nếu chưa có — tích điểm Rakuten dùng được rộng. Sự kiện 楽天マラソン (3–4 lần/năm) là dịp tốt.',
+      tip: 'Từ 10/2025, các nền tảng không còn cạnh tranh bằng điểm thưởng — chọn nền tảng theo danh mục 返礼品 + giao diện dễ dùng thay vì vì điểm.',
     },
     {
       step: 3,
@@ -287,7 +287,7 @@ const furusatoNozeiGuide: AdminGuide = {
       step: 6,
       title: 'Tối ưu năm sau — strategy',
       description:
-        'Sau lần đầu, có thể tối ưu:\n\n1. **Tích điểm**: chọn nền tảng theo điểm thưởng phù hợp lối sống của bạn (Rakuten, au PAY, dPoint).\n\n2. **Sự kiện sale**: 楽天マラソン (3–4 lần/năm), Black Friday, cuối năm — quyên trong sự kiện điểm cao.\n\n3. **Quà theo mùa**:\n• Mùa hè: thịt nướng, bia\n• Mùa thu: nho, táo, gạo mới\n• Cuối năm: cua, tôm hùm, おせち\n\n4. **定期便**: quyên 1 lần, nhận quà nhiều tháng — giảm stress chọn lựa.\n\n5. **Đa dạng 自治体**: mỗi 自治体 có đặc sản riêng. Quyên rộng để khám phá Nhật.\n\n6. **Vợ chồng cùng quyên**: mỗi người có 控除限度額 riêng nếu cả 2 đi làm. Tổng family quyên gấp đôi.\n\n7. **Theo dõi giới hạn**: tracker trên Excel hoặc app — không vượt 限度額.',
+        'Sau lần đầu, có thể tối ưu:\n\n1. **Chọn nền tảng theo trải nghiệm**: từ 10/2025 các nền tảng không còn được tặng điểm/point riêng cho ふるさと納税 (quy định 総務省), nên chọn theo danh mục 返礼品 + giao diện dễ dùng thay vì vì điểm thưởng.\n\n2. **Quà theo mùa**:\n• Mùa hè: thịt nướng, bia\n• Mùa thu: nho, táo, gạo mới\n• Cuối năm: cua, tôm hùm, おせち\n\n3. **定期便**: quyên 1 lần, nhận quà nhiều tháng — giảm stress chọn lựa.\n\n4. **Đa dạng 自治体**: mỗi 自治体 có đặc sản riêng. Quyên rộng để khám phá Nhật.\n\n5. **Vợ chồng cùng quyên**: mỗi người có 控除限度額 riêng nếu cả 2 đi làm. Tổng family quyên gấp đôi.\n\n6. **Theo dõi giới hạn**: tracker trên Excel hoặc app — không vượt 限度額.',
       documents: [],
       tip: 'Năm 2 trở đi quen quy trình → quyên thoải mái + tận dụng tốt 限度額. Năm đầu: thử 1–2 lần để hiểu.',
     },

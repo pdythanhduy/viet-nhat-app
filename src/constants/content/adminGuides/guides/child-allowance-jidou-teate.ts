@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const childAllowanceJidouTeate: AdminGuide = {
   id: 'child-allowance-jidou-teate',
   category: 'money',
-  lastVerified: '2026-05-09',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Trợ cấp trẻ em (児童手当)',
   titleJp: '児童手当 — 外国人家庭の申請',
@@ -33,7 +33,7 @@ const childAllowanceJidouTeate: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '児童手当法 do こども家庭庁 (Children and Families Agency, thành lập 2023) quản lý cấp quốc gia. Từ 10/2024, có cải cách lớn: bỏ 所得制限 (giới hạn thu nhập), kéo dài tuổi đến cuối năm tài chính 18 tuổi (高校生 hết), tăng mức cho con thứ 3+. Đăng ký + chi trả thực tế qua 市町村. Mức tiền cụ thể + lịch chi trả thay đổi — phải kiểm tra với 市役所 hiện tại.',
-    sourceVerifiedAt: '2026-05-09',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [

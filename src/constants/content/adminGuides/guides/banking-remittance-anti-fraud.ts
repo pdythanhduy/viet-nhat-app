@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const bankingRemittanceAntiFraud: AdminGuide = {
     id: 'banking-remittance-anti-fraud',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Ngân hàng, chuyển tiền và chống khóa tài khoản',
     titleJp: '銀行口座・海外送金・マネロン対策の基本',
@@ -42,8 +42,8 @@ const bankingRemittanceAntiFraud: AdminGuide = {
     ],
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: 'Quản lý bởi 犯罪収益移転防止法 (Anti-Money-Laundering Act) + 金融商品取引法 + hướng dẫn 金融庁 (FSA). Mọi ngân hàng + dịch vụ chuyển tiền BẮT BUỘC thực hiện 本人確認 (KYC) + theo dõi giao dịch đáng ngờ (suspicious transaction). 口座売買 / 名義貸し / cho thuê tài khoản LÀ TỘI HÌNH SỰ theo 犯罪収益移転防止法 §28 — phạt tù tối đa 3 năm hoặc phạt tiền 50万円. Người nước ngoài vi phạm có thể bị thu hồi tư cách lưu trú.',
-      sourceVerifiedAt: '2026-05-16',
+      jurisdictionNote: 'Quản lý bởi 犯罪収益移転防止法 (Anti-Money-Laundering Act) + 金融商品取引法 + 資金決済法 (áp dụng cho 資金移動業者 như Wise / SBI Remit, khác 銀行法) + hướng dẫn 金融庁 (FSA). Mọi ngân hàng + dịch vụ chuyển tiền BẮT BUỘC thực hiện 本人確認 (KYC) + theo dõi giao dịch đáng ngờ (suspicious transaction) — 金融庁 yêu cầu hoàn thành biện pháp AML/CFT trước 3/2024 + kiểm tra hiệu quả liên tục từ 4/2024, nên khách hàng có thể gặp câu hỏi xác minh kỹ hơn trước đây (mục đích giao dịch, nguồn tài sản, xác nhận định kỳ). 資金決済法 sửa đổi có hiệu lực trong năm 2026 tiếp tục tăng cường AML cho dịch vụ chuyển tiền quốc tế + tài sản mã hóa — kiểm tra thông báo cập nhật của dịch vụ bạn dùng. 口座売買 / 名義貸し / cho thuê tài khoản LÀ TỘI HÌNH SỰ theo 犯罪収益移転防止法 §28 — phạt tù tối đa 3 năm hoặc phạt tiền 50万円. Người nước ngoài vi phạm có thể bị thu hồi tư cách lưu trú.',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-11-30',
       riskLevel: 'high',
       whenToAskExpert: [
