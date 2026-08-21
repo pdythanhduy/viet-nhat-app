@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     id: 'visa-emergency-medical-disaster-extension',
     category: 'immigration',
-    lastVerified: '2026-05-17',
+    lastVerified: '2026-08-22',
     priority: 'normal',
     title: 'Visa hết hạn trong lúc nhập viện / thảm họa — cách xin giãn thời hạn',
     titleJp: '入院中や災害時の在留期間延長手続き',
@@ -45,7 +45,7 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Gia hạn 短期滞在 và đổi sang 特定活動 (medical) do 出入国在留管理庁 xử lý toàn quốc theo 入管法 §21 và hướng dẫn về 特定活動. Sau thảm họa lớn (震災, 風水害), Nyukan thường ban hành biện pháp đặc biệt (特別措置) áp dụng cho khu vực bị ảnh hưởng — phạm vi và thời gian tùy quyết định của 法務省 / Nyukan tại thời điểm. KHÔNG nhầm 特定活動 (medical) với 在留特別許可 (do Bộ trưởng Tư pháp cấp riêng).',
-      sourceVerifiedAt: '2026-05-17',
+      sourceVerifiedAt: '2026-08-22',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -103,6 +103,11 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
       'Gia đình bạn tại Nhật cũng có thể hỗ trợ nộp tài liệu nếu bạn nằm bệnh.',
     ],
     estimatedTime: '< 90 ngày: 1-2 tuần. > 90 ngày: 2-4 tuần để đổi sang 特定活動. Thời gian có thể kéo dài hơn nếu bệnh viện cần cập nhật hồ sơ.',
+    fees: [
+      'Hiện tại (từ 01/04/2025): cả 在留期間更新許可申請 (gia hạn short-term) và 在留資格変更許可申請 (đổi sang 特定活動 y tế) đều 6,000 yên/lần nộp giấy, hoặc 5,500 yên nếu nộp online — thanh toán bằng 収入印紙 khi được duyệt.',
+      'Sắp đổi: dự thảo 政令 (công bố 03/07/2026, lấy ý kiến đến 02/08/2026) sẽ đổi 2 thủ tục này sang biểu phí theo bậc 1万–7.5万円 tùy thời hạn lưu trú còn lại, dự kiến hiệu lực từ 01/10/2026 — tính đến 22/08/2026 nghị định vẫn CHƯA công bố chính thức trên 官報. Xem bảng phí chi tiết tại guide "Phí visa Nhật tăng từ 2025-04-01".',
+      '診断書 (giấy chẩn đoán bác sĩ): tham khảo 3,000-10,000 yên/bản, không được bảo hiểm chi trả.',
+    ],
     commonMistakes: [
       'Không hỏi bệnh viện — chờ đợi quá lâu cho đến khi gần hết hạn visa.',
       'Không hiểu sự khác biệt giữa extension < 90 ngày vs đổi tư cách > 90 ngày.',
@@ -200,7 +205,7 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
         term: '災害時特別措置',
         reading: 'さいがいじとくべつそち',
         meaningVi: 'biện pháp đặc biệt của Nyukan sau thảm họa',
-        noteVi: 'Sau thảm họa lớn (đại địa chấn, bão lụt), Nyukan thường ban hành 特別措置: hạn ân hạn lưu trú 30-60 ngày, miễn phí gia hạn, cấp 特定活動 tạm thời. Phạm vi + thời gian khác nhau từng thảm họa — KHÔNG tự kết luận, xác nhận tại trang Nyukan hoặc gọi 0570-013904.',
+        noteVi: 'Sau thảm họa lớn (đại địa chấn, bão lụt), Nyukan thường ban hành 特別措置: hạn ân hạn lưu trú 30-60 ngày, miễn phí gia hạn, cấp 特定活動 tạm thời. Phạm vi + thời gian khác nhau từng thảm họa — KHÔNG tự kết luận, xác nhận tại trang Nyukan hoặc gọi 0570-013904. Ví dụ thực tế gần nhất: 令和8年熊本地震 (động đất Kumamoto, 07/2026) — Nyukan gia hạn hạn hoàn thành nghĩa vụ 入管法 đến 27/11/2026 + cho phép làm việc ngoài tư cách lưu trú (資格外活動許可) đến 27/01/2027 cho khu vực Kumamoto thuộc diện 災害救助法.',
       },
       {
         term: '在留特別許可',
@@ -221,6 +226,7 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
       { label: 'ISA — Designated Activities for Medical Stay', url: 'https://www.moj.go.jp/isa/applications/status/designatedactivities06.html' },
       { label: '在留期間更新許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-3.html' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
+      { label: '令和8年熊本地震に伴う出入国在留管理上の措置について — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/30_00158.html' },
     ],
     steps: [
       {

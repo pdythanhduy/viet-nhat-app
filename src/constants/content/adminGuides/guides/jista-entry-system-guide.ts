@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const jistaEntrySystemGuide: AdminGuide = {
   id: 'jista-entry-system-guide',
   category: 'immigration',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-22',
   priority: 'normal',
   title: 'JESTA — hệ thống xét duyệt nhập cảnh điện tử trước (đề xuất)',
   titleJp: 'JESTA — 電子的渡航認証システム（提案中）',
   icon: 'airplane-outline',
   color: '#5D6D7E',
   description:
-    '**JESTA** (Japan Electronic System for Travel Authorization) là hệ thống xét duyệt **trước nhập cảnh điện tử** cho khách miễn visa — tương tự **ESTA của Mỹ** và **eTA của Canada**. Tại 2026-05-14, JESTA **đang ở giai đoạn đề xuất + chuẩn bị** từ chính phủ Nhật, **CHƯA vận hành chính thức**. Đối tượng dự kiến: du khách miễn visa (vd: Mỹ, Anh, Úc) — **KHÔNG áp dụng cho người Việt** (Việt Nam KHÔNG miễn visa Nhật — vẫn xin visa truyền thống). Người Việt cư trú dài hạn (在留カード) cũng KHÔNG bị ảnh hưởng. Đây là **tài liệu định hướng** cho người quan tâm chính sách + người Việt mời bạn bè quốc gia miễn visa sang Nhật. Kiểm tra thông báo chính thức trước khi đi du lịch.',
+    '**JESTA** (Japan Electronic System for Travel Authorization) là hệ thống xét duyệt **trước nhập cảnh điện tử** cho khách miễn visa — tương tự **ESTA của Mỹ** và **eTA của Canada**. Luật thiết lập JESTA (nằm trong gói sửa 入管法) đã được Quốc hội Nhật thông qua ngày **29/05/2026** và công bố ngày **05/06/2026** (令和8年法律第32号) — nhưng hệ thống **CHƯA vận hành thực tế**, mục tiêu vẫn là **năm tài khóa 令和10/FY2028** (04/2028–03/2029). Đối tượng dự kiến: du khách miễn visa (vd: Mỹ, Anh, Úc) — **KHÔNG áp dụng cho người Việt** (Việt Nam KHÔNG miễn visa Nhật — vẫn xin visa truyền thống). Người Việt cư trú dài hạn (在留カード) cũng KHÔNG bị ảnh hưởng. Đây là **tài liệu định hướng** cho người quan tâm chính sách + người Việt mời bạn bè quốc gia miễn visa sang Nhật. Kiểm tra thông báo chính thức trước khi đi du lịch.',
   searchKeywords: [
     'JESTA',
     'jesta nhật',
@@ -26,12 +26,12 @@ const jistaEntrySystemGuide: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      'JESTA là đề xuất chính sách của chính phủ Nhật (出入国在留管理庁 + MOFA + 観光庁) — **CHƯA luật hóa** + **CHƯA vận hành**. Theo công bố báo chí + nghiên cứu chính sách: dự kiến triển khai cho khách miễn visa (~70 quốc gia/vùng được miễn visa Nhật). **Việt Nam KHÔNG nằm trong nhóm miễn visa** — JESTA KHÔNG áp dụng. Tài liệu này định hướng cho người quan tâm chính sách, KHÔNG thay thế thông báo chính thức. Kiểm tra trang ISA + MOFA + Đại sứ quán Nhật trước khi đi.',
-    sourceVerifiedAt: '2026-05-14',
+      'JESTA đã được luật hóa: nằm trong gói sửa 入管法 do Quốc hội Nhật thông qua ngày 29/05/2026, công bố ngày 05/06/2026 (令和8年法律第32号) — nhưng **CHƯA vận hành thực tế**, mục tiêu triển khai vẫn là năm tài khóa 令和10/FY2028 (04/2028–03/2029). Theo công bố ISA + báo chí: dự kiến áp dụng cho khách miễn visa (~70 quốc gia/vùng được miễn visa Nhật). **Việt Nam KHÔNG nằm trong nhóm miễn visa** — JESTA KHÔNG áp dụng. Tài liệu này định hướng cho người quan tâm chính sách, KHÔNG thay thế thông báo chính thức. Kiểm tra trang ISA + MOFA + Đại sứ quán Nhật trước khi đi.',
+    sourceVerifiedAt: '2026-08-22',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [
-      'Bạn nghe tin "JESTA bắt đầu 2026" hay "phải đăng ký JESTA để vào Nhật" — KIỂM TRA với Đại sứ quán Nhật trước. Tại 2026-05-14, JESTA chưa vận hành.',
+      'Bạn nghe tin "JESTA bắt đầu 2026" hay "phải đăng ký JESTA để vào Nhật" — KIỂM TRA với Đại sứ quán Nhật trước. Tại 2026-08-22, JESTA chưa vận hành.',
       'Bạn có bạn bè người Mỹ / Anh / Úc / Singapore (miễn visa Nhật) muốn đến Nhật — họ sẽ phải dùng JESTA khi hệ thống vận hành. Theo dõi MOFA cho mốc cụ thể.',
       'Bạn người Việt đang du lịch / công tác Nhật (visa truyền thống) — KHÔNG bị ảnh hưởng JESTA.',
       'Bạn là 不動産業 / 観光業 phục vụ khách miễn visa — cần biết JESTA để hướng dẫn khách hàng.',
@@ -39,9 +39,9 @@ const jistaEntrySystemGuide: AdminGuide = {
   },
   quickAction: {
     deadline:
-      'Tại 2026-05-15: 入管法改正案 (gồm JESTA) đã 閣議決定 ngày **10/03/2026**. Mục tiêu vận hành **trong 令和10 niên độ (FY2028, tức 04/2028–03/2029)**, hạn pháp lý đến 03/2029. Phí cụ thể chưa quyết định (sẽ định qua 政令).',
+      '入管法改正案 (gồm JESTA) đã qua các mốc: 閣議決定 ngày **10/03/2026** → Quốc hội thông qua ngày **29/05/2026** → công bố (公布) ngày **05/06/2026** (令和8年法律第32号). Mục tiêu vận hành thực tế vẫn **trong 令和10 niên độ (FY2028, tức 04/2028–03/2029)** — chưa có tin tức nào (tính đến 2026-08-22) cho thấy mốc này bị đẩy sớm hơn. Phí cụ thể chưa quyết định (sẽ định qua 政令).',
     office:
-      '**Sau khi JESTA vận hành** (dự kiến): nộp online qua trang chính thức (TBD — chưa công bố URL). **Hiện tại 2026-05-14**: theo dõi cập nhật từ **MOFA / ISA / 観光庁**. **Đại sứ quán Nhật** ở quốc gia khách miễn visa sẽ thông báo cho công dân.',
+      '**Sau khi JESTA vận hành** (dự kiến): nộp online qua trang chính thức (TBD — chưa công bố URL). **Hiện tại 2026-08-22**: theo dõi cập nhật từ **MOFA / ISA / 観光庁**. **Đại sứ quán Nhật** ở quốc gia khách miễn visa sẽ thông báo cho công dân.',
     doNow: [
       'KIỂM TRA quốc tịch bạn / bạn bè có thuộc nhóm miễn visa Nhật không (~70 quốc gia gồm Mỹ, Anh, Úc, Singapore, Hàn Quốc, Đài Loan; **KHÔNG có Việt Nam**).',
       'Nếu thuộc nhóm miễn visa: theo dõi thông báo MOFA về mốc JESTA vận hành.',
@@ -52,7 +52,7 @@ const jistaEntrySystemGuide: AdminGuide = {
     bring: [
       'Hộ chiếu khách miễn visa (khi JESTA vận hành sau)',
       'Email + thông tin chuyến bay + nơi ở Nhật',
-      'Phí đăng ký (theo công bố — chưa có ngày 2026-05-14)',
+      'Phí đăng ký (theo công bố — chưa có ngày 2026-08-22)',
     ],
     ifLate:
       'JESTA chưa vận hành → không có "muộn". Khi vận hành: làm theo quy trình cụ thể được công bố.',
@@ -73,7 +73,7 @@ const jistaEntrySystemGuide: AdminGuide = {
     'KHÔNG dành cho: người Việt cư trú dài hạn 在留カード (JESTA không áp dụng cho cư trú dài hạn).',
   ],
   whenToDo: [
-    '**Hiện tại (2026-05-14)**: JESTA chưa vận hành — không cần làm gì.',
+    '**Hiện tại (2026-08-22)**: JESTA chưa vận hành — không cần làm gì.',
     'Theo dõi mốc vận hành qua ISA / MOFA / 観光庁 — mục tiêu chính thức là FY2028 (04/2028–03/2029).',
     'Khi đi du lịch Nhật + thuộc nhóm miễn visa: kiểm tra JESTA yêu cầu (sau khi vận hành) **72 giờ – 1 tuần trước chuyến bay**.',
     'Không có "đăng ký sớm cho tương lai" — JESTA sẽ có hạn hiệu lực giới hạn.',
@@ -86,7 +86,7 @@ const jistaEntrySystemGuide: AdminGuide = {
   estimatedTime:
     'JESTA chưa vận hành — không có dự kiến cụ thể. Tham khảo ESTA (Mỹ): 5–10 phút đăng ký online + 72 giờ xét duyệt. eTA (Canada): tương tự. JESTA dự kiến cũng nhanh.',
   fees: [
-    'Phí JESTA: **CHƯA công bố** tại 2026-05-14.',
+    'Phí JESTA: **CHƯA công bố** tại 2026-08-22.',
     'Tham khảo:\n• ESTA (Mỹ): 21 USD.\n• eTA (Canada): 7 CAD.\n• ETIAS (EU — vận hành 2025): 7 EUR.',
     'Dự kiến JESTA cũng vài USD/EUR — không đắt.',
     'KHÔNG có "phí đăng ký sớm" — chưa có hệ thống.',
@@ -100,7 +100,7 @@ const jistaEntrySystemGuide: AdminGuide = {
     { label: 'Thẻ tín dụng (cho phí)', required: false, note: 'Khi vận hành.' },
   ],
   commonMistakes: [
-    'Tin "JESTA bắt đầu 2026" + đăng ký NGAY → SAI. Hệ thống chưa vận hành tại 2026-05-14.',
+    'Tin "JESTA bắt đầu 2026" + đăng ký NGAY → SAI. Hệ thống chưa vận hành tại 2026-08-22.',
     'Tin "Việt Nam phải đăng ký JESTA" → SAI. Việt Nam KHÔNG miễn visa Nhật → JESTA không áp dụng.',
     'Người Việt cư trú dài hạn lo lắng về JESTA → KHÔNG cần. JESTA chỉ cho khách miễn visa ngắn hạn.',
     'Tin trang giả mạo "Đăng ký JESTA — phí 5,000円" → 100% lừa đảo (chưa có trang chính thức).',
@@ -116,12 +116,12 @@ const jistaEntrySystemGuide: AdminGuide = {
     {
       question: 'Khi nào JESTA vận hành? Đăng ký ở đâu?',
       answer:
-        'Tại 2026-05-14: JESTA **CHƯA vận hành**.\n\n**Trạng thái hiện tại**:\n\n• Đề xuất chính sách từ chính phủ Nhật (xuất hiện trong báo chí + nghiên cứu 観光庁 từ 2023–2024).\n• Chuẩn bị luật + hệ thống IT.\n• Tham khảo mô hình ESTA (Mỹ) + eTA (Canada) + ETIAS (EU).\n\n**Mốc dự kiến** (không chính thức):\n\n• Báo chí Nhật 2024–2025 nêu "trong khoảng 2026–2030".\n• Chính phủ chưa công bố ngày cụ thể.\n• Có thể kéo dài hơn do hệ thống IT phức tạp.\n\n**Khi vận hành**:\n\n• Trang chính thức (URL chưa công bố — dự kiến dưới ISA / MOFA).\n• Đăng ký online từ điện thoại / PC.\n• Phí vài USD (tham khảo ESTA 21 USD, eTA 7 CAD, ETIAS 7 EUR).\n• Xét duyệt 72 giờ – 1 tuần.\n• Hạn hiệu lực giới hạn (vd ESTA: 2 năm hoặc đến khi hộ chiếu hết hạn).\n\n**Theo dõi cập nhật**:\n\n• Trang ISA: https://www.moj.go.jp/isa/\n• Trang MOFA: https://www.mofa.go.jp/\n• Đại sứ quán Nhật ở quốc gia miễn visa sẽ thông báo cho công dân.\n• Báo chí du lịch Nhật + Nikkei.\n\n**Cảnh báo lừa đảo**:\n\n• Trang giả mạo "Đăng ký JESTA — phí 5,000円" → 100% lừa đảo.\n• SMS "JESTA hết hạn — gia hạn ngay" → SAI (hệ thống chưa vận hành).\n• Chỉ tin trang .go.jp chính thức.',
+        'Tại 2026-08-22: JESTA **CHƯA vận hành**, nhưng đã có cơ sở pháp lý chính thức.\n\n**Trạng thái hiện tại**:\n\n• Luật thiết lập JESTA (trong gói sửa 入管法) đã được Quốc hội Nhật **thông qua ngày 29/05/2026** và **công bố ngày 05/06/2026** (令和8年法律第32号).\n• Mục tiêu vận hành chính thức: **năm tài khóa 令和10/FY2028 (04/2028–03/2029)** — đây là mốc từ chính phủ, không còn chỉ là dự đoán báo chí.\n• Chi tiết vận hành (URL, quy trình, phí) vẫn chưa công bố — sẽ quy định qua 政令/省令 trước khi hệ thống đi vào hoạt động.\n• Tham khảo mô hình ESTA (Mỹ) + eTA (Canada) + ETIAS (EU).\n\n**Khi vận hành**:\n\n• Trang chính thức (URL chưa công bố — dự kiến dưới ISA / MOFA).\n• Đăng ký online từ điện thoại / PC.\n• Phí vài USD (tham khảo ESTA 21 USD, eTA 7 CAD, ETIAS 7 EUR).\n• Xét duyệt 72 giờ – 1 tuần.\n• Hạn hiệu lực giới hạn (vd ESTA: 2 năm hoặc đến khi hộ chiếu hết hạn).\n\n**Theo dõi cập nhật**:\n\n• Trang ISA: https://www.moj.go.jp/isa/\n• Trang MOFA: https://www.mofa.go.jp/\n• Đại sứ quán Nhật ở quốc gia miễn visa sẽ thông báo cho công dân.\n• Báo chí du lịch Nhật + Nikkei.\n\n**Cảnh báo lừa đảo**:\n\n• Trang giả mạo "Đăng ký JESTA — phí 5,000円" → 100% lừa đảo.\n• SMS "JESTA hết hạn — gia hạn ngay" → SAI (hệ thống chưa vận hành).\n• Chỉ tin trang .go.jp chính thức.',
     },
     {
       question: 'Tôi mời bạn Mỹ / Anh sang Nhật — họ có phải đăng ký JESTA không?',
       answer:
-        '**Hiện tại 2026-05-14**: JESTA chưa vận hành → không cần đăng ký.\n\n**Khi JESTA vận hành**:\n\n• Bạn Mỹ / Anh / Úc / Singapore / Hàn Quốc / Đài Loan / EU phần lớn → thuộc nhóm miễn visa Nhật → sẽ phải đăng ký JESTA trước khi đi.\n\n**Quy trình dự kiến** (theo mô hình ESTA / eTA):\n\n1. Bạn đăng ký online qua trang chính thức 72 giờ – 1 tuần trước chuyến bay.\n2. Điền thông tin: hộ chiếu, chuyến bay, nơi ở Nhật, lý do du lịch.\n3. Trả phí (vài USD/EUR).\n4. Đợi xét duyệt — đa số 72 giờ.\n5. Nhận thông báo qua email + lưu lại.\n6. Khi check-in chuyến bay → hãng hàng không kiểm tra JESTA.\n7. Khi đến Nhật → nhân viên 入管 kiểm tra lại.\n\n**Khi nào KHÔNG cần JESTA**:\n\n• Visa truyền thống (cho người Việt + quốc gia không miễn visa).\n• Visa du lịch dài hạn.\n• Visa lao động / 留学 / 永住.\n• Trẻ em theo cha/mẹ — tùy quy định cụ thể.\n\n**Lưu ý bạn bè quốc tế**:\n\n• Báo họ kiểm tra JESTA yêu cầu trước khi đặt vé (sau khi vận hành).\n• Không phải mọi quốc gia miễn visa đều áp dụng JESTA ngay từ đầu — có thể triển khai theo giai đoạn.\n• Phí thấp + xét nhanh nhưng vẫn cần thời gian.',
+        '**Hiện tại 2026-08-22**: JESTA chưa vận hành → không cần đăng ký.\n\n**Khi JESTA vận hành**:\n\n• Bạn Mỹ / Anh / Úc / Singapore / Hàn Quốc / Đài Loan / EU phần lớn → thuộc nhóm miễn visa Nhật → sẽ phải đăng ký JESTA trước khi đi.\n\n**Quy trình dự kiến** (theo mô hình ESTA / eTA):\n\n1. Bạn đăng ký online qua trang chính thức 72 giờ – 1 tuần trước chuyến bay.\n2. Điền thông tin: hộ chiếu, chuyến bay, nơi ở Nhật, lý do du lịch.\n3. Trả phí (vài USD/EUR).\n4. Đợi xét duyệt — đa số 72 giờ.\n5. Nhận thông báo qua email + lưu lại.\n6. Khi check-in chuyến bay → hãng hàng không kiểm tra JESTA.\n7. Khi đến Nhật → nhân viên 入管 kiểm tra lại.\n\n**Khi nào KHÔNG cần JESTA**:\n\n• Visa truyền thống (cho người Việt + quốc gia không miễn visa).\n• Visa du lịch dài hạn.\n• Visa lao động / 留学 / 永住.\n• Trẻ em theo cha/mẹ — tùy quy định cụ thể.\n\n**Lưu ý bạn bè quốc tế**:\n\n• Báo họ kiểm tra JESTA yêu cầu trước khi đặt vé (sau khi vận hành).\n• Không phải mọi quốc gia miễn visa đều áp dụng JESTA ngay từ đầu — có thể triển khai theo giai đoạn.\n• Phí thấp + xét nhanh nhưng vẫn cần thời gian.',
     },
   ],
   counterPhrases: [
@@ -141,7 +141,7 @@ const jistaEntrySystemGuide: AdminGuide = {
       jp: 'いつから運用開始ですか？',
       romaji: 'Itsu kara unyou kaishi desu ka?',
       vn: 'Khi nào vận hành?',
-      note: 'Chưa rõ tại 2026-05-14.',
+      note: 'Mục tiêu năm tài khóa FY2028 (令和10) — ngày vận hành cụ thể chưa công bố tại 2026-08-22.',
     },
     {
       jp: '手数料はいくらですか？',
@@ -162,6 +162,7 @@ const jistaEntrySystemGuide: AdminGuide = {
     { label: '不法滞在者ゼロプラン（JESTA記載PDF）', url: 'https://www.moj.go.jp/isa/content/001446180.pdf' },
     { label: 'ゼロプラン実施状況（令和7年10月）PDF', url: 'https://www.moj.go.jp/isa/content/001448366.pdf' },
     { label: '電子渡航認証制度（ESTA）調査研究について', url: 'https://www.moj.go.jp/isa/immigration/resources/02_00012.html' },
+    { label: '出入国管理及び難民認定法の一部を改正する法律（JESTA創設・令和8年法律第32号）', url: 'https://www.moj.go.jp/isa/policies/bill/05_00001.html' },
   ],
   steps: [
     {
@@ -176,7 +177,7 @@ const jistaEntrySystemGuide: AdminGuide = {
       step: 2,
       title: 'Theo dõi mốc JESTA vận hành (chưa rõ)',
       description:
-        '**Tại 2026-05-14**:\n\n• JESTA chưa có mốc vận hành chính thức.\n• Đề xuất chính sách + chuẩn bị hệ thống đang tiến hành.\n• Báo chí dự đoán "2026–2030".\n\n**Theo dõi qua**:\n\n• **ISA**: https://www.moj.go.jp/isa/ (trang chính)\n• **MOFA**: https://www.mofa.go.jp/\n• **観光庁**: https://www.mlit.go.jp/kankocho/\n• **Báo chí**: Nikkei, Asahi, Mainichi.\n• **Đại sứ quán Nhật** ở quốc gia bạn / bạn bè.\n\n**Khi vận hành**: sẽ có thông báo rộng rãi qua media + Đại sứ quán + hãng hàng không.\n\n**KHÔNG đăng ký trước khi vận hành**:\n\n• Hiện tại không có trang chính thức.\n• Trang giả mạo "JESTA pre-registration" → lừa đảo.',
+        '**Tại 2026-08-22**:\n\n• Luật thiết lập JESTA đã được thông qua (29/05/2026) và công bố (05/06/2026, 令和8年法律第32号).\n• Mốc vận hành chính thức: năm tài khóa 令和10/FY2028 (04/2028–03/2029) — chưa có tin cho thấy mốc này bị đẩy sớm hơn.\n• Chuẩn bị hệ thống IT + văn bản dưới luật (政令/省令) đang tiến hành, chưa có ngày vận hành cụ thể trong khoảng FY2028.\n\n**Theo dõi qua**:\n\n• **ISA**: https://www.moj.go.jp/isa/ (trang chính)\n• **MOFA**: https://www.mofa.go.jp/\n• **観光庁**: https://www.mlit.go.jp/kankocho/\n• **Báo chí**: Nikkei, Asahi, Mainichi.\n• **Đại sứ quán Nhật** ở quốc gia bạn / bạn bè.\n\n**Khi vận hành**: sẽ có thông báo rộng rãi qua media + Đại sứ quán + hãng hàng không.\n\n**KHÔNG đăng ký trước khi vận hành**:\n\n• Hiện tại không có trang chính thức.\n• Trang giả mạo "JESTA pre-registration" → lừa đảo.',
       documents: [],
       tip: 'Đặt bookmark trang ISA + MOFA. Kiểm tra 1 lần/quý nếu quan tâm.',
     },

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const unemploymentBenefits: AdminGuide = {
     id: 'unemployment-benefits',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-22',
     priority: 'high',
     title: 'Trợ cấp thất nghiệp (失業給付)',
     titleJp: '失業給付・雇用保険の受給手続き',
@@ -15,6 +15,7 @@ const unemploymentBenefits: AdminGuide = {
     officialLinks: [
       { label: '雇用保険の基本手当 — ハローワーク', url: 'https://www.hellowork.mhlw.go.jp/insurance/insurance_basicbenefit.html' },
       { label: '雇用保険について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000136389.html' },
+      { label: '自己都合離職者の給付制限期間の見直し（令和7年4月〜） — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000139508.html' },
     ],
     whoIsThisFor: [
       'Người vừa mất việc — bị sa thải hoặc tự xin nghỉ.',
@@ -61,9 +62,9 @@ const unemploymentBenefits: AdminGuide = {
       {
         step: 3,
         title: 'Chờ qua thời gian chờ (給付制限)',
-        description: '- 自己都合 (tự xin nghỉ): 7 ngày chờ bắt buộc + thêm 2 tháng (lần đầu trong 5 năm) hoặc 3 tháng.\n- 会社都合 (bị sa thải, hết hạn hợp đồng): chỉ chờ 7 ngày rồi nhận ngay.\nTrong thời gian chờ không nhận được tiền nhưng vẫn phải tiếp tục tìm việc.',
+        description: '- 自己都合 (tự xin nghỉ): 7 ngày chờ bắt buộc + thêm **1 tháng** (áp dụng từ khi cải cách có hiệu lực 01/04/2025 — trước đó là 2 tháng). Nếu đã tự nghỉ việc không có lý do chính đáng từ 2 lần trở lên trong 5 năm gần nhất: vẫn giữ mức 3 tháng như cũ.\n- 会社都合 (bị sa thải, hết hạn hợp đồng): chỉ chờ 7 ngày rồi nhận ngay.\nTrong thời gian chờ không nhận được tiền nhưng vẫn phải tiếp tục tìm việc.',
         documents: [],
-        tip: 'Bị sa thải do công ty phá sản hoặc lý do bất khả kháng có thể được xếp loại 特定受給資格者 — hưởng chế độ tốt hơn và không bị thêm 2–3 tháng chờ.',
+        tip: 'Bị sa thải do công ty phá sản hoặc lý do bất khả kháng có thể được xếp loại 特定受給資格者 — hưởng chế độ tốt hơn và không bị thêm 1–3 tháng chờ. Ngoài ra, nếu tham gia khóa đào tạo nghề được ハローワーク chỉ định trong thời gian chờ, có thể được miễn hoàn toàn phần chờ thêm này (chỉ còn 7 ngày 待期期間).',
       },
       {
         step: 4,

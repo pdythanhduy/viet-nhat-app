@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const reEntry: AdminGuide = {
     id: 're-entry',
     category: 'immigration',
-    lastVerified: '2026-05-07',
+    lastVerified: '2026-08-22',
     priority: 'normal',
     title: 'Tạm rời Nhật / tái nhập cảnh',
     titleJp: 'みなし再入国許可・再入国許可',
@@ -37,7 +37,7 @@ const reEntry: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Quy định tái nhập cảnh do ISA quản lý toàn quốc; thủ tục thực tế diễn ra tại cửa khẩu hoặc cục xuất nhập cảnh trước khi rời Nhật nếu cần 再入国許可.',
-      sourceVerifiedAt: '2026-05-07',
+      sourceVerifiedAt: '2026-08-22',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -91,8 +91,8 @@ const reEntry: AdminGuide = {
     ],
     tips: [
       'Khi qua cổng xuất cảnh bằng みなし再入国: **đánh dấu "出国する" vào ô ý định quay lại** trên tờ 再入国EDカード (màu xanh lá) — nếu quên đánh dấu, みなし có thể bị coi là mất hiệu lực. Giữ stub thẻ đã đóng dấu làm bằng chứng.',
-      'Kiểm tra **3 thứ trước khi đặt vé máy bay**: ngày hết hạn visa, ngày hết hạn みなし再入国 (= ngày hết visa hoặc 1 năm từ ngày xuất cảnh — lấy ngày nào đến trước), và ngày hết hạn hộ chiếu. Có 永住 thì みなし có thể lên đến 2 năm.',
-      'Nếu chuyến đi có thể kéo dài không chắc (ốm, công tác, gia đình), xin **再入国許可 chính thức** tại ISA trước khi đi (phí ~3,000 yên đơn/6,000 yên bội) — thời hạn đến 5 năm (永住者 lên 6 năm), linh hoạt hơn nhiều.',
+      'Kiểm tra **3 thứ trước khi đặt vé máy bay**: ngày hết hạn visa, ngày hết hạn みなし再入国 (= ngày hết visa hoặc 1 năm từ ngày xuất cảnh — lấy ngày nào đến trước), và ngày hết hạn hộ chiếu. Lưu ý: mốc 2 năm chỉ áp dụng cho 特別永住者 (diện pháp lý riêng, khác 永住者 thường) — 永住者 (永住 thường) vẫn theo mốc 1 năm như các tư cách khác.',
+      'Nếu chuyến đi có thể kéo dài không chắc (ốm, công tác, gia đình), xin **再入国許可 chính thức** tại ISA trước khi đi (phí 4,000 yên đơn/7,000 yên bội — nộp online rẻ hơn: 3,500 yên/6,500 yên) — thời hạn tối đa 5 năm cho hầu hết trường hợp kể cả 永住者; riêng 特別永住者 mới được tối đa 6 năm.',
     ],
     commonMistakes: [
       'Không đánh dấu ý định quay lại trên 再入国出国記録（再入国EDカード） khi xuất cảnh bằng みなし再入国.',
@@ -128,7 +128,7 @@ const reEntry: AdminGuide = {
       {
         title: '永住者 — về lâu bao lâu mới cần xin phép?',
         situation: 'Tôi có 永住. Muốn về Việt Nam lâu hơn bình thường, có thể 1 năm. みなし đủ không?',
-        answer: '永住者 có đặc quyền hơn:\n• みなし再入国: **2 năm** (thay vì 1 năm)\n• 再入国許可 chính thức: tối đa **6 năm** (thay vì 5 năm)\n\nNếu chuyến đi có thể kéo dài gần 2 năm hoặc không chắc, hãy xin **再入国許可 chính thức tại ISA** trước khi đi (phí 6,000 yên bội nhập).\n\n**Quan trọng với 永住者**: Ở ngoài Nhật quá 5 năm liên tục (ngay cả có 再入国許可) có thể ảnh hưởng đến hồ sơ 永住 trong một số trường hợp. Tư vấn 行政書士 nếu dự kiến ở dài hạn.',
+        answer: '**Lưu ý quan trọng**: 永住者 (diện 永住 thường) KHÔNG có đặc quyền thời hạn riêng — vẫn áp dụng đúng mốc chung như các tư cách lưu trú khác:\n• みなし再入国: vẫn **1 năm** (mốc 2 năm chỉ dành riêng cho 特別永住者 — diện pháp lý khác, không phải 永住者 thường)\n• 再入国許可 chính thức: tối đa **5 năm** (mốc 6 năm cũng chỉ dành cho 特別永住者)\n\nVì vậy nếu dự định về khoảng 1 năm hoặc không chắc thời gian, みなし再入国 (giới hạn đúng 1 năm) khá sát nút — nên xin **再入国許可 chính thức tại ISA** trước khi đi (phí 7,000 yên bội nhập bằng giấy, hoặc 6,500 yên nếu nộp online) để có thời hạn tới 5 năm, an toàn hơn nhiều.\n\n**Quan trọng với 永住者**: Ở ngoài Nhật quá 5 năm liên tục (ngay cả có 再入国許可) có thể ảnh hưởng đến hồ sơ 永住 trong một số trường hợp. Tư vấn 行政書士 nếu dự kiến ở dài hạn.',
       },
       {
         title: 'Quên đánh dấu "出国する" trên EDカード — giờ phải làm gì?',
@@ -153,7 +153,7 @@ const reEntry: AdminGuide = {
         jp: '再入国許可の有効期間を延長できますか。',
         romaji: 'Sainyuukoku kyoka no youkou kikan o enchou dekimasu ka.',
         vn: 'Tôi có gia hạn được 再入国許可 không?',
-        note: 'Có — nộp tại cơ quan Nhật ở nước ngoài (Đại sứ quán / Lãnh sự) TRƯỚC khi hết hạn 再入国, tối đa lên 6 năm tổng (HSP / 永住).',
+        note: 'Có — nộp tại cơ quan Nhật ở nước ngoài (Đại sứ quán / Lãnh sự) TRƯỚC khi hết hạn 再入国. Tối đa 5 năm cho hầu hết trường hợp (kể cả 永住者/HSP); riêng 特別永住者 tối đa 6 năm.',
       },
       {
         jp: 'パスポートをなくしました。再入国はできますか。',
@@ -173,7 +173,7 @@ const reEntry: AdminGuide = {
         term: '再入国許可',
         reading: 'さいにゅうこくきょか',
         meaningVi: 'giấy phép tái nhập cảnh chính thức',
-        noteVi: 'Áp dụng khi rời Nhật > 1 năm và ≤ 5 năm (永住 / HSP có thể đến 6 năm). Phải nộp tại ISA TRƯỚC khi rời Nhật. Phí: 3,000円 (1 lần) hoặc 6,000円 (nhiều lần). Có thể gia hạn ở cơ quan Nhật ở nước ngoài trước khi hết hạn.',
+        noteVi: 'Áp dụng khi rời Nhật > 1 năm và ≤ 5 năm (mốc 6 năm chỉ dành cho 特別永住者, KHÔNG áp dụng cho 永住者/HSP thường). Phải nộp tại ISA TRƯỚC khi rời Nhật. Phí: 4,000円 (1 lần) hoặc 7,000円 (nhiều lần); nộp online rẻ hơn: 3,500円/6,500円. Có thể gia hạn ở cơ quan Nhật ở nước ngoài trước khi hết hạn.',
       },
       {
         term: '再入国EDカード',

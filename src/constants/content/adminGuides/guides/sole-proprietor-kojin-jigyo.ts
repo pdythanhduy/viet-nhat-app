@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const soleProprietorKojinJigyo: AdminGuide = {
     id: 'sole-proprietor-kojin-jigyo',
     category: 'money',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-08-22',
     priority: 'normal',
     title: 'Đăng ký kinh doanh cá nhân (個人事業主)',
     titleJp: '個人事業の開業・廃業等届出書・青色申告',
