@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const permanentResidencyEijuu: AdminGuide = {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-06-20',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
@@ -42,8 +42,8 @@ const permanentResidencyEijuu: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '永住許可申請 do ISA xét toàn quốc; đây là hồ sơ xét tổng thể về cư trú, thuế, bảo hiểm, thu nhập, tuân thủ pháp luật và tình trạng hiện tại.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-09-04',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn có kỳ thuế, 年金, bảo hiểm, giao thông hoặc xuất nhập cảnh từng bị trễ/vi phạm.',
@@ -103,6 +103,7 @@ const permanentResidencyEijuu: AdminGuide = {
       'Nộp giấy chứng nhận Nhật đã quá 3 tháng hoặc giấy nước ngoài không kèm bản dịch tiếng Nhật.',
       'Tưởng đủ số năm cư trú là chắc chắn được cấp; 永住 vẫn là hồ sơ xét tổng thể.',
       'Tưởng có 永住 rồi là "an toàn vĩnh viễn" — từ 14/06/2026 cố ý không nộp thuế/bảo hiểm/年金 hoặc phạm tội nghiêm trọng có thể bị thu hồi tư cách 永住者 (永住許可の取消し).',
+      'Chờ "đến khi chắc chắn đủ điều kiện tốt nhất" mới nộp — trong khi ISA đang dự thảo siết thêm điều kiện (thu nhập, tiếng Nhật B1, thời gian vợ/chồng) có thể có hiệu lực từ 2027 hoặc hồi tố một phần từ 2026. Nếu đã đủ điều kiện HIỆN HÀNH, cân nhắc nộp sớm thay vì chờ.',
     ],
     faq: [
       {
@@ -119,7 +120,11 @@ const permanentResidencyEijuu: AdminGuide = {
       },
       {
         question: '⚠️ MỚI 2026: Có 永住 rồi vẫn có thể bị THU HỒI không?',
-        answer: 'Có, theo luật mới. Sửa đổi 入管法 2024 bổ sung quy định 永住許可の取消し (thu hồi vĩnh trú), có hiệu lực từ **14/06/2026**. ISA có thể xem xét thu hồi tư cách 永住者 trong các trường hợp như: **CỐ Ý (故意) không nộp thuế / 住民税 / 国民健康保険 / 年金 dù có khả năng nộp**; hoặc phạm một số tội cố ý nghiêm trọng (vd trộm cắp, lừa đảo). Điểm quan trọng: nhắm vào hành vi **cố tình** — trường hợp thực sự mất khả năng do bệnh tật, thất nghiệp được loại trừ. Trong một số trường hợp ISA có thể chuyển sang tư cách lưu trú khác thay vì trục xuất. Kết luận thực tế: sau khi có 永住 vẫn phải tiếp tục nộp đầy đủ thuế + bảo hiểm + lương hưu đúng hạn. Nếu gặp khó khăn tài chính → xin 免除 / phân kỳ tại cơ quan liên quan, KHÔNG bỏ ngơ. Tình huống cụ thể: hỏi 行政書士 / luật sư chuyên 入管.',
+        answer: 'Có, theo luật mới. Sửa đổi 入管法 2024 bổ sung quy định 永住許可の取消し (thu hồi vĩnh trú), có hiệu lực từ **14/06/2026** (đã có hiệu lực). ISA có thể xem xét thu hồi tư cách 永住者 trong các trường hợp như: **CỐ Ý (故意) không nộp thuế / 住民税 / 国民健康保険 / 年金 dù có khả năng nộp**; hoặc phạm một số tội cố ý nghiêm trọng (vd trộm cắp, lừa đảo). Điểm quan trọng: nhắm vào hành vi **cố tình** — trường hợp thực sự mất khả năng do bệnh tật, thất nghiệp được loại trừ. Trong một số trường hợp ISA có thể chuyển sang tư cách lưu trú khác thay vì trục xuất. Kết luận thực tế: sau khi có 永住 vẫn phải tiếp tục nộp đầy đủ thuế + bảo hiểm + lương hưu đúng hạn. Nếu gặp khó khăn tài chính → xin 免除 / phân kỳ tại cơ quan liên quan, KHÔNG bỏ ngơ. Tình huống cụ thể: hỏi 行政書士 / luật sư chuyên 入管.',
+      },
+      {
+        question: '⚠️ MỚI 08/2026: Nghe nói ISA sắp siết toàn bộ tiêu chuẩn xét 永住 — có thật không?',
+        answer: 'ĐANG DỰ THẢO, CHƯA CHÍNH THỨC. Ngày **04/08/2026** ISA công bố bản rà soát tổng thể 永住許可ガイドライン, lấy ý kiến công khai (パブリックコメント) đến **04/09/2026**. Nội dung dự thảo đáng chú ý: (1) yêu cầu thu nhập hộ gia đình phải trên mức trung bình cả nước, tính cả thân nhân phụ thuộc đang ở nước ngoài; (2) thêm kiểm tra tài sản/lương hưu; (3) yêu cầu MỚI về tiếng Nhật — tương đương CEFR B1; (4) diện vợ/chồng người Nhật/永住者 kéo dài thời gian đủ điều kiện từ 3 năm kết hôn/1 năm cư trú lên **5 năm kết hôn/3 năm cư trú**; (5) lịch sử thuế/bảo hiểm bị tính là yếu tố trừ điểm nặng hơn hiện tại. Mốc hiệu lực chính dự kiến **01/04/2027**, nhưng phần điều kiện thu nhập + nghĩa vụ công có thể áp dụng HỒI TỐ từ **01/04/2026** cho hồ sơ vẫn đang xét tại thời điểm **01/10/2026**. Vì còn trong giai đoạn góp ý, số liệu/điều kiện cụ thể có thể thay đổi trước khi ban hành — nếu bạn đang cân nhắc nộp 永住 diện vợ/chồng hoặc thu nhập sát ngưỡng, nên nộp sớm hoặc hỏi 行政書士/luật sư về rủi ro chuyển tiếp thay vì chờ.',
       },
     ],
     scenarios: [
@@ -207,6 +212,12 @@ const permanentResidencyEijuu: AdminGuide = {
         reading: 'えいじゅうきょかのとりけし',
         meaningVi: 'thu hồi tư cách vĩnh trú (quy định mới, hiệu lực 14/06/2026)',
         noteVi: 'Sửa đổi 入管法 2024. Từ 14/06/2026 ISA có thể thu hồi 永住者 nếu: CỐ Ý không nộp thuế / 国民健康保険 / 年金 dù có khả năng nộp; hoặc phạm một số tội cố ý nghiêm trọng. Loại trừ trường hợp thực sự mất khả năng do bệnh / thất nghiệp. → Sau khi có 永住 vẫn phải nộp đầy đủ nghĩa vụ công đúng hạn; khó khăn thì xin 免除/分割, không bỏ ngơ. Nguồn: ISA moj.go.jp/isa/05_00045.html.',
+      },
+      {
+        term: '永住許可ガイドライン改訂案',
+        reading: 'えいじゅうきょかガイドラインかいていあん',
+        meaningVi: 'dự thảo sửa toàn bộ tiêu chuẩn xét vĩnh trú (08/2026, CHƯA chính thức)',
+        noteVi: 'ISA công bố 04/08/2026, lấy ý kiến công khai đến 04/09/2026. Dự kiến siết: thu nhập hộ phải trên trung bình cả nước (tính cả thân nhân phụ thuộc ở nước ngoài), thêm kiểm tra tài sản/年金, yêu cầu MỚI tiếng Nhật CEFR B1, diện vợ/chồng kéo dài 3→5 năm kết hôn + 1→3 năm cư trú, lịch sử thuế/bảo hiểm trừ điểm nặng hơn. Hiệu lực chính dự kiến 01/04/2027; phần thu nhập/nghĩa vụ công có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. CHƯA ban hành chính thức — theo dõi lại quanh 04/09/2026.',
       },
     ],
     officialLinks: [

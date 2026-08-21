@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicy2026ActionByUserType: AdminGuide = {
     id: 'japan-policy-2026-action-by-user-type',
     category: 'visa',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Chính sách 2026: Hành động theo từng nhóm người dùng',
     titleJp: '2026年制度変更：対象者別アクションガイド',
@@ -50,6 +50,10 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
         question: 'Nếu tôi chưa vào Nhật, nên bắt đầu từ đâu?',
         answer: 'Bắt đầu bằng xác định mục tiêu: short-term (du lịch/eVISA) hay long-term (lao động/cư trú). Nếu long-term, đi theo luồng COE + tư cách lưu trú phù hợp.',
       },
+      {
+        question: '⚠️ MỚI (08/2026): Đang cân nhắc nộp gia hạn/永住 trong vài tháng tới, có nên chờ không?',
+        answer: 'KHÔNG nên chờ nếu bạn đã đủ điều kiện hiện hành. Hai thay đổi đang dự thảo (chưa chính thức, tính đến 21/08/2026): (1) phí đổi/gia hạn tư cách + vĩnh trú — dự kiến hiệu lực 01/10/2026, hồ sơ nộp trước đó vẫn theo phí cũ; (2) tiêu chuẩn xét vĩnh trú siết hơn (tiếng Nhật B1, thu nhập, thời gian vợ/chồng) — hiệu lực chính 01/04/2027 nhưng một phần có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. Người đã đủ điều kiện theo quy định HIỆN HÀNH nên nộp sớm thay vì chờ, để tránh rơi vào diện áp dụng quy định mới.',
+      },
     ],
     officialLinks: [
       { label: '育成就労制度 — ISA', url: 'https://www.moj.go.jp/isa/applications/index_00005.html' },
@@ -89,7 +93,7 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
       {
         step: 4,
         title: 'Chốt lại mốc pháp lý quan trọng',
-        description: 'Mốc vận hành chính của 育成就労/điều chỉnh lớn liên quan 特定技能 là 01/04/2027; năm 2026 có các thủ tục nộp trước hiệu lực.',
+        description: 'Mốc vận hành chính của 育成就労/điều chỉnh lớn liên quan 特定技能 là 01/04/2027; năm 2026 có các thủ tục nộp trước hiệu lực. Ngoài ra, 2 dự thảo đang lấy ý kiến trong 07–08/2026 (phí thủ tục 在留/永住 dự kiến 01/10/2026, và tiêu chuẩn xét 永住 siết hơn dự kiến 01/04/2027) CHƯA chính thức — xem guide `japan-policy-update-2026-foreign-residents` để cập nhật.',
         documents: [],
         tip: 'Khi quyết định hồ sơ, luôn kiểm tra lại ngày hiệu lực ở trang nguồn.',
       },

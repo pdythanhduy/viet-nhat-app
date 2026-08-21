@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const kokuhoReduction: AdminGuide = {
     id: 'kokuho-reduction',
     category: 'health',
-    lastVerified: '2026-05-23',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Giảm phí bảo hiểm y tế quốc dân',
     titleJp: '国民健康保険料（税）の軽減・減額申請',
@@ -41,7 +41,7 @@ const kokuhoReduction: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: '国民健康保険 do 国民健康保険法 (Luật BHYT Quốc dân) quản lý cấp quốc gia, nhưng phí + cách giảm thực tế do 市町村 tính riêng. Giảm 均等割軽減 (tự động) theo ngưỡng quốc gia (7割/5割/2割 cho 令和8年度). 非自発的失業者の国保軽減 (giảm khi mất việc không tự nguyện) áp dụng toàn quốc theo mã 離職理由 trên 雇用保険受給資格者証. 減免 hoàn cảnh đặc biệt do từng 市 tự quy định.',
-      sourceVerifiedAt: '2026-05-23',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-31',
       riskLevel: 'medium',
       whenToAskExpert: [

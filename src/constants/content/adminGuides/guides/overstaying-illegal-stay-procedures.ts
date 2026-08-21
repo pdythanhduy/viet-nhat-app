@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const overstayingIllegalStayProcedures: AdminGuide = {
     id: 'overstaying-illegal-stay-procedures',
     category: 'immigration',
-    lastVerified: '2026-05-23',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Overstay / Không hợp pháp — cách phát hiện và xử lý ngay',
     titleJp: 'オーバーステイ（不法滞在）への対応と救済手続き',
@@ -40,7 +40,7 @@ const overstayingIllegalStayProcedures: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '不法残留 (overstay) là vi phạm 入管法 §70 — tội hình sự, phạt tới 3 năm tù hoặc 300万円 (hoặc cả hai), kèm 退去強制 + 上陸拒否期間 (cấm tái nhập). 出国命令制度 (入管法 §24-3) áp dụng khi người vi phạm TỰ NGUYỆN ĐẾN báo cáo + thoả mãn các điều kiện cụ thể của 入管法 §24-3 (vd: không có tiền án nặng khác, hợp tác đầy đủ với Nyukan, có khả năng rời nước được) — Nyukan đánh giá từng trường hợp. 在留特別許可 (入管法 §50) là quyền của Bộ trưởng Tư pháp cấp đặc biệt — RẤT HIẾM được áp dụng, không phải "lựa chọn". KHÔNG có "loophole" trong luật. Mọi trường hợp 不法残留 cần tham vấn 弁護士 / 行政書士 CHUYÊN 入管 trước khi đến Nyukan để đảm bảo bảo vệ quyền tốt nhất có thể.',
-      sourceVerifiedAt: '2026-05-23',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -124,6 +124,10 @@ const overstayingIllegalStayProcedures: AdminGuide = {
       {
         question: 'Tôi vừa phát hiện overstay hôm qua — bây giờ mới nộp rescue, có được không?',
         answer: 'Bạn vẫn có cơ hội vì mới phát hiện. Nộp ngay hôm nay (chưa quá 2 tháng từ ngày visa hết hạn), kèm bằng chứng tại sao quên (giấy xác nhận nhập viện, hóa đơn bệnh viện hoặc lý do chính đáng khác). ISA sẽ xem xét.',
+      },
+      {
+        question: '⚠️ MỚI 07/2026: Nghe nói ISA đang tăng cường bắt overstay — có thật không?',
+        answer: 'Có. Nội các quyết định **28/07/2026** (hiệu lực **31/07/2026**) bổ sung **226 nhân sự** cho ISA (176 điều tra viên + 50 nhân viên cưỡng chế), tập trung khu vực Tokyo và Ibaraki (nơi tỷ lệ lao động bất hợp pháp cao). Mục tiêu công bố: giảm một nửa số người đã có quyết định 退去強制 nhưng chưa thi hành (tồn đọng ~3,100 người cuối 2024) trong vòng 5 năm — kèm ngân sách năm tài khóa 2027 dự kiến tăng gấp đôi (~22.9 tỷ yên) cho biện pháp chống overstay. Ý nghĩa thực tế: khả năng bị phát hiện/bắt đang tăng lên — càng thêm lý do để tham vấn 弁護士 và xử lý chủ động ngay, không chờ đợi.',
       },
     ],
     counterPhrases: [

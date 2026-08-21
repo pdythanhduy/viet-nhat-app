@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const juminzeiLocalTax: AdminGuide = {
     id: 'juminzei-local-tax',
     category: 'money',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Thuế cư dân địa phương (住民税)',
     titleJp: '住民税・特別徴収・普通徴収',
@@ -41,7 +41,7 @@ const juminzeiLocalTax: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: '住民税 là thuế của 市町村 + 都道府県 nơi cư trú vào ngày 1/1 — do 地方税法 (Luật Thuế Địa phương) quản lý. Mức thu cụ thể, hạn nộp, lịch chia đợt 普通徴収, và điều kiện 減免 do từng địa phương quy định khác nhau — phải hỏi 市役所/区役所 nơi bạn ở. Trường hợp về nước chưa nộp xong: 納税管理人 do 市役所 đăng ký theo §300 地方税法.',
-      sourceVerifiedAt: '2026-05-16',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-31',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -123,6 +123,10 @@ const juminzeiLocalTax: AdminGuide = {
       {
         question: 'Có xin giảm/miễn 住民税 được không?',
         answer: 'Có thể, tuỳ địa phương và hoàn cảnh (thất nghiệp, thu nhập giảm mạnh, khó khăn tài chính). Điều kiện + hạn nộp khác nhau theo 市役所 — hỏi quầy 市民税課 càng sớm càng tốt.',
+      },
+      {
+        question: 'Nợ 住民税 rồi về nước có thực sự bị theo dõi không, hay ít người bị?',
+        answer: 'Số liệu thực tế đáng lo hơn nhiều người nghĩ. Khảo sát của Bộ Nội vụ Nhật (~1,100 địa phương, công bố 14/08/2026) cho thấy tỷ lệ nợ đọng 住民税 của người nước ngoài Đã rời Nhật sau khi làm việc là **18.6%** — so với chỉ 4.6% tính chung toàn dân số. Tổng số tiền còn nợ khoảng 52 tỷ yên, trong đó ~10 tỷ yên chưa thu hồi được. Lý do chính: nhiều người không biết mình còn nợ hoặc không có cơ chế cưỡng chế sau khi đã xuất cảnh. → Càng nên chủ động thanh toán hết hoặc chỉ định 納税管理人 TRƯỚC khi về nước — nợ 住民税 có thể ảnh hưởng tới thủ tục xin visa/vĩnh trú nếu quay lại Nhật sau này.',
       },
     ],
     scenarios: [

@@ -3,18 +3,18 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
     icon: 'newspaper',
     color: '#2E86C1',
-    description: 'Tổng hợp mốc chính thức mới nhất (đến 06/05/2026) theo ISA: phân biệt rõ nội dung đã áp dụng trong 2026, nội dung bắt đầu từ 14/06/2026 và nội dung có hiệu lực từ 01/04/2027.',
+    description: 'Tổng hợp mốc chính thức mới nhất (đến 21/08/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng, nội dung ĐANG dự thảo/lấy ý kiến (phí thủ tục, tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đây là guide tổng hợp chính sách cấp quốc gia; từng thủ tục cụ thể vẫn phải đối chiếu trang ISA/MOFA/MHLW/NPA tương ứng.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-06-14',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-09-04',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn chuẩn bị nộp hồ sơ cư trú đúng giai đoạn chuyển tiếp 2026-2027.',
@@ -80,11 +80,15 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       },
       {
         question: '特定在留カード từ 14/06/2026 là gì?',
-        answer: 'Đây là thẻ cư trú có thêm chức năng My Number Card nếu người thuộc điều kiện xin cấp. ISA nêu thẻ hiện hành vẫn tiếp tục có hiệu lực; người dùng chỉ nên làm theo thủ tục khi gia hạn, đổi tư cách, cấp lại hoặc khai báo thuộc nhóm được hướng dẫn.',
+        answer: 'Đây là thẻ cư trú có thêm chức năng My Number Card nếu người thuộc điều kiện xin cấp — Đã bắt đầu áp dụng từ 14/06/2026. ISA nêu thẻ hiện hành vẫn tiếp tục có hiệu lực; người dùng chỉ nên làm theo thủ tục khi gia hạn, đổi tư cách, cấp lại hoặc khai báo thuộc nhóm được hướng dẫn.',
       },
       {
         question: 'Hệ thống online ISA có gì mới trong 2026?',
         answer: 'ISA cho biết hệ thống online mới dùng từ 05/01/2026, có các cải tiến như tăng dung lượng/tệp đính kèm, lưu tạm khi nhập và kéo dài hạn ID của tổ chức từ 1 năm lên 3 năm.',
+      },
+      {
+        question: '⚠️ MỚI (07–08/2026): Có 2 việc lớn đang dự thảo, tôi cần biết gì?',
+        answer: 'Đúng, cả hai đều CHƯA chính thức tính đến 21/08/2026 nhưng đáng theo dõi sát vì ảnh hưởng trực tiếp người đang ở Nhật:\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú tăng** — 政令 dự thảo công bố 03/07/2026 (lấy ý kiến đến 02/08/2026): đổi/gia hạn tư cách theo bậc 1万–7.5万円 tùy thời hạn còn lại, vĩnh trú 20万円 (thấp hơn mức trần luật cho phép 10万/30万円 hay bị hiểu nhầm là mức thu thực tế). Dự kiến hiệu lực 01/10/2026. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン)** — ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 01/04/2027, một phần có thể hồi tố từ 01/04/2026. Xem chi tiết ở guide `permanent-residency-eijuu`.\n\nCả hai đều đang trong giai đoạn góp ý công khai — số liệu có thể thay đổi trước khi ban hành, đừng coi là đã quyết định cuối cùng.',
       },
     ],
     officialLinks: [
@@ -122,8 +126,8 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       },
       {
         step: 4,
-        title: 'Từ 14/06/2026: thẻ cư trú mẫu mới và 特定在留カード',
-        description: 'ISA nêu từ 14/06/2026 sẽ bắt đầu mẫu 在留カード mới và thẻ 特定在留カード có chức năng My Number Card. Đây không phải là việc đổi thẻ bắt buộc ngay cho mọi người: thẻ hiện hành vẫn tiếp tục có hiệu lực đến hạn của thẻ. Người muốn xin 特定在留カード cần làm trong các thủ tục được ISA nêu như gia hạn, đổi tư cách, vĩnh trú, cấp lại, đổi thông tin hoặc một số khai báo tại municipal office.',
+        title: 'Từ 14/06/2026: thẻ cư trú mẫu mới và 特定在留カード (Đã áp dụng)',
+        description: 'ISA đã bắt đầu áp dụng từ 14/06/2026 mẫu 在留カード mới và thẻ 特定在留カード có chức năng My Number Card. Đây không phải là việc đổi thẻ bắt buộc ngay cho mọi người: thẻ hiện hành vẫn tiếp tục có hiệu lực đến hạn của thẻ. Người muốn xin 特定在留カード cần làm trong các thủ tục được ISA nêu như gia hạn, đổi tư cách, vĩnh trú, cấp lại, đổi thông tin hoặc một số khai báo tại municipal office.',
         documents: [],
         tip: 'Không tự kết luận rằng phải lấy dấu vân tay/chữ ký điện tử hoặc không được ủy quyền nếu chưa đối chiếu đúng mục thủ tục. Hướng dẫn hiện tại của ISA nhấn mạnh điều kiện xin và nhóm thủ tục áp dụng.',
       },
