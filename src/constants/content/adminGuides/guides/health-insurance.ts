@@ -208,7 +208,7 @@ const healthInsurance: AdminGuide = {
       { label: 'マイナ保険証 và thẻ bảo hiểm cũ — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/web_magazine/closeup/31.html' },
       { label: '資格確認書 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_45470.html' },
       { label: 'Use of health insurance card in My Number Card — デジタル庁', url: 'https://www.digital.go.jp/en/policies/mynumber/insurance-card' },
-      { label: 'Hỗ trợ người nước ngoài — FRESC', url: 'https://fresc.moj.go.jp' },
+      { label: 'Hỗ trợ người nước ngoài — FRESC (Cổng thông tin hỗ trợ đời sống, ISA)', url: 'https://www.moj.go.jp/isa/support/portal/index.html' },
     ],
     steps: [
       {
