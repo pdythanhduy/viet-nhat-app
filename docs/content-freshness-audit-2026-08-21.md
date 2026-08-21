@@ -75,11 +75,24 @@ Khảo sát Bộ Nội vụ Nhật (~1,100 địa phương, công bố 2026-08-1
 
 ---
 
+## 3b. Đợt 2 (cùng ngày) — 3 guide ưu tiên liên quan lương tối thiểu 2026
+
+Theo kế hoạch §4 (bản đầu), đã re-verify ngay 3 guide sau, xác minh qua WebSearch + WebFetch (mhlw.go.jp, kyoukaikenpo.or.jp):
+
+- **`ssw-training-worker-2027.ts`**: FAQ lương tối thiểu ghi số liệu 10/2025 (1,121円/1,226円) như "hiện tại" — vẫn đúng tại 21/08/2026 nhưng THIẾU cập nhật quan trọng: 中央最低賃金審議会 đã công bố mục tiêu 令和8年度 ngày 28/07/2026 — toàn quốc 1,176円 (+55円/+4.9%), Tokyo (hạng A) 1,280円 (+54円). Phần lớn tỉnh đã công bố theo mục tiêu tính đến giữa 08/2026; hiệu lực dự kiến từ ~01/10/2026. Đã thêm đoạn cảnh báo "SẮP TĂNG" + link nguồn mhlw.go.jp chính thức.
+- **`payslip-reading.ts`**: Bảng tỷ lệ bảo hiểm xã hội vẫn ghi 令和7年度/2025 dù ĐÃ áp dụng 令和8年度/2026 từ lương tháng 3-4/2026 (tức đã có hiệu lực nhiều tháng, guide bị lạc hậu thật sự — không phải "sắp tới"): 健康保険 Tokyo 4.955%→**4.925%**, 介護保険 0.795%→**0.81%**, 雇用保険 0.55%→**0.50%** (giảm 2 năm liên tiếp), 厚生年金 giữ 9.15% (cố định từ 2017). Đặc biệt: có khoản **HOÀN TOÀN MỚI** chưa từng được guide đề cập — **子ども・子育て支援金** 0.115% (phần người lao động), bắt đầu thu từ lương tháng 4/2026 cùng kỳ với 健康保険料. Đây là dòng mới xuất hiện trên bảng lương nhiều người Việt có thể hoang mang tưởng bị trừ nhầm — đã thêm keyTerm riêng giải thích rõ không phải lỗi. Sửa cả bảng + ví dụ tính + officialLinks (thêm link kyoukaikenpo r08).
+- **`ginou-jisshu-to-tokutei-ginou.ts`**: Đọc kỹ toàn bộ (16 lĩnh vực 特定技能, điều kiện miễn thi, trần 5 năm 1号, mốc 育成就労 01/04/2027) — KHÔNG phát hiện thay đổi. Chỉ đồng bộ lại `sourceVerifiedAt` (đang lệch với `lastVerified` từ đợt 07-11 — cùng lỗi "sổ sách lệch" đã gặp ở `health-insurance.ts` trước đây) + bump ngày.
+
+**Verify riêng đợt này**: `typecheck` ✅, `verify:content` ✅ (0 issue), full test suite 526/526 ✅.
+
+---
+
 ## 4. Kế hoạch đợt tiếp theo (ưu tiên)
 
 1. **Theo dõi 2 dự thảo đang góp ý**: nghị định phí (đóng góp ý đã xong 2026-08-02, chờ công bố 官報 — kiểm tra lại quanh 2026-09-25 trước mốc hiệu lực 10/01) và dự thảo tiêu chuẩn vĩnh trú (góp ý đến 2026-09-04 — kiểm tra lại ngay sau đó).
-2. **92 guide >90 ngày còn lại** — re-verify theo nhóm chủ đề, ưu tiên: `payslip-reading.ts` / `ssw-training-worker-2027.ts` / `ginou-jisshu-to-tokutei-ginou.ts` (liên quan lương tối thiểu 2026 mới xác nhận), rồi tới nhóm giao thông/gia đình/ngân hàng còn lại từ đợt 05/2026.
-3. **Audit link chết định kỳ** — lần cuối làm 07-11 (349 URL); nên lặp lại vì đã hơn 1 tháng.
+2. **Chốt số lương tối thiểu chính thức từng tỉnh** — quanh 01/10/2026 khi các tỉnh công bố số cuối cùng (hiện mới là 目安 trung ương + đa số tỉnh theo, nhưng chưa 100% chính thức hoá). Cập nhật lại `ssw-training-worker-2027.ts` khi có số cuối.
+3. **~89 guide >90 ngày còn lại** (đã trừ 3 guide re-verify đợt này) — re-verify theo nhóm chủ đề: giao thông/gia đình/ngân hàng còn lại từ đợt 05/2026.
+4. **Audit link chết định kỳ** — lần cuối làm 07-11 (349 URL); nên lặp lại vì đã hơn 1 tháng.
 
 **KHÔNG làm**: bump hàng loạt `lastVerified` mà chưa kiểm nguồn thật; sửa số liệu khi chưa verify trang chính thức; đoán URL thay thế mà không search+verify.
 

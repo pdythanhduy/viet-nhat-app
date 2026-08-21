@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const sswTrainingWorker2027: AdminGuide = {
     id: 'ssw-training-worker-2027',
     category: 'visa',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: '特定技能 và luật 育成就労 mới',
     titleJp: '特定技能・育成就労制度',
@@ -14,8 +14,8 @@ const sswTrainingWorker2027: AdminGuide = {
       appliesFrom: '2027-04-01',
       jurisdiction: 'national',
       jurisdictionNote: '制度 do ISA quản lý toàn quốc; điều kiện thực tế còn phụ thuộc lĩnh vực 特定技能, công ty tiếp nhận, cơ quan hỗ trợ và quy định chuyển tiếp.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-10-05',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn đang là 技能実習/特定技能 và bị yêu cầu ký giấy chuyển việc/chuyển chương trình.',
@@ -87,7 +87,7 @@ const sswTrainingWorker2027: AdminGuide = {
       },
       {
         question: 'Lương tối thiểu ở Nhật hiện tại là bao nhiêu?',
-        answer: 'Từ tháng 10/2025, lương tối thiểu quốc gia (全国加重平均) là **¥1,121/giờ**. Mức Tokyo cao hơn: **¥1,226/giờ**. Mức này áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能 và 育成就労. Nếu bị trả dưới mức này, bạn có quyền khiếu nại lên 労働基準監督署.',
+        answer: 'Tính đến 21/08/2026, mức đang có hiệu lực (từ 10/2025) vẫn là: toàn quốc bình quân gia quyền (全国加重平均) **¥1,121/giờ**, Tokyo **¥1,226/giờ**.\n\n⚠️ **SẮP TĂNG**: 中央最低賃金審議会 đã công bố mục tiêu (目安) cho **令和8年度/2026** ngày 28/07/2026: bình quân toàn quốc **¥1,176/giờ** (+55円, +4.9%), Tokyo thuộc nhóm hạng A nên dự kiến **¥1,280/giờ** (+54円). Đây là mục tiêu trung ương — từng tỉnh đang lần lượt chốt số chính thức qua hội đồng địa phương (地方最低賃金審議会); phần lớn tỉnh đã công bố theo đúng mục tiêu tính đến giữa 08/2026. Hiệu lực dự kiến áp dụng từ khoảng **01/10/2026** (ngày cụ thể khác nhau theo tỉnh).\n\nMức lương tối thiểu (dù cũ hay mới) áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能 và 育成就労. Nếu bị trả dưới mức đang có hiệu lực tại thời điểm đó, bạn có quyền khiếu nại lên 労働基準監督署.',
       },
       {
         question: '特定技能 có những ngành nào?',
@@ -100,6 +100,7 @@ const sswTrainingWorker2027: AdminGuide = {
       { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
       { label: '特定技能の対象分野等の追加 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/2024.03.29.kakugikettei.html?hl=vi' },
       { label: 'Specified Skilled Worker Program — ISA', url: 'https://www.ssw.go.jp/en/' },
+      { label: '令和8年度地域別最低賃金額改定の目安について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_74920.html' },
     ],
     steps: [
       {

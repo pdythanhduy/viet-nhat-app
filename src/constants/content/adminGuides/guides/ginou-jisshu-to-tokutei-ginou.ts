@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const ginouJisshuToTokuteiGinou: AdminGuide = {
     id: 'ginou-jisshu-to-tokutei-ginou',
     category: 'visa',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Chuyển từ 技能実習 sang 特定技能',
     titleJp: '技能実習から特定技能への移行手続き',
@@ -49,8 +49,8 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Chuyển sang 特定技能 là thủ tục ISA; điều kiện ngành, kỳ thi và hỗ trợ phụ thuộc chế độ 特定技能 và cơ quan/tổ chức của từng lĩnh vực.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-10-05',
       riskLevel: 'high',
       whenToAskExpert: [
         'Ngành/công việc 技能実習 đã hoàn thành không khớp với công việc 特定技能 dự kiến.',

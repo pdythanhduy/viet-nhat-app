@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const payslipReading: AdminGuide = {
     id: 'payslip-reading',
     category: 'money',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Cách đọc bảng lương Nhật',
     titleJp: '給与明細の見方',
@@ -43,9 +43,9 @@ const payslipReading: AdminGuide = {
     ],
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: '労働基準法 §24 (賃金支払の原則) yêu cầu lương trả bằng tiền mặt/chuyển khoản, đầy đủ, hàng tháng, trực tiếp cho người lao động. 給与明細 chi tiết bắt buộc theo 所得税法 §231. 残業手当 hệ số ≥1.25× (≥1.50× vượt 60h/tháng), đêm +0.25×, 休日 ≥1.35×. 社会保険料 chia 健康保険 (~5%), 厚生年金 9.15%, 雇用保険 ~0.55%, 介護 ~0.8% (40-64 tuổi). 通勤手当 miễn thuế đến 150,000円/tháng theo §9 所得税法.',
-      sourceVerifiedAt: '2026-05-02',
-      nextReviewAt: '2026-12-31',
+      jurisdictionNote: '労働基準法 §24 (賃金支払の原則) yêu cầu lương trả bằng tiền mặt/chuyển khoản, đầy đủ, hàng tháng, trực tiếp cho người lao động. 給与明細 chi tiết bắt buộc theo 所得税法 §231. 残業手当 hệ số ≥1.25× (≥1.50× vượt 60h/tháng), đêm +0.25×, 休日 ≥1.35×. 社会保険料 (令和8年度/2026, từ lương tháng 3-4/2026) chia 健康保険 ~4.9% (tùy tỉnh/組合; Tokyo 協会けんぽ 4.925%), 厚生年金 9.15% (cố định toàn quốc từ 2017), 雇用保険 0.50%, 介護 0.81% (40-64 tuổi), cộng khoản MỚI 子ども・子育て支援金 0.115% (từ lương tháng 4/2026, thu chung kỳ với 健康保険). 通勤手当 miễn thuế đến 150,000円/tháng theo §9 所得税法.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-03-01',
       riskLevel: 'low',
       whenToAskExpert: [
         'Nghi ngờ bị trả thiếu 残業手当 nhiều tháng / nhiều năm → liên hệ 労働基準監督署 (miễn phí); nếu cần đòi truy lãnh > 2 năm cũ → cần 弁護士.',
@@ -208,11 +208,18 @@ const payslipReading: AdminGuide = {
         meaningVi: '2 nhóm bảo hiểm xã hội cho người đi làm',
         noteVi: 'Khác 国保 (国民健康保険). 健康保険組合 (組合健保) do công ty/nhóm công ty lớn tự lập — phí thường thấp hơn + có thêm benefits. 協会けんぽ (全国健康保険協会) do nhà nước quản, cho công ty nhỏ-vừa. Cả 2 đều bảo hiểm 70%, mức trả khi sinh + ốm khác nhau ít. Xem trên 健康保険証 dòng "保険者番号" để biết bạn ở nhóm nào.',
       },
+      {
+        term: '子ども・子育て支援金',
+        reading: 'こども・こそだてしえんきん',
+        meaningVi: 'khoản đóng hỗ trợ chính sách nuôi con quốc gia (MỚI từ 04/2026)',
+        noteVi: 'Khoản khấu trừ MỚI xuất hiện lần đầu trên 給与明細 từ lương tháng 4/2026 (thu cùng kỳ với 健康保険料). Tỷ lệ toàn quốc thống nhất 0.23% (chia đôi công ty/người lao động → mỗi bên 0.115%). Đây là chính sách quốc gia hỗ trợ nuôi con (không liên quan trực tiếp cá nhân có con hay không) — nếu thấy dòng này mới xuất hiện, KHÔNG phải lỗi bảng lương, không cần hỏi HR.',
+      },
     ],
     officialLinks: [
       { label: '賃金の支払いに関するルール — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/index.html' },
       { label: '時間外労働の割増賃金率 — 厚生労働省', url: 'https://www.check-roudou.mhlw.go.jp/study/roudousya_jikangai.html' },
       { label: '協会けんぽ 保険料率 — 全国健康保険協会', url: 'https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/' },
+      { label: '令和8年度都道府県毎の保険料率 — 全国健康保険協会', url: 'https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08/index.html' },
     ],
     steps: [
       {
@@ -225,7 +232,7 @@ const payslipReading: AdminGuide = {
       {
         step: 2,
         title: 'Đọc phần 控除 — các khoản bị khấu trừ',
-        description: 'Phần dưới hoặc bên phải liệt kê các khoản bị trừ khỏi lương:\n\n| Mục | Tỷ lệ tham khảo (令和7年度 / 2025) | Ghi chú |\n|---|---|---|\n| 健康保険料 | ~5.00% lương | Phụ thuộc tỉnh/組合; Tokyo: 4.955% |\n| 介護保険料 | ~0.795% lương | **Chỉ người 40–64 tuổi** |\n| 厚生年金保険料 | 9.15% lương | Cố định toàn quốc |\n| 雇用保険料 | 0.55% lương | Phòng trừ khi thất nghiệp |\n| 所得税 | Tùy thu nhập | Khấu trừ tạm, quyết toán cuối năm |\n| 住民税 | Tùy thu nhập năm trước | **Không trừ năm đầu mới sang Nhật** |\n| **控除合計** | **Tổng khấu trừ** | |\n\nVí dụ: Lương 250,000 yên/tháng, khấu trừ xã hội khoảng 37,250 yên (chưa tính thuế thu nhập và住民税).',
+        description: 'Phần dưới hoặc bên phải liệt kê các khoản bị trừ khỏi lương:\n\n| Mục | Tỷ lệ tham khảo (令和8年度 / 2026, áp dụng từ lương tháng 3-4/2026) | Ghi chú |\n|---|---|---|\n| 健康保険料 | ~4.9% lương | Phụ thuộc tỉnh/組合; Tokyo (協会けんぽ): 4.925% (giảm nhẹ từ 4.955% của 2025) |\n| 介護保険料 | 0.81% lương | **Chỉ người 40–64 tuổi**; tăng nhẹ từ 0.795% của 2025 |\n| 厚生年金保険料 | 9.15% lương | Cố định toàn quốc từ 2017 |\n| 雇用保険料 | 0.50% lương | Phòng trừ khi thất nghiệp; giảm từ 0.55% (2025) — năm giảm liên tiếp thứ 2 |\n| ⚠️ 子ども・子育て支援金 | 0.115% lương | **MỚI từ lương tháng 4/2026** — khoản hỗ trợ chính sách nuôi con quốc gia, thu chung kỳ với 健康保険料; KHÔNG phải lỗi bảng lương nếu thấy dòng này xuất hiện lần đầu |\n| 所得税 | Tùy thu nhập | Khấu trừ tạm, quyết toán cuối năm |\n| 住民税 | Tùy thu nhập năm trước | **Không trừ năm đầu mới sang Nhật** |\n| **控除合計** | **Tổng khấu trừ** | |\n\nVí dụ: Lương 250,000 yên/tháng (dưới 40 tuổi, không có 介護保険料), khấu trừ xã hội khoảng 36,700 yên (chưa tính thuế thu nhập và住民税) — thấp hơn không đáng kể so với 2025 dù có thêm dòng mới, vì 雇用保険料 giảm bù lại phần nào.',
         documents: [],
         tip: '所得税 hàng tháng chỉ là tạm trừ theo bảng 源泉徴収税額表. Cuối năm qua 年末調整 (do công ty làm) số này sẽ được điều chỉnh và hoàn lại nếu trừ nhiều hơn thực tế.',
       },
