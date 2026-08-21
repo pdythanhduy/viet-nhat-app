@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const simCard: AdminGuide = {
     id: 'sim-card',
     category: 'daily-law',
-    lastVerified: '2026-05-16',
+    lastVerified: '2026-08-21',
     title: 'Đăng ký SIM điện thoại',
     titleJp: 'SIMカード契約',
     icon: 'phone-portrait',

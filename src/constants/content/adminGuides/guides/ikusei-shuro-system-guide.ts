@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const ikuseiShuroSystemGuide: AdminGuide = {
   id: 'ikusei-shuro-system-guide',
   category: 'visa',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: '育成就労 — hệ thống mới thay 技能実習 (vận hành từ 01/04/2027)',
   titleJp: '育成就労制度 — 技能実習に代わる新制度',
@@ -31,8 +31,8 @@ const ikuseiShuroSystemGuide: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'ISA (出入国在留管理庁) + MHLW (厚労省) quản — luật mới sửa đổi 入管法 + 技能実習法 → 育成就労法. Quốc hội thông qua 2024-06. Triển khai: hệ thống mới vận hành đầy đủ **01/04/2027**. Trong 2026: 施行日前申請 cho **監理支援機関** (15/04/2026) + **育成就労計画** (01/09/2026). 技能実習 hiện tại tiếp tục đến khi luật cũ chấm dứt — đang trong giai đoạn chuyển tiếp. Chi tiết quy định + biểu mẫu cập nhật thường xuyên trên trang ISA: https://www.moj.go.jp/isa/applications/index_00005.html',
-    sourceVerifiedAt: '2026-05-14',
-    nextReviewAt: '2026-09-01',
+    sourceVerifiedAt: '2026-08-21',
+    nextReviewAt: '2026-09-30',
     riskLevel: 'high',
     whenToAskExpert: [
       'Bạn đang là 技能実習生 + sắp hết hạn 1号/2号/3号 — không rõ chuyển sang 育成就労 hay 特定技能 phù hợp hơn → 行政書士 chuyên 入管 + 監理団体.',
