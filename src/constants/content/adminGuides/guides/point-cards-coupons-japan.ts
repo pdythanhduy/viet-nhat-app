@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pointCardsCouponsJapan: AdminGuide = {
   id: 'point-cards-coupons-japan',
   category: 'money',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Thẻ điểm + coupon Nhật — Rakuten, dPoint, Ponta, V-Point, PayPay Point',
   titleJp: 'ポイントカード・クーポン活用ガイド',
@@ -35,7 +35,7 @@ const pointCardsCouponsJapan: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'KHÔNG có quy định luật riêng cho point card — là chương trình tiếp thị tư nhân. Các hệ tuân thủ 個人情報保護法 (Personal Information Protection Act) cho data người dùng. Point hết hạn / điều khoản đổi tùy chính sách từng công ty — không có luật quốc gia thống nhất. Coupon discount hợp pháp.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'low',
     whenToAskExpert: [

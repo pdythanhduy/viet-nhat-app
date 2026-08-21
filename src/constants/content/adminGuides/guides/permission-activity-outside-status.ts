@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const permissionActivityOutsideStatus: AdminGuide = {
     id: 'permission-activity-outside-status',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Xin phép làm thêm ngoài tư cách lưu trú',
     titleJp: '資格外活動許可申請',
@@ -38,7 +38,7 @@ const permissionActivityOutsideStatus: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '資格外活動許可 là quyền do ISA cấp; trường/công ty có thể hỗ trợ nhưng không thay ISA quyết định phạm vi làm thêm.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

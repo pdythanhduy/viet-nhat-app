@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const addressChange: AdminGuide = {
     id: 'address-change',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'high',
     title: 'Đổi địa chỉ / chuyển nhà',
     titleJp: '住居地の届出',
@@ -13,7 +13,7 @@ const addressChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'Nghĩa vụ khai báo địa chỉ nằm trong hệ thống cư trú toàn quốc, nhưng nơi tiếp nhận là 市役所/区役所 nơi cư trú mới.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [

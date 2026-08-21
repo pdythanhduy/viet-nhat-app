@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const marriageCertificateVnJapan: AdminGuide = {
     id: 'marriage-certificate-vn-japan',
     category: 'immigration',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Đăng ký kết hôn ở Việt Nam khi đang sống tại Nhật',
     titleJp: '婚姻要件具備証明書・ベトナムでの婚姻登録',
@@ -13,7 +13,7 @@ const marriageCertificateVnJapan: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Giấy tờ phía Việt Nam do cơ quan lãnh sự Việt Nam tại Nhật hoặc cơ quan hộ tịch Việt Nam xử lý; giấy tờ phía Nhật do municipal office/法務局 hoặc cơ quan lãnh sự Nhật ở Việt Nam cấp tùy hướng đăng ký.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [

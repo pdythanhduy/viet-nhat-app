@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const residenceCardValidity: AdminGuide = {
     id: 'residence-card-validity',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Gia hạn hiệu lực thẻ cư trú',
     titleJp: '在留カードの有効期間の更新申請',
@@ -40,8 +40,8 @@ const residenceCardValidity: AdminGuide = {
       appliesFrom: '2026-06-14',
       jurisdiction: 'national',
       jurisdictionNote: 'Áp dụng theo hệ thống của ISA trên toàn Nhật; nơi nộp phụ thuộc địa chỉ cư trú và loại thủ tục.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-06-14',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-11-01',
       riskLevel: 'high',
       whenToAskExpert: [
         'Thẻ cư trú sắp hết hạn nhưng bạn không chắc là gia hạn thẻ vật lý hay gia hạn thời hạn lưu trú.',
@@ -105,7 +105,7 @@ const residenceCardValidity: AdminGuide = {
       },
       {
         question: 'Thủ tục này có mất phí không?',
-        answer: 'Trang ISA hiện không nêu phí cho thủ tục này. Trước khi đi, kiểm tra lại link chính thức hoặc hỏi quầy vì yêu cầu có thể khác theo trường hợp.',
+        answer: 'Không — trang ISA ghi rõ "手数料はかかりません" (miễn phí) cho thủ tục gia hạn hiệu lực thẻ vật lý này. Nếu chuyển sang xin 特定在留カード, phí riêng có thể áp dụng cho một số trường hợp (xem mục 特定在留カード bên dưới) — không phải phí của thủ tục gia hạn thẻ thường.',
       },
       {
         question: 'Sau khi nhận thẻ mới cần kiểm tra gì?',
@@ -130,7 +130,7 @@ const residenceCardValidity: AdminGuide = {
       {
         title: '特定在留カード — có nên đổi không?',
         situation: 'Tôi nghe nói từ 2026 có thẻ 特定在留カード mới. Có bắt buộc phải đổi không? Lợi ích gì?',
-        answer: '**Không bắt buộc.** Thẻ cư trú hiện hành vẫn hợp lệ đến hết hạn ghi trên thẻ. 特定在留カード là mẫu thẻ mới tích hợp My Number vào thẻ cư trú. Có thể xin đổi khi đang làm các thủ tục đủ điều kiện (gia hạn, đổi tư cách, cấp lại, khai báo địa chỉ). Lợi ích: gộp 2 thẻ thành 1, thuận tiện hơn khi dùng dịch vụ công. Nếu bạn đang gia hạn thẻ vật lý trong thời gian tới, hỏi quầy ISA xem có thể chuyển sang 特定在留カード cùng lúc không.',
+        answer: '**Không bắt buộc.** Thẻ cư trú hiện hành vẫn hợp lệ đến hết hạn ghi trên thẻ. 特定在留カード là mẫu thẻ mới tích hợp My Number vào thẻ cư trú, chỉ nộp trực tiếp tại quầy (KHÔNG hỗ trợ nộp online), xử lý mất khoảng 2 tuần (không cấp ngay như thẻ thường). Có thể xin đổi khi đang làm các thủ tục đủ điều kiện (gia hạn, đổi tư cách, cấp lại, khai báo địa chỉ). Về phí: lần làm thủ tục đầu tiên từ 14/06/2026 trở đi thường MIỄN PHÍ; các lần sau (cấp lại, đổi thông tin...) có thể mất 1,900円 (2,600円 nếu nhận qua bưu điện) phí phía ISA + 600円 (800円 nếu có chứng thư điện tử) phí phía J-LIS cho phần My Number. Lợi ích: gộp 2 thẻ thành 1, thuận tiện hơn khi dùng dịch vụ công. Nếu bạn đang gia hạn thẻ vật lý trong thời gian tới, hỏi quầy ISA xem có thể chuyển sang 特定在留カード cùng lúc không.',
       },
     ],
     counterPhrases: [

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const homePurchaseMortgage: AdminGuide = {
     id: 'home-purchase-mortgage',
     category: 'money',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Mua nhà và vay 住宅ローン tại Nhật',
     titleJp: '外国人の住宅購入・住宅ローン・ローン控除',

@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const returnToVietnamChecklist: AdminGuide = {
     id: 'return-to-vietnam-checklist',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Checklist về nước / kết thúc hợp đồng',
     titleJp: '帰国・在留終了時の手続き',
@@ -13,7 +13,7 @@ const returnToVietnamChecklist: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Về nước/kết thúc cư trú liên quan nhiều cơ quan: municipal office cho 転出/住民登録 và bảo hiểm, ISA cho返納 thẻ cư trú khi xuất cảnh, Japan Pension Service cho 脱退一時金, ngân hàng/nhà mạng/cơ quan thuế cho hợp đồng và thuế.',
-      sourceVerifiedAt: '2026-05-06',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-10-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -35,7 +35,7 @@ const returnToVietnamChecklist: AdminGuide = {
       ifLate: 'Nếu đã về Việt Nam mà còn sót thủ tục, xử lý ngay qua bưu điện/online/đại diện; 脱退一時金 quá 2 năm sẽ mất quyền yêu cầu.',
       officialSourceLabels: [
         '脱退一時金 — Japan Pension Service',
-        '転出届の手続き — 総務省',
+        '転出届の手続き — デジタル庁',
         '在留カード等の返納 — 出入国在留管理庁',
         '海外勤務と所得税額の精算 — 国税庁',
       ],
@@ -99,8 +99,8 @@ const returnToVietnamChecklist: AdminGuide = {
       },
     ],
     officialLinks: [
-      { label: '脱退一時金 — Japan Pension Service', url: 'https://www.nenkin.go.jp/service/jukyu/sonota-kyufu/dattai-ichiji/20150406.html' },
-      { label: '転出届の手続き — 総務省', url: 'https://www.soumu.go.jp/main_sosiki/jichi_gyousei/daityo/tetsuduki.html' },
+      { label: '脱退一時金 — Japan Pension Service', url: 'https://www.nenkin.go.jp/service/jukyu/seido/sonota-kyufu/dattai-ichiji/index.html' },
+      { label: '転出届の手続き — デジタル庁', url: 'https://www.digital.go.jp/policies/moving_onestop_service' },
       { label: '在留カード等の返納 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00020.html' },
       { label: '海外勤務と所得税額の精算 — 国税庁', url: 'https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1920.htm' },
     ],

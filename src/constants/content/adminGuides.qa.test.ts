@@ -24,6 +24,7 @@ describe('ADMIN_GUIDES QA gate for visa/immigration content', () => {
       'otit.go.jp',
       'nenkin.go.jp',
       'soumu.go.jp',
+      'digital.go.jp',
       'nta.go.jp',
       'e-gov.go.jp',
       'isa.go.jp',

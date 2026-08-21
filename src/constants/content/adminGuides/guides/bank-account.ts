@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const bankAccount: AdminGuide = {
     id: 'bank-account',
     category: 'money',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     title: 'Mở tài khoản ngân hàng',
     titleJp: '銀行口座開設',
     icon: 'business',
@@ -45,8 +45,8 @@ const bankAccount: AdminGuide = {
       jurisdiction: 'mixed',
       jurisdictionNote:
         'Mở tài khoản là xét duyệt của từng ngân hàng theo quy định xác minh danh tính, cư trú và phòng chống rửa tiền. Giấy tờ cư trú do 市役所/区役所/ISA cấp, còn việc có nhận hồ sơ, yêu cầu dấu/chữ ký hay bổ sung giấy tờ là chính sách của ngân hàng.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn bị nhờ mở hộ, bán, cho mượn tài khoản, cash card, app ngân hàng, OTP hoặc SIM.',

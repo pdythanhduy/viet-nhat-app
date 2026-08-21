@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const creditCardForForeigners: AdminGuide = {
     id: 'credit-card-for-foreigners',
     category: 'money',
-    lastVerified: '2026-05-02',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Làm thẻ tín dụng tại Nhật',
     titleJp: 'クレジットカード申請・信用情報の作り方',
@@ -45,7 +45,7 @@ const creditCardForForeigners: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Phát hành thẻ tín dụng + quản lý 信用情報 (credit data) chịu điều chỉnh bởi 割賦販売法 (Installment Sales Act) + 個人情報保護法. 3 cơ quan tín dụng chính: CIC (CIC), JICC (JICC), 全国銀行個人信用情報センター (KSC) — đều có nghĩa vụ cấp 開示 (xem lịch sử) cho chính chủ. Mỗi công ty thẻ có tiêu chí xét duyệt riêng — guide chỉ định hướng, KHÔNG đảm bảo được duyệt.',
-      sourceVerifiedAt: '2026-05-02',
+      sourceVerifiedAt: '2026-08-21',
       nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [

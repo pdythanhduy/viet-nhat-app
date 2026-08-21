@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const naturalizationKika2026Changes: AdminGuide = {
   id: 'naturalization-kika-2026-changes',
   category: 'immigration',
-  lastVerified: '2026-05-14',
+  lastVerified: '2026-08-21',
   priority: 'normal',
   title: 'Nhập tịch 帰化 — điểm cập nhật 2026 cho người Việt',
   titleJp: '帰化申請 — 2026年の主な変更点',
@@ -25,7 +25,7 @@ const naturalizationKika2026Changes: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Luật 国籍法 (cơ bản KHÔNG thay đổi 2026) — quản bởi 法務省. Quy trình 帰化 tại 法務局/地方法務局 theo nơi cư trú. Cập nhật 2026 chủ yếu vận hành: hệ thống nộp + tích hợp My Number Card + 在留カード. Đọc kèm guide chính `naturalization-kika.ts` cho điều kiện đầy đủ.',
-    sourceVerifiedAt: '2026-05-14',
+    sourceVerifiedAt: '2026-08-21',
     nextReviewAt: '2026-12-01',
     riskLevel: 'high',
     whenToAskExpert: [
@@ -234,7 +234,7 @@ const naturalizationKika2026Changes: AdminGuide = {
       step: 4,
       title: 'Hậu 帰化 — 戸籍 + My Number Card + Passport Nhật',
       description:
-        '**Trong 14 ngày sau quyết định**:\n\n1. **入管**: trả 在留カード, ký 在留資格抹消届.\n2. **市役所 phòng 戸籍課**:\n• Mang 帰化届出済証明書 (cấp bởi 法務局).\n• Quyết định tên Nhật (kanji + hiragana — theo quy định).\n• Đăng ký 戸籍 mới:\n —Tự lập 戸籍 (新戸籍): nếu chưa kết hôn Nhật.\n —Nhập 戸籍 vợ/chồng: nếu đã kết hôn Nhật.\n• Nhận 戸籍謄本 + 戸籍抄本 lần đầu.\n\n3. **市役所 phòng マイナンバー**:\n• Xin cấp lại My Number Card với tên Nhật mới.\n• Hoặc giữ thẻ cũ + đổi tên (tùy 市役所).\n• My Number không đổi.\n\n**Trong 1–2 tháng**:\n\n4. **都道府県 旅券課**: xin **hộ chiếu Nhật** (パスポート).\n• Lệ phí: 11,000円 (5 năm) hoặc 16,000円 (10 năm).\n• Mang 戸籍謄本 + ảnh + 印鑑.\n\n5. **Cập nhật các giấy tờ khác**:\n• 健康保険証 / 年金: tự động qua 市役所.\n• 銀行: đến từng ngân hàng đổi tên + thông tin.\n• 運転免許証: đến 警察 cập nhật.\n• 仕事: báo nhân sự công ty.\n• 在留カード / hộ chiếu VN cũ — giữ riêng (không vứt).\n\n6. **Thông báo Đại sứ quán VN**:\n• Đến Đại sứ quán Hà Nội / Tổng Lãnh sự TP.HCM (qua người thân ở VN hoặc gửi qua bưu điện).\n• Cấp giấy "thông báo nhập tịch nước ngoài".\n• Sau đó: ra/vào VN phải có visa.\n\n**Lưu ý dài hạn**:\n\n• Visa về VN sau mất quốc tịch:\n —**Visa du lịch** (1–3 tháng).\n —**Thị thực 5 năm cho người gốc Việt** (theo luật 2014 VN — đối với người Việt định cư nước ngoài).\n• Tài sản ở VN: vẫn giữ được (luật VN cho người gốc Việt).\n• Nghĩa vụ quân sự VN: hết.',
+        '**Trong 14 ngày sau quyết định**:\n\n1. **入管**: trả 在留カード, ký 在留資格抹消届.\n2. **市役所 phòng 戸籍課**:\n• Mang 帰化届出済証明書 (cấp bởi 法務局).\n• Quyết định tên Nhật (kanji + hiragana — theo quy định).\n• Đăng ký 戸籍 mới:\n —Tự lập 戸籍 (新戸籍): nếu chưa kết hôn Nhật.\n —Nhập 戸籍 vợ/chồng: nếu đã kết hôn Nhật.\n• Nhận 戸籍謄本 + 戸籍抄本 lần đầu.\n\n3. **市役所 phòng マイナンバー**:\n• Xin cấp lại My Number Card với tên Nhật mới.\n• Hoặc giữ thẻ cũ + đổi tên (tùy 市役所).\n• My Number không đổi.\n\n**Trong 1–2 tháng**:\n\n4. **都道府県 旅券課**: xin **hộ chiếu Nhật** (パスポート).\n• Từ 01/07/2026, phí hộ chiếu đã giảm mạnh và người 18 tuổi trở lên CHỈ được cấp loại 10 năm (không còn lựa chọn 5 năm cho người lớn — 5 năm giờ chỉ dành cho dưới 18 tuổi): **9,300円 nộp tại quầy / 8,900円 nộp online qua マイナポータル** (loại 10 năm, 18 tuổi+). Mức phí cũ 11,000/16,000円 đã hết hiệu lực.\n• Mang 戸籍謄本 + ảnh + 印鑑.\n\n5. **Cập nhật các giấy tờ khác**:\n• 健康保険証 / 年金: tự động qua 市役所.\n• 銀行: đến từng ngân hàng đổi tên + thông tin.\n• 運転免許証: đến 警察 cập nhật.\n• 仕事: báo nhân sự công ty.\n• 在留カード / hộ chiếu VN cũ — giữ riêng (không vứt).\n\n6. **Thông báo Đại sứ quán VN**:\n• Đến Đại sứ quán Hà Nội / Tổng Lãnh sự TP.HCM (qua người thân ở VN hoặc gửi qua bưu điện).\n• Cấp giấy "thông báo nhập tịch nước ngoài".\n• Sau đó: ra/vào VN phải có visa.\n\n**Lưu ý dài hạn**:\n\n• Visa về VN sau mất quốc tịch:\n —**Visa du lịch** (1–3 tháng).\n —**Thị thực 5 năm cho người gốc Việt** (theo luật 2014 VN — đối với người Việt định cư nước ngoài).\n• Tài sản ở VN: vẫn giữ được (luật VN cho người gốc Việt).\n• Nghĩa vụ quân sự VN: hết.',
       documents: ['帰化届出済証明書', '戸籍謄本 mới', 'My Number Card mới', 'Hộ chiếu Nhật'],
       tip: 'Quy trình hậu 帰化 mất 1–3 tháng tổng. Chuẩn bị trước (tên Nhật + ngân hàng + cập nhật) để smooth.',
     },

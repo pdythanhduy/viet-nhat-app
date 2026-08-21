@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const naturalizationKika: AdminGuide = {
     id: 'naturalization-kika',
     category: 'immigration',
-    lastVerified: '2026-05-06',
+    lastVerified: '2026-08-21',
     priority: 'normal',
     title: 'Nhập quốc tịch Nhật (帰化申請)',
     titleJp: '帰化許可申請',
@@ -42,8 +42,8 @@ const naturalizationKika: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '帰化 là thủ tục quốc tịch theo 国籍法 và thẩm quyền 法務大臣; hồ sơ thực tế, đặt lịch tư vấn và danh sách giấy tờ do 法務局/地方法務局 nơi cư trú hướng dẫn theo từng người.',
-      sourceVerifiedAt: '2026-05-06',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-11-01',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn có nợ/trễ thuế, 年金, bảo hiểm, vi phạm giao thông hoặc lịch sử cư trú/xuất nhập cảnh phức tạp.',
@@ -208,7 +208,7 @@ const naturalizationKika: AdminGuide = {
       {
         step: 2,
         title: 'Đặt lịch tư vấn tại 法務局',
-        description: '**Bước bắt buộc trước khi nộp hồ sơ.**\n\nĐến 法務局 (hoặc 地方法務局) phụ trách khu vực nơi bạn đăng ký cư trú, đặt lịch hẹn tư vấn (相談予約). Nhân viên sẽ:\n1. Đánh giá sơ bộ xem bạn có đủ điều kiện không.\n2. Cung cấp danh sách giấy tờ cụ thể cho hoàn cảnh của bạn.\n3. Giải thích mẫu đơn và cách điền.\n\n**Tìm 法務局 gần nhất:** https://houmukyoku.moj.go.jp/homu/static/kakuchocho_index.html\n\n⚠️ Danh sách giấy tờ **thay đổi theo từng người** (tình trạng hôn nhân, con cái, lịch sử việc làm...). Không thể dùng chung danh sách của người khác.',
+        description: '**Bước bắt buộc trước khi nộp hồ sơ.**\n\nĐến 法務局 (hoặc 地方法務局) phụ trách khu vực nơi bạn đăng ký cư trú, đặt lịch hẹn tư vấn (相談予約). Nhân viên sẽ:\n1. Đánh giá sơ bộ xem bạn có đủ điều kiện không.\n2. Cung cấp danh sách giấy tờ cụ thể cho hoàn cảnh của bạn.\n3. Giải thích mẫu đơn và cách điền.\n\n**Tìm 法務局 gần nhất:** https://www.moj.go.jp/MINJI/minji10\n\n⚠️ Danh sách giấy tờ **thay đổi theo từng người** (tình trạng hôn nhân, con cái, lịch sử việc làm...). Không thể dùng chung danh sách của người khác.',
         documents: [],
         image: require('../../../../../assets/content/daily-life/ag_naturalization_s2.jpg'),
         imageCaption: '法務局 - đặt lịch tư vấn trước khi chuẩn bị hồ sơ 帰化',
