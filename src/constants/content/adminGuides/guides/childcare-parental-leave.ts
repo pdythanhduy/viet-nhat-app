@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const childcareParentalLeave: AdminGuide = {
     id: 'childcare-parental-leave',
     category: 'daily-law',
-    lastVerified: '2026-05-23',
+    lastVerified: '2026-08-22',
     priority: 'high',
     title: 'Nghỉ sinh và nghỉ nuôi con (育児休業)',
     titleJp: '育児休業・産後パパ育休・育児休業給付金',
