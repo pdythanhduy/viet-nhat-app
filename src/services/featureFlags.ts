@@ -37,8 +37,9 @@ export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
     key: 'newsReader',
     label: 'Tin tức Việt + Nhật',
     description:
-      'Đọc tin Dân trí, 24h, VnExpress và Yahoo!ニュース. Tin tiếng Nhật mở bằng công cụ Furigana (hiragana trên kanji). Bật để hiện nút Tin tức trên Home.',
-    defaultValue: false,
+      'Đọc tin Dân trí, 24h, VnExpress và Yahoo!ニュース. Tin tiếng Nhật mở bằng công cụ Furigana (hiragana trên kanji). ' +
+      'Mặc định BẬT cho mọi người (tính năng public; tắt = kill-switch).',
+    defaultValue: true,
   },
   {
     key: 'n2RecoveryHome',
