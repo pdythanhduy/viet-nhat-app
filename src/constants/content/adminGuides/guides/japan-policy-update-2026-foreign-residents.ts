@@ -3,18 +3,18 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-09-21',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
     icon: 'newspaper',
     color: '#2E86C1',
-    description: 'Tổng hợp mốc chính thức mới nhất (đến 21/08/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng, nội dung ĐANG dự thảo/lấy ý kiến (phí thủ tục, tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
+    description: 'Tổng hợp mốc chính thức mới nhất (đến 21/09/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng, nội dung ĐANG dự thảo/lấy ý kiến (phí thủ tục, tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đây là guide tổng hợp chính sách cấp quốc gia; từng thủ tục cụ thể vẫn phải đối chiếu trang ISA/MOFA/MHLW/NPA tương ứng.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-09-04',
+      sourceVerifiedAt: '2026-09-21',
+      nextReviewAt: '2026-10-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn chuẩn bị nộp hồ sơ cư trú đúng giai đoạn chuyển tiếp 2026-2027.',
@@ -72,7 +72,7 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       },
       {
         question: 'Trong năm 2026 có gì đã mở?',
-        answer: 'ISA công bố thủ tục 施行日前申請: từ 15/04/2026 đã bắt đầu nhận hồ sơ xin phép 監理支援機関; từ 01/09/2026 nhận hồ sơ công nhận 育成就労計画 (chưa đến mốc).',
+        answer: 'ISA công bố thủ tục 施行日前申請: từ 15/04/2026 đã bắt đầu nhận hồ sơ xin phép 監理支援機関; từ 01/09/2026 đã bắt đầu nhận hồ sơ công nhận 育成就労計画 (do doanh nghiệp nộp, tại văn phòng khu vực của 外国人技能実習機構 — OTIT; nhận đến 31/03/2027, kết quả gửi sau 01/04/2027). Người lao động không tự nộp hồ sơ này.',
       },
       {
         question: '特定技能 có cập nhật trong 2026 không?',
@@ -88,7 +88,7 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       },
       {
         question: '⚠️ MỚI (07–08/2026): Có 2 việc lớn đang dự thảo, tôi cần biết gì?',
-        answer: 'Đúng, cả hai đều CHƯA chính thức tính đến 21/08/2026 nhưng đáng theo dõi sát vì ảnh hưởng trực tiếp người đang ở Nhật:\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú tăng** — 政令 dự thảo công bố 03/07/2026 (lấy ý kiến đến 02/08/2026): đổi/gia hạn tư cách theo bậc 1万–7.5万円 tùy thời hạn còn lại, vĩnh trú 20万円 (thấp hơn mức trần luật cho phép 10万/30万円 hay bị hiểu nhầm là mức thu thực tế). Dự kiến hiệu lực 01/10/2026. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン)** — ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 01/04/2027, một phần có thể hồi tố từ 01/04/2026. Xem chi tiết ở guide `permanent-residency-eijuu`.\n\nCả hai đều đang trong giai đoạn góp ý công khai — số liệu có thể thay đổi trước khi ban hành, đừng coi là đã quyết định cuối cùng.',
+        answer: 'Cập nhật 21/09/2026: phí đã gần như chắc chắn (xem mục 1), còn tiêu chuẩn vĩnh trú vẫn CHƯA chốt (xem mục 2). Cả hai đáng theo dõi sát vì ảnh hưởng trực tiếp người đang ở Nhật:\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú tăng** — 政令 dự thảo công bố 03/07/2026 (lấy ý kiến đến 02/08/2026): đổi/gia hạn tư cách theo bậc 1万–7.5万円 tùy thời hạn còn lại, vĩnh trú 20万円 (thấp hơn mức trần luật cho phép 10万/30万円 hay bị hiểu nhầm là mức thu thực tế). Luật nâng trần phí đã được Quốc hội thông qua 29/05/2026 (công bố 05/06/2026); ISA đã đăng bảng phí NỘP ONLINE áp dụng cho hồ sơ tiếp nhận từ 01/10/2026 (10,000–65,000 yên tùy thời hạn cấp). Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn theo phí cũ. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン)** — ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 01/04/2027, một phần có thể hồi tố từ 01/04/2026. Đã hết hạn lấy ý kiến 04/09/2026; theo báo chí, ISA dự kiến ban hành bản chính thức khoảng tháng 10/2026 — tính đến 21/09/2026 chưa có bản cuối. Xem chi tiết ở guide `permanent-residency-eijuu`.\n\nCả hai đều đang trong giai đoạn góp ý công khai — số liệu có thể thay đổi trước khi ban hành, đừng coi là đã quyết định cuối cùng.',
       },
     ],
     officialLinks: [

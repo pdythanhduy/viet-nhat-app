@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const childVaccinationSchedule: AdminGuide = {
   id: 'child-vaccination-schedule',
   category: 'health',
-  lastVerified: '2026-07-11',
+  lastVerified: '2026-09-21',
   priority: 'normal',
   title: 'Tiêm chủng cho trẻ em ở Nhật — lịch + miễn phí + 母子手帳',
   titleJp: '子どもの予防接種スケジュール',
@@ -50,8 +50,8 @@ const childVaccinationSchedule: AdminGuide = {
     jurisdiction: 'mixed',
     jurisdictionNote:
       '予防接種法 (Vaccination Act) là luật toàn quốc, chia 定期接種 (A類疾病 — bắt buộc khuyến nghị, miễn phí) và 任意接種 (tự nguyện, tự trả). Lịch tiêm + đối tượng + mốc tuổi do 厚生労働省 quy định, nhưng triển khai cụ thể (gửi 予診票, danh sách 指定医療機関, trợ cấp 任意接種) do 市区町村 thực hiện. Lịch CÓ THAY ĐỔI: 五種混合 thay 四種混合 + ヒブ riêng từ 2024-04. PCV15 thay PCV13 ở nhiều nơi 2024–2025. HPV recovery 2022. Đây là TÀI LIỆU THAM KHẢO — kiểm tra lịch CHÍNH XÁC với 保健所 / 母子保健課 ở 役所.',
-    sourceVerifiedAt: '2026-05-14',
-    nextReviewAt: '2026-09-01',
+    sourceVerifiedAt: '2026-09-21',
+    nextReviewAt: '2026-12-01',
     riskLevel: 'medium',
     whenToAskExpert: [
       'Trẻ có bệnh nền / dị ứng / dùng thuốc dài hạn — hỏi 小児科 trước mỗi mũi.',
@@ -84,7 +84,7 @@ const childVaccinationSchedule: AdminGuide = {
       'Sổ tiêm cũ từ VN nếu trẻ sinh tại VN (kèm bản dịch sơ)',
     ],
     ifLate:
-      'Quá khung 定期接種: vẫn tiêm được nhưng phải tự trả (任意接種). Một số 自治体 có chương trình "キャッチアップ" (bù) đặc biệt cho HPV / MR / một số mũi — hỏi 役所. Trẻ chưa đủ mũi mà sắp đi nhà trẻ / mẫu giáo: có thể phải tự trả mũi bù gấp.',
+      'Quá khung 定期接種: vẫn tiêm được nhưng phải tự trả (任意接種). Một số 自治体 có chương trình "キャッチアップ" (bù) đặc biệt cho MR / một số mũi — hỏi 役所 (catch-up HPV toàn quốc đã kết thúc 31/03/2026). Từ 01/04/2026, phụ nữ mang thai được tiêm miễn phí vắc xin RSV "mẹ truyền kháng thể" (母子免疫ワクチン, 1 mũi trong tuần thai 28–36) để bảo vệ trẻ sơ sinh — hỏi 役所/bệnh viện sản. Trẻ chưa đủ mũi mà sắp đi nhà trẻ / mẫu giáo: có thể phải tự trả mũi bù gấp.',
     officialSourceLabels: ['厚生労働省 — 予防接種情報', '国立感染症研究所 — VPD info', '日本小児科学会 — 予防接種スケジュール'],
   },
   whoIsThisFor: [
@@ -161,7 +161,7 @@ const childVaccinationSchedule: AdminGuide = {
     {
       question: 'HPV vaccine cho con gái — có nên tiêm không? Bao tuổi?',
       answer:
-        '**Tình hình hiện tại**: HPV vaccine được khuyến nghị ACTIVE bởi 厚生労働省 từ 2022 (sau giai đoạn dừng khuyến nghị 2013–2022). Chương trình **catch-up vaccination** (bù) được mở rộng đến gen sinh 1997–2007 (kết thúc 2024–2025 tùy 自治体, có gia hạn).\n\n**Đối tượng 定期接種 (miễn phí)**:\n• Con gái lớp 6 tiểu học – lớp 1 trung học (12–16 tuổi).\n• Khuyến nghị tiêm trước 14 tuổi để hiệu quả cao nhất.\n\n**Vắc xin có sẵn**:\n• 2価 (Cervarix) — 2 týp HPV\n• 4価 (Gardasil) — 4 týp\n• **9価 (Gardasil 9)** — 9 týp, được 定期 từ 2023-04, hiệu quả nhất.\n\n**Lịch tiêm**:\n• Dưới 15 tuổi: 2 mũi cách nhau 6 tháng (9価).\n• Từ 15 tuổi+: 3 mũi (0, 2 tháng, 6 tháng).\n\n**Phản ứng**:\n• Thường nhẹ: đau chỗ tiêm, sốt nhẹ.\n• Có lo ngại trước đây — sau nghiên cứu lớn, 厚生労働省 + WHO khẳng định lợi ích vượt trội rủi ro.\n\n**Đăng ký**: 役所 gửi 予診票 khi con vào lớp 6. Nếu không nhận được — hỏi 母子保健課.\n\nQuyết định cuối cùng là cha mẹ + con gái + tham vấn 小児科.',
+        '**Tình hình hiện tại**: HPV vaccine được khuyến nghị ACTIVE bởi 厚生労働省 từ 2022 (sau giai đoạn dừng khuyến nghị 2013–2022). Chương trình **catch-up vaccination** (bù) cho người sinh 02/04/1997–01/04/2009 (17–28 tuổi trong năm học 2025) **đã kết thúc ngày 31/03/2026** — sau mốc này tiêm HPV ngoài độ tuổi 定期接種 là tự trả (任意接種), trừ khi 自治体 của bạn công bố hỗ trợ riêng.\n\n**Đối tượng 定期接種 (miễn phí)**:\n• Con gái lớp 6 tiểu học – lớp 1 trung học (12–16 tuổi).\n• Khuyến nghị tiêm trước 14 tuổi để hiệu quả cao nhất.\n\n**Vắc xin có sẵn**:\n• 2価 (Cervarix) — 2 týp HPV\n• 4価 (Gardasil) — 4 týp\n• **9価 (Gardasil 9)** — 9 týp, được 定期 từ 2023-04, hiệu quả nhất.\n\n**Lịch tiêm**:\n• Dưới 15 tuổi: 2 mũi cách nhau 6 tháng (9価).\n• Từ 15 tuổi+: 3 mũi (0, 2 tháng, 6 tháng).\n\n**Phản ứng**:\n• Thường nhẹ: đau chỗ tiêm, sốt nhẹ.\n• Có lo ngại trước đây — sau nghiên cứu lớn, 厚生労働省 + WHO khẳng định lợi ích vượt trội rủi ro.\n\n**Đăng ký**: 役所 gửi 予診票 khi con vào lớp 6. Nếu không nhận được — hỏi 母子保健課.\n\nQuyết định cuối cùng là cha mẹ + con gái + tham vấn 小児科.',
     },
     {
       question: 'Trẻ tôi vừa khỏi cảm — bao lâu mới tiêm được?',

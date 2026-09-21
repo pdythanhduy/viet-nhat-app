@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaFeeIncrease20252026: AdminGuide = {
   id: 'visa-fee-increase-2025-2026',
   category: 'immigration',
-  lastVerified: '2026-08-21',
+  lastVerified: '2026-09-21',
   priority: 'normal',
   title: 'Phí visa Nhật tăng từ 2025-04-01 — bảng giá mới + cách tiết kiệm',
   titleJp: '在留関係手続の手数料改定（2025年4月1日〜）',
@@ -40,9 +40,9 @@ const visaFeeIncrease20252026: AdminGuide = {
     jurisdiction: 'national',
     jurisdictionNote:
       'Phí thủ tục theo 出入国管理及び難民認定法 + 法務省令. Cập nhật 2025-04-01 là đợt tăng đầu tiên kể từ 2006. Phí khác nhau giữa 書面 (giấy) vs オンライン申請 — chính phủ ưu tiên online để giảm tải. Trẻ em + một số người được miễn / giảm. Đây là TÀI LIỆU THAM KHẢO — phí có thể thay đổi tiếp, kiểm tra trang ISA chính thức trước mỗi lần nộp.',
-    sourceVerifiedAt: '2026-08-21',
-    nextReviewAt: '2026-09-25',
-    riskLevel: 'low',
+    sourceVerifiedAt: '2026-09-21',
+    nextReviewAt: '2026-10-15',
+    riskLevel: 'medium',
     whenToAskExpert: [
       'Hồ sơ phức tạp với phí lớn (永住, 帰化) → tham vấn luật sư hoặc 行政書士 trước khi nộp.',
       'Hồ sơ bị từ chối → có quyền 不服申立 (xem visa-rejection-appeal-process guide). Phí mất vẫn không hoàn — có thể đáng đầu tư luật sư cho lần 2.',
@@ -133,6 +133,11 @@ const visaFeeIncrease20252026: AdminGuide = {
     'Đến 入管 mua 収入印紙 → đa số 入管 KHÔNG bán. Mua ngoài.',
   ],
   faq: [
+    {
+      question: '⚠️ Từ 01/10/2026 phí gia hạn / đổi tư cách / vĩnh trú TĂNG mạnh — cần biết gì?',
+      answer:
+        'Từ hồ sơ **tiếp nhận từ 01/10/2026**, phí 在留資格変更・在留期間更新 không còn 6,000 yên đồng loạt mà tính theo thời hạn được cấp; 永住許可 tăng từ 10,000 yên lên 200,000 yên (theo 政令案 ISA công bố 03/07/2026).\n\n**Bảng phí NỘP ONLINE (ISA đã đăng, áp dụng cho hồ sơ từ 01/10/2026; chưa gồm phí thanh toán 220–550 yên)**:\n• ≤3 tháng: 10,000 yên\n• 3–6 tháng: 15,000 yên\n• 6 tháng–dưới 1 năm: 21,000 yên\n• 1 năm: 27,000 yên\n• 1–dưới 3 năm: 42,000 yên\n• 3–dưới 5 năm: 56,000 yên\n• 5 năm trở lên: 65,000 yên\n\n**Nộp trực tiếp tại quầy** đắt hơn online (theo 政令案: 1 năm khoảng 33,000 yên, 3–5 năm khoảng 64,000 yên, 5 năm trở lên 75,000 yên). Phí 再入国許可 và 就労資格証明書 không đổi (3,500 / 6,500 / 1,600 yên).\n\n**Mẹo quan trọng**: hồ sơ được ISA **tiếp nhận đến hết 30/09/2026** vẫn tính phí cũ, kể cả khi kết quả có sau 01/10. Ai sắp hết hạn lưu trú và có thể nộp sớm (tối đa 3 tháng trước ngày hết hạn) nên cân nhắc nộp trước mốc này.\n\nLưu ý: các bảng bên dưới trong guide này là mức phí cũ (2025–09/2026). Luôn kiểm tra trang phí chính thức của ISA vào ngày nộp.',
+    },
     {
       question: 'Phí mới áp dụng cho hồ sơ tôi đã nộp trước 2025-04-01 không?',
       answer:

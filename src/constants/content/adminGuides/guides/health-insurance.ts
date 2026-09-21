@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const healthInsurance: AdminGuide = {
     id: 'health-insurance',
     category: 'health',
-    lastVerified: '2026-06-28',
+    lastVerified: '2026-09-21',
     priority: 'high',
     title: 'Đăng ký bảo hiểm y tế',
     titleJp: '国民健康保険加入',
@@ -45,8 +45,8 @@ const healthInsurance: AdminGuide = {
       appliesFrom: '2025-12-02',
       jurisdiction: 'national',
       jurisdictionNote: 'Chế độ bảo hiểm y tế là toàn quốc, nhưng thủ tục 国民健康保険 và cấp 資格確認書 do 市役所/区役所/bên bảo hiểm nơi bạn tham gia xử lý.',
-      sourceVerifiedAt: '2026-06-28',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-09-21',
+      nextReviewAt: '2026-12-01',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn đổi việc, nghỉ việc hoặc chuyển từ 社会保険 sang 国民健康保険 và không rõ ngày bắt đầu bảo hiểm.',
@@ -100,6 +100,7 @@ const healthInsurance: AdminGuide = {
       'Bỏ qua hóa đơn bảo hiểm vì không hiểu tiếng Nhật.',
       'Nhầm thẻ bảo hiểm cũ với hệ thống マイナ保険証/資格確認書 hiện nay.',
       'Chuyển nhà nhưng không cập nhật bảo hiểm tại địa phương mới.',
+      'Không biết từ 04/2026 phí bảo hiểm y tế có thêm khoản 子ども・子育て支援金 (đóng cùng phí bảo hiểm, ví dụ nhân viên công ty lương khoảng 400 vạn yên/năm chịu thêm khoảng 384 yên/tháng) nên tưởng bị tính sai.',
       'Để nợ tiền 国保 / 国民年金: theo kế hoạch của chính phủ, **dự kiến từ 06/2027** tình trạng nợ sẽ bị phản ánh vào xét **gia hạn / đổi tư cách lưu trú** (áp dụng người ở Nhật trên 90 ngày; hệ thống đang chuẩn bị từ 2026). Đóng đúng hạn, giữ biên lai; nếu khó khăn thì xin **減免 / 免除** thay vì để nợ.',
     ],
     tips: [
@@ -200,7 +201,7 @@ const healthInsurance: AdminGuide = {
         term: '高額療養費',
         reading: 'こうがくりょうようひ',
         meaningVi: 'trợ cấp viện phí cao',
-        noteVi: 'Nếu viện phí trong tháng vượt mức quy định theo thu nhập (vd 8 vạn yên với thu nhập trung bình), phần vượt được hoàn lại. Hỏi 市役所 sau khi nhận hóa đơn lớn.',
+        noteVi: 'Nếu viện phí trong tháng vượt mức quy định theo thu nhập, phần vượt được hoàn lại. Từ tháng khám 08/2026 mức trần hàng tháng được nâng lên ở mọi nhóm thu nhập (tăng khoảng 1.500–17.700 yên tùy nhóm) và có thêm mức trần theo năm (08→07); từ 08/2027 chia nhóm thu nhập chi tiết hơn. Hỏi 市役所 hoặc nơi cấp bảo hiểm mức trần của bạn.',
       },
     ],
     officialLinks: [

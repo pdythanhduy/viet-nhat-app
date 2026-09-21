@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const statusOfResidenceChange: AdminGuide = {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-09-21',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -45,8 +45,8 @@ const statusOfResidenceChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
-      sourceVerifiedAt: '2026-07-11',
-      nextReviewAt: '2026-09-01',
+      sourceVerifiedAt: '2026-09-21',
+      nextReviewAt: '2026-10-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn muốn bắt đầu công việc/hoạt động mới trước khi có kết quả đổi tư cách.',
@@ -91,7 +91,7 @@ const statusOfResidenceChange: AdminGuide = {
     estimatedTime:
       'Thời gian xét duyệt thay đổi theo hồ sơ, khu vực và loại tư cách mới. Nên chừa thời gian để bổ sung giấy tờ nếu bị yêu cầu.',
     fees: [
-      'Nếu được cấp phép: 6.000 yên khi làm thủ tục thường, hoặc 5.500 yên nếu là online application theo mức ISA áp dụng từ 01/04/2025.',
+      'Nếu được cấp phép: 6.000 yên (thường) hoặc 5.500 yên (online) cho hồ sơ tiếp nhận đến hết 30/09/2026. Từ 01/10/2026 phí đổi theo thời hạn được cấp (online: 10,000–65,000 yên) — xem guide `visa-fee-increase-2025-2026`.',
       'Phí nộp khi nhận kết quả/cấp phép, không phải lúc mới nộp hồ sơ.',
     ],
     documentsChecklist: [
@@ -127,7 +127,7 @@ const statusOfResidenceChange: AdminGuide = {
       {
         question: 'Phí đổi tư cách lưu trú hiện là bao nhiêu?',
         answer:
-          'Theo ISA, khi được cấp phép hiện là 6.000 yên nếu làm thủ tục thường và 5.500 yên nếu nộp online. Kiểm tra lại bảng phí chính thức trước khi nhận kết quả.',
+          'Với hồ sơ tiếp nhận đến hết 30/09/2026: 6.000 yên (thường) / 5.500 yên (online). Hồ sơ tiếp nhận từ 01/10/2026 áp phí mới theo thời hạn được cấp (online 10,000–65,000 yên). Kiểm tra bảng phí ISA trước khi nhận kết quả.',
       },
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
@@ -288,7 +288,7 @@ const statusOfResidenceChange: AdminGuide = {
         description:
           'Ngay cả khi đã được nhận vào công ty, bạn vẫn cần hiểu rõ thời điểm nào được phép làm việc theo diện mới.',
         documents: ['Thông báo kết quả từ ISA', 'Thẻ cư trú cập nhật nếu được cấp phép'],
-        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng. Khi được cấp phép, phí hiện hành là 6.000 yên thủ tục thường hoặc 5.500 yên online.',
+        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng. Khi được cấp phép: hồ sơ tiếp nhận đến 30/09/2026 là 6.000 yên (thường) / 5.500 yên (online); từ 01/10/2026 phí mới cao hơn nhiều, xem guide phí visa.',
         image: require('../../../../../assets/content/daily-life/ag_status-change_s2.jpg'),
         imageCaption: 'Điền 在留資格変更許可申請書 và chuẩn bị hồ sơ theo diện mới',
       },
