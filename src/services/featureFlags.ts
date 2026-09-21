@@ -15,7 +15,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from './supabaseClient';
 
-export type FeatureFlagKey = 'furiganaReader' | 'n2RecoveryHome' | 'jlptRecoveryHome';
+export type FeatureFlagKey = 'furiganaReader' | 'newsReader' | 'n2RecoveryHome' | 'jlptRecoveryHome';
 
 export interface FeatureFlagDef {
   key: FeatureFlagKey;
@@ -31,6 +31,13 @@ export const FEATURE_FLAGS: readonly FeatureFlagDef[] = [
     label: 'Đọc báo tiếng Nhật (Furigana)',
     description:
       'Dán văn bản tiếng Nhật, hiển thị hiragana phía trên kanji cho dễ đọc. Bật để hiện công cụ trong app.',
+    defaultValue: false,
+  },
+  {
+    key: 'newsReader',
+    label: 'Tin tức Việt + Nhật',
+    description:
+      'Đọc tin Dân trí, 24h, VnExpress và Yahoo!ニュース. Tin tiếng Nhật mở bằng công cụ Furigana (hiragana trên kanji). Bật để hiện nút Tin tức trên Home.',
     defaultValue: false,
   },
   {

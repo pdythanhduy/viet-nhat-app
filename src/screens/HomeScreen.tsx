@@ -83,6 +83,7 @@ export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
   // Experimental: surfaced on Home only when the owner enables the flag in Lab.
   const showFuriganaReader = useFeatureFlag('furiganaReader');
+  const showNewsReader = useFeatureFlag('newsReader');
   const showN2RecoveryHome = useFeatureFlag('n2RecoveryHome');
   const showJlptRecoveryHome = useFeatureFlag('jlptRecoveryHome');
   const [activeAlerts, setActiveAlerts] = useState<ActiveAlert[]>([]);
@@ -364,6 +365,23 @@ export default function HomeScreen() {
                 <Text style={styles.furiganaCtaTitle}>Đọc báo tiếng Nhật</Text>
                 <Text style={styles.furiganaCtaDesc}>
                   Dán văn bản, hiện hiragana trên kanji cho dễ đọc.
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />
+            </TouchableOpacity>
+          )}
+
+          {showNewsReader && (
+            <TouchableOpacity
+              style={styles.furiganaCta}
+              onPress={() => navigation.navigate('News')}
+              activeOpacity={0.85}
+            >
+              <Ionicons name="newspaper" size={22} color={Colors.primary} />
+              <View style={styles.furiganaCtaText}>
+                <Text style={styles.furiganaCtaTitle}>Tin tức Việt + Nhật</Text>
+                <Text style={styles.furiganaCtaDesc}>
+                  Dân trí, 24h, Yahoo!ニュース — tin Nhật có hiragana trên kanji.
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={20} color={Colors.textMuted} />

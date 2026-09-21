@@ -37,6 +37,7 @@ import JapaneseKanaQuizScreen from '../screens/JapaneseKanaQuizScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LabScreen from '../screens/LabScreen';
 import FuriganaScreen from '../screens/FuriganaScreen';
+import NewsScreen from '../screens/NewsScreen';
 import SentenceTranslateScreen from '../screens/SentenceTranslateScreen';
 import N2RecoveryScreen from '../screens/N2RecoveryScreen';
 import JlptRecoveryLevelsScreen from '../screens/JlptRecoveryLevelsScreen';
@@ -145,7 +146,8 @@ export type RootStackParamList = {
   HoiCamNang: undefined;
   Settings: undefined;
   Lab: undefined;
-  Furigana: undefined;
+  Furigana: { url?: string; autoStart?: boolean } | undefined;
+  News: undefined;
   SentenceTranslate: undefined;
   JlptRecoveryLevels: undefined;
   JlptPaywall: undefined;
@@ -471,6 +473,11 @@ export default function AppNavigator() {
           name="Furigana"
           component={FuriganaScreen}
           options={{ ...primaryHeaderOptions, headerTitle: 'Đọc báo tiếng Nhật' }}
+        />
+        <Stack.Screen
+          name="News"
+          component={NewsScreen}
+          options={{ ...primaryHeaderOptions, headerTitle: 'Tin tức' }}
         />
         <Stack.Screen
           name="SentenceTranslate"

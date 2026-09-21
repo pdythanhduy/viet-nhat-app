@@ -15,6 +15,8 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRoute, type RouteProp } from '@react-navigation/native';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Clipboard from 'expo-clipboard';
 import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
@@ -134,6 +136,9 @@ function getVbeeReadErrorMessage(message: string): string {
 }
 
 export default function FuriganaScreen() {
+  const route = useRoute<RouteProp<RootStackParamList, 'Furigana'>>();
+  const launchUrl = route.params?.url;
+  const autoStart = route.params?.autoStart === true;
   const [input, setInput] = useState('');
   const [tokens, setTokens] = useState<FuriganaToken[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -458,6 +463,33 @@ export default function FuriganaScreen() {
       setLoading(false);
     }
   };
+
+  // Opened from the News tab: fetch the article and render furigana straight
+  // away. Runs once per launch URL, after the saved session has hydrated so it
+  // isn't overwritten by the previous article.
+  const autoStartedUrl = useRef<string | null>(null);
+  useEffect(() => {
+    if (sessionHydrating || !launchUrl || !autoStart) return;
+    if (autoStartedUrl.current === launchUrl) return;
+    autoStartedUrl.current = launchUrl;
+
+    void (async () => {
+      setUrl(launchUrl);
+      setFetchingArticle(true);
+      try {
+        const text = await fetchArticleText(launchUrl);
+        handleInputChange(text);
+        setLoading(true);
+        setTokens(await fetchFurigana(text));
+      } catch (e) {
+        setError(getFuriganaErrorMessage(e instanceof Error ? e.message : String(e)));
+      } finally {
+        setFetchingArticle(false);
+        setLoading(false);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionHydrating, launchUrl, autoStart]);
 
   return (
     <View style={styles.screen}>
