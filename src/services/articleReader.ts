@@ -30,6 +30,24 @@ function stripMarkdown(md: string): string {
     .trim();
 }
 
+// Yahoo!ニュース pages come back with the site menu on top and comment /
+// related-article blocks below. Keep only the article body when the markers
+// are present; otherwise return the text untouched.
+export function trimYahooNewsChrome(text: string): string {
+  const NAV_END = 'トピックス一覧';
+  const navEnd = text.indexOf(NAV_END);
+  let body = navEnd >= 0 ? text.slice(navEnd + NAV_END.length) : text;
+  // Footer markers only count once the body has started (the comment-count
+  // badge also appears right under the headline).
+  const MIN_BODY = 200;
+  const endMarker = body
+    .slice(MIN_BODY)
+    .search(/^(この記事にコメント|記事全文を読む|記事に関する報告|この記事はいかがでしたか？|【関連記事】|関連記事|みんなのコメント|.*コメント\d+件)\s*$/m);
+  if (endMarker >= 0) body = body.slice(0, MIN_BODY + endMarker);
+  body = body.trim();
+  return body.length > 40 ? body : text;
+}
+
 export async function fetchArticleText(url: string): Promise<string> {
   if (!looksLikeUrl(url)) {
     throw new Error('Link không hợp lệ (phải bắt đầu bằng http:// hoặc https://).');
@@ -54,7 +72,7 @@ export async function fetchArticleText(url: string): Promise<string> {
     if (!text) {
       throw new Error('Trang không có nội dung đọc được.');
     }
-    return text;
+    return /^https?:\/\/news\.yahoo\.co\.jp\//i.test(url.trim()) ? trimYahooNewsChrome(text) : text;
   } finally {
     clearTimeout(timer);
   }
