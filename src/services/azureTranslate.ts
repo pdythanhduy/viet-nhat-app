@@ -4,6 +4,7 @@
 // stays server-side; this module just calls the proxy and never sees it.
 
 import { supabase } from './supabaseClient';
+import { extractFunctionsErrorMessage } from './functionsError';
 
 // Keep in sync with MAX_CHARS in supabase/functions/azure-translate-proxy/index.ts.
 export const MAX_TRANSLATE_CHARS = 200;
@@ -28,7 +29,7 @@ export async function translateSentenceViaAzure(text: string): Promise<string> {
   const { data, error } = await supabase.functions.invoke<AzureProxyResponse>('azure-translate-proxy', {
     body: { text: trimmed },
   });
-  if (error) throw new Error(error.message || 'translate-failed');
+  if (error) throw new Error((await extractFunctionsErrorMessage(error)) || 'translate-failed');
   if (!data) throw new Error('Empty proxy response.');
   if (data.error) throw new Error(data.error.message || 'Translate error.');
   if (!data.translation) throw new Error('No translation returned.');
