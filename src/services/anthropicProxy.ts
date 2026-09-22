@@ -7,6 +7,7 @@
 // the function checks against the owner allowlist.
 
 import { supabase } from './supabaseClient';
+import { extractFunctionsErrorMessage } from './functionsError';
 
 export interface ProxyMessage {
   role: 'user' | 'assistant';
@@ -40,7 +41,7 @@ export async function callAnthropicProxy(payload: AnthropicPayload): Promise<Cla
   const { data, error } = await supabase.functions.invoke<ClaudeResponse>('anthropic-proxy', {
     body: payload,
   });
-  if (error) throw new Error(error.message || 'proxy-failed');
+  if (error) throw new Error((await extractFunctionsErrorMessage(error)) || 'proxy-failed');
   if (!data) throw new Error('Empty proxy response.');
   if (data.error) throw new Error(data.error.message || 'Anthropic error.');
   return data;
