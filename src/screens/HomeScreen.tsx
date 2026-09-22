@@ -21,7 +21,6 @@ import { useFeatureFlag } from '../hooks/useFeatureFlags';
 import ProfileSetupModal from '../components/ProfileSetupModal';
 import type { UserProfile } from '../types/profile';
 import {
-  FAMILY_VISA_GROUPS,
   GENERIC_TIPS,
   LAW_UPDATES,
   buildPersonalizedActions,
@@ -31,7 +30,6 @@ import {
   type InProgressGuide,
   type PersonalizedAction,
   type ReadyGuide,
-  type SavedCounts,
 } from './homeScreenContent';
 import { HomeHeader } from './home/HomeHeader';
 import { HomeSearchCta, HomeAskCta } from './home/HomeTopCtas';
@@ -41,17 +39,13 @@ import {
   type QuickActionId,
 } from './home/HomeQuickActions';
 import { HomeCategoryGrid } from './home/HomeCategoryGrid';
-import { HomeOnboardingGuides } from './home/HomeOnboardingGuides';
-import { HomeFeaturedGuides } from './home/HomeFeaturedGuides';
 import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
-import { HomeSavedGuides } from './home/HomeSavedGuides';
 import { HomeStartHere } from './home/HomeStartHere';
 import { HomeEmergencyContacts } from './home/HomeEmergencyContacts';
 import { getBookmarkMeta } from './home/bookmarkMeta';
 import {
   buildChecklistProgressItems,
   buildCompletedChecklistItems,
-  buildSavedCounts,
   buildStepProgressItems,
 } from './homeScreenData';
 import { loadRecentDailyLifeTopics } from '../utils/dailyLifeRecentTopics';
@@ -90,22 +84,12 @@ export default function HomeScreen() {
   const [recentDailyTopicIds, setRecentDailyTopicIds] = useState<string[]>([]);
   const [recentJapaneseCategories, setRecentJapaneseCategories] = useState<RecentJapaneseCategory[]>([]);
   const [recentlyViewedGuides, setRecentlyViewedGuides] = useState<RecentlyViewedGuide[]>([]);
-  // Phase R1: guide-only saved bookmarks (full list, unsliced) so the
-  // "Đã lưu" surface still renders even when the most recent 6 mixed
-  // bookmarks are non-guide types (phrases, daily-life, etc.).
-  const [savedGuideBookmarks, setSavedGuideBookmarks] = useState<Bookmark[]>([]);
   const [savedBookmarks, setSavedBookmarks] = useState<Bookmark[]>([]);
   const [pinnedBookmarks, setPinnedBookmarks] = useState<Bookmark[]>([]);
   const [inProgressGuides, setInProgressGuides] = useState<InProgressGuide[]>([]);
   const [inProgressStepGuides, setInProgressStepGuides] = useState<InProgressGuide[]>([]);
   const [readyGuides, setReadyGuides] = useState<ReadyGuide[]>([]);
   const [completedGuideIds, setCompletedGuideIds] = useState<string[]>([]);
-  const [savedCounts, setSavedCounts] = useState<SavedCounts>({
-    guide: 0,
-    'daily-life': 0,
-    phrase: 0,
-    dialogue: 0,
-  });
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -161,8 +145,6 @@ export default function HomeScreen() {
         loadBookmarks().then((items) => {
           setSavedBookmarks(items.slice(0, 6));
           setPinnedBookmarks(items.filter((item) => !!item.pinnedAt).slice(0, 4));
-          setSavedGuideBookmarks(items.filter((b) => b.type === 'guide'));
-          setSavedCounts(buildSavedCounts(items));
         });
         loadAllGuideChecklistProgress().then((progressMap) => {
           const progressItems = buildChecklistProgressItems(ADMIN_GUIDES, progressMap);
@@ -337,7 +319,6 @@ export default function HomeScreen() {
   const visibleRecent = getVisibleItems('recent', savedBookmarks, 4);
   const visiblePinned = getVisibleItems('pinned', pinnedBookmarks, 4);
   const visibleUpdates = getVisibleItems('updates', LAW_UPDATES, 2);
-  const visibleFamilyGroups = getVisibleItems('family', FAMILY_VISA_GROUPS, 1);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -526,28 +507,10 @@ export default function HomeScreen() {
             </TouchableOpacity>
           )}
 
-          {activeAlerts.length > 0
-            ? activeAlerts.map((alert) => (
-                <TouchableOpacity
-                  key={alert.id}
-                  style={[styles.alertCard, alert.daysLeft <= 30 ? styles.alertHigh : styles.alertMedium]}
-                  onPress={() => navigation.navigate('ImportantDates')}
-                >
-                  <View style={styles.alertLeft}>
-                    <Ionicons
-                      name={alert.daysLeft <= 30 ? 'warning' : 'alarm-outline'}
-                      size={22}
-                      color={alert.daysLeft <= 30 ? Colors.danger : Colors.warning}
-                    />
-                    <View style={styles.alertTextContainer}>
-                      <Text style={styles.alertTitle}>{alert.label}</Text>
-                      <Text style={styles.alertDesc}>Còn {alert.daysLeft} ngày nữa đến hạn. Nên kiểm tra sớm.</Text>
-                    </View>
-                  </View>
-                  <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
-                </TouchableOpacity>
-              ))
-            : GENERIC_TIPS.map((tip) => (
+          {/* Deadline alerts render once, in "Ưu tiên lúc này" below — this slot
+              only fills the cold-start case where the user has no alerts yet. */}
+          {activeAlerts.length === 0
+            ? GENERIC_TIPS.map((tip) => (
                 <TouchableOpacity
                   key={tip.id}
                   style={[styles.alertCard, tip.urgency === 'medium' ? styles.alertMedium : styles.alertInfo]}
@@ -565,7 +528,8 @@ export default function HomeScreen() {
                   </View>
                   <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
                 </TouchableOpacity>
-              ))}
+              ))
+            : null}
 
           {(activeAlerts.length > 0 || inProgressGuides.length > 0) ? (
             <>
@@ -833,72 +797,8 @@ export default function HomeScreen() {
             </>
           ) : null}
 
-          {(savedCounts.guide > 0 ||
-            savedCounts['daily-life'] > 0 ||
-            savedCounts.phrase > 0 ||
-            savedCounts.dialogue > 0) ? (
-            <>
-              <View style={styles.sectionTitleRow}>
-                <Text style={styles.sectionTitle}>Đã lưu theo loại</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('MainTabs', { screen: 'Saved' })}>
-                  <Text style={styles.sectionLink}>Mở tab Đã lưu</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.noteGrid}>
-                <TouchableOpacity
-                  style={styles.noteCard}
-                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'guide' } })}
-                >
-                  <View style={[styles.noteIconBg, { backgroundColor: Colors.accent }]}>
-                    <Ionicons name="document-text-outline" size={20} color={Colors.primary} />
-                  </View>
-                  <Text style={styles.noteCount}>{savedCounts.guide}</Text>
-                  <Text style={styles.noteTitle}>Thủ tục</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.noteCard}
-                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'daily-life' } })}
-                >
-                  <View style={[styles.noteIconBg, { backgroundColor: Colors.successLight }]}>
-                    <Ionicons name="sunny-outline" size={20} color={Colors.success} />
-                  </View>
-                  <Text style={styles.noteCount}>{savedCounts['daily-life']}</Text>
-                  <Text style={styles.noteTitle}>Cuộc sống</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.noteCard}
-                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'phrase' } })}
-                >
-                  <View style={[styles.noteIconBg, { backgroundColor: '#FDECEA' }]}>
-                    <Ionicons name="language-outline" size={20} color="#E74C3C" />
-                  </View>
-                  <Text style={styles.noteCount}>{savedCounts.phrase}</Text>
-                  <Text style={styles.noteTitle}>Tiếng Nhật</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.noteCard}
-                  onPress={() => navigation.navigate('MainTabs', { screen: 'Saved', params: { filter: 'dialogue' } })}
-                >
-                  <View style={[styles.noteIconBg, { backgroundColor: '#F3EBF9' }]}>
-                    <Ionicons name="chatbubbles-outline" size={20} color="#9B59B6" />
-                  </View>
-                  <Text style={styles.noteCount}>{savedCounts.dialogue}</Text>
-                  <Text style={styles.noteTitle}>Hội thoại</Text>
-                </TouchableOpacity>
-              </View>
-            </>
-          ) : null}
-
           <Text style={styles.sectionTitle}>Duyệt theo chủ đề</Text>
           <HomeCategoryGrid onCategoryPress={handleCategoryPress} />
-
-          <Text style={styles.sectionTitle}>Cho người mới sang Nhật</Text>
-          <HomeOnboardingGuides
-            onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId })}
-          />
 
           {recentlyViewedGuides.length > 0 ? (
             <>
@@ -909,21 +809,6 @@ export default function HomeScreen() {
               />
             </>
           ) : null}
-
-          {savedGuideBookmarks.length > 0 ? (
-            <>
-              <Text style={styles.sectionTitle}>Đã lưu</Text>
-              <HomeSavedGuides
-                bookmarks={savedGuideBookmarks}
-                onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'saved' })}
-              />
-            </>
-          ) : null}
-
-          <Text style={styles.sectionTitle}>Hay được dùng</Text>
-          <HomeFeaturedGuides
-            onGuidePress={(guideId) => navigation.navigate('AdminDetail', { guideId, source: 'featured' })}
-          />
 
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Cập nhật chính sách quan trọng</Text>
@@ -947,41 +832,6 @@ export default function HomeScreen() {
                 </View>
                 <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
               </TouchableOpacity>
-            ))}
-          </View>
-
-          <View style={styles.sectionTitleRow}>
-            <Text style={styles.sectionTitle}>Gia đình / visa</Text>
-            {visibleFamilyGroups.hasMore ? (
-              <TouchableOpacity onPress={() => toggleSection('family')}>
-                <Text style={styles.sectionLink}>
-                  {visibleFamilyGroups.expanded ? 'Thu gọn' : 'Xem thêm'}
-                </Text>
-              </TouchableOpacity>
-            ) : null}
-          </View>
-          <View style={styles.familyGroupsWrap}>
-            {visibleFamilyGroups.items.map((group) => (
-              <View key={group.id} style={styles.familyGroupCard}>
-                <Text style={styles.familyGroupTitle}>{group.title}</Text>
-                <Text style={styles.familyGroupDesc}>{group.description}</Text>
-                {group.items.map((item, index) => (
-                  <TouchableOpacity
-                    key={item.id}
-                    style={[styles.familyVisaCard, index === 0 && styles.familyVisaCardFirst]}
-                    onPress={() => navigation.navigate('AdminDetail', { guideId: item.guideId })}
-                  >
-                    <View style={[styles.familyVisaIconBg, { backgroundColor: `${item.color}18` }]}>
-                      <Ionicons name={item.icon} size={20} color={item.color} />
-                    </View>
-                    <View style={styles.familyVisaInfo}>
-                      <Text style={styles.familyVisaTitle}>{item.title}</Text>
-                      <Text style={styles.familyVisaDesc}>{item.description}</Text>
-                    </View>
-                    <Ionicons name="chevron-forward" size={16} color={Colors.textMuted} />
-                  </TouchableOpacity>
-                ))}
-              </View>
             ))}
           </View>
 
@@ -1313,33 +1163,6 @@ const styles = StyleSheet.create({
   },
   sectionLink: { fontSize: 12, fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold', color: Colors.primary },
   recentRow: { gap: 10, paddingRight: 12, marginBottom: 4 },
-  noteGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 4 },
-  noteCard: {
-    width: '47%',
-    backgroundColor: Colors.white,
-    borderRadius: 16,
-    padding: 14,
-    alignItems: 'flex-start',
-  },
-  noteIconBg: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10,
-  },
-  noteCount: {
-    fontSize: 22,
-    fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.textPrimary,
-    marginBottom: 2,
-  },
-  noteTitle: {
-    fontSize: 13,
-    fontWeight: '700', fontFamily: 'BeVietnamPro_700Bold',
-    color: Colors.textSecondary,
-  },
   recentCard: {
     width: 148,
     borderRadius: 16,
@@ -1362,16 +1185,6 @@ const styles = StyleSheet.create({
   updateInfo: { flex: 1 },
   updateTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
   updateDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
-  familyGroupsWrap: { gap: 12 },
-  familyGroupCard: { backgroundColor: Colors.white, borderRadius: 16, padding: 14, borderWidth: 1, borderColor: Colors.border },
-  familyGroupTitle: { fontSize: 14, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
-  familyGroupDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17, marginBottom: 10 },
-  familyVisaCard: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10, borderTopWidth: 1, borderTopColor: Colors.border },
-  familyVisaCardFirst: { borderTopWidth: 0, paddingTop: 0 },
-  familyVisaIconBg: { width: 40, height: 40, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
-  familyVisaInfo: { flex: 1 },
-  familyVisaTitle: { fontSize: 13, fontWeight: '800', fontFamily: 'BeVietnamPro_800ExtraBold', color: Colors.textPrimary, marginBottom: 3 },
-  familyVisaDesc: { fontSize: 12, color: Colors.textSecondary, lineHeight: 17 },
   allGuidesCard: { backgroundColor: Colors.accent, borderRadius: 16, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginTop: 12, borderWidth: 1, borderColor: `${Colors.primary}30` },
   allGuidesLeft: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, flex: 1 },
   allGuidesIconBg: { width: 40, height: 40, borderRadius: 12, backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center' },
