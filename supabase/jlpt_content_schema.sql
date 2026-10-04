@@ -1,19 +1,20 @@
 -- JLPT Recovery — public content + entitlements (run once in Supabase SQL Editor).
 -- Idempotent — safe to re-run.
 --
--- Free level N5 is bundled in the app; this backs the PAID levels (N4–N1) and
--- the per-user "Pro" entitlement that gates them.
+-- N5 is bundled in the app; this table backs N4–N1. All levels are FREE: any
+-- signed-in user (incl. anonymous auth) may read every level. The entitlements
+-- table is kept so existing Pro rows / the RevenueCat webhook keep working.
 --
 -- Security model:
 --   • entitlements  — a user may read their OWN row, but CANNOT write it. Pro is
 --     granted exclusively by the service role (RevenueCat webhook / Edge Fn),
 --     so a client can never grant itself Pro.
---   • jlpt_content  — anyone (incl. anonymous-auth users) may read N5; paid
---     levels only when the user has a Pro entitlement. Rows are written ONLY by
---     the service role (the upload script / a webhook) — no client write policy.
+--   • jlpt_content  — anyone signed in (incl. anonymous-auth users) may read
+--     every level. Rows are written ONLY by the service role (the upload
+--     script / a webhook) — no client write policy.
 --
--- NOTE: entitlements is created FIRST because the jlpt_content read policy
--- references it.
+-- NOTE: entitlements is created first (historically the content policy
+-- referenced it; it is still used by the RevenueCat webhook).
 
 -- ── Entitlements ───────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.entitlements (
@@ -47,17 +48,11 @@ CREATE TABLE IF NOT EXISTS public.jlpt_content (
 
 ALTER TABLE public.jlpt_content ENABLE ROW LEVEL SECURITY;
 
--- Read: N5 free to any signed-in (incl. anonymous) user; paid levels need Pro.
+-- Read: every level free to any signed-in (incl. anonymous) user.
 DROP POLICY IF EXISTS "read jlpt content" ON public.jlpt_content;
 CREATE POLICY "read jlpt content"
   ON public.jlpt_content
   FOR SELECT
   TO authenticated
-  USING (
-    level = 'N5'
-    OR EXISTS (
-      SELECT 1 FROM public.entitlements e
-      WHERE e.user_id = auth.uid() AND e.has_pro = TRUE
-    )
-  );
+  USING (true);
 -- No INSERT/UPDATE/DELETE policy → only the service role can write content.
