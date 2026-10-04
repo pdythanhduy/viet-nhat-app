@@ -10,6 +10,18 @@ const homePurchaseMortgage: AdminGuide = {
     icon: 'home-outline',
     color: '#1F618D',
     description: 'Người nước ngoài được phép mua nhà tại Nhật và vay 住宅ローン nếu đủ điều kiện. Guide này tập trung vào điều kiện vay, ngân hàng nào nhận người nước ngoài, quy trình mua và lợi ích 住宅ローン控除 — khác với guide thuê nhà hiện có.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: '住宅ローン控除 theo quy định thuế quốc gia của 国税庁 (năm đầu tự 確定申告 tại 税務署/e-Tax); đăng ký quyền sở hữu và thế chấp qua 法務局/司法書士. Điều kiện vay do từng ngân hàng/フラット35 tự đặt, còn 住民票, 印鑑証明書 và 不動産取得税 hỏi tại municipal office — kiểm tra nguồn chính thức của 国税庁 trước khi khai.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-11-15',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Trước khi ký 売買契約 và nộp 手付金 → nhờ 司法書士 hoặc luật sư kiểm tra điều khoản ローン特約 và 重要事項説明書.',
+        'Không chắc nhà và khoản vay có đủ điều kiện 住宅ローン控除 → hỏi 税務署 hoặc 税理士 trước khi khai năm đầu.',
+        'Tư cách lưu trú ngắn hạn bị ngân hàng từ chối hoặc yêu cầu người bảo lãnh → tham khảo nhiều ngân hàng/フラット35 trước khi quyết định.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_home-purchase_hero.jpg'),
     heroImageCaption: 'Mua nhà tại Nhật - kiểm tra điều kiện vay 住宅ローン và chi phí ban đầu',
     whoIsThisFor: [

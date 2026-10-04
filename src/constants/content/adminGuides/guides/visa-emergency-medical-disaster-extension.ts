@@ -104,8 +104,8 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     ],
     estimatedTime: '< 90 ngày: 1-2 tuần. > 90 ngày: 2-4 tuần để đổi sang 特定活動. Thời gian có thể kéo dài hơn nếu bệnh viện cần cập nhật hồ sơ.',
     fees: [
-      'Hiện tại (từ 01/04/2025): cả 在留期間更新許可申請 (gia hạn short-term) và 在留資格変更許可申請 (đổi sang 特定活動 y tế) đều 6,000 yên/lần nộp giấy, hoặc 5,500 yên nếu nộp online — thanh toán bằng 収入印紙 khi được duyệt.',
-      'Sắp đổi: dự thảo 政令 (công bố 03/07/2026, lấy ý kiến đến 02/08/2026) sẽ đổi 2 thủ tục này sang biểu phí theo bậc 1万–7.5万円 tùy thời hạn lưu trú còn lại, dự kiến hiệu lực từ 01/10/2026 — tính đến 22/08/2026 nghị định vẫn CHƯA công bố chính thức trên 官報. Xem bảng phí chi tiết tại guide "Phí visa Nhật tăng từ 2025-04-01".',
+      'Đã áp dụng từ 01/10/2026 (政令 được Nội các quyết định 25/08/2026): 在留期間更新許可申請 (gia hạn) và 在留資格変更許可申請 (đổi sang 特定活動 y tế) tính phí theo THỜI HẠN ĐƯỢC CẤP — quầy / online: ≤3 tháng 10,000 / 10,000 yên; >3–6 tháng 18,000 / 15,000 yên; >6 tháng–dưới 1 năm 25,000 / 21,000 yên; 1 năm 33,000 / 27,000 yên (thời hạn dài hơn: xem bảng đầy đủ). Chỉ nộp khi được duyệt: tại quầy bằng 収入印紙, online qua コンビニ決済 / Pay-easy.',
+      'Hồ sơ đã được tiếp nhận đến hết 30/09/2026 vẫn áp phí cũ 6,000 yên (quầy) / 5,500 yên (online). Xem bảng phí đầy đủ tại guide [[visa-fee-increase-2025-2026]].',
       '診断書 (giấy chẩn đoán bác sĩ): tham khảo 3,000-10,000 yên/bản, không được bảo hiểm chi trả.',
     ],
     commonMistakes: [

@@ -10,6 +10,17 @@ const specialFraudTokushuSagi: AdminGuide = {
     icon: 'warning-outline',
     color: '#C0392B',
     description: 'Người nước ngoài ở Nhật thường bị nhắm bởi các hình thức lừa đảo khai thác rào cản ngôn ngữ và sự thiếu quen thuộc với pháp luật Nhật Bản. Guide này tập trung vào 特殊詐欺 qua điện thoại, tin nhắn và tiếp cận trực tiếp — khác với hướng dẫn bảo vệ tài khoản ngân hàng đã có riêng.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Lừa đảo (特殊詐欺) là tội phạm hình sự do cảnh sát xử lý trên toàn quốc: khẩn cấp gọi 110, tư vấn gọi #9110; tranh chấp tiêu dùng gọi 消費者ホットライン 188. Không cơ quan nhà nước nào (ISA, 国税庁, cảnh sát) yêu cầu nộp tiền qua điện thoại — kiểm tra nguồn chính thức bằng cách gọi lại số chính thức của cơ quan đó.',
+      sourceVerifiedAt: '2026-08-22',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Đã chuyển tiền hoặc lộ OTP/thông tin ngân hàng → gọi ngân hàng để khóa tài khoản và báo cảnh sát 110 ngay.',
+        'Bị nhờ nhận/rút tiền hộ (受け子, 出し子) hoặc đã lỡ tham gia → hỏi cảnh sát hoặc luật sư ngay vì có thể bị truy cứu hình sự.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_fraud_hero.jpg'),
     heroImageCaption: '特殊詐欺 - nhận diện lừa đảo qua điện thoại, tin nhắn và giả danh cơ quan',
     whoIsThisFor: [

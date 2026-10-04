@@ -10,6 +10,17 @@ const motorcycleVoluntaryInsurance: AdminGuide = {
     icon: 'shield-checkmark-outline',
     color: '#1A5276',
     description: '自賠責保険 (bảo hiểm bắt buộc) chỉ chi trả tối thiểu cho người bị hại — không bảo vệ xe, không bảo vệ chính bạn khi bị thương. 任意保険 (bảo hiểm tự nguyện) lấp đầy khoảng trống đó và là điều nên có trước khi đi xe.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '自賠責保険 là bảo hiểm bắt buộc theo luật quốc gia với mức trần bồi thường cố định; 任意保険 và ファミリーバイク特約 là hợp đồng tự nguyện, điều kiện và phí do từng công ty bảo hiểm quy định. Mức trần và phí có thể thay đổi — kiểm tra nguồn chính thức và điều khoản hợp đồng trước khi mua.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Xảy ra tai nạn có thương vong hoặc bị yêu cầu bồi thường lớn → gọi 110/119, báo công ty bảo hiểm ngay, không tự nhận lỗi hay ký giấy; cân nhắc tư vấn luật sư.',
+        'Không chắc mình thuộc diện 同居の家族 để dùng ファミリーバイク特約 → hỏi công ty bảo hiểm ô tô của gia đình.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_moto-insurance_hero.jpg'),
     heroImageCaption: '任意保険 - bổ sung bảo hiểm tự nguyện để giảm rủi ro khi đi xe máy',
     whoIsThisFor: [

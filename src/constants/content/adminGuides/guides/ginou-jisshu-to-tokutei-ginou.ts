@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const ginouJisshuToTokuteiGinou: AdminGuide = {
     id: 'ginou-jisshu-to-tokutei-ginou',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Chuyển từ 技能実習 sang 特定技能',
     titleJp: '技能実習から特定技能への移行手続き',
@@ -49,8 +49,8 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Chuyển sang 特定技能 là thủ tục ISA; điều kiện ngành, kỳ thi và hỗ trợ phụ thuộc chế độ 特定技能 và cơ quan/tổ chức của từng lĩnh vực.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-05',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Ngành/công việc 技能実習 đã hoàn thành không khớp với công việc 特定技能 dự kiến.',
@@ -151,7 +151,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
         jp: '技能実習の在留期限まであと3か月です。間に合いますか。',
         romaji: 'Ginou jisshuu no zairyuu kigen made ato 3-kagetsu desu. Maniaimasu ka.',
         vn: 'Hạn 技能実習 còn 3 tháng. Kịp xử lý không ạ?',
-        note: 'Thời gian xét 1-2 tháng. Nếu 技能実習 hết hạn trong khi chờ → có thể được cấp 特定活動 tạm thời (4 tháng).',
+        note: 'Thời gian xét 1-2 tháng. Nếu đã nộp trước hạn → được ở lại theo 特例期間 (đến khi có kết quả, tối đa 2 tháng sau hạn). Nếu chưa kịp chuẩn bị → hỏi ISA về 特定活動 chuẩn bị chuyển 特定技能.',
       },
       {
         jp: '5年経った後、特定技能2号に変更できる条件は何ですか。',
@@ -171,7 +171,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
         term: '特定技能1号',
         reading: 'とくていぎのう1ごう',
         meaningVi: 'visa Kỹ năng Đặc định cấp 1',
-        noteVi: 'Tư cách lao động cho 16 ngành thiếu nhân lực. Tổng thời gian tối đa 5 năm (cộng dồn). KHÔNG cho bảo lãnh gia đình ở giai đoạn này. Chuyển công ty trong cùng ngành thường được phép — phải làm 在留資格変更.',
+        noteVi: 'Tư cách lao động cho các ngành thiếu nhân lực (hiện 16 ngành; đã quyết định thêm 3 ngành → 19). Tổng thời gian tối đa 5 năm (cộng dồn; ngoại lệ tối đa 6 năm cho người trượt thi 2号 đạt điều kiện). KHÔNG cho bảo lãnh gia đình ở giai đoạn này. Chuyển công ty trong cùng ngành thường được phép — phải làm 在留資格変更.',
       },
       {
         term: '特定技能2号',
@@ -207,7 +207,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
         term: '育成就労',
         reading: 'いくせいしゅうろう',
         meaningVi: 'chế độ mới Đào tạo - Lao động (từ 2027)',
-        noteVi: 'Chế độ thay thế 技能実習 dự kiến áp dụng từ 01/04/2027. Mục tiêu rõ ràng là đào tạo + chuyển 特定技能 sau 3 năm. Người đang 技能実習 hiện nay KHÔNG ảnh hưởng — vẫn theo quy trình cũ. Theo dõi thông báo 出入国在留管理庁 khi gần mốc 2027.',
+        noteVi: 'Chế độ thay thế 技能実習, thi hành từ 01/04/2027 (閣議決定 26/09/2025). Mục tiêu rõ ràng là đào tạo + chuyển 特定技能 sau 3 năm. Người đang 技能実習 tiếp tục theo khung cũ (経過措置), nhưng người ở 2号 vào thời điểm 2027 nên hỏi 監理団体 về khả năng lên 3号. Theo dõi thông báo 出入国在留管理庁 khi gần mốc 2027.',
       },
     ],
     officialLinks: [
@@ -222,7 +222,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
         title: 'Kiểm tra bạn có được miễn thi không',
         description: 'ISA và 厚生労働省 quy định hai trường hợp miễn thi kỹ năng và tiếng Nhật khi chuyển sang 特定技能1号:\n\nTrường hợp 1 — Miễn cả hai bài thi: Đã hoàn thành 技能実習2号 CÙNG ngành/công việc sẽ làm ở 特定技能1号. "Cùng ngành" được xác định theo danh sách đối chiếu chính thức của từng ngành (分野別協議会).\n\nTrường hợp 2 — Miễn thi tiếng Nhật: Có chứng chỉ JLPT N4 trở lên hoặc JFT-Basic đạt A2. Vẫn phải thi kỹ năng nghề nếu không thuộc trường hợp 1.\n\nNếu không thuộc cả hai: phải thi đủ cả kỹ năng nghề (技能評価試験) lẫn tiếng Nhật.',
         documents: [],
-        tip: 'Kiểm tra danh sách lĩnh vực 特定技能1号 chính thức trước khi thi hoặc ký hợp đồng. Từ 2026, hệ thống 特定技能1号 có 16 lĩnh vực, gồm 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 自動車運送業, 鉄道, 農業, 漁業, 飲食料品製造業, 外食業, 林業 và 木材産業.',
+        tip: 'Kiểm tra danh sách lĩnh vực 特定技能1号 chính thức trước khi thi hoặc ký hợp đồng. Hiện hệ thống 特定技能1号 có 16 lĩnh vực đang nhận: 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 自動車運送業, 鉄道, 農業, 漁業, 飲食料品製造業, 外食業, 林業 và 木材産業. 分野別運用方針 được 閣議決定 ngày 23/01/2026 bổ sung thêm 3 lĩnh vực (リネンサプライ, 物流倉庫, 資源循環 — tổng 19); thời điểm bắt đầu tiếp nhận các lĩnh vực mới theo thông báo ISA.',
       },
       {
         step: 2,
@@ -249,7 +249,7 @@ const ginouJisshuToTokuteiGinou: AdminGuide = {
       {
         step: 4,
         title: 'Nộp hồ sơ và quản lý thời hạn',
-        description: 'Nộp tại ISA khi 技能実習 còn hiệu lực. Thời gian xử lý thường 1–2 tháng. Nếu 技能実習 hết hạn trong khi đang chờ ISA xử lý, bạn nhận được 特定活動 tạm thời (giấy 指定書 ghi rõ) cho phép tiếp tục làm việc hợp pháp trong thời gian chờ kết quả.\n\n特定技能1号 có tổng thời hạn tối đa 5 năm (cộng dồn), không gia hạn vô hạn. Để tiếp tục sau 5 năm: phải đủ điều kiện 特定技能2号 (yêu cầu cao hơn, không giới hạn thời gian) hoặc chuyển sang tư cách khác như 永住.',
+        description: 'Nộp tại ISA khi 技能実習 còn hiệu lực. Thời gian xử lý thường 1–2 tháng. Nếu đã nộp trước hạn mà hạn lưu trú hết trong lúc chờ, bạn được ở lại theo **特例期間** (tối đa đến khi có kết quả hoặc 2 tháng sau ngày hết hạn, tùy mốc nào đến trước) với tư cách hiện tại. Trường hợp cần thêm thời gian chuẩn bị (chưa đủ hồ sơ/chưa thi xong), có thể xin 特定活動 chuẩn bị chuyển 特定技能 — phải được ISA cho phép, có điều kiện.\n\nLệ phí 在留資格変更 từ 01/10/2026 tính theo thời hạn được cấp (vd 1 năm: 33,000円 tại quầy / 27,000円 online) — xem bảng phí ISA.\n\n特定技能1号 có tổng thời hạn tối đa 5 năm (cộng dồn). Từ 30/09/2025 có ngoại lệ: người 1号 trượt kỳ thi lên 2号 nhưng đạt một số điều kiện nhất định có thể được ở tối đa 6 năm. Để tiếp tục lâu dài: phải đủ điều kiện 特定技能2号 (yêu cầu cao hơn, không giới hạn số lần gia hạn) hoặc tư cách khác phù hợp.',
         documents: [],
         tip: 'Từ năm 2027 với hệ thống 育成就労, người hoàn thành 育成就労 cùng ngành sẽ chuyển sang 特定技能1号 theo quy trình mới — theo dõi thông báo ISA để cập nhật khi đến gần mốc 01/04/2027.',
       },

@@ -10,6 +10,18 @@ const laborRightsDispute: AdminGuide = {
     icon: 'shield-checkmark',
     color: '#C0392B',
     description: 'Hướng dẫn quyền lao động cơ bản tại Nhật, cách khiếu nại khi bị trả thiếu lương, bị sa thải bất hợp pháp hoặc bị ép nghỉ việc — áp dụng cho cả người nước ngoài.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Quyền lao động dựa trên 労働基準法 và luật lao động cấp quốc gia, áp dụng cho mọi người làm việc tại Nhật bất kể quốc tịch; vi phạm lương/giờ làm do 労働基準監督署 xử lý, tranh chấp sa thải có thể đưa ra 労働審判 tại 地方裁判所. Lương tối thiểu khác nhau theo từng 都道府県 (mức trong guide là 令和7年度) — kiểm tra nguồn chính thức của 厚生労働省 trước khi tính số tiền đòi.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bị sa thải hoặc bị ép ký 退職届/合意退職書 → KHÔNG ký, hỏi 総合労働相談コーナー ngay; nếu muốn đòi phục hồi hoặc 解決金, tư vấn luật sư lao động.',
+        'Muốn nộp 労働審判 tại 地方裁判所 → chuẩn bị 申立書 cùng luật sư.',
+        'Lương chưa trả sắp quá thời hiệu 3 năm hoặc công ty phá sản → liên hệ 労働基準監督署 sớm về 未払い賃金立替払制度.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_labor-rights_hero.jpg'),
     heroImageCaption: 'Bảo vệ quyền lao động và khiếu nại tại Nhật',
     whoIsThisFor: [
@@ -72,7 +84,7 @@ const laborRightsDispute: AdminGuide = {
       {
         step: 1,
         title: 'Nắm quyền lao động cơ bản',
-        description: '**Lương tối thiểu (令和7年度 / Oct 2025):**\n- Toàn quốc: ¥1,121/giờ (mức trung bình)\n- Tokyo: ¥1,226/giờ | Osaka: ¥1,163/giờ | Aichi: ¥1,077/giờ\n- Tra mức của tỉnh bạn: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/\n\n**Làm thêm giờ — hệ số tối thiểu:**\n| Loại | Hệ số |\n|---|---|\n| Ngày thường vượt giờ quy định | 1.25× |\n| Tháng vượt 60 giờ làm thêm | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm vào hệ số trên) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n\n**Nghỉ phép có lương (有給休暇):**\n- Sau 6 tháng liên tục: 10 ngày/năm\n- Tăng dần đến tối đa 20 ngày\n- Công ty phải đảm bảo bạn dùng ít nhất **5 ngày/năm**\n\n**Sa thải hợp pháp:** phải có lý do khách quan, thông báo trước **30 ngày** hoặc trả **1 tháng lương** thay thế (解雇予告手当).',
+        description: '**Lương tối thiểu (令和8年度 / 2026):**\n- Toàn quốc: ¥1,177/giờ (bình quân gia quyền, +56円)\n- Tokyo: ¥1,280/giờ | Osaka: ¥1,231/giờ | Aichi: ¥1,195/giờ (3 nơi này áp dụng từ 01/10/2026)\n- Ngày áp dụng khác nhau theo tỉnh, rải rác 01/10/2026 – 02/12/2026; trước ngày đó mức năm 2025 vẫn có hiệu lực\n- Tra mức của tỉnh bạn: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/\n\n**Làm thêm giờ — hệ số tối thiểu:**\n| Loại | Hệ số |\n|---|---|\n| Ngày thường vượt giờ quy định | 1.25× |\n| Tháng vượt 60 giờ làm thêm | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm vào hệ số trên) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n\n**Nghỉ phép có lương (有給休暇):**\n- Sau 6 tháng liên tục: 10 ngày/năm\n- Tăng dần đến tối đa 20 ngày\n- Công ty phải đảm bảo bạn dùng ít nhất **5 ngày/năm**\n\n**Sa thải hợp pháp:** phải có lý do khách quan, thông báo trước **30 ngày** hoặc trả **1 tháng lương** thay thế (解雇予告手当).',
         documents: ['Hợp đồng lao động (労働契約書 / 雇用通知書)', 'Bảng chấm công / タイムカード', 'Bảng lương 給与明細'],
         tip: '労働基準法 bảo vệ mọi người làm việc tại Nhật bất kể quốc tịch hay loại visa. Việc công ty nói "người nước ngoài không được khiếu nại" là sai pháp luật.',
       },

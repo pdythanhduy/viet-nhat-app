@@ -20,6 +20,17 @@ const first7DaysInJapan: AdminGuide = {
       'da nhap canh',
       'arrival japan',
     ],
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Đăng ký địa chỉ (住居地の届出) có mốc pháp lý 14 ngày, làm tại municipal office nơi ở cùng bảo hiểm và My Number; ngân hàng, SIM và nhà ở theo yêu cầu riêng của từng nơi. Giấy tờ cần mang có thể khác nhau theo địa phương — kiểm tra nguồn chính thức của 市役所/区役所 nơi bạn ở.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Chưa có nơi ở ổn định hoặc đang ở ký túc xá tạm thời → hỏi công ty/trường và municipal office cách khai báo địa chỉ phù hợp.',
+        'Nhà có hỏng hóc hoặc hiện trạng khác hợp đồng ngay khi vào → báo quản lý bằng văn bản; nếu tranh chấp, hỏi điểm tư vấn nhà ở của địa phương.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_first-7-days_hero.jpg'),
     heroImageCaption: 'Tuần đầu tại Nhật — đăng ký cư trú, mở tài khoản, lấy SIM và sắp xếp nơi ở',
     whoIsThisFor: [

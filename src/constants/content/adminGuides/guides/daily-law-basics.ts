@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const dailyLawBasics: AdminGuide = {
     id: 'daily-law-basics',
     category: 'daily-law',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Luật sinh hoạt cần biết',
     titleJp: '日本生活の基本ルール',
@@ -14,8 +14,8 @@ const dailyLawBasics: AdminGuide = {
       jurisdiction: 'mixed',
       jurisdictionNote:
         'Guide này gom nhiều nhóm quy định: cư trú/địa chỉ thuộc ISA và municipal office, rác/nhà ở phụ thuộc địa phương và hợp đồng, tiêu dùng do cơ quan tư vấn/consumer center hỗ trợ, còn tài khoản ngân hàng/SIM liên quan hợp đồng và phòng chống lừa đảo.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-04-01',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn bị ép ký hợp đồng, vay tiền, bảo lãnh, chuyển tiền hoặc đứng tên hộ giấy tờ/tài khoản.',

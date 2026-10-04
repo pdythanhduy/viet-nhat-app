@@ -10,6 +10,17 @@ const bicycleInsurance: AdminGuide = {
     icon: 'bicycle',
     color: '#1E8449',
     description: 'Nhiều địa phương tại Nhật đã quy định bắt buộc hoặc khuyến khích mạnh việc tham gia 自転車損害賠償責任保険等. Nhiều người đã được bảo vệ qua 個人賠償責任保険 mà không biết — kiểm tra trước khi mua thêm để tránh mua trùng.',
+    legalScope: {
+      jurisdiction: 'prefecture',
+      jurisdictionNote: 'Việc bắt buộc (義務化) hay chỉ khuyến khích (努力義務) tham gia 自転車損害賠償責任保険等 do từng 都道府県/thành phố quy định bằng điều lệ riêng; hầu hết chỉ dừng ở hướng dẫn hành chính chứ không phạt tiền trực tiếp. Mức độ yêu cầu khác nhau khi chuyển tỉnh — kiểm tra nguồn chính thức trên website tỉnh/thành phố nơi bạn sống, đi học hoặc đi làm.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Gây tai nạn xe đạp khiến người khác bị thương nặng → báo cảnh sát 110, liên hệ công ty bảo hiểm ngay và cân nhắc tư vấn luật sư về bồi thường dân sự.',
+        'Không chắc hợp đồng bảo hiểm nhà/thẻ tín dụng đã có 個人賠償責任保険 bao gồm tai nạn xe đạp → gọi công ty bảo hiểm xác nhận trước khi mua thêm.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_bike-insurance_hero.jpg'),
     heroImageCaption: '自転車保険 - kiểm tra bảo hiểm trách nhiệm cá nhân trước khi đi xe đạp',
     whoIsThisFor: [

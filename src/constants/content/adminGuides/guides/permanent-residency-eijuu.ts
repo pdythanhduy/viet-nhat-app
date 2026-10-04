@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const permanentResidencyEijuu: AdminGuide = {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
@@ -42,8 +42,8 @@ const permanentResidencyEijuu: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '永住許可申請 do ISA xét toàn quốc; đây là hồ sơ xét tổng thể về cư trú, thuế, bảo hiểm, thu nhập, tuân thủ pháp luật và tình trạng hiện tại.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2026-11-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn có kỳ thuế, 年金, bảo hiểm, giao thông hoặc xuất nhập cảnh từng bị trễ/vi phạm.',
@@ -124,7 +124,7 @@ const permanentResidencyEijuu: AdminGuide = {
       },
       {
         question: '⚠️ MỚI 08/2026: Nghe nói ISA sắp siết toàn bộ tiêu chuẩn xét 永住 — có thật không?',
-        answer: 'ĐANG DỰ THẢO, CHƯA CHÍNH THỨC. Ngày **04/08/2026** ISA công bố bản rà soát tổng thể 永住許可ガイドライン, lấy ý kiến công khai (パブリックコメント) đến **04/09/2026**. Nội dung dự thảo đáng chú ý: (1) yêu cầu thu nhập hộ gia đình phải trên mức trung bình cả nước, tính cả thân nhân phụ thuộc đang ở nước ngoài; (2) thêm kiểm tra tài sản/lương hưu; (3) yêu cầu MỚI về tiếng Nhật — tương đương CEFR B1; (4) diện vợ/chồng người Nhật/永住者 kéo dài thời gian đủ điều kiện từ 3 năm kết hôn/1 năm cư trú lên **5 năm kết hôn/3 năm cư trú**; (5) lịch sử thuế/bảo hiểm bị tính là yếu tố trừ điểm nặng hơn hiện tại. Mốc hiệu lực chính dự kiến **01/04/2027**, nhưng phần điều kiện thu nhập + nghĩa vụ công có thể áp dụng HỒI TỐ từ **01/04/2026** cho hồ sơ vẫn đang xét tại thời điểm **01/10/2026**. **Cập nhật 21/09/2026**: đã hết hạn góp ý 04/09; theo báo chí ISA dự kiến ban hành bản chính thức khoảng tháng 10/2026, hiện chưa có bản cuối. **Phí nộp hồ sơ 永住 cũng tăng từ 10,000 yên lên 200,000 yên với hồ sơ tiếp nhận từ 01/10/2026** (theo 政令案 ISA 03/07/2026; hồ sơ tiếp nhận đến 30/09/2026 vẫn 10,000 yên). Vì chưa chốt, số liệu/điều kiện cụ thể có thể thay đổi trước khi ban hành — nếu bạn đang cân nhắc nộp 永住 diện vợ/chồng hoặc thu nhập sát ngưỡng, nên nộp sớm hoặc hỏi 行政書士/luật sư về rủi ro chuyển tiếp thay vì chờ.',
+        answer: 'ĐANG DỰ THẢO, CHƯA CHÍNH THỨC. Ngày **04/08/2026** ISA công bố bản rà soát tổng thể 永住許可ガイドライン, lấy ý kiến công khai (パブリックコメント) đến **04/09/2026**. Nội dung dự thảo đáng chú ý: (1) yêu cầu thu nhập hộ gia đình phải trên mức trung bình cả nước, tính cả thân nhân phụ thuộc đang ở nước ngoài; (2) thêm kiểm tra tài sản/lương hưu; (3) yêu cầu MỚI về tiếng Nhật — tương đương CEFR B1; (4) diện vợ/chồng người Nhật/永住者 kéo dài thời gian đủ điều kiện từ 3 năm kết hôn/1 năm cư trú lên **5 năm kết hôn/3 năm cư trú**; (5) lịch sử thuế/bảo hiểm bị tính là yếu tố trừ điểm nặng hơn hiện tại. Mốc hiệu lực chính dự kiến **01/04/2027**, nhưng phần điều kiện thu nhập + nghĩa vụ công có thể áp dụng HỒI TỐ từ **01/04/2026** cho hồ sơ vẫn đang xét tại thời điểm **01/10/2026**. **Cập nhật 04/10/2026**: thời hạn góp ý đã kết thúc ngày 04/09/2026, nhưng ISA CHƯA công bố kết quả パブコメ hay bản hướng dẫn chính thức — vẫn là DỰ THẢO, mốc áp dụng dự kiến vẫn là 04/2027; báo chí ghi nhận có ý kiến phản đối công khai đòi rút lại dự thảo. **Riêng phí 永住 đã tăng (đây là quy định đã có hiệu lực, khác với dự thảo hướng dẫn): 200,000 yên với hồ sơ tiếp nhận từ 01/10/2026** (theo 政令 được Nội các quyết định 25/08/2026; hồ sơ tiếp nhận đến 30/09/2026 vẫn 10,000 yên). Vì chưa chốt, số liệu/điều kiện cụ thể có thể thay đổi trước khi ban hành — nếu bạn đang cân nhắc nộp 永住 diện vợ/chồng hoặc thu nhập sát ngưỡng, nên nộp sớm hoặc hỏi 行政書士/luật sư về rủi ro chuyển tiếp thay vì chờ.',
       },
     ],
     scenarios: [
@@ -187,7 +187,7 @@ const permanentResidencyEijuu: AdminGuide = {
         term: '永住許可申請',
         reading: 'えいじゅうきょかしんせい',
         meaningVi: 'đơn xin vĩnh trú',
-        noteVi: 'Nộp tại ISA. Phí 8,000円 — chỉ trả khi được duyệt (dán印紙 lên giấy). Bị từ chối → mất công + thời gian, không hoàn phí. Có thể nộp lại sau khi cải thiện hồ sơ.',
+        noteVi: 'Nộp tại ISA. Phí 200,000円 với hồ sơ tiếp nhận từ 01/10/2026 (hồ sơ tiếp nhận đến 30/09/2026: 10,000円) — chỉ trả khi được duyệt (nộp tại quầy bằng 収入印紙). Bị từ chối → không phải nộp phí nhưng mất công + thời gian. Có thể nộp lại sau khi cải thiện hồ sơ.',
       },
       {
         term: '身元保証人',
@@ -217,13 +217,15 @@ const permanentResidencyEijuu: AdminGuide = {
         term: '永住許可ガイドライン改訂案',
         reading: 'えいじゅうきょかガイドラインかいていあん',
         meaningVi: 'dự thảo sửa toàn bộ tiêu chuẩn xét vĩnh trú (08/2026, CHƯA chính thức)',
-        noteVi: 'ISA công bố 04/08/2026, lấy ý kiến công khai đến 04/09/2026. Dự kiến siết: thu nhập hộ phải trên trung bình cả nước (tính cả thân nhân phụ thuộc ở nước ngoài), thêm kiểm tra tài sản/年金, yêu cầu MỚI tiếng Nhật CEFR B1, diện vợ/chồng kéo dài 3→5 năm kết hôn + 1→3 năm cư trú, lịch sử thuế/bảo hiểm trừ điểm nặng hơn. Hiệu lực chính dự kiến 01/04/2027; phần thu nhập/nghĩa vụ công có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. CHƯA ban hành chính thức — theo dõi lại quanh 04/09/2026.',
+        noteVi: 'ISA công bố 04/08/2026, lấy ý kiến công khai đến 04/09/2026. Dự kiến siết: thu nhập hộ phải trên trung bình cả nước (tính cả thân nhân phụ thuộc ở nước ngoài), thêm kiểm tra tài sản/年金, yêu cầu MỚI tiếng Nhật CEFR B1, diện vợ/chồng kéo dài 3→5 năm kết hôn + 1→3 năm cư trú, lịch sử thuế/bảo hiểm trừ điểm nặng hơn. Hiệu lực chính dự kiến 01/04/2027; phần thu nhập/nghĩa vụ công có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. Góp ý đã đóng 04/09/2026; tính đến 04/10/2026 ISA CHƯA công bố bản chốt — vẫn là dự thảo, theo dõi trang ISA.',
       },
     ],
     officialLinks: [
       { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
       { label: '永住許可に関するガイドライン — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html' },
       { label: '入管法改正（永住許可制度の適正化）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/05_00045.html' },
+      { label: '永住許可ガイドライン改定案（意見募集）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/11_00112.html' },
+      { label: '各種手続と手数料 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/index.html' },
     ],
     steps: [
       {

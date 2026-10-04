@@ -23,6 +23,17 @@ const driversLicenseRenewal: AdminGuide = {
       '更新連絡書',
       'マイナ免許証',
     ],
+    legalScope: {
+      jurisdiction: 'prefecture',
+      jurisdictionNote: 'Khung thủ tục gia hạn 運転免許証 do 警察庁 (NPA) quy định chung, nhưng nơi tiếp nhận, việc đặt lịch, phí và cách thanh toán do cảnh sát từng 都道府県 vận hành — Tokyo khác các tỉnh khác. Kiểm tra nguồn chính thức: 更新連絡書 và trang police địa phương trước khi đi.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Bằng đã quá hạn (失効) hoặc không thể gia hạn đúng kỳ vì ở nước ngoài/sinh con/điều trị → hỏi trung tâm cấp phép địa phương về 失効 hoặc 特例更新 trước khi đi.',
+        'Từ 70 tuổi trở lên hoặc có điều kiện sức khỏe cần xác nhận → hỏi trước về 高齢者講習, 認知機能検査 và nơi tiếp nhận phù hợp.',
+      ],
+    },
     description: 'Cách gia hạn 運転免許証 đúng thời hạn, chuẩn bị giấy tờ cho người nước ngoài và tránh bị chuyển sang thủ tục thất hiệu lực.',
     heroImage: require('../../../../../assets/content/daily-life/ag_drivers-license_hero.jpg'),
     heroImageCaption: '運転免許証 — kiểm tra hạn và làm 更新 trước khi bằng lái Nhật hết hiệu lực',

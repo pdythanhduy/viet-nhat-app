@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const idecoPersonalPension: AdminGuide = {
   id: 'ideco-personal-pension',
   category: 'money',
-  lastVerified: '2026-06-20',
+  lastVerified: '2026-10-04',
   priority: 'normal',
   title: 'iDeCo (lương hưu cá nhân) — lợi ích thuế',
   titleJp: 'iDeCo（個人型確定拠出年金）の活用',
@@ -34,13 +34,13 @@ const idecoPersonalPension: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      'iDeCo dựa trên 確定拠出年金法 toàn quốc. 国民年金基金連合会 vận hành chương trình. 厚生労働省 quản lý khung pháp lý. Đóng góp + đầu tư qua công ty chứng khoán hoặc ngân hàng được chỉ định. Mức đóng tối đa thay đổi theo công việc + có 改正 2024–2026 tăng giới hạn cho một số nhóm. **Đầu tư có rủi ro mất vốn** — KHÔNG đảm bảo lãi. Người không còn 公的年金 đăng ký (vd về VN vĩnh viễn) phải xử lý phức tạp với tài khoản. Đây không phải tư vấn đầu tư cá nhân — kiểm tra với 金融機関 hoặc 税理士 cụ thể.',
-    sourceVerifiedAt: '2026-05-09',
-    nextReviewAt: '2026-12-01',
+      'iDeCo dựa trên 確定拠出年金法 toàn quốc. 国民年金基金連合会 vận hành chương trình. 厚生労働省 quản lý khung pháp lý. Đóng góp + đầu tư qua công ty chứng khoán hoặc ngân hàng được chỉ định. Mức đóng tối đa thay đổi theo công việc + có 改正 2024–2026 tăng giới hạn (đợt lớn áp dụng từ kỳ đóng 12/2026). **Đầu tư có rủi ro mất vốn** — KHÔNG đảm bảo lãi. Người không còn 公的年金 đăng ký (vd về VN vĩnh viễn) phải xử lý phức tạp với tài khoản. Đây không phải tư vấn đầu tư cá nhân — kiểm tra với 金融機関 hoặc 税理士 cụ thể.',
+    sourceVerifiedAt: '2026-10-04',
+    nextReviewAt: '2027-01-15',
     riskLevel: 'high',
     whenToAskExpert: [
       'Quyết định đầu tư cụ thể (chọn quỹ / tỷ trọng) — KHÔNG phải tư vấn đầu tư từ guide. Hỏi 金融アドバイザー / 金融機関 hoặc tự nghiên cứu.',
-      'Sắp về Việt Nam vĩnh viễn — tài khoản iDeCo phức tạp, có thể bị đóng băng đến 60 tuổi. Hỏi 国民年金基金連合会 trước khi quyết.',
+      'Sắp về Việt Nam vĩnh viễn — nếu tổng thời gian đóng ≤ 5 năm hoặc tài sản ≤ 25万円 có thể xin 脱退一時金 (trong 2 năm sau khi mất tư cách); nếu không, tiền bị giữ đến 60 tuổi. Hỏi 金融機関 / 国民年金基金連合会 trước khi rời Nhật.',
       'Thu nhập rất cao / phức tạp (副業, đầu tư khác) — tư vấn 税理士 để tối ưu hóa cùng 確定申告.',
       'Mất việc / giảm thu nhập đột ngột — có thể tạm dừng đóng iDeCo. Hỏi 金融機関 quản lý tài khoản.',
     ],
@@ -51,8 +51,8 @@ const idecoPersonalPension: AdminGuide = {
     office:
       'Mở tài khoản qua 金融機関 (công ty chứng khoán hoặc ngân hàng) — không qua 市役所. Phổ biến: SBI証券, 楽天証券, マネックス証券, 松井証券, みずほ銀行, ゆうちょ銀行, etc. Mỗi nơi phí + lựa chọn quỹ khác nhau.',
     doNow: [
-      'Kiểm tra mình có đủ điều kiện: có 公的年金 đăng ký (国民年金 hoặc 厚生年金) + dưới 65 tuổi (theo cải cách 2022). Người ở visa lao động + đóng 厚生年金 → đủ điều kiện.',
-      'Tính 限度額 đóng/tháng theo công việc (hiện hành): 自営業 ~6.8万円, 会社員 (không 企業年金) ~2.3万円, 会社員 (có 企業年金) ~1.2–2万円, 公務員 ~2万円, 専業主婦 ~2.3万円. ⚠️ Sắp nâng từ kỳ đóng 12/2026 (áp dụng 01/2027): 自営業 → 7.5万円, 第2号 gộp 企業年金 → trần 6.2万円 — kiểm tra số cuối tại trang chính thức trước khi đặt mức.',
+      'Kiểm tra mình có đủ điều kiện: có 公的年金 đăng ký (国民年金 hoặc 厚生年金) + dưới 65 tuổi (từ 12/2026 nới lên dưới 70 tuổi cho người chưa nhận 老齢基礎年金 / tiền iDeCo). Người ở visa lao động + đóng 厚生年金 → đủ điều kiện.',
+      'Tính 限度額 đóng/tháng theo công việc (hiện hành): 自営業 ~6.8万円, 会社員 (không 企業年金) ~2.3万円, 会社員 (có 企業年金) ~2万円 (từ 12/2024, trừ phần 企業年金 đã đóng), 公務員 ~2万円, 専業主婦 ~2.3万円. ⚠️ Đã quyết định nâng từ kỳ đóng 12/2026 (tiền trừ 01/2027): 自営業 → 7.5万円; 第2号 (会社員・公務員) → trần 6.2万円/tháng (gộp với phần công ty đóng 企業年金) — xác nhận mức của mình tại 金融機関 trước khi đổi.',
       'Chọn 金融機関: so sánh phí 口座管理手数料 (phí quản lý hàng tháng — quan trọng vì cumulative dài hạn), số quỹ available, giao diện.',
       'Mở tài khoản online — quy trình ~1–2 tháng (kiểm tra 公的年金 đăng ký, gửi giấy tờ, được phê duyệt).',
       'Sau khi mở: chọn cách phân bổ tiền vào các quỹ (cổ phiếu Nhật / quốc tế, trái phiếu, balanced fund, định kỳ tiền gửi). Mức rủi ro tự bạn chọn.',
@@ -129,7 +129,7 @@ const idecoPersonalPension: AdminGuide = {
     {
       question: 'Tôi sắp về Việt Nam vĩnh viễn — đã đóng iDeCo 3 năm. Phải làm sao?',
       answer:
-        'Tình huống phức tạp. Quy trình thông thường:\n\n• **KHÔNG** rút tiền được trước 60 tuổi (trừ vài trường hợp rất hạn chế: tử vong, tàn tật cao).\n• Khi rời Nhật + mất 公的年金 đăng ký: tài khoản iDeCo "đóng băng" — không đóng thêm được, nhưng tiền vẫn để lại + đầu tư tiếp.\n• Khi 60 tuổi: có thể rút (kể cả ở Việt Nam) — nhưng quy trình nhận tiền quốc tế phức tạp + có thể bị thuế nguồn của Nhật.\n• **脱退一時金** (rút ngay khi rời Nhật): iDeCo có quy định riêng, KHÁC với 厚生年金 / 国民年金. Điều kiện rất khó — trong đa số trường hợp KHÔNG được rút.\n\nVì rủi ro này, nếu chưa chắc ở Nhật ≥ 10 năm → cân nhắc TRƯỚC khi mở. Đã mở rồi: hỏi 国民年金基金連合会 + 金融機関 quản lý tài khoản về options.',
+        'Tình huống phức tạp. Quy trình thông thường:\n\n• **KHÔNG** rút tiền được trước 60 tuổi (trừ vài trường hợp rất hạn chế: tử vong, tàn tật cao).\n• **脱退一時金 của iDeCo** (KHÁC với 脱退一時金 của 厚生年金 / 国民年金): từ 05/2022, người nước ngoài đã rời Nhật (không còn đủ tư cách tham gia iDeCo) có thể xin nếu đồng thời: dưới 60 tuổi; tổng thời gian đóng (通算拠出期間) từ 1 tháng đến **5 năm** HOẶC tài sản ≤ **25万円**; không nhận 障害給付金; và nộp trong vòng **2 năm** kể từ khi mất tư cách. Với 3 năm đóng như bạn → thường thuộc diện xin được. Nộp qua 金融機関 (運営管理機関) quản lý tài khoản.\n• Nếu KHÔNG đủ điều kiện trên (vd đóng > 5 năm và tài sản > 25万円): tài khoản bị giữ — không đóng thêm được, tiền vẫn để lại + đầu tư tiếp, rút từ 60 tuổi (nhận ở nước ngoài thủ tục phức tạp + có thể bị thuế Nhật).\n\nVì vậy, nếu chưa chắc ở Nhật lâu dài → cân nhắc TRƯỚC khi mở, và nếu sắp về hãy hỏi 金融機関 về 脱退一時金 trước khi rời Nhật. Đã mở rồi: hỏi 国民年金基金連合会 + 金融機関 quản lý tài khoản về options.',
     },
     {
       question: 'Đầu tư iDeCo có rủi ro mất tiền không?',
@@ -149,7 +149,7 @@ const idecoPersonalPension: AdminGuide = {
     {
       question: 'iDeCo có gì thay đổi trong 2026–2027?',
       answer:
-        'Có vài thay đổi đáng chú ý:\n\n• **Nâng hạn mức đóng (dự kiến, từ kỳ đóng 12/2026 → áp dụng đầu tiên 01/2027):** 自営業 (第1号) từ 6.8万 lên **7.5万円/tháng**; 会社員・công chức (第2号) gộp với 企業年金 thành trần **6.2万円/tháng**. → Đây là kế hoạch theo cải cách, CHƯA áp dụng — xác nhận số cuối tại 金融機関 gần ngày.\n• **Nâng tuổi được tham gia:** từ "dưới 65" lên **dưới 70 tuổi** (cùng đợt 12/2026–01/2027).\n• **Quy tắc 5年→10年 (đã có hiệu lực từ 01/01/2026):** khi nhận iDeCo dạng một lần (一時金), khoảng cách để được tính lại 退職所得控除 với 退職金 nới từ 5 lên 10 năm — ảnh hưởng cách tính thuế nếu bạn nhận cả iDeCo lẫn 退職金 gần nhau. Trường hợp cụ thể hỏi 税理士.',
+        'Có vài thay đổi đáng chú ý:\n\n• **Nâng hạn mức đóng (đã quyết định, áp dụng từ kỳ đóng 12/2026 → tiền trừ đầu tiên 01/2027):** 自営業 (第1号) từ 6.8万 lên **7.5万円/tháng**; 会社員・công chức (第2号) từ 2.3万 (hoặc 2万 nếu có 企業年金) lên trần **6.2万円/tháng** (gộp với phần công ty đóng 企業年金). Muốn tăng mức đóng thì làm thủ tục đổi 掛金 với 金融機関.\n• **Nâng tuổi được tham gia:** từ "dưới 65" lên **dưới 70 tuổi** cho người chưa nhận 老齢基礎年金 hoặc tiền iDeCo (cùng đợt 12/2026).\n• **Quy tắc 5年→10年 (đã có hiệu lực từ 01/01/2026):** khi nhận iDeCo dạng một lần (一時金), khoảng cách để được tính lại 退職所得控除 với 退職金 nới từ 5 lên 10 năm — ảnh hưởng cách tính thuế nếu bạn nhận cả iDeCo lẫn 退職金 gần nhau. Trường hợp cụ thể hỏi 税理士.',
     },
   ],
   counterPhrases: [
@@ -219,7 +219,7 @@ const idecoPersonalPension: AdminGuide = {
       term: '掛金',
       reading: 'かけきん',
       meaningVi: 'số tiền đóng góp hàng tháng',
-      noteVi: 'Mức tối thiểu 5,000円/tháng. Tối đa thay đổi theo loại 被保険者: 第1号 (tự doanh) ¥68,000/tháng; 第2号 (đi làm công ty) ¥12,000-23,000 tuỳ có 企業型 hay không; 第3号 (vợ/chồng phụ thuộc) ¥23,000. Tất cả 掛金 KHẤU TRỪ THUẾ HOÀN TOÀN (所得控除).',
+      noteVi: 'Mức tối thiểu 5,000円/tháng. Tối đa thay đổi theo loại 被保険者: 第1号 (tự doanh) ¥68,000/tháng; 第2号 (đi làm công ty) ¥20,000-23,000 tuỳ có 企業年金 hay không; 第3号 (vợ/chồng phụ thuộc) ¥23,000. Từ kỳ đóng 12/2026: 第1号 ¥75,000, 第2号 trần ¥62,000 (gộp phần công ty đóng). Tất cả 掛金 KHẤU TRỪ THUẾ HOÀN TOÀN (所得控除).',
     },
     {
       term: '所得控除',
@@ -237,13 +237,13 @@ const idecoPersonalPension: AdminGuide = {
       term: '中途引き出し',
       reading: 'ちゅうとひきだし',
       meaningVi: 'rút trước (gần như KHÔNG được)',
-      noteVi: 'Khác với NISA. Tiền iDeCo KHÔNG rút được trước 60 tuổi, trừ trường hợp đặc biệt rất hẹp: tử vong (受給者), khuyết tật nặng, hoặc số 加入者期間 < 3 năm + 資産額 < 25万円. Đây là điểm rủi ro chính — cân nhắc kỹ trước khi mở.',
+      noteVi: 'Khác với NISA. Tiền iDeCo KHÔNG rút được trước 60 tuổi, trừ: tử vong, khuyết tật nặng (障害給付金), hoặc 脱退一時金 khi không còn tư cách tham gia (vd người nước ngoài đã rời Nhật) VÀ tổng thời gian đóng ≤ 5 năm hoặc tài sản ≤ 25万円, nộp trong 2 năm. Đây là điểm rủi ro chính — cân nhắc kỹ trước khi mở.',
     },
     {
       term: '加入者期間',
       reading: 'かにゅうしゃきかん',
       meaningVi: 'thời gian tham gia (tính cho quyền nhận)',
-      noteVi: 'Tổng thời gian đã tham gia iDeCo. Cần ≥ 10 năm tổng để bắt đầu nhận ở 60 tuổi. Nếu thiếu (vd 8 năm) → tuổi nhận tăng theo công thức (vd 8 năm = 62 tuổi). Người rời Nhật giữa chừng (vd về VN sau 5 năm) → tài sản bị giữ đến khi đủ điều kiện nhận, không thể rút.',
+      noteVi: 'Tổng thời gian đã tham gia iDeCo. Cần ≥ 10 năm tổng để bắt đầu nhận ở 60 tuổi. Nếu thiếu (vd 8 năm) → tuổi nhận tăng theo công thức (vd 8 năm = 62 tuổi). Người rời Nhật giữa chừng: nếu tổng thời gian đóng ≤ 5 năm hoặc tài sản ≤ 25万円 có thể xin 脱退一時金 (trong 2 năm); nếu không → tài sản bị giữ đến khi đủ tuổi nhận.',
     },
     {
       term: '運営管理機関',
@@ -253,7 +253,7 @@ const idecoPersonalPension: AdminGuide = {
     },
   ],
   officialLinks: [
-    { label: '国民年金基金連合会 (iDeCo公式)', url: 'https://www.nenkin.go.jp/' },
+    { label: '国民年金基金連合会 (iDeCo公式)', url: 'https://www.ideco-koushiki.jp/' },
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
   ],
   steps: [
@@ -261,7 +261,7 @@ const idecoPersonalPension: AdminGuide = {
       step: 1,
       title: 'Đánh giá có nên tham gia không',
       description:
-        '4 điều kiện cần đồng thời:\n\n1. **Đủ điều kiện pháp lý**:\n• Có 公的年金 đăng ký (国民年金 hoặc 厚生年金 — đã đóng tự động qua công ty hoặc 市役所).\n• Dưới 65 tuổi.\n• Có 在留カード + 住民票 ở Nhật.\n\n2. **Tài chính ổn định**:\n• Thu nhập ổn định ≥ 1 năm.\n• Có quỹ khẩn cấp ≥ 6 tháng chi phí.\n• Trả hết nợ lãi suất cao (thẻ tín dụng, tiêu dùng).\n\n3. **Kế hoạch dài hạn**:\n• Dự định ở Nhật ≥ 5–10 năm.\n• Hiểu tiền KHÔNG rút được đến 60 tuổi.\n\n4. **Có thuế đủ để hưởng lợi**:\n• Thu nhập ≥ ~300万円/năm để khấu trừ thuế có ý nghĩa.\n\nThiếu 1 điều → cân nhắc kỹ. Có thể chờ năm sau khi đủ.',
+        '4 điều kiện cần đồng thời:\n\n1. **Đủ điều kiện pháp lý**:\n• Có 公的年金 đăng ký (国民年金 hoặc 厚生年金 — đã đóng tự động qua công ty hoặc 市役所).\n• Dưới 65 tuổi (từ 12/2026: dưới 70 tuổi nếu chưa nhận 老齢基礎年金 / tiền iDeCo).\n• Có 在留カード + 住民票 ở Nhật.\n\n2. **Tài chính ổn định**:\n• Thu nhập ổn định ≥ 1 năm.\n• Có quỹ khẩn cấp ≥ 6 tháng chi phí.\n• Trả hết nợ lãi suất cao (thẻ tín dụng, tiêu dùng).\n\n3. **Kế hoạch dài hạn**:\n• Dự định ở Nhật ≥ 5–10 năm.\n• Hiểu tiền KHÔNG rút được đến 60 tuổi.\n\n4. **Có thuế đủ để hưởng lợi**:\n• Thu nhập ≥ ~300万円/năm để khấu trừ thuế có ý nghĩa.\n\nThiếu 1 điều → cân nhắc kỹ. Có thể chờ năm sau khi đủ.',
       documents: [],
       tip: 'iDeCo KHÔNG bắt buộc. Nhiều người Việt sống ở Nhật ổn định không tham gia vẫn ổn — vì 公的年金 (đã đóng tự động) đã là 1 lớp lương hưu.',
     },
@@ -269,7 +269,7 @@ const idecoPersonalPension: AdminGuide = {
       step: 2,
       title: 'Tính 限度額 đóng + lợi ích thuế',
       description:
-        '**限度額 đóng/tháng** (theo 確定拠出年金法, có cải cách 2024–2026):\n\n• 自営業 (国民年金 第1号): ~6.8万円/tháng (cao nhất)\n• 会社員 KHÔNG có 企業年金 (厚生年金 + 第2号): ~2.3万円/tháng\n• 会社員 CÓ 企業年金: ~1.2–2万円 (tùy loại)\n• 公務員: ~2万円\n• 専業主婦/夫 (第3号): ~2.3万円\n\n**Lưu ý**: Cải cách 2024–2026 đang tăng giới hạn cho một số nhóm. KIỂM TRA trang chính thức 国民年金基金連合会 / 金融機関 cụ thể trước khi mở.\n\n**Tính lợi ích thuế**:\n\n• Vd thu nhập 500万円, đóng 24万円/năm (2万円/tháng).\n• Thuế suất biên thường 20% (10% 所得税 + 10% 住民税).\n• Tiết kiệm thuế: 24万円 × 20% = 4.8万円/năm.\n• 30 năm: 144万円 tiết kiệm thuế (chưa kể lãi đầu tư).',
+        '**限度額 đóng/tháng** (theo 確定拠出年金法, có cải cách 2024–2026):\n\n• 自営業 (国民年金 第1号): ~6.8万円/tháng (cao nhất)\n• 会社員 KHÔNG có 企業年金 (厚生年金 + 第2号): ~2.3万円/tháng\n• 会社員 CÓ 企業年金: ~2万円 (từ 12/2024, trừ phần 企業年金)\n• 公務員: ~2万円\n• 専業主婦/夫 (第3号): ~2.3万円\n\n**Lưu ý**: Từ kỳ đóng 12/2026 (tiền trừ 01/2027) hạn mức nâng lên: 自営業 7.5万円; 会社員・公務員 trần 6.2万円 (gộp phần 企業年金). KIỂM TRA trang chính thức 国民年金基金連合会 / 金融機関 cụ thể trước khi đặt mức.\n\n**Tính lợi ích thuế**:\n\n• Vd thu nhập 500万円, đóng 24万円/năm (2万円/tháng).\n• Thuế suất biên thường 20% (10% 所得税 + 10% 住民税).\n• Tiết kiệm thuế: 24万円 × 20% = 4.8万円/năm.\n• 30 năm: 144万円 tiết kiệm thuế (chưa kể lãi đầu tư).',
       documents: [
         '源泉徴収票 hoặc estimate thu nhập',
       ],
@@ -310,7 +310,7 @@ const idecoPersonalPension: AdminGuide = {
       step: 6,
       title: 'Khi sự kiện lớn — đổi việc / về VN / 60 tuổi',
       description:
-        '**Đổi việc (会社員 → 会社員 khác)**:\n• Báo 金融機関 + công ty mới.\n• Nếu công ty mới có 企業年金 khác → có thể phải điều chỉnh 限度額.\n• Tài khoản tiếp tục, không bị mất.\n\n**Đổi từ 会社員 → 自営業 hoặc ngược lại**:\n• Báo 金融機関 — có thể tăng/giảm 限度額.\n• Cần submit form mới (転職時の手続き).\n\n**Về Việt Nam vĩnh viễn**:\n• Tài khoản KHÔNG đóng được nữa (mất 公的年金 đăng ký).\n• Tiền vẫn để lại + đầu tư tiếp đến 60 tuổi.\n• 60 tuổi: rút được, nhưng cần xử lý quốc tế phức tạp.\n• **Hỏi 金融機関 + 国民年金基金連合会 trước khi rời Nhật**.\n\n**60 tuổi (rút tiền)**:\n• 一時金 (rút 1 lần): có 退職所得控除 — khấu trừ thuế đáng kể.\n• 年金 (nhận như lương hưu): có 公的年金等控除.\n• Kết hợp 2 cách: tối ưu thuế.\n• Tham khảo 税理士 trước khi quyết.',
+        '**Đổi việc (会社員 → 会社員 khác)**:\n• Báo 金融機関 + công ty mới.\n• Nếu công ty mới có 企業年金 khác → có thể phải điều chỉnh 限度額.\n• Tài khoản tiếp tục, không bị mất.\n\n**Đổi từ 会社員 → 自営業 hoặc ngược lại**:\n• Báo 金融機関 — có thể tăng/giảm 限度額.\n• Cần submit form mới (転職時の手続き).\n\n**Về Việt Nam vĩnh viễn**:\n• Tài khoản KHÔNG đóng được nữa (mất 公的年金 đăng ký).\n• Nếu tổng thời gian đóng ≤ 5 năm hoặc tài sản ≤ 25万円 → có thể xin **脱退一時金 iDeCo** qua 金融機関 (trong 2 năm sau khi mất tư cách).\n• Nếu không đủ điều kiện: tiền để lại + đầu tư tiếp, rút từ 60 tuổi — xử lý quốc tế phức tạp.\n• **Hỏi 金融機関 + 国民年金基金連合会 trước khi rời Nhật**.\n\n**60 tuổi (rút tiền)**:\n• 一時金 (rút 1 lần): có 退職所得控除 — khấu trừ thuế đáng kể.\n• 年金 (nhận như lương hưu): có 公的年金等控除.\n• Kết hợp 2 cách: tối ưu thuế.\n• Tham khảo 税理士 trước khi quyết.',
       documents: [
         'Form đổi việc (nếu cần)',
       ],

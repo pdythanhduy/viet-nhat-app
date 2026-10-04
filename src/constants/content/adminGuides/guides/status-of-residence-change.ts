@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const statusOfResidenceChange: AdminGuide = {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -45,8 +45,8 @@ const statusOfResidenceChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn muốn bắt đầu công việc/hoạt động mới trước khi có kết quả đổi tư cách.',
@@ -70,6 +70,7 @@ const statusOfResidenceChange: AdminGuide = {
         '在留資格変更許可申請 — 出入国在留管理庁',
         'Online Residence Application System — ISA',
         'Thông báo sửa phí thủ tục từ 01/04/2025',
+        'Phí và cách nộp phí online từ 01/10/2026 — ISA',
       ],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_status-change_hero.jpg'),
@@ -91,8 +92,8 @@ const statusOfResidenceChange: AdminGuide = {
     estimatedTime:
       'Thời gian xét duyệt thay đổi theo hồ sơ, khu vực và loại tư cách mới. Nên chừa thời gian để bổ sung giấy tờ nếu bị yêu cầu.',
     fees: [
-      'Nếu được cấp phép: 6.000 yên (thường) hoặc 5.500 yên (online) cho hồ sơ tiếp nhận đến hết 30/09/2026. Từ 01/10/2026 phí đổi theo thời hạn được cấp (online: 10,000–65,000 yên) — xem guide `visa-fee-increase-2025-2026`.',
-      'Phí nộp khi nhận kết quả/cấp phép, không phải lúc mới nộp hồ sơ.',
+      'Hồ sơ tiếp nhận từ 01/10/2026 (đã áp dụng): phí tính theo thời hạn ĐƯỢC CẤP — quầy 10,000–75,000 yên, online 10,000–65,000 yên (vd được cấp 1 năm: 33,000 / 27,000 yên; 3 năm: 64,000 / 56,000 yên). Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn là 6.000 yên (thường) / 5.500 yên (online). Xem bảng đầy đủ ở guide `visa-fee-increase-2025-2026`.',
+      'Phí nộp khi nhận kết quả/cấp phép, không phải lúc mới nộp hồ sơ. Tại quầy nộp bằng 収入印紙; hồ sơ online từ 01/10/2026 KHÔNG dùng 収入印紙 nữa mà chỉ thanh toán qua コンビニ決済 hoặc Pay-easy (銀行決済), không nhận thẻ tín dụng/QR, có thể mất thêm phí giao dịch khoảng 220–550 yên.',
     ],
     documentsChecklist: [
       { label: 'Đơn xin đổi tư cách lưu trú đúng mẫu', required: true },
@@ -127,7 +128,7 @@ const statusOfResidenceChange: AdminGuide = {
       {
         question: 'Phí đổi tư cách lưu trú hiện là bao nhiêu?',
         answer:
-          'Với hồ sơ tiếp nhận đến hết 30/09/2026: 6.000 yên (thường) / 5.500 yên (online). Hồ sơ tiếp nhận từ 01/10/2026 áp phí mới theo thời hạn được cấp (online 10,000–65,000 yên). Kiểm tra bảng phí ISA trước khi nhận kết quả.',
+          'Với hồ sơ tiếp nhận đến hết 30/09/2026: 6.000 yên (thường) / 5.500 yên (online). Hồ sơ tiếp nhận từ 01/10/2026 (đã áp dụng) tính phí theo thời hạn được cấp: 10,000–75,000 yên tại quầy / 10,000–65,000 yên online (vd được cấp 1 năm: 33,000 / 27,000 yên). Kiểm tra bảng phí ISA trước khi nhận kết quả.',
       },
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
@@ -149,7 +150,7 @@ const statusOfResidenceChange: AdminGuide = {
       {
         title: 'Đang làm IT, muốn mở công ty riêng — phải đổi tư cách gì?',
         situation: 'Tôi có visa 技術・人文 đang đi làm. Muốn mở công ty riêng và tự kinh doanh. Visa hiện tại có ổn không?',
-        answer: 'Visa 技術・人文 **không cho phép tự kinh doanh / là chủ công ty**. Bạn cần đổi sang **経営・管理** (Kinh doanh và Quản lý).\n\nĐiều kiện 経営・管理:\n• Tư bản đầu tư ≥ 500万円 HOẶC thuê ≥ 2 nhân viên toàn thời\n• Có văn phòng thực tế ở Nhật (hợp đồng thuê văn phòng)\n• Hoạt động kinh doanh hợp pháp và ổn định\n\nQuy trình: đăng ký công ty (法人登記) → chuẩn bị hồ sơ kinh doanh → nộp ISA.\n\nLưu ý: trong thời gian chờ, **không ngừng công việc làm thuê** nếu vẫn cần thu nhập — ISA không có quy định cấm làm song song khi đang xét hồ sơ đổi tư cách. Hỏi 行政書士 chuyên 経営・管理 để tối ưu hồ sơ.',
+        answer: 'Visa 技術・人文 **không cho phép tự kinh doanh / là chủ công ty**. Bạn cần đổi sang **経営・管理** (Kinh doanh và Quản lý).\n\nĐiều kiện 経営・管理 (tiêu chuẩn mới áp dụng từ 16/10/2025 — mốc vốn 500万円 cũ không còn đủ):\n• Vốn/quy mô kinh doanh từ 3,000万円 trở lên + ít nhất 1 nhân viên toàn thời gian thuộc nhóm được tính\n• Chứng minh tiếng Nhật tương đương CEFR B2 (người kinh doanh hoặc nhân viên toàn thời gian) và kinh nghiệm/học vấn phù hợp\n• Có văn phòng thực tế ở Nhật (hợp đồng thuê văn phòng), hoạt động kinh doanh hợp pháp và ổn định\nChi tiết: guide [[business-manager-visa-2025]].\n\nQuy trình: đăng ký công ty (法人登記) → chuẩn bị hồ sơ kinh doanh → nộp ISA.\n\nLưu ý: trong thời gian chờ, **không ngừng công việc làm thuê** nếu vẫn cần thu nhập — ISA không có quy định cấm làm song song khi đang xét hồ sơ đổi tư cách. Hỏi 行政書士 chuyên 経営・管理 để tối ưu hồ sơ.',
       },
     ],
     counterPhrases: [
@@ -175,7 +176,7 @@ const statusOfResidenceChange: AdminGuide = {
         jp: 'オンライン申請の対象になりますか。',
         romaji: 'Onrain shinsei no taishou ni narimasu ka.',
         vn: 'Tôi có thuộc đối tượng dùng đơn online không?',
-        note: 'Online application thường giảm phí 500 yên (5,500 thay vì 6,000) — nhưng không nhận đơn vào ngày hết hạn lưu trú.',
+        note: 'Từ 01/10/2026 phí online thấp hơn quầy ở hầu hết các bậc (vd được cấp 1 năm: 27,000 thay vì 33,000 yên), thanh toán qua コンビニ/Pay-easy — nhưng không nhận đơn vào ngày hết hạn lưu trú.',
       },
       {
         jp: '結果が出る前に新しい会社で働いてもいいですか。',
@@ -244,6 +245,7 @@ const statusOfResidenceChange: AdminGuide = {
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
       { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/onlineshinsei.html' },
       { label: 'Thông báo sửa phí thủ tục từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
+      { label: 'Phí và cách nộp phí online từ 01/10/2026 — ISA', url: 'https://www.moj.go.jp/isa/11_00107.html' },
       { label: '在留資格一覧 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/status/qaq5.html' },
     ],
     steps: [
@@ -288,7 +290,7 @@ const statusOfResidenceChange: AdminGuide = {
         description:
           'Ngay cả khi đã được nhận vào công ty, bạn vẫn cần hiểu rõ thời điểm nào được phép làm việc theo diện mới.',
         documents: ['Thông báo kết quả từ ISA', 'Thẻ cư trú cập nhật nếu được cấp phép'],
-        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng. Khi được cấp phép: hồ sơ tiếp nhận đến 30/09/2026 là 6.000 yên (thường) / 5.500 yên (online); từ 01/10/2026 phí mới cao hơn nhiều, xem guide phí visa.',
+        tip: 'Nếu công ty giục đi làm sớm, hãy xác minh lại bằng nguồn chính thức thay vì nghe miệng. Khi được cấp phép: hồ sơ tiếp nhận đến 30/09/2026 là 6.000 yên (thường) / 5.500 yên (online); hồ sơ tiếp nhận từ 01/10/2026 tính theo thời hạn được cấp (10,000–75,000 yên tại quầy / 10,000–65,000 yên online), xem guide phí visa.',
         image: require('../../../../../assets/content/daily-life/ag_status-change_s2.jpg'),
         imageCaption: 'Điền 在留資格変更許可申請書 và chuẩn bị hồ sơ theo diện mới',
       },
