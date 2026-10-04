@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaStatusChangeDetailedScenarios: AdminGuide = {
     id: 'visa-status-change-detailed-scenarios',
     category: 'immigration',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Đổi tư cách lưu trú — các tình huống chi tiết',
     titleJp: '在留資格変更許可申請 — 状況別の詳細ガイド',
@@ -39,9 +39,9 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     legalScope: {
       jurisdiction: 'national',
-      jurisdictionNote: 'Đổi tư cách lưu trú (在留資格変更許可申請) thuộc thẩm quyền 出入国在留管理庁 theo 入管法 §20. Điều kiện cấp tư cách mới + tài liệu yêu cầu + thời gian xét thay đổi theo loại tư cách + tình huống cá nhân + thay đổi chính sách của Nyukan tại thời điểm. KHÔNG có "mức lương tối thiểu" cố định cho work visa; KHÔNG có gì đảm bảo được duyệt — kết quả phụ thuộc đánh giá tổng thể của Nyukan. Phí dự kiến tăng đáng kể từ năm tài khóa 2026 — xác nhận thông tin mới nhất tại trang ISA trước khi nộp.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-09-25',
+      jurisdictionNote: 'Đổi tư cách lưu trú (在留資格変更許可申請) thuộc thẩm quyền 出入国在留管理庁 theo 入管法 §20. Điều kiện cấp tư cách mới + tài liệu yêu cầu + thời gian xét thay đổi theo loại tư cách + tình huống cá nhân + thay đổi chính sách của Nyukan tại thời điểm. KHÔNG có "mức lương tối thiểu" cố định cho work visa; KHÔNG có gì đảm bảo được duyệt — kết quả phụ thuộc đánh giá tổng thể của Nyukan. Phí đã tăng đáng kể cho hồ sơ tiếp nhận từ 01/10/2026 (tính theo thời hạn được cấp) — xác nhận thông tin mới nhất tại trang ISA trước khi nộp.',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Sponsor company nhỏ / mới thành lập / có vấn đề tài chính → tham vấn 行政書士 chuyên 入管 về khả năng + cách trình bày hồ sơ.',
@@ -53,14 +53,14 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       ],
     },
     quickAction: {
-      deadline: 'Nộp 3-6 tháng trước khi tư cách hiện tại hết hạn HOẶC trước thay đổi tình huống chính (tốt nghiệp, kết hôn, đổi việc). Sinh viên tốt nghiệp 3/2026: nộp trước cuối 1/2026 để kịp làm việc 4/2026 (đa số trường hợp).',
+      deadline: 'Nộp 3-6 tháng trước khi tư cách hiện tại hết hạn HOẶC trước thay đổi tình huống chính (tốt nghiệp, kết hôn, đổi việc). Sinh viên tốt nghiệp 3/2027: nộp trước cuối 1/2027 để kịp làm việc 4/2027 (đa số trường hợp).',
       office: 'Nyukan có thẩm quyền theo nơi cư trú hoặc nơi làm việc/học tập (xem trang ISA). Số tư vấn 在留資格 chung: 0570-013904 (Foreign Residents Support Center). Tham khảo pháp lý: 行政書士会 từng tỉnh / 弁護士会 / 法テラス 0570-078374.',
       doNow: [
         'Xác định CHÍNH XÁC loại tư cách mục tiêu (technology/engineer humanities = 技人国, hay 特定技能 1号/2号, hay 高度専門職, hay 配偶者) — đọc kỹ điều kiện từng loại trên trang ISA.',
         'Liên hệ công ty/trường/người bảo lãnh SỚM — họ cần 2-4 tuần để chuẩn bị 雇用契約書 / 在籍証明書 / 雇用理由書 / tài liệu công ty.',
         'Chuẩn bị giấy tờ cá nhân: bằng cấp (公証 nếu nước ngoài), 履歴書, 経歴説明書, hộ chiếu, thẻ cư trú, ảnh 4cm × 3cm mới.',
         'Tải đơn 在留資格変更許可申請書 đúng loại visa từ trang Nyukan — mỗi loại có form riêng.',
-        'Nộp tại Nyukan (trực tiếp / online qua マイナポータル nếu áp dụng). Phí trả khi nhận kết quả (nếu duyệt).',
+        'Nộp tại Nyukan (trực tiếp / online qua 在留申請オンライン nếu thuộc đối tượng). Phí trả khi nhận kết quả (nếu duyệt) — từ 01/10/2026 tính theo thời hạn được cấp.',
         'Trường hợp không chắc về điều kiện hoặc tài liệu → tham vấn 行政書士 chuyên 入管 TRƯỚC khi nộp.',
       ],
       bring: [
@@ -74,7 +74,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
         '理由書 nếu tình huống đặc biệt',
       ],
       ifLate: 'Nộp đơn quá sát hạn tư cách hiện tại: Nyukan có 特例期間 (đặc biệt cho phép tiếp tục hoạt động dưới tư cách cũ trong thời gian xét đơn, theo 入管法 §22-3) — nhưng phải nộp TRƯỚC khi hết hạn. Quá hạn = 不法残留 (xem guide overstaying). Bị từ chối: phải nộp lại với tài liệu bổ sung giải quyết lý do từ chối. KHÔNG có gì đảm bảo lần nộp lại được duyệt.',
-      officialSourceLabels: ['ISA — Đổi tư cách lưu trú', 'ISA — Thông báo sửa phí 2026'],
+      officialSourceLabels: ['ISA — Đổi tư cách lưu trú', 'ISA — Phí và cách nộp phí online từ 01/10/2026'],
     },
     whoIsThisFor: [
       'Sinh viên sắp tốt nghiệp muốn chuyển sang work visa.',
@@ -84,7 +84,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     whenToDo: [
       'Dành 3-6 tháng trước khi tư cách hiện tại hết hạn hoặc tình trạng thay đổi.',
-      'Sinh viên tốt nghiệp 3/2026: nộp đơn chuyển sang work visa trước cuối 1/2026 để kịp làm việc 4/2026.',
+      'Sinh viên tốt nghiệp 3/2027: nộp đơn chuyển sang work visa trước cuối 1/2027 để kịp làm việc 4/2027.',
       'Người kết hôn: sau khi có giấy chứng nhận kết hôn tại Nhật (婚姻届受理証明書), có thể nộp đơn chuyển sang spouse visa.',
       'Từ 技能実習 sang 特定技能: chỉ khi đủ điều kiện (hoàn tất training period, đạt exam).',
     ],
@@ -93,12 +93,13 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       'Trực tiếp, bưu điện hoặc trực tuyến (nếu áp dụng với loại visa).',
       'Công ty, trường hoặc người bảo lãnh có thể hỗ trợ chuẩn bị hồ sơ, nhưng người nộp phải nộp chính.',
     ],
-    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí hiện tại: ¥6,000 (nộp giấy) / ¥5,500 (online); dự kiến đổi sang mức theo bậc từ 1/10/2026 (xem mục Phí).',
+    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí: hồ sơ tiếp nhận từ 01/10/2026 áp mức theo bậc thời hạn được cấp, ¥10,000–¥75,000 (quầy) / ¥10,000–¥65,000 (online) (xem mục Phí).',
     fees: [
-      'Phí cơ bản hiện tại (từ 4/2025): ¥6,000 khi nộp giấy, ¥5,500 khi nộp online.',
-      'Phí không hoàn lại nếu bị từ chối.',
-      'Nghị định (政令) SỬA phí công bố dạng dự thảo 3/7/2026, lấy ý kiến đến 2/8/2026: dự kiến đổi tư cách/gia hạn sẽ tính theo bậc THỜI HẠN CÒN LẠI xin, khoảng ¥10,000 (≤3 tháng) đến ¥75,000 (5 năm trở lên); riêng vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; hiệu lực dự kiến vẫn là 1/10/2026 nhưng có thể thay đổi.',
-      'Kiểm tra phí chính thức tại ISA trước khi nộp vì có thể thay đổi theo thời gian.',
+      'Nghị định (政令) sửa phí đã được Nội các quyết định ngày 25/8/2026 và ĐÃ ÁP DỤNG cho hồ sơ được tiếp nhận từ 01/10/2026. Phí đổi tư cách/gia hạn tính theo THỜI HẠN ĐƯỢC CẤP (許可される在留期間), không phải thời hạn còn lại của tư cách cũ.',
+      'Bảng phí khi được cấp phép (quầy / online): ≤3 tháng ¥10,000 / ¥10,000; >3–6 tháng ¥18,000 / ¥15,000; >6 tháng–dưới 1 năm ¥25,000 / ¥21,000; 1 năm ¥33,000 / ¥27,000; >1–dưới 3 năm ¥48,000 / ¥42,000; 3–dưới 5 năm ¥64,000 / ¥56,000; từ 5 năm ¥75,000 / ¥65,000. Riêng vĩnh trú (永住許可): ¥200,000.',
+      'Hồ sơ đã tiếp nhận đến hết 30/9/2026 vẫn áp phí cũ ¥6,000 (quầy) / ¥5,500 (online), kể cả khi được cấp phép sau 1/10/2026.',
+      'Phí chỉ nộp khi nhận kết quả CẤP PHÉP — bị từ chối thì không phải nộp. Tại quầy nộp bằng 収入印紙; hồ sơ online từ 01/10/2026 chỉ thanh toán qua コンビニ決済 hoặc Pay-easy (không dùng 収入印紙, không nhận thẻ tín dụng/QR; có thể mất thêm phí giao dịch khoảng ¥220–¥550).',
+      'Kiểm tra phí chính thức tại ISA trước khi nhận kết quả. Chi tiết: guide [[visa-fee-increase-2025-2026]].',
     ],
     commonMistakes: [
       'Nộp đơn quá sát hạn tốt nghiệp/kết hôn — không kịp cấp visa mới.',
@@ -109,8 +110,8 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     faq: [
       {
-        question: 'Phí có tăng năm 2026 thực sự không?',
-        answer: 'Có, nhưng mức cụ thể KHÁC với đồn đoán ban đầu. Luật sửa 入管法 (thông qua 29/5/2026, công bố 5/6/2026, 令和8年法律第32号) chỉ quy định TRẦN tối đa cho phép (10万円/30万円) — đây KHÔNG phải mức phí thực tế. Nghị định (政令) dự thảo công bố 3/7/2026 (lấy ý kiến đến 2/8/2026) quy định mức THẤP HƠN nhiều: đổi/gia hạn tư cách theo bậc thời hạn còn lại xin — khoảng ¥10,000 đến ¥75,000; vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; mốc hiệu lực dự kiến vẫn là 1/10/2026. Phí hiện tại (trước khi đổi) là ¥6,000 (giấy) / ¥5,500 (online). Hãy kiểm tra chính thức tại ISA trước khi nộp.',
+        question: 'Phí đổi tư cách năm 2026 đã tăng chưa?',
+        answer: 'Đã tăng. Luật sửa 入管法 (thông qua 29/5/2026, công bố 5/6/2026, 令和8年法律第32号) chỉ quy định TRẦN tối đa cho phép (10万円/30万円) — KHÔNG phải mức phí thực tế. Mức thực tế do nghị định (政令) được Nội các quyết định 25/8/2026 quy định và đã áp dụng cho hồ sơ tiếp nhận từ 01/10/2026: đổi/gia hạn tư cách tính theo bậc THỜI HẠN ĐƯỢC CẤP — từ ¥10,000 (≤3 tháng) đến ¥75,000 (từ 5 năm) tại quầy, ¥10,000–¥65,000 nếu online (vd được cấp 1 năm: ¥33,000 / ¥27,000); vĩnh trú ¥200,000. Hồ sơ tiếp nhận đến hết 30/9/2026 vẫn áp ¥6,000 (quầy) / ¥5,500 (online). Hãy kiểm tra bảng phí chính thức tại ISA trước khi nhận kết quả.',
       },
       {
         question: 'Nộp đơn trước khi hết hạn tư cách hiện tại được không?',
@@ -190,13 +191,13 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
         term: '高度専門職',
         reading: 'こうどせんもんしょく',
         meaningVi: 'Highly Skilled Professional (HSP)',
-        noteVi: 'Tư cách lưu trú đặc biệt cho người chuyên môn cao. Điểm dựa trên: học vấn + kinh nghiệm + lương + tuổi + bằng tiếng Nhật (+ bonus). 70 điểm = HSP 1号 (5 năm); 80 điểm + 3 năm = đủ điều kiện xin vĩnh trú. Bảng điểm có trên trang ISA — kiểm tra trước khi xin.',
+        noteVi: 'Tư cách lưu trú đặc biệt cho người chuyên môn cao. Điểm dựa trên: học vấn + kinh nghiệm + lương + tuổi + bằng tiếng Nhật (+ bonus). 70 điểm = HSP 1号 (5 năm); duy trì 70 điểm trong 3 năm hoặc 80 điểm trong 1 năm có thể đáp ứng điều kiện thời gian cư trú để xin vĩnh trú. Bảng điểm có trên trang ISA — kiểm tra trước khi xin.',
       },
       {
         term: '技能実習 vs 特定技能',
         reading: 'ぎのうじっしゅう vs とくていぎのう',
         meaningVi: '2 chương trình lao động khác nhau (KHÔNG nhầm)',
-        noteVi: '技能実習: chương trình training 1-5 năm dưới quản lý 監理団体 + OTIT, ngành cụ thể. 特定技能 (SSW): tư cách lao động sau khi pass exam, 14 ngành (2025+), được đổi công ty trong cùng ngành. Đổi từ 技能実習 sang 特定技能: cần hoàn tất training + pass 技能検定 + công ty mới đủ điều kiện.',
+        noteVi: '技能実習: chương trình training 1-5 năm dưới quản lý 監理団体 + OTIT, ngành cụ thể. 特定技能 (SSW): tư cách lao động sau khi pass exam, các ngành theo danh sách ISA, được đổi công ty trong cùng ngành. Đổi từ 技能実習 sang 特定技能: cần hoàn tất training + pass 技能検定 + công ty mới đủ điều kiện.',
       },
       {
         term: '婚姻届受理証明書',
@@ -213,14 +214,15 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     officialLinks: [
       { label: 'ISA — Đổi tư cách lưu trú', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
-      { label: 'ISA — Thông báo sửa phí 2026', url: 'https://www.moj.go.jp/isa/01_00518.html' },
+      { label: 'ISA — Phí và cách nộp phí online từ 01/10/2026', url: 'https://www.moj.go.jp/isa/11_00107.html' },
+      { label: 'ISA — Thông báo sửa phí từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
       { label: 'OTIT — Từ 技能実習 sang 特定技能', url: 'https://www.otit.go.jp/' },
     ],
     steps: [
       {
         step: 1,
         title: 'Xác định loại đổi tư cách và điều kiện',
-        description: '**6 tình huống phổ biến:**\n\n| Từ | Sang | Điều kiện chính | Timeline |\n|---|---|---|---|\n| **Student visa** | Work visa (技術・人文知識・国際業務) | Bằng cấp + job offer từ công ty | Nộp trước cuối 1/2026 nếu tốt nghiệp 3/2026 |\n| **Work visa** | Spouse visa (配偶者) | Kết hôn tại Nhật + 婚姻届受理証明書 | Nộp sau khi 婚姻届 được chấp nhận |\n| **Work visa** | Highly Skilled (高度専門職) | Điểm đánh giá ≥70 + công ty confirm | Dành 3-6 tháng chuẩn bị |\n| **Training (技能実習)** | SSW (特定技能) | Hoàn tất training + pass exam | Nộp trước khi training hết |\n| **Short-stay** | Work/Student | Job offer hoặc nhập học confirm | Nộp sớm — short-stay không dài |\n| **Any** | Dependent (家族滞在) | Bảo lãnh tài chính từ người sponsor | Nộp khi sponsor có đơn vị nhân sự confirm |\n\nKiểm tra điều kiện của tư cách mục tiêu tại ISA website.',
+        description: '**6 tình huống phổ biến:**\n\n| Từ | Sang | Điều kiện chính | Timeline |\n|---|---|---|---|\n| **Student visa** | Work visa (技術・人文知識・国際業務) | Bằng cấp + job offer từ công ty | Nộp trước cuối 1/2027 nếu tốt nghiệp 3/2027 |\n| **Work visa** | Spouse visa (配偶者) | Kết hôn tại Nhật + 婚姻届受理証明書 | Nộp sau khi 婚姻届 được chấp nhận |\n| **Work visa** | Highly Skilled (高度専門職) | Điểm đánh giá ≥70 + công ty confirm | Dành 3-6 tháng chuẩn bị |\n| **Training (技能実習)** | SSW (特定技能) | Hoàn tất training + pass exam | Nộp trước khi training hết |\n| **Short-stay** | Work/Student | Job offer hoặc nhập học confirm | Nộp sớm — short-stay không dài |\n| **Any** | Dependent (家族滞在) | Bảo lãnh tài chính từ người sponsor | Nộp khi sponsor có đơn vị nhân sự confirm |\n\nKiểm tra điều kiện của tư cách mục tiêu tại ISA website.',
         documents: ['Hộ chiếu', 'Thẻ cư trú hiện tại', 'Job offer / admission letter / marriage certificate tùy loại đổi'],
         tip: 'Nếu không chắc điều kiện, hãy liên hệ ISA hoặc 行政書士 chuyên về loại visa mục tiêu.',
       },
@@ -234,14 +236,14 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       {
         step: 3,
         title: 'Chuẩn bị giấy tờ cá nhân và nộp đơn',
-        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí:**\n- Hiện tại ¥6,000 (nộp giấy) / ¥5,500 (online)\n- Theo nghị định (政令) dự thảo (chưa chính thức tại 21/8/2026, dự kiến hiệu lực 1/10/2026): đổi sang mức theo bậc thời hạn còn lại xin, khoảng ¥10,000–¥75,000\n- Nộp tại lúc nộp đơn hoặc khi nhận kết quả tùy ISA',
+        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí (hồ sơ tiếp nhận từ 01/10/2026):**\n- Theo bậc thời hạn ĐƯỢC CẤP: ¥10,000–¥75,000 (quầy) / ¥10,000–¥65,000 (online); vd được cấp 1 năm ¥33,000 / ¥27,000, 3 năm ¥64,000 / ¥56,000\n- Hồ sơ tiếp nhận đến 30/9/2026: ¥6,000 / ¥5,500\n- Nộp khi nhận kết quả cấp phép (không phải lúc nộp đơn): quầy bằng 収入印紙, online qua コンビニ決済 / Pay-easy',
         documents: ['Đơn xin (in từ ISA website)', 'Ảnh thẻ', 'Hộ chiếu', 'Thẻ cư trú', 'Tài liệu từ bước 2', 'Lý do giải trình (nếu cần)'],
         tip: 'Kiểm tra website ISA nơi bạn sẽ nộp để xác nhận loại tài liệu cần thiết — có thể khác nhau giữa các cục.',
       },
       {
         step: 4,
         title: 'Chờ kết quả và chuẩn bị tiếp theo',
-        description: 'Thời gian xét duyệt: 2-4 tuần (nhanh) đến 2-3 tháng (chậm) tùy hồ sơ, ISA cục và mùa bận.\n\n**Nếu được phê duyệt:**\n- ISA sẽ thông báo. Đến ISA để cấp thẻ cư trú mới hoặc COE\n- Thẻ mới sẽ ghi tư cách mới, ngày hết hạn mới\n- Bắt đầu hoạt động với tư cách mới từ ngày cấp thẻ\n- Nên chuẩn bị: hợp đồng lao động, xin phép hoạt động ngoài tư cách (nếu có), thông báo chuyển tư cách với bảo hiểm/thuế\n\n**Nếu bị từ chối:**\n- Hỏi ISA chi tiết lý do\n- Nộp lại với tài liệu bổ sung hoặc xem xét đổi sang visa khác\n- Không bao giờ nộp lại ngay nếu không hiểu rõ vấn đề',
+        description: 'Thời gian xét duyệt: 2-4 tuần (nhanh) đến 2-3 tháng (chậm) tùy hồ sơ, ISA cục và mùa bận.\n\n**Nếu được phê duyệt:**\n- ISA sẽ thông báo. Đến ISA (mang hộ chiếu, thẻ cư trú cũ, phí) để nhận thẻ cư trú mới\n- Thẻ mới sẽ ghi tư cách mới, ngày hết hạn mới\n- Bắt đầu hoạt động với tư cách mới từ ngày cấp thẻ\n- Nên chuẩn bị: hợp đồng lao động, xin phép hoạt động ngoài tư cách (nếu có), thông báo chuyển tư cách với bảo hiểm/thuế\n\n**Nếu bị từ chối:**\n- Hỏi ISA chi tiết lý do\n- Nộp lại với tài liệu bổ sung hoặc xem xét đổi sang visa khác\n- Không bao giờ nộp lại ngay nếu không hiểu rõ vấn đề',
         documents: ['Giấy thông báo từ ISA', 'Lịch nhận thẻ cư trú mới'],
         tip: 'Giữ bản sao hồ sơ nộp cho tham khảo — nếu bị từ chối lần sau bạn sẽ cần.',
       },

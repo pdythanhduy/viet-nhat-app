@@ -86,7 +86,7 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
   estimatedTime:
     'KHÔNG có một mốc chung cho thủ tục chính (gia hạn / đổi tư cách theo thời gian chuẩn của thủ tục đó). RIÊNG phần cấp 特定在留カード: theo ISA, cần thêm khoảng 2 TUẦN trở lên để xử lý — KHÔNG cấp ngay trong ngày tại quầy như thẻ 在留カード thường. Sau khi nhận thẻ: kích hoạt My Number functions tại 市役所 ~30 phút–1 giờ.',
   fees: [
-    'Theo ISA (trang tokutei.html, xác nhận tại 2026-08-21): lần xin 特定在留カード ĐẦU TIÊN cùng một thủ tục đủ điều kiện sau 14/06/2026 thường MIỄN PHÍ (đi kèm phí của thủ tục chính — vd 在留期間更新 6,000円 giấy / 5,500円 online).',
+    'Theo ISA (trang tokutei.html, xác nhận tại 2026-08-21): lần xin 特定在留カード ĐẦU TIÊN cùng một thủ tục đủ điều kiện sau 14/06/2026 thường MIỄN PHÍ (đi kèm phí của thủ tục chính — vd 在留期間更新: hồ sơ tiếp nhận từ 01/10/2026 tính theo thời hạn được cấp, 10,000–75,000円 quầy / 10,000–65,000円 online; hồ sơ tiếp nhận đến 30/09/2026 là 6,000円 / 5,500円 — xem guide visa-fee-increase-2025-2026).',
     'Từ lần sau (đổi lại / cấp lại thêm 特定在留カード ngoài phí thủ tục chính): phí tại 入管 khoảng 1,900円 (2,600円 nếu nhận qua bưu điện), cộng phí phía J-LIS/市役所 khoảng 600–800円 cho phần chức năng My Number — một số trường hợp chỉ phải trả một trong hai loại phí. Số chính xác tùy loại thủ tục — hỏi tại quầy trước khi nộp.',
     'My Number Card riêng (nếu chưa có, không đổi sang 特定在留カード): vẫn MIỄN PHÍ tại 市役所.',
     'Cấp lại 在留カード thường khi mất: ~1,000–2,000円 (theo quy định hiện hành).',
@@ -217,7 +217,7 @@ const specificResidenceCardMyNumber2026: AdminGuide = {
       term: '在留申請オンライン',
       reading: 'ざいりゅうしんせいオンライン',
       meaningVi: 'hệ thống nộp đơn lưu trú online (ISA)',
-      noteVi: 'Hệ thống online của 出入国在留管理庁. Người dùng đăng ký trước với tư cách phù hợp + xác thực; sau 14/06/2026 có thể được dùng để xin 特定在留カード trong các thủ tục gia hạn / đổi tư cách. Phí thường thấp hơn ~500 yên so với nộp trực tiếp. KHÔNG nhận đơn vào ngày hết hạn visa.',
+      noteVi: 'Hệ thống online của 出入国在留管理庁. Người dùng đăng ký trước với tư cách phù hợp + xác thực; sau 14/06/2026 có thể được dùng để xin 特定在留カード trong các thủ tục gia hạn / đổi tư cách. Từ 01/10/2026 phí online thấp hơn quầy ở hầu hết các bậc (vd được cấp 1 năm: 27,000 so với 33,000 yên) và chỉ thanh toán qua コンビニ決済 / Pay-easy. KHÔNG nhận đơn vào ngày hết hạn visa.',
     },
     {
       term: '在留カード再交付',

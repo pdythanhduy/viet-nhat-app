@@ -195,7 +195,7 @@ const visaRejectionAppealProcess: AdminGuide = {
         term: '再申請',
         reading: 'さいしんせい',
         meaningVi: 'nộp lại đơn (sau khi bị 不許可)',
-        noteVi: 'KHÔNG có thời gian chờ bắt buộc — nộp ngày hôm sau cũng được. Nhưng nộp lại bản cũ y nguyên = thường tiếp tục bị từ chối. Cần: 理由書 + tài liệu mới giải quyết đúng 不許可理由. Phí 再申請 tính lại từ đầu (~6,000 yên khi được duyệt).',
+        noteVi: 'KHÔNG có thời gian chờ bắt buộc — nộp ngày hôm sau cũng được. Nhưng nộp lại bản cũ y nguyên = thường tiếp tục bị từ chối. Cần: 理由書 + tài liệu mới giải quyết đúng 不許可理由. Phí 再申請 tính lại từ đầu, chỉ nộp khi được duyệt (đổi/gia hạn tiếp nhận từ 01/10/2026: theo thời hạn được cấp, 10,000–75,000 yên quầy / 10,000–65,000 yên online; 永住 200,000 yên).',
       },
       {
         term: '理由書',

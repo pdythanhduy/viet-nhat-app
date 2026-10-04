@@ -3,18 +3,18 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
     icon: 'newspaper',
     color: '#2E86C1',
-    description: 'Tổng hợp mốc chính thức mới nhất (đến 21/09/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng, nội dung ĐANG dự thảo/lấy ý kiến (phí thủ tục, tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
+    description: 'Tổng hợp mốc chính thức mới nhất (đến 04/10/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng (gồm phí thủ tục mới từ 01/10/2026), nội dung vẫn là dự thảo (tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đây là guide tổng hợp chính sách cấp quốc gia; từng thủ tục cụ thể vẫn phải đối chiếu trang ISA/MOFA/MHLW/NPA tương ứng.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2026-11-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn chuẩn bị nộp hồ sơ cư trú đúng giai đoạn chuyển tiếp 2026-2027.',
@@ -23,7 +23,7 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       ],
     },
     quickAction: {
-      deadline: 'Kiểm tra lại trước các mốc 14/06/2026 và 01/04/2027; với hồ sơ online, dùng hệ thống mới từ 05/01/2026.',
+      deadline: 'Hồ sơ đổi/gia hạn/vĩnh trú tiếp nhận từ 01/10/2026 đã áp phí mới; kiểm tra lại trước mốc 01/04/2027; với hồ sơ online, dùng hệ thống mới từ 05/01/2026.',
       office: 'ISA hoặc hệ thống 在留申請オンライン nếu thủ tục/hồ sơ của bạn thuộc đối tượng được nộp online.',
       doNow: [
         'Tách rõ mốc đã áp dụng, mốc tiền thủ tục và mốc chưa vận hành.',
@@ -52,6 +52,7 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     estimatedTime: 'Nội dung chính sách đang ở giai đoạn chuyển tiếp nên cần theo dõi cập nhật chính thức định kỳ.',
     fees: [
       'Không có một mức phí chung cho tất cả thủ tục.',
+      'Từ 01/10/2026 (hồ sơ tiếp nhận từ ngày này): đổi/gia hạn tư cách lưu trú tính phí theo thời hạn được cấp — 10,000–75,000 yên (quầy) / 10,000–65,000 yên (online); vĩnh trú 200,000 yên. Chi tiết: guide `visa-fee-increase-2025-2026`.',
       'Mức phí, mẫu đơn và giấy tờ có thể đổi theo đợt cập nhật.',
     ],
     documentsChecklist: [
@@ -87,8 +88,8 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
         answer: 'ISA cho biết hệ thống online mới dùng từ 05/01/2026, có các cải tiến như tăng dung lượng/tệp đính kèm, lưu tạm khi nhập và kéo dài hạn ID của tổ chức từ 1 năm lên 3 năm.',
       },
       {
-        question: '⚠️ MỚI (07–08/2026): Có 2 việc lớn đang dự thảo, tôi cần biết gì?',
-        answer: 'Cập nhật 21/09/2026: phí đã gần như chắc chắn (xem mục 1), còn tiêu chuẩn vĩnh trú vẫn CHƯA chốt (xem mục 2). Cả hai đáng theo dõi sát vì ảnh hưởng trực tiếp người đang ở Nhật:\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú tăng** — 政令 dự thảo công bố 03/07/2026 (lấy ý kiến đến 02/08/2026): đổi/gia hạn tư cách theo bậc 1万–7.5万円 tùy thời hạn còn lại, vĩnh trú 20万円 (thấp hơn mức trần luật cho phép 10万/30万円 hay bị hiểu nhầm là mức thu thực tế). Luật nâng trần phí đã được Quốc hội thông qua 29/05/2026 (công bố 05/06/2026); ISA đã đăng bảng phí NỘP ONLINE áp dụng cho hồ sơ tiếp nhận từ 01/10/2026 (10,000–65,000 yên tùy thời hạn cấp). Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn theo phí cũ. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン)** — ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 01/04/2027, một phần có thể hồi tố từ 01/04/2026. Đã hết hạn lấy ý kiến 04/09/2026; theo báo chí, ISA dự kiến ban hành bản chính thức khoảng tháng 10/2026 — tính đến 21/09/2026 chưa có bản cuối. Xem chi tiết ở guide `permanent-residency-eijuu`.\n\nCả hai đều đang trong giai đoạn góp ý công khai — số liệu có thể thay đổi trước khi ban hành, đừng coi là đã quyết định cuối cùng.',
+        question: '⚠️ CẬP NHẬT 10/2026: Phí thủ tục mới và tiêu chuẩn vĩnh trú — cái nào đã áp dụng?',
+        answer: 'Cập nhật 04/10/2026: phí mới ĐÃ ÁP DỤNG (xem mục 1), còn tiêu chuẩn vĩnh trú vẫn là DỰ THẢO (xem mục 2):\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú — đã áp dụng từ 01/10/2026.** 政令 được Nội các quyết định 25/08/2026, áp dụng cho hồ sơ được TIẾP NHẬN từ 01/10/2026. Đổi/gia hạn tư cách tính theo THỜI HẠN ĐƯỢC CẤP: quầy 10,000–75,000 yên, online 10,000–65,000 yên (vd được cấp 1 năm: 33,000 / 27,000 yên; 3 năm: 64,000 / 56,000 yên); vĩnh trú 200,000 yên. Đây thấp hơn mức TRẦN luật cho phép (10万/30万円, luật thông qua 29/05/2026, công bố 05/06/2026) — trần không phải mức thu thực tế. Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn theo phí cũ (6,000 / 5,500 yên; vĩnh trú 10,000 yên). Nộp online từ 01/10/2026 chỉ thanh toán qua コンビニ決済 / Pay-easy (không dùng 収入印紙). Phí giấy phép tái nhập cảnh không đổi. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン) — vẫn là dự thảo.** ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 04/2027, một phần có thể hồi tố từ 01/04/2026. Tính đến 04/10/2026 ISA CHƯA công bố kết quả góp ý hay bản chốt; báo chí ghi nhận có ý kiến phản đối công khai. Số liệu có thể thay đổi trước khi ban hành. Xem chi tiết ở guide `permanent-residency-eijuu`.',
       },
     ],
     officialLinks: [
@@ -99,6 +100,8 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
       { label: '在留カードとは？— ISA', url: 'https://www.moj.go.jp/isa/applications/procedures/whatzairyu_00001.html?hl=en' },
       { label: '特定在留カード等交付申請 — ISA', url: 'https://www.moj.go.jp/isa/tokutei.html' },
       { label: '新しい在留申請オンラインシステム — ISA', url: 'https://www.moj.go.jp/isa/11_00064.html' },
+      { label: 'オンライン申請の手数料額・納付方法（2026年10月1日以降）— ISA', url: 'https://www.moj.go.jp/isa/11_00107.html' },
+      { label: '永住許可ガイドライン改定案 — ISA', url: 'https://www.moj.go.jp/isa/11_00112.html' },
     ],
     steps: [
       {
