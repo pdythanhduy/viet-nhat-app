@@ -24,6 +24,17 @@ const simCard: AdminGuide = {
       'povo',
       'ekyc',
     ],
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Xác minh danh tính khi đăng ký SIM theo 携帯電話不正利用防止法 (cấp quốc gia, bản sửa đổi có hiệu lực từ 01/04/2026, siết eKYC). Giấy tờ chấp nhận, phương thức thanh toán, điều kiện trả góp và phí do từng nhà mạng quy định — kiểm tra nguồn chính thức của nhà mạng ngay trước khi đăng ký.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Hồ sơ online/eSIM liên tục bị từ chối dù giấy tờ hợp lệ → đến cửa hàng nhà mạng hỏi trực tiếp.',
+        'Bị người khác nhờ đứng tên SIM hoặc SIM đứng tên mình bị dùng sai mục đích → báo nhà mạng và cảnh sát ngay.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/dl_sim_s1.jpg'),
     heroImageCaption: 'Đăng ký SIM tại Nhật — cần 在留カード và địa chỉ khớp giấy tờ',
     whoIsThisFor: [

@@ -20,6 +20,17 @@ const first30DaysWorkStudyJapan: AdminGuide = {
       'di hoc moi o nhat',
       'checklist thang dau',
     ],
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Checklist tổng hợp nhiều mảng: hợp đồng lao động/trường học, ngân hàng, SIM, bảo hiểm và giấy tờ cư trú — mỗi mảng do cơ quan khác nhau quản lý (công ty/trường, municipal office, nhà cung cấp dịch vụ). Thủ tục cụ thể khác nhau theo nơi ở và nơi làm/học — kiểm tra nguồn chính thức hoặc guide chi tiết của từng mảng.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Giờ làm, việc thực tế, OT hoặc cách tính lương không khớp hợp đồng → hỏi công ty sớm; nếu không giải quyết được, hỏi 総合労働相談コーナー.',
+        'Du học sinh không rõ giới hạn làm thêm hoặc yêu cầu chuyên cần → hỏi trường hoặc ISA trước khi nhận việc.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/dl_utilities_s1.jpg'),
     heroImageCaption: 'Tháng đầu ở Nhật — đăng ký điện nước gas, SIM và sắp xếp cuộc sống cơ bản',
     whoIsThisFor: [

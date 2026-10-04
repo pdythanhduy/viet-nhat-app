@@ -10,6 +10,17 @@ const annualHealthCheckupKensin: AdminGuide = {
     icon: 'fitness-outline',
     color: '#117A65',
     description: 'Người lao động tại Nhật được khám sức khỏe miễn phí hàng năm — theo luật, công ty BẮT BUỘC phải tổ chức cho nhân viên. Người đóng 国民健康保険 cũng có chương trình 特定健診 miễn phí từ 40 tuổi. Đây là quyền lợi nhiều người không biết và bỏ qua.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: '定期健康診断 cho người lao động là nghĩa vụ của công ty theo 労働安全衛生法 (cấp quốc gia). 特定健診 cho người tham gia 国民健康保険 40–74 tuổi và がん検診 do municipal office tổ chức — lịch gửi 受診券, cơ sở khám và mức hỗ trợ khác nhau theo từng địa phương; kiểm tra nguồn chính thức của nơi cư trú.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Kết quả ghi 要再検査 hoặc 要精密検査 → đến phòng khám/bệnh viện phù hợp để được bác sĩ giải thích, không tự bỏ qua.',
+        'Làm part-time, không chắc có thuộc diện được công ty tổ chức khám → hỏi HR, sau đó hỏi municipal office về 特定健診.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_kensin_hero.jpg'),
     heroImageCaption: '定期健康診断 — khám sức khỏe định kỳ miễn phí theo luật lao động Nhật',
     whoIsThisFor: [

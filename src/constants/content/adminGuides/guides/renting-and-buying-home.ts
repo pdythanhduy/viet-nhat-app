@@ -10,6 +10,17 @@ const rentingAndBuyingHome: AdminGuide = {
     icon: 'home',
     color: '#2980B9',
     description: 'Guide thực tế về thuê nhà ở Nhật: tiền vào nhà, người bảo lãnh, hợp đồng, hủy hợp đồng,退去費, 原状回復, và phần mua nhà cho người nước ngoài với lưu ý cư trú.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Nguyên tắc 原状回復 và hợp đồng thuê chuẩn theo guideline của 国土交通省 (MLIT); đăng ký quyền sở hữu khi mua nhà theo hướng dẫn của 法務省/法務局. Điều khoản phí, báo trước khi hủy và bảo lãnh do từng hợp đồng quy định; quyền sở hữu nhà không tạo ra tư cách lưu trú — kiểm tra nguồn chính thức của MLIT/MOJ.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Bị tính 退去費 cao hoặc bị giữ 敷金 bất hợp lý → đối chiếu guideline MLIT, sau đó hỏi FRESC hoặc điểm tư vấn tiêu dùng/nhà ở địa phương.',
+        'Đi tới bước mua nhà và đăng ký quyền sở hữu → làm việc với 法務局/司法書士; câu hỏi visa phải hỏi riêng ISA.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_renting-home_hero.jpg'),
     heroImageCaption: 'Thuê nhà tại Nhật — hợp đồng, tiền cọc và trách nhiệm khi trả nhà',
     whoIsThisFor: [

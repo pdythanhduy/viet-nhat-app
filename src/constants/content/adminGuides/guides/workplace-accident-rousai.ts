@@ -10,6 +10,18 @@ const workplaceAccidentRousai: AdminGuide = {
     icon: 'medkit-outline',
     color: '#C0392B',
     description: 'Khi bị thương hoặc mắc bệnh do công việc, người lao động nước ngoài có quyền hưởng 労災保険 (bảo hiểm tai nạn lao động) — hoàn toàn độc lập với bảo hiểm y tế thông thường. Công ty không thể từ chối hay che giấu.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '労災保険 là chế độ bảo hiểm tai nạn lao động cấp quốc gia do 厚生労働省 quản lý; hồ sơ nộp qua công ty hoặc tự nộp tại 労働基準監督署 phụ trách nơi làm việc, áp dụng như nhau cho người nước ngoài làm việc hợp pháp. Mức hưởng và mẫu đơn (様式第5号, 様式第8号...) theo quy định chung toàn quốc — kiểm tra nguồn chính thức của 厚生労働省 trước khi nộp.',
+      sourceVerifiedAt: '2026-08-22',
+      nextReviewAt: '2026-11-15',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Công ty từ chối ký đơn, che giấu tai nạn hoặc ép dùng 健康保険 thay 労災 → tự nộp tại 労働基準監督署 và hỏi FRESC/quầy tư vấn lao động cho người nước ngoài.',
+        'Tai nạn trên đường đi làm có ghé chỗ khác vì việc riêng, hoặc bệnh nghề nghiệp khó chứng minh → hỏi 労働基準監督署 đánh giá cụ thể.',
+        'Để lại di chứng hoặc phải nghỉ dài ngày (障害補償給付, 休業補償給付) → cân nhắc tư vấn 社会保険労務士 hoặc luật sư lao động.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_rousai_hero.jpg'),
     heroImageCaption: '労災保険 — bảo hiểm tai nạn lao động, áp dụng cho tất cả người nước ngoài',
     whoIsThisFor: [

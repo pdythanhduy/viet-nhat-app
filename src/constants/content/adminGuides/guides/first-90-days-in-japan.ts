@@ -18,6 +18,17 @@ const first90DaysInJapan: AdminGuide = {
       'checklist 3 thang',
       'sang nhat duoc 3 thang',
     ],
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Guide tổng rà 3 tháng đầu: cư trú, bảo hiểm, My Number, công việc/học tập và tài chính — mỗi mảng do cơ quan khác nhau quản lý (ISA, municipal office, công ty/trường). Khi đổi việc, nghỉ việc, chuyển nhà hoặc nghỉ học, nghĩa vụ thông báo có thể phát sinh — kiểm tra nguồn chính thức thay vì tự đoán.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Có thay đổi lớn (đổi việc, nghỉ việc, chuyển nhà, nghỉ học) → kiểm tra nghĩa vụ thông báo với ISA và municipal office.',
+        'Kiệt sức, mất ngủ hoặc stress kéo dài sau 2–3 tháng → đi khám và hỏi nơi tư vấn chính thức, không coi là bình thường.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_90days_hero.jpg'),
     heroImageCaption: 'Những việc cần làm trong 90 ngày đầu ở Nhật',
     whoIsThisFor: [

@@ -10,6 +10,18 @@ const laborRightsDispute: AdminGuide = {
     icon: 'shield-checkmark',
     color: '#C0392B',
     description: 'Hướng dẫn quyền lao động cơ bản tại Nhật, cách khiếu nại khi bị trả thiếu lương, bị sa thải bất hợp pháp hoặc bị ép nghỉ việc — áp dụng cho cả người nước ngoài.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: 'Quyền lao động dựa trên 労働基準法 và luật lao động cấp quốc gia, áp dụng cho mọi người làm việc tại Nhật bất kể quốc tịch; vi phạm lương/giờ làm do 労働基準監督署 xử lý, tranh chấp sa thải có thể đưa ra 労働審判 tại 地方裁判所. Lương tối thiểu khác nhau theo từng 都道府県 (mức trong guide là 令和7年度) — kiểm tra nguồn chính thức của 厚生労働省 trước khi tính số tiền đòi.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Bị sa thải hoặc bị ép ký 退職届/合意退職書 → KHÔNG ký, hỏi 総合労働相談コーナー ngay; nếu muốn đòi phục hồi hoặc 解決金, tư vấn luật sư lao động.',
+        'Muốn nộp 労働審判 tại 地方裁判所 → chuẩn bị 申立書 cùng luật sư.',
+        'Lương chưa trả sắp quá thời hiệu 3 năm hoặc công ty phá sản → liên hệ 労働基準監督署 sớm về 未払い賃金立替払制度.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_labor-rights_hero.jpg'),
     heroImageCaption: 'Bảo vệ quyền lao động và khiếu nại tại Nhật',
     whoIsThisFor: [
