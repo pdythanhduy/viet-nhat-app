@@ -52,7 +52,7 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
       },
       {
         question: '⚠️ CẬP NHẬT 10/2026: Đang cân nhắc nộp gia hạn/永住 trong vài tháng tới, có nên chờ không?',
-        answer: 'Tính đến 04/10/2026: (1) phí đổi/gia hạn tư cách + vĩnh trú ĐÃ áp dụng mức mới cho hồ sơ tiếp nhận từ 01/10/2026 — đổi/gia hạn theo thời hạn được cấp 10,000–75,000 yên (quầy) / 10,000–65,000 yên (online), vĩnh trú 200,000 yên; hồ sơ tiếp nhận đến 30/09/2026 vẫn theo phí cũ. Chờ thêm không giúp giảm phí. (2) Tiêu chuẩn xét vĩnh trú siết hơn (tiếng Nhật B1, thu nhập, thời gian vợ/chồng) vẫn là DỰ THẢO — góp ý đã đóng 04/09/2026, chưa có bản chốt; hiệu lực chính dự kiến 04/2027, theo dự thảo một phần có thể hồi tố cho hồ sơ còn đang xét. Người đã đủ điều kiện theo quy định HIỆN HÀNH nên cân nhắc nộp sớm thay vì chờ, và hỏi 行政書士 nếu hồ sơ sát ngưỡng.',
+        answer: 'Tính đến 04/10/2026: (1) phí đổi/gia hạn tư cách + vĩnh trú **đã** áp dụng mức mới cho hồ sơ tiếp nhận từ 01/10/2026 — đổi/gia hạn theo thời hạn được cấp 10,000–75,000 yên (quầy) / 10,000–65,000 yên (online), vĩnh trú 200,000 yên; hồ sơ tiếp nhận đến 30/09/2026 vẫn theo phí cũ. Chờ thêm không giúp giảm phí. (2) Tiêu chuẩn xét vĩnh trú siết hơn (tiếng Nhật B1, thu nhập, thời gian vợ/chồng) vẫn là DỰ THẢO — góp ý đã đóng 04/09/2026, chưa có bản chốt; hiệu lực chính dự kiến 04/2027, theo dự thảo một phần có thể hồi tố cho hồ sơ còn đang xét. Người đã đủ điều kiện theo quy định HIỆN HÀNH nên cân nhắc nộp sớm thay vì chờ, và hỏi 行政書士 nếu hồ sơ sát ngưỡng.',
       },
     ],
     officialLinks: [

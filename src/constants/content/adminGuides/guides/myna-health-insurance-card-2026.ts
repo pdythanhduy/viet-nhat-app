@@ -29,7 +29,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   legalScope: {
     jurisdiction: 'national',
     jurisdictionNote:
-      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) đăng ký マイナ保険証 + cấp 資格確認書 cho người không dùng được. Mốc đã qua: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 thẻ cũ hết hiệu lực; biện pháp tạm thời cho thẻ hết hạn (xác minh online) gia hạn tới 31/07/2026 rồi CHẤM DỨT từ 01/08/2026 — nay bắt buộc có マイナ保険証 hoặc 資格確認書 thật sự. Từ 08/2026, 後期高齢者医療制度 (75 tuổi+) cũng đổi cách cấp 資格確認書 theo tuổi: đợt cấp đồng loạt 01/08/2026: 85 tuổi trở lên và 84 tuổi trở xuống CHƯA đăng ký マイナ保険証 nhận 資格確認書; 84 tuổi trở xuống ĐÃ đăng ký マイナ保険証 chỉ nhận 資格情報のお知らせ (giấy thông báo, không thay thế thẻ — phải dùng kèm My Number Card). Nếu không chắc mình nhận loại nào, hỏi 市役所/広域連合. Kiểm tra 厚労省.',
+      '厚生労働省 (MHLW) quản — luật 健康保険法 + 高齢者の医療の確保に関する法律 + 国民健康保険法 + 行政手続における特定の個人を識別するための番号の利用等に関する法律 (My Number Law). Triển khai: 保険者 (bảo hiểm — 健保組合 / 協会けんぽ / 国保 / 後期高齢) đăng ký マイナ保険証 + cấp 資格確認書 cho người không dùng được. Mốc đã qua: 02/12/2024 ngừng cấp thẻ vật lý mới; 01/12/2025 thẻ cũ hết hiệu lực; biện pháp tạm thời cho thẻ hết hạn (xác minh online) gia hạn tới 31/07/2026 rồi CHẤM DỨT từ 01/08/2026 — nay bắt buộc có マイナ保険証 hoặc 資格確認書 thật sự. Từ 08/2026, 後期高齢者医療制度 (75 tuổi+) cũng đổi cách cấp 資格確認書 theo tuổi: đợt cấp đồng loạt 01/08/2026: 85 tuổi trở lên và 84 tuổi trở xuống CHƯA đăng ký マイナ保険証 nhận 資格確認書; 84 tuổi trở xuống **đã** đăng ký マイナ保険証 chỉ nhận 資格情報のお知らせ (giấy thông báo, không thay thế thẻ — phải dùng kèm My Number Card). Nếu không chắc mình nhận loại nào, hỏi 市役所/広域連合. Kiểm tra 厚労省.',
     sourceVerifiedAt: '2026-10-04',
     nextReviewAt: '2027-01-15',
     riskLevel: 'high',
@@ -140,7 +140,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
     {
       question: 'Người 75 tuổi trở lên (後期高齢者医療制度) có gì thay đổi từ 08/2026 không?',
       answer:
-        'Có — cách cấp 資格確認書 cho nhóm 後期高齢者医療制度 (75 tuổi+) đổi từ **01/08/2026**:\n\n• **85 tuổi trở lên**: được TỰ ĐỘNG cấp 資格確認書 trong đợt cấp đồng loạt 01/08/2026 — không cần xin.\n• **84 tuổi trở xuống CHƯA đăng ký マイナ保険証**: cũng được cấp 資格確認書.\n• **84 tuổi trở xuống ĐÃ đăng ký マイナ保険証**: chỉ nhận **資格情報のお知らせ** (giấy thông báo — KHÔNG thay thế thẻ bảo hiểm; chỉ dùng kèm My Number Card khi hệ thống online trục trặc). Chi tiết có thể khác theo 都道府県広域連合.\n\nNếu gia đình có người 75 tuổi trở lên không chắc đã nhận 資格確認書 hay chỉ nhận 資格情報のお知らせ — hỏi trực tiếp 市役所 hoặc 都道府県後期高齢者医療広域連合 để xin cấp. Đừng chờ đến lúc đi viện mới phát hiện thiếu giấy — người cao tuổi thường ít dùng マイナポータル nên dễ bị sót nhóm này.',
+        'Có — cách cấp 資格確認書 cho nhóm 後期高齢者医療制度 (75 tuổi+) đổi từ **01/08/2026**:\n\n• **85 tuổi trở lên**: được TỰ ĐỘNG cấp 資格確認書 trong đợt cấp đồng loạt 01/08/2026 — không cần xin.\n• **84 tuổi trở xuống CHƯA đăng ký マイナ保険証**: cũng được cấp 資格確認書.\n• **84 tuổi trở xuống **đã** đăng ký マイナ保険証**: chỉ nhận **資格情報のお知らせ** (giấy thông báo — KHÔNG thay thế thẻ bảo hiểm; chỉ dùng kèm My Number Card khi hệ thống online trục trặc). Chi tiết có thể khác theo 都道府県広域連合.\n\nNếu gia đình có người 75 tuổi trở lên không chắc đã nhận 資格確認書 hay chỉ nhận 資格情報のお知らせ — hỏi trực tiếp 市役所 hoặc 都道府県後期高齢者医療広域連合 để xin cấp. Đừng chờ đến lúc đi viện mới phát hiện thiếu giấy — người cao tuổi thường ít dùng マイナポータル nên dễ bị sót nhóm này.',
     },
     {
       question: 'Mất My Number Card / quên PIN → đi viện cần làm gì?',

@@ -95,7 +95,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí: hồ sơ tiếp nhận từ 01/10/2026 áp mức theo bậc thời hạn được cấp, ¥10,000–¥75,000 (quầy) / ¥10,000–¥65,000 (online) (xem mục Phí).',
     fees: [
-      'Nghị định (政令) sửa phí đã được Nội các quyết định ngày 25/8/2026 và ĐÃ ÁP DỤNG cho hồ sơ được tiếp nhận từ 01/10/2026. Phí đổi tư cách/gia hạn tính theo THỜI HẠN ĐƯỢC CẤP (許可される在留期間), không phải thời hạn còn lại của tư cách cũ.',
+      'Nghị định (政令) sửa phí đã được Nội các quyết định ngày 25/8/2026 và **đã áp dụng** cho hồ sơ được tiếp nhận từ 01/10/2026. Phí đổi tư cách/gia hạn tính theo THỜI HẠN ĐƯỢC CẤP (許可される在留期間), không phải thời hạn còn lại của tư cách cũ.',
       'Bảng phí khi được cấp phép (quầy / online): ≤3 tháng ¥10,000 / ¥10,000; >3–6 tháng ¥18,000 / ¥15,000; >6 tháng–dưới 1 năm ¥25,000 / ¥21,000; 1 năm ¥33,000 / ¥27,000; >1–dưới 3 năm ¥48,000 / ¥42,000; 3–dưới 5 năm ¥64,000 / ¥56,000; từ 5 năm ¥75,000 / ¥65,000. Riêng vĩnh trú (永住許可): ¥200,000.',
       'Hồ sơ đã tiếp nhận đến hết 30/9/2026 vẫn áp phí cũ ¥6,000 (quầy) / ¥5,500 (online), kể cả khi được cấp phép sau 1/10/2026.',
       'Phí chỉ nộp khi nhận kết quả CẤP PHÉP — bị từ chối thì không phải nộp. Tại quầy nộp bằng 収入印紙; hồ sơ online từ 01/10/2026 chỉ thanh toán qua コンビニ決済 hoặc Pay-easy (không dùng 収入印紙, không nhận thẻ tín dụng/QR; có thể mất thêm phí giao dịch khoảng ¥220–¥550).',
