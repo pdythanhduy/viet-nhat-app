@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const returnToVietnamChecklist: AdminGuide = {
     id: 'return-to-vietnam-checklist',
     category: 'immigration',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Checklist về nước / kết thúc hợp đồng',
     titleJp: '帰国・在留終了時の手続き',
@@ -13,8 +13,8 @@ const returnToVietnamChecklist: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Về nước/kết thúc cư trú liên quan nhiều cơ quan: municipal office cho 転出/住民登録 và bảo hiểm, ISA cho返納 thẻ cư trú khi xuất cảnh, Japan Pension Service cho 脱退一時金, ngân hàng/nhà mạng/cơ quan thuế cho hợp đồng và thuế.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn có kế hoạch quay lại Nhật và đang cân nhắc có nên nhận 脱退一時金 hay giữ lịch sử pension.',
@@ -63,7 +63,7 @@ const returnToVietnamChecklist: AdminGuide = {
     fees: [
       'Hầu hết thủ tục chuyển đi, hủy bảo hiểm miễn phí.',
       'Pension refund: bạn NHẬN LẠI một phần tiền đã đóng — không phải nộp thêm. Mức hoàn phụ thuộc số tháng đóng và lương; với kỳ đóng từ 2021/04 trở đi, trần tháng dùng để tính có thể là 60 tháng.',
-      'Sau khi nhận pension refund, Japan Pension Service khấu lưu 20.42% thuế. Người Việt Nam có thể nộp đơn xin hoàn thuế dựa trên hiệp định thuế VN–Nhật.',
+      'Phần 厚生年金 của pension refund bị khấu lưu 20.42% thuế. Có thể xin hoàn lại (toàn bộ hoặc một phần) bằng 確定申告 (退職所得の選択課税) thông qua 納税管理人 — nên chỉ định 納税管理人 trước khi rời Nhật.',
     ],
     documentsChecklist: [
       { label: 'Thẻ cư trú (在留カード)', required: true, note: 'Nộp lại tại cửa kiểm tra xuất nhập cảnh ở sân bay.' },
@@ -150,7 +150,7 @@ const returnToVietnamChecklist: AdminGuide = {
       {
         step: 5,
         title: 'Nộp đơn pension refund (脱退一時金) sau khi về nước',
-        description: 'Nộp đơn xin hoàn lại một phần tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật và không còn địa chỉ tại Nhật. Deadline là 2 năm kể từ ngày không còn địa chỉ tại Nhật/không còn tư cách tham gia pension theo điều kiện Japan Pension Service.\n\nĐiểm mới cần nhớ: nếu kỳ đóng pension thuộc giai đoạn áp dụng từ 2021/04 trở đi, số tháng tối đa dùng để tính 脱退一時金 là 60 tháng, không còn chỉ 36 tháng như quy định cũ. Sau khi nhận, phần 厚生年金 có thể bị khấu lưu thuế; nếu cần hoàn thuế Nhật, chuẩn bị 納税管理人 hoặc thủ tục thuế phù hợp trước/sau khi rời Nhật.',
+        description: 'Nộp đơn xin hoàn lại một phần tiền pension đã đóng trong thời gian ở Nhật. Phải nộp SAU khi đã rời Nhật và không còn địa chỉ tại Nhật. Deadline là 2 năm kể từ ngày không còn địa chỉ tại Nhật/không còn tư cách tham gia pension theo điều kiện Japan Pension Service.\n\nĐiểm mới cần nhớ: nếu kỳ đóng pension thuộc giai đoạn áp dụng từ 2021/04 trở đi, số tháng tối đa dùng để tính 脱退一時金 là 60 tháng, không còn chỉ 36 tháng như quy định cũ. Luật cải cách lương hưu ban hành 06/2025 có kế hoạch nâng trần này lên 8 năm, nhưng thời điểm áp dụng do 政令 quy định sau — kiểm tra trang Japan Pension Service tại thời điểm nộp. Sau khi nhận, phần 厚生年金 có thể bị khấu lưu thuế; nếu cần hoàn thuế Nhật, chuẩn bị 納税管理人 hoặc thủ tục thuế phù hợp trước/sau khi rời Nhật.',
         image: require('../../../../../assets/content/daily-life/dl_post-office_s1.jpg'),
         imageCaption: 'Gửi đơn 脱退一時金 qua bưu điện từ Việt Nam đến Japan Pension Service — dùng dịch vụ có số theo dõi',
         documents: [

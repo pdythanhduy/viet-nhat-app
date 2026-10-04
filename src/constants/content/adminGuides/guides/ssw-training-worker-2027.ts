@@ -3,19 +3,19 @@ import type { AdminGuide } from '../../../../types/content';
 const sswTrainingWorker2027: AdminGuide = {
     id: 'ssw-training-worker-2027',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: '特定技能 và luật 育成就労 mới',
     titleJp: '特定技能・育成就労制度',
     icon: 'construct',
     color: '#9B59B6',
-    description: 'Tổng quan về 特定技能 và hệ thống 育成就労 sẽ thay thế dần 技能実習. Năm 2026 là giai đoạn chuẩn bị thông tin, phần lớn hệ thống mới dự kiến vận hành từ 01/04/2027.',
+    description: 'Tổng quan về 特定技能 và hệ thống 育成就労 sẽ thay thế dần 技能実習. Năm 2026 là giai đoạn chuẩn bị (tổ chức/công ty đã bắt đầu nộp hồ sơ trước), hệ thống mới thi hành từ 01/04/2027.',
     legalScope: {
       appliesFrom: '2027-04-01',
       jurisdiction: 'national',
       jurisdictionNote: '制度 do ISA quản lý toàn quốc; điều kiện thực tế còn phụ thuộc lĩnh vực 特定技能, công ty tiếp nhận, cơ quan hỗ trợ và quy định chuyển tiếp.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-05',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn đang là 技能実習/特定技能 và bị yêu cầu ký giấy chuyển việc/chuyển chương trình.',
@@ -28,7 +28,7 @@ const sswTrainingWorker2027: AdminGuide = {
       office: 'ISA, công ty tiếp nhận, cơ quan hỗ trợ đăng ký, OTIT/FRESC hoặc 労働基準監督署 khi có tranh chấp.',
       doNow: [
         'Xác định tình trạng hiện tại: 技能実習, 特定技能1号, 特定技能2号 hay chuẩn bị đi mới.',
-        'Kiểm tra ngành/lĩnh vực thuộc 16 lĩnh vực 特定技能, không dùng danh sách 14 ngành cũ.',
+        'Kiểm tra ngành/lĩnh vực thuộc 16 lĩnh vực 特定技能 hiện hành (không dùng danh sách 14 ngành cũ); đã quyết định thêm 3 lĩnh vực mới — xem ISA.',
         'Giữ bản sao hợp đồng, bảng lương, lịch làm, khoản khấu trừ và tin nhắn trao đổi.',
       ],
       bring: ['Thẻ cư trú và hộ chiếu', 'Hợp đồng/điều kiện tiếp nhận', 'Thông tin công ty/cơ quan hỗ trợ', 'Bằng chứng lương, giờ làm, khấu trừ nếu có tranh chấp'],
@@ -75,7 +75,7 @@ const sswTrainingWorker2027: AdminGuide = {
     faq: [
       {
         question: '育成就労 đã áp dụng hoàn toàn trong năm 2026 chưa?',
-        answer: 'Theo thông tin ISA đã công bố, năm 2026 là giai đoạn chuẩn bị; phần lớn hệ thống mới dự kiến vận hành từ 01/04/2027. Người dùng cần kiểm tra lại nguồn chính thức trước khi quyết định.',
+        answer: 'Chưa. 育成就労 thi hành từ 01/04/2027. Trong 2026 chỉ có thủ tục nộp trước cho tổ chức/công ty: OTIT nhận hồ sơ 監理支援機関 từ 15/04/2026 và 育成就労計画 từ 01/09/2026. Người lao động không thể bắt đầu 育成就労 trước 01/04/2027.',
       },
       {
         question: '特定技能 1号 có tự động lên 2号 không?',
@@ -87,11 +87,11 @@ const sswTrainingWorker2027: AdminGuide = {
       },
       {
         question: 'Lương tối thiểu ở Nhật hiện tại là bao nhiêu?',
-        answer: 'Tính đến 21/08/2026, mức đang có hiệu lực (từ 10/2025) vẫn là: toàn quốc bình quân gia quyền (全国加重平均) **¥1,121/giờ**, Tokyo **¥1,226/giờ**.\n\n⚠️ **SẮP TĂNG**: 中央最低賃金審議会 đã công bố mục tiêu (目安) cho **令和8年度/2026** ngày 28/07/2026: bình quân toàn quốc **¥1,176/giờ** (+55円, +4.9%), Tokyo thuộc nhóm hạng A nên dự kiến **¥1,280/giờ** (+54円). Đây là mục tiêu trung ương — từng tỉnh đang lần lượt chốt số chính thức qua hội đồng địa phương (地方最低賃金審議会); phần lớn tỉnh đã công bố theo đúng mục tiêu tính đến giữa 08/2026. Hiệu lực dự kiến áp dụng từ khoảng **01/10/2026** (ngày cụ thể khác nhau theo tỉnh).\n\nMức lương tối thiểu (dù cũ hay mới) áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能 và 育成就労. Nếu bị trả dưới mức đang có hiệu lực tại thời điểm đó, bạn có quyền khiếu nại lên 労働基準監督署.',
+        answer: 'Lương tối thiểu theo tỉnh (地域別最低賃金) **năm tài khóa 2026 (令和8年度)** đã được tất cả 47 tỉnh quyết định: bình quân gia quyền toàn quốc **¥1,177/giờ** (+56円 so với ¥1,121 năm 2025). Mức cao nhất là Tokyo **¥1,280/giờ** (áp dụng từ 01/10/2026), thấp nhất ¥1,085/giờ.\n\n⚠️ **Ngày áp dụng khác nhau theo tỉnh**: rải rác từ **01/10/2026 đến 02/12/2026** (một số tỉnh áp dụng từ tháng 11 hoặc 12). Trước ngày áp dụng của tỉnh bạn, mức cũ năm 2025 vẫn có hiệu lực. Tra mức và ngày áp dụng của tỉnh mình trên trang MHLW (地域別最低賃金の全国一覧).\n\nMức lương tối thiểu áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 技能実習, 特定技能 và 育成就労. Nếu bị trả dưới mức đang có hiệu lực tại thời điểm đó, bạn có quyền khiếu nại lên 労働基準監督署.',
       },
       {
         question: '特定技能 có những ngành nào?',
-        answer: 'Theo ISA, sau quyết định 29/03/2024, 特定技能 mở rộng lên **16 lĩnh vực**: 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 農業, 漁業, 飲食料品製造業, 外食業, 自動車運送業, 鉄道, 林業, 木材産業. Bốn lĩnh vực được thêm là 自動車運送業, 鉄道, 林業, 木材産業.',
+        answer: 'Theo ISA, sau quyết định 29/03/2024, 特定技能 mở rộng lên **16 lĩnh vực**: 介護, ビルクリーニング, 工業製品製造業, 建設, 造船・舶用工業, 自動車整備, 航空, 宿泊, 農業, 漁業, 飲食料品製造業, 外食業, 自動車運送業, 鉄道, 林業, 木材産業. Bốn lĩnh vực được thêm là 自動車運送業, 鉄道, 林業, 木材産業.\n\nNgày 23/01/2026, 分野別運用方針 cho 特定技能 và 育成就労 được 閣議決定, bổ sung thêm 3 lĩnh vực 特定技能: リネンサプライ, 物流倉庫, 資源循環 (tổng 19). Thời điểm bắt đầu tiếp nhận các lĩnh vực mới — kiểm tra trang ISA.',
       },
     ],
     officialLinks: [
@@ -100,13 +100,13 @@ const sswTrainingWorker2027: AdminGuide = {
       { label: '特定技能制度 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/index.html' },
       { label: '特定技能の対象分野等の追加 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/ssw/2024.03.29.kakugikettei.html?hl=vi' },
       { label: 'Specified Skilled Worker Program — ISA', url: 'https://www.ssw.go.jp/en/' },
-      { label: '令和8年度地域別最低賃金額改定の目安について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/newpage_74920.html' },
+      { label: '地域別最低賃金の全国一覧 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/' },
     ],
     steps: [
       {
         step: 1,
         title: '特定技能 1号 / 2号',
-        description: '特定技能 là tư cách làm việc trong ngành được chỉ định. 特定技能1号 có giới hạn tổng thời gian nguyên tắc 5 năm; 特定技能2号 có phạm vi và điều kiện khác, cần kiểm tra theo ngành.',
+        description: '特定技能 là tư cách làm việc trong ngành được chỉ định. 特定技能1号 có giới hạn tổng thời gian nguyên tắc 5 năm (từ 30/09/2025 có ngoại lệ tối đa 6 năm cho người trượt thi 2号 đạt điều kiện); 特定技能2号 có phạm vi và điều kiện khác, cần kiểm tra theo ngành.',
         documents: [
           'Ngành nghề tiếp nhận',
           'Kết quả kỹ năng/tiếng Nhật nếu cần',
@@ -117,7 +117,7 @@ const sswTrainingWorker2027: AdminGuide = {
       {
         step: 2,
         title: '育成就労 sẽ thay thế 技能実習',
-        description: 'Luật tạo hệ thống 育成就労 đã được công bố. Theo ISA, phần lớn việc vận hành hệ thống mới và sửa đổi 特定技能 dự kiến bắt đầu từ 01/04/2027.',
+        description: 'Luật tạo hệ thống 育成就労 đã được công bố; ngày thi hành 01/04/2027 đã được 閣議決定 (26/09/2025). Theo 経過措置, 技能実習 có kế hoạch nộp đến 31/03/2027 và bắt đầu đến 30/06/2027 vẫn được tiếp tục theo khung cũ.',
         documents: [],
         tip: 'Không nên hiểu là 技能実習 đã kết thúc toàn bộ trong năm 2026. Đây là giai đoạn chuyển tiếp và chuẩn bị quy định chi tiết.',
       },

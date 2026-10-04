@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const driversLicense: AdminGuide = {
     id: 'drivers-license',
     category: 'license',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Đổi bằng lái xe',
     titleJp: '外国免許切替（外免切替）',
@@ -27,8 +27,8 @@ const driversLicense: AdminGuide = {
       appliesFrom: '2025-10-01',
       jurisdiction: 'mixed',
       jurisdictionNote: 'Sửa đổi thủ tục là toàn quốc, nhưng lịch hẹn, cách nộp và hướng dẫn chi tiết do từng trung tâm cấp phép lái xe/tỉnh thành công bố.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn không có đủ hộ chiếu cũ/dấu xuất nhập cảnh để chứng minh 3 tháng sau ngày cấp bằng.',
