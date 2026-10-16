@@ -195,6 +195,9 @@ const paternityParentalLeaveFathers: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
+    { label: '育児・介護休業法について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000130583.html' },
+    { label: '育児休業等給付について — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000135090_00001.html' },
+    { label: 'イクメンプロジェクト — 厚生労働省', url: 'https://ikumen-project.mhlw.go.jp/' },
   ],
   steps: [
     {

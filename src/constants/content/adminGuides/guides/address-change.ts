@@ -120,6 +120,8 @@ const addressChange: AdminGuide = {
     ],
     officialLinks: [
       { label: '住居地の届出 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00023.html' },
+      { label: '引越し手続オンラインサービス — デジタル庁', url: 'https://www.digital.go.jp/policies/moving_onestop_service' },
+      { label: '生活・就労ガイドブック（ベトナム語あり）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/guidebook_all.html' },
     ],
     steps: [
       {

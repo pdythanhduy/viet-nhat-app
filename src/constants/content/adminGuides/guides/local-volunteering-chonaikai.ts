@@ -193,6 +193,8 @@ const localVolunteeringChonaikai: AdminGuide = {
   ],
   officialLinks: [
     { label: '総務省', url: 'https://www.soumu.go.jp/' },
+    { label: '地域福祉・ボランティア情報ネットワーク — 全国社会福祉協議会', url: 'https://www.zcwvc.net/' },
+    { label: '多言語生活情報 — 自治体国際化協会 (CLAIR)', url: 'https://www.clair.or.jp/tagengo/' },
   ],
   steps: [
     {

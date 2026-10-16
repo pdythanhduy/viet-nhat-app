@@ -199,6 +199,10 @@ const mentalHealthStressSupport: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省 — メンタルヘルス', url: 'https://www.mhlw.go.jp/' },
+    { label: 'まもろうよ こころ（相談窓口一覧）— 厚生労働省', url: 'https://www.mhlw.go.jp/mamorouyokokoro/' },
+    { label: 'こころの耳（働く人のメンタルヘルス）— 厚生労働省', url: 'https://kokoro.mhlw.go.jp/' },
+    { label: 'よりそいホットライン（外国語対応あり）', url: 'https://www.since2011.net/yorisoi/' },
+    { label: 'TELL Lifeline（英語の電話相談）', url: 'https://telljp.com/lifeline/' },
   ],
   steps: [
     {

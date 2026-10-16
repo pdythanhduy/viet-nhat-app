@@ -191,6 +191,9 @@ const foreignResidentSupportCenters: AdminGuide = {
   ],
   officialLinks: [
     { label: 'FRESC (出入国在留管理庁)', url: 'https://www.moj.go.jp/isa/' },
+    { label: '外国人在留支援センター (FRESC) — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/fresc/fresc01.html' },
+    { label: '相談窓口の検索 — 外国人生活支援ポータルサイト', url: 'https://www.moj.go.jp/isa/support/portal/12_00227.html' },
+    { label: '多言語生活情報 — 自治体国際化協会 (CLAIR)', url: 'https://www.clair.or.jp/tagengo/' },
   ],
   steps: [
     {

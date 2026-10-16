@@ -197,6 +197,8 @@ const pharmacyPrescriptionGuide: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
+    { label: '電子処方箋 — 厚生労働省', url: 'https://www.mhlw.go.jp/stf/denshishohousen.html' },
+    { label: '日本薬剤師会', url: 'https://www.nichiyaku.or.jp/' },
   ],
   steps: [
     {

@@ -192,6 +192,9 @@ const freeJapaneseClassesLocal: AdminGuide = {
   ],
   officialLinks: [
     { label: '文部科学省 (MEXT)', url: 'https://www.mext.go.jp/' },
+    { label: 'つながるひろがる にほんごでのくらし — 文化庁', url: 'https://tsunagarujp.mext.go.jp/' },
+    { label: '日本語教育 — 文化庁', url: 'https://www.bunka.go.jp/seisaku/kokugo_nihongo/kyoiku/' },
+    { label: '外国人生活支援ポータルサイト — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/index.html' },
   ],
   steps: [
     {

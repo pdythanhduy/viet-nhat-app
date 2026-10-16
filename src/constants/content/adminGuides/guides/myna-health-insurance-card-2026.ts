@@ -243,6 +243,7 @@ const mynaHealthInsuranceCard2026: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省 — マイナ保険証', url: 'https://www.mhlw.go.jp/stf/index_16745.html' },
+    { label: 'マイナンバーカードの健康保険証利用 — デジタル庁', url: 'https://www.digital.go.jp/policies/mynumber/insurance-card' },
   ],
   steps: [
     {

@@ -188,6 +188,8 @@ const medicalInterpretationMultilingualHospitals: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
+    { label: '外国人患者を受け入れる医療機関リスト — JNTO', url: 'https://www.jnto.go.jp/emergency/eng/mi_guide.html' },
+    { label: 'AMDA国際医療情報センター（多言語の医療相談）', url: 'https://www.amdamedicalcenter.com/' },
   ],
   steps: [
     {

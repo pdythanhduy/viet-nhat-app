@@ -194,6 +194,8 @@ const pointCardsCouponsJapan: AdminGuide = {
   ],
   officialLinks: [
     { label: '総務省 (MIC) — 個人情報保護法', url: 'https://www.soumu.go.jp/' },
+    { label: '個人情報保護委員会', url: 'https://www.ppc.go.jp/' },
+    { label: '消費者庁', url: 'https://www.caa.go.jp/' },
   ],
   steps: [
     {

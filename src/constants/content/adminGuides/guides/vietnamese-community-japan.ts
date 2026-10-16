@@ -180,6 +180,9 @@ const vietnameseCommunityJapan: AdminGuide = {
   ],
   officialLinks: [
     { label: 'Đại sứ quán Việt Nam tại Tokyo', url: 'https://vnembassy-jp.org/' },
+    { label: 'Tổng Lãnh sự quán Việt Nam tại Osaka', url: 'https://vnconsulate-osaka.org/' },
+    { label: 'Tổng Lãnh sự quán Việt Nam tại Fukuoka', url: 'https://vnconsulate-fukuoka.org/' },
+    { label: '外国人生活支援ポータルサイト — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/support/portal/index.html' },
   ],
   steps: [
     {

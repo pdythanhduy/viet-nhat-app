@@ -192,6 +192,8 @@ const japaneseSchoolSystemChildren: AdminGuide = {
   ],
   officialLinks: [
     { label: '文部科学省 (MEXT)', url: 'https://www.mext.go.jp/' },
+    { label: '外国人児童生徒のための就学ガイドブック — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/clarinet/003/1320860.htm' },
+    { label: '帰国・外国人児童生徒教育情報 (CLARINET) — 文部科学省', url: 'https://www.mext.go.jp/a_menu/shotou/clarinet/' },
   ],
   steps: [
     {

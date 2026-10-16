@@ -191,6 +191,9 @@ const holidayNightMedicalCare: AdminGuide = {
   ],
   officialLinks: [
     { label: '総務省消防庁', url: 'https://www.fdma.go.jp/' },
+    { label: '全国版救急受診アプリ「Q助」— 総務省消防庁', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate003.html' },
+    { label: '子ども医療電話相談事業（#8000）— 厚生労働省', url: 'https://www.mhlw.go.jp/topics/2006/10/tp1010-3.html' },
+    { label: '外国人患者を受け入れる医療機関リスト — JNTO', url: 'https://www.jnto.go.jp/emergency/eng/mi_guide.html' },
   ],
   steps: [
     {

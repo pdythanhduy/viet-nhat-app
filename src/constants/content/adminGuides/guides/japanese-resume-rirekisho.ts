@@ -186,6 +186,8 @@ const japaneseResumeRirekisho: AdminGuide = {
   ],
   officialLinks: [
     { label: '厚生労働省', url: 'https://www.mhlw.go.jp/' },
+    { label: 'ハローワークインターネットサービス — 厚生労働省', url: 'https://www.hellowork.mhlw.go.jp/' },
+    { label: '公正な採用選考をめざして — 厚生労働省', url: 'https://kouseisaiyou.mhlw.go.jp/' },
   ],
   steps: [
     {
