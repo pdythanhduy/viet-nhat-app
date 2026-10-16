@@ -23,3 +23,6 @@ content/jlpt/
 marketing/
 supabase/.temp/
 .claude/
+
+store.config.json
+store/

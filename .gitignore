@@ -18,3 +18,7 @@ web-build/
 # Free N5 gets bundled as TS; paid N4–N1 are uploaded to Supabase — the raw
 # JSON output itself is not committed.
 content/jlpt/
+
+# EAS metadata (contains App Review demo credentials) — never commit
+store.config.json
+store/
