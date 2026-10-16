@@ -111,6 +111,7 @@ deserves UI emphasis; if `search` dominates, keep tuning ranking.
 | Event | Props | When fires |
 |---|---|---|
 | `guide_share` | `guide_id`, `completed` | User taps the share icon on `AdminDetailScreen` and the OS share sheet returns. `completed: true` when the share went through (regardless of destination — we don't know if it went to Zalo / Messenger / SMS / copy). `completed: false` on user cancel or platform throw |
+| `review_prompt_shown` | `guides_read` | User leaves a guide after reading ≥3 distinct guides and the 120-day cooldown has passed; the app asks the OS for the rating sheet (the OS may still not show it) |
 
 The destination app is intentionally NOT tracked — the OS owns that information, and forwarding it would expand the privacy surface for no product benefit.
 

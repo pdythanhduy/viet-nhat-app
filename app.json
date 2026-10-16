@@ -2,7 +2,7 @@
   "expo": {
     "name": "Cẩm Nang Việt Nhật",
     "slug": "viet-nhat-app",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -16,6 +16,8 @@
       "bundleIdentifier": "com.thanhduy.camnangvietnhat",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleDevelopmentRegion": "vi",
+        "CFBundleLocalizations": ["vi", "ja", "en"],
         "NSUserNotificationsUsageDescription": "Ứng dụng dùng thông báo để nhắc ngày quan trọng như giấy tờ sắp hết hạn, deadline thủ tục, và nhắc học theo lựa chọn của bạn."
       }
     },

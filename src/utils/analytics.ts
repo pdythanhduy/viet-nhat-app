@@ -173,6 +173,9 @@ export type EventMap = {
   // sheet decides the destination — we do NOT track which app received
   // the share (no Zalo/Messenger/SMS attribution).
   guide_share: { guide_id: string; completed: boolean };
+  // Fires when the app asks the OS to show the rating sheet
+  // (src/utils/reviewPrompt.ts). The OS may still decide not to show it.
+  review_prompt_shown: { guides_read: number };
 };
 
 let initialized = false;

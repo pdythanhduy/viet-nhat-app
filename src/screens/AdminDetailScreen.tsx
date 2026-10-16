@@ -45,6 +45,7 @@ import { logGuideOpened, logBookmarkToggled, logHtmlExported } from '../utils/an
 import { shareGuide } from '../utils/shareGuide';
 import { getRelatedGuides } from '../utils/searchIndex';
 import { recordRecentlyViewedGuide } from '../utils/recentlyViewedGuides';
+import { maybeRequestReview, recordGuideReadForReview } from '../utils/reviewPrompt';
 import type { AdminGuideJurisdiction, AdminGuideRiskLevel, OfficialFormLink } from '../types/content';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -143,7 +144,13 @@ export default function AdminDetailScreen() {
       // intentionally fire-and-forget — a failure here must not block the
       // guide from rendering.
       recordRecentlyViewedGuide(guide.id).catch(() => {});
+      recordGuideReadForReview(guide.id).catch(() => {});
     }
+    // Leaving a guide is the natural moment to ask for a rating —
+    // never interrupt the user mid-read.
+    return () => {
+      if (guide) maybeRequestReview().catch(() => {});
+    };
   }, [guide?.id]);
 
   const {

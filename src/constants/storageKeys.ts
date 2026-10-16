@@ -21,4 +21,5 @@ export const StorageKeys = {
   storyStreak: 'story_streak_v1',
   japaneseStreak: 'japanese_streak_v1',
   furiganaReaderSession: 'furigana_reader_session_v1',
+  reviewPromptState: 'review_prompt_state_v1',
 } as const;
