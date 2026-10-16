@@ -1,12 +1,104 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=./support.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Viet Nhat Docs</title>
+    <title>Cẩm Nang Việt Nhật</title>
+    <meta name="description" content="Hướng dẫn thủ tục, visa, thuế, nenkin và đời sống cho người Việt ở Nhật — bằng tiếng Việt, có nguồn chính thức. Miễn phí, không quảng cáo." />
+    <meta property="og:title" content="Cẩm Nang Việt Nhật — sống ở Nhật dễ hơn" />
+    <meta property="og:description" content="Hơn 120 hướng dẫn thủ tục, visa, thuế, nenkin, bảo hiểm cho người Việt ở Nhật. Miễn phí, không quảng cáo." />
+    <meta property="og:type" content="website" />
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --surface: #ffffff;
+        --text: #16324f;
+        --muted: #5e6c84;
+        --primary: #185fa5;
+        --border: #d7e0ea;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f1a26;
+          --surface: #172636;
+          --text: #e6eef7;
+          --muted: #9fb1c5;
+          --primary: #5aa3ea;
+          --border: #2a3d52;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      main { max-width: 560px; margin: 0 auto; padding: 40px 16px 56px; }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 28px 24px;
+        text-align: center;
+      }
+      img.icon { width: 96px; height: 96px; border-radius: 22px; }
+      h1 { font-size: 1.6rem; margin: 16px 0 4px; }
+      .lead { color: var(--muted); margin: 0 0 24px; }
+      .btn {
+        display: block;
+        background: var(--primary);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 18px;
+        border-radius: 10px;
+        margin: 0 0 12px;
+      }
+      .note { color: var(--muted); font-size: 0.92rem; margin: 4px 0 0; }
+      ul { text-align: left; padding-left: 20px; margin: 24px 0 0; }
+      li { margin: 6px 0; }
+      footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
+      footer a { color: var(--muted); }
+    </style>
   </head>
   <body>
-    <p>Redirecting to <a href="./support.html">support page</a>...</p>
+    <main>
+      <div class="card">
+        <img class="icon" src="./app-icon.png" alt="" />
+        <h1>Cẩm Nang Việt Nhật</h1>
+        <p class="lead">Thủ tục, visa, thuế và đời sống ở Nhật — bằng tiếng Việt.</p>
+
+        <a id="ios" class="btn" href="https://apps.apple.com/jp/app/id6762459919">Tải trên App Store (iPhone)</a>
+        <p class="note">Bản Android đang được chuẩn bị, sắp có trên Google Play.</p>
+
+        <ul>
+          <li>Hơn 120 hướng dẫn: thẻ cư trú, gia hạn visa, vĩnh trú, nenkin, thuế, bảo hiểm…</li>
+          <li>Có nguồn chính thức (出入国在留管理庁, 厚生労働省…) và ngày cập nhật</li>
+          <li>Câu tiếng Nhật nói tại quầy, checklist giấy tờ, nhắc hạn visa</li>
+          <li>Miễn phí, không quảng cáo, dữ liệu lưu trên máy</li>
+        </ul>
+      </div>
+      <footer>
+        <a href="./support.html">Hỗ trợ</a> · <a href="./privacy-policy.html">Chính sách bảo mật</a> · <a href="./terms.html">Điều khoản</a>
+      </footer>
+    </main>
+    <script>
+      (function () {
+        // App Store campaign token: App Store Connect → Analytics → Sources →
+        // Campaigns → "Generate a Campaign Link" shows `pt=`. Leave empty
+        // until filled; then ?src=tiktok / ?src=share appear as campaigns.
+        var PROVIDER_TOKEN = '';
+        var src = (new URLSearchParams(location.search).get('src') || 'web').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
+        var url = 'https://apps.apple.com/jp/app/id6762459919';
+        if (PROVIDER_TOKEN) url += '?pt=' + PROVIDER_TOKEN + '&ct=' + src + '&mt=8';
+        document.getElementById('ios').href = url;
+        // iPhone / iPad visitors go straight to the store page.
+        var ua = navigator.userAgent;
+        var isIOS = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf('Macintosh') > -1 && 'ontouchend' in document);
+        if (isIOS) location.replace(url);
+      })();
+    </script>
   </body>
 </html>

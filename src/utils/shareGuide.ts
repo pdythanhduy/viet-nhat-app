@@ -18,9 +18,11 @@ import { track } from './analytics';
 // chooses the destination — the app doesn't know whether the user
 // shared to Messenger, Zalo, SMS, or copy-to-clipboard.
 
-// Will be replaced with a real universal/app link in a later phase.
-// For now, point to the App Store + Play Store landing.
-const MARKETING_URL = 'https://camnangvietnhat.app';
+// Download landing on GitHub Pages (docs/index.html). It sends iPhone
+// visitors straight to the App Store and shows the store buttons to
+// everyone else, so the link works whatever device the recipient uses.
+// `src=share` lets the landing tag the App Store campaign.
+const MARKETING_URL = 'https://pdythanhduy.github.io/viet-nhat-app/?src=share';
 
 export interface ShareGuidePayload {
   guideId: string;
