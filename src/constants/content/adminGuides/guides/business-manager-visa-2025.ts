@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const businessManagerVisa2025: AdminGuide = {
     id: 'business-manager-visa-2025',
     category: 'visa',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-10-16',
     priority: 'normal',
     title: 'Visa kinh doanh/quản lý: tiêu chuẩn mới',
     titleJp: '経営・管理の許可基準改正',
@@ -49,8 +49,8 @@ const businessManagerVisa2025: AdminGuide = {
       appliesFrom: '2025-10-16',
       jurisdiction: 'national',
       jurisdictionNote: 'Tiêu chuẩn do ISA áp dụng toàn quốc; hồ sơ thực tế còn phụ thuộc loại nộp COE/đổi tư cách/gia hạn và category doanh nghiệp.',
-      sourceVerifiedAt: '2026-05-16',
-      nextReviewAt: '2026-10-16',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn định góp vốn, thuê văn phòng hoặc ký hợp đồng trước khi biết có đáp ứng tiêu chuẩn mới không.',
@@ -89,7 +89,7 @@ const businessManagerVisa2025: AdminGuide = {
     ],
     estimatedTime: 'Đây là hồ sơ rủi ro cao và cần chuẩn bị trước nhiều tháng. Thời gian xét phụ thuộc hồ sơ, khu vực, category công ty và yêu cầu bổ sung của ISA.',
     fees: [
-      'Lệ phí lưu trú nộp theo bảng phí ISA áp dụng tại thời điểm nhận kết quả.',
+      'Lệ phí ISA khi được cấp phép (hồ sơ nộp từ 01/10/2026): tính theo thời hạn được cấp — online 10,000–65,000 yên, tại quầy 10,000–75,000 yên (1 năm: 27,000 / 33,000 yên). COE không mất phí.',
       'Chi phí lớn nhất thường không phải lệ phí ISA mà là vốn, văn phòng, nhân sự, kế toán/thuế, bảo hiểm xã hội và dịch vụ chuyên môn.',
     ],
     documentsChecklist: [
@@ -119,7 +119,7 @@ const businessManagerVisa2025: AdminGuide = {
       },
       {
         question: 'Ai phải có tiếng Nhật B2?',
-        answer: 'ISA nêu người xin hoặc một nhân viên toàn thời gian được tính phải có năng lực tiếng Nhật tương đương CEFR B2. Vì vậy cần xác định ngay từ đầu ai là người dùng để chứng minh điều kiện này.',
+        answer: 'Người xin HOẶC một nhân viên toàn thời gian phải có tiếng Nhật tương đương B2. Riêng ở yêu cầu tiếng Nhật này, nhân viên toàn thời gian có thể là người nước ngoài visa lao động thông thường (vd 技人国) — khác với yêu cầu "1 常勤職員" về tuyển dụng, nơi chỉ tính người Nhật / 永住 / 定住 / diện vợ chồng.\n\nCách chứng minh (một trong các cách): JLPT **N2 trở lên**; BJT **400 điểm trở lên**; đã ở Nhật diện trung–dài hạn **từ 20 năm**; tốt nghiệp đại học / cao đẳng ở Nhật; hoặc học hết giáo dục bắt buộc và tốt nghiệp cấp 3 ở Nhật.',
       },
       {
         question: 'Kế hoạch kinh doanh cần ai xác nhận?',
@@ -127,7 +127,7 @@ const businessManagerVisa2025: AdminGuide = {
       },
       {
         question: 'Đang có 経営・管理 trước 16/10/2025 thì sao?',
-        answer: 'Không nên tự kết luận hồ sơ gia hạn chắc chắn bị rớt hoặc chắc chắn được gia hạn. ISA có thông báo riêng cho người gia hạn; cần đối chiếu tình trạng kinh doanh, khả năng đáp ứng tiêu chuẩn mới và giấy tờ theo thời điểm nộp.',
+        answer: 'Có thời gian chuyển tiếp 3 năm. Đến hết **16/10/2028**, hồ sơ gia hạn của người đang có 経営・管理 sẽ KHÔNG bị từ chối chỉ vì chưa đáp ứng tiêu chuẩn mới — ISA xét theo tình hình kinh doanh và khả năng đáp ứng tiêu chuẩn mới. ISA cũng nói rõ tin "không có 3,000万円 thì phải về nước" là KHÔNG đúng.\n\nTừ sau 16/10/2028, gia hạn về nguyên tắc phải đáp ứng tiêu chuẩn mới (có ngoại lệ hẹp nếu kinh doanh ổn định, nộp thuế đầy đủ và có khả năng đáp ứng trước lần gia hạn tiếp theo). Nên dùng 2 năm tới để chuẩn bị vốn, nhân sự và tiếng Nhật.',
       },
     ],
     counterPhrases: [
@@ -185,13 +185,13 @@ const businessManagerVisa2025: AdminGuide = {
         term: '常勤職員',
         reading: 'じょうきんしょくいん',
         meaningVi: 'nhân viên toàn thời gian (theo định nghĩa ISA)',
-        noteVi: 'KHÔNG phải mọi người làm fulltime đều được tính. Nhóm được tính: 日本人 / 特別永住者 / 永住者 / 日本人の配偶者等 / 永住者の配偶者等 / 定住者. Người 技人国 / 留学 / 特定技能 / 家族滞在 **KHÔNG** được tính. Hợp đồng phải là 正社員 hoặc tương đương, không phải arubaito.',
+        noteVi: 'Với yêu cầu tuyển ít nhất 1 người: chỉ tính 日本人 / 特別永住者 / 永住者 / 日本人の配偶者等 / 永住者の配偶者等 / 定住者 — người 技人国 / 留学 / 特定技能 / 家族滞在 **KHÔNG** được tính. Nhưng với yêu cầu tiếng Nhật B2, nhân viên toàn thời gian visa lao động (vd 技人国) có N2 thì VẪN được tính. Hợp đồng phải là toàn thời gian, không phải arubaito.',
       },
       {
         term: 'CEFR B2',
         reading: 'CEFR B2',
         meaningVi: 'cấp độ tiếng Nhật tương đương trung-cao',
-        noteVi: 'JLPT N2 hoặc N1 = đạt B2. Người xin HOẶC 1 常勤職員 phải đạt — không phải mọi nhân viên. Đây là yêu cầu mới từ 16/10/2025 mà nhiều hồ sơ cũ không có. Chứng chỉ JLPT bản gốc + bản dịch nếu cần.',
+        noteVi: 'Chứng minh bằng JLPT N2 trở lên, BJT 400 điểm trở lên, 20 năm ở Nhật diện trung–dài hạn, tốt nghiệp đại học/cao đẳng ở Nhật, hoặc học hết giáo dục bắt buộc + cấp 3 ở Nhật. Người xin HOẶC 1 nhân viên toàn thời gian phải đạt (nhân viên visa 技人国 cũng được tính cho yêu cầu này).',
       },
       {
         term: '事業計画書',

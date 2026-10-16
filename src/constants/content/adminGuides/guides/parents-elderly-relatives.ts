@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const parentsElderlyRelatives: AdminGuide = {
     id: 'parents-elderly-relatives',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Bảo lãnh cha mẹ / người thân lớn tuổi',
     titleJp: '親の呼び寄せ・高齢親族の在留',
@@ -13,8 +13,8 @@ const parentsElderlyRelatives: AdminGuide = {
     legalScope: {
       jurisdiction: 'mixed',
       jurisdictionNote: 'Ở dài hạn theo ngoại lệ cha mẹ của 高度専門職 do ISA xét; thăm thân ngắn hạn do cơ quan lãnh sự Nhật ở ngoài Nhật xét theo hồ sơ visa ngắn hạn.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-04-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Gia đình muốn cha mẹ ở Nhật lâu dài nhưng bạn không thuộc 高度専門職 hoặc special highly skilled professional.',
@@ -58,7 +58,7 @@ const parentsElderlyRelatives: AdminGuide = {
     estimatedTime: 'Không có một mốc chung cho mọi trường hợp vì phần lớn nhu cầu “đưa cha mẹ sang ở lâu dài” sẽ không đi theo diện thông thường. Nếu thuộc ngoại lệ 高度専門職, quy trình thực tế thường vẫn xoay quanh COE và thời gian xử lý của ISA cộng thêm thời gian xin visa ở cơ quan lãnh sự.',
     fees: [
       'Không nên kỳ vọng có một “gói bảo lãnh cha mẹ” tiêu chuẩn như vợ/chồng/con.',
-      'Nếu chỉ là visa ngắn hạn thăm thân, phí visa theo bảng phí lãnh sự hiện hành của MOFA tại thời điểm nộp.',
+      'Nếu chỉ là visa ngắn hạn thăm thân: phí visa Nhật tại Đại sứ quán / Lãnh sự quán tăng từ hồ sơ nộp 01/07/2026 (1 lần nhập cảnh 15,000 yên, nhiều lần 30,000 yên — thu bằng tiền đồng theo tỷ giá). Kiểm tra bảng phí tại nơi nộp.',
       'Nếu thuộc diện ngoại lệ dùng COE/在留資格, chi phí dịch thuật, hộ tịch, công chứng và chuyển phát có thể phát sinh riêng.',
     ],
     documentsChecklist: [
@@ -91,7 +91,7 @@ const parentsElderlyRelatives: AdminGuide = {
       },
       {
         question: 'Có phải cứ là 高度専門職 thì cha mẹ nào cũng sang được không?',
-        answer: 'Không. ISA nêu thêm các điều kiện như phải sống cùng, phải có thu nhập hộ gia đình từ 8 triệu yên trở lên và phải thuộc đúng mục đích hỗ trợ được phép. Đây không phải diện để đưa cha mẹ sang sống lâu dài vì tuổi già hay chăm sóc thông thường ngoài phạm vi quy định.',
+        answer: 'Không. Theo ISA:\n• Cha/mẹ phải SỐNG CÙNG người 高度専門職.\n• Thu nhập hộ (dự kiến) từ **8 triệu yên/năm** trở lên — chỉ tính lương của người 高度専門職 + vợ/chồng. Điều kiện này xét cả lúc xin COE, đổi tư cách và gia hạn.\n• Chỉ cha mẹ của MỘT bên: cha mẹ bạn HOẶC cha mẹ vợ/chồng bạn — không được cả hai bên cùng lúc.\n• Mục đích chỉ là chăm con dưới 7 tuổi hoặc hỗ trợ người đang mang thai, và phải dự kiến chăm liên tục từ 3 tháng trở lên.\n\nĐây không phải diện để đưa cha mẹ sang dưỡng già.',
       },
       {
         question: 'Người thân lớn tuổi khác như anh/chị/em, cô/chú, ông/bà có diện bảo lãnh dài hạn riêng không?',
