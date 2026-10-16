@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const residenceCard: AdminGuide = {
     id: 'residence-card',
     category: 'immigration',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Gia hạn visa / thời hạn lưu trú',
     titleJp: '在留期間更新許可申請',
@@ -43,8 +43,8 @@ const residenceCard: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Thủ tục 在留期間更新許可申請 do ISA xử lý toàn quốc; giấy tờ phụ thuộc tư cách lưu trú, nơi cư trú/làm việc/học tập và tình trạng hồ sơ.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-09-25',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn sắp hết hạn lưu trú nhưng đã đổi việc, nghỉ học, nợ thuế/bảo hiểm hoặc hoạt động thực tế khác với tư cách đang có.',
@@ -90,10 +90,10 @@ const residenceCard: AdminGuide = {
     ],
     estimatedTime: 'Thời gian xét duyệt thay đổi theo hồ sơ và khu vực. Nhiều hồ sơ mất vài tuần đến vài tháng; nếu bị yêu cầu bổ sung giấy tờ sẽ lâu hơn.',
     fees: [
-      'Nếu được cấp phép: 6.000 yên khi làm thủ tục thường, hoặc 5.500 yên nếu là online application theo mức ISA áp dụng từ 01/04/2025.',
+      'Nếu được cấp phép (hồ sơ nộp từ 01/10/2026): phí tùy thời hạn được cấp — online 10,000–65,000 yên, tại quầy 10,000–75,000 yên (1 năm: 27,000 / 33,000 yên).',
       'Không nên dựa vào mức phí cũ 4.000 yên hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả.',
       'Thông thường phí được nộp khi nhận kết quả được cấp phép, không phải lúc nộp hồ sơ.',
-      'LƯU Ý: Chính phủ đang lấy ý kiến một nghị định (政令) mới quy định phí theo BẬC (khoảng 1万–7.5万円 tùy thời hạn còn lại của tư cách lưu trú, thay cho mức cố định 6.000/5.500 yên hiện tại), dự kiến hiệu lực từ 2026-10-01 nhưng tại 2026-08-21 vẫn CHƯA công bố chính thức trên 官報. Nếu bạn nộp hồ sơ gần mốc 10/2026, kiểm tra kỹ mức phí mới nhất tại ISA. Xem chi tiết ở guide [[visa-fee-increase-2025-2026]].',
+      'Từ hồ sơ nộp 01/10/2026, phí gia hạn / đổi tư cách tính theo thời hạn được cấp: online 10,000–65,000 yên (1 năm: 27,000), tại quầy 10,000–75,000 yên (1 năm: 33,000). Phí chỉ nộp khi được cấp phép. Hồ sơ nộp đến 30/09/2026 vẫn theo phí cũ 6,000 / 5,500 yên. Bảng đầy đủ: [[visa-fee-increase-2025-2026]].',
     ],
     documentsChecklist: [
       { label: 'Đơn xin gia hạn thời hạn lưu trú', required: true, note: 'Tải đúng mẫu theo tư cách lưu trú từ trang ISA.' },
@@ -138,7 +138,7 @@ const residenceCard: AdminGuide = {
       },
       {
         question: 'Phí bao nhiêu?',
-        answer: 'Theo ISA, hồ sơ được cấp phép hiện là 6.000 yên nếu làm thủ tục thường và 5.500 yên nếu nộp online. Vẫn nên kiểm tra bảng phí chính thức tại thời điểm nhận kết quả.',
+        answer: 'Từ hồ sơ nộp 01/10/2026, phí tính theo thời hạn được cấp: online 1 năm 27,000 yên, 3 năm 56,000 yên, 5 năm 65,000 yên; tại quầy 1 năm 33,000 yên, 3 năm 64,000 yên, 5 năm 75,000 yên. Chỉ nộp khi được cấp phép. Hồ sơ nộp đến 30/09/2026 vẫn 6,000 / 5,500 yên.',
       },
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
@@ -158,7 +158,7 @@ const residenceCard: AdminGuide = {
       {
         title: 'Nhận kết quả "cấp phép" nhưng thẻ cũ vẫn đang dùng — phải làm gì tiếp?',
         situation: 'ISA gửi về phong bì kết quả. Mở ra thấy giấy "許可" (cấp phép). Giờ phải làm gì để nhận thẻ mới?',
-        answer: 'Trong phong bì có **在留資格認定証明書 hoặc 指定書** — mang theo cùng:\n• Hộ chiếu\n• Thẻ cư trú hiện tại\n• Phí 6.000 yên (hoặc 5.500 yên nếu đã nộp online)\n\nĐến **ISA để nhận thẻ mới trong thời hạn ghi trên giấy thông báo** (thường 2–4 tuần). Thẻ cũ sẽ bị thu lại. Sau khi nhận thẻ mới, kiểm tra kỹ tất cả thông tin trước khi về.',
+        answer: 'Trong phong bì có **在留資格認定証明書 hoặc 指定書** — mang theo cùng:\n• Hộ chiếu\n• Thẻ cư trú hiện tại\n• 収入印紙 đúng số tiền theo thời hạn được cấp (vd 1 năm: 33,000 yên tại quầy)\n\nĐến **ISA để nhận thẻ mới trong thời hạn ghi trên giấy thông báo** (thường 2–4 tuần). Thẻ cũ sẽ bị thu lại. Sau khi nhận thẻ mới, kiểm tra kỹ tất cả thông tin trước khi về.',
       },
       {
         title: 'Bị yêu cầu bổ sung giấy tờ — phải xử lý thế nào?',
@@ -209,7 +209,7 @@ const residenceCard: AdminGuide = {
         term: '在留期間更新許可申請',
         reading: 'ざいりゅうきかんこうしんきょかしんせい',
         meaningVi: 'đơn xin gia hạn thời hạn lưu trú',
-        noteVi: 'Tên chính thức. KHÁC 在留資格変更 (đổi sang tư cách khác). Dùng khi muốn TIẾP TỤC cùng tư cách hiện tại. Phí 6,000 yên (5,500 nếu online) — nộp khi nhận kết quả.',
+        noteVi: 'Tên chính thức. KHÁC 在留資格変更 (đổi sang tư cách khác). Dùng khi muốn TIẾP TỤC cùng tư cách hiện tại. Phí từ 01/10/2026 tùy thời hạn được cấp (1 năm: 27,000 yên online / 33,000 yên tại quầy) — nộp khi nhận kết quả.',
       },
       {
         term: '在留期間',
@@ -306,7 +306,7 @@ const residenceCard: AdminGuide = {
           'Thông báo từ ISA',
           'Hộ chiếu',
           'Thẻ cư trú cũ',
-          'Lệ phí: 6.000 yên thủ tục thường hoặc 5.500 yên online theo bảng phí hiện hành nếu được cấp phép',
+          'Lệ phí khi được cấp phép (từ 01/10/2026): tùy thời hạn được cấp — online 10,000–65,000 yên, tại quầy 10,000–75,000 yên',
         ],
         tip: 'Không ghi nhớ phí theo kinh nghiệm cũ. Với hồ sơ online, cũng phải theo đúng cách nộp phí ISA hướng dẫn khi nhận kết quả.',
       },

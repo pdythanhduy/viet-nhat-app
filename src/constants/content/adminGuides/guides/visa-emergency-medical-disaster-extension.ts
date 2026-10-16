@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     id: 'visa-emergency-medical-disaster-extension',
     category: 'immigration',
-    lastVerified: '2026-08-22',
+    lastVerified: '2026-10-16',
     priority: 'normal',
     title: 'Visa hết hạn trong lúc nhập viện / thảm họa — cách xin giãn thời hạn',
     titleJp: '入院中や災害時の在留期間延長手続き',
@@ -45,7 +45,7 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Gia hạn 短期滞在 và đổi sang 特定活動 (medical) do 出入国在留管理庁 xử lý toàn quốc theo 入管法 §21 và hướng dẫn về 特定活動. Sau thảm họa lớn (震災, 風水害), Nyukan thường ban hành biện pháp đặc biệt (特別措置) áp dụng cho khu vực bị ảnh hưởng — phạm vi và thời gian tùy quyết định của 法務省 / Nyukan tại thời điểm. KHÔNG nhầm 特定活動 (medical) với 在留特別許可 (do Bộ trưởng Tư pháp cấp riêng).',
-      sourceVerifiedAt: '2026-08-22',
+      sourceVerifiedAt: '2026-10-16',
       nextReviewAt: '2026-12-01',
       riskLevel: 'high',
       whenToAskExpert: [
@@ -104,8 +104,8 @@ const visaEmergencyMedicalDisasterExtension: AdminGuide = {
     ],
     estimatedTime: '< 90 ngày: 1-2 tuần. > 90 ngày: 2-4 tuần để đổi sang 特定活動. Thời gian có thể kéo dài hơn nếu bệnh viện cần cập nhật hồ sơ.',
     fees: [
-      'Hiện tại (từ 01/04/2025): cả 在留期間更新許可申請 (gia hạn short-term) và 在留資格変更許可申請 (đổi sang 特定活動 y tế) đều 6,000 yên/lần nộp giấy, hoặc 5,500 yên nếu nộp online — thanh toán bằng 収入印紙 khi được duyệt.',
-      'Sắp đổi: dự thảo 政令 (công bố 03/07/2026, lấy ý kiến đến 02/08/2026) sẽ đổi 2 thủ tục này sang biểu phí theo bậc 1万–7.5万円 tùy thời hạn lưu trú còn lại, dự kiến hiệu lực từ 01/10/2026 — tính đến 22/08/2026 nghị định vẫn CHƯA công bố chính thức trên 官報. Xem bảng phí chi tiết tại guide "Phí visa Nhật tăng từ 2025-04-01".',
+      'Từ hồ sơ nộp 01/10/2026: cả 在留期間更新許可申請 và 在留資格変更許可申請 (vd đổi sang 特定活動 để chữa bệnh) tính phí theo thời hạn được cấp — ≤3 tháng 10,000 yên, 3–6 tháng 15,000 yên online / 18,000 yên tại quầy. Thanh toán khi được duyệt.',
+      'Người khó khăn về tài chính (đang nhận 生活保護, thu nhập rất thấp) có thể xin giảm phí còn 10,000 yên — chỉ xin được khi nộp tại quầy, kèm giấy tờ chứng minh. Xem bảng phí đầy đủ ở guide "Phí gia hạn / đổi visa / vĩnh trú từ 01/10/2026".',
       '診断書 (giấy chẩn đoán bác sĩ): tham khảo 3,000-10,000 yên/bản, không được bảo hiểm chi trả.',
     ],
     commonMistakes: [

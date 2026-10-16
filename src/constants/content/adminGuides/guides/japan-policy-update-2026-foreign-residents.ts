@@ -3,18 +3,18 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
     id: 'japan-policy-update-2026-foreign-residents',
     category: 'visa',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Cập nhật chính sách Nhật 2026 cho người nước ngoài',
     titleJp: '2026年 外国人向け在留制度アップデート',
     icon: 'newspaper',
     color: '#2E86C1',
-    description: 'Tổng hợp mốc chính thức mới nhất (đến 21/09/2026) theo ISA: phân biệt rõ nội dung Đã áp dụng, nội dung ĐANG dự thảo/lấy ý kiến (phí thủ tục, tiêu chuẩn xét vĩnh trú), và nội dung có hiệu lực từ 01/04/2027.',
+    description: 'Tổng hợp mốc chính thức mới nhất (đến 16/10/2026) theo ISA: những gì đã áp dụng (thẻ cư trú mẫu mới 14/06/2026, phí thủ tục mới và hướng dẫn xét vĩnh trú mới 01/10/2026) và những gì có hiệu lực từ 01/04/2027 (育成就労, tiêu chuẩn vĩnh trú áp dụng đầy đủ).',
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đây là guide tổng hợp chính sách cấp quốc gia; từng thủ tục cụ thể vẫn phải đối chiếu trang ISA/MOFA/MHLW/NPA tương ứng.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn chuẩn bị nộp hồ sơ cư trú đúng giai đoạn chuyển tiếp 2026-2027.',
@@ -87,8 +87,8 @@ const japanPolicyUpdate2026ForeignResidents: AdminGuide = {
         answer: 'ISA cho biết hệ thống online mới dùng từ 05/01/2026, có các cải tiến như tăng dung lượng/tệp đính kèm, lưu tạm khi nhập và kéo dài hạn ID của tổ chức từ 1 năm lên 3 năm.',
       },
       {
-        question: '⚠️ MỚI (07–08/2026): Có 2 việc lớn đang dự thảo, tôi cần biết gì?',
-        answer: 'Cập nhật 21/09/2026: phí đã gần như chắc chắn (xem mục 1), còn tiêu chuẩn vĩnh trú vẫn CHƯA chốt (xem mục 2). Cả hai đáng theo dõi sát vì ảnh hưởng trực tiếp người đang ở Nhật:\n\n**1. Phí đổi/gia hạn tư cách lưu trú + vĩnh trú tăng** — 政令 dự thảo công bố 03/07/2026 (lấy ý kiến đến 02/08/2026): đổi/gia hạn tư cách theo bậc 1万–7.5万円 tùy thời hạn còn lại, vĩnh trú 20万円 (thấp hơn mức trần luật cho phép 10万/30万円 hay bị hiểu nhầm là mức thu thực tế). Luật nâng trần phí đã được Quốc hội thông qua 29/05/2026 (công bố 05/06/2026); ISA đã đăng bảng phí NỘP ONLINE áp dụng cho hồ sơ tiếp nhận từ 01/10/2026 (10,000–65,000 yên tùy thời hạn cấp). Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn theo phí cũ. Xem chi tiết ở guide `visa-fee-increase-2025-2026`.\n\n**2. Rà soát tổng thể tiêu chuẩn xét vĩnh trú (永住許可ガイドライン)** — ISA công bố dự thảo 04/08/2026, lấy ý kiến đến 04/09/2026: thêm yêu cầu tiếng Nhật B1, ngưỡng thu nhập hộ, kéo dài điều kiện diện vợ/chồng (3→5 năm), siết hồ sơ thuế/bảo hiểm. Hiệu lực chính dự kiến 01/04/2027, một phần có thể hồi tố từ 01/04/2026. Đã hết hạn lấy ý kiến 04/09/2026; theo báo chí, ISA dự kiến ban hành bản chính thức khoảng tháng 10/2026 — tính đến 21/09/2026 chưa có bản cuối. Xem chi tiết ở guide `permanent-residency-eijuu`.\n\nCả hai đều đang trong giai đoạn góp ý công khai — số liệu có thể thay đổi trước khi ban hành, đừng coi là đã quyết định cuối cùng.',
+        question: '⚠️ Từ 01/10/2026: phí thủ tục mới + tiêu chuẩn xét vĩnh trú mới — tôi cần biết gì?',
+        answer: 'Cả hai đã CHÍNH THỨC từ 01/10/2026:\n\n**1. Phí gia hạn / đổi tư cách / vĩnh trú** — tính theo thời hạn được cấp. Online: 1 năm 27,000 yên, 3 năm 56,000 yên, 5 năm 65,000 yên; tại quầy: 33,000 / 64,000 / 75,000 yên. Vĩnh trú 200,000 yên. Phí chỉ nộp khi được cấp phép; hồ sơ nộp đến 30/09/2026 vẫn theo phí cũ. Người thu nhập rất thấp có thể xin giảm tại quầy. Xem guide `visa-fee-increase-2025-2026`.\n\n**2. Hướng dẫn xét vĩnh trú mới (永住許可に関するガイドライン)** — ISA ban hành 01/10/2026, giữ nguyên dự thảo: thu nhập hộ phải cao hơn trung bình hộ người Nhật cùng số người, xét lương hưu dự kiến, tiếng Nhật tương đương B1, giới hạn thời gian rời Nhật, diện vợ/chồng 5 năm kết hôn + 3 năm ở Nhật. Áp dụng đầy đủ cho hồ sơ nộp từ 01/04/2027; riêng tiêu chí thu nhập và gánh nặng công áp dụng cả cho hồ sơ nộp từ 01/04/2026 còn đang xét. Xem guide `permanent-residency-eijuu`.\n\n**Cũng từ 10/2026 (ngoài ISA)**: lương tối thiểu mới (bình quân cả nước 1,177 yên/giờ, Tokyo 1,280 yên) và bỏ điều kiện lương 8.8万円/tháng ("bức tường 106万") khi xét tham gia 社会保険 cho người làm ngắn giờ.',
       },
     ],
     officialLinks: [

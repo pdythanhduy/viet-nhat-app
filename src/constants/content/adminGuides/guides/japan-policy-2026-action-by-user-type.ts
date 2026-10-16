@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const japanPolicy2026ActionByUserType: AdminGuide = {
     id: 'japan-policy-2026-action-by-user-type',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Chính sách 2026: Hành động theo từng nhóm người dùng',
     titleJp: '2026年制度変更：対象者別アクションガイド',
@@ -51,8 +51,8 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
         answer: 'Bắt đầu bằng xác định mục tiêu: short-term (du lịch/eVISA) hay long-term (lao động/cư trú). Nếu long-term, đi theo luồng COE + tư cách lưu trú phù hợp.',
       },
       {
-        question: '⚠️ MỚI (08/2026): Đang cân nhắc nộp gia hạn/永住 trong vài tháng tới, có nên chờ không?',
-        answer: 'KHÔNG nên chờ nếu bạn đã đủ điều kiện hiện hành. Hai thay đổi đang dự thảo (chưa chính thức, tính đến 21/08/2026): (1) phí đổi/gia hạn tư cách + vĩnh trú — dự kiến hiệu lực 01/10/2026, hồ sơ nộp trước đó vẫn theo phí cũ; (2) tiêu chuẩn xét vĩnh trú siết hơn (tiếng Nhật B1, thu nhập, thời gian vợ/chồng) — hiệu lực chính 01/04/2027 nhưng một phần có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. Người đã đủ điều kiện theo quy định HIỆN HÀNH nên nộp sớm thay vì chờ, để tránh rơi vào diện áp dụng quy định mới.',
+        question: '⚠️ Phí mới và tiêu chuẩn vĩnh trú mới đã áp dụng từ 01/10/2026 — tôi cần làm gì?',
+        answer: 'Cả hai thay đổi đã chính thức (01/10/2026): (1) phí gia hạn / đổi tư cách tính theo thời hạn được cấp (online 10,000–65,000 yên), vĩnh trú 200,000 yên — chuẩn bị tiền trước, nộp online để rẻ hơn; (2) tiêu chuẩn xét vĩnh trú mới (thu nhập hộ, nenkin, tiếng Nhật B1, diện vợ/chồng 5 năm kết hôn + 3 năm ở Nhật) — áp dụng đầy đủ cho hồ sơ nộp từ 01/04/2027; riêng tiêu chí thu nhập và "không thành gánh nặng công" đã áp dụng cho cả hồ sơ nộp từ 01/04/2026 còn đang xét tại 01/10/2026. Nếu bạn đã đủ các điều kiện khác, nộp trước 31/03/2027 vẫn chưa bị áp yêu cầu tiếng Nhật B1 và điều kiện vợ/chồng mới.',
       },
     ],
     officialLinks: [
@@ -93,7 +93,7 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
       {
         step: 4,
         title: 'Chốt lại mốc pháp lý quan trọng',
-        description: 'Mốc vận hành chính của 育成就労/điều chỉnh lớn liên quan 特定技能 là 01/04/2027; năm 2026 có các thủ tục nộp trước hiệu lực. Ngoài ra, 2 dự thảo đang lấy ý kiến trong 07–08/2026 (phí thủ tục 在留/永住 dự kiến 01/10/2026, và tiêu chuẩn xét 永住 siết hơn dự kiến 01/04/2027) CHƯA chính thức — xem guide `japan-policy-update-2026-foreign-residents` để cập nhật.',
+        description: 'Mốc vận hành chính của 育成就労/điều chỉnh lớn liên quan 特定技能 là 01/04/2027; năm 2026 có các thủ tục nộp trước hiệu lực. Từ 01/10/2026 đã áp dụng: phí gia hạn / đổi tư cách theo thời hạn được cấp, phí vĩnh trú 200,000 yên, và hướng dẫn xét vĩnh trú mới (áp dụng đầy đủ cho hồ sơ nộp từ 01/04/2027) — xem guide `japan-policy-update-2026-foreign-residents`.',
         documents: [],
         tip: 'Khi quyết định hồ sơ, luôn kiểm tra lại ngày hiệu lực ở trang nguồn.',
       },

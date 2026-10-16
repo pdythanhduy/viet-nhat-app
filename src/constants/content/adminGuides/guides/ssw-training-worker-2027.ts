@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const sswTrainingWorker2027: AdminGuide = {
     id: 'ssw-training-worker-2027',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: '特定技能 và luật 育成就労 mới',
     titleJp: '特定技能・育成就労制度',
@@ -14,8 +14,8 @@ const sswTrainingWorker2027: AdminGuide = {
       appliesFrom: '2027-04-01',
       jurisdiction: 'national',
       jurisdictionNote: '制度 do ISA quản lý toàn quốc; điều kiện thực tế còn phụ thuộc lĩnh vực 特定技能, công ty tiếp nhận, cơ quan hỗ trợ và quy định chuyển tiếp.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-05',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn đang là 技能実習/特定技能 và bị yêu cầu ký giấy chuyển việc/chuyển chương trình.',
@@ -87,7 +87,7 @@ const sswTrainingWorker2027: AdminGuide = {
       },
       {
         question: 'Lương tối thiểu ở Nhật hiện tại là bao nhiêu?',
-        answer: 'Tính đến 21/08/2026, mức đang có hiệu lực (từ 10/2025) vẫn là: toàn quốc bình quân gia quyền (全国加重平均) **¥1,121/giờ**, Tokyo **¥1,226/giờ**.\n\n⚠️ **SẮP TĂNG**: 中央最低賃金審議会 đã công bố mục tiêu (目安) cho **令和8年度/2026** ngày 28/07/2026: bình quân toàn quốc **¥1,176/giờ** (+55円, +4.9%), Tokyo thuộc nhóm hạng A nên dự kiến **¥1,280/giờ** (+54円). Đây là mục tiêu trung ương — từng tỉnh đang lần lượt chốt số chính thức qua hội đồng địa phương (地方最低賃金審議会); phần lớn tỉnh đã công bố theo đúng mục tiêu tính đến giữa 08/2026. Hiệu lực dự kiến áp dụng từ khoảng **01/10/2026** (ngày cụ thể khác nhau theo tỉnh).\n\nMức lương tối thiểu (dù cũ hay mới) áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能 và 育成就労. Nếu bị trả dưới mức đang có hiệu lực tại thời điểm đó, bạn có quyền khiếu nại lên 労働基準監督署.',
+        answer: 'Mức lương tối thiểu 令和8年度 (2026) đã chốt và có hiệu lực từ 10/2026: bình quân cả nước (全国加重平均) **¥1,177/giờ** (+56 yên). Một số tỉnh: Tokyo **¥1,280**, Kanagawa ¥1,279, Osaka ¥1,231, Saitama ¥1,196, Aichi ¥1,195, Chiba ¥1,195, Fukuoka ¥1,114; thấp nhất Miyazaki ¥1,085.\n\nNgày hiệu lực khác nhau theo tỉnh: Tokyo, Osaka, Aichi… từ 01/10/2026; Fukuoka từ 04/10/2026; một số tỉnh muộn hơn (Miyazaki 24/10/2026, chậm nhất đầu 12/2026). Trước ngày hiệu lực của tỉnh bạn, mức cũ (2025) vẫn áp dụng.\n\nLương tối thiểu áp dụng cho mọi lao động bất kể tư cách lưu trú, kể cả 特定技能, 技能実習 và 育成就労. Nếu bị trả thấp hơn, bạn có quyền khiếu nại lên 労働基準監督署.',
       },
       {
         question: '特定技能 có những ngành nào?',

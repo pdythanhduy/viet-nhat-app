@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaHighlights2026: AdminGuide = {
     id: 'visa-highlights-2026',
     category: 'visa',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     title: 'Các diện visa đáng chú ý 2026',
     titleJp: '2026年の注目ビザ・在留資格',
     icon: 'sparkles',
@@ -39,8 +39,8 @@ const visaHighlights2026: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Visa và tư cách lưu trú do MOFA (Bộ Ngoại giao) + 出入国在留管理庁 (ISA / Bộ Tư pháp) phối hợp quản lý theo 入管法. MOFA cấp visa sticker (tại Đại sứ quán/Lãnh sự ở nước ngoài); ISA cấp tư cách lưu trú khi nhập cảnh + cấp COE (在留資格認定証明書) trong nước. Điều kiện + quốc gia áp dụng + mức thu nhập + thời gian lưu trú KHÁC nhau theo từng diện và CÓ THỂ thay đổi — phải xác nhận thông tin mới nhất trên trang MOFA + ISA tại thời điểm nộp hồ sơ. Digital Nomad: hiện áp dụng cho ~50+ quốc tịch chỉ định (Việt Nam KHÔNG nằm trong danh sách tại thời điểm 2026-05). J-Find / J-Skip: yêu cầu thu nhập / học vấn cụ thể — không phù hợp cho mọi đối tượng.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2026-12-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Đang phân vân giữa nhiều diện visa (vd J-Skip vs HSP thường vs work visa) → tham vấn 行政書士 chuyên 入管 để so sánh điều kiện cụ thể với hồ sơ cá nhân.',
@@ -134,7 +134,7 @@ const visaHighlights2026: AdminGuide = {
       },
       {
         question: '⚠️ MỚI 08/2026: J-Skip / 高度専門職 sắp bị siết điều kiện — ảnh hưởng gì?',
-        answer: 'ĐANG Ở GIAI ĐOẠN ĐỀ XUẤT, CHƯA CHÍNH THỨC. Báo Nikkei (28/07/2026, 14/08/2026) đưa tin Bộ Tư pháp cân nhắc nâng ngưỡng thu nhập và xem lại một số hạng mục điểm của 高度専門職, dự kiến sửa quy định cấp bộ (省令) trong năm tài khóa 2026 (trước cuối 03/2027). Tính đến 21/08/2026 chưa có số liệu/ngày hiệu lực chính thức và chưa rõ có áp dụng cho riêng J-Skip (vốn đã có ngưỡng thu nhập cố định ~2.000万/4.000万 yên) hay chỉ nhóm 高度専門職 tính điểm thông thường. Nếu bạn định nộp hồ sơ theo diện này cuối 2026 trở đi, nên xác nhận số liệu mới nhất tại ISA trước khi nộp.',
+        answer: 'ĐANG Ở GIAI ĐOẠN ĐỀ XUẤT, CHƯA CHÍNH THỨC. Báo Nikkei (28/07/2026, 14/08/2026) đưa tin Bộ Tư pháp cân nhắc nâng ngưỡng thu nhập và xem lại một số hạng mục điểm của 高度専門職, dự kiến sửa quy định cấp bộ (省令) trong năm tài khóa 2026 (trước cuối 03/2027). Tính đến 16/10/2026 vẫn chưa có dự thảo, số liệu/ngày hiệu lực chính thức và chưa rõ có áp dụng cho riêng J-Skip (vốn đã có ngưỡng thu nhập cố định ~2.000万/4.000万 yên) hay chỉ nhóm 高度専門職 tính điểm thông thường. Nếu bạn định nộp hồ sơ theo diện này cuối 2026 trở đi, nên xác nhận số liệu mới nhất tại ISA trước khi nộp.',
       },
     ],
     counterPhrases: [
@@ -168,7 +168,7 @@ const visaHighlights2026: AdminGuide = {
         term: 'J-Skip',
         reading: 'ジェイ・スキップ',
         meaningVi: 'Special Highly Skilled Professional (特別高度人材)',
-        noteVi: 'Tên thông dụng của diện 特別高度人材 (mở rộng của Highly Skilled Professional thường). Điều kiện: học vấn cao + lương cao (~¥20M+/năm tham khảo, MOFA xác nhận). Cấp 5 năm + path nhanh tới vĩnh trú. KHÔNG phải "visa siêu dễ" — chỉ phù hợp với người có hồ sơ rất mạnh. Phải có COE. Lưu ý 08/2026: Bộ Tư pháp đang cân nhắc siết chung tiêu chuẩn 高度専門職 (xem FAQ) — dự thảo, chưa chính thức.',
+        noteVi: 'Tên thông dụng của diện 特別高度人材 (mở rộng của Highly Skilled Professional thường). Điều kiện: học vấn cao + lương cao (~¥20M+/năm tham khảo, MOFA xác nhận). Cấp 5 năm + path nhanh tới vĩnh trú. KHÔNG phải "visa siêu dễ" — chỉ phù hợp với người có hồ sơ rất mạnh. Phải có COE. Lưu ý: Bộ Tư pháp đang cân nhắc siết tiêu chuẩn 高度専門職 (xem FAQ) — tính đến 16/10/2026 chưa có dự thảo chính thức.',
       },
       {
         term: 'J-Find',

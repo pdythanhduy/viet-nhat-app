@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const pensionExemptionRefund: AdminGuide = {
     id: 'pension-exemption-refund',
     category: 'money',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: '年金, miễn giảm và hoàn nenkin khi về nước',
     titleJp: '年金・免除・脱退一時金の基本',
@@ -43,7 +43,7 @@ const pensionExemptionRefund: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '国民年金 + 厚生年金 do 国民年金法 + 厚生年金保険法 quản lý cấp quốc gia, vận hành qua 日本年金機構 (Nenkin Kikou) + 年金事務所 địa phương. 国民年金保険料 cập nhật hàng năm (mức 年度2026 hiện hành công bố 01/04). 脱退一時金 áp dụng cho người đã đóng ≥ 6 tháng, đã mất 住民票 (rời Nhật), trong 2 năm kể từ đủ điều kiện — KHÔNG được nếu đã có 老齢年金 受給権 (tích lũy hưởng lương hưu).',
-      sourceVerifiedAt: '2026-05-16',
+      sourceVerifiedAt: '2026-10-16',
       nextReviewAt: '2026-11-30',
       riskLevel: 'medium',
       whenToAskExpert: [
@@ -129,11 +129,11 @@ const pensionExemptionRefund: AdminGuide = {
       },
       {
         question: 'Tôi đi làm part-time có phải vào 厚生年金 không?',
-        answer: 'Có thể có. 日本年金機構 cập nhật 31/03/2026 rằng từ 令和6年10月, người làm ngắn giờ ở doanh nghiệp từ 51 người trở lên có thể phải tham gia nếu đồng thời đáp ứng các điều kiện như tuần 20 giờ trở lên, lương tháng từ 8.8万円 trở lên, dự kiến làm trên 2 tháng và không phải sinh viên.',
+        answer: 'Có thể có. Người làm ngắn giờ ở doanh nghiệp từ 51 người trở lên phải tham gia 社会保険 (健康保険 + 厚生年金) nếu làm từ 20 giờ/tuần, dự kiến làm trên 2 tháng và không phải học sinh / sinh viên. Từ 01/10/2026 đã BỎ điều kiện lương 8.8万円/tháng — làm đủ 20 giờ/tuần là thuộc diện, bất kể lương bao nhiêu.',
       },
       {
-        question: 'Nghe nói "bức tường 106万" sắp bị bỏ — sẽ thay đổi thế nào?',
-        answer: 'Đúng, theo 年金制度改正法 (ban hành 2025) hệ thống đang mở rộng dần 厚生年金/社会保険 cho người làm ngắn giờ:\n\n• **Bỏ điều kiện lương 8.8万円/tháng (~"bức tường 106万")** — dự kiến khoảng 10/2026: khi đó chỉ cần làm **từ 20 giờ/tuần** là vào 厚生年金 bất kể mức lương.\n• **Bỏ dần điều kiện quy mô doanh nghiệp** (hiện ≥51 người): theo lộ trình ≥36 người (10/2027) → ≥21 (10/2029) → ≥11 (10/2032) → bỏ hoàn toàn (10/2035).\n\nÝ nghĩa: nhiều người Việt làm part-time / バイト sẽ được vào 厚生年金 (công ty đóng một nửa, lương hưu sau này cao hơn) nhưng lương thực nhận hàng tháng có thể giảm do bị trừ phí. Lưu ý: **bức tường 130万** (扶養 của vợ/chồng) KHÔNG nằm trong cải cách này — vẫn giữ. Mốc tháng cụ thể chốt theo 政令 — xác nhận với 年金事務所 / HR công ty.',
+        question: '"Bức tường 106万" đã bị bỏ từ 01/10/2026 — thay đổi thế nào?',
+        answer: 'Đúng, theo 年金制度改正法 (2025), 社会保険 đang mở rộng dần cho người làm ngắn giờ:\n\n• **Đã bỏ điều kiện lương 8.8万円/tháng (~"bức tường 106万") từ 01/10/2026** (政令 công bố 11/09/2026): làm **từ 20 giờ/tuần** ở doanh nghiệp thuộc diện là vào 社会保険 bất kể mức lương. Học sinh / sinh viên vẫn không thuộc diện.\n• **Bỏ dần điều kiện quy mô doanh nghiệp** (hiện ≥51 người): theo lộ trình ≥36 người (10/2027) → ≥21 (10/2029) → ≥11 (10/2032) → bỏ hoàn toàn (10/2035).\n\nÝ nghĩa: nhiều người Việt làm part-time / バイト được vào 厚生年金 (công ty đóng một nửa, lương hưu sau này cao hơn, và tiền 脱退一時金 khi về nước cũng tính theo phần đã đóng) nhưng lương thực nhận hằng tháng có thể giảm vì bị trừ phí. **Bức tường 130万** (扶養 của vợ/chồng) KHÔNG nằm trong thay đổi này — vẫn giữ.',
       },
       {
         question: 'Không đủ tiền đóng thì để đó có sao không?',

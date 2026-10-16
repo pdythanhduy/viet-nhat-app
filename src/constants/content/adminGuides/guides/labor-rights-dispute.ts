@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const laborRightsDispute: AdminGuide = {
     id: 'labor-rights-dispute',
     category: 'daily-law',
-    lastVerified: '2026-07-11',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Quyền lao động và tranh chấp với công ty',
     titleJp: '労働相談・労働審判・未払い賃金請求',
@@ -72,7 +72,7 @@ const laborRightsDispute: AdminGuide = {
       {
         step: 1,
         title: 'Nắm quyền lao động cơ bản',
-        description: '**Lương tối thiểu (令和7年度 / Oct 2025):**\n- Toàn quốc: ¥1,121/giờ (mức trung bình)\n- Tokyo: ¥1,226/giờ | Osaka: ¥1,163/giờ | Aichi: ¥1,077/giờ\n- Tra mức của tỉnh bạn: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/\n\n**Làm thêm giờ — hệ số tối thiểu:**\n| Loại | Hệ số |\n|---|---|\n| Ngày thường vượt giờ quy định | 1.25× |\n| Tháng vượt 60 giờ làm thêm | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm vào hệ số trên) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n\n**Nghỉ phép có lương (有給休暇):**\n- Sau 6 tháng liên tục: 10 ngày/năm\n- Tăng dần đến tối đa 20 ngày\n- Công ty phải đảm bảo bạn dùng ít nhất **5 ngày/năm**\n\n**Sa thải hợp pháp:** phải có lý do khách quan, thông báo trước **30 ngày** hoặc trả **1 tháng lương** thay thế (解雇予告手当).',
+        description: '**Lương tối thiểu (令和8年度, hiệu lực từ 10/2026 — ngày cụ thể theo tỉnh):**\n- Toàn quốc: ¥1,177/giờ (bình quân)\n- Tokyo: ¥1,280/giờ | Osaka: ¥1,231/giờ | Aichi: ¥1,195/giờ | Fukuoka: ¥1,114/giờ\n- Tra mức của tỉnh bạn: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/\n\n**Làm thêm giờ — hệ số tối thiểu:**\n| Loại | Hệ số |\n|---|---|\n| Ngày thường vượt giờ quy định | 1.25× |\n| Tháng vượt 60 giờ làm thêm | 1.50× |\n| Làm đêm 22:00–5:00 | +0.25× (cộng thêm vào hệ số trên) |\n| Ngày nghỉ pháp định (法定休日) | 1.35× |\n\n**Nghỉ phép có lương (有給休暇):**\n- Sau 6 tháng liên tục: 10 ngày/năm\n- Tăng dần đến tối đa 20 ngày\n- Công ty phải đảm bảo bạn dùng ít nhất **5 ngày/năm**\n\n**Sa thải hợp pháp:** phải có lý do khách quan, thông báo trước **30 ngày** hoặc trả **1 tháng lương** thay thế (解雇予告手当).',
         documents: ['Hợp đồng lao động (労働契約書 / 雇用通知書)', 'Bảng chấm công / タイムカード', 'Bảng lương 給与明細'],
         tip: '労働基準法 bảo vệ mọi người làm việc tại Nhật bất kể quốc tịch hay loại visa. Việc công ty nói "người nước ngoài không được khiếu nại" là sai pháp luật.',
       },

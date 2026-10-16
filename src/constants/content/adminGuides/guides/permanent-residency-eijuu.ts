@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const permanentResidencyEijuu: AdminGuide = {
     id: 'permanent-residency-eijuu',
     category: 'immigration',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-16',
     priority: 'normal',
     title: 'Xin vĩnh trú (永住許可申請)',
     titleJp: '永住許可申請の要件と手続き',
@@ -42,8 +42,8 @@ const permanentResidencyEijuu: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '永住許可申請 do ISA xét toàn quốc; đây là hồ sơ xét tổng thể về cư trú, thuế, bảo hiểm, thu nhập, tuân thủ pháp luật và tình trạng hiện tại.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn có kỳ thuế, 年金, bảo hiểm, giao thông hoặc xuất nhập cảnh từng bị trễ/vi phạm.',
@@ -61,7 +61,7 @@ const permanentResidencyEijuu: AdminGuide = {
       ],
       bring: ['永住許可申請書', 'Ảnh thẻ 4cm x 3cm', 'Hộ chiếu', 'Thẻ cư trú', '理由書', '住民票', 'Giấy tờ thuế/thu nhập/年金/bảo hiểm', '身元保証書'],
       ifLate: 'Nếu visa hiện tại sắp hết hạn, ưu tiên hỏi/nộp gia hạn thời hạn lưu trú; 永住 đang xét không tự kéo dài thời hạn lưu trú.',
-      officialSourceLabels: ['永住許可申請 — 出入国在留管理庁', '永住許可に関するガイドライン — 出入国在留管理庁'],
+      officialSourceLabels: ['永住許可申請 — 出入国在留管理庁', '永住許可に関するガイドライン（令和8年10月1日改定）— 出入国在留管理庁'],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_permanent-residency_hero.jpg'),
     heroImageCaption: '永住許可申請 - chuẩn bị hồ sơ cư trú, thuế và bảo hiểm trước khi nộp',
@@ -73,7 +73,7 @@ const permanentResidencyEijuu: AdminGuide = {
     whenToDo: [
       'Điều kiện thông thường: sống ở Nhật liên tục 10 năm, trong đó có ít nhất 5 năm làm việc hoặc có tư cách lao động.',
       'Điều kiện rút ngắn: vợ/chồng người Nhật/永住者 (3 năm), Highly Skilled Professional từ 70 điểm (3 năm), 80 điểm (1 năm).',
-      '⚠️ Thay đổi từ 24/02/2026: tư cách lưu trú hiện tại phải là loại 5 năm (在留期間5年) — người đang giữ thẻ 3 năm không đủ điều kiện nộp. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027.',
+      '⚠️ Thời hạn lưu trú hiện tại: về nguyên tắc phải đang giữ thời hạn DÀI NHẤT của tư cách mình (vd 5 năm). Nhưng hồ sơ nộp đến hết 31/03/2027 thì thẻ 3 năm vẫn được coi là "dài nhất" — người đang có thẻ 3 năm vẫn nộp được. Từ 01/04/2027 chỉ còn ngoại lệ cho lần nộp đầu tiên của người đang có thẻ 3 năm tại 31/03/2027 và được xét xong trước khi thẻ 3 năm đó hết hạn.',
     ],
     whereToDo: [
       'Cục xuất nhập cảnh (ISA) có thẩm quyền theo nơi cư trú.',
@@ -103,7 +103,7 @@ const permanentResidencyEijuu: AdminGuide = {
       'Nộp giấy chứng nhận Nhật đã quá 3 tháng hoặc giấy nước ngoài không kèm bản dịch tiếng Nhật.',
       'Tưởng đủ số năm cư trú là chắc chắn được cấp; 永住 vẫn là hồ sơ xét tổng thể.',
       'Tưởng có 永住 rồi là "an toàn vĩnh viễn" — từ 14/06/2026 cố ý không nộp thuế/bảo hiểm/年金 hoặc phạm tội nghiêm trọng có thể bị thu hồi tư cách 永住者 (永住許可の取消し).',
-      'Chờ "đến khi chắc chắn đủ điều kiện tốt nhất" mới nộp — trong khi ISA đang dự thảo siết thêm điều kiện (thu nhập, tiếng Nhật B1, thời gian vợ/chồng) có thể có hiệu lực từ 2027 hoặc hồi tố một phần từ 2026. Nếu đã đủ điều kiện HIỆN HÀNH, cân nhắc nộp sớm thay vì chờ.',
+      'Chờ đến sau 01/04/2027 mới nộp dù đã đủ điều kiện — từ mốc này toàn bộ tiêu chuẩn mới áp dụng (tiếng Nhật B1, diện vợ/chồng 5 năm kết hôn + 3 năm ở Nhật, thẻ 3 năm không còn được coi là "dài nhất"). Nếu đã sẵn sàng, nộp trước 31/03/2027 có lợi hơn.',
     ],
     faq: [
       {
@@ -123,15 +123,15 @@ const permanentResidencyEijuu: AdminGuide = {
         answer: 'Có, theo luật mới. Sửa đổi 入管法 2024 bổ sung quy định 永住許可の取消し (thu hồi vĩnh trú), có hiệu lực từ **14/06/2026** (đã có hiệu lực). ISA có thể xem xét thu hồi tư cách 永住者 trong các trường hợp như: **CỐ Ý (故意) không nộp thuế / 住民税 / 国民健康保険 / 年金 dù có khả năng nộp**; hoặc phạm một số tội cố ý nghiêm trọng (vd trộm cắp, lừa đảo). Điểm quan trọng: nhắm vào hành vi **cố tình** — trường hợp thực sự mất khả năng do bệnh tật, thất nghiệp được loại trừ. Trong một số trường hợp ISA có thể chuyển sang tư cách lưu trú khác thay vì trục xuất. Kết luận thực tế: sau khi có 永住 vẫn phải tiếp tục nộp đầy đủ thuế + bảo hiểm + lương hưu đúng hạn. Nếu gặp khó khăn tài chính → xin 免除 / phân kỳ tại cơ quan liên quan, KHÔNG bỏ ngơ. Tình huống cụ thể: hỏi 行政書士 / luật sư chuyên 入管.',
       },
       {
-        question: '⚠️ MỚI 08/2026: Nghe nói ISA sắp siết toàn bộ tiêu chuẩn xét 永住 — có thật không?',
-        answer: 'ĐANG DỰ THẢO, CHƯA CHÍNH THỨC. Ngày **04/08/2026** ISA công bố bản rà soát tổng thể 永住許可ガイドライン, lấy ý kiến công khai (パブリックコメント) đến **04/09/2026**. Nội dung dự thảo đáng chú ý: (1) yêu cầu thu nhập hộ gia đình phải trên mức trung bình cả nước, tính cả thân nhân phụ thuộc đang ở nước ngoài; (2) thêm kiểm tra tài sản/lương hưu; (3) yêu cầu MỚI về tiếng Nhật — tương đương CEFR B1; (4) diện vợ/chồng người Nhật/永住者 kéo dài thời gian đủ điều kiện từ 3 năm kết hôn/1 năm cư trú lên **5 năm kết hôn/3 năm cư trú**; (5) lịch sử thuế/bảo hiểm bị tính là yếu tố trừ điểm nặng hơn hiện tại. Mốc hiệu lực chính dự kiến **01/04/2027**, nhưng phần điều kiện thu nhập + nghĩa vụ công có thể áp dụng HỒI TỐ từ **01/04/2026** cho hồ sơ vẫn đang xét tại thời điểm **01/10/2026**. **Cập nhật 21/09/2026**: đã hết hạn góp ý 04/09; theo báo chí ISA dự kiến ban hành bản chính thức khoảng tháng 10/2026, hiện chưa có bản cuối. **Phí nộp hồ sơ 永住 cũng tăng từ 10,000 yên lên 200,000 yên với hồ sơ tiếp nhận từ 01/10/2026** (theo 政令案 ISA 03/07/2026; hồ sơ tiếp nhận đến 30/09/2026 vẫn 10,000 yên). Vì chưa chốt, số liệu/điều kiện cụ thể có thể thay đổi trước khi ban hành — nếu bạn đang cân nhắc nộp 永住 diện vợ/chồng hoặc thu nhập sát ngưỡng, nên nộp sớm hoặc hỏi 行政書士/luật sư về rủi ro chuyển tiếp thay vì chờ.',
+        question: '⚠️ Tiêu chuẩn xét 永住 mới (ISA ban hành 01/10/2026) — thay đổi gì và áp dụng từ khi nào?',
+        answer: 'Đã chính thức. Ngày **01/10/2026** ISA ban hành 永住許可に関するガイドライン bản mới, giữ nguyên nội dung dự thảo tháng 8 (đã nhận 5,180 ý kiến, không sửa).\n\n**Thay đổi chính**:\n• **Thu nhập**: không còn mốc "khoảng 300万円". Thu nhập HỘ gia đình phải liên tục cao hơn mức trung bình của hộ người Nhật có cùng số người (tính cả người phụ thuộc ở nước ngoài). Thu nhập baito của vợ/chồng diện 家族滞在 không được cộng vào.\n• **Nenkin**: xét cả mức lương hưu dự kiến nhận trong tương lai, không chỉ việc đóng đủ.\n• **Tiếng Nhật**: xét có đạt trình độ tương đương **B1** (khung 日本語教育の参照枠) hay không. Không xét với 高度人材 và gia đình, người đã học phổ thông ở Nhật từ 6 năm trở lên.\n• **Đi khỏi Nhật**: trong 10 năm gần nhất, một lần rời Nhật từ **6 tháng** trở lên, hoặc tổng cộng từ **2 năm 6 tháng** trở lên mà không có lý do hợp lý → bị đánh giá bất lợi.\n• **Diện vợ/chồng người Nhật / vĩnh trú**: từ 3 năm kết hôn + 1 năm ở Nhật → **5 năm kết hôn + 3 năm ở Nhật**.\n\n**Áp dụng từ khi nào**:\n• Toàn bộ: hồ sơ nộp từ **01/04/2027**.\n• Riêng tiêu chí **thu nhập** và **không thành gánh nặng công**: áp dụng cả cho hồ sơ nộp từ 01/04/2026 còn đang xét tại 01/10/2026.\n\n**Phí**: hồ sơ nộp từ 01/10/2026 là **200,000 yên** (trước đó 10,000 yên), chỉ nộp khi được cấp.\n\nNếu thu nhập hộ sát ngưỡng hoặc bạn thuộc diện vợ/chồng, nên hỏi 行政書士 trước khi nộp.',
       },
     ],
     scenarios: [
       {
         title: 'Đang giữ visa 3 năm — có nộp 永住 được không?',
         situation: 'Tôi ở Nhật 10 năm, visa kỹ thuật 3 năm, không có tiền án tiền sự, thuế và lương hưu đều ổn. Nhưng nghe nói phải có visa 5 năm mới được nộp永住. Đúng không?',
-        answer: 'Đúng. Từ **02/2026**, một trong các điều kiện mới là phải đang giữ **tư cách lưu trú 5 năm (在留期間5年)** tại thời điểm nộp đơn 永住. Trường hợp của bạn cần làm **thủ tục gia hạn lên 5 năm trước** (申請先: ISA). Sau khi có thẻ 5 năm mới đủ điều kiện nộp 永住. Nếu sắp hết hạn thẻ 3 năm, hãy nộp gia hạn ngay — không nên chờ đủ điều kiện rồi mới gia hạn vì có thể bị "trống thẻ".',
+        answer: 'Được, nếu nộp trước **31/03/2027**. Nguyên tắc là phải đang giữ thời hạn dài nhất của tư cách lưu trú (với 技術・人文知識・国際業務 là 5 năm), nhưng ISA cho phép coi thẻ **3 năm** là "dài nhất" với hồ sơ nộp đến hết 31/03/2027. Sau mốc đó, thẻ 3 năm chỉ còn được chấp nhận cho lần nộp đầu tiên nếu bạn đang có thẻ 3 năm tại 31/03/2027 và hồ sơ được xét xong trước khi thẻ đó hết hạn. Với hồ sơ như bạn (10 năm, thuế và nenkin đầy đủ), nên chuẩn bị nộp sớm — đồng thời kiểm tra thu nhập hộ so với tiêu chí mới.',
       },
       {
         title: 'Tự kinh doanh — hồ sơ thuế cần chuẩn bị gì thêm?',
@@ -155,7 +155,7 @@ const permanentResidencyEijuu: AdminGuide = {
         jp: '在留期間を5年に更新したいです。',
         romaji: 'Zairyuu kikan o gonen ni koushin shitai desu.',
         vn: 'Tôi muốn gia hạn thời hạn lưu trú lên 5 năm.',
-        note: 'Từ 02/2026 nộp 永住 yêu cầu phải đang giữ thẻ 5 năm — gia hạn trước nếu đang 3 năm.',
+        note: 'Thẻ 3 năm vẫn nộp 永住 được nếu nộp đến hết 31/03/2027; sau đó phải là thời hạn dài nhất (thường 5 năm).',
       },
       {
         jp: '審査にはどれくらい時間がかかりますか。',
@@ -205,7 +205,7 @@ const permanentResidencyEijuu: AdminGuide = {
         term: '独立生計',
         reading: 'どくりつせいけい',
         meaningVi: 'năng lực tài chính độc lập',
-        noteVi: 'Tiêu chí thu nhập. Tham khảo: ~3 triệu yên/năm (cho 1 người độc thân; tăng theo số người phụ thuộc — vợ +50 vạn, mỗi con +30 vạn). Từ 06/2026 ISA dùng My Number kiểm tra thực tế lịch sử thuế / 年金 / bảo hiểm, không chỉ dựa giấy tờ.',
+        noteVi: 'Tiêu chí thu nhập. Theo hướng dẫn mới (01/10/2026): thu nhập HỘ gia đình phải liên tục cao hơn mức trung bình của hộ người Nhật có cùng số người — mốc "khoảng 300万円" truyền miệng trước đây không còn dùng được. Xét cả lương hưu dự kiến. Từ 06/2026 ISA có thể dùng My Number để kiểm tra lịch sử thuế / 年金 / bảo hiểm.',
       },
       {
         term: '永住許可の取消し',
@@ -214,22 +214,22 @@ const permanentResidencyEijuu: AdminGuide = {
         noteVi: 'Sửa đổi 入管法 2024. Từ 14/06/2026 ISA có thể thu hồi 永住者 nếu: CỐ Ý không nộp thuế / 国民健康保険 / 年金 dù có khả năng nộp; hoặc phạm một số tội cố ý nghiêm trọng. Loại trừ trường hợp thực sự mất khả năng do bệnh / thất nghiệp. → Sau khi có 永住 vẫn phải nộp đầy đủ nghĩa vụ công đúng hạn; khó khăn thì xin 免除/分割, không bỏ ngơ. Nguồn: ISA moj.go.jp/isa/05_00045.html.',
       },
       {
-        term: '永住許可ガイドライン改訂案',
-        reading: 'えいじゅうきょかガイドラインかいていあん',
-        meaningVi: 'dự thảo sửa toàn bộ tiêu chuẩn xét vĩnh trú (08/2026, CHƯA chính thức)',
-        noteVi: 'ISA công bố 04/08/2026, lấy ý kiến công khai đến 04/09/2026. Dự kiến siết: thu nhập hộ phải trên trung bình cả nước (tính cả thân nhân phụ thuộc ở nước ngoài), thêm kiểm tra tài sản/年金, yêu cầu MỚI tiếng Nhật CEFR B1, diện vợ/chồng kéo dài 3→5 năm kết hôn + 1→3 năm cư trú, lịch sử thuế/bảo hiểm trừ điểm nặng hơn. Hiệu lực chính dự kiến 01/04/2027; phần thu nhập/nghĩa vụ công có thể hồi tố từ 01/04/2026 cho hồ sơ còn treo tại 01/10/2026. CHƯA ban hành chính thức — theo dõi lại quanh 04/09/2026.',
+        term: '永住許可に関するガイドライン',
+        reading: 'えいじゅうきょかにかんするガイドライン',
+        meaningVi: 'hướng dẫn tiêu chuẩn xét vĩnh trú (bản sửa 01/10/2026)',
+        noteVi: 'Ban hành 01/10/2026. Thêm tiêu chí thu nhập hộ trên mức trung bình hộ người Nhật cùng số người, lương hưu dự kiến, tiếng Nhật tương đương B1, giới hạn thời gian rời Nhật (6 tháng / lần, 2 năm 6 tháng tổng trong 10 năm), diện vợ/chồng 5 năm kết hôn + 3 năm ở Nhật. Áp dụng đầy đủ cho hồ sơ nộp từ 01/04/2027; tiêu chí thu nhập và gánh nặng công áp dụng sớm hơn.',
       },
     ],
     officialLinks: [
       { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
-      { label: '永住許可に関するガイドライン — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html' },
+      { label: '永住許可に関するガイドライン（令和8年10月1日改定）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/10_00279.html' },
       { label: '入管法改正（永住許可制度の適正化）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/05_00045.html' },
     ],
     steps: [
       {
         step: 1,
         title: 'Kiểm tra đủ điều kiện không',
-        description: 'ISA xét dựa trên 4 tiêu chí chính:\n\n**1. Thời gian cư trú liên tục:** không được rời Nhật quá 100 ngày/năm hoặc 1 lần quá 3 tháng trong giai đoạn xét.\n\n**2. Tuân thủ pháp luật:** không có tiền án, không vi phạm Luật Xuất nhập cảnh, không nợ thuế hay bảo hiểm.\n\n**3. Năng lực tài chính độc lập:** thu nhập và tài sản đủ để không cần hỗ trợ nhà nước — ~3 triệu yên/năm là tham khảo phổ biến. Từ tháng 6/2026 ISA có thể dùng My Number để kiểm tra thực tế lịch sử nộp thuế và bảo hiểm.\n\n**4. Tư cách lưu trú phải là loại 5 năm** (hiệu lực từ 24/02/2026): người đang giữ thẻ 3 năm không được nộp. Gia hạn lên 5 năm trước rồi mới nộp 永住. Trường hợp đang giữ thẻ 3 năm có thời gian chuyển tiếp đến 31/03/2027 — xác nhận lại với ISA.',
+        description: 'ISA xét dựa trên 4 tiêu chí chính:\n\n**1. Thời gian cư trú liên tục:** theo hướng dẫn mới, trong 10 năm gần nhất một lần rời Nhật từ 6 tháng trở lên, hoặc tổng cộng từ 2 năm 6 tháng trở lên mà không có lý do hợp lý sẽ bị đánh giá bất lợi. Thực tế nên tránh mỗi năm ở nước ngoài quá lâu.\n\n**2. Tuân thủ pháp luật:** không có tiền án, không vi phạm Luật Xuất nhập cảnh, không nợ thuế hay bảo hiểm.\n\n**3. Năng lực tài chính độc lập:** thu nhập hộ gia đình phải liên tục cao hơn mức trung bình của hộ người Nhật cùng số người (hướng dẫn 01/10/2026), kèm lương hưu dự kiến. Từ tháng 6/2026 ISA có thể dùng My Number để kiểm tra thực tế lịch sử nộp thuế và bảo hiểm.\n\n**4. Thời hạn lưu trú dài nhất:** về nguyên tắc phải đang giữ thời hạn dài nhất của tư cách mình (thường 5 năm). Hồ sơ nộp đến hết 31/03/2027 thì thẻ 3 năm vẫn được coi là dài nhất.\n\n**5. Tiếng Nhật (từ hồ sơ nộp 01/04/2027):** xét trình độ tương đương B1, trừ 高度人材 và người đã học phổ thông ở Nhật từ 6 năm.',
         documents: [],
         tip: 'Kiểm tra lịch sử xuất nhập cảnh trên passport trước — mỗi lần nhập cảnh có đóng dấu. Nếu đã ở Nhật qua nhiều visa, tính tổng thời gian thực tế ở Nhật, không phải thời gian hiệu lực visa.',
       },

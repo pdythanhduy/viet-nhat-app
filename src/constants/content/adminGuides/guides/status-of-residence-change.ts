@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const statusOfResidenceChange: AdminGuide = {
     id: 'status-of-residence-change',
     category: 'visa',
-    lastVerified: '2026-09-21',
+    lastVerified: '2026-10-16',
     priority: 'high',
     title: 'Đổi tư cách lưu trú',
     titleJp: '在留資格変更許可申請',
@@ -45,8 +45,8 @@ const statusOfResidenceChange: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '在留資格変更許可申請 do ISA xét toàn quốc; thời điểm nộp và giấy tờ phụ thuộc tư cách hiện tại, tư cách muốn đổi và hoạt động thực tế.',
-      sourceVerifiedAt: '2026-09-21',
-      nextReviewAt: '2026-10-15',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn muốn bắt đầu công việc/hoạt động mới trước khi có kết quả đổi tư cách.',
@@ -175,7 +175,7 @@ const statusOfResidenceChange: AdminGuide = {
         jp: 'オンライン申請の対象になりますか。',
         romaji: 'Onrain shinsei no taishou ni narimasu ka.',
         vn: 'Tôi có thuộc đối tượng dùng đơn online không?',
-        note: 'Online application thường giảm phí 500 yên (5,500 thay vì 6,000) — nhưng không nhận đơn vào ngày hết hạn lưu trú.',
+        note: 'Nộp online rẻ hơn tại quầy (1 năm: 27,000 thay vì 33,000 yên) — nhưng không nhận đơn vào ngày hết hạn lưu trú.',
       },
       {
         jp: '結果が出る前に新しい会社で働いてもいいですか。',

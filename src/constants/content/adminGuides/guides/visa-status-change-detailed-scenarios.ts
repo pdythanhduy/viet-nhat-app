@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const visaStatusChangeDetailedScenarios: AdminGuide = {
     id: 'visa-status-change-detailed-scenarios',
     category: 'immigration',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-16',
     priority: 'normal',
     title: 'Đổi tư cách lưu trú — các tình huống chi tiết',
     titleJp: '在留資格変更許可申請 — 状況別の詳細ガイド',
@@ -40,8 +40,8 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: 'Đổi tư cách lưu trú (在留資格変更許可申請) thuộc thẩm quyền 出入国在留管理庁 theo 入管法 §20. Điều kiện cấp tư cách mới + tài liệu yêu cầu + thời gian xét thay đổi theo loại tư cách + tình huống cá nhân + thay đổi chính sách của Nyukan tại thời điểm. KHÔNG có "mức lương tối thiểu" cố định cho work visa; KHÔNG có gì đảm bảo được duyệt — kết quả phụ thuộc đánh giá tổng thể của Nyukan. Phí dự kiến tăng đáng kể từ năm tài khóa 2026 — xác nhận thông tin mới nhất tại trang ISA trước khi nộp.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-09-25',
+      sourceVerifiedAt: '2026-10-16',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Sponsor company nhỏ / mới thành lập / có vấn đề tài chính → tham vấn 行政書士 chuyên 入管 về khả năng + cách trình bày hồ sơ.',
@@ -93,11 +93,11 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       'Trực tiếp, bưu điện hoặc trực tuyến (nếu áp dụng với loại visa).',
       'Công ty, trường hoặc người bảo lãnh có thể hỗ trợ chuẩn bị hồ sơ, nhưng người nộp phải nộp chính.',
     ],
-    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí hiện tại: ¥6,000 (nộp giấy) / ¥5,500 (online); dự kiến đổi sang mức theo bậc từ 1/10/2026 (xem mục Phí).',
+    estimatedTime: 'Thời gian xét duyệt thay đổi từ 2-4 tuần đến 2-3 tháng tùy loại đổi, hồ sơ và khu vực. Phí từ 01/10/2026 tính theo thời hạn được cấp (xem mục Phí).',
     fees: [
-      'Phí cơ bản hiện tại (từ 4/2025): ¥6,000 khi nộp giấy, ¥5,500 khi nộp online.',
+      'Phí đổi tư cách từ hồ sơ nộp 01/10/2026 (theo thời hạn được cấp) — online: 1 năm ¥27,000, 3 năm ¥56,000, 5 năm ¥65,000; tại quầy: 1 năm ¥33,000, 3 năm ¥64,000, 5 năm ¥75,000. Chỉ nộp khi được cấp phép.',
       'Phí không hoàn lại nếu bị từ chối.',
-      'Nghị định (政令) SỬA phí công bố dạng dự thảo 3/7/2026, lấy ý kiến đến 2/8/2026: dự kiến đổi tư cách/gia hạn sẽ tính theo bậc THỜI HẠN CÒN LẠI xin, khoảng ¥10,000 (≤3 tháng) đến ¥75,000 (5 năm trở lên); riêng vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; hiệu lực dự kiến vẫn là 1/10/2026 nhưng có thể thay đổi.',
+      'Vĩnh trú (永住許可): ¥200,000 từ 01/10/2026. Hồ sơ nộp đến 30/09/2026 vẫn theo phí cũ (¥6,000 / ¥5,500; vĩnh trú ¥10,000). Người thu nhập rất thấp có thể xin giảm còn ¥10,000 (chỉ tại quầy).',
       'Kiểm tra phí chính thức tại ISA trước khi nộp vì có thể thay đổi theo thời gian.',
     ],
     commonMistakes: [
@@ -109,8 +109,8 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
     ],
     faq: [
       {
-        question: 'Phí có tăng năm 2026 thực sự không?',
-        answer: 'Có, nhưng mức cụ thể KHÁC với đồn đoán ban đầu. Luật sửa 入管法 (thông qua 29/5/2026, công bố 5/6/2026, 令和8年法律第32号) chỉ quy định TRẦN tối đa cho phép (10万円/30万円) — đây KHÔNG phải mức phí thực tế. Nghị định (政令) dự thảo công bố 3/7/2026 (lấy ý kiến đến 2/8/2026) quy định mức THẤP HƠN nhiều: đổi/gia hạn tư cách theo bậc thời hạn còn lại xin — khoảng ¥10,000 đến ¥75,000; vĩnh trú ¥200,000. Tính đến 21/8/2026, nghị định vẫn CHƯA công bố chính thức trên 官報; mốc hiệu lực dự kiến vẫn là 1/10/2026. Phí hiện tại (trước khi đổi) là ¥6,000 (giấy) / ¥5,500 (online). Hãy kiểm tra chính thức tại ISA trước khi nộp.',
+        question: 'Phí đổi tư cách / gia hạn từ 01/10/2026 là bao nhiêu?',
+        answer: 'Từ hồ sơ nộp 01/10/2026, phí tính theo thời hạn được cấp. Online: ≤3 tháng ¥10,000 · 3–6 tháng ¥15,000 · 6 tháng–dưới 1 năm ¥21,000 · 1 năm ¥27,000 · 1–dưới 3 năm ¥42,000 · 3–dưới 5 năm ¥56,000 · 5 năm ¥65,000. Tại quầy đắt hơn (1 năm ¥33,000, 5 năm ¥75,000). Vĩnh trú ¥200,000. Phí chỉ nộp khi được cấp phép; hồ sơ nộp đến 30/09/2026 vẫn theo phí cũ ¥6,000 / ¥5,500. Mức 10万円 / 30万円 hay thấy trên mạng chỉ là mức TRẦN luật cho phép, không phải phí thực nộp.',
       },
       {
         question: 'Nộp đơn trước khi hết hạn tư cách hiện tại được không?',
@@ -234,7 +234,7 @@ const visaStatusChangeDetailedScenarios: AdminGuide = {
       {
         step: 3,
         title: 'Chuẩn bị giấy tờ cá nhân và nộp đơn',
-        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí:**\n- Hiện tại ¥6,000 (nộp giấy) / ¥5,500 (online)\n- Theo nghị định (政令) dự thảo (chưa chính thức tại 21/8/2026, dự kiến hiệu lực 1/10/2026): đổi sang mức theo bậc thời hạn còn lại xin, khoảng ¥10,000–¥75,000\n- Nộp tại lúc nộp đơn hoặc khi nhận kết quả tùy ISA',
+        description: '**Giấy tờ phổ biến cần chuẩn bị:**\n\n- **Đơn xin đổi tư cách** (在留資格変更許可申請書) — tải từ ISA website theo loại visa mục tiêu\n- **Ảnh thẻ** — 4cm × 3cm, nền trắng, chụp trong 3 tháng gần nhất\n- **Hộ chiếu** — mang bản gốc, còn hạn\n- **Thẻ cư trú** — mang bản gốc\n- **Giấy tờ từ công ty/trường** — như bước 2\n- **Lý do giải trình** (理由書) — nếu có tình huống đặc biệt (ví dụ: thay đổi kế hoạch công việc, sự cố gia đình)\n\n**Nộp tại:**\n- Trực tiếp: ISA cục công an nhập cảnh nơi cư trú\n- Hoặc: trực tuyến nếu loại visa áp dụng hệ thống trực tuyến\n\n**Phí (từ hồ sơ nộp 01/10/2026):**\n- Tính theo thời hạn được cấp: online ¥10,000–¥65,000, tại quầy ¥10,000–¥75,000 (1 năm: ¥27,000 online / ¥33,000 tại quầy)\n- Chỉ nộp khi được cấp phép — bị từ chối thì không mất phí',
         documents: ['Đơn xin (in từ ISA website)', 'Ảnh thẻ', 'Hộ chiếu', 'Thẻ cư trú', 'Tài liệu từ bước 2', 'Lý do giải trình (nếu cần)'],
         tip: 'Kiểm tra website ISA nơi bạn sẽ nộp để xác nhận loại tài liệu cần thiết — có thể khác nhau giữa các cục.',
       },
