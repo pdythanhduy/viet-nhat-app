@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const bicycleRules2026: AdminGuide = {
     id: 'bicycle-rules-2026',
     category: 'traffic',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Luật xe đạp 2026 / blue ticket',
     titleJp: '自転車の青切符・交通反則通告制度',
@@ -14,8 +14,8 @@ const bicycleRules2026: AdminGuide = {
       appliesFrom: '2026-04-01',
       jurisdiction: 'national',
       jurisdictionNote: 'Hệ thống 交通反則通告制度 cho xe đạp áp dụng toàn quốc; bãi đỗ, bảo hiểm xe đạp và quy tắc địa phương có thể khác theo tỉnh/thành.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'high',
       whenToAskExpert: [
         'Bạn nhận giấy thông báo/blue ticket nhưng không hiểu hạn xử lý hoặc loại vi phạm.',

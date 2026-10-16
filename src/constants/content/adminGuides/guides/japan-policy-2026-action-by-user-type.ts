@@ -28,7 +28,7 @@ const japanPolicy2026ActionByUserType: AdminGuide = {
     estimatedTime: '5-10 phút để đối chiếu nhóm phù hợp và chốt hành động ưu tiên.',
     fees: [
       'Không có phí cho việc theo dõi/cập nhật thông tin chính sách.',
-      'Phí phát sinh phụ thuộc thủ tục cụ thể khi nộp hồ sơ thực tế.',
+      'Phí phát sinh phụ thuộc thủ tục cụ thể khi nộp hồ sơ thực tế. Từ 01/10/2026 phí đổi/gia hạn tư cách lưu trú và vĩnh trú đã tăng — xem guide `visa-fee-increase-2025-2026`.',
     ],
     documentsChecklist: [
       { label: 'Thẻ cư trú và hộ chiếu (nếu đang ở Nhật)', required: false },

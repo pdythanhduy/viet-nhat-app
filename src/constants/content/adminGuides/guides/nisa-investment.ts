@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const nisaInvestment: AdminGuide = {
     id: 'nisa-investment',
     category: 'money',
-    lastVerified: '2026-06-20',
+    lastVerified: '2026-10-04',
     priority: 'normal',
     title: 'Đầu tư NISA miễn thuế tại Nhật',
     titleJp: '新NISA（少額投資非課税制度）',
@@ -42,8 +42,8 @@ const nisaInvestment: AdminGuide = {
     legalScope: {
       jurisdiction: 'national',
       jurisdictionNote: '新NISA (有期/恒久化) do 金融庁 quản lý theo 租税特別措置法. Áp dụng cho cư dân Nhật (có 住民票) bao gồm người nước ngoài hợp pháp. Hạn mức 360万円/năm (つみたて 120 + 成長 240), trọn đời 1,800万円 (成長 ≤ 1,200万). Miễn thuế vô thời hạn. **GUIDE NÀY KHÔNG PHẢI LỜI KHUYÊN ĐẦU TƯ** — chỉ giải thích chế độ, không khuyến nghị mua/bán sản phẩm cụ thể.',
-      sourceVerifiedAt: '2026-05-02',
-      nextReviewAt: '2026-12-31',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Sắp rời Nhật vĩnh viễn + có tài sản NISA lớn → hỏi công ty chứng khoán + có thể cần 税理士 quốc tế về thuế VN-Nhật trên 譲渡益.',
@@ -131,7 +131,7 @@ const nisaInvestment: AdminGuide = {
       },
       {
         question: 'Nghe nói sắp có NISA cho trẻ em (こどもNISA) — đúng không?',
-        answer: 'Đúng, nhưng CHƯA vận hành. 令和8年度税制改正大綱 (quyết ngày 26/12/2025) đã chốt tạo こどもNISA, **dự kiến bắt đầu từ 01/2027**. Dự kiến: dành cho trẻ **0–17 tuổi**, hạn mức **60万円/năm**, hạn mức giữ miễn thuế **600万円**, tự động chuyển sang NISA người lớn khi đủ 18 tuổi. Đây thay cho ジュニアNISA cũ (đã chấm dứt 2023). Vì chưa mở, ĐỪNG nghe môi giới "đăng ký sớm" — chờ 金融庁 / công ty chứng khoán công bố chính thức gần ngày vận hành.',
+        answer: 'Đúng. こどもNISA (mở rộng つみたて投資枠 cho trẻ 0–17 tuổi) đã được quyết định trong 令和8年度税制改正 và **bắt đầu từ 01/2027** — tính đến 10/2026 chưa đầu tư được. Nội dung: hạn mức **60万円/năm**, hạn mức giữ miễn thuế **600万円**, miễn thuế vô thời hạn; chỉ mua quỹ đạt chuẩn つみたて của 金融庁 và chỉ theo hình thức 積立; cha mẹ/người giám hộ được rút tiền khi trẻ từ **12 tuổi** trở lên theo điều kiện nhất định. Thay cho ジュニアNISA cũ (đã chấm dứt 2023). Thủ tục mở tài khoản và ngày nhận hồ sơ do từng công ty chứng khoán công bố — chỉ đăng ký qua trang chính thức của công ty, đừng nộp tiền cho môi giới.',
       },
     ],
     counterPhrases: [
@@ -176,8 +176,8 @@ const nisaInvestment: AdminGuide = {
       {
         term: 'こどもNISA',
         reading: 'こどもニーサ',
-        meaningVi: 'NISA cho trẻ em (dự kiến từ 01/2027)',
-        noteVi: 'Chế độ mới đã chốt trong 令和8年度税制改正大綱 (26/12/2025), dự kiến vận hành 01/2027. Dự kiến: trẻ 0–17 tuổi, 60万円/năm, giữ miễn thuế tối đa 600万円, tự chuyển sang NISA người lớn khi 18 tuổi. Thay cho ジュニアNISA cũ (kết thúc 2023). CHƯA mở — chi tiết cuối cùng theo 金融庁 khi gần ngày vận hành.',
+        meaningVi: 'NISA cho trẻ em (bắt đầu 01/2027)',
+        noteVi: 'Chế độ mới theo 令和8年度税制改正, vận hành từ 01/2027: trẻ 0–17 tuổi, 60万円/năm, giữ miễn thuế tối đa 600万円, chỉ quỹ つみたて + 積立; rút được từ khi trẻ 12 tuổi (có điều kiện). Thay cho ジュニアNISA cũ (kết thúc 2023). Chi tiết thủ tục theo 金融庁 / công ty chứng khoán.',
       },
       {
         term: 'つみたて投資枠',
@@ -264,7 +264,7 @@ const nisaInvestment: AdminGuide = {
       {
         step: 5,
         title: 'Xử lý tài khoản NISA khi chuẩn bị rời Nhật',
-        description: 'Khi bạn sắp rời Nhật vĩnh viễn hoặc lâu dài:\n\n**Bắt buộc thông báo công ty chứng khoán** trước khi rời.\n\n| Tình huống | Quy định |\n|---|---|\n| Điều chuyển công tác (転勤) do công ty | Có thể tiếp tục giữ tài khoản NISA, không mua mới được |\n| Rời Nhật tự nguyện | Tài khoản chuyển sang tài khoản thông thường, không đầu tư mới được |\n| Tài sản hiện có | Vẫn giữ được và miễn thuế cho đến khi bán |\n\n**Lựa chọn:** bán toàn bộ trước khi rời (lợi nhuận trong NISA vẫn miễn thuế) hoặc giữ lại và bán dần sau khi đã không còn là cư dân Nhật (cần tư vấn với công ty chứng khoán về quy định cụ thể).\n\n**Về thuế tại Việt Nam:** Việt Nam có thể tính thuế thu nhập từ lợi nhuận đầu tư nước ngoài — kiểm tra với cơ quan thuế Việt Nam trước khi bán.',
+        description: 'Khi bạn sắp rời Nhật vĩnh viễn hoặc lâu dài:\n\n**Bắt buộc thông báo công ty chứng khoán** trước khi rời.\n\n| Tình huống | Quy định |\n|---|---|\n| Điều chuyển công tác (転勤) do công ty | Có thể tiếp tục giữ tài khoản NISA, không mua mới được |\n| Rời Nhật tự nguyện | Tài khoản chuyển sang tài khoản thông thường, không đầu tư mới được |\n| Tài sản hiện có | Nếu 転勤 + đã nộp 継続適用届出書: giữ miễn thuế (không mua mới) đến khi nộp 帰国届出書, tối đa đến 31/12 của năm tròn 5 năm; quá hạn → tài khoản NISA bị đóng. Nếu rời tự nguyện: tài khoản NISA bị đóng, tài sản chuyển sang tài khoản thường — lãi từ sau thời điểm chuyển KHÔNG còn miễn thuế |\n\n**Lựa chọn:** bán toàn bộ trước khi rời (lợi nhuận trong NISA vẫn miễn thuế) hoặc giữ lại và bán dần sau khi đã không còn là cư dân Nhật (cần tư vấn với công ty chứng khoán về quy định cụ thể).\n\n**Về thuế tại Việt Nam:** Việt Nam có thể tính thuế thu nhập từ lợi nhuận đầu tư nước ngoài — kiểm tra với cơ quan thuế Việt Nam trước khi bán.',
         documents: ['Thông báo xuất cảnh (出国届) cho công ty chứng khoán', 'Xác nhận số dư tài khoản và giá trị hiện tại'],
         tip: 'Trước khi rời Nhật ít nhất 2–3 tháng, gọi điện cho công ty chứng khoán hỏi quy trình cụ thể cho tình huống của bạn — mỗi công ty có quy định xử lý tài khoản người không cư trú khác nhau.',
       },

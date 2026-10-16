@@ -24,6 +24,17 @@ const carShakenInsurance: AdminGuide = {
       '任意保険',
       'ユーザー車検',
     ],
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '車検 do 国土交通省 (MLIT) quy định, làm tại 運輸支局/自動車検査登録事務所 hoặc 指定自動車整備工場; 自賠責保険 là bảo hiểm bắt buộc theo luật, còn 任意保険 là hợp đồng tự nguyện với công ty bảo hiểm. Chu kỳ, 自動車重量税 và phí 自賠責 phụ thuộc loại xe và có thể thay đổi — kiểm tra nguồn chính thức của MLIT trước khi làm.',
+      sourceVerifiedAt: '2026-07-11',
+      nextReviewAt: '2026-10-31',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Xe không đạt chuẩn và garage báo giá sửa lớn → xin báo giá chi tiết, so sánh garage khác trước khi đồng ý.',
+        'Gây tai nạn khi chỉ có 自賠責保険 hoặc khi 車検 đã hết hạn → liên hệ công ty bảo hiểm và cân nhắc tư vấn luật sư.',
+      ],
+    },
     description: 'Mọi ô tô lưu hành tại Nhật phải qua 車検 (đăng kiểm) định kỳ và duy trì 自賠責保険 (bảo hiểm bắt buộc). Guide này giải thích chu kỳ, chi phí thực tế, thủ tục và vai trò của 任意保険 (bảo hiểm tự nguyện) mà chủ xe nên biết.',
     heroImage: require('../../../../../assets/content/daily-life/ag_shaken_hero.jpg'),
     heroImageCaption: '車検 - đăng kiểm định kỳ và bảo hiểm bắt buộc khi sở hữu ô tô',

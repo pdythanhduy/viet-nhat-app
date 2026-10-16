@@ -39,6 +39,8 @@ const residenceCard: AdminGuide = {
       'オーバーステイ',
       '6000円',
       '5500円',
+      'phi gia han visa 2026',
+      '手数料改定',
     ],
     legalScope: {
       jurisdiction: 'national',
@@ -67,6 +69,7 @@ const residenceCard: AdminGuide = {
         '在留期間更新許可申請 — 出入国在留管理庁',
         'Online Residence Application System — ISA',
         'Thông báo sửa phí thủ tục từ 01/04/2025',
+        'Phí và cách nộp phí online từ 01/10/2026 — ISA',
       ],
     },
     heroImage: require('../../../../../assets/content/daily-life/ag_residence-card_hero.jpg'),
@@ -90,10 +93,11 @@ const residenceCard: AdminGuide = {
     ],
     estimatedTime: 'Thời gian xét duyệt thay đổi theo hồ sơ và khu vực. Nhiều hồ sơ mất vài tuần đến vài tháng; nếu bị yêu cầu bổ sung giấy tờ sẽ lâu hơn.',
     fees: [
-      'Nếu được cấp phép (hồ sơ nộp từ 01/10/2026): phí tùy thời hạn được cấp — online 10,000–65,000 yên, tại quầy 10,000–75,000 yên (1 năm: 27,000 / 33,000 yên).',
-      'Không nên dựa vào mức phí cũ 4.000 yên hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả.',
-      'Thông thường phí được nộp khi nhận kết quả được cấp phép, không phải lúc nộp hồ sơ.',
-      'Từ hồ sơ nộp 01/10/2026, phí gia hạn / đổi tư cách tính theo thời hạn được cấp: online 10,000–65,000 yên (1 năm: 27,000), tại quầy 10,000–75,000 yên (1 năm: 33,000). Phí chỉ nộp khi được cấp phép. Hồ sơ nộp đến 30/09/2026 vẫn theo phí cũ 6,000 / 5,500 yên. Bảng đầy đủ: [[visa-fee-increase-2025-2026]].',
+      'Từ 01/10/2026 đã áp dụng phí mới theo 政令 (Nội các quyết định 25/08/2026) cho hồ sơ được TIẾP NHẬN từ ngày này. Phí tính theo THỜI HẠN ĐƯỢC CẤP (許可される在留期間), không phải thời hạn còn lại của thẻ cũ.',
+      'Bảng phí khi được cấp phép (quầy / online): ≤3 tháng 10.000 / 10.000 yên; >3–6 tháng 18.000 / 15.000 yên; >6 tháng–dưới 1 năm 25.000 / 21.000 yên; 1 năm 33.000 / 27.000 yên; >1–dưới 3 năm 48.000 / 42.000 yên; 3–dưới 5 năm 64.000 / 56.000 yên; từ 5 năm 75.000 / 65.000 yên.',
+      'Hồ sơ đã được tiếp nhận đến hết 30/09/2026 vẫn áp phí cũ 6.000 yên (quầy) / 5.500 yên (online), kể cả khi được cấp phép sau 01/10/2026.',
+      'Phí vẫn nộp khi nhận kết quả được cấp phép, không phải lúc nộp hồ sơ. Tại quầy vẫn nộp bằng 収入印紙; hồ sơ online từ 01/10/2026 KHÔNG dùng 収入印紙 nữa mà chỉ thanh toán qua コンビニ決済 hoặc Pay-easy (銀行決済), không nhận thẻ tín dụng/QR, có thể mất thêm phí giao dịch khoảng 220–550 yên.',
+      'Không nên dựa vào mức phí cũ hoặc kinh nghiệm của người khác; kiểm tra bảng phí chính thức của ISA trước khi nhận kết quả. Xem chi tiết ở guide [[visa-fee-increase-2025-2026]].',
     ],
     documentsChecklist: [
       { label: 'Đơn xin gia hạn thời hạn lưu trú', required: true, note: 'Tải đúng mẫu theo tư cách lưu trú từ trang ISA.' },
@@ -138,7 +142,7 @@ const residenceCard: AdminGuide = {
       },
       {
         question: 'Phí bao nhiêu?',
-        answer: 'Từ hồ sơ nộp 01/10/2026, phí tính theo thời hạn được cấp: online 1 năm 27,000 yên, 3 năm 56,000 yên, 5 năm 65,000 yên; tại quầy 1 năm 33,000 yên, 3 năm 64,000 yên, 5 năm 75,000 yên. Chỉ nộp khi được cấp phép. Hồ sơ nộp đến 30/09/2026 vẫn 6,000 / 5,500 yên.',
+        answer: 'Hồ sơ tiếp nhận từ 01/10/2026: phí theo thời hạn được cấp, từ 10.000 yên (≤3 tháng) đến 75.000 yên (từ 5 năm) nếu nộp tại quầy, hoặc 10.000–65.000 yên nếu nộp online. Ví dụ được cấp 1 năm: 33.000 yên (quầy) / 27.000 yên (online); 3 năm: 64.000 / 56.000 yên. Hồ sơ tiếp nhận đến hết 30/09/2026 vẫn là 6.000 / 5.500 yên. Kiểm tra bảng phí chính thức của ISA tại thời điểm nhận kết quả.',
       },
       {
         question: 'Có thể nộp online vào đúng ngày hết hạn không?',
@@ -158,7 +162,7 @@ const residenceCard: AdminGuide = {
       {
         title: 'Nhận kết quả "cấp phép" nhưng thẻ cũ vẫn đang dùng — phải làm gì tiếp?',
         situation: 'ISA gửi về phong bì kết quả. Mở ra thấy giấy "許可" (cấp phép). Giờ phải làm gì để nhận thẻ mới?',
-        answer: 'Trong phong bì có **在留資格認定証明書 hoặc 指定書** — mang theo cùng:\n• Hộ chiếu\n• Thẻ cư trú hiện tại\n• 収入印紙 đúng số tiền theo thời hạn được cấp (vd 1 năm: 33,000 yên tại quầy)\n\nĐến **ISA để nhận thẻ mới trong thời hạn ghi trên giấy thông báo** (thường 2–4 tuần). Thẻ cũ sẽ bị thu lại. Sau khi nhận thẻ mới, kiểm tra kỹ tất cả thông tin trước khi về.',
+        answer: 'Trong phong bì có **在留資格認定証明書 hoặc 指定書** — mang theo cùng:\n• Hộ chiếu\n• Thẻ cư trú hiện tại\n• Phí theo thời hạn được cấp (hồ sơ tiếp nhận từ 01/10/2026: 10.000–75.000 yên tại quầy bằng 収入印紙; hồ sơ tiếp nhận đến 30/09/2026: 6.000 yên)\n\nĐến **ISA để nhận thẻ mới trong thời hạn ghi trên giấy thông báo** (thường 2–4 tuần). Thẻ cũ sẽ bị thu lại. Sau khi nhận thẻ mới, kiểm tra kỹ tất cả thông tin trước khi về.',
       },
       {
         title: 'Bị yêu cầu bổ sung giấy tờ — phải xử lý thế nào?',
@@ -183,7 +187,7 @@ const residenceCard: AdminGuide = {
         jp: 'オンライン申請の対象になりますか。',
         romaji: 'Onrain shinsei no taishou ni narimasu ka.',
         vn: 'Tôi có thuộc đối tượng dùng đơn online không?',
-        note: 'Online giảm 500 yên (5,500 thay vì 6,000) — nhưng cần đăng ký trước + KHÔNG nhận đơn vào ngày hết hạn lưu trú.',
+        note: 'Từ 01/10/2026 online rẻ hơn quầy ở hầu hết các bậc (vd được cấp 1 năm: 27,000 thay vì 33,000) nhưng chỉ thanh toán qua コンビニ/Pay-easy — cần đăng ký trước + KHÔNG nhận đơn vào ngày hết hạn lưu trú.',
       },
       {
         jp: '在留期限が来月末です。特例期間はありますか。',
@@ -209,7 +213,7 @@ const residenceCard: AdminGuide = {
         term: '在留期間更新許可申請',
         reading: 'ざいりゅうきかんこうしんきょかしんせい',
         meaningVi: 'đơn xin gia hạn thời hạn lưu trú',
-        noteVi: 'Tên chính thức. KHÁC 在留資格変更 (đổi sang tư cách khác). Dùng khi muốn TIẾP TỤC cùng tư cách hiện tại. Phí từ 01/10/2026 tùy thời hạn được cấp (1 năm: 27,000 yên online / 33,000 yên tại quầy) — nộp khi nhận kết quả.',
+        noteVi: 'Tên chính thức. KHÁC 在留資格変更 (đổi sang tư cách khác). Dùng khi muốn TIẾP TỤC cùng tư cách hiện tại. Phí theo thời hạn được cấp, áp dụng từ 01/10/2026: 10,000–75,000 yên (quầy) / 10,000–65,000 yên (online) — nộp khi nhận kết quả. Hồ sơ tiếp nhận đến 30/09/2026: 6,000 / 5,500 yên.',
       },
       {
         term: '在留期間',
@@ -258,6 +262,7 @@ const residenceCard: AdminGuide = {
       { label: '在留期間更新許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-3.html' },
       { label: 'Online Residence Application System — ISA', url: 'https://www.moj.go.jp/isa/applications/online/onlineshinsei.html' },
       { label: 'Thông báo sửa phí thủ tục từ 01/04/2025', url: 'https://www.moj.go.jp/isa/01_00518.html' },
+      { label: 'Phí và cách nộp phí online từ 01/10/2026 — ISA', url: 'https://www.moj.go.jp/isa/11_00107.html' },
       { label: 'Tra cứu cục xuất nhập cảnh gần nhất', url: 'https://www.moj.go.jp/isa/about/region/index.html' },
       { label: '在留資格変更許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-2.html' },
     ],
@@ -306,9 +311,9 @@ const residenceCard: AdminGuide = {
           'Thông báo từ ISA',
           'Hộ chiếu',
           'Thẻ cư trú cũ',
-          'Lệ phí khi được cấp phép (từ 01/10/2026): tùy thời hạn được cấp — online 10,000–65,000 yên, tại quầy 10,000–75,000 yên',
+          'Lệ phí theo thời hạn được cấp (hồ sơ tiếp nhận từ 01/10/2026: 10.000–75.000 yên tại quầy / 10.000–65.000 yên online; hồ sơ tiếp nhận đến 30/09/2026: 6.000 / 5.500 yên)',
         ],
-        tip: 'Không ghi nhớ phí theo kinh nghiệm cũ. Với hồ sơ online, cũng phải theo đúng cách nộp phí ISA hướng dẫn khi nhận kết quả.',
+        tip: 'Không ghi nhớ phí theo kinh nghiệm cũ. Tại quầy nộp bằng 収入印紙; hồ sơ online từ 01/10/2026 chỉ thanh toán qua コンビニ決済 hoặc Pay-easy (không dùng 収入印紙, không nhận thẻ tín dụng/QR).',
       },
     ],
   };

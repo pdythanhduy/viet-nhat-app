@@ -1,9 +1,8 @@
-import type { Bookmark } from '../utils/bookmarks';
 import {
   GuideProgressSource,
   buildChecklistProgressItems,
   buildCompletedChecklistItems,
-  buildSavedCounts,
+  buildGuideMetaChips,
   buildStepProgressItems,
 } from './homeScreenData';
 
@@ -31,60 +30,17 @@ function guide(
 }
 
 describe('homeScreenData', () => {
-  it('counts saved bookmark types', () => {
-    const bookmarks: Bookmark[] = [
-      {
-        type: 'guide',
-        id: 'guide-1',
-        title: 'Guide',
-        titleJp: 'Guide JP',
-        description: 'Description',
-        color: '#185FA5',
-        savedAt: '2026-01-01T00:00:00.000Z',
-      },
-      {
-        type: 'daily-life',
-        id: 'daily-1',
-        title: 'Daily',
-        titleJp: 'Daily JP',
-        description: 'Description',
-        color: '#27AE60',
-        savedAt: '2026-01-01T00:00:00.000Z',
-      },
-      {
-        type: 'phrase',
-        id: 'phrase-1',
-        jp: 'おはようございます',
-        romaji: 'Ohayou gozaimasu',
-        vn: 'Chào buổi sáng',
-        category: 'Greeting',
-        savedAt: '2026-01-01T00:00:00.000Z',
-      },
-      {
-        type: 'dialogue',
-        id: 'dialogue-1',
-        category: 'Greeting',
-        situation: 'Morning',
-        lines: [],
-        savedAt: '2026-01-01T00:00:00.000Z',
-      },
-      {
-        type: 'phrase',
-        id: 'phrase-2',
-        jp: 'ありがとうございます',
-        romaji: 'Arigatou gozaimasu',
-        vn: 'Cảm ơn',
-        category: 'Greeting',
-        savedAt: '2026-01-01T00:00:00.000Z',
-      },
-    ];
+  it('builds guide meta chips from document and step counts', () => {
+    expect(buildGuideMetaChips(guide('a', 5, 4))).toEqual(['5 giấy tờ', '4 bước']);
+  });
 
-    expect(buildSavedCounts(bookmarks)).toEqual({
-      guide: 1,
-      'daily-life': 1,
-      phrase: 2,
-      dialogue: 1,
-    });
+  it('omits a meta chip whose count is zero', () => {
+    expect(buildGuideMetaChips(guide('b', 0, 3))).toEqual(['3 bước']);
+    expect(buildGuideMetaChips(guide('c', 2, 0))).toEqual(['2 giấy tờ']);
+  });
+
+  it('returns no meta chips for a missing guide', () => {
+    expect(buildGuideMetaChips(undefined)).toEqual([]);
   });
 
   it('builds in-progress checklist items sorted by completion ratio', () => {

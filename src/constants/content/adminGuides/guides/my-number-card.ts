@@ -3,14 +3,14 @@ import type { AdminGuide } from '../../../../types/content';
 const myNumberCard: AdminGuide = {
     id: 'my-number-card',
     category: 'daily-law',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Đăng ký và nhận My Number Card',
     titleJp: 'マイナンバーカード申請・受取',
     icon: 'card',
     color: '#185FA5',
     description:
-      'Thẻ My Number Card thay được thẻ bảo hiểm (từ 02/12/2025), in 住民票/印鑑証明 ở konbini, đăng nhập Mynaportal và khai 確定申告 online. Không bắt buộc làm, nhưng có thì cuộc sống ở Nhật dễ hơn nhiều. Cấp thẻ mất khoảng 1 tháng — đừng để cần gấp mới làm.',
+      'Thẻ My Number Card dùng làm thẻ bảo hiểm (マイナ保険証 — thẻ bảo hiểm giấy cũ đã hết hiệu lực, từ 01/08/2026 không còn được chấp nhận), in 住民票/印鑑証明 ở konbini, đăng nhập Mynaportal và khai 確定申告 online. Không bắt buộc làm, nhưng có thì cuộc sống ở Nhật dễ hơn nhiều. Cấp thẻ mất khoảng 1 tháng — đừng để cần gấp mới làm.',
     searchKeywords: [
       'My Number Card',
       'thẻ My Number',
@@ -38,8 +38,8 @@ const myNumberCard: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'Nộp đơn có thể làm online/bưu điện/máy ảnh thẻ, nhưng nhận thẻ, cập nhật hạn và reset PIN do 市役所/区役所 nơi đăng ký cư trú xử lý.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn là người nước ngoài có hạn lưu trú ngắn, vừa gia hạn visa hoặc My Number Card sắp hết hạn.',
@@ -129,7 +129,7 @@ const myNumberCard: AdminGuide = {
       {
         title: 'Mất My Number Card — có ảnh hưởng bảo hiểm y tế không?',
         situation: 'Tôi làm mất My Number Card. Tôi đang dùng マイナ保険証 tại bệnh viện. Bây giờ đi khám được không?',
-        answer: 'Cần làm **ngay khi phát hiện mất**:\n\n**1. Khóa thẻ từ xa**: Gọi 個人番号カードコールセンター 0120-95-0178 (24h) hoặc qua マイナポータル để khoá chức năng thẻ. Ngăn người khác dùng ký điện tử.\n\n**2. Đi khám bệnh trong thời gian mất thẻ**: Dùng **資格確認書** (giấy xác nhận tư cách bảo hiểm do bảo hiểm cấp) hoặc hỏi bệnh viện cách xử lý — nhiều nơi có hệ thống tra cứu 被保険者番号 thay thế.\n\n**3. Xin cấp lại**: Đến 市役所 (mang thẻ cư trú + hộ chiếu) để xin thẻ mới. Cần chụp ảnh lại. Phí cấp lại: 1,000 yên (mất) hoặc miễn phí (hỏng).',
+        answer: 'Cần làm **ngay khi phát hiện mất**:\n\n**1. Khóa thẻ từ xa**: Gọi 個人番号カードコールセンター 0120-95-0178 (24h) hoặc qua マイナポータル để khoá chức năng thẻ. Ngăn người khác dùng ký điện tử.\n\n**2. Đi khám bệnh trong thời gian mất thẻ**: Dùng **資格確認書** (giấy xác nhận tư cách bảo hiểm do bảo hiểm cấp) hoặc hỏi bệnh viện cách xử lý — nhiều nơi có hệ thống tra cứu 被保険者番号 thay thế.\n\n**3. Xin cấp lại**: Đến 市役所 (mang thẻ cư trú + hộ chiếu) để xin thẻ mới. Cần chụp ảnh lại. Phí cấp lại thường 1,000 yên (800 yên thẻ + 200 yên chứng thư điện tử); có thể được miễn nếu không do lỗi của bạn (thiên tai, lỗi chip…) — hỏi 市役所.',
       },
       {
         title: 'Không có thẻ — dịch vụ công nào bị ảnh hưởng?',

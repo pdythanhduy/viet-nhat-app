@@ -10,6 +10,18 @@ const soleProprietorKojinJigyo: AdminGuide = {
     icon: 'storefront-outline',
     color: '#784212',
     description: 'Khi tự kinh doanh, làm freelance hoặc có thu nhập ngoài lương tại Nhật, bạn có thể — và thường nên — đăng ký là 個人事業主. Thủ tục đơn giản, miễn phí, và mở ra nhiều lợi ích thuế đáng kể qua 青色申告.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: '開業届 và 青色申告 là thủ tục thuế quốc gia, nộp tại 税務署 quản lý 納税地 hoặc qua e-Tax theo hướng dẫn 国税庁; 国民健康保険, 国民年金 và 住民税 xử lý tại municipal office nơi cư trú. Việc được phép kinh doanh phụ thuộc tư cách lưu trú (ISA), không do 開業届 quyết định — kiểm tra nguồn chính thức của 国税庁/ISA trước khi bắt đầu.',
+      sourceVerifiedAt: '2026-08-22',
+      nextReviewAt: '2026-11-15',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Visa hiện tại có giới hạn hoạt động (技人国, 留学, 家族滞在...) → hỏi ISA hoặc 行政書士 trước khi bắt đầu kinh doanh.',
+        'Doanh thu tăng gần ngưỡng 消費税 hoặc có nhiều nguồn thu nhập → hỏi 税務署 hoặc 税理士 về 確定申告 và 消費税.',
+        'Đã kinh doanh lâu mà chưa nộp 開業届/chưa khai thuế → hỏi 税務署 hoặc 税理士 cách khai bổ sung.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_sole-prop_hero.jpg'),
     heroImageCaption: '個人事業主 - nộp 開業届 và quản lý thuế khi làm freelance tại Nhật',
     whoIsThisFor: [

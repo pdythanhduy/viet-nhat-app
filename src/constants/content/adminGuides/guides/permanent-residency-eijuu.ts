@@ -187,7 +187,7 @@ const permanentResidencyEijuu: AdminGuide = {
         term: '永住許可申請',
         reading: 'えいじゅうきょかしんせい',
         meaningVi: 'đơn xin vĩnh trú',
-        noteVi: 'Nộp tại ISA. Phí 8,000円 — chỉ trả khi được duyệt (dán印紙 lên giấy). Bị từ chối → mất công + thời gian, không hoàn phí. Có thể nộp lại sau khi cải thiện hồ sơ.',
+        noteVi: 'Nộp tại ISA. Phí 200,000円 với hồ sơ tiếp nhận từ 01/10/2026 (hồ sơ tiếp nhận đến 30/09/2026: 10,000円) — chỉ trả khi được duyệt (nộp tại quầy bằng 収入印紙). Bị từ chối → không phải nộp phí nhưng mất công + thời gian. Có thể nộp lại sau khi cải thiện hồ sơ.',
       },
       {
         term: '身元保証人',
@@ -224,6 +224,8 @@ const permanentResidencyEijuu: AdminGuide = {
       { label: '永住許可申請 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/16-4.html' },
       { label: '永住許可に関するガイドライン（令和8年10月1日改定）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/10_00279.html' },
       { label: '入管法改正（永住許可制度の適正化）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/05_00045.html' },
+      { label: '永住許可ガイドライン改定案（意見募集）— 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/11_00112.html' },
+      { label: '各種手続と手数料 — 出入国在留管理庁', url: 'https://www.moj.go.jp/isa/applications/procedures/index.html' },
     ],
     steps: [
       {

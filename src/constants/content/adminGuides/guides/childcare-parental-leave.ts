@@ -10,6 +10,18 @@ const childcareParentalLeave: AdminGuide = {
     icon: 'happy-outline',
     color: '#1E8449',
     description: 'Người lao động tại Nhật có quyền nghỉ để chăm con nhỏ và nhận 育児休業給付金 từ ハローワーク. Luật sửa đổi 2022–2025 mở rộng quyền cho cả cha và mẹ, kể cả người nước ngoài cư trú hợp pháp.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: 'Quyền nghỉ nuôi con dựa trên 育児・介護休業法 (cấp quốc gia, sửa đổi 2022–2025); 育児休業給付金 và 出生後休業支援給付金 chi từ 雇用保険 qua ハローワーク, do công ty nộp hồ sơ thay. Quy định nội bộ từng công ty và việc gia hạn (cần 不承諾通知書 nhà trẻ từ phường) có thể khác nhau — kiểm tra nguồn chính thức của 厚生労働省/ハローワーク trước khi nộp.',
+      sourceVerifiedAt: '2026-08-22',
+      nextReviewAt: '2026-11-15',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Công ty từ chối cho nghỉ, gây áp lực hoặc xử lý bất lợi → liên hệ 都道府県労働局 雇用環境・均等部 (室).',
+        'Hợp đồng có thời hạn, không chắc đủ điều kiện → xác nhận với HR hoặc ハローワーク trước khi nộp đơn.',
+        'Muốn tối ưu mức trợ cấp khi cả cha và mẹ cùng nghỉ (出生後休業支援給付金) → hỏi ハローワーク để tính cụ thể.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_parental-leave_hero.jpg'),
     heroImageCaption: '育児休業 - quyền nghỉ nuôi con và nhận trợ cấp qua ハローワーク',
     whoIsThisFor: [

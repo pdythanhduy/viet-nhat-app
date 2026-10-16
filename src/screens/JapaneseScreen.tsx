@@ -16,6 +16,12 @@ import { toggleBookmark } from '../utils/bookmarks';
 import { getCategoryStats, LEVEL_COLORS, LEVEL_LABELS, loadProgress, PhraseLevel, ProgressData } from '../utils/japaneseProgress';
 import { getTodayWordIndex, loadStreak, StreakData } from '../utils/japaneseStreak';
 import { loadRecentJapaneseCategories, RecentJapaneseCategory } from '../utils/japaneseRecentCategories';
+import {
+  BJT_DOCUMENT_MOCK_QUESTIONS,
+  BJT_DOCUMENT_VOCABULARY,
+  BJT_GRAMMAR_ITEMS,
+  BJT_KANJI_ITEMS,
+} from '../constants/content/bjt';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type RouteType = RouteProp<TabParamList, 'Japanese'>;
@@ -460,10 +466,6 @@ export default function JapaneseScreen() {
             <Ionicons name="book-outline" size={16} color={Colors.white} />
             <Text style={styles.quickBtnText}>Đọc Truyện</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickBtn} onPress={() => navigation.navigate('BJT')}>
-            <Ionicons name="briefcase-outline" size={16} color={Colors.white} />
-            <Text style={styles.quickBtnText}>Luyện BJT</Text>
-          </TouchableOpacity>
         </View>
       </View>
 
@@ -594,6 +596,29 @@ export default function JapaneseScreen() {
                 <View style={styles.subCard}>
                   <Text style={styles.vnText}>
                     📚 Đọc những truyện ngắn được viết riêng cho người học tiếng Nhật. Từng từ được chú dạo, có dịch Việt, và bạn có thể nghe phát âm.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Luyện BJT — a full course (vocabulary, kanji, keigo, mock
+                  exams) that used to be reachable only from a header chip the
+                  same size as the kana chart. The counts come from the content
+                  itself so the card can't overstate what's in there. */}
+              <View style={styles.card}>
+                <TouchableOpacity style={styles.accordionRow} onPress={() => navigation.navigate('BJT')}>
+                  <View style={styles.flex}>
+                    <Text style={styles.cardTitle}>Luyện thi BJT — tiếng Nhật thương mại</Text>
+                    <Text style={styles.cardSubtitle}>
+                      {BJT_DOCUMENT_VOCABULARY.length} từ vựng · {BJT_KANJI_ITEMS.length} kanji ·{' '}
+                      {BJT_GRAMMAR_ITEMS.length} ngữ pháp · {BJT_DOCUMENT_MOCK_QUESTIONS.length} câu đề thi thử
+                    </Text>
+                  </View>
+                  <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+                </TouchableOpacity>
+                <View style={styles.subCard}>
+                  <Text style={styles.vnText}>
+                    💼 Kính ngữ, email công việc, tình huống công sở và đề thi thử — dành cho người đã đi làm
+                    hoặc chuẩn bị xin việc ở Nhật.
                   </Text>
                 </View>
               </View>

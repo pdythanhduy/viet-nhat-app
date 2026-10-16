@@ -3,7 +3,7 @@ import type { AdminGuide } from '../../../../types/content';
 const myNumber: AdminGuide = {
     id: 'my-number',
     category: 'health',
-    lastVerified: '2026-08-21',
+    lastVerified: '2026-10-04',
     priority: 'high',
     title: 'Đăng ký thẻ My Number',
     titleJp: 'マイナンバーカード申請',
@@ -43,8 +43,8 @@ const myNumber: AdminGuide = {
     legalScope: {
       jurisdiction: 'municipality',
       jurisdictionNote: 'My Number là hệ thống toàn quốc, nhưng cấp/nhận/cập nhật thẻ được xử lý tại municipal office nơi đăng ký cư trú; người nước ngoài cần quản lý hạn thẻ theo hạn lưu trú.',
-      sourceVerifiedAt: '2026-08-21',
-      nextReviewAt: '2026-10-01',
+      sourceVerifiedAt: '2026-10-04',
+      nextReviewAt: '2027-01-15',
       riskLevel: 'medium',
       whenToAskExpert: [
         'Bạn vừa gia hạn visa nhưng My Number Card sắp hết hạn hoặc đã hết hạn.',
@@ -129,7 +129,7 @@ const myNumber: AdminGuide = {
         jp: '通知書を失くしましたが、再発行できますか。',
         romaji: 'Tsuuchisho o nakushimashita ga, sai hakkou dekimasu ka.',
         vn: 'Tôi đã làm mất giấy thông báo, có cấp lại được không?',
-        note: 'Xin cấp lại 個人番号通知書 hoặc form 申請書ID có QR — mất phí ~600円.',
+        note: '個人番号通知書 KHÔNG được cấp lại. Hãy xin tờ 交付申請書 mới (có 申請書ID/QR) để làm thẻ, hoặc xin 住民票 có ghi マイナンバー nếu chỉ cần chứng minh số.',
       },
       {
         jp: 'カードの有効期限を確認したいです。',
@@ -167,7 +167,7 @@ const myNumber: AdminGuide = {
         term: '個人番号通知書',
         reading: 'こじんばんごうつうちしょ',
         meaningVi: 'thư thông báo số My Number (giấy, mới)',
-        noteVi: 'Từ 05/2020 thay cho 通知カード cũ. Gửi qua bưu điện sau khi đăng ký 住民票 lần đầu (3-4 tuần). Trên giấy có số 12 chữ số + 申請書ID + QR code. KHÔNG phải thẻ — chỉ là giấy thông báo. Mất = xin cấp lại ~600円.',
+        noteVi: 'Từ 05/2020 thay cho 通知カード cũ. Gửi qua bưu điện sau khi đăng ký 住民票 lần đầu (3-4 tuần). Trên giấy có số 12 chữ số + 申請書ID + QR code. KHÔNG phải thẻ — chỉ là giấy thông báo. Mất = KHÔNG cấp lại; cần chứng minh số thì xin 住民票 có ghi マイナンバー hoặc làm マイナンバーカード.',
       },
       {
         term: '通知カード',

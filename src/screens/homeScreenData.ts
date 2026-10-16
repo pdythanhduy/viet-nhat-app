@@ -1,17 +1,23 @@
 import type { AdminGuide } from '../types/content';
-import type { Bookmark } from '../utils/bookmarks';
-import type { InProgressGuide, ReadyGuide, SavedCounts } from './homeScreenContent';
+import type { InProgressGuide, ReadyGuide } from './homeScreenContent';
 
 export type GuideProgressSource = Pick<AdminGuide, 'id' | 'title' | 'color' | 'documentsChecklist' | 'steps'>;
 type ProgressMap<T> = Record<string, T[]>;
 
-export function buildSavedCounts(bookmarks: readonly Bookmark[]): SavedCounts {
-  return {
-    guide: bookmarks.filter((item) => item.type === 'guide').length,
-    'daily-life': bookmarks.filter((item) => item.type === 'daily-life').length,
-    phrase: bookmarks.filter((item) => item.type === 'phrase').length,
-    dialogue: bookmarks.filter((item) => item.type === 'dialogue').length,
-  };
+/**
+ * The "5 giấy tờ · 4 bước" line on a guide card. Both numbers are counted
+ * from structured fields, so they can't drift from the guide body.
+ * `estimatedTime` is deliberately left out — it holds free-form prose
+ * (sometimes several sentences), not a duration that fits a chip.
+ */
+export function buildGuideMetaChips(guide: GuideProgressSource | undefined): string[] {
+  if (!guide) return [];
+
+  const chips: string[] = [];
+  const documents = guide.documentsChecklist?.length ?? 0;
+  if (documents > 0) chips.push(`${documents} giấy tờ`);
+  if (guide.steps.length > 0) chips.push(`${guide.steps.length} bước`);
+  return chips;
 }
 
 export function buildChecklistProgressItems(

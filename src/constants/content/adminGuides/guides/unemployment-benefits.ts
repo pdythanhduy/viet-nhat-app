@@ -10,6 +10,18 @@ const unemploymentBenefits: AdminGuide = {
     icon: 'cash-outline',
     color: '#E67E22',
     description: 'Khi mất việc, bạn có thể nhận trợ cấp thất nghiệp từ quỹ 雇用保険 nếu đã đóng bảo hiểm đủ điều kiện. Người nước ngoài cư trú hợp pháp cũng được nhận.',
+    legalScope: {
+      jurisdiction: 'national',
+      jurisdictionNote: '失業給付 (基本手当) thuộc chế độ 雇用保険 cấp quốc gia do 厚生労働省 quản lý, thủ tục làm tại ハローワーク nơi cư trú — điều kiện, thời gian chờ (給付制限) và số ngày nhận áp dụng chung toàn quốc. Cải cách 01/04/2025 rút thời gian chờ của 自己都合 xuống 1 tháng; quy định có thể tiếp tục thay đổi — kiểm tra nguồn chính thức của ハローワーク/厚生労働省 trước khi nộp.',
+      sourceVerifiedAt: '2026-08-22',
+      nextReviewAt: '2026-11-15',
+      riskLevel: 'high',
+      whenToAskExpert: [
+        'Lý do nghỉ trên 離職票 ghi 自己都合 nhưng thực tế bị ép nghỉ hoặc hết hợp đồng (雇い止め) → hỏi ハローワーク hoặc 総合労働相談コーナー trước khi ký xác nhận.',
+        'Visa sắp hết hạn trong lúc đang nhận trợ cấp → nộp gia hạn tại ISA sớm và báo ハローワーク; nếu không chắc tư cách lưu trú hiện tại có được tiếp tục, hỏi 行政書士.',
+        'Có thu nhập (baito, việc ngắn ngày) trong thời gian nhận trợ cấp mà không rõ cách khai → hỏi ハローワーク trước, tránh bị buộc hoàn trả toàn bộ.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_unemployment_hero.jpg'),
     heroImageCaption: 'ハローワーク - nơi làm thủ tục trợ cấp thất nghiệp và tư vấn tìm việc',
     officialLinks: [

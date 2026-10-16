@@ -170,7 +170,7 @@ const naturalizationKika: AdminGuide = {
         term: '帰化許可申請',
         reading: 'きかきょかしんせい',
         meaningVi: 'đơn xin nhập quốc tịch',
-        noteVi: 'Nộp tại 法務局 / 地方法務局 nơi cư trú. KHÔNG mất phí nộp đơn (0円), khác 永住 (8,000円). Nhưng phí dịch thuật + công chứng giấy tờ VN có thể 5–20 vạn yên.',
+        noteVi: 'Nộp tại 法務局 / 地方法務局 nơi cư trú. KHÔNG mất phí nộp đơn (0円), khác 永住 (200,000円 nếu được cấp, với hồ sơ tiếp nhận từ 01/10/2026). Nhưng phí dịch thuật + công chứng giấy tờ VN có thể 5–20 vạn yên.',
       },
       {
         term: '住居要件',

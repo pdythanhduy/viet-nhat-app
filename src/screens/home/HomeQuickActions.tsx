@@ -1,15 +1,12 @@
-// Home — "Tôi đang cần gì?" situation chips.
+// Home — the "Tôi đang cần gì?" situation catalog.
 //
-// Each card maps to a safe destination (Search query, dedicated screen,
-// or the matching tab). The mapping itself stays in HomeScreen so the
-// component remains a pure presenter; this file only owns the catalog of
-// situations + the visual grid.
+// Each situation maps to a safe destination (Search query, dedicated
+// screen, or the matching tab); that mapping lives in HomeScreen. The
+// chips themselves are drawn by HomeHero's `situations` variant, so this
+// file owns only the catalog and its analytics contract.
 
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Colors } from '../../constants/colors';
 import type { EventMap } from '../../utils/analytics';
 
 export type QuickActionId =
@@ -57,85 +54,3 @@ export const QUICK_ACTIONS: ReadonlyArray<QuickAction> = [
   { id: 'lost-document',  title: 'Mất giấy tờ',           icon: 'alert-circle-outline',  color: '#C0392B', bg: '#F9E5E2' },
   { id: 'emergency',      title: 'Khẩn cấp',              icon: 'medkit-outline',        color: '#E74C3C', bg: '#FDECEA' },
 ];
-
-interface HomeQuickActionsProps {
-  onActionPress: (action: QuickAction) => void;
-}
-
-export function HomeQuickActions({ onActionPress }: HomeQuickActionsProps) {
-  return (
-    <View style={styles.quickActionsSection}>
-      <Text style={styles.quickActionsTitle}>Tôi đang cần gì?</Text>
-      <Text style={styles.quickActionsHint}>
-        Bấm vào tình huống đang gặp để vào đúng hướng dẫn.
-      </Text>
-      <View style={styles.quickActionsGrid}>
-        {QUICK_ACTIONS.map((action) => (
-          <TouchableOpacity
-            key={action.id}
-            style={styles.quickActionCard}
-            onPress={() => onActionPress(action)}
-            accessibilityRole="button"
-            accessibilityLabel={action.title}
-          >
-            <View style={[styles.quickActionIconBg, { backgroundColor: action.bg }]}>
-              <Ionicons name={action.icon} size={20} color={action.color} />
-            </View>
-            <Text style={styles.quickActionTitle}>{action.title}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  quickActionsSection: {
-    marginBottom: 16,
-  },
-  quickActionsTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    fontFamily: 'BeVietnamPro_800ExtraBold',
-    color: Colors.textPrimary,
-    marginBottom: 4,
-  },
-  quickActionsHint: {
-    fontSize: 12,
-    color: Colors.textSecondary,
-    lineHeight: 17,
-    marginBottom: 12,
-  },
-  quickActionsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  quickActionCard: {
-    width: '48%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    backgroundColor: Colors.white,
-    borderRadius: 14,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  quickActionIconBg: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  quickActionTitle: {
-    flex: 1,
-    fontSize: 12,
-    fontWeight: '700',
-    fontFamily: 'BeVietnamPro_700Bold',
-    color: Colors.textPrimary,
-    lineHeight: 16,
-  },
-});

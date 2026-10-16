@@ -10,6 +10,17 @@ const postpartum30DayTimeline: AdminGuide = {
     icon: 'time',
     color: '#C0397A',
     description: 'Checklist thực tế cho 30 ngày đầu sau sinh tại Nhật: việc nào làm ngay ở bệnh viện, việc nào phải làm trong 14 ngày, việc nào không nên để qua 30 ngày.',
+    legalScope: {
+      jurisdiction: 'mixed',
+      jurisdictionNote: '出生届 (14 ngày) và 児童手当 (15 ngày, theo こども家庭庁) nộp tại city hall nơi cư trú; 在留資格取得許可 cho em bé (trong 30 ngày nếu ở Nhật quá 60 ngày) nộp tại ISA; quốc tịch/hộ chiếu qua đại sứ quán. Hồ sơ và hỗ trợ y tế trẻ em khác nhau theo từng địa phương — kiểm tra nguồn chính thức của city hall nơi bạn ở.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2026-12-15',
+      riskLevel: 'medium',
+      whenToAskExpert: [
+        'Cha mẹ đều là người nước ngoài và em bé sẽ ở Nhật quá 60 ngày → hỏi ISA hoặc 行政書士 sớm về 在留資格取得許可.',
+        'Lỡ hạn 出生届 hoặc 児童手当 → đến city hall ngay để hỏi cách xử lý, không chờ thêm.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_postpartum_hero.jpg'),
     heroImageCaption: 'Checklist 30 ngày sau sinh — việc nào cần làm ngay',
     whoIsThisFor: [

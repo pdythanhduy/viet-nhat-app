@@ -10,6 +10,17 @@ const schoolEnrollmentChildren: AdminGuide = {
     icon: 'school',
     color: '#8E44AD',
     description: 'Hướng dẫn đăng ký học cho con (6–15 tuổi) tại trường công lập Nhật. Trẻ em nước ngoài có quyền học miễn phí tại trường công — không phân biệt tư cách lưu trú.',
+    legalScope: {
+      jurisdiction: 'municipality',
+      jurisdictionNote: 'Đăng ký trường công tiểu học/trung học cơ sở do 教育委員会 (学務課) của municipal office nơi cư trú xử lý; trường được phân theo 学区. Trẻ em nước ngoài không bắt buộc đi học theo luật Nhật nhưng có quyền học miễn phí; chế độ chọn trường, hỗ trợ tiếng Nhật và 就学援助 khác nhau theo từng địa phương — kiểm tra nguồn chính thức của 教育委員会 nơi bạn ở.',
+      sourceVerifiedAt: '2026-08-21',
+      nextReviewAt: '2027-01-15',
+      riskLevel: 'low',
+      whenToAskExpert: [
+        'Con chưa biết tiếng Nhật hoặc cần hỗ trợ đặc biệt → hỏi 教育委員会 và trường về 日本語学級/取り出し授業 trước khi nhập học.',
+        'Gia đình thu nhập thấp → hỏi trường hoặc 教育委員会 về điều kiện 就学援助.',
+      ],
+    },
     heroImage: require('../../../../../assets/content/daily-life/ag_school_hero.jpg'),
     heroImageCaption: '入学手続き - đăng ký trường công cho con tại municipal office và 教育委員会',
     whoIsThisFor: [
