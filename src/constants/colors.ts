@@ -21,4 +21,7 @@ export const Colors = {
   tagOrange: '#FFF3E6',
   tabBar: '#FFFFFF',
   shadow: '#000000',
+  // Homeland accents — used sparingly ("Góc quê nhà"), never as a primary.
+  vnRed: '#C62828',
+  gold: '#B7791F',
 };

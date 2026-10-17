@@ -36,6 +36,8 @@ import {
 import { HomeHero, type HomeHeroProps } from './home/HomeHero';
 import { HomeCategoryGrid } from './home/HomeCategoryGrid';
 import { HomeRecentlyViewed } from './home/HomeRecentlyViewed';
+import { HomeJourneyRail } from './home/HomeJourneyRail';
+import { HomeHomeland } from './home/HomeHomeland';
 import {
   buildChecklistProgressItems,
   buildCompletedChecklistItems,
@@ -287,6 +289,7 @@ export default function HomeScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <HomeHeader
           greeting={getGreeting()}
+          guideCount={Math.floor(ADMIN_GUIDES.length / 10) * 10}
           onSearchPress={() => navigation.navigate('Search')}
           onSettingsPress={() => navigation.navigate('Settings')}
         />
@@ -348,6 +351,14 @@ export default function HomeScreen() {
             </View>
           ) : null}
 
+          {/* Hành trình: cả người còn ở Việt Nam lẫn người sắp về nước. */}
+          <View style={styles.zone}>
+            <Text style={styles.zoneLabel}>BẠN ĐANG Ở CHẶNG NÀO?</Text>
+            <HomeJourneyRail
+              onPress={(collection) => navigation.navigate('GuideCollection', { collectionId: collection.id })}
+            />
+          </View>
+
           {/* VÙNG 3 — duyệt thư viện hướng dẫn. */}
           <View style={styles.zone}>
             <Text style={styles.zoneLabel}>DUYỆT</Text>
@@ -375,6 +386,13 @@ export default function HomeScreen() {
                 ))}
               </View>
             ) : null}
+          </View>
+
+          <View style={styles.zone}>
+            <HomeHomeland
+              onRemittancePress={() => navigation.navigate('AdminDetail', { guideId: 'remittance' })}
+              onCommunityPress={() => navigation.navigate('AdminDetail', { guideId: 'vietnamese-community-japan' })}
+            />
           </View>
 
           {/* Khẩn cấp: luôn chạm tới được, nhưng thôi chiếm hai thẻ lớn. */}

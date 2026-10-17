@@ -53,6 +53,7 @@ import FeedbackScreen from '../screens/FeedbackScreen';
 import LaborGuideScreen from '../screens/LaborGuideScreen';
 import LaborHelpScreen from '../screens/LaborHelpScreen';
 import JourneyChecklistScreen from '../screens/JourneyChecklistScreen';
+import GuideCollectionScreen from '../screens/GuideCollectionScreen';
 import EmergencyHubScreen from '../screens/EmergencyHubScreen';
 import SearchScreen from '../screens/SearchScreen';
 import HoiCamNangScreen from '../screens/HoiCamNangScreen';
@@ -67,6 +68,7 @@ import { Colors } from '../constants/colors';
 import { BjtTargetLevel } from '../utils/bjtQuestionLevels';
 import { logScreenView } from '../utils/analytics';
 import type { JlptLevel } from '../services/jlptRecoveryTypes';
+import type { GuideCollectionId } from '../constants/guideCollections';
 
 // Phase 2B + Phase 2C (v1.5.2): where did the user come from when
 // opening a guide? Powers the `source` property on the `guide_open`
@@ -141,6 +143,7 @@ export type RootStackParamList = {
   LaborGuide: undefined;
   LaborHelp: undefined;
   JourneyChecklist: undefined;
+  GuideCollection: { collectionId: GuideCollectionId };
   EmergencyHub: undefined;
   Search: { initialQuery?: string } | undefined;
   HoiCamNang: undefined;
@@ -456,6 +459,7 @@ export default function AppNavigator() {
           }}
         />
         <Stack.Screen name="JourneyChecklist" component={JourneyChecklistScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="GuideCollection" component={GuideCollectionScreen} options={{ headerShown: false }} />
         <Stack.Screen name="EmergencyHub" component={EmergencyHubScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
         <Stack.Screen name="HoiCamNang" component={HoiCamNangScreen} options={{ headerShown: false }} />
@@ -568,7 +572,12 @@ const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: Colors.tabBar,
     borderTopColor: Colors.border,
-    borderTopWidth: 1,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    shadowColor: '#1A1A2E',
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: -4 },
+    elevation: 12,
     height: TAB_BAR.height,
     paddingTop: TAB_BAR.paddingTop,
     paddingBottom: TAB_BAR.paddingBottom,
