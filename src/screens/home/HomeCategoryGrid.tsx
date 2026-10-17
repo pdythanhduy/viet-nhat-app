@@ -22,13 +22,17 @@ export function HomeCategoryGrid({ onCategoryPress }: HomeCategoryGridProps) {
           key={category.id}
           style={styles.categoryCard}
           onPress={() => onCategoryPress(category.tab)}
+          activeOpacity={0.85}
+          accessibilityRole="button"
+          accessibilityLabel={category.title.replace('\n', ' ')}
         >
           <View style={[styles.categoryIconBg, { backgroundColor: category.bg }]}>
-            <Ionicons name={category.icon} size={24} color={category.color} />
+            <Ionicons name={category.icon} size={22} color={category.color} />
           </View>
-          <Text style={[styles.categoryTitle, { color: category.color }]}>
-            {category.title}
-          </Text>
+          <Text style={styles.categoryTitle}>{category.title}</Text>
+          <View style={[styles.categoryArrow, { backgroundColor: category.bg }]}>
+            <Ionicons name="arrow-forward" size={13} color={category.color} />
+          </View>
         </TouchableOpacity>
       ))}
     </View>
@@ -36,17 +40,20 @@ export function HomeCategoryGrid({ onCategoryPress }: HomeCategoryGridProps) {
 }
 
 const styles = StyleSheet.create({
-  categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 8 },
+  categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: 8 },
   categoryCard: {
-    width: '47%',
-    borderRadius: 16,
-    padding: 16,
-    alignItems: 'center',
+    flexGrow: 1,
+    flexBasis: '46%',
+    borderRadius: 18,
+    padding: 14,
     backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    minHeight: 124,
   },
   categoryIconBg: {
-    width: 52,
-    height: 52,
+    width: 44,
+    height: 44,
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
@@ -54,9 +61,19 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     fontSize: 14,
-    fontWeight: '700',
-    fontFamily: 'BeVietnamPro_700Bold',
+    fontWeight: '800',
+    fontFamily: 'BeVietnamPro_800ExtraBold',
     lineHeight: 20,
-    textAlign: 'center',
+    color: Colors.textPrimary,
+  },
+  categoryArrow: {
+    position: 'absolute',
+    top: 14,
+    right: 14,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
