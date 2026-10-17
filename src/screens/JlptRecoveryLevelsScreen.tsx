@@ -1,5 +1,5 @@
-// JLPT Recovery — level picker (public entry). N5 is the free sample; N4–N1
-// require the "Pro" unlock. N2 keeps its own dedicated, progress-synced screen.
+// JLPT Recovery — level picker (public entry). All levels are free.
+// N2 keeps its own dedicated, progress-synced screen.
 
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
@@ -45,8 +45,8 @@ export default function JlptRecoveryLevelsScreen() {
         <Text style={styles.title}>JLPT Recovery</Text>
       </View>
       <Text style={styles.subtitle}>
-        Chọn cấp độ để lấy lại năng lực: từ vựng + ngữ pháp + quiz, có tiến độ. N5 miễn phí; mở
-        khóa N4–N1 bằng gói Pro (mua một lần).
+        Chọn cấp độ để lấy lại năng lực: từ vựng + ngữ pháp + quiz, có tiến độ. Tất cả cấp độ
+        N5–N1 đều miễn phí.
       </Text>
 
       {JLPT_RECOVERY_LEVELS.map((level) => {

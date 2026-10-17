@@ -110,8 +110,9 @@ export function getJlptRecoveryLevelConfig(level: JlptLevel): JlptRecoveryLevelC
 // `hasRecoveryCurriculum` in constants/jlptRecoveryCurriculum.ts (single source
 // of truth). Levels without a curriculum show as "coming soon" in the picker.
 
-// Monetization: N5 is the free sample; N4–N1 require the "Pro" unlock.
-export const JLPT_FREE_LEVELS: readonly JlptLevel[] = ['N5'];
+// All levels are free (N5 bundled in the app; N4–N1 served from Supabase, whose
+// RLS allows any signed-in user — see supabase/jlpt_content_schema.sql).
+export const JLPT_FREE_LEVELS: readonly JlptLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 export function isJlptLevelFree(level: JlptLevel): boolean {
   return JLPT_FREE_LEVELS.includes(level);
